@@ -89,20 +89,30 @@ Doğru cevap bir üst kutuya çıkarır, yanlış cevap 1. kutuya düşürür.
 
 ## Telefona kurma
 
-PWA kurulumu HTTPS ister (`localhost` istisnadır). En kolay yol GitHub Pages:
+PWA kurulumu HTTPS ister (`localhost` istisnadır). Bu depo GitHub Pages ile yayınlanır.
 
-```bash
-git init && git add -A && git commit -m "DGS Geometri PWA"
+Kod zaten [github.com/ismailsubasi049-code/dgs-geometri](https://github.com/ismailsubasi049-code/dgs-geometri)
+adresinde. Yayını açmak için depo ayarlarından:
+
+**Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch: `main` / `(root)` → Save**
+
+Bir iki dakika sonra site şu adreste yayında olur:
+
+```
+https://ismailsubasi049-code.github.io/dgs-geometri/
 ```
 
-Ardından GitHub'da boş bir depo açıp:
+Bu adresi telefonda aç, tarayıcı menüsünden **Ana ekrana ekle** de. Tüm yollar göreli olduğu için
+alt dizinde sorunsuz çalışır.
+
+Sonraki güncellemeler:
 
 ```bash
-git remote add origin https://github.com/<kullanıcı>/<depo>.git && git branch -M main && git push -u origin main
+git add -A && git commit -m "..." && git push
 ```
 
-Depo ayarlarından **Settings → Pages → Source: main / (root)** seç. Yayınlanan adresi telefonda
-aç, tarayıcı menüsünden **Ana ekrana ekle** de. Tüm yollar göreli olduğu için alt dizinde de çalışır.
+Uygulamayı değiştirdiysen `sw.js` içindeki `VERSION`'ı da artır; yoksa telefondaki kurulu sürüm
+eski dosyaları cache'ten sunmaya devam eder.
 
 ## Dosya düzeni
 
