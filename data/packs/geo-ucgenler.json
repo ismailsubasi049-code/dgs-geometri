@@ -1,0 +1,117 @@
+{
+  "id": "geo-ucgenler",
+  "title": "Üçgenler",
+  "topic": "Üçgenler",
+  "version": 1,
+  "questions": [
+    {
+      "id": "ucgen-001",
+      "subtopic": "Açı - kenar bağıntısı",
+      "difficulty": 1,
+      "stem": "ABC üçgeninde m(A) = 80° ve m(B) = 60°'dir. Buna göre en uzun kenar hangisidir?",
+      "asks": "Bir kenarın uzunluğu değil, hangi kenarın en uzun olduğu isteniyor. Üçgende büyük açının karşısında büyük kenar bulunur; önce üçüncü açıyı bulup açıları sıralaman gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='160,35 55,165 265,165' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 185.1 66.2 A 40 40 0 0 0 134.9 66.2'/><path d='M 85 165 A 30 30 0 0 0 73.9 141.6'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='160' y='84' fill='#0284c7'>80°</text><text x='103' y='149' fill='#0284c7'>60°</text><text x='160' y='27' fill='currentColor' font-size='13'>A</text><text x='47' y='182' fill='currentColor' font-size='13'>B</text><text x='273' y='182' fill='currentColor' font-size='13'>C</text></g></svg>",
+      "choices": ["[AB]", "[AC]", "[BC]", "[AB] ile [AC] eşit ve en uzun", "Belirlenemez"],
+      "answer": 2,
+      "solution": "Üçüncü açı: m(C) = 180° − 80° − 60° = 40°.\nAçılar büyükten küçüğe: A (80°) > B (60°) > C (40°).\nÜçgende büyük açının karşısındaki kenar daha uzundur. En büyük açı A olduğuna göre, A'nın karşısındaki kenar olan [BC] en uzundur."
+    },
+    {
+      "id": "ucgen-002",
+      "subtopic": "İkizkenar üçgen",
+      "difficulty": 1,
+      "stem": "ABC ikizkenar üçgeninde |AB| = |AC| ve m(A) = 40°'dir. Buna göre m(B) kaç derecedir?",
+      "asks": "Taban açılarından biri isteniyor. İkizkenar üçgende eşit kenarların karşısındaki açıların da eşit olduğunu kullanıp kalan 140°'yi ikiye bölmen gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='160,30 109,170 211,170' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><g stroke='currentColor' stroke-width='2' fill='none'><line x1='127' y1='97.3' x2='142' y2='102.7'/><line x1='193' y1='97.3' x2='178' y2='102.7'/></g><path d='M 173 65.7 A 38 38 0 0 0 147 65.7' stroke='#0284c7' stroke-width='2' fill='none'/><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='160' y='84' fill='#0284c7'>40°</text><text x='127' y='158' fill='#0284c7'>?</text><text x='160' y='22' fill='currentColor' font-size='13'>A</text><text x='101' y='187' fill='currentColor' font-size='13'>B</text><text x='219' y='187' fill='currentColor' font-size='13'>C</text></g></svg>",
+      "choices": ["40", "50", "60", "70", "80"],
+      "answer": 3,
+      "solution": "|AB| = |AC| olduğundan bu kenarların karşısındaki açılar eşittir: m(B) = m(C).\nÜçgende açılar toplamı 180°:\n40° + m(B) + m(C) = 180°\n2·m(B) = 140° → m(B) = 70°"
+    },
+    {
+      "id": "ucgen-003",
+      "subtopic": "Pisagor bağıntısı",
+      "difficulty": 1,
+      "stem": "ABC üçgeninde m(A) = 90°, |AB| = 8 cm ve |BC| = 17 cm'dir. Buna göre |AC| kaç cm'dir?",
+      "asks": "Bir dik kenar isteniyor. Dikkat: 17 hipotenüs (dik açının karşısındaki kenar), 8 ise bir dik kenar. Bu yüzden kareleri toplamayacak, çıkaracaksın.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='70,50 70,170 295,50' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><path d='M 70 64 L 84 64 L 84 50' stroke='currentColor' stroke-width='1.5' fill='none'/><g font-family='system-ui, sans-serif' font-size='15'><text x='58' y='114' fill='currentColor' text-anchor='end'>8</text><text x='200' y='138' fill='currentColor' text-anchor='middle'>17</text><text x='182' y='40' fill='#0284c7' text-anchor='middle'>x</text><text x='58' y='46' fill='currentColor' font-size='13' text-anchor='end'>A</text><text x='58' y='184' fill='currentColor' font-size='13' text-anchor='end'>B</text><text x='305' y='46' fill='currentColor' font-size='13' text-anchor='end'>C</text></g></svg>",
+      "choices": ["13", "15", "17", "19", "21"],
+      "answer": 1,
+      "solution": "Dik açı A köşesinde olduğundan hipotenüs, A'nın karşısındaki [BC] kenarıdır.\nPisagor bağıntısı: |AB|² + |AC|² = |BC|²\n8² + |AC|² = 17²\n64 + |AC|² = 289\n|AC|² = 225 → |AC| = 15 cm\n(8 - 15 - 17 bilinen bir Pisagor üçlüsüdür.)"
+    },
+    {
+      "id": "ucgen-004",
+      "subtopic": "30-60-90 üçgeni",
+      "difficulty": 2,
+      "stem": "ABC üçgeninde m(A) = 90°, m(B) = 30° ve |BC| = 12 cm'dir. Buna göre |AC| kaç cm'dir?",
+      "asks": "[AC] kenarı isteniyor. Hangi açının karşısında olduğunu belirlemen gerekiyor: [AC], 30°'lik B açısının karşısındaki kenardır ve 30-60-90 üçgeninde bu kenar hipotenüsün yarısıdır.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='80,160 280,160 80,45' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><path d='M 94 160 L 94 146 L 80 146' stroke='currentColor' stroke-width='1.5' fill='none'/><path d='M 250 160 A 30 30 0 0 1 254 145.1' stroke='#0284c7' stroke-width='2' fill='none'/><g font-family='system-ui, sans-serif' font-size='15'><text x='226' y='151' fill='#0284c7' text-anchor='middle'>30°</text><text x='204' y='92' fill='currentColor' text-anchor='middle'>12</text><text x='68' y='106' fill='#0284c7' text-anchor='end'>x</text><text x='70' y='176' fill='currentColor' font-size='13' text-anchor='middle'>A</text><text x='290' y='176' fill='currentColor' font-size='13' text-anchor='middle'>B</text><text x='70' y='38' fill='currentColor' font-size='13' text-anchor='middle'>C</text></g></svg>",
+      "choices": ["6", "6√2", "6√3", "8", "12√3"],
+      "answer": 0,
+      "solution": "Dik açı A'da olduğundan hipotenüs [BC] = 12 cm.\n30-60-90 üçgeninde kenarlar 1 : √3 : 2 oranındadır ve 30°'nin karşısındaki kenar hipotenüsün yarısıdır.\n[AC], 30°'lik B açısının karşısındadır:\n|AC| = 12 / 2 = 6 cm\n(Diğer dik kenar |AB| = 6√3 cm olur — soruda istenen bu değildir.)"
+    },
+    {
+      "id": "ucgen-005",
+      "subtopic": "45-45-90 üçgeni",
+      "difficulty": 2,
+      "stem": "İkizkenar dik üçgenin dik kenarlarından biri 5√2 cm'dir. Buna göre hipotenüs kaç cm'dir?",
+      "asks": "Hipotenüs isteniyor. İkizkenar dik üçgen 45-45-90 üçgenidir; hipotenüs, dik kenarın √2 katıdır. √2 · √2 = 2 sadeleşmesini yapman gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='90,160 90,50 200,160' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><path d='M 104 160 L 104 146 L 90 146' stroke='currentColor' stroke-width='1.5' fill='none'/><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 174 160 A 26 26 0 0 1 181.6 141.6'/><path d='M 90 76 A 26 26 0 0 0 108.4 68.4'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='152' y='147' fill='#0284c7' text-anchor='middle'>45°</text><text x='118' y='99' fill='#0284c7' text-anchor='middle'>45°</text><text x='78' y='109' fill='currentColor' text-anchor='end'>5√2</text><text x='145' y='182' fill='currentColor' text-anchor='middle'>5√2</text><text x='170' y='96' fill='#0284c7' text-anchor='middle'>x</text></g></svg>",
+      "choices": ["5", "5√2", "10", "10√2", "20"],
+      "answer": 2,
+      "solution": "İkizkenar dik üçgende açılar 45°-45°-90°'dir ve kenarlar 1 : 1 : √2 oranındadır.\nHipotenüs = dik kenar × √2\n= 5√2 × √2\n= 5 × 2 = 10 cm"
+    },
+    {
+      "id": "ucgen-006",
+      "subtopic": "Temel orantı (Thales)",
+      "difficulty": 2,
+      "stem": "ABC üçgeninde [DE] ∥ [BC]'dir. |AD| = 4 cm, |DB| = 6 cm ve |AE| = 6 cm olduğuna göre |EC| kaç cm'dir?",
+      "asks": "[EC] parçası isteniyor. Paralellik nedeniyle iki kenarın parçaları aynı oranda bölünür; kurmanız gereken orantı AD/DB = AE/EC şeklindedir. Dikkat: AD/AB = AE/AC de kurulabilir ama o zaman AB = 10 kullanılmalı.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='160,30 50,180 280,180' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><line x1='116' y1='90' x2='208' y2='90' stroke='#0284c7' stroke-width='2'/><g fill='currentColor'><circle cx='116' cy='90' r='3'/><circle cx='208' cy='90' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='126' y='58' fill='currentColor' text-anchor='end'>4</text><text x='70' y='133' fill='currentColor' text-anchor='end'>6</text><text x='196' y='58' fill='currentColor' text-anchor='start'>6</text><text x='256' y='133' fill='#0284c7' text-anchor='start'>x</text><text x='160' y='22' fill='currentColor' font-size='13' text-anchor='middle'>A</text><text x='42' y='196' fill='currentColor' font-size='13' text-anchor='middle'>B</text><text x='288' y='196' fill='currentColor' font-size='13' text-anchor='middle'>C</text><text x='104' y='88' fill='currentColor' font-size='13' text-anchor='middle'>D</text><text x='220' y='88' fill='currentColor' font-size='13' text-anchor='middle'>E</text></g></svg>",
+      "choices": ["3", "4", "6", "9", "12"],
+      "answer": 3,
+      "solution": "[DE] ∥ [BC] olduğundan ADE üçgeni ile ABC üçgeni benzerdir ve kenarlar aynı oranda bölünür:\n|AD| / |DB| = |AE| / |EC|\n4 / 6 = 6 / |EC|\n4 · |EC| = 36\n|EC| = 9 cm"
+    },
+    {
+      "id": "ucgen-007",
+      "subtopic": "Benzerlik oranı ve alan",
+      "difficulty": 2,
+      "stem": "Benzer iki üçgenin benzerlik oranı 2/3'tür. Küçük üçgenin alanı 16 cm² olduğuna göre büyük üçgenin alanı kaç cm²'dir?",
+      "asks": "Büyük üçgenin alanı isteniyor. Kritik nokta: alanlar benzerlik oranıyla değil, oranın karesiyle orantılıdır. Yani 2/3 değil, 4/9 kullanacaksın.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='70,80 30,150 110,150'/><polygon points='210,55 150,160 270,160'/></g><g font-family='system-ui, sans-serif' font-size='14' text-anchor='middle'><text x='70' y='172' fill='currentColor'>Alan = 16 cm²</text><text x='210' y='182' fill='#0284c7'>Alan = ?</text><text x='130' y='120' fill='currentColor' font-size='18'>~</text><text x='160' y='24' fill='#0284c7'>benzerlik oranı = 2/3</text></g></svg>",
+      "choices": ["24", "27", "32", "36", "48"],
+      "answer": 3,
+      "solution": "Benzer şekillerde alanların oranı, benzerlik oranının karesine eşittir:\nAlan oranı = (2/3)² = 4/9\nKüçük alan / Büyük alan = 4 / 9\n16 / A = 4 / 9\n4A = 144 → A = 36 cm²\n(Sık yapılan hata: 16 · 3/2 = 24 demek. Oran kareye alınmalıdır.)"
+    },
+    {
+      "id": "ucgen-008",
+      "subtopic": "Üçgen eşitsizliği",
+      "difficulty": 3,
+      "stem": "Bir üçgenin iki kenarının uzunlukları 7 cm ve 11 cm'dir. Üçüncü kenarın uzunluğu tam sayı olduğuna göre kaç farklı değer alabilir?",
+      "asks": "Üçüncü kenarın kendisi değil, kaç farklı tam sayı değeri alabileceği isteniyor. Önce üçgen eşitsizliğiyle alt ve üst sınırı bulup aradaki tam sayıları saymalısın. Sınır değerlerin üçgen oluşturmadığına dikkat et.",
+      "choices": ["9", "10", "11", "12", "13"],
+      "answer": 4,
+      "solution": "Üçgen eşitsizliği: bir kenar, diğer ikisinin farkından büyük ve toplamından küçüktür.\n|11 − 7| < x < 11 + 7\n4 < x < 18\nEşitsizlik kesin olduğundan 4 ve 18 dahil değildir.\nx tam sayı: 5, 6, 7, ..., 17\nDeğer sayısı = 17 − 5 + 1 = 13"
+    },
+    {
+      "id": "ucgen-009",
+      "subtopic": "Kenarortay ve alan",
+      "difficulty": 3,
+      "stem": "Alanı 60 cm² olan ABC üçgeninde [AD] kenarortaydır. E, [AD] parçasının orta noktası olduğuna göre boyalı ABE üçgeninin alanı kaç cm²'dir?",
+      "asks": "Boyalı küçük üçgenin alanı isteniyor. Tek kural yeterli: bir kenarortay üçgenin alanını iki eşit parçaya böler. Bu kuralı iki kez, sırayla uygulaman gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='160,30 45,175 160,102.5' fill='#0284c7' fill-opacity='0.18'/><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='160,30 45,175 275,175'/><line x1='160' y1='30' x2='160' y2='175'/><line x1='45' y1='175' x2='160' y2='102.5'/></g><g stroke='currentColor' stroke-width='1.5'><line x1='102.5' y1='169' x2='102.5' y2='181'/><line x1='217.5' y1='169' x2='217.5' y2='181'/><line x1='154' y1='63' x2='166' y2='63'/><line x1='154' y1='69' x2='166' y2='69'/><line x1='154' y1='135.5' x2='166' y2='135.5'/><line x1='154' y1='141.5' x2='166' y2='141.5'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='160' y='22'>A</text><text x='37' y='191'>B</text><text x='283' y='191'>C</text><text x='160' y='191'>D</text><text x='174' y='100'>E</text></g></svg>",
+      "choices": ["15", "20", "24", "30", "40"],
+      "answer": 0,
+      "solution": "Kenarortay, üçgeni alanları eşit iki üçgene ayırır.\n[AD] kenarortay olduğundan:\nAlan(ABD) = Alan(ACD) = 60 / 2 = 30 cm²\nE, [AD]'nin orta noktası olduğundan [BE], ABD üçgeninin kenarortayıdır:\nAlan(ABE) = Alan(BED) = 30 / 2 = 15 cm²"
+    },
+    {
+      "id": "ucgen-010",
+      "subtopic": "Ağırlık merkezi",
+      "difficulty": 3,
+      "stem": "ABC üçgeninde G ağırlık merkezi ve [AD] kenarortaydır. |AG| = 8 cm olduğuna göre |GD| kaç cm'dir?",
+      "asks": "Kenarortayın ağırlık merkezinden sonraki kısa parçası isteniyor. Ağırlık merkezinin kenarortayı 2:1 oranında böldüğünü, uzun parçanın köşe tarafında kaldığını kullanman gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='160,30 50,175 270,175' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><line x1='160' y1='30' x2='160' y2='175' stroke='#0284c7' stroke-width='2'/><g stroke='currentColor' stroke-width='1.5' opacity='0.55'><line x1='50' y1='175' x2='215' y2='102.5'/><line x1='270' y1='175' x2='105' y2='102.5'/></g><circle cx='160' cy='126.67' r='4' fill='#0284c7'/><g font-family='system-ui, sans-serif' font-size='15'><text x='148' y='82' fill='currentColor' text-anchor='end'>8</text><text x='148' y='157' fill='#0284c7' text-anchor='end'>?</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='160' y='22'>A</text><text x='42' y='191'>B</text><text x='278' y='191'>C</text><text x='160' y='191'>D</text><text x='176' y='124'>G</text></g></svg>",
+      "choices": ["4", "6", "8", "12", "16"],
+      "answer": 0,
+      "solution": "Ağırlık merkezi, her kenarortayı köşeden itibaren 2:1 oranında böler.\n|AG| / |GD| = 2 / 1\n8 / |GD| = 2 / 1\n|GD| = 4 cm\n(Kenarortayın tamamı |AD| = 8 + 4 = 12 cm olur.)"
+    }
+  ]
+}

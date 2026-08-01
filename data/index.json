@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packs": [
+    {
+      "id": "geo-acilar",
+      "title": "Açılar",
+      "topic": "Açılar",
+      "file": "packs/geo-acilar.json",
+      "count": 10,
+      "version": 1
+    },
+    {
+      "id": "geo-ucgenler",
+      "title": "Üçgenler",
+      "topic": "Üçgenler",
+      "file": "packs/geo-ucgenler.json",
+      "count": 10,
+      "version": 1
+    },
+    {
+      "id": "geo-dortgenler",
+      "title": "Dörtgenler",
+      "topic": "Dörtgenler",
+      "file": "packs/geo-dortgenler.json",
+      "count": 10,
+      "version": 1
+    },
+    {
+      "id": "geo-cember",
+      "title": "Çember ve Daire",
+      "topic": "Çember ve Daire",
+      "file": "packs/geo-cember.json",
+      "count": 10,
+      "version": 1
+    }
+  ]
+}
