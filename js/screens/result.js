@@ -1,8 +1,9 @@
 // Oturum sonucu: skor, ipucu kullanimi ve soru soru gozden gecirme.
 
-import { el, emptyState, fmtTime, CHOICE_LETTERS } from '../ui.js';
+import { el, emptyState, fmtTime, formulaCard, CHOICE_LETTERS } from '../ui.js';
 import { parseFigure } from '../svg.js';
 import { getLastSession } from '../quiz.js';
+import { getCardFor } from '../formulas.js';
 
 function verdictOf(record) {
   if (!record) return 'skip';
@@ -51,6 +52,12 @@ function reviewItem(question, record, index) {
       el('div', { class: 'solution-body' }, question.solution || '—')
     )
   );
+
+  // Sureli testte cozumler yalnizca burada gorunur; yanlislarda formul kartini da ver.
+  if (kind === 'bad') {
+    const card = formulaCard(getCardFor(question), { label: 'Bu konunun formülleri' });
+    if (card) detailStack.append(card);
+  }
 
   return el('details', { class: `review-item ${kind}`, open: kind !== 'ok' },
     summary, detailStack);

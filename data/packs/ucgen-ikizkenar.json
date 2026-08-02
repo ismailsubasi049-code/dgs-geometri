@@ -1,0 +1,20 @@
+{
+  "id": "ucgen-ikizkenar",
+  "topicId": "ucgenler",
+  "topic": "Üçgenler",
+  "subtopicId": "ucgen-ikizkenar",
+  "subtopic": "İkizkenar üçgen",
+  "version": 1,
+  "questions": [
+    {
+      "id": "ucgen-002",
+      "difficulty": 1,
+      "stem": "ABC ikizkenar üçgeninde |AB| = |AC| ve m(A) = 40°'dir. Buna göre m(B) kaç derecedir?",
+      "asks": "Taban açılarından biri isteniyor. İkizkenar üçgende eşit kenarların karşısındaki açıların da eşit olduğunu kullanıp kalan 140°'yi ikiye bölmen gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='160,30 109,170 211,170' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><g stroke='currentColor' stroke-width='2' fill='none'><line x1='127' y1='97.3' x2='142' y2='102.7'/><line x1='193' y1='97.3' x2='178' y2='102.7'/></g><path d='M 173 65.7 A 38 38 0 0 0 147 65.7' stroke='#0284c7' stroke-width='2' fill='none'/><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='160' y='84' fill='#0284c7'>40°</text><text x='127' y='158' fill='#0284c7'>?</text><text x='160' y='22' fill='currentColor' font-size='13'>A</text><text x='101' y='187' fill='currentColor' font-size='13'>B</text><text x='219' y='187' fill='currentColor' font-size='13'>C</text></g></svg>",
+      "choices": ["40", "50", "60", "70", "80"],
+      "answer": 3,
+      "solution": "|AB| = |AC| olduğundan bu kenarların karşısındaki açılar eşittir: m(B) = m(C).\nÜçgende açılar toplamı 180°:\n40° + m(B) + m(C) = 180°\n2·m(B) = 140° → m(B) = 70°"
+    }
+  ]
+}

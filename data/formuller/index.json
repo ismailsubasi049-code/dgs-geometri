@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "sets": [
+    { "topicId": "acilar", "title": "Açılar", "file": "acilar.json", "cardCount": 3 },
+    { "topicId": "ucgenler", "title": "Üçgenler", "file": "ucgenler.json", "cardCount": 10 },
+    { "topicId": "dortgenler", "title": "Dörtgenler", "file": "dortgenler.json", "cardCount": 7 },
+    { "topicId": "cember", "title": "Çember ve Daire", "file": "cember.json", "cardCount": 6 }
+  ]
+}

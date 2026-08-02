@@ -1,0 +1,63 @@
+{
+  "topicId": "acilar",
+  "title": "Açılar",
+  "cards": [
+    {
+      "id": "acilar-temel",
+      "subtopicId": "acilar-temel",
+      "title": "Temel açı kavramları",
+      "aliases": ["Ters açılar", "Doğrusal açılar ve açıortay", "Tümler ve bütünler açılar", "Saat açısı"],
+      "items": [
+        { "formula": "Tümler açılar: x + y = 90°", "note": "Bir açının tümleri 90° − x" },
+        { "formula": "Bütünler açılar: x + y = 180°", "note": "Bir açının bütünleri 180° − x" },
+        { "formula": "Ters (karşılıklı) açılar eşittir", "note": "İki doğru kesiştiğinde karşılıklı duran açılar" },
+        { "formula": "Doğrusal açılar toplamı = 180°", "note": "Bir doğru üzerindeki ardışık açılar" },
+        { "formula": "Bir noktadaki tüm açılar toplamı = 360°" },
+        { "formula": "Açıortay açıyı iki eş parçaya böler", "note": "[OD açıortay ise m(AOD) = m(DOB)" },
+        { "formula": "Saat açısı: |30·S − 5,5·D|", "note": "S = saat, D = dakika. 180°'yi geçerse 360° − sonuç alınır" }
+      ],
+      "tips": [
+        "Akrep dakikalarla birlikte ilerler: dakikada 0,5°. Yelkovan dakikada 6° döner.",
+        "\"Tümler\" 90, \"bütünler\" 180 — karıştırmamak için: bütün daha büyük."
+      ]
+    },
+    {
+      "id": "acilar-paralel",
+      "subtopicId": "acilar-paralel",
+      "title": "Paralel doğrular ve kesenler",
+      "aliases": ["Paralel doğrular ve kesen", "Paralel doğrular arasında kırık doğru", "Paralel doğrular ve üçgen"],
+      "items": [
+        { "formula": "Yöndeş açılar eşittir", "note": "Kesenin aynı tarafında, paralellerin aynı konumunda" },
+        { "formula": "İç ters açılar eşittir", "note": "Paraleller arasında, kesenin farklı taraflarında" },
+        { "formula": "Dış ters açılar eşittir" },
+        { "formula": "İç yan açılar bütünlerdir: x + y = 180°", "note": "Paraleller arasında, kesenin aynı tarafında" },
+        { "formula": "Z kuralı: iç ters açılar eşit", "note": "Şekilde Z / N harfi oluşuyorsa açılar eşittir" },
+        { "formula": "Kırık doğru: x = a + b", "note": "Paraleller arasındaki kırık noktanın açısı, üstteki ve alttaki açıların toplamı" },
+        { "formula": "Zıt yönlü kırık: a = b + x", "note": "Kırık ters yöne bakıyorsa açılardan biri diğer ikisinin toplamı olur" }
+      ],
+      "tips": [
+        "Kırık noktadan paralellere paralel bir yardımcı doğru çiz — açı kendiliğinden iki iç ters açıya ayrılır.",
+        "Paralellik verilmişse ilk refleks: keseni bul, sonra eşit/bütünler açıları işaretle."
+      ]
+    },
+    {
+      "id": "acilar-ucgende",
+      "subtopicId": "acilar-ucgende",
+      "title": "Üçgende açılar",
+      "aliases": ["Üçgende dış açı", "Üçgende iç açıortaylar", "Yükseklik ile açıortay arasındaki açı"],
+      "items": [
+        { "formula": "İç açılar toplamı = 180°" },
+        { "formula": "Dış açılar toplamı = 360°" },
+        { "formula": "Dış açı = komşu olmayan iki iç açının toplamı", "note": "C'deki dış açı = A + B" },
+        { "formula": "İki iç açıortay arasındaki açı: 90° + A/2", "note": "A, açıortayların çıkmadığı köşe" },
+        { "formula": "İki dış açıortay arasındaki açı: 90° − A/2" },
+        { "formula": "Bir iç + bir dış açıortay arası: A/2" },
+        { "formula": "Yükseklik ile açıortay arası: (B − C) / 2", "note": "İkisi de A köşesinden çiziliyorsa; büyük açıdan küçük çıkarılır" }
+      ],
+      "tips": [
+        "\"90 + A/2\" formülünü ezberle ama nereden geldiğini de bil: B/2 + C/2 = (180 − A)/2.",
+        "Dış açı sorularında üçüncü iç açıyı hesaplamaya kalkma — dış açı kısayolu bir adım kazandırır."
+      ]
+    }
+  ]
+}

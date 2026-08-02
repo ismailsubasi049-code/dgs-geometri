@@ -95,6 +95,12 @@ export async function buildTopicSet(topic) {
   return shuffle(all.filter((q) => q.topic === topic));
 }
 
+/** Tek bir alt konuya odaklanma. */
+export async function buildSubtopicSet(subtopicId) {
+  const all = await loadAllQuestions();
+  return shuffle(all.filter((q) => q.subtopicId === subtopicId));
+}
+
 /** Ana ekranin ihtiyac duydugu sayilar. */
 export async function overview() {
   const all = await loadAllQuestions();

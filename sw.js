@@ -1,11 +1,11 @@
 // Service worker: uygulamayi ve soru paketlerini cache'e alir, internetsiz calismayi saglar.
 //
 // Guncelleme: bu sabiti artir. Eski cache silinir, sayfada "Yeni sürüm hazır" bandi cikar.
-const VERSION = 'v1';
+const VERSION = 'v2';
 const CACHE = `dgs-${VERSION}`;
 
-// Uygulama kabugu. Paketler burada yok - onlar data/index.json'dan okunarak eklenir,
-// boylece yeni bir paket eklemek icin bu dosyaya dokunmak gerekmez.
+// Uygulama kabugu. Paketler ve formul setleri burada yok - onlar kendi index.json'larindan
+// okunarak eklenir, boylece yeni bir paket/set eklemek icin bu dosyaya dokunmak gerekmez.
 const APP_SHELL = [
   './',
   './index.html',
@@ -15,6 +15,7 @@ const APP_SHELL = [
   './js/ui.js',
   './js/store.js',
   './js/packs.js',
+  './js/formulas.js',
   './js/scheduler.js',
   './js/quiz.js',
   './js/svg.js',
@@ -22,12 +23,14 @@ const APP_SHELL = [
   './js/screens/session.js',
   './js/screens/result.js',
   './js/screens/topics.js',
+  './js/screens/formulas.js',
   './js/screens/stats.js',
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/maskable-512.png',
   './icons/apple-touch-icon.png',
   './data/index.json',
+  './data/formuller/index.json',
 ];
 
 /** Tek tek ekler: bir dosya eksikse digerleri yine cache'lenir. */
@@ -45,22 +48,29 @@ async function cacheAllSettled(cache, urls) {
   if (failed.length > 0) console.warn('[sw] cache\'lenemedi:', failed);
 }
 
+/** Bir index.json'u okuyup icinde listelenen dosyalari precache eder. */
+async function cacheFromIndex(cache, indexUrl, toUrls) {
+  try {
+    const response = await fetch(indexUrl, { cache: 'no-cache' });
+    const data = await response.json();
+    await cacheAllSettled(cache, toUrls(data));
+  } catch (error) {
+    // Liste alinamadiysa uygulama yine kurulur; dosyalar ilk cevrimici
+    // kullanimda runtime cache'ine dusecektir.
+    console.warn(`[sw] liste okunamadı (${indexUrl}):`, error.message);
+  }
+}
+
 self.addEventListener('install', (event) => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE);
     await cacheAllSettled(cache, APP_SHELL);
 
-    // Paket listesini index.json'dan oku ve hepsini precache et.
-    try {
-      const response = await fetch('./data/index.json', { cache: 'no-cache' });
-      const data = await response.json();
-      const packUrls = (data.packs || []).map((pack) => `./data/${pack.file}`);
-      await cacheAllSettled(cache, packUrls);
-    } catch (error) {
-      // Paketler alinamadiysa uygulama yine kurulur; paketler ilk cevrimici
-      // kullanimda runtime cache'ine dusecektir.
-      console.warn('[sw] paket listesi okunamadı:', error.message);
-    }
+    await cacheFromIndex(cache, './data/index.json',
+      (data) => (data.packs || []).map((pack) => `./data/${pack.file}`));
+
+    await cacheFromIndex(cache, './data/formuller/index.json',
+      (data) => (data.sets || []).map((set) => `./data/formuller/${set.file}`));
   })());
 });
 

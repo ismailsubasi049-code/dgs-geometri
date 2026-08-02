@@ -13,11 +13,15 @@ const SCREENS = {
   session: () => import('./screens/session.js'),
   result: () => import('./screens/result.js'),
   topics: () => import('./screens/topics.js'),
+  formulas: () => import('./screens/formulas.js'),
   stats: () => import('./screens/stats.js'),
 };
 
 /** Bir onceki ekranin birakmasi gereken kaynaklar (zamanlayici vb.). */
 let leaveCurrentScreen = null;
+
+/** Ust bardaki geri butonunun gidecegi yer; her render'da yeniden hesaplanir. */
+let backHash = '#/';
 
 /** Hash'i yol parcalarina ayirir: "#/oturum/konu/Açılar" -> ['oturum','konu','Açılar'] */
 function parseHash() {
@@ -32,9 +36,18 @@ function resolve(parts) {
     case 'oturum':       return { name: 'session', params: rest };
     case 'sonuc':        return { name: 'result', params: rest };
     case 'konular':      return { name: 'topics', params: rest };
+    case 'formuller':    return { name: 'formulas', params: rest };
     case 'istatistik':   return { name: 'stats', params: rest };
     default:             return { name: 'home', params: [] };
   }
+}
+
+/** Iki duzeyli ekranlarin alt sayfasindan geri, ana ekrana degil ust listeye doner. */
+function backTargetFor(route) {
+  if (route.params.length === 0) return '#/';
+  if (route.name === 'topics') return '#/konular';
+  if (route.name === 'formulas') return '#/formuller';
+  return '#/';
 }
 
 export function navigate(hash) {
@@ -80,6 +93,7 @@ async function render() {
   ctx.setTitle('DGS Geometri');
   ctx.setRight('');
   backBtn.hidden = route.name === 'home';
+  backHash = backTargetFor(route);
 
   try {
     const module = await SCREENS[route.name]();
@@ -107,8 +121,8 @@ async function render() {
 }
 
 backBtn.addEventListener('click', () => {
-  // history.back() oturum ortasinda soruya geri atabiliyor; ana ekran daha ongorulebilir.
-  navigate('#/');
+  // history.back() oturum ortasinda soruya geri atabiliyor; sabit hedef daha ongorulebilir.
+  navigate(backHash);
 });
 
 window.addEventListener('hashchange', render);

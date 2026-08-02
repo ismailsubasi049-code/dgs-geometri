@@ -1,9 +1,10 @@
 // Soru ekrani. Dort modun da kullandigi tek ekran; farki mod yapilandirmasi belirler.
 
-import { el, clear, fmtTime, emptyState, CHOICE_LETTERS } from '../ui.js';
+import { el, clear, fmtTime, emptyState, formulaCard, CHOICE_LETTERS } from '../ui.js';
 import { parseFigure } from '../svg.js';
 import { createSession, MODES } from '../quiz.js';
-import { buildDaily, buildWrongQueue, buildTest, buildTopicSet } from '../scheduler.js';
+import { buildDaily, buildWrongQueue, buildTest, buildTopicSet, buildSubtopicSet } from '../scheduler.js';
+import { loadAllCards, getCardFor } from '../formulas.js';
 import { getSettings } from '../store.js';
 
 /** Rota parametresinden soru listesini ve baslik bilgisini uretir. */
@@ -37,6 +38,15 @@ async function buildFor(mode, params) {
         empty: emptyState('📭', 'Soru bulunamadı', 'Test için yeterli soru yok.'),
       };
     }
+    case 'altkonu': {
+      const subtopicId = params[0] || '';
+      const questions = await buildSubtopicSet(subtopicId);
+      return {
+        questions,
+        title: questions.length > 0 ? questions[0].subtopic : 'Alt konu',
+        empty: emptyState('📭', 'Bu alt konuda soru yok', 'Alt konu paketi henüz boş olabilir.'),
+      };
+    }
     case 'konu':
     default: {
       const topic = params[0] || '';
@@ -57,6 +67,12 @@ export async function render(ctx) {
 
   const { questions, title, empty } = await buildFor(mode, rest);
   ctx.setTitle(title);
+
+  // Formul kartlari pesin yuklenir; boylece yanlis cevaptan sonra kart senkron eklenebilir.
+  // Dosyalar eksik ya da bozuksa oturum yine acilir, sadece kart gosterilmez.
+  await loadAllCards().catch((error) => {
+    console.warn('Formül kartları yüklenemedi:', error.message);
+  });
 
   if (questions.length === 0) {
     return el('div', { class: 'stack' },
@@ -138,11 +154,15 @@ export async function render(ctx) {
 
     clear(body);
 
-    // konu / zorluk satiri
+    // konu / alt konu satiri
     body.append(
       el('div', { class: 'qmeta' },
         el('span', { class: 'chip' }, question.topic || 'Geometri'),
-        question.subtopic ? el('span', null, question.subtopic) : null
+        question.subtopic ? el('span', null, question.subtopic) : null,
+        // label, alt konu paketi icindeki sorunun kendi basligi (varsa).
+        question.label && question.label !== question.subtopic
+          ? el('span', { class: 'muted' }, question.label)
+          : null
       )
     );
 
@@ -278,6 +298,13 @@ export async function render(ctx) {
 
     function showFeedback(record) {
       clear(feedback);
+
+      // Yanlisin arkasindaki kurali hatirlatmak icin cozumun altina ilgili formul karti.
+      // Kart yoksa (o alt konu icin yazilmamissa) hicbir sey eklenmez.
+      const card = record.correct
+        ? null
+        : formulaCard(getCardFor(question), { label: 'Bu konunun formülleri' });
+
       feedback.append(
         el('div', { class: `verdict ${record.correct ? 'ok' : 'bad'}` },
           record.correct
@@ -286,9 +313,11 @@ export async function render(ctx) {
         el('div', { class: 'solution' },
           el('div', { class: 'label' }, 'Çözüm'),
           el('div', { class: 'solution-body' }, question.solution || '—')
-        ),
-        nextButton
+        )
       );
+      if (card) feedback.append(card);
+      feedback.append(nextButton);
+
       nextButton.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
     }
 

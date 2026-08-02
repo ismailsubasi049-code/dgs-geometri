@@ -102,6 +102,30 @@ export function shuffle(items, rand = Math.random) {
 
 export const CHOICE_LETTERS = ['A', 'B', 'C', 'D', 'E'];
 
+/**
+ * Formul karti. data/formuller/ altindaki bir kart nesnesini DOM'a cevirir.
+ * Yanlis cevap sonrasi, sonuc ekraninda ve Formuller ekraninda ayni bicim kullanilir.
+ * label verilirse kartin ustune kucuk bir baslik satiri eklenir.
+ * showTitle, basligi disarida gosteren yerlerde (acilir kart basligi) kapatilir.
+ */
+export function formulaCard(card, { label = null, showTitle = true } = {}) {
+  if (!card) return null;
+
+  return el('div', { class: 'formula-card' },
+    label ? el('div', { class: 'label' }, label) : null,
+    showTitle ? el('div', { class: 'formula-title' }, card.title) : null,
+    card.items.map((item) =>
+      el('div', { class: 'formula-item' },
+        el('div', { class: 'formula' }, item.formula),
+        item.note ? el('div', { class: 'note' }, item.note) : null
+      )
+    ),
+    Array.isArray(card.tips) && card.tips.length > 0
+      ? el('ul', { class: 'tips' }, card.tips.map((tip) => el('li', null, tip)))
+      : null
+  );
+}
+
 /** Bos durum kutusu. */
 export function emptyState(emoji, title, detail) {
   return el('div', { class: 'empty' },

@@ -1,0 +1,170 @@
+{
+  "topicId": "ucgenler",
+  "title": "Üçgenler",
+  "cards": [
+    {
+      "id": "ucgen-aci-kenar",
+      "subtopicId": "ucgen-aci-kenar",
+      "title": "Açı - kenar bağıntısı",
+      "aliases": ["Açı - kenar bağıntısı"],
+      "items": [
+        { "formula": "Büyük açının karşısında büyük kenar bulunur", "note": "A > B > C ise a > b > c" },
+        { "formula": "Eşit açıların karşısındaki kenarlar eşittir", "note": "Tersi de doğrudur" },
+        { "formula": "İç açılar toplamı = 180°", "note": "Üçüncü açıyı bulmak için ilk adım" }
+      ],
+      "tips": [
+        "Kenarı sıralamadan önce mutlaka üç açının da ölçüsünü bul.",
+        "Kenar adı, karşısındaki köşenin harfini içermez: A açısının karşısı [BC]."
+      ]
+    },
+    {
+      "id": "ucgen-esitsizlik",
+      "subtopicId": "ucgen-esitsizlik",
+      "title": "Üçgen eşitsizliği",
+      "aliases": ["Üçgen eşitsizliği"],
+      "items": [
+        { "formula": "|b − c| < a < b + c", "note": "Üçüncü kenar, farktan büyük toplamdan küçüktür" },
+        { "formula": "Sınırlar dahil değildir", "note": "a = b + c olsaydı üçgen değil doğru parçası olurdu" },
+        { "formula": "Tam sayı değer sayısı = (üst − 1) − (alt + 1) + 1", "note": "Yani üst − alt − 1" }
+      ],
+      "tips": [
+        "7 ve 11 için: 4 < x < 18 → 5'ten 17'ye kadar 13 değer. 18 − 4 − 1 = 13 ile de doğrulanır.",
+        "En küçük / en büyük çevre sorularında sınır değerin bir fazlası ya da bir eksiği alınır."
+      ]
+    },
+    {
+      "id": "ucgen-ikizkenar",
+      "subtopicId": "ucgen-ikizkenar",
+      "title": "İkizkenar ve eşkenar üçgen",
+      "aliases": ["İkizkenar üçgen"],
+      "items": [
+        { "formula": "İkizkenarda taban açıları eşittir", "note": "|AB| = |AC| ise m(B) = m(C)" },
+        { "formula": "Taban açısı = (180° − tepe açısı) / 2" },
+        { "formula": "Tepeden inen yükseklik aynı zamanda açıortay ve kenarortaydır", "note": "İkizkenarda üçü çakışır" },
+        { "formula": "Eşkenar üçgende her açı 60°'dir" },
+        { "formula": "Eşkenar üçgenin alanı: a²√3 / 4" },
+        { "formula": "Eşkenar üçgenin yüksekliği: a√3 / 2" }
+      ],
+      "tips": [
+        "Hangi kenarların eşit olduğunu şekilde işaretle — açıları oradan okuyacaksın.",
+        "İkizkenarda \"tepe\" ile \"taban\" açısını karıştırma; 180'den çıkarılan tepe açısıdır."
+      ]
+    },
+    {
+      "id": "ucgen-pisagor",
+      "subtopicId": "ucgen-pisagor",
+      "title": "Pisagor bağıntısı",
+      "aliases": ["Pisagor bağıntısı"],
+      "items": [
+        { "formula": "a² + b² = c²", "note": "c hipotenüs — dik açının karşısındaki kenar, hep en uzunu" },
+        { "formula": "Dik kenar aranıyorsa: b² = c² − a²", "note": "Toplama değil çıkarma yapılır" },
+        { "formula": "Pisagor üçlüleri: 3-4-5 · 5-12-13 · 8-15-17 · 7-24-25 · 20-21-29" },
+        { "formula": "Katları da üçlüdür: 6-8-10 · 9-12-15 · 10-24-26" },
+        { "formula": "Öklid: h² = p·k", "note": "Dik üçgende hipotenüse inen yükseklik h, hipotenüsü p ve k parçalarına böler" },
+        { "formula": "Öklid: a² = p·c  ve  b² = k·c", "note": "Dik kenarın karesi = kendi izdüşümü × hipotenüs" }
+      ],
+      "tips": [
+        "İlk iş dik açının hangi köşede olduğunu bulmak; hipotenüs onun karşısındadır.",
+        "Verilen en büyük sayı hipotenüs değilse çıkarma yapacağını anla — 8 ve 17 verilmişse cevap 15'tir."
+      ]
+    },
+    {
+      "id": "ucgen-306090",
+      "subtopicId": "ucgen-306090",
+      "title": "30-60-90 üçgeni",
+      "aliases": ["30-60-90 üçgeni"],
+      "items": [
+        { "formula": "Kenarlar oranı 1 : √3 : 2", "note": "Sırasıyla 30°, 60° ve 90°'nin karşısındaki kenarlar" },
+        { "formula": "30°'nin karşısındaki kenar = hipotenüs / 2" },
+        { "formula": "60°'nin karşısındaki kenar = hipotenüs · √3 / 2" },
+        { "formula": "Hipotenüs = 30°'nin karşısındaki kenarın 2 katı" }
+      ],
+      "tips": [
+        "Hangi kenarın istendiğini önce açıya bağla: \"bu kenar hangi açının karşısında?\"",
+        "Eşkenar üçgeni yükseklikle ikiye bölünce tam olarak bu üçgen çıkar — oranları oradan hatırlayabilirsin."
+      ]
+    },
+    {
+      "id": "ucgen-454590",
+      "subtopicId": "ucgen-454590",
+      "title": "45-45-90 üçgeni",
+      "aliases": ["45-45-90 üçgeni"],
+      "items": [
+        { "formula": "Kenarlar oranı 1 : 1 : √2" },
+        { "formula": "Hipotenüs = dik kenar · √2" },
+        { "formula": "Dik kenar = hipotenüs / √2 = hipotenüs · √2 / 2" },
+        { "formula": "√2 · √2 = 2", "note": "Sadeleştirmede en çok kullanılan adım" }
+      ],
+      "tips": [
+        "İkizkenar dik üçgen = 45-45-90 üçgeni. Sorunun ikisinden birini söylemesi yeter.",
+        "Karenin köşegeni de bu üçgeni verir: köşegen = a√2."
+      ]
+    },
+    {
+      "id": "ucgen-thales",
+      "subtopicId": "ucgen-thales",
+      "title": "Temel orantı (Thales)",
+      "aliases": ["Temel orantı (Thales)"],
+      "items": [
+        { "formula": "[DE] ∥ [BC] ise: |AD|/|DB| = |AE|/|EC|", "note": "Parçalar birbirine oranlanır" },
+        { "formula": "|AD|/|AB| = |AE|/|AC| = |DE|/|BC|", "note": "Bütünler birbirine oranlanır — paydalar tam kenar" },
+        { "formula": "Kenarortayların birleşimi: orta taban = taban / 2", "note": "İki kenarın orta noktasını birleştiren parça üçüncü kenarın yarısıdır ve ona paraleldir" }
+      ],
+      "tips": [
+        "En sık hata: parça/parça ile parça/bütün oranlarını karıştırmak. Payda neyse paydada da aynı türü kullan.",
+        "Paralellik verilmemişse Thales kurma — önce benzerlik koşulunu ara."
+      ]
+    },
+    {
+      "id": "ucgen-benzerlik",
+      "subtopicId": "ucgen-benzerlik",
+      "title": "Benzerlik oranı ve alan",
+      "aliases": ["Benzerlik oranı ve alan"],
+      "items": [
+        { "formula": "Benzerlik oranı k = karşılıklı kenarların oranı" },
+        { "formula": "Çevreler oranı = k", "note": "Uzunluk olan her şey (kenar, çevre, yükseklik, kenarortay) k ile orantılı" },
+        { "formula": "Alanlar oranı = k²", "note": "En kritik kural — oran kareye alınır" },
+        { "formula": "Hacimler oranı = k³", "note": "Katı cisimlerde" },
+        { "formula": "Benzerlik koşulları: A.A. · K.A.K. · K.K.K." }
+      ],
+      "tips": [
+        "Alan sorusunda oranı doğrudan çarpmak (16 · 3/2) en yaygın tuzaktır; önce k²'yi yaz.",
+        "k = 2/3 ise alan oranı 4/9 — küçük paya, büyük paydaya karşılık gelir."
+      ]
+    },
+    {
+      "id": "ucgen-alan",
+      "subtopicId": "ucgen-alan",
+      "title": "Kenarortay ve alan",
+      "aliases": ["Kenarortay ve alan"],
+      "items": [
+        { "formula": "Alan = taban · yükseklik / 2" },
+        { "formula": "Kenarortay üçgeni eşit alanlı iki üçgene böler", "note": "Tabanı ikiye böldüğü, yükseklik ortak kaldığı için" },
+        { "formula": "Üç kenarortay üçgeni 6 eşit alanlı parçaya ayırır" },
+        { "formula": "Yükseklikleri eşit üçgenlerin alanları tabanlarıyla orantılıdır" },
+        { "formula": "Tabanları eşit üçgenlerin alanları yükseklikleriyle orantılıdır" },
+        { "formula": "Alan = (1/2)·a·b·sin C", "note": "İki kenar ve aralarındaki açı biliniyorsa" }
+      ],
+      "tips": [
+        "Kenarortay kuralını üst üste uygulayabilirsin: 60 → 30 → 15.",
+        "\"Ortak yükseklik\" cümlesini kurabiliyorsan alan oranı doğrudan taban oranıdır."
+      ]
+    },
+    {
+      "id": "ucgen-agirlik-merkezi",
+      "subtopicId": "ucgen-agirlik-merkezi",
+      "title": "Ağırlık merkezi",
+      "aliases": ["Ağırlık merkezi"],
+      "items": [
+        { "formula": "Ağırlık merkezi kenarortayları 2 : 1 böler", "note": "Uzun parça köşe tarafındadır" },
+        { "formula": "|AG| = (2/3)·|AD|  ve  |GD| = (1/3)·|AD|", "note": "G ağırlık merkezi, [AD] kenarortay" },
+        { "formula": "Üç kenarortay tek noktada kesişir", "note": "Bu nokta her zaman üçgenin içindedir" },
+        { "formula": "G(x, y) = ((x₁+x₂+x₃)/3, (y₁+y₂+y₃)/3)", "note": "Analitik düzlemde köşelerin ortalaması" }
+      ],
+      "tips": [
+        "2:1 oranında hangi parçanın 2 olduğunu şaşırma — köşeye yakın olan uzun parçadır.",
+        "|AG| = 8 verilmişse |GD| = 4, tam kenarortay 12'dir."
+      ]
+    }
+  ]
+}

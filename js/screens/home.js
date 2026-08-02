@@ -2,6 +2,7 @@
 
 import { el } from '../ui.js';
 import { overview } from '../scheduler.js';
+import { listFormulaSets } from '../formulas.js';
 import { isPersistent } from '../store.js';
 
 function modeCard({ emoji, title, sub, badge, badgeQuiet, disabled, onClick }) {
@@ -26,6 +27,11 @@ export async function render(ctx) {
   ctx.setTitle('DGS Geometri');
 
   const data = await overview();
+  // Formuller bolumu soru paketlerinden bagimsiz; okunamazsa ana ekran yine acilir.
+  const formulaSets = await listFormulaSets().catch(() => []);
+  const formulaCount = formulaSets.reduce((sum, set) => sum + (set.cardCount || 0), 0);
+  const subtopicCount = data.topics.reduce((sum, topic) => sum + topic.subtopics.length, 0);
+
   const root = el('div', { class: 'stack' });
 
   if (!isPersistent()) {
@@ -104,10 +110,25 @@ export async function render(ctx) {
     modeCard({
       emoji: '📚',
       title: 'Konu seçip çöz',
-      sub: `${data.topics.length} konu · ${data.total} soru · süresiz`,
+      sub: subtopicCount > 0
+        ? `${data.topics.length} konu · ${subtopicCount} alt konu · ${data.total} soru`
+        : `${data.topics.length} konu · ${data.total} soru · süresiz`,
       badge: null,
       disabled: data.total === 0,
       onClick: () => ctx.navigate('#/konular'),
+    })
+  );
+
+  root.append(
+    modeCard({
+      emoji: '📐',
+      title: 'Formüller',
+      sub: formulaCount > 0
+        ? `${formulaSets.length} konu · ${formulaCount} formül kartı`
+        : 'Formül kartları yüklenemedi',
+      badge: null,
+      disabled: formulaSets.length === 0,
+      onClick: () => ctx.navigate('#/formuller'),
     })
   );
 

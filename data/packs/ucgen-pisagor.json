@@ -1,0 +1,20 @@
+{
+  "id": "ucgen-pisagor",
+  "topicId": "ucgenler",
+  "topic": "Üçgenler",
+  "subtopicId": "ucgen-pisagor",
+  "subtopic": "Pisagor bağıntısı",
+  "version": 1,
+  "questions": [
+    {
+      "id": "ucgen-003",
+      "difficulty": 1,
+      "stem": "ABC üçgeninde m(A) = 90°, |AB| = 8 cm ve |BC| = 17 cm'dir. Buna göre |AC| kaç cm'dir?",
+      "asks": "Bir dik kenar isteniyor. Dikkat: 17 hipotenüs (dik açının karşısındaki kenar), 8 ise bir dik kenar. Bu yüzden kareleri toplamayacak, çıkaracaksın.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='70,50 70,170 295,50' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><path d='M 70 64 L 84 64 L 84 50' stroke='currentColor' stroke-width='1.5' fill='none'/><g font-family='system-ui, sans-serif' font-size='15'><text x='58' y='114' fill='currentColor' text-anchor='end'>8</text><text x='200' y='138' fill='currentColor' text-anchor='middle'>17</text><text x='182' y='40' fill='#0284c7' text-anchor='middle'>x</text><text x='58' y='46' fill='currentColor' font-size='13' text-anchor='end'>A</text><text x='58' y='184' fill='currentColor' font-size='13' text-anchor='end'>B</text><text x='305' y='46' fill='currentColor' font-size='13' text-anchor='end'>C</text></g></svg>",
+      "choices": ["13", "15", "17", "19", "21"],
+      "answer": 1,
+      "solution": "Dik açı A köşesinde olduğundan hipotenüs, A'nın karşısındaki [BC] kenarıdır.\nPisagor bağıntısı: |AB|² + |AC|² = |BC|²\n8² + |AC|² = 17²\n64 + |AC|² = 289\n|AC|² = 225 → |AC| = 15 cm\n(8 - 15 - 17 bilinen bir Pisagor üçlüsüdür.)"
+    }
+  ]
+}

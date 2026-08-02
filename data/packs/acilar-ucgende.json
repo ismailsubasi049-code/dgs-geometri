@@ -1,0 +1,43 @@
+{
+  "id": "acilar-ucgende",
+  "topicId": "acilar",
+  "topic": "Açılar",
+  "subtopicId": "acilar-ucgende",
+  "subtopic": "Üçgende açılar",
+  "version": 1,
+  "questions": [
+    {
+      "id": "acilar-005",
+      "label": "Üçgende dış açı",
+      "difficulty": 1,
+      "stem": "Şekilde [AC], C noktasının ötesine uzatılmıştır. m(A) = 60° ve C'deki dış açı 125° olduğuna göre x kaç derecedir?",
+      "asks": "B köşesindeki iç açı isteniyor. Bir dış açının, kendisine komşu olmayan iki iç açının toplamına eşit olduğunu kullanman gerekiyor — üçgenin C açısını ayrıca hesaplamana gerek yok.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round' stroke-linecap='round'><line x1='40' y1='175' x2='300' y2='175'/><line x1='50' y1='175' x2='131' y2='34'/><line x1='131' y1='34' x2='230' y2='175'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 80 175 A 30 30 0 0 0 65 149'/><path d='M 211.6 148.8 A 32 32 0 0 1 262 175'/><path d='M 150.6 61.8 A 34 34 0 0 0 114 63.5'/></g><g fill='currentColor'><circle cx='50' cy='175' r='3'/><circle cx='131' cy='34' r='3'/><circle cx='230' cy='175' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='97' y='155' fill='#0284c7'>60°</text><text x='262' y='132' fill='#0284c7'>125°</text><text x='133' y='79' fill='#0284c7'>x</text><text x='42' y='192' fill='currentColor' font-size='13'>A</text><text x='131' y='26' fill='currentColor' font-size='13'>B</text><text x='228' y='192' fill='currentColor' font-size='13'>C</text></g></svg>",
+      "choices": ["65", "70", "75", "80", "85"],
+      "answer": 0,
+      "solution": "Bir üçgenin dış açısı, kendisine komşu olmayan iki iç açının toplamına eşittir:\n125° = m(A) + m(B) = 60° + x\nx = 125° − 60° = 65°\nKontrol: C'nin iç açısı 180° − 125° = 55°, toplam 60 + 65 + 55 = 180° ✓"
+    },
+    {
+      "id": "acilar-004",
+      "label": "Üçgende iç açıortaylar",
+      "difficulty": 2,
+      "stem": "ABC üçgeninde [BD ve [CD iç açıortaylardır. m(BAC) = 50° olduğuna göre x kaç derecedir?",
+      "asks": "İki iç açıortayın kesiştiği noktadaki açı isteniyor. B ile C açılarını tek tek bulamazsın; sadece toplamlarını A'dan çıkarıp yarısını kullanman gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='160,20 86.3,178 233.7,178'/><line x1='86.3' y1='178' x2='160' y2='131'/><line x1='233.7' y1='178' x2='160' y2='131'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 178.6 59.9 A 44 44 0 0 0 141.4 59.9'/><path d='M 110.3 178 A 24 24 0 0 0 106.5 165.1'/><path d='M 106.5 165.1 A 24 24 0 0 0 96.4 156.2'/><path d='M 209.7 178 A 24 24 0 0 1 213.5 165.1'/><path d='M 213.5 165.1 A 24 24 0 0 1 223.6 156.2'/><path d='M 187 148.2 A 32 32 0 0 0 133 148.2'/></g><circle cx='160' cy='131' r='3' fill='currentColor'/><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='160' y='78' fill='#0284c7'>50°</text><text x='160' y='152' fill='#0284c7'>x</text><text x='160' y='14' fill='currentColor' font-size='13'>A</text><text x='78' y='192' fill='currentColor' font-size='13'>B</text><text x='242' y='192' fill='currentColor' font-size='13'>C</text><text x='176' y='128' fill='currentColor' font-size='13'>D</text></g></svg>",
+      "choices": ["110", "115", "120", "125", "130"],
+      "answer": 1,
+      "solution": "Üçgende açılar toplamı 180° olduğundan:\nB + C = 180° − 50° = 130°\nAçıortaylar B ve C'nin yarısını alır:\nB/2 + C/2 = 130° / 2 = 65°\nBDC üçgeninde: x = 180° − 65° = 115°\nKısayol: iki iç açıortay arasındaki açı x = 90° + A/2 = 90° + 25° = 115°."
+    },
+    {
+      "id": "acilar-010",
+      "label": "Yükseklik ile açıortay arasındaki açı",
+      "difficulty": 3,
+      "stem": "ABC üçgeninde m(B) = 70° ve m(C) = 30°'dir. A köşesinden çizilen [AH yüksekliği ile [AN açıortayı arasındaki açı kaç derecedir?",
+      "asks": "İki farklı doğru parçası arasındaki açı isteniyor. Her ikisinin de [AB kenarıyla yaptığı açıyı ayrı ayrı bulup farkını alman gerekiyor; A açısını hesaplamadan başlayamazsın.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='80.1,43.9 35,168 295,168'/><line x1='80.1' y1='43.9' x2='125.3' y2='168'/></g><line x1='80.1' y1='43.9' x2='80.1' y2='168' stroke='currentColor' stroke-width='2' stroke-dasharray='5 4' fill='none'/><path d='M 80.1 158 L 90.1 158 L 90.1 168' stroke='currentColor' stroke-width='1.5' fill='none'/><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 57 168 A 22 22 0 0 0 42.5 147.3'/><path d='M 265 168 A 30 30 0 0 1 269 153'/><path d='M 95.8 87.1 A 46 46 0 0 1 80.1 89.9'/></g><g fill='currentColor'><circle cx='80.1' cy='168' r='3'/><circle cx='125.3' cy='168' r='3'/></g><g font-family='system-ui, sans-serif' font-size='13' text-anchor='middle'><text x='60' y='152' fill='#0284c7' font-size='14'>70°</text><text x='244' y='159' fill='#0284c7' font-size='14'>30°</text><text x='93' y='114' fill='#0284c7' font-size='16'>?</text><text x='80' y='36' fill='currentColor'>A</text><text x='28' y='184' fill='currentColor'>B</text><text x='300' y='184' fill='currentColor'>C</text><text x='74' y='184' fill='currentColor'>H</text><text x='128' y='184' fill='currentColor'>N</text></g></svg>",
+      "choices": ["10", "20", "25", "40", "50"],
+      "answer": 1,
+      "solution": "Önce A açısı: m(A) = 180° − 70° − 30° = 80°.\n[AN açıortay olduğundan m(BAN) = 80° / 2 = 40°.\nABH dik üçgeninde (m(H) = 90°): m(BAH) = 90° − 70° = 20°.\nİkisi de [AB'den ölçüldüğü için fark alınır:\nm(HAN) = 40° − 20° = 20°\nKısayol: yükseklik ile açıortay arasındaki açı = (B − C) / 2 = (70 − 30) / 2 = 20°."
+    }
+  ]
+}

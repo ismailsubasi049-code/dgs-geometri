@@ -373,6 +373,64 @@ button { font: inherit; color: inherit; }
 .verdict.ok { color: var(--ok); }
 .verdict.bad { color: var(--bad); }
 
+/* ---------- formul karti ---------- */
+
+/* Cozumle ayni gorsel dil, ama soldaki serit onu ayirir. */
+.formula-card {
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  padding: 12px 14px;
+}
+
+.formula-card .label {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.formula-title { font-weight: 700; margin-bottom: 8px; }
+
+.formula-item { padding: 6px 0; }
+.formula-item + .formula-item { border-top: 1px solid var(--border); }
+
+.formula-item .formula {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.formula-item .note {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.formula-card .tips {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.formula-card .tips li + li { margin-top: 4px; }
+
+/* Formuller ekraninda kartlar acilir baslik icinde durur. */
+.formula-details {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 12px 14px;
+}
+
+.formula-details > summary { font-weight: 600; }
+.formula-details[open] > summary { margin-bottom: 10px; }
+.formula-details .formula-card { border-left-width: 4px; }
+
 /* ---------- butonlar ---------- */
 
 .btn {

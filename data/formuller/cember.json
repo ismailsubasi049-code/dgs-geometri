@@ -1,0 +1,105 @@
+{
+  "topicId": "cember",
+  "title": "Çember ve Daire",
+  "cards": [
+    {
+      "id": "cember-acilar",
+      "title": "Çemberde açılar",
+      "aliases": ["Merkez açı ve çevre açı", "Çapı gören çevre açı", "Teğet - kiriş açısı", "İç açı (kirişlerin kesişimi)"],
+      "items": [
+        { "formula": "Merkez açı = gördüğü yay" },
+        { "formula": "Çevre açı = gördüğü yay / 2", "note": "Köşesi çember üzerinde olan açı" },
+        { "formula": "Çevre açı = merkez açının yarısı", "note": "Aynı yayı gördüklerinde" },
+        { "formula": "Çapı gören çevre açı = 90°", "note": "Yarım çemberin gördüğü açı hep diktir" },
+        { "formula": "Aynı yayı gören çevre açılar eşittir" },
+        { "formula": "Teğet-kiriş açı = gördüğü yay / 2" },
+        { "formula": "İç açı = (gördüğü iki yayın toplamı) / 2", "note": "Kirişler çemberin içinde kesişiyorsa" },
+        { "formula": "Dış açı = (gördüğü iki yayın farkı) / 2", "note": "Kesişim çemberin dışındaysa" }
+      ],
+      "tips": [
+        "İlk soru hep aynı: açının köşesi nerede? Merkezde, çember üzerinde, içeride, dışarıda.",
+        "Çap görünüyorsa 90° arayın — çoğu soruda gizli dik üçgeni açar."
+      ]
+    },
+    {
+      "id": "cember-teget",
+      "title": "Teğet",
+      "aliases": ["Teğet ve yarıçap", "Bir noktadan çizilen teğetler"],
+      "items": [
+        { "formula": "Teğet, değme noktasındaki yarıçapa diktir", "note": "En çok kullanılan çember kuralı" },
+        { "formula": "Bir dış noktadan çizilen iki teğet eşit uzunluktadır", "note": "|PA| = |PB|" },
+        { "formula": "Merkezden dış noktaya çizilen doğru teğetler arası açıyı ortalar" },
+        { "formula": "Teğet uzunluğu: t² = d² − r²", "note": "d merkeze uzaklık, r yarıçap" },
+        { "formula": "Teğetler dörtgeninde: a + c = b + d", "note": "Karşılıklı kenar toplamları eşittir (Pitot)" }
+      ],
+      "tips": [
+        "Teğet gördüğünde ilk hamlen değme noktasına yarıçap çizmek olsun — dik üçgen ortaya çıkar.",
+        "İki teğet eşitliği çevre hesaplarında büyük kolaylık sağlar."
+      ]
+    },
+    {
+      "id": "cember-kiris",
+      "title": "Kiriş",
+      "aliases": ["Kiriş ve merkeze uzaklık"],
+      "items": [
+        { "formula": "Merkezden kirişe inen dik, kirişi ortalar" },
+        { "formula": "(kiriş/2)² + d² = r²", "note": "d merkezin kirişe uzaklığı" },
+        { "formula": "Eşit kirişler merkeze eşit uzaklıktadır", "note": "Tersi de doğrudur" },
+        { "formula": "Merkeze yakın kiriş daha uzundur", "note": "En uzun kiriş çaptır" },
+        { "formula": "Kesişen kirişler: |AE|·|EC| = |BE|·|ED|", "note": "Kuvvet bağıntısı" }
+      ],
+      "tips": [
+        "Kiriş sorusunda refleks: merkezden kirişe dik in, yarıçapı çiz — dik üçgen hazır.",
+        "Kirişin yarısını kullanmayı unutma; tamamıyla Pisagor kurmak en sık hatadır."
+      ]
+    },
+    {
+      "id": "cember-yay",
+      "title": "Yay uzunluğu ve çevre",
+      "aliases": ["Yay uzunluğu"],
+      "items": [
+        { "formula": "Çemberin çevresi = 2πr" },
+        { "formula": "Yay uzunluğu = 2πr · (α / 360)", "note": "α merkez açı, derece cinsinden" },
+        { "formula": "Yarım çember yayı = πr" },
+        { "formula": "Çeyrek çember yayı = πr / 2" },
+        { "formula": "Yay uzunluğu = r · α", "note": "α radyan cinsindeyse" }
+      ],
+      "tips": [
+        "Yay bir uzunluktur, alan değil — bölme oranı 360'a göredir ve r'nin birinci kuvveti kullanılır.",
+        "Merkez açı 60° ise yay, tüm çevrenin altıda biridir."
+      ]
+    },
+    {
+      "id": "cember-alan",
+      "title": "Daire ve daire dilimi alanı",
+      "aliases": ["Daire dilimi alanı"],
+      "items": [
+        { "formula": "Daire alanı = πr²" },
+        { "formula": "Daire dilimi alanı = πr² · (α / 360)" },
+        { "formula": "Daire dilimi alanı = (yay uzunluğu · r) / 2" },
+        { "formula": "Daire parçası (segment) = dilim alanı − üçgen alanı", "note": "Kirişin kestiği bölge" },
+        { "formula": "Halka alanı = π(R² − r²)" }
+      ],
+      "tips": [
+        "Alanda r kare, yayda r birinci kuvvette — bu ayrımı karıştırma.",
+        "Taralı alan sorularında \"dilim − üçgen\" ya da \"kare − çeyrek daire\" kalıplarını ara."
+      ]
+    },
+    {
+      "id": "cember-kirisler-dortgeni",
+      "title": "Kirişler dörtgeni",
+      "aliases": ["Kirişler dörtgeni"],
+      "items": [
+        { "formula": "Karşılıklı açılar bütünlerdir: A + C = 180°", "note": "Dört köşesi de çember üzerinde olan dörtgen" },
+        { "formula": "B + D = 180°" },
+        { "formula": "Bir dış açı, karşısındaki iç açıya eşittir" },
+        { "formula": "Aynı kenarı gören açılar eşittir", "note": "Aynı yayı gören çevre açılar" },
+        { "formula": "Ptolemy: e·f = a·c + b·d", "note": "Köşegenlerin çarpımı = karşılıklı kenar çarpımlarının toplamı" }
+      ],
+      "tips": [
+        "Bir dörtgenin köşeleri çember üzerindeyse ilk yazacağın şey A + C = 180°'dir.",
+        "Tersi de sınavda kullanılır: karşılıklı açıları bütünler olan dörtgen çembere çizilebilir."
+      ]
+    }
+  ]
+}

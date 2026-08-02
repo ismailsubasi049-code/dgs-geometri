@@ -1,0 +1,53 @@
+{
+  "id": "acilar-temel",
+  "topicId": "acilar",
+  "topic": "Açılar",
+  "subtopicId": "acilar-temel",
+  "subtopic": "Temel açı kavramları",
+  "version": 1,
+  "questions": [
+    {
+      "id": "acilar-001",
+      "label": "Ters açılar",
+      "difficulty": 1,
+      "stem": "Şekilde iki doğru O noktasında kesişmektedir. Buna göre x kaçtır?",
+      "asks": "Karşılıklı duran iki açının ölçüsü cebirsel ifadelerle verilmiş. Bu iki ifadeyi birbirine eşitleyip x'i çözmen isteniyor — açının kaç derece olduğu değil, x'in değeri soruluyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round'><line x1='40' y1='60' x2='280' y2='140'/><line x1='40' y1='150' x2='280' y2='50'/></g><circle cx='160' cy='100' r='3.5' fill='currentColor'/><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='96' y='106' fill='#0284c7'>(3x+10)°</text><text x='228' y='102' fill='#0284c7'>(x+50)°</text><text x='170' y='120' fill='currentColor' font-size='13'>O</text></g></svg>",
+      "choices": ["20", "25", "30", "35", "40"],
+      "answer": 0,
+      "solution": "Karşılıklı (ters) açılar eşittir:\n3x + 10 = x + 50\n2x = 40 → x = 20\nKontrol: her iki açı da 3·20 + 10 = 70° olur."
+    },
+    {
+      "id": "acilar-007",
+      "label": "Doğrusal açılar ve açıortay",
+      "difficulty": 2,
+      "stem": "Şekilde A, O, B noktaları doğrusaldır. m(AOC) = 4x, m(COB) = 5x ve [OD, COB açısının açıortayıdır. Buna göre m(AOD) kaç derecedir?",
+      "asks": "İki adımlı: önce doğrusal açıdan (toplam 180°) x'i bulman, sonra açıortayın COB'yi ikiye böldüğünü kullanıp AOC ile COD'yi toplaman isteniyor. Sorulan x değil, AOD açısı.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round'><line x1='30' y1='150' x2='290' y2='150'/><line x1='160' y1='150' x2='141.7' y2='46.6'/><line x1='160' y1='150' x2='227.5' y2='69.6'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 153.1 110.6 A 40 40 0 0 1 185.7 119.4'/><path d='M 185.7 119.4 A 40 40 0 0 1 200 150'/></g><g fill='currentColor'><circle cx='160' cy='150' r='3.5'/><circle cx='141.7' cy='46.6' r='3'/><circle cx='227.5' cy='69.6' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='112' y='118' fill='#0284c7'>4x</text><text x='240' y='119' fill='#0284c7'>5x</text><text x='26' y='168' fill='currentColor' font-size='13'>A</text><text x='158' y='170' fill='currentColor' font-size='13'>O</text><text x='292' y='168' fill='currentColor' font-size='13'>B</text><text x='134' y='38' fill='currentColor' font-size='13'>C</text><text x='238' y='62' fill='currentColor' font-size='13'>D</text></g></svg>",
+      "choices": ["80", "100", "120", "130", "150"],
+      "answer": 3,
+      "solution": "A, O, B doğrusal olduğundan bu noktadaki açılar toplamı 180°'dir:\n4x + 5x = 180° → 9x = 180° → x = 20°\nBuradan m(AOC) = 4·20 = 80°, m(COB) = 5·20 = 100°.\n[OD açıortay olduğundan m(COD) = 100° / 2 = 50°.\nm(AOD) = m(AOC) + m(COD) = 80° + 50° = 130°"
+    },
+    {
+      "id": "acilar-009",
+      "label": "Tümler ve bütünler açılar",
+      "difficulty": 3,
+      "stem": "Tümlerinin 5 katı, bütünlerinin 2 katına eşit olan açı kaç derecedir?",
+      "asks": "Açının kendisi isteniyor. Açıya x deyip tümleri (90° − x) ve bütünleri (180° − x) ifadelerini yazman, sonra cümledeki eşitliği denkleme çevirmen gerekiyor.",
+      "choices": ["10", "15", "20", "25", "30"],
+      "answer": 4,
+      "solution": "Açı x olsun. Tümleri 90° − x, bütünleri 180° − x'tir.\n5(90 − x) = 2(180 − x)\n450 − 5x = 360 − 2x\n450 − 360 = 5x − 2x\n90 = 3x → x = 30°\nKontrol: tümleri 60°, beş katı 300°. Bütünleri 150°, iki katı 300° ✓"
+    },
+    {
+      "id": "acilar-006",
+      "label": "Saat açısı",
+      "difficulty": 2,
+      "stem": "Saat 2:40'ta akrep ile yelkovan arasındaki küçük açı kaç derecedir?",
+      "asks": "İki kolun da 12 yönünden kaç derece döndüğünü ayrı ayrı hesaplayıp farkını almak isteniyor. Kritik nokta: akrep 2'nin üzerinde durmuyor, 40 dakikada 3'e doğru ilerlemiş oluyor.",
+      "figure": "<svg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'><circle cx='110' cy='110' r='85' stroke='currentColor' stroke-width='2' fill='none'/><g stroke='currentColor' stroke-width='2' stroke-linecap='round'><line x1='110' y1='25' x2='110' y2='38'/><line x1='195' y1='110' x2='182' y2='110'/><line x1='110' y1='195' x2='110' y2='182'/><line x1='25' y1='110' x2='38' y2='110'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='110' y='55'>12</text><text x='166' y='115'>3</text><text x='110' y='175'>6</text><text x='54' y='115'>9</text></g><g stroke='currentColor' stroke-linecap='round' fill='none'><line x1='110' y1='110' x2='154.3' y2='102.2' stroke-width='6'/><line x1='110' y1='110' x2='49.4' y2='145' stroke-width='3'/></g><path d='M 141.5 104.4 A 32 32 0 0 1 82.3 126' stroke='#0284c7' stroke-width='2' fill='none' stroke-dasharray='4 3'/><circle cx='110' cy='110' r='4.5' fill='currentColor'/><text x='128' y='162' font-family='system-ui, sans-serif' font-size='16' fill='#0284c7' text-anchor='middle'>?</text></svg>",
+      "choices": ["140", "150", "160", "170", "180"],
+      "answer": 2,
+      "solution": "Yelkovan bir dakikada 6°, akrep bir dakikada 0,5° döner.\nYelkovan: 40 × 6° = 240°\nAkrep: 2 × 30° + 40 × 0,5° = 60° + 20° = 80°\nFark: 240° − 80° = 160°\n160° < 180° olduğundan aranan küçük açı 160°'dir.\nDikkat: akrebin 20°'lik ilerlemesi hesaba katılmazsa yanlışlıkla 240 − 60 = 180° bulunur."
+    }
+  ]
+}

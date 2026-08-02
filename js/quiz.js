@@ -32,6 +32,13 @@ export const MODES = {
     showSolution: true,
     countsForDaily: false,
   },
+  altkonu: {
+    key: 'altkonu',
+    title: 'Alt konu çalışması',
+    timed: false,
+    showSolution: true,
+    countsForDaily: false,
+  },
 };
 
 /** Sonuc ekrani, biten oturumu buradan okur. */

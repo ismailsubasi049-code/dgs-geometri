@@ -1,0 +1,19 @@
+{
+  "id": "ucgen-esitsizlik",
+  "topicId": "ucgenler",
+  "topic": "Üçgenler",
+  "subtopicId": "ucgen-esitsizlik",
+  "subtopic": "Üçgen eşitsizliği",
+  "version": 1,
+  "questions": [
+    {
+      "id": "ucgen-008",
+      "difficulty": 3,
+      "stem": "Bir üçgenin iki kenarının uzunlukları 7 cm ve 11 cm'dir. Üçüncü kenarın uzunluğu tam sayı olduğuna göre kaç farklı değer alabilir?",
+      "asks": "Üçüncü kenarın kendisi değil, kaç farklı tam sayı değeri alabileceği isteniyor. Önce üçgen eşitsizliğiyle alt ve üst sınırı bulup aradaki tam sayıları saymalısın. Sınır değerlerin üçgen oluşturmadığına dikkat et.",
+      "choices": ["9", "10", "11", "12", "13"],
+      "answer": 4,
+      "solution": "Üçgen eşitsizliği: bir kenar, diğer ikisinin farkından büyük ve toplamından küçüktür.\n|11 − 7| < x < 11 + 7\n4 < x < 18\nEşitsizlik kesin olduğundan 4 ve 18 dahil değildir.\nx tam sayı: 5, 6, 7, ..., 17\nDeğer sayısı = 17 − 5 + 1 = 13"
+    }
+  ]
+}

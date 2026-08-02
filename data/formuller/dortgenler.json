@@ -1,0 +1,125 @@
+{
+  "topicId": "dortgenler",
+  "title": "Dörtgenler",
+  "cards": [
+    {
+      "id": "dortgen-acilar",
+      "title": "Dörtgende açılar ve açıortaylar",
+      "aliases": ["Dörtgende açıortaylar"],
+      "items": [
+        { "formula": "İç açılar toplamı = 360°" },
+        { "formula": "Dış açılar toplamı = 360°" },
+        { "formula": "n kenarlı çokgende iç açılar toplamı = (n − 2)·180°" },
+        { "formula": "İki iç açıortay arasındaki açı = (diğer iki açının toplamı) / 2", "note": "A ve B'den çıkan açıortaylar arası = (C + D) / 2" },
+        { "formula": "Köşegen dörtgeni iki üçgene ayırır", "note": "360° = 2 × 180° buradan gelir" }
+      ],
+      "tips": [
+        "Açıortay sorusunda açıortayların çıkmadığı iki köşeyi topla, yarısını al.",
+        "Dörtgeni köşegenle iki üçgene bölmek çoğu açı sorusunu üçgen sorusuna çevirir."
+      ]
+    },
+    {
+      "id": "dortgen-paralelkenar",
+      "title": "Paralelkenar",
+      "aliases": ["Paralelkenarda açılar", "Paralelkenarda kenarlar", "Paralelkenarda alan"],
+      "items": [
+        { "formula": "Karşılıklı kenarlar hem paralel hem eşittir" },
+        { "formula": "Karşılıklı açılar eşittir" },
+        { "formula": "Ardışık (komşu) açılar bütünlerdir: A + B = 180°" },
+        { "formula": "Köşegenler birbirini ortalar", "note": "Ama eşit değildirler" },
+        { "formula": "Alan = taban · yükseklik" },
+        { "formula": "Alan = a·b·sin θ", "note": "İki komşu kenar ve aralarındaki açı" },
+        { "formula": "Köşegen paralelkenarı iki eş üçgene ayırır", "note": "Her biri alanın yarısı" },
+        { "formula": "İki köşegen 4 eşit alanlı üçgen oluşturur" }
+      ],
+      "tips": [
+        "Yükseklik, tabanın kendisine değil doğrultusuna dik olan uzaklıktır — yan kenar yükseklik değildir.",
+        "Bir açısı verildiyse diğer üçü otomatik belli: eşit ve bütünler kurallarıyla."
+      ]
+    },
+    {
+      "id": "dortgen-dikdortgen",
+      "title": "Dikdörtgen",
+      "aliases": ["Dikdörtgende köşegen"],
+      "items": [
+        { "formula": "Tüm açılar 90°'dir" },
+        { "formula": "Köşegenler eşit uzunluktadır ve birbirini ortalar" },
+        { "formula": "Köşegen = √(a² + b²)", "note": "Pisagor'un doğrudan uygulaması" },
+        { "formula": "Alan = a · b" },
+        { "formula": "Çevre = 2(a + b)" },
+        { "formula": "İçindeki bir P noktası için: |PA|² + |PC|² = |PB|² + |PD|²", "note": "Karşılıklı köşelere uzaklıkların kareleri toplamı eşittir" }
+      ],
+      "tips": [
+        "Dikdörtgen bir paralelkenardır — paralelkenarın tüm özellikleri burada da geçerli.",
+        "Köşegen sorularında 3-4-5 ve 5-12-13 üçlüleri sık çıkar."
+      ]
+    },
+    {
+      "id": "dortgen-kare",
+      "title": "Kare",
+      "aliases": ["Karede köşegen ve alan"],
+      "items": [
+        { "formula": "Köşegen = a√2" },
+        { "formula": "Alan = a²" },
+        { "formula": "Alan = köşegen² / 2", "note": "Köşegen verildiğinde en hızlı yol" },
+        { "formula": "Çevre = 4a" },
+        { "formula": "Köşegenler eşit, birbirini dik ortalar", "note": "Karede hem dikdörtgen hem eşkenar dörtgen özellikleri var" },
+        { "formula": "Köşegenler açıları 45°'ye böler" }
+      ],
+      "tips": [
+        "Köşegen 6√2 ise kenar 6'dır — √2'yi sadeleştirmeyi unutma.",
+        "Kare, köşegeniyle iki tane 45-45-90 üçgenine ayrılır."
+      ]
+    },
+    {
+      "id": "dortgen-eskenar",
+      "title": "Eşkenar dörtgen",
+      "aliases": ["Eşkenar dörtgen"],
+      "items": [
+        { "formula": "Dört kenar da eşittir" },
+        { "formula": "Köşegenler birbirini dik ortalar", "note": "Eşit değildirler ama dik kesişirler" },
+        { "formula": "Alan = (e · f) / 2", "note": "e ve f köşegen uzunlukları" },
+        { "formula": "Alan = a · h", "note": "Kenar × o kenara ait yükseklik" },
+        { "formula": "Köşegenler açıortaydır", "note": "Her köşedeki açıyı ikiye böler" },
+        { "formula": "(e/2)² + (f/2)² = a²", "note": "Köşegen yarıları ile kenar bir dik üçgen oluşturur" }
+      ],
+      "tips": [
+        "Köşegenler dik kesiştiği için içeride dört tane eş dik üçgen oluşur — Pisagor hemen kurulur.",
+        "Eşkenar dörtgen de bir paralelkenardır; komşu açıları bütünlerdir."
+      ]
+    },
+    {
+      "id": "dortgen-yamuk",
+      "title": "Yamuk",
+      "aliases": ["Yamukta alan", "Yamukta orta taban"],
+      "items": [
+        { "formula": "Alan = (a + c) · h / 2", "note": "a ve c paralel kenarlar (tabanlar), h aralarındaki dik uzaklık" },
+        { "formula": "Orta taban = (a + c) / 2", "note": "Yan kenarların orta noktalarını birleştiren parça" },
+        { "formula": "Alan = orta taban · h" },
+        { "formula": "Köşegenlerin kesiştiği noktadan: yan üçgenlerin alanları eşittir" },
+        { "formula": "İkizkenar yamukta taban açıları eşit, köşegenler eşittir" },
+        { "formula": "Köşegenlerin orta noktalarını birleştiren parça = |a − c| / 2" }
+      ],
+      "tips": [
+        "Yükseklik her zaman iki paralel kenar arasındaki dik uzaklıktır; eğik yan kenar değil.",
+        "Orta taban verildiyse alanı bulmak için sadece yüksekliğe ihtiyacın var."
+      ]
+    },
+    {
+      "id": "dortgen-deltoid",
+      "title": "Deltoid",
+      "aliases": ["Deltoid"],
+      "items": [
+        { "formula": "İki çift komşu kenar kendi içinde eşittir", "note": "|AB| = |AD| ve |CB| = |CD|" },
+        { "formula": "Köşegenler birbirine diktir" },
+        { "formula": "Alan = (e · f) / 2", "note": "Köşegenler dik olduğu için eşkenar dörtgenle aynı formül" },
+        { "formula": "Simetri köşegeni diğerini ortalar", "note": "Ama kendisi ortalanmaz" },
+        { "formula": "Eşit olmayan kenarların birleştiği köşelerdeki açılar eşittir", "note": "m(B) = m(D)" }
+      ],
+      "tips": [
+        "Deltoidde köşegenlerden yalnızca biri simetri eksenidir — hangisi olduğunu şekilden belirle.",
+        "Köşegenler dik kesiştiği için alan formülü eşkenar dörtgenle aynıdır."
+      ]
+    }
+  ]
+}

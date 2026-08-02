@@ -1,0 +1,20 @@
+{
+  "id": "ucgen-thales",
+  "topicId": "ucgenler",
+  "topic": "Üçgenler",
+  "subtopicId": "ucgen-thales",
+  "subtopic": "Temel orantı (Thales)",
+  "version": 1,
+  "questions": [
+    {
+      "id": "ucgen-006",
+      "difficulty": 2,
+      "stem": "ABC üçgeninde [DE] ∥ [BC]'dir. |AD| = 4 cm, |DB| = 6 cm ve |AE| = 6 cm olduğuna göre |EC| kaç cm'dir?",
+      "asks": "[EC] parçası isteniyor. Paralellik nedeniyle iki kenarın parçaları aynı oranda bölünür; kurmanız gereken orantı AD/DB = AE/EC şeklindedir. Dikkat: AD/AB = AE/AC de kurulabilir ama o zaman AB = 10 kullanılmalı.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='160,30 50,180 280,180' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><line x1='116' y1='90' x2='208' y2='90' stroke='#0284c7' stroke-width='2'/><g fill='currentColor'><circle cx='116' cy='90' r='3'/><circle cx='208' cy='90' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='126' y='58' fill='currentColor' text-anchor='end'>4</text><text x='70' y='133' fill='currentColor' text-anchor='end'>6</text><text x='196' y='58' fill='currentColor' text-anchor='start'>6</text><text x='256' y='133' fill='#0284c7' text-anchor='start'>x</text><text x='160' y='22' fill='currentColor' font-size='13' text-anchor='middle'>A</text><text x='42' y='196' fill='currentColor' font-size='13' text-anchor='middle'>B</text><text x='288' y='196' fill='currentColor' font-size='13' text-anchor='middle'>C</text><text x='104' y='88' fill='currentColor' font-size='13' text-anchor='middle'>D</text><text x='220' y='88' fill='currentColor' font-size='13' text-anchor='middle'>E</text></g></svg>",
+      "choices": ["3", "4", "6", "9", "12"],
+      "answer": 3,
+      "solution": "[DE] ∥ [BC] olduğundan ADE üçgeni ile ABC üçgeni benzerdir ve kenarlar aynı oranda bölünür:\n|AD| / |DB| = |AE| / |EC|\n4 / 6 = 6 / |EC|\n4 · |EC| = 36\n|EC| = 9 cm"
+    }
+  ]
+}

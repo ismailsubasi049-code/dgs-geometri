@@ -2,6 +2,9 @@
 //
 // Genisleme noktasi: data/index.json. Yeni bir paket eklemek icin data/packs/ altina JSON
 // koymak ve index.json'a bir kayit satiri yazmak yeterli - bu dosya dahil hicbir kod degismez.
+//
+// Bir paket ya bir konunun tamami (duz konu) ya da bir alt konudur. Alt konu paketinde
+// index.json kaydinda subtopicId/subtopic alanlari bulunur; duz konuda bulunmaz.
 
 const INDEX_URL = './data/index.json';
 const DATA_ROOT = './data/';
@@ -21,7 +24,9 @@ export function loadIndex() {
   if (!indexPromise) {
     indexPromise = fetchJson(INDEX_URL).then((data) => {
       const packs = Array.isArray(data.packs) ? data.packs : [];
-      return { schemaVersion: data.schemaVersion || 1, packs };
+      // topics dizisi konu sirasini ve kararli konu id'sini verir; yoksa paketlerden turetilir.
+      const topics = Array.isArray(data.topics) ? data.topics : [];
+      return { schemaVersion: data.schemaVersion || 1, topics, packs };
     }).catch((error) => {
       indexPromise = null; // sonraki denemede tekrar sansi olsun
       throw error;
@@ -60,6 +65,10 @@ export function loadPack(entry) {
         ...q,
         packId: id,
         topic: q.topic || entry.topic || entry.title,
+        topicId: q.topicId || entry.topicId || null,
+        // Alt konu paketinde her sorunun alt konusu paketten devralinir.
+        subtopicId: q.subtopicId || entry.subtopicId || null,
+        subtopic: q.subtopic || entry.subtopic || null,
       }));
       for (const question of questions) questionsById.set(question.id, question);
       return questions;
@@ -96,20 +105,51 @@ export async function loadQuestionsFromPacks(packIds) {
   return lists.flat();
 }
 
-/** Konu basina paket ve soru sayisi - konu secim ekrani bunu kullanir. */
+/**
+ * Konu basina paket, alt konu ve soru sayisi - konu secim ekrani bunu kullanir.
+ * Donen her kayit: { topicId, topic, packIds, count, subtopics[] }
+ * subtopics bos ise o konu duzdur (alt konusu yoktur).
+ */
 export async function listTopics() {
-  const { packs } = await loadIndex();
-  const byTopic = new Map();
+  const { topics, packs } = await loadIndex();
+  const byId = new Map();
 
-  for (const pack of packs) {
-    const topic = pack.topic || pack.title;
-    if (!byTopic.has(topic)) byTopic.set(topic, { topic, packIds: [], count: 0 });
-    const entry = byTopic.get(topic);
-    entry.packIds.push(pack.id);
-    entry.count += pack.count || 0;
+  // Once index.json'daki sirayi kur, sonra paketleri ilgili konuya dagit.
+  for (const topic of topics) {
+    byId.set(topic.id, {
+      topicId: topic.id,
+      topic: topic.title,
+      packIds: [],
+      count: 0,
+      subtopics: [],
+    });
   }
 
-  return [...byTopic.values()];
+  for (const pack of packs) {
+    const title = pack.topic || pack.title;
+    // topicId yoksa (eski sema) gorunen ad kimlik yerine gecer.
+    const id = pack.topicId || title;
+    if (!byId.has(id)) {
+      byId.set(id, { topicId: id, topic: title, packIds: [], count: 0, subtopics: [] });
+    }
+
+    const entry = byId.get(id);
+    const count = pack.count || 0;
+    entry.packIds.push(pack.id);
+    entry.count += count;
+
+    if (pack.subtopicId) {
+      entry.subtopics.push({
+        subtopicId: pack.subtopicId,
+        subtopic: pack.subtopic || pack.title,
+        packId: pack.id,
+        count,
+      });
+    }
+  }
+
+  // topics'te yazili ama paketi olmayan konu listede gorunmesin.
+  return [...byId.values()].filter((entry) => entry.packIds.length > 0);
 }
 
 /** Yuklenmis sorulardan id ile arama. Once ilgili paketin yuklenmis olmasi gerekir. */

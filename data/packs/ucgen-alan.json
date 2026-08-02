@@ -1,0 +1,20 @@
+{
+  "id": "ucgen-alan",
+  "topicId": "ucgenler",
+  "topic": "Üçgenler",
+  "subtopicId": "ucgen-alan",
+  "subtopic": "Kenarortay ve alan",
+  "version": 1,
+  "questions": [
+    {
+      "id": "ucgen-009",
+      "difficulty": 3,
+      "stem": "Alanı 60 cm² olan ABC üçgeninde [AD] kenarortaydır. E, [AD] parçasının orta noktası olduğuna göre boyalı ABE üçgeninin alanı kaç cm²'dir?",
+      "asks": "Boyalı küçük üçgenin alanı isteniyor. Tek kural yeterli: bir kenarortay üçgenin alanını iki eşit parçaya böler. Bu kuralı iki kez, sırayla uygulaman gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='160,30 45,175 160,102.5' fill='#0284c7' fill-opacity='0.18'/><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='160,30 45,175 275,175'/><line x1='160' y1='30' x2='160' y2='175'/><line x1='45' y1='175' x2='160' y2='102.5'/></g><g stroke='currentColor' stroke-width='1.5'><line x1='102.5' y1='169' x2='102.5' y2='181'/><line x1='217.5' y1='169' x2='217.5' y2='181'/><line x1='154' y1='63' x2='166' y2='63'/><line x1='154' y1='69' x2='166' y2='69'/><line x1='154' y1='135.5' x2='166' y2='135.5'/><line x1='154' y1='141.5' x2='166' y2='141.5'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='160' y='22'>A</text><text x='37' y='191'>B</text><text x='283' y='191'>C</text><text x='160' y='191'>D</text><text x='174' y='100'>E</text></g></svg>",
+      "choices": ["15", "20", "24", "30", "40"],
+      "answer": 0,
+      "solution": "Kenarortay, üçgeni alanları eşit iki üçgene ayırır.\n[AD] kenarortay olduğundan:\nAlan(ABD) = Alan(ACD) = 60 / 2 = 30 cm²\nE, [AD]'nin orta noktası olduğundan [BE], ABD üçgeninin kenarortayıdır:\nAlan(ABE) = Alan(BED) = 30 / 2 = 15 cm²"
+    }
+  ]
+}

@@ -10,10 +10,13 @@ Derleme adımı yok — saf HTML + CSS + ES modules. Dosyaları statik olarak su
 | Günlük 10 soru | Tekrar zamanı gelenler önce; aynı gün hep aynı set gelir. Bitirince seri artar. |
 | Sadece yanlışlarım | Son denemesi yanlış olan sorular. Üst üste 2 doğru cevaplanınca listeden düşer. |
 | Süreli mini test | 10 soru, geri sayımlı. Çözümler sonuç ekranında topluca. |
-| Konu seçip çöz | Konuya göre filtreli, süresiz, çözüm anında görünür. |
+| Konu seçip çöz | Konu → alt konu, süresiz, çözüm anında görünür. |
 
 Her soruda şıklar, **"Soru ne istiyor?"** satırı açılana kadar pasiftir. Bu davranış
 İstatistik ve ayarlar → *Şıkları hemen aç* ile kapatılabilir.
+
+Ayrıca ana ekranda bir **Formüller** bölümü var: konu başına formül kartları. Aynı kart,
+o konuda yanlış cevap verdiğinde çözümün hemen altında da çıkar.
 
 ## Localde çalıştırma
 
@@ -38,31 +41,42 @@ Service worker cache-first çalışır, yani değiştirdiğin dosya eski haliyle
 
 Kodda hiçbir yeri değiştirmen gerekmez.
 
+Bir paket ya bir **alt konudur** (Üçgenler → Pisagor bağıntısı) ya da bir konunun **tamamıdır**.
+Farkı yalnızca `data/index.json` kaydındaki `subtopicId`/`subtopic` alanlarının varlığı belirler:
+varsa konu ekranı ara bir alt konu listesi açar, yoksa doğrudan oturuma girer.
+
 1. `data/packs/` altına yeni bir JSON koy.
-2. `data/index.json` içindeki `packs` dizisine bir kayıt ekle:
+2. Konu yeniyse `data/index.json` içindeki `topics` dizisine bir satır ekle.
+3. Aynı dosyadaki `packs` dizisine bir kayıt ekle:
 
 ```json
 {
-  "id": "geo-katicisimler",
-  "title": "Katı Cisimler",
-  "topic": "Katı Cisimler",
-  "file": "packs/geo-katicisimler.json",
-  "count": 10,
+  "id": "ucgen-pisagor",
+  "topicId": "ucgenler",
+  "topic": "Üçgenler",
+  "subtopicId": "ucgen-pisagor",
+  "subtopic": "Pisagor bağıntısı",
+  "title": "Pisagor bağıntısı",
+  "file": "packs/ucgen-pisagor.json",
+  "count": 6,
   "version": 1
 }
 ```
 
-3. `sw.js` içindeki `VERSION`'ı artır ki paket cache'e alınsın.
+Düz (alt konusuz) bir konu için `subtopicId` ve `subtopic` alanlarını hiç yazma.
 
-Konu listesi, günlük havuz ve konu seçim ekranı bu dosyadan türer.
+4. `sw.js` içindeki `VERSION`'ı artır ki paket cache'e alınsın.
+
+Konu listesi, alt konu listesi, günlük havuz ve mini testin konulara yayılması bu dosyadan türer.
+`topicId` kararlı kimliktir (rotalarda ve formül dosyalarında kullanılır); `topic` ise ekranda
+görünen addır.
 
 ### Soru şeması
 
 ```json
 {
   "id": "acilar-003",
-  "topic": "Açılar",
-  "subtopic": "Paralel doğrular ve kesen",
+  "label": "Paralel doğrular arasında kırık doğru",
   "difficulty": 2,
   "stem": "Şekilde d₁ ∥ d₂ ...",
   "asks": "x açısının ölçüsü isteniyor; ...",
@@ -73,11 +87,43 @@ Konu listesi, günlük havuz ve konu seçim ekranı bu dosyadan türer.
 }
 ```
 
+- `topic`, `topicId`, `subtopic` ve `subtopicId` sorunun kendisinde yazılmaz — paket kaydından
+  devralınır. İstersen soru düzeyinde yazıp paketi ezebilirsin.
+- `label` isteğe bağlıdır: alt konu paketi içindeki sorunun kendi başlığı. Alt konu adının
+  yanında ince yazıyla görünür.
 - `asks` zorunludur — "Soru ne istiyor?" satırının kaynağıdır. Cevabı vermez, soruyu tercüme eder.
 - `answer`, `choices` içindeki indekstir (0 = A).
 - `figure` isteğe bağlıdır. SVG metni beyaz listeden geçirilir: `script`, `on*` nitelikleri ve
   dış kaynak referansları atılır. Çizgiler için `currentColor` kullan.
 - Bozuk bir soru sessizce atlanır ve konsola uyarı düşer; paketin geri kalanı çalışmaya devam eder.
+- Soru `id`'si ilerlemenin anahtarıdır. Bir soruyu başka pakete taşımak ilerlemeyi bozmaz,
+  ama `id`'sini değiştirmek o sorunun geçmişini sıfırlar.
+
+## Formül kartları
+
+Kartlar `data/formuller/` altında, konu başına bir dosyada durur. Yeni bir set eklemek için
+dosyayı koy, `data/formuller/index.json` içindeki `sets` dizisine bir satır yaz, `VERSION`'ı artır.
+
+```json
+{
+  "id": "ucgen-pisagor",
+  "subtopicId": "ucgen-pisagor",
+  "title": "Pisagor bağıntısı",
+  "aliases": ["Pisagor bağıntısı"],
+  "items": [
+    { "formula": "a² + b² = c²", "note": "c hipotenüs — dik açının karşısındaki kenar" }
+  ],
+  "tips": ["Önce dik açının hangi köşede olduğunu bul."]
+}
+```
+
+Bir kart soruya iki yoldan bağlanır:
+
+1. **`subtopicId`** — alt konu paketleri için birebir eşleşme.
+2. **`aliases`** — düz konularda sorunun `subtopic` ya da `label` metniyle eşleşir.
+
+Kart bulunamazsa hiçbir şey gösterilmez; soru yine normal çalışır. Formüller düz metindir
+(`²`, `√`, `·`, `°` gibi Unicode karakterler) — MathJax/KaTeX gibi bir bağımlılık yoktur.
 
 ## İlerleme ve yedekleme
 
@@ -123,11 +169,14 @@ sw.js                   service worker (VERSION sabitini güncellemeyi unutma)
 css/app.css
 js/
   app.js                hash router, service worker kaydı
-  packs.js store.js scheduler.js quiz.js svg.js ui.js
-  screens/              home, session, result, topics, stats
+  packs.js formulas.js store.js scheduler.js quiz.js svg.js ui.js
+  screens/              home, session, result, topics, formulas, stats
 data/
-  index.json            paket kaydı — genişleme noktası
-  packs/                soru paketleri
+  index.json            konu ve paket kaydı — genişleme noktası
+  packs/                soru paketleri (alt konu ya da tam konu)
+  formuller/
+    index.json          formül seti kaydı
+    *.json              konu başına formül kartları
 icons/                  make-icons.ps1 ile üretilir
 tools/
   serve.ps1             bağımlılıksız local sunucu
