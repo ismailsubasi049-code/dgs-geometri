@@ -181,7 +181,7 @@ sw.js                   service worker (VERSION sabitini güncellemeyi unutma)
 css/app.css
 js/
   app.js                hash router, service worker kaydı
-  packs.js formulas.js store.js scheduler.js quiz.js svg.js ui.js
+  packs.js formulas.js store.js scheduler.js quiz.js svg.js scratchpad.js ui.js
   screens/              home, session, result, topics, formulas, stats
 data/
   index.json            konu ve paket kaydı — genişleme noktası

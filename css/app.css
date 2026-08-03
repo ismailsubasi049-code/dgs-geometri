@@ -285,6 +285,70 @@ button { font: inherit; color: inherit; }
   margin-bottom: 4px;
 }
 
+/* karalama alani: varsayilan kapali, akisi kesmeyen tek satirlik dugme */
+
+.scratch { display: grid; gap: 8px; }
+
+/* "Soru ne istiyor?" ile yarismamasi icin bilerek sonuk bir dugme. */
+.scratch-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-height: var(--tap);
+  padding: 8px 14px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.scratch-toggle:active { background: var(--surface); }
+
+.scratch-caret {
+  color: var(--muted);
+  transition: transform 0.15s ease;
+}
+
+.scratch-toggle[aria-expanded='true'] { color: var(--text); }
+.scratch-toggle[aria-expanded='true'] .scratch-caret { transform: rotate(180deg); }
+
+.scratch-panel:not([hidden]) { display: grid; gap: 8px; }
+
+/* Tuval, sekil kutusuyla ayni kagit gorunumunu kullanir. */
+.scratch-canvas {
+  display: block; /* satir ici eleman taban cizgisi boslugunu keser */
+  width: 100%;
+  height: 180px;
+  border-radius: var(--radius);
+  background: #f8fafc;
+  /* Cizerken sayfa kaymasin / pinch zoom devreye girmesin. */
+  touch-action: none;
+  overscroll-behavior: contain;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.scratch-tools { display: flex; justify-content: flex-end; }
+
+.scratch-clear {
+  min-height: 40px;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.scratch-clear:active { background: var(--surface-2); }
+
 /* zor bloga gecis bildirimi: akisi kesmeyen, kapatilabilir tek satir */
 
 .block-notice {

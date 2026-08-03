@@ -12,6 +12,7 @@ import {
   difficultyOf,
 } from '../scheduler.js';
 import { loadAllCards, getCardFor } from '../formulas.js';
+import { createScratchpad } from '../scratchpad.js';
 import { getSettings } from '../store.js';
 
 /** Rota parametresinden soru listesini ve baslik bilgisini uretir. */
@@ -133,6 +134,11 @@ export async function render(ctx) {
 
   root.append(counter, progressBar, body);
 
+  // Karalama alani. Tek ornek: acik/kapali durumu oturum boyunca korunur,
+  // showQuestion her soruda sadece icini temizler.
+  const scratch = createScratchpad({ open: false });
+  ctx.onLeave(scratch.destroy);
+
   /** Test modunda secim, "Sonraki"ye basilana kadar degistirilebilir. */
   let pendingPick = null;
   let shownAt = 0;
@@ -208,6 +214,10 @@ export async function render(ctx) {
 
     // soru metni
     body.append(el('div', { class: 'stem' }, question.stem));
+
+    // karalama alani: clear(body) node'u sadece DOM'dan soker, nesne yasar.
+    scratch.reset();
+    body.append(scratch.node);
 
     // ---------- "soru ne istiyor?" kapisi ----------
 
