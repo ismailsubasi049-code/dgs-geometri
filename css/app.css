@@ -285,6 +285,42 @@ button { font: inherit; color: inherit; }
   margin-bottom: 4px;
 }
 
+/* zor bloga gecis bildirimi: akisi kesmeyen, kapatilabilir tek satir */
+
+.block-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border: 1px solid var(--warn);
+  border-left-width: 4px;
+  border-radius: var(--radius);
+  background: rgba(251, 191, 36, 0.09);
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.block-notice strong { color: var(--warn); }
+
+/* Gorsel olarak kucuk ama dokunma alani genis: kutuyu buyutmemek icin negatif margin. */
+.block-notice-close {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: -8px -8px -8px 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.block-notice-close:active { color: var(--text); }
+
 /* siklar */
 
 .choices { display: flex; flex-direction: column; gap: 10px; }

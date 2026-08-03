@@ -12,6 +12,16 @@ Derleme adımı yok — saf HTML + CSS + ES modules. Dosyaları statik olarak su
 | Süreli mini test | 10 soru, geri sayımlı. Çözümler sonuç ekranında topluca. |
 | Konu seçip çöz | Konu → alt konu, süresiz, çözüm anında görünür. |
 
+### Soru sırası
+
+Öğrenme modlarında (günlük rutin, konu ve alt konu çalışması) sıra şudur: önce Leitner
+kutusunda **tekrar zamanı gelmiş** sorular, ardından geri kalanlar `difficulty` alanına göre
+**kolay → orta → zor**. Bloğun içindeki sıra rastgeledir, yani kademe korunur ama soru sırası
+ezberlenmez. Zor bloğa geçerken bir kez, kapatılabilir bir hatırlatma satırı çıkar.
+
+**Süreli mini test bunun dışındadır**: sınav koşulunu taklit etmesi için sorular karışık gelir.
+"Sadece yanlışlarım" da değişmez; orada en eski görülen soru başta gelir.
+
 Her soruda şıklar, **"Soru ne istiyor?"** satırı açılana kadar pasiftir. Bu davranış
 İstatistik ve ayarlar → *Şıkları hemen aç* ile kapatılabilir.
 
@@ -91,6 +101,8 @@ görünen addır.
   devralınır. İstersen soru düzeyinde yazıp paketi ezebilirsin.
 - `label` isteğe bağlıdır: alt konu paketi içindeki sorunun kendi başlığı. Alt konu adının
   yanında ince yazıyla görünür.
+- `difficulty` isteğe bağlıdır ama sıralamayı belirler: `1` kolay, `2` orta, `3` zor. Yazılmazsa
+  soru **orta** sayılır. Öğrenme modları bu alana göre kolaydan zora dizilir (bkz. *Soru sırası*).
 - `asks` zorunludur — "Soru ne istiyor?" satırının kaynağıdır. Cevabı vermez, soruyu tercüme eder.
 - `answer`, `choices` içindeki indekstir (0 = A).
 - `figure` isteğe bağlıdır. SVG metni beyaz listeden geçirilir: `script`, `on*` nitelikleri ve

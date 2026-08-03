@@ -1,4 +1,6 @@
 // Hangi soru ne zaman gelecek? Dort modun soru listesini bu dosya kurar.
+// Ogrenme modlarinda sira: once vadesi gelen tekrarlar, sonra kolay -> orta -> zor.
+// Sureli mini test bunun disindadir, orada sorular karisik gelir.
 
 import { loadAllQuestions, listTopics } from './packs.js';
 import * as store from './store.js';
@@ -12,6 +14,41 @@ function dueOrder(a, b, today) {
   const overdueB = daysBetween(sb.due, today);
   if (overdueA !== overdueB) return overdueB - overdueA;
   return sa.box - sb.box;
+}
+
+/** Zorluk blogu: 1 kolay, 2 orta, 3 zor. Alan yoksa ya da bozuksa orta sayilir. */
+export function difficultyOf(question) {
+  const value = Number(question.difficulty);
+  if (!Number.isFinite(value)) return 2;
+  return Math.min(3, Math.max(1, Math.round(value)));
+}
+
+/**
+ * Kolay -> orta -> zor bloklari. Blogun *icindeki* sira rastgele kalir;
+ * boylece kademe korunur ama soru sirasi ezberlenmez.
+ */
+function orderByDifficulty(questions, rand = Math.random) {
+  const buckets = [[], [], []];
+  for (const question of questions) buckets[difficultyOf(question) - 1].push(question);
+  return buckets.flatMap((bucket) => shuffle(bucket, rand));
+}
+
+/**
+ * Ogrenme modlarinin sirasi: once Leitner'da tekrar zamani gelmis sorular,
+ * ardindan geri kalanlar kolaydan zora. Sureli test bunu kullanmaz.
+ */
+function orderForLearning(questions, { today = dayKey(), rand = Math.random } = {}) {
+  const due = [];
+  const rest = [];
+  for (const question of questions) {
+    if (store.isDue(question.id, today)) due.push(question);
+    else rest.push(question);
+  }
+
+  // Vadesi gelen tekrar, zorluk kademesinin onunde gelir.
+  due.sort((a, b) => dueOrder(a, b, today));
+
+  return [...due, ...orderByDifficulty(rest, rand)];
 }
 
 /**
@@ -34,7 +71,9 @@ export async function buildDaily() {
   const rand = seededRandom(hashSeed(today));
 
   const due = all.filter((q) => store.isDue(q.id, today)).sort((a, b) => dueOrder(a, b, today));
-  const unseen = shuffle(all.filter((q) => store.getStat(q.id).seen === 0), rand);
+  // Yeni sorular kolaydan zora; blok icinde tarih tohumlu rastgelelik.
+  const unseen = orderByDifficulty(all.filter((q) => store.getStat(q.id).seen === 0), rand);
+  // Gorulmus ama vadesi gelmemisler yalnizca hedefi doldurur; burada zayif kutu once gelsin.
   const rest = shuffle(
     all.filter((q) => store.getStat(q.id).seen > 0 && !store.isDue(q.id, today)),
     rand
@@ -64,7 +103,10 @@ export async function buildWrongQueue() {
     });
 }
 
-/** Sureli mini test: her seferinde farkli, konulara yayilmis 10 soru. */
+/**
+ * Sureli mini test: her seferinde farkli, konulara yayilmis 10 soru.
+ * Bilerek zorluk siralamasi YOK - sinav kosulunu taklit etmesi icin karisik gelir.
+ */
 export async function buildTest(count = 10) {
   const all = await loadAllQuestions();
 
@@ -92,13 +134,13 @@ export async function buildTest(count = 10) {
 /** Konu secip serbest cozme. */
 export async function buildTopicSet(topic) {
   const all = await loadAllQuestions();
-  return shuffle(all.filter((q) => q.topic === topic));
+  return orderForLearning(all.filter((q) => q.topic === topic));
 }
 
 /** Tek bir alt konuya odaklanma. */
 export async function buildSubtopicSet(subtopicId) {
   const all = await loadAllQuestions();
-  return shuffle(all.filter((q) => q.subtopicId === subtopicId));
+  return orderForLearning(all.filter((q) => q.subtopicId === subtopicId));
 }
 
 /** Ana ekranin ihtiyac duydugu sayilar. */

@@ -3,7 +3,14 @@
 import { el, clear, fmtTime, emptyState, formulaCard, CHOICE_LETTERS } from '../ui.js';
 import { parseFigure } from '../svg.js';
 import { createSession, MODES } from '../quiz.js';
-import { buildDaily, buildWrongQueue, buildTest, buildTopicSet, buildSubtopicSet } from '../scheduler.js';
+import {
+  buildDaily,
+  buildWrongQueue,
+  buildTest,
+  buildTopicSet,
+  buildSubtopicSet,
+  difficultyOf,
+} from '../scheduler.js';
 import { loadAllCards, getCardFor } from '../formulas.js';
 import { getSettings } from '../store.js';
 
@@ -131,6 +138,27 @@ export async function render(ctx) {
   let shownAt = 0;
   let hintMs = null;
 
+  /** Zor bloga gecis bildirimi: oturum basina bir kez. */
+  let lastBlock = null;
+  let hardNoticeShown = false;
+
+  /** Kapatilabilir tek satirlik bilgi; akisi kesmez, sadece basa eklenir. */
+  function hardBlockNotice() {
+    const box = el('div', { class: 'block-notice' },
+      el('div', null,
+        el('strong', null, 'Zor sorulara geçtin.'),
+        ' Buradan sonrası daha çok adım istiyor; takılmak normal — "Soru ne istiyor?"a bakmaktan çekinme.'
+      ),
+      el('button', {
+        class: 'block-notice-close',
+        type: 'button',
+        'aria-label': 'Bildirimi kapat',
+        on: { click: () => box.remove() },
+      }, '×')
+    );
+    return box;
+  }
+
   function finishSession({ timedOut = false } = {}) {
     stopTimer();
     // Testte sik isaretlenmis ama "Sonraki"ye basilmadan sure dolduysa o cevap da sayilir.
@@ -153,6 +181,14 @@ export async function render(ctx) {
     progressFill.style.width = `${((number - 1) / session.questions.length) * 100}%`;
 
     clear(body);
+
+    // Zor bloga yeni girildiyse bir kez hatirlatma. Sureli testte hic gosterilmez.
+    const block = difficultyOf(question);
+    if (!session.config.timed && block === 3 && lastBlock !== 3 && !hardNoticeShown) {
+      hardNoticeShown = true;
+      body.append(hardBlockNotice());
+    }
+    lastBlock = block;
 
     // konu / alt konu satiri
     body.append(
