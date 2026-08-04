@@ -1,6 +1,6 @@
 // Soru ekrani. Dort modun da kullandigi tek ekran; farki mod yapilandirmasi belirler.
 
-import { el, clear, fmtTime, emptyState, formulaCard, CHOICE_LETTERS } from '../ui.js';
+import { el, clear, fmtTime, fmtDay, emptyState, formulaCard, CHOICE_LETTERS } from '../ui.js';
 import { parseFigure } from '../svg.js';
 import { createSession, MODES } from '../quiz.js';
 import {
@@ -11,12 +11,31 @@ import {
   buildSubtopicSet,
   difficultyOf,
 } from '../scheduler.js';
+import { loadAllQuestions } from '../packs.js';
 import { loadAllCards, getCardFor } from '../formulas.js';
 import { createScratchpad } from '../scratchpad.js';
-import { getSettings } from '../store.js';
+import { getSettings, getSavedSession, saveSession, clearSession } from '../store.js';
+
+/**
+ * Ogrenme havuzu bos ama alt konuda soru varsa: hepsi pekismis demektir.
+ * Tekrar gunu gosterilir, isteyene filtresiz tur icin bir cikis birakilir.
+ */
+function masteredState(label, nextDue, allHash) {
+  const when = fmtDay(nextDue);
+  return {
+    empty: emptyState(
+      '✅',
+      `${label} tamamlandı`,
+      when
+        ? `Buradaki soruların hepsini doğru çözdün. Tekrar zamanı ${when} geldiğinde kendiliğinden geri gelecekler.`
+        : 'Buradaki soruların hepsini doğru çözdün.'
+    ),
+    allHash,
+  };
+}
 
 /** Rota parametresinden soru listesini ve baslik bilgisini uretir. */
-async function buildFor(mode, params) {
+async function buildFor(mode, params, includeAll) {
   switch (mode) {
     case 'gunluk': {
       const { questions } = await buildDaily();
@@ -48,24 +67,86 @@ async function buildFor(mode, params) {
     }
     case 'altkonu': {
       const subtopicId = params[0] || '';
-      const questions = await buildSubtopicSet(subtopicId);
+      const { questions, total, nextDue, label } = await buildSubtopicSet(subtopicId, { includeAll });
+      const title = label || 'Alt konu';
+      if (total > 0 && questions.length === 0) {
+        return {
+          questions,
+          title,
+          ...masteredState(title, nextDue, `#/oturum/altkonu/${encodeURIComponent(subtopicId)}/tumu`),
+        };
+      }
       return {
         questions,
-        title: questions.length > 0 ? questions[0].subtopic : 'Alt konu',
+        title,
         empty: emptyState('📭', 'Bu alt konuda soru yok', 'Alt konu paketi henüz boş olabilir.'),
       };
     }
     case 'konu':
     default: {
       const topic = params[0] || '';
-      const questions = await buildTopicSet(topic);
+      const { questions, total, nextDue } = await buildTopicSet(topic, { includeAll });
+      const title = topic || 'Serbest çözme';
+      if (total > 0 && questions.length === 0) {
+        return {
+          questions,
+          title,
+          ...masteredState(title, nextDue, `#/oturum/konu/${encodeURIComponent(topic)}/tumu`),
+        };
+      }
       return {
         questions,
-        title: topic || 'Serbest çözme',
+        title,
         empty: emptyState('📭', 'Bu konuda soru yok', `"${topic}" konusuna ait soru bulunamadı.`),
       };
     }
   }
+}
+
+/**
+ * Yarim kalan oturumun saklama anahtari. Gunluk rutin (state.daily ile takip edilir),
+ * yanlislar (havuzu her seferinde yeniden hesaplanir) ve sureli test kaydedilmez.
+ * "Yine de bastan coz" turu da gecicidir, normal ilerlemeyi golgelemez.
+ */
+function resumeKeyFor(mode, params, includeAll) {
+  if (includeAll) return null;
+  if (mode === 'altkonu') return `altkonu:${params[0] || ''}`;
+  if (mode === 'konu') return `konu:${params[0] || ''}`;
+  return null;
+}
+
+/**
+ * Kaydedilmis oturumu tekrar sorulara baglar. Paket guncellenip kaybolan sorular
+ * hem listeden hem cevaplardan duser, kalinan yer buna gore kayar.
+ * Devam edilecek bir sey kalmadiysa null doner ve taze havuz kurulur.
+ */
+async function restoreSession(key) {
+  const saved = getSavedSession(key);
+  if (!saved) return null;
+
+  const byId = new Map((await loadAllQuestions()).map((q) => [q.id, q]));
+  const questions = [];
+  const answers = [];
+  let index = null;
+
+  for (let i = 0; i < saved.ids.length; i++) {
+    const question = byId.get(saved.ids[i]);
+    if (!question) continue; // paketten kalkmis soru
+    if (index === null && i >= saved.index) index = questions.length;
+    questions.push(question);
+    answers.push(saved.answers[i] || null);
+  }
+
+  // Kalinan noktanin gerisinde soru kalmadiysa oturum fiilen bitmistir.
+  if (questions.length === 0 || index === null) return null;
+
+  // Cevaplanip "Sonraki"ye basilmadan cikilmissa bir sonraki soruyla ac.
+  if (answers[index]) {
+    if (index >= questions.length - 1) return null;
+    index += 1;
+  }
+
+  return { questions, answers, index };
 }
 
 export async function render(ctx) {
@@ -73,7 +154,21 @@ export async function render(ctx) {
   const rest = ctx.params.slice(1);
   const settings = getSettings();
 
-  const { questions, title, empty } = await buildFor(mode, rest);
+  // "#/oturum/altkonu/<id>/tumu": pekismis sorular dahil filtresiz tur.
+  const includeAll = rest[1] === 'tumu';
+  const resumeKey = resumeKeyFor(mode, rest, includeAll);
+  const resumed = resumeKey ? await restoreSession(resumeKey) : null;
+
+  const built = resumed
+    ? {
+        questions: resumed.questions,
+        title: mode === 'altkonu'
+          ? (resumed.questions[0].subtopic || 'Alt konu')
+          : (rest[0] || 'Serbest çözme'),
+        empty: null,
+      }
+    : await buildFor(mode, rest, includeAll);
+  const { questions, title, empty, allHash = null } = built;
   ctx.setTitle(title);
 
   // Formul kartlari pesin yuklenir; boylece yanlis cevaptan sonra kart senkron eklenebilir.
@@ -85,7 +180,12 @@ export async function render(ctx) {
   if (questions.length === 0) {
     return el('div', { class: 'stack' },
       empty,
-      el('button', { class: 'btn primary', on: { click: () => ctx.navigate('#/') } }, 'Ana ekrana dön')
+      allHash
+        ? el('button', { class: 'btn primary', on: { click: () => ctx.navigate(allHash) } },
+            'Yine de baştan çöz')
+        : null,
+      el('button', { class: allHash ? 'btn' : 'btn primary', on: { click: () => ctx.goHome() } },
+        'Ana ekrana dön')
     );
   }
 
@@ -95,6 +195,20 @@ export async function render(ctx) {
     title,
     totalSeconds: settings.testMinutes * 60,
   });
+
+  if (resumed) {
+    session.index = resumed.index;
+    session.answers = resumed.answers;
+  }
+
+  /** Kalinan yeri diske yazar. Kaydedilmeyen modlarda sessizce gecer. */
+  function persist() {
+    if (!resumeKey || session.finished) return;
+    // Hic cevap verilmediyse devam edilecek bir sey yok; eski kayit varsa da temizlensin,
+    // yoksa dokunulmamis bir liste yeni vadesi gelen sorulari sonsuza kadar disarida tutar.
+    if (session.answers.every((answer) => answer === null)) clearSession(resumeKey);
+    else saveSession(resumeKey, session.snapshot());
+  }
 
   // ---------- sure ----------
 
@@ -123,6 +237,8 @@ export async function render(ctx) {
   }
 
   ctx.onLeave(stopTimer);
+  // Ekrandan cikarken (ust bar geri, donanim geri, baska bir rota) kalinan yer saklanir.
+  ctx.onLeave(persist);
 
   // ---------- ekran ----------
 
@@ -132,7 +248,26 @@ export async function render(ctx) {
   const counter = el('div', { class: 'small muted' });
   const body = el('div', { class: 'stack' });
 
-  root.append(counter, progressBar, body);
+  // Devam ettirilen oturumda listeyi bosaltip bastan kurmak icin kucuk bir cikis.
+  const restartLink = resumed
+    ? el('button', {
+        class: 'linklike',
+        type: 'button',
+        on: {
+          click: () => {
+            clearSession(resumeKey);
+            session.finished = true; // onLeave tekrar kaydetmesin
+            ctx.navigate(location.hash); // ayni hash: gecmise dokunmadan yeniden kurar
+          },
+        },
+      }, 'baştan başla')
+    : null;
+
+  root.append(
+    el('div', { class: 'session-head' }, counter, restartLink),
+    progressBar,
+    body
+  );
 
   // Karalama alani. Tek ornek: acik/kapali durumu oturum boyunca korunur,
   // showQuestion her soruda sadece icini temizler.
@@ -144,8 +279,12 @@ export async function render(ctx) {
   let shownAt = 0;
   let hintMs = null;
 
-  /** Zor bloga gecis bildirimi: oturum basina bir kez. */
-  let lastBlock = null;
+  /**
+   * Zor bloga gecis bildirimi: oturum basina bir kez ve sadece gercek bir gecis olunca.
+   * Devam ettirilen oturumda onceki sorunun zorlugundan baslar, yoksa null kalir;
+   * boylece ilk soru zor geldiginde (vadesi gelen bir tekrar olabilir) bildirim cikmaz.
+   */
+  let lastBlock = resumed && session.index > 0 ? difficultyOf(questions[session.index - 1]) : null;
   let hardNoticeShown = false;
 
   /** Kapatilabilir tek satirlik bilgi; akisi kesmez, sadece basa eklenir. */
@@ -172,7 +311,9 @@ export async function render(ctx) {
       session.submit(pendingPick, { hintMs, elapsedMs: Date.now() - shownAt });
     }
     session.finish({ timedOut });
-    ctx.navigate('#/sonuc');
+    if (resumeKey) clearSession(resumeKey);
+    // Biten oturum gecmiste kalmasin: sonuc ekranindan geri, oturuma degil listeye insin.
+    ctx.navigate('#/sonuc', { replace: true });
   }
 
   function showQuestion() {
@@ -190,7 +331,7 @@ export async function render(ctx) {
 
     // Zor bloga yeni girildiyse bir kez hatirlatma. Sureli testte hic gosterilmez.
     const block = difficultyOf(question);
-    if (!session.config.timed && block === 3 && lastBlock !== 3 && !hardNoticeShown) {
+    if (!session.config.timed && block === 3 && lastBlock !== null && lastBlock < 3 && !hardNoticeShown) {
       hardNoticeShown = true;
       body.append(hardBlockNotice());
     }
@@ -272,6 +413,7 @@ export async function render(ctx) {
         elapsedMs: Date.now() - shownAt,
       });
       if (!record) return;
+      persist();
       lockAllChoices();
 
       if (session.config.showSolution) {
@@ -322,6 +464,7 @@ export async function render(ctx) {
       if (isLast) finishSession();
       else {
         session.next();
+        persist();
         showQuestion();
         window.scrollTo(0, 0);
       }

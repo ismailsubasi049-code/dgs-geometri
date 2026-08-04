@@ -17,6 +17,8 @@ function defaultState() {
     schema: 1,
     questions: {},
     daily: {},
+    /** Yarim kalan ogrenme oturumlari: "altkonu:<id>" -> { ids, index, answers, savedAt } */
+    sessions: {},
     streak: { current: 0, best: 0, lastDay: null },
     settings: { dailyCount: 10, testMinutes: 12, instantChoices: false },
   };
@@ -55,6 +57,7 @@ function load() {
         settings: { ...base.settings, ...(parsed.settings || {}) },
         questions: parsed.questions || {},
         daily: parsed.daily || {},
+        sessions: parsed.sessions || {},
       };
     } else {
       state = defaultState();
@@ -183,6 +186,36 @@ export function completeDay(day = dayKey()) {
   return { ...streak };
 }
 
+// ---------- yarim kalan oturumlar ----------
+
+/**
+ * Alt konu / konu calismasinda kalinan yer. Anahtar: "altkonu:<subtopicId>".
+ * Sureli test ve gunluk rutin burada tutulmaz; onlarin kendi akisi var.
+ */
+export function getSavedSession(key) {
+  const record = load().sessions[key];
+  if (!record || !Array.isArray(record.ids) || record.ids.length === 0) return null;
+  return {
+    ids: record.ids,
+    index: Number.isInteger(record.index) ? record.index : 0,
+    answers: Array.isArray(record.answers) ? record.answers : [],
+    savedAt: record.savedAt || null,
+  };
+}
+
+export function saveSession(key, { ids, index, answers }) {
+  const store = load();
+  store.sessions[key] = { ids, index, answers, savedAt: Date.now() };
+  save();
+}
+
+export function clearSession(key) {
+  const store = load();
+  if (!(key in store.sessions)) return;
+  delete store.sessions[key];
+  save();
+}
+
 export function getStreak() {
   const streak = { ...load().streak };
   // Dun de bugun de calisilmadiysa seri fiilen kirilmistir; gosterirken bunu yansit.
@@ -223,6 +256,7 @@ export function importJson(text) {
     settings: { ...base.settings, ...(parsed.settings || {}) },
     questions: parsed.questions || {},
     daily: parsed.daily || {},
+    sessions: parsed.sessions || {},
   };
   storageWorks = true;
   save();

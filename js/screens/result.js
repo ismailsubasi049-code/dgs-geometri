@@ -70,7 +70,7 @@ export async function render(ctx) {
     ctx.setTitle('Sonuç');
     return el('div', { class: 'stack' },
       emptyState('🤔', 'Gösterilecek sonuç yok', 'Bir oturum tamamlandığında sonucu burada görürsün.'),
-      el('button', { class: 'btn primary', on: { click: () => ctx.navigate('#/') } }, 'Ana ekrana dön')
+      el('button', { class: 'btn primary', on: { click: () => ctx.goHome() } }, 'Ana ekrana dön')
     );
   }
 
@@ -137,7 +137,7 @@ export async function render(ctx) {
   }
 
   actions.append(
-    el('button', { class: 'btn', on: { click: () => ctx.navigate('#/') } }, 'Ana ekrana dön')
+    el('button', { class: 'btn', on: { click: () => ctx.goHome() } }, 'Ana ekrana dön')
   );
 
   root.append(actions);

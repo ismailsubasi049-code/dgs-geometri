@@ -3,15 +3,17 @@
 
 import { el, emptyState } from '../ui.js';
 import { listTopics, loadAllQuestions } from '../packs.js';
-import { getStat } from '../store.js';
+import { getStat, MAX_BOX } from '../store.js';
+import { isActive } from '../scheduler.js';
 
-/** Bir soru listesinin ilerleme ozeti. */
+/** Bir soru listesinin ilerleme ozeti. remaining: su an havuza girecek soru sayisi. */
 function progressOf(questions) {
-  const entry = { total: questions.length, seen: 0, mastered: 0 };
+  const entry = { total: questions.length, seen: 0, mastered: 0, remaining: 0 };
   for (const question of questions) {
     const stat = getStat(question.id);
     if (stat.seen > 0) entry.seen += 1;
-    if (stat.box >= 5) entry.mastered += 1;
+    if (stat.box >= MAX_BOX) entry.mastered += 1;
+    if (isActive(question)) entry.remaining += 1;
   }
   entry.percent = entry.total > 0 ? Math.round((entry.mastered / entry.total) * 100) : 0;
   return entry;
@@ -45,7 +47,7 @@ function renderTopicList(ctx, topics, byTopicId) {
 
     const parts = [];
     if (hasSubtopics) parts.push(`${topic.subtopics.length} alt konu`);
-    parts.push(`${progress.total} soru`, `${progress.mastered} pekişti`);
+    parts.push(`${progress.total} soru`, `${progress.remaining} çalışılacak`);
 
     list.append(progressRow({
       title: topic.topic,
@@ -79,7 +81,7 @@ function renderSubtopicList(ctx, topic, questions) {
   // Once "tamami" satiri: alt konu ayrimi yapmadan konunun tumunu cozmek icin.
   list.append(progressRow({
     title: 'Tüm konu',
-    sub: `${whole.total} soru karışık · ${whole.mastered} pekişti`,
+    sub: `${whole.total} soru karışık · ${whole.remaining} çalışılacak`,
     progress: whole,
     disabled: whole.total === 0,
     onClick: () => ctx.navigate(`#/oturum/konu/${encodeURIComponent(topic.topic)}`),
@@ -91,7 +93,9 @@ function renderSubtopicList(ctx, topic, questions) {
 
     list.append(progressRow({
       title: subtopic,
-      sub: `${progress.total} soru · ${progress.seen} denendi · ${progress.mastered} pekişti`,
+      sub: progress.remaining > 0
+        ? `${progress.remaining} çalışılacak · ${progress.total} soru · ${progress.mastered} pekişti`
+        : `Tamamlandı · ${progress.total} soru · ${progress.mastered} pekişti`,
       progress,
       disabled: progress.total === 0,
       onClick: () => ctx.navigate(`#/oturum/altkonu/${encodeURIComponent(subtopicId)}`),
@@ -129,7 +133,7 @@ export async function render(ctx) {
   if (topics.length === 0) {
     return el('div', { class: 'stack' },
       emptyState('📭', 'Konu bulunamadı', 'Yüklü bir soru paketi yok.'),
-      el('button', { class: 'btn primary', on: { click: () => ctx.navigate('#/') } }, 'Ana ekrana dön')
+      el('button', { class: 'btn primary', on: { click: () => ctx.goHome() } }, 'Ana ekrana dön')
     );
   }
 

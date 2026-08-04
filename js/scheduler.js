@@ -1,5 +1,6 @@
 // Hangi soru ne zaman gelecek? Dort modun soru listesini bu dosya kurar.
 // Ogrenme modlarinda sira: once vadesi gelen tekrarlar, sonra kolay -> orta -> zor.
+// Dogru cozulmus sorular Leitner vadesi gelene kadar havuza girmez.
 // Sureli mini test bunun disindadir, orada sorular karisik gelir.
 
 import { loadAllQuestions, listTopics } from './packs.js';
@@ -34,13 +35,36 @@ function orderByDifficulty(questions, rand = Math.random) {
 }
 
 /**
+ * Havuzda kalmayi hak eden soru: ya hic denenmemis ya da Leitner vadesi gelmis.
+ * Dogru cozulup vadesi ileri atilmis soru, o gun gelene kadar disarida kalir.
+ * Yanlis cevap box'i 1'e ve vadeyi bugune cektigi icin yanlislar burada kalir.
+ */
+export function isActive(question, today = dayKey()) {
+  return store.getStat(question.id).seen === 0 || store.isDue(question.id, today);
+}
+
+/** Bir listedeki en yakin tekrar gunu; hicbiri planlanmamissa null. */
+export function nextDueDay(questions) {
+  let earliest = null;
+  for (const question of questions) {
+    const { due } = store.getStat(question.id);
+    if (!due) continue;
+    if (earliest === null || due < earliest) earliest = due;
+  }
+  return earliest;
+}
+
+/**
  * Ogrenme modlarinin sirasi: once Leitner'da tekrar zamani gelmis sorular,
  * ardindan geri kalanlar kolaydan zora. Sureli test bunu kullanmaz.
+ * includeAll, "yine de bastan coz" yolu icin filtreyi devre disi birakir.
  */
-function orderForLearning(questions, { today = dayKey(), rand = Math.random } = {}) {
+function orderForLearning(questions, { today = dayKey(), rand = Math.random, includeAll = false } = {}) {
+  const pool = includeAll ? questions : questions.filter((q) => isActive(q, today));
+
   const due = [];
   const rest = [];
-  for (const question of questions) {
+  for (const question of pool) {
     if (store.isDue(question.id, today)) due.push(question);
     else rest.push(question);
   }
@@ -131,16 +155,30 @@ export async function buildTest(count = 10) {
   return shuffle(picked);
 }
 
+/**
+ * Ogrenme havuzunu ve ekranin bos durumu ayirt etmesi icin gereken sayilari dondurur.
+ * total: filtre oncesi soru sayisi, nextDue: hepsi pekismisse bir sonraki tekrar gunu.
+ */
+function learningSet(own, includeAll, label) {
+  return {
+    questions: orderForLearning(own, { includeAll }),
+    total: own.length,
+    nextDue: nextDueDay(own),
+    label,
+  };
+}
+
 /** Konu secip serbest cozme. */
-export async function buildTopicSet(topic) {
+export async function buildTopicSet(topic, { includeAll = false } = {}) {
   const all = await loadAllQuestions();
-  return orderForLearning(all.filter((q) => q.topic === topic));
+  return learningSet(all.filter((q) => q.topic === topic), includeAll, topic);
 }
 
 /** Tek bir alt konuya odaklanma. */
-export async function buildSubtopicSet(subtopicId) {
+export async function buildSubtopicSet(subtopicId, { includeAll = false } = {}) {
   const all = await loadAllQuestions();
-  return orderForLearning(all.filter((q) => q.subtopicId === subtopicId));
+  const own = all.filter((q) => q.subtopicId === subtopicId);
+  return learningSet(own, includeAll, own.length > 0 ? own[0].subtopic : null);
 }
 
 /** Ana ekranin ihtiyac duydugu sayilar. */

@@ -201,6 +201,28 @@ button { font: inherit; color: inherit; }
 .hero .row { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
 .hero .big { font-size: 1.5rem; font-weight: 700; }
 
+/* soru sayaci ve "bastan basla" ayni satirda, iki uca yaslanir */
+.session-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Akisi bolmeyen ikincil eylem: buton gibi degil, bag gibi durur. */
+.linklike {
+  flex: none;
+  border: 0;
+  background: none;
+  padding: 6px 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.linklike:active { color: var(--text); }
+
 .progressbar {
   height: 8px;
   border-radius: 999px;

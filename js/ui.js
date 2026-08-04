@@ -68,6 +68,19 @@ export function daysBetween(a, b) {
   return Math.round((db - da) / 86400000);
 }
 
+const MONTHS = ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran',
+  'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'];
+
+/** dayKey'i okunur hale getirir: bugun / yarin / "12 Ağustos". */
+export function fmtDay(key) {
+  if (!key) return null;
+  const diff = daysBetween(dayKey(), key);
+  if (diff <= 0) return 'bugün';
+  if (diff === 1) return 'yarın';
+  const [, month, day] = key.split('-').map(Number);
+  return `${day} ${MONTHS[month - 1]}`;
+}
+
 /** Tohumlanabilir rastgele sayi uretici (mulberry32) - ayni gun ayni sirayi verir. */
 export function seededRandom(seed) {
   let a = seed >>> 0;

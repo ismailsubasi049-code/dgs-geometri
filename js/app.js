@@ -1,4 +1,8 @@
 // Baslangic: hash router, ust bar yonetimi, service worker kaydi.
+//
+// Gezinme kurali: ileri gitmek gecmise kayit ekler (push), geri gitmek kayit tuketir (pop).
+// Her kaydin derinligi history.state.dgsDepth'te durur; acilista derinlik 0 daima ana ekrandir,
+// boylece ana ekranda donanim geri tusu uygulamadan cikar.
 
 import { clear, el } from './ui.js';
 
@@ -17,11 +21,15 @@ const SCREENS = {
   stats: () => import('./screens/stats.js'),
 };
 
-/** Bir onceki ekranin birakmasi gereken kaynaklar (zamanlayici vb.). */
-let leaveCurrentScreen = null;
+/** Bir onceki ekranin birakmasi gereken kaynaklar (zamanlayici vb.). Hepsi calistirilir. */
+let leaveHooks = [];
 
-/** Ust bardaki geri butonunun gidecegi yer; her render'da yeniden hesaplanir. */
+/** Derin baglantiyla acilista geri butonunun gidecegi yer; her render'da hesaplanir. */
 let backHash = '#/';
+
+/** Gecmis yigininda kacinci kayittayiz. 0 = ana ekran. */
+let depth = 0;
+let booted = false;
 
 /** Hash'i yol parcalarina ayirir: "#/oturum/konu/Açılar" -> ['oturum','konu','Açılar'] */
 function parseHash() {
@@ -50,9 +58,39 @@ function backTargetFor(route) {
   return '#/';
 }
 
-export function navigate(hash) {
-  if (location.hash === hash) render();
-  else location.hash = hash;
+/**
+ * Mevcut kaydin derinligini belirler. Geri/ileri ile gelindiyse damga zaten vardir;
+ * yeni bir push ise (location.hash atamasi state birakmaz) derinlik bir artar.
+ */
+function stampDepth() {
+  const state = history.state;
+  if (state && typeof state.dgsDepth === 'number') {
+    depth = state.dgsDepth;
+    return;
+  }
+  depth = booted ? depth + 1 : 0;
+  history.replaceState({ ...(state || {}), dgsDepth: depth }, '');
+}
+
+/**
+ * replace: true ise gecmise yeni kayit eklemez, mevcut kaydin uzerine yazar.
+ * replaceState hashchange tetiklemedigi icin render elle cagrilir.
+ */
+export function navigate(hash, { replace = false } = {}) {
+  if (location.hash === hash) {
+    render();
+  } else if (replace) {
+    history.replaceState({ dgsDepth: depth }, '', hash);
+    render();
+  } else {
+    location.hash = hash; // push -> hashchange -> render
+  }
+}
+
+/** Ana ekrana doner ve arkasinda hicbir kayit birakmaz. */
+export function goHome() {
+  if (depth > 0) history.go(-depth);
+  else navigate('#/', { replace: true });
 }
 
 /** Ekranlarin ust bari ve gezinmeyi kontrol etmesi icin verilen baglam. */
@@ -60,6 +98,7 @@ function makeContext(params) {
   return {
     params,
     navigate,
+    goHome,
     setTitle(text) {
       titleNode.textContent = text;
       document.title = text === 'DGS Geometri' ? text : `${text} · DGS Geometri`;
@@ -68,9 +107,9 @@ function makeContext(params) {
       rightNode.textContent = text;
       rightNode.classList.toggle('urgent', Boolean(urgent));
     },
-    /** Ekrandan cikilirken cagrilacak temizlik islevi. */
+    /** Ekrandan cikilirken cagrilacak temizlik islevi; birden fazla kez cagrilabilir. */
     onLeave(fn) {
-      leaveCurrentScreen = fn;
+      leaveHooks.push(fn);
     },
   };
 }
@@ -80,10 +119,13 @@ let renderToken = 0;
 async function render() {
   const token = ++renderToken;
 
-  if (leaveCurrentScreen) {
-    try { leaveCurrentScreen(); } catch { /* temizlik hatasi gezinmeyi engellemesin */ }
-    leaveCurrentScreen = null;
+  const hooks = leaveHooks;
+  leaveHooks = [];
+  for (const hook of hooks) {
+    try { hook(); } catch { /* temizlik hatasi gezinmeyi engellemesin */ }
   }
+
+  stampDepth();
 
   const parts = parseHash();
   const route = resolve(parts);
@@ -115,18 +157,35 @@ async function render() {
         el('div', { class: 'small' }, String(error && error.message ? error.message : error))
       ),
       el('div', { style: 'height:12px' }),
-      el('button', { class: 'btn', on: { click: () => navigate('#/') } }, 'Ana ekrana dön')
+      el('button', { class: 'btn', on: { click: goHome } }, 'Ana ekrana dön')
     );
   }
 }
 
 backBtn.addEventListener('click', () => {
-  // history.back() oturum ortasinda soruya geri atabiliyor; sabit hedef daha ongorulebilir.
-  navigate(backHash);
+  // Geri gitmek kayit tuketir; boylece yigin buyumez ve donanim geri tusu ayni sirayi izler.
+  // Derin baglantiyla acilis disinda depth her zaman > 0'dir.
+  if (depth > 0) history.back();
+  else navigate(backHash, { replace: true });
 });
 
 window.addEventListener('hashchange', render);
-render();
+
+// Acilis. Sayfa yenilendiyse gecmis yigini ve damgalar yerinde durur, onlara guvenilir.
+// Ilk girişte derinlik 0 ana ekrana sabitlenir; derin baglantiyla gelindiyse istenen ekran
+// ana ekranin ustune push edilir, boylece geri once ana ekrana iner.
+if (history.state && typeof history.state.dgsDepth === 'number') {
+  booted = true;
+  render();
+} else {
+  const initialHash = location.hash;
+  // Yol ve sorgu korunur; yalnizca hash ana ekrana cekilir.
+  history.replaceState({ dgsDepth: 0 }, '', `${location.pathname}${location.search}#/`);
+  booted = true;
+
+  if (initialHash && initialHash !== '#/' && initialHash !== '#') location.hash = initialHash;
+  else render();
+}
 
 // ---------- service worker ----------
 

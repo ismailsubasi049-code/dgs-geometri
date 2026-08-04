@@ -71,7 +71,7 @@ export async function render(ctx) {
   if (sets.length === 0) {
     return el('div', { class: 'stack' },
       emptyState('📭', 'Formül kartı bulunamadı', 'data/formuller/index.json boş görünüyor.'),
-      el('button', { class: 'btn primary', on: { click: () => ctx.navigate('#/') } }, 'Ana ekrana dön')
+      el('button', { class: 'btn primary', on: { click: () => ctx.goHome() } }, 'Ana ekrana dön')
     );
   }
 

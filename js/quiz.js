@@ -116,6 +116,15 @@ export function createSession({ mode, questions, title = null, totalSeconds = nu
       }
     },
 
+    /** Kaldigi yeri diske yazmak icin sadelestirilmis hal. */
+    snapshot() {
+      return {
+        ids: this.questions.map((q) => q.id),
+        index: this.index,
+        answers: this.answers,
+      };
+    },
+
     hasNext() {
       return this.index < this.questions.length - 1;
     },
