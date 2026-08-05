@@ -123,11 +123,19 @@ dosyayı koy, `data/formuller/index.json` içindeki `sets` dizisine bir satır y
   "title": "Pisagor bağıntısı",
   "aliases": ["Pisagor bağıntısı"],
   "items": [
-    { "formula": "a² + b² = c²", "note": "c hipotenüs — dik açının karşısındaki kenar" }
+    { "formula": "a² + b² = c²", "note": "c hipotenüs — dik açının karşısındaki kenar" },
+    { "formula": "Dış açı = komşu olmayan iki iç açının toplamı",
+      "figure": "<svg viewBox='0 0 320 150'>…</svg>" }
   ],
   "tips": ["Önce dik açının hangi köşede olduğunu bul."]
 }
 ```
+
+Her formül girdisi isteğe bağlı bir `figure` alabilir: soru şekilleriyle aynı biçim ve aynı beyaz
+liste (bkz. *Soru şeması*). Şekil formülün üstünde görünür; şekli olmayan formüller değişmez.
+Formüller ekranında şekil doğrudan açıktır, oturum ve sonuç ekranında ise kart uzamasın diye
+"Şekil" düğmesinin altında katlı gelir. Kartlarda şekiller `viewBox='0 0 320 150'` civarında,
+basık tutulur — dar telefonda SVG yaklaşık 270px genişliğe iner.
 
 Bir kart soruya iki yoldan bağlanır:
 

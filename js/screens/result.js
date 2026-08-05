@@ -55,7 +55,10 @@ function reviewItem(question, record, index) {
 
   // Sureli testte cozumler yalnizca burada gorunur; yanlislarda formul kartini da ver.
   if (kind === 'bad') {
-    const card = formulaCard(getCardFor(question), { label: 'Bu konunun formülleri' });
+    const card = formulaCard(getCardFor(question), {
+      label: 'Bu konunun formülleri',
+      collapseFigures: true,
+    });
     if (card) detailStack.append(card);
   }
 

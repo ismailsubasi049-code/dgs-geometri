@@ -541,6 +541,21 @@ button { font: inherit; color: inherit; }
 
 .formula-card .tips li + li { margin-top: 4px; }
 
+/* Formul girdisinin sekli - soru sekliyle ayni acik zemin, sadece daha derli toplu. */
+.formula-item .figure { margin-bottom: 8px; padding: 8px; }
+.formula-item .figure svg { max-width: 320px; } /* genis ekranda buyumesin */
+
+/* Oturum ve sonuc ekraninda sekil katlanir durur. */
+.figure-details { margin-bottom: 8px; }
+
+.figure-details > summary {
+  font-size: 0.8rem;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.figure-details[open] > summary { margin-bottom: 6px; }
+
 /* Formuller ekraninda kartlar acilir baslik icinde durur. */
 .formula-details {
   border: 1px solid var(--border);

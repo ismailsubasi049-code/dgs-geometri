@@ -1,5 +1,7 @@
 // Kucuk DOM ve bicimlendirme yardimcilari. Cerceve yok, hepsi bu kadar.
 
+import { parseFigure } from './svg.js';
+
 /**
  * el('div', { class: 'card' }, 'metin', digerEl)
  * Nitelikler: class, id, type, disabled, hidden, dataset:{...}, on:{click:fn}, html (guvenli
@@ -116,12 +118,28 @@ export function shuffle(items, rand = Math.random) {
 export const CHOICE_LETTERS = ['A', 'B', 'C', 'D', 'E'];
 
 /**
+ * Bir formul girdisinin sekli. figure alani yoksa (ya da SVG bozuksa) null doner.
+ * collapse ise sekil "Sekil" dugmesi altina katlanir - oturum ve sonuc ekraninda
+ * kart cok uzamasin diye.
+ */
+function itemFigure(item, collapse) {
+  const svg = parseFigure(item.figure, item.formula);
+  if (!svg) return null;
+
+  const box = el('div', { class: 'figure formula-figure' }, svg);
+  if (!collapse) return box;
+
+  return el('details', { class: 'figure-details' }, el('summary', null, 'Şekil'), box);
+}
+
+/**
  * Formul karti. data/formuller/ altindaki bir kart nesnesini DOM'a cevirir.
  * Yanlis cevap sonrasi, sonuc ekraninda ve Formuller ekraninda ayni bicim kullanilir.
  * label verilirse kartin ustune kucuk bir baslik satiri eklenir.
  * showTitle, basligi disarida gosteren yerlerde (acilir kart basligi) kapatilir.
+ * collapseFigures, sekilleri acilir dugme altina alir.
  */
-export function formulaCard(card, { label = null, showTitle = true } = {}) {
+export function formulaCard(card, { label = null, showTitle = true, collapseFigures = false } = {}) {
   if (!card) return null;
 
   return el('div', { class: 'formula-card' },
@@ -129,6 +147,7 @@ export function formulaCard(card, { label = null, showTitle = true } = {}) {
     showTitle ? el('div', { class: 'formula-title' }, card.title) : null,
     card.items.map((item) =>
       el('div', { class: 'formula-item' },
+        itemFigure(item, collapseFigures),
         el('div', { class: 'formula' }, item.formula),
         item.note ? el('div', { class: 'note' }, item.note) : null
       )

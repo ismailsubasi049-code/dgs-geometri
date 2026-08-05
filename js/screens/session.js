@@ -492,7 +492,10 @@ export async function render(ctx) {
       // Kart yoksa (o alt konu icin yazilmamissa) hicbir sey eklenmez.
       const card = record.correct
         ? null
-        : formulaCard(getCardFor(question), { label: 'Bu konunun formülleri' });
+        : formulaCard(getCardFor(question), {
+          label: 'Bu konunun formülleri',
+          collapseFigures: true, // soru akisinda kart uzamasin; sekil istege bagli acilir
+        });
 
       feedback.append(
         el('div', { class: `verdict ${record.correct ? 'ok' : 'bad'}` },
