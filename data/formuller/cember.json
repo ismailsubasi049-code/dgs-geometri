@@ -4,6 +4,7 @@
   "cards": [
     {
       "id": "cember-acilar",
+      "subtopicId": "cember-acilar",
       "title": "Çemberde açılar",
       "aliases": ["Merkez açı ve çevre açı", "Çapı gören çevre açı", "Teğet - kiriş açısı", "İç açı (kirişlerin kesişimi)"],
       "items": [
@@ -23,6 +24,7 @@
     },
     {
       "id": "cember-teget",
+      "subtopicId": "cember-teget",
       "title": "Teğet",
       "aliases": ["Teğet ve yarıçap", "Bir noktadan çizilen teğetler"],
       "items": [
@@ -39,6 +41,7 @@
     },
     {
       "id": "cember-kiris",
+      "subtopicId": "cember-kiris",
       "title": "Kiriş",
       "aliases": ["Kiriş ve merkeze uzaklık"],
       "items": [
@@ -55,6 +58,7 @@
     },
     {
       "id": "cember-yay",
+      "subtopicId": "cember-yay",
       "title": "Yay uzunluğu ve çevre",
       "aliases": ["Yay uzunluğu"],
       "items": [
@@ -71,6 +75,7 @@
     },
     {
       "id": "cember-alan",
+      "subtopicId": "cember-alan",
       "title": "Daire ve daire dilimi alanı",
       "aliases": ["Daire dilimi alanı"],
       "items": [
@@ -87,6 +92,7 @@
     },
     {
       "id": "cember-kirisler-dortgeni",
+      "subtopicId": "cember-kirisler-dortgeni",
       "title": "Kirişler dörtgeni",
       "aliases": ["Kirişler dörtgeni"],
       "items": [

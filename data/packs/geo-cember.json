@@ -6,6 +6,7 @@
   "questions": [
     {
       "id": "cember-001",
+      "subtopicId": "cember-acilar",
       "subtopic": "Merkez açı ve çevre açı",
       "difficulty": 1,
       "stem": "O merkezli çemberde A ve B noktaları çember üzerindedir. m(AOB) = 80° olduğuna göre, aynı yayı gören m(ACB) çevre açısı kaç derecedir?",
@@ -17,6 +18,7 @@
     },
     {
       "id": "cember-002",
+      "subtopicId": "cember-acilar",
       "subtopic": "Çapı gören çevre açı",
       "difficulty": 1,
       "stem": "O merkezli çemberde [AB] çaptır ve C noktası çember üzerindedir. Buna göre m(ACB) kaç derecedir?",
@@ -28,6 +30,7 @@
     },
     {
       "id": "cember-003",
+      "subtopicId": "cember-teget",
       "subtopic": "Teğet ve yarıçap",
       "difficulty": 2,
       "stem": "O merkezli çembere dışındaki A noktasından çizilen teğet, çembere T noktasında değmektedir. |OA| = 13 cm ve yarıçap 5 cm olduğuna göre |AT| kaç cm'dir?",
@@ -39,6 +42,7 @@
     },
     {
       "id": "cember-004",
+      "subtopicId": "cember-kiris",
       "subtopic": "Kiriş ve merkeze uzaklık",
       "difficulty": 2,
       "stem": "Yarıçapı 10 cm olan O merkezli çemberde bir kirişin uzunluğu 16 cm'dir. Buna göre merkezin bu kirişe uzaklığı kaç cm'dir?",
@@ -50,6 +54,7 @@
     },
     {
       "id": "cember-005",
+      "subtopicId": "cember-yay",
       "subtopic": "Yay uzunluğu",
       "difficulty": 2,
       "stem": "Yarıçapı 9 cm olan çemberde 80°'lik merkez açıya karşılık gelen yayın uzunluğu kaç cm'dir?",
@@ -61,6 +66,7 @@
     },
     {
       "id": "cember-006",
+      "subtopicId": "cember-alan",
       "subtopic": "Daire dilimi alanı",
       "difficulty": 2,
       "stem": "Yarıçapı 6 cm olan dairede 120°'lik merkez açıya ait daire diliminin alanı kaç cm²'dir?",
@@ -72,6 +78,7 @@
     },
     {
       "id": "cember-007",
+      "subtopicId": "cember-teget",
       "subtopic": "Bir noktadan çizilen teğetler",
       "difficulty": 2,
       "stem": "Çemberin dışındaki P noktasından çizilen teğetler çembere A ve B noktalarında değmektedir. |PA| = 3x − 4 cm ve |PB| = x + 6 cm olduğuna göre |PA| kaç cm'dir?",
@@ -83,6 +90,7 @@
     },
     {
       "id": "cember-008",
+      "subtopicId": "cember-kirisler-dortgeni",
       "subtopic": "Kirişler dörtgeni",
       "difficulty": 2,
       "stem": "Köşeleri çember üzerinde olan ABCD dörtgeninde m(C) = 95°'dir. Buna göre m(A) kaç derecedir?",
@@ -94,6 +102,7 @@
     },
     {
       "id": "cember-009",
+      "subtopicId": "cember-acilar",
       "subtopic": "Teğet - kiriş açısı",
       "difficulty": 3,
       "stem": "Çembere T noktasında teğet olan doğru ile [TA] kirişi arasındaki açı 35°'dir. Buna göre bu açının gördüğü TA yayının ölçüsü kaç derecedir?",
@@ -105,6 +114,7 @@
     },
     {
       "id": "cember-010",
+      "subtopicId": "cember-acilar",
       "subtopic": "İç açı (kirişlerin kesişimi)",
       "difficulty": 3,
       "stem": "Bir çemberde [AC] ve [BD] kirişleri çemberin içinde P noktasında kesişmektedir. AB yayı 70° ve CD yayı 50° olduğuna göre m(APB) kaç derecedir?",

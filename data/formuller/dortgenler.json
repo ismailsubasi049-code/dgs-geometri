@@ -4,6 +4,7 @@
   "cards": [
     {
       "id": "dortgen-acilar",
+      "subtopicId": "dortgen-acilar",
       "title": "Dörtgende açılar ve açıortaylar",
       "aliases": ["Dörtgende açıortaylar"],
       "items": [
@@ -20,6 +21,7 @@
     },
     {
       "id": "dortgen-paralelkenar",
+      "subtopicId": "dortgen-paralelkenar",
       "title": "Paralelkenar",
       "aliases": ["Paralelkenarda açılar", "Paralelkenarda kenarlar", "Paralelkenarda alan"],
       "items": [
@@ -39,6 +41,7 @@
     },
     {
       "id": "dortgen-dikdortgen",
+      "subtopicId": "dortgen-dikdortgen",
       "title": "Dikdörtgen",
       "aliases": ["Dikdörtgende köşegen"],
       "items": [
@@ -56,6 +59,7 @@
     },
     {
       "id": "dortgen-kare",
+      "subtopicId": "dortgen-kare",
       "title": "Kare",
       "aliases": ["Karede köşegen ve alan"],
       "items": [
@@ -73,6 +77,7 @@
     },
     {
       "id": "dortgen-eskenar",
+      "subtopicId": "dortgen-eskenar",
       "title": "Eşkenar dörtgen",
       "aliases": ["Eşkenar dörtgen"],
       "items": [
@@ -90,6 +95,7 @@
     },
     {
       "id": "dortgen-yamuk",
+      "subtopicId": "dortgen-yamuk",
       "title": "Yamuk",
       "aliases": ["Yamukta alan", "Yamukta orta taban"],
       "items": [
@@ -107,6 +113,7 @@
     },
     {
       "id": "dortgen-deltoid",
+      "subtopicId": "dortgen-deltoid",
       "title": "Deltoid",
       "aliases": ["Deltoid"],
       "items": [
@@ -119,6 +126,22 @@
       "tips": [
         "Deltoidde köşegenlerden yalnızca biri simetri eksenidir — hangisi olduğunu şekilden belirle.",
         "Köşegenler dik kesiştiği için alan formülü eşkenar dörtgenle aynıdır."
+      ]
+    },
+    {
+      "id": "dortgen-muhtesem-dortlu",
+      "subtopicId": "dortgen-muhtesem-dortlu",
+      "title": "Muhteşem dörtlü",
+      "aliases": ["Muhteşem dörtlü"],
+      "items": [
+        { "formula": "Köşegenleri dik kesişen dörtgende: a² + c² = b² + d²", "note": "Karşılıklı kenarların kareleri toplamı eşittir", "figure": "<svg viewBox='0 -4 320 154' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='150,18 62,72 150,132 258,72'/><line x1='150' y1='18' x2='150' y2='132'/><line x1='62' y1='72' x2='258' y2='72'/><polyline points='150,62 160,62 160,72'/></g><g stroke='#0284c7' stroke-width='3' fill='none' stroke-linecap='round'><line x1='150' y1='18' x2='62' y2='72'/><line x1='150' y1='132' x2='258' y2='72'/></g><circle cx='150' cy='72' r='3' fill='currentColor'/><g font-family='system-ui, sans-serif' text-anchor='middle'><text x='98' y='40' font-size='16' fill='#0284c7'>a</text><text x='212' y='112' font-size='16' fill='#0284c7'>c</text><text x='98' y='116' font-size='16' fill='currentColor'>b</text><text x='212' y='44' font-size='16' fill='currentColor'>d</text><text x='150' y='12' font-size='14' fill='currentColor'>A</text><text x='54' y='77' font-size='14' fill='currentColor' text-anchor='end'>B</text><text x='150' y='146' font-size='14' fill='currentColor'>C</text><text x='266' y='77' font-size='14' fill='currentColor' text-anchor='start'>D</text></g></svg>" },
+        { "formula": "Dört Pisagor'u toplamaktan gelir", "note": "Kesişim noktası dört tane dik üçgen oluşturur; a² + c² ile b² + d² aynı dört parçayı toplar" },
+        { "formula": "Kare, eşkenar dörtgen ve deltoid bu kuralın kapsamındadır", "note": "Üçünde de köşegenler diktir" },
+        { "formula": "Dikdörtgendeki |PA|² + |PC|² = |PB|² + |PD|² aynı kuralın özel hâlidir", "note": "P'den köşelere çizilen parçalar da dik kesişen bir dörtgen oluşturur" }
+      ],
+      "tips": [
+        "Köşegenlerin dik kesiştiğini gördüğün an bu bağıntı kurulabilir — dörtgenin özel bir çeşit olması gerekmez.",
+        "Üç kenar verilip dördüncü isteniyorsa doğrudan bu formül işini bitirir."
       ]
     }
   ]

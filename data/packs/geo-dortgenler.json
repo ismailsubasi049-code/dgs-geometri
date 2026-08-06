@@ -6,6 +6,7 @@
   "questions": [
     {
       "id": "dortgen-001",
+      "subtopicId": "dortgen-paralelkenar",
       "subtopic": "Paralelkenarda açılar",
       "difficulty": 1,
       "stem": "ABCD paralelkenarında m(A) = 2x ve m(B) = 3x'tir. Buna göre x kaçtır?",
@@ -17,6 +18,7 @@
     },
     {
       "id": "dortgen-002",
+      "subtopicId": "dortgen-paralelkenar",
       "subtopic": "Paralelkenarda kenarlar",
       "difficulty": 1,
       "stem": "ABCD paralelkenarında |AB| = 3x − 2 cm ve |CD| = x + 8 cm'dir. Buna göre |AB| kaç cm'dir?",
@@ -28,6 +30,7 @@
     },
     {
       "id": "dortgen-003",
+      "subtopicId": "dortgen-dikdortgen",
       "subtopic": "Dikdörtgende köşegen",
       "difficulty": 1,
       "stem": "Kenar uzunlukları 9 cm ve 12 cm olan bir dikdörtgenin köşegen uzunluğu kaç cm'dir?",
@@ -39,6 +42,7 @@
     },
     {
       "id": "dortgen-004",
+      "subtopicId": "dortgen-kare",
       "subtopic": "Karede köşegen ve alan",
       "difficulty": 2,
       "stem": "Köşegen uzunluğu 8√2 cm olan karenin alanı kaç cm²'dir?",
@@ -50,6 +54,7 @@
     },
     {
       "id": "dortgen-005",
+      "subtopicId": "dortgen-eskenar",
       "subtopic": "Eşkenar dörtgen",
       "difficulty": 2,
       "stem": "Köşegen uzunlukları 24 cm ve 10 cm olan eşkenar dörtgenin bir kenarı kaç cm'dir?",
@@ -61,6 +66,7 @@
     },
     {
       "id": "dortgen-006",
+      "subtopicId": "dortgen-yamuk",
       "subtopic": "Yamukta alan",
       "difficulty": 1,
       "stem": "Paralel kenarlarının uzunlukları 8 cm ve 14 cm, yüksekliği 6 cm olan yamuğun alanı kaç cm²'dir?",
@@ -72,6 +78,7 @@
     },
     {
       "id": "dortgen-007",
+      "subtopicId": "dortgen-yamuk",
       "subtopic": "Yamukta orta taban",
       "difficulty": 2,
       "stem": "Bir yamuğun orta tabanı 11 cm, kısa paralel kenarı 7 cm'dir. Buna göre uzun paralel kenarı kaç cm'dir?",
@@ -83,6 +90,7 @@
     },
     {
       "id": "dortgen-008",
+      "subtopicId": "dortgen-deltoid",
       "subtopic": "Deltoid",
       "difficulty": 2,
       "stem": "Köşegen uzunlukları 12 cm ve 9 cm olan deltoidin alanı kaç cm²'dir?",
@@ -94,6 +102,7 @@
     },
     {
       "id": "dortgen-009",
+      "subtopicId": "dortgen-paralelkenar",
       "subtopic": "Paralelkenarda alan",
       "difficulty": 3,
       "stem": "Alanı 96 cm² olan ABCD paralelkenarında E, [BC] kenarının orta noktasıdır. Buna göre boyalı ABE üçgeninin alanı kaç cm²'dir?",
@@ -105,6 +114,7 @@
     },
     {
       "id": "dortgen-010",
+      "subtopicId": "dortgen-acilar",
       "subtopic": "Dörtgende açıortaylar",
       "difficulty": 3,
       "stem": "ABCD dörtgeninde A ve B açılarının açıortayları P noktasında kesişmektedir. m(C) = 110° ve m(D) = 70° olduğuna göre m(APB) kaç derecedir?",
