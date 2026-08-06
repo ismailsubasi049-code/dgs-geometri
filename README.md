@@ -204,5 +204,5 @@ tools/
 ```
 
 `tools/serve.ps1` yalnızca geliştirme içindir; `localhost`u dinler ve sayfanın ürettiği bir
-görüntüyü `tools/.preview/preview.png` dosyasına yazan `POST /__preview` uç noktası içerir
+görüntüyü `tools/.preview/preview.png` dosyasına yazan bir `POST /__preview` uç noktası içerir
 (şekilleri gözden geçirmek için). Yayına giden statik dosyalar arasında yer almaz.
