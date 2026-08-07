@@ -149,6 +149,7 @@ Kart bulunamazsa hiçbir şey gösterilmez; soru yine normal çalışır. Formü
 
 İlerleme telefonun tarayıcısında (`localStorage`, `dgs.progress.v1`) saklanır. Tarayıcı verilerini
 temizlersen ya da telefon değiştirirsen gider — İstatistik ekranından JSON yedek al.
+Aynı ekrandaki **Yedekten geri yükle**, yedeği mevcut ilerlemeyle birleştirmez; onun yerine geçer.
 
 Tekrar takvimi hafif bir Leitner sistemidir: kutu 1-5, aralıklar 0 / 1 / 3 / 7 / 16 gün.
 Doğru cevap bir üst kutuya çıkarır, yanlış cevap 1. kutuya düşürür.
