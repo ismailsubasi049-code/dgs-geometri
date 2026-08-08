@@ -85,6 +85,17 @@
       "version": 1
     },
     {
+      "id": "ucgen-oklid",
+      "topicId": "ucgenler",
+      "topic": "Üçgenler",
+      "subtopicId": "ucgen-oklid",
+      "subtopic": "Öklid bağıntıları",
+      "title": "Öklid bağıntıları",
+      "file": "packs/ucgen-oklid.json",
+      "count": 32,
+      "version": 1
+    },
+    {
       "id": "ucgen-306090",
       "topicId": "ucgenler",
       "topic": "Üçgenler",
@@ -125,8 +136,8 @@
       "subtopic": "Benzerlik oranı ve alan",
       "title": "Benzerlik oranı ve alan",
       "file": "packs/ucgen-benzerlik.json",
-      "count": 31,
-      "version": 2
+      "count": 29,
+      "version": 3
     },
     {
       "id": "ucgen-alan",

@@ -4,7 +4,7 @@
   "topic": "Üçgenler",
   "subtopicId": "ucgen-benzerlik",
   "subtopic": "Benzerlik oranı ve alan",
-  "version": 2,
+  "version": 3,
   "questions": [
     {
       "id": "ucgen-011",
@@ -126,28 +126,6 @@
       "choices": ["5", "6", "10", "15", "20"],
       "answer": 0,
       "solution": "A açısı iki üçgende de ortaktır. Bu açıyı çevreleyen kenarların oranına bakalım:\n|AC| = 6 + 2 = 8  ve  |AB| = 4 + 8 = 12\n|AD| / |AC| = 4 / 8 = 1/2\n|AE| / |AB| = 6 / 12 = 1/2\nİki oran eşit ve aradaki açı ortak olduğundan ADE ~ ACB (K.A.K.), k = 1/2.\n|DE| / |CB| = 1/2  →  |DE| = 10 · 1/2 = 5 cm\n(Sık yapılan hata 1: verilen |BC| = 10'u doğrudan işaretlemek.\nSık yapılan hata 2: oranı ters uygulayıp 10 · 2 = 20 demek; küçük üçgen ADE'dir.)"
-    },
-    {
-      "id": "ucgen-022",
-      "label": "Öklid: yüksekliğin uzunluğu",
-      "difficulty": 2,
-      "stem": "ABC dik üçgeninde m(A) = 90° ve [AH] ⊥ [BC]'dir. |BH| = 2 cm ve |HC| = 8 cm olduğuna göre |AH| kaç cm'dir?",
-      "asks": "Hipotenüse ait yükseklik isteniyor. Yükseklik, üçgeni kendisine benzer iki küçük dik üçgene ayırır (ABH ~ CAH). Buradan çıkan bağıntı h² = |BH| · |HC|'dir — yani iki parçanın ortalaması değil, çarpımının karekökü.",
-      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='82,66 30,170 290,170'/><line x1='82' y1='66' x2='82' y2='170'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 76.6 76.7 L 87.3 82.1 L 92.7 71.4'/><path d='M 82 158 L 94 158 L 94 170'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='56' y='188' fill='currentColor' text-anchor='middle'>2</text><text x='186' y='188' fill='currentColor' text-anchor='middle'>8</text><text x='92' y='120' fill='#0284c7' text-anchor='start'>x</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='82' y='58'>A</text><text x='20' y='186'>B</text><text x='300' y='186'>C</text><text x='82' y='196'>H</text></g></svg>",
-      "choices": ["4", "5", "6", "10", "16"],
-      "answer": 0,
-      "solution": "[AH] yüksekliği ABC'yi kendisine benzer iki dik üçgene ayırır:\nABH ~ CAH  →  |BH| / |AH| = |AH| / |HC|\n|AH|² = |BH| · |HC| = 2 · 8 = 16\n|AH| = 4 cm\n(Sık yapılan hata 1: geometrik ortalama yerine aritmetik ortalama alıp (2 + 8) / 2 = 5 demek.\nSık yapılan hata 2: ara değer olan |AH|² = 16'yı ya da |BC| = 10'u işaretlemek.)"
-    },
-    {
-      "id": "ucgen-023",
-      "label": "Öklid: dik kenarın karesi",
-      "difficulty": 2,
-      "stem": "ABC dik üçgeninde m(A) = 90° ve [AH] ⊥ [BC]'dir. |BH| = 4 cm ve |BC| = 13 cm'dir. |AB| = x olduğuna göre x² kaçtır?",
-      "asks": "Dik kenarın karesi isteniyor. ABH ~ CBA benzerliğinden bir dik kenarın karesi, kendi izdüşümü ile hipotenüsün çarpımına eşittir. Dikkat: [AB]'nin izdüşümü [BH]'dir, [HC] değil.",
-      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='110,50 30,170 290,170'/><line x1='110' y1='50' x2='110' y2='170'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 103.3 60 L 113.3 66.7 L 120 56.7'/><path d='M 110 158 L 122 158 L 122 170'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='70' y='188' fill='currentColor' text-anchor='middle'>4</text><text x='62' y='110' fill='#0284c7' text-anchor='end'>x</text><text x='250' y='45' fill='currentColor' text-anchor='middle' font-size='14'>|BC| = 13</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='110' y='42'>A</text><text x='20' y='186'>B</text><text x='300' y='186'>C</text><text x='110' y='190'>H</text></g></svg>",
-      "choices": ["16", "36", "52", "117", "169"],
-      "answer": 2,
-      "solution": "[AH] yüksekliği çizildiğinde ABH ~ CBA olur (B açısı ortak, ikisi de dik üçgen):\n|AB| / |BC| = |BH| / |AB|\n|AB|² = |BH| · |BC| = 4 · 13 = 52\nx² = 52\n(Sık yapılan hata 1: |HC| = 13 − 4 = 9 bulup 9 · 13 = 117 demek; bu, [AC]'nin karesidir.\nSık yapılan hata 2: ara değer olan |AH|² = 4 · 9 = 36'yı işaretlemek.)"
     },
     {
       "id": "ucgen-024",
