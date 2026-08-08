@@ -4,6 +4,7 @@ import { el } from '../ui.js';
 import { overview } from '../scheduler.js';
 import { listFormulaSets } from '../formulas.js';
 import { isPersistent } from '../store.js';
+import { backupReminder } from '../backup.js';
 
 function modeCard({ emoji, title, sub, badge, badgeQuiet, disabled, onClick }) {
   return el('button', {
@@ -38,6 +39,10 @@ export async function render(ctx) {
     root.append(el('div', { class: 'error small' },
       'Tarayıcı depolamaya izin vermiyor — ilerlemen bu oturumdan sonra kaybolacak.'));
   }
+
+  // Haftada bir: uzun suredir yedek alinmadiysa hatirlat.
+  const reminder = backupReminder();
+  if (reminder) root.append(reminder);
 
   // ---------- gunun durumu ----------
 

@@ -1,7 +1,7 @@
 // Service worker: uygulamayi ve soru paketlerini cache'e alir, internetsiz calismayi saglar.
 //
 // Guncelleme: bu sabiti artir. Eski cache silinir, sayfada "Yeni sürüm hazır" bandi cikar.
-const VERSION = 'v11';
+const VERSION = 'v12';
 const CACHE = `dgs-${VERSION}`;
 
 // Uygulama kabugu. Paketler ve formul setleri burada yok - onlar kendi index.json'larindan
@@ -14,6 +14,7 @@ const APP_SHELL = [
   './js/app.js',
   './js/ui.js',
   './js/store.js',
+  './js/backup.js',
   './js/packs.js',
   './js/formulas.js',
   './js/scheduler.js',

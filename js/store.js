@@ -12,6 +12,14 @@ export const MAX_BOX = BOX_INTERVALS.length;
 /** Bir sorunun listeden dusmesi icin gereken ust uste dogru sayisi. */
 const CLEAR_STREAK = 2;
 
+const DAY_MS = 86400000;
+
+/** Son yedekten bu kadar gun gecince hatirlatma cikar. */
+const BACKUP_REMIND_DAYS = 7;
+
+/** "Sonra" denince hatirlatmanin susacagi sure. */
+const BACKUP_SNOOZE_DAYS = 3;
+
 function defaultState() {
   return {
     schema: 1,
@@ -21,6 +29,10 @@ function defaultState() {
     sessions: {},
     streak: { current: 0, best: 0, lastDay: null },
     settings: { dailyCount: 10, testMinutes: 12, instantChoices: false },
+    /** Hic yedek alinmadiysa hatirlatma bu tarihten sayilir. */
+    installedAt: Date.now(),
+    /** lastAt: son yedegin zamani. remindAt: bu ana kadar hatirlatma gosterilmez. */
+    backup: { lastAt: null, remindAt: null },
   };
 }
 
@@ -42,11 +54,16 @@ export function defaultStat() {
 let state = null;
 let storageWorks = true;
 
+/** Bu oturum acilirken depoda kayitli bir ilerleme var miydi? İlk load()'ta belirlenir. */
+let foundOnBoot = null;
+
 function load() {
   if (state) return state;
 
   try {
     const raw = localStorage.getItem(KEY);
+    if (foundOnBoot === null) foundOnBoot = raw !== null;
+
     if (raw) {
       const parsed = JSON.parse(raw);
       const base = defaultState();
@@ -55,6 +72,7 @@ function load() {
         ...parsed,
         streak: { ...base.streak, ...(parsed.streak || {}) },
         settings: { ...base.settings, ...(parsed.settings || {}) },
+        backup: { ...base.backup, ...(parsed.backup || {}) },
         questions: parsed.questions || {},
         daily: parsed.daily || {},
         sessions: parsed.sessions || {},
@@ -65,6 +83,7 @@ function load() {
   } catch (error) {
     // Bozuk veri ya da erisim yok: uygulama calismaya devam etsin, ilerleme bellekte tutulsun.
     console.warn('Ilerleme okunamadi, sifirdan baslaniyor:', error.message);
+    if (foundOnBoot === null) foundOnBoot = false;
     state = defaultState();
     storageWorks = false;
   }
@@ -86,6 +105,22 @@ function save() {
 export function isPersistent() {
   load();
   return storageWorks;
+}
+
+/**
+ * Uygulama acilirken kayitli bir ilerleme bulundu mu?
+ * false ise ya ilk kurulum ya da tarayici verisi silinmis demektir - ikisi
+ * birbirinden ayirt edilemez, cunku ayirt edecek isaret de ayni depoda olurdu.
+ */
+export function hasStoredData() {
+  load();
+  return foundOnBoot === true;
+}
+
+/** Durumu oldugu gibi yazar; "sifirdan basla" secildiginde anahtarin olusmasi icin. */
+export function persist() {
+  load();
+  save();
 }
 
 // ---------- ayarlar ----------
@@ -238,6 +273,44 @@ export function summary() {
   return { seen, correct, wrong, attempts: correct + wrong, mastered, pending };
 }
 
+// ---------- yedek hatirlatmasi ----------
+
+/**
+ * Hatirlatma icin gereken her sey.
+ * due: haftalik hatirlatmanin sirasi geldi mi?
+ * Hic denemesi olmayan kullaniciya "yedek al" demenin anlami yok, o yuzden
+ * kaybedilecek bir sey olmadan hatirlatma cikmaz.
+ */
+export function backupStatus() {
+  const store = load();
+  const now = Date.now();
+  const reference = store.backup.lastAt || store.installedAt || now;
+  const sinceDays = Math.max(0, Math.floor((now - reference) / DAY_MS));
+  const snoozed = store.backup.remindAt ? now < store.backup.remindAt : false;
+
+  return {
+    lastAt: store.backup.lastAt,
+    sinceDays,
+    due: storageWorks && !snoozed && sinceDays >= BACKUP_REMIND_DAYS && summary().attempts > 0,
+  };
+}
+
+/** Yedek indirildi: sayac sifirlanir, erteleme kalkar. */
+export function markBackupTaken(at = Date.now()) {
+  const store = load();
+  store.backup = { lastAt: at, remindAt: null };
+  save();
+}
+
+/** "Sonra" denildi: hatirlatma birkac gun susar, son yedek tarihi degismez. */
+export function snoozeBackupReminder(days = BACKUP_SNOOZE_DAYS) {
+  const store = load();
+  store.backup.remindAt = Date.now() + days * DAY_MS;
+  save();
+}
+
+// ---------- disa / ice aktarma ----------
+
 export function exportJson() {
   return JSON.stringify(load(), null, 2);
 }
@@ -254,6 +327,7 @@ export function importJson(text) {
     ...parsed,
     streak: { ...base.streak, ...(parsed.streak || {}) },
     settings: { ...base.settings, ...(parsed.settings || {}) },
+    backup: { ...base.backup, ...(parsed.backup || {}) },
     questions: parsed.questions || {},
     daily: parsed.daily || {},
     sessions: parsed.sessions || {},

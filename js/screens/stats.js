@@ -5,6 +5,7 @@
 
 import { el, dayKey } from '../ui.js';
 import { loadAllQuestions } from '../packs.js';
+import { downloadBackup, pickAndRestore } from '../backup.js';
 import * as store from '../store.js';
 
 function statBox(label, value, hint = null) {
@@ -72,52 +73,40 @@ function settingsSection(onChanged) {
   );
 }
 
+/** "Son yedek" satiri: hatirlatmanin saydigi gunle ayni kaynaktan gelir. */
+function lastBackupLine() {
+  const { lastAt, sinceDays } = store.backupStatus();
+  if (!lastAt) return 'Henüz hiç yedek almadın.';
+  if (sinceDays === 0) return 'Son yedek: bugün.';
+  if (sinceDays === 1) return 'Son yedek: dün.';
+  return `Son yedek: ${sinceDays} gün önce.`;
+}
+
 function backupSection(rerender) {
-  const status = el('div', { class: 'small muted' });
+  const status = el('div', { class: 'small muted' }, lastBackupLine());
 
   const exportButton = el('button', {
     class: 'btn',
     type: 'button',
     on: {
       click: () => {
-        const blob = new Blob([store.exportJson()], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const link = el('a', { href: url, download: `dgs-geometri-yedek-${dayKey()}.json` });
-        document.body.append(link);
-        link.click();
-        link.remove();
-        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        downloadBackup();
         status.textContent = 'Yedek indirildi.';
       },
     },
   }, '⬇ Yedeği indir');
 
-  const fileInput = el('input', {
-    type: 'file',
-    accept: 'application/json,.json',
-    style: 'display:none',
-    on: {
-      change: async (event) => {
-        const file = event.target.files && event.target.files[0];
-        if (!file) return;
-        try {
-          const text = await file.text();
-          const result = store.importJson(text);
-          status.textContent = `Yedek yüklendi — ${result.seen} sorunun geçmişi geri geldi.`;
-          rerender();
-        } catch (error) {
-          status.textContent = `Yüklenemedi: ${error.message}`;
-        } finally {
-          event.target.value = '';
-        }
-      },
-    },
-  });
-
   const importButton = el('button', {
     class: 'btn',
     type: 'button',
-    on: { click: () => fileInput.click() },
+    on: {
+      click: () => {
+        pickAndRestore((message, ok) => {
+          status.textContent = message;
+          if (ok) rerender();
+        });
+      },
+    },
   }, '⬆ Yedekten geri yükle');
 
   const resetButton = el('button', {
@@ -142,7 +131,6 @@ function backupSection(rerender) {
       'İlerleme telefonun tarayıcısında saklanıyor. Tarayıcı verilerini temizlersen ya da telefon değiştirirsen gider — arada bir yedek al.'),
     exportButton,
     importButton,
-    fileInput,
     status,
     el('div', { style: 'height:8px' }),
     resetButton

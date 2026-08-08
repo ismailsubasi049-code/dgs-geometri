@@ -187,6 +187,12 @@ if (history.state && typeof history.state.dgsDepth === 'number') {
   else render();
 }
 
+// Ilerleme verisi yoksa sifirdan baslamadan once sor. Kapi hangi ekranda olursak
+// olalim ustte durdugu icin rota akisinin disinda, tembel yuklenerek acilir.
+import('./backup.js')
+  .then((module) => module.showRestoreGateIfNeeded())
+  .catch((error) => console.info('Yedek kapısı açılamadı:', error.message));
+
 // ---------- service worker ----------
 
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {

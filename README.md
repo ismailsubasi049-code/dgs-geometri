@@ -151,6 +151,19 @@ Kart bulunamazsa hiçbir şey gösterilmez; soru yine normal çalışır. Formü
 temizlersen ya da telefon değiştirirsen gider — İstatistik ekranından JSON yedek al.
 Aynı ekrandaki **Yedekten geri yükle**, yedeği mevcut ilerlemeyle birleştirmez; onun yerine geçer.
 
+Bu sessiz kayba karşı iki uyarı var (`js/backup.js`):
+
+- **Açılış kapısı** — uygulama açılırken kayıtlı ilerleme bulamazsa sıfırdan başlamadan önce
+  "İlerleme verisi bulunamadı, yedekten geri yüklemek ister misin?" diye sorar ve geri yükleme
+  düğmesini oracıkta sunar. İlk kurulum ile silinmiş veri ayırt edilemez (ayırt edecek işaret de
+  aynı depoda olurdu), o yüzden metin ikisini de kapsar. **Sıfırdan başla** denince boş durum
+  hemen yazılır, kapı bir daha açılmaz.
+- **Haftalık hatırlatma** — son yedeğin (hiç yedek yoksa ilk kurulumun) üzerinden 7 gün geçtiyse
+  ana ekranda "En son X gün önce yedek aldın, yenilemek ister misin?" bandı çıkar. **Sonra**
+  denince 3 gün susar. Hiç soru denenmemişse — kaybedilecek bir şey yokken — hiç çıkmaz.
+
+Süreler `js/store.js` içindeki `BACKUP_REMIND_DAYS` ve `BACKUP_SNOOZE_DAYS` sabitlerinde.
+
 Tekrar takvimi hafif bir Leitner sistemidir: kutu 1-5, aralıklar 0 / 1 / 3 / 7 / 16 gün.
 Doğru cevap bir üst kutuya çıkarır, yanlış cevap 1. kutuya düşürür.
 
