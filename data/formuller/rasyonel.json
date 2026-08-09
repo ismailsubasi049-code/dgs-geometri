@@ -1,0 +1,133 @@
+{
+  "topicId": "rasyonel",
+  "title": "Rasyonel Sayılar",
+  "cards": [
+    {
+      "id": "rasyonel-tanim",
+      "subtopicId": "rasyonel-tanim",
+      "title": "Rasyonel sayı ve kesir türleri",
+      "aliases": ["Rasyonel sayılar", "Kesir türleri"],
+      "items": [
+        { "formula": "Q = { a/b : a, b ∈ Z ve b ≠ 0 }", "note": "Payda asla 0 olamaz; 0/a = 0 ama a/0 tanımsızdır" },
+        { "formula": "Basit kesir: pay < payda   (3/5)", "note": "Değeri 0 ile 1 arasındadır" },
+        { "formula": "Bileşik kesir: pay ≥ payda   (7/5)", "note": "Değeri 1'e eşit ya da 1'den büyüktür" },
+        { "formula": "Tam sayılı kesir: a b/c = (a·c + b) / c", "note": "2 1/3 = (2·3 + 1)/3 = 7/3" },
+        { "formula": "Sadeleştirme: (a·k) / (b·k) = a / b", "note": "Pay ve payda EBOB'larına bölününce kesir en sade hâline gelir" },
+        { "formula": "a/b = c/d  ⇔  a · d = b · c", "note": "İçler dışlar çarpımı" }
+      ],
+      "tips": [
+        "Bir kesir en sade hâlde ise pay ile payda aralarında asaldır.",
+        "Devirli ondalıklar da rasyoneldir; irrasyonel olan devirsiz sonsuz ondalıklardır."
+      ],
+      "examples": [
+        {
+          "stem": "84/126 kesrinin en sade hâli nedir?",
+          "solution": "84 = 2² · 3 · 7\n126 = 2 · 3² · 7\nEBOB = 2 · 3 · 7 = 42\n84/42 = 2, 126/42 = 3\nSonuç: 2/3"
+        },
+        {
+          "stem": "3 2/5 tam sayılı kesrini bileşik kesre çevirin.",
+          "solution": "a b/c = (a·c + b)/c\n(3 · 5 + 2) / 5\n= 17/5"
+        },
+        {
+          "stem": "x/12 = 5/4 ise x kaçtır?",
+          "solution": "İçler dışlar çarpımı:\n4x = 12 · 5\n4x = 60\nx = 15"
+        }
+      ]
+    },
+    {
+      "id": "rasyonel-siralama",
+      "subtopicId": "rasyonel-siralama",
+      "title": "Kesirlerde sıralama",
+      "aliases": ["Kesirlerde sıralama", "Kesirleri karşılaştırma"],
+      "items": [
+        { "formula": "Paydalar eşitse: payı büyük olan büyüktür", "note": "3/7 < 5/7", "figure": "<svg viewBox='0 0 320 100' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><line x1='20' y1='58' x2='300' y2='58'/><polyline points='28,52 20,58 28,64'/><polyline points='292,52 300,58 292,64'/><line x1='40' y1='52' x2='40' y2='64'/><line x1='280' y1='52' x2='280' y2='64'/></g><g fill='#0284c7'><circle cx='100' cy='58' r='4'/><circle cx='160' cy='58' r='4'/><circle cx='220' cy='58' r='4'/></g><g font-family='system-ui, sans-serif' text-anchor='middle'><text x='100' y='40' font-size='13' fill='#0284c7'>1/4</text><text x='160' y='40' font-size='13' fill='#0284c7'>1/2</text><text x='220' y='40' font-size='13' fill='#0284c7'>3/4</text><text x='40' y='82' font-size='13' fill='currentColor'>0</text><text x='280' y='82' font-size='13' fill='currentColor'>1</text></g></svg>" },
+        { "formula": "Paylar eşitse: paydası küçük olan büyüktür", "note": "1/3 > 1/5 — aynı bütün daha az parçaya bölünmüştür" },
+        { "formula": "İkisi de farklıysa: içler dışlar çarpımı\na/b ile c/d için  a·d  ile  b·c  karşılaştırılır", "note": "Büyük çarpım hangi kesrin payından geldiyse o kesir büyüktür" },
+        { "formula": "Payla payda arasındaki fark eşitse: paydası büyük olan 1'e daha yakındır", "note": "4/5 < 9/10 — ikisinde de fark 1" },
+        { "formula": "Negatif kesirlerde sıralama ters döner", "note": "−1/2 < −1/3, çünkü mutlak değeri büyük olan daha küçüktür" }
+      ],
+      "tips": [
+        "Ondalığa çevirmek de geçerli bir yoldur ama sınavda içler dışlar çarpımı daha hızlıdır.",
+        "Negatif kesirleri sıralarken önce mutlak değerleri sırala, sonra sıralamayı ters çevir."
+      ],
+      "examples": [
+        {
+          "stem": "5/8 ile 7/11 kesirlerinden hangisi büyüktür?",
+          "solution": "İçler dışlar çarpımı:\n5 · 11 = 55\n8 · 7 = 56\n56 > 55 ve 56 payı 7'den geldi.\n7/11 büyüktür."
+        },
+        {
+          "stem": "2/3 ; 3/4 ; 5/6 kesirlerini küçükten büyüğe sıralayın.",
+          "solution": "Paydaları eşitle: EKOK(3, 4, 6) = 12\n2/3 = 8/12\n3/4 = 9/12\n5/6 = 10/12\nSıralama: 2/3 < 3/4 < 5/6"
+        },
+        {
+          "stem": "−3/5 ile −5/8 sayılarından hangisi büyüktür?",
+          "solution": "Mutlak değerler: 3/5 ve 5/8\n3 · 8 = 24,  5 · 5 = 25 → 5/8 > 3/5\nNegatiflerde sıra ters döner.\n−3/5 büyüktür."
+        }
+      ]
+    },
+    {
+      "id": "rasyonel-islemler",
+      "subtopicId": "rasyonel-islemler",
+      "title": "Kesirlerde dört işlem",
+      "aliases": ["Kesirlerde dört işlem", "Kesirlerde işlemler", "Karmaşık kesirler"],
+      "items": [
+        { "formula": "a/b + c/d = (a·d + b·c) / (b·d)", "note": "Paydalar eşitlenmeden toplama yapılmaz" },
+        { "formula": "a/b · c/d = (a·c) / (b·d)", "note": "Çarpmada payda eşitlemeye gerek yok" },
+        { "formula": "a/b ÷ c/d = a/b · d/c = (a·d) / (b·c)", "note": "Bölme, ikinci kesrin tersiyle çarpmadır" },
+        { "formula": "Karmaşık kesir: (a/b) / (c/d) = (a·d) / (b·c)", "note": "Ana kesir çizgisi hangisiyse önce o ayrılır" },
+        { "formula": "Bir kesrin tersi: (a/b)⁻¹ = b/a   (a ≠ 0)" },
+        { "formula": "İşlem önceliği: parantez → üs → çarpma/bölme → toplama/çıkarma" }
+      ],
+      "tips": [
+        "Çarpmadan önce çapraz sadeleştir; sayılar küçülür, hata payı düşer.",
+        "Karmaşık kesirlerde en uzun çizgi ana bölme çizgisidir — önce onu ayır."
+      ],
+      "examples": [
+        {
+          "stem": "2/3 + 1/4 işleminin sonucu kaçtır?",
+          "solution": "Payda eşitle: EKOK(3, 4) = 12\n2/3 = 8/12\n1/4 = 3/12\n8/12 + 3/12 = 11/12"
+        },
+        {
+          "stem": "(3/4) ÷ (9/8) işleminin sonucu kaçtır?",
+          "solution": "Bölme = ters ile çarpma\n3/4 · 8/9\nÇapraz sadeleştir: 3/9 = 1/3,  8/4 = 2\n1/3 · 2/1 = 2/3"
+        },
+        {
+          "stem": "(1/2 + 1/3) / (1 − 1/6) işleminin sonucu kaçtır?",
+          "solution": "Pay: 1/2 + 1/3 = 3/6 + 2/6 = 5/6\nPayda: 1 − 1/6 = 5/6\n(5/6) / (5/6) = 1"
+        }
+      ]
+    },
+    {
+      "id": "ondalik-devirli",
+      "subtopicId": "ondalik-devirli",
+      "title": "Ondalık ve devirli ondalık gösterim",
+      "aliases": ["Ondalık gösterim", "Devirli ondalık sayılar", "Ondalık sayılar"],
+      "items": [
+        { "formula": "Devirsiz ondalık: 0,25 = 25/100 = 1/4", "note": "Virgülden sonra kaç basamak varsa paydaya o kadar sıfır yaz" },
+        { "formula": "Tamamı devirli: 0,abc… = abc / 999", "note": "Devreden basamak sayısı kadar 9 yazılır. 0,7 devirli = 7/9" },
+        { "formula": "Karışık devirli: (tüm sayı − devretmeyen kısım) / (9…9 0…0)", "note": "Devreden basamak kadar 9, devretmeyen basamak kadar 0" },
+        { "formula": "Örnek: 0,2 3 (3 devirli) = (23 − 2) / 90 = 21/90 = 7/30" },
+        { "formula": "Bir kesir sonlu ondalık olur ⇔ sade hâlde paydası yalnızca 2 ve 5 çarpanı içerir", "note": "1/8 = 0,125 sonlu; 1/3 = 0,333… devirlidir" },
+        { "formula": "Ondalıkta çarpma: virgülden sonraki basamak sayıları toplanır", "note": "0,3 · 0,02 = 0,006 (1 + 2 = 3 basamak)" }
+      ],
+      "tips": [
+        "Devirli ondalıklar rasyoneldir — kesre çevrilebildikleri için.",
+        "Karışık devirlide payı yazarken sayıyı virgülsüz düşün: 0,2̄3̄ için 23 ve 2 kullanılır."
+      ],
+      "examples": [
+        {
+          "stem": "0,4 devirli ondalık sayısının rasyonel karşılığı nedir?",
+          "solution": "Tamamı devirli, tek basamak devrediyor.\n4 / 9\nSonuç: 4/9"
+        },
+        {
+          "stem": "0,16 sayısında yalnızca 6 devrediyorsa rasyonel karşılığı nedir?",
+          "solution": "Tüm sayı (virgülsüz): 16\nDevretmeyen kısım: 1\n(16 − 1) / 90 = 15/90\nSadeleştir: 1/6"
+        },
+        {
+          "stem": "7/40 kesri sonlu ondalık mıdır?",
+          "solution": "40 = 2³ · 5\nPaydada yalnızca 2 ve 5 var.\nEvet, sonludur: 7/40 = 0,175"
+        }
+      ]
+    }
+  ]
+}

@@ -37,7 +37,7 @@ try {
 }
 
 Write-Host ""
-Write-Host "  DGS Geometri  ->  $prefix" -ForegroundColor Green
+Write-Host "  DGS Matematik  ->  $prefix" -ForegroundColor Green
 Write-Host "  Kok dizin: $root"
 Write-Host "  Durdurmak icin Ctrl+C"
 Write-Host ""

@@ -15,7 +15,7 @@ export function downloadBackup() {
 
   const blob = new Blob([store.exportJson()], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
-  const link = el('a', { href: url, download: `dgs-geometri-yedek-${dayKey()}.json` });
+  const link = el('a', { href: url, download: `dgs-matematik-yedek-${dayKey()}.json` });
 
   document.body.append(link);
   link.click();

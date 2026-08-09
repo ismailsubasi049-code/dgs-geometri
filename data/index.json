@@ -1,10 +1,20 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
+  "branches": [
+    { "id": "mat", "title": "Matematik", "emoji": "🔢" },
+    { "id": "geo", "title": "Geometri", "emoji": "📐" }
+  ],
   "topics": [
-    { "id": "acilar", "title": "Açılar" },
-    { "id": "ucgenler", "title": "Üçgenler" },
-    { "id": "dortgenler", "title": "Dörtgenler" },
-    { "id": "cember", "title": "Çember ve Daire" }
+    { "id": "sayilar", "title": "Sayılar", "branchId": "mat" },
+    { "id": "bolunebilme", "title": "Bölünebilme", "branchId": "mat" },
+    { "id": "ebob-ekok", "title": "EBOB - EKOK", "branchId": "mat" },
+    { "id": "rasyonel", "title": "Rasyonel Sayılar", "branchId": "mat" },
+    { "id": "uslu", "title": "Üslü Sayılar", "branchId": "mat" },
+    { "id": "koklu", "title": "Köklü Sayılar", "branchId": "mat" },
+    { "id": "acilar", "title": "Açılar", "branchId": "geo" },
+    { "id": "ucgenler", "title": "Üçgenler", "branchId": "geo" },
+    { "id": "dortgenler", "title": "Dörtgenler", "branchId": "geo" },
+    { "id": "cember", "title": "Çember ve Daire", "branchId": "geo" }
   ],
   "packs": [
     {

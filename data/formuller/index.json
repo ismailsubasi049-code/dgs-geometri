@@ -1,9 +1,19 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
+  "branches": [
+    { "id": "mat", "title": "Matematik", "emoji": "🔢" },
+    { "id": "geo", "title": "Geometri", "emoji": "📐" }
+  ],
   "sets": [
-    { "topicId": "acilar", "title": "Açılar", "file": "acilar.json", "cardCount": 3 },
-    { "topicId": "ucgenler", "title": "Üçgenler", "file": "ucgenler.json", "cardCount": 12 },
-    { "topicId": "dortgenler", "title": "Dörtgenler", "file": "dortgenler.json", "cardCount": 8 },
-    { "topicId": "cember", "title": "Çember ve Daire", "file": "cember.json", "cardCount": 6 }
+    { "topicId": "sayilar", "branchId": "mat", "title": "Sayılar", "file": "sayilar.json", "cardCount": 6 },
+    { "topicId": "bolunebilme", "branchId": "mat", "title": "Bölünebilme", "file": "bolunebilme.json", "cardCount": 4 },
+    { "topicId": "ebob-ekok", "branchId": "mat", "title": "EBOB - EKOK", "file": "ebob-ekok.json", "cardCount": 4 },
+    { "topicId": "rasyonel", "branchId": "mat", "title": "Rasyonel Sayılar", "file": "rasyonel.json", "cardCount": 4 },
+    { "topicId": "uslu", "branchId": "mat", "title": "Üslü Sayılar", "file": "uslu.json", "cardCount": 4 },
+    { "topicId": "koklu", "branchId": "mat", "title": "Köklü Sayılar", "file": "koklu.json", "cardCount": 4 },
+    { "topicId": "acilar", "branchId": "geo", "title": "Açılar", "file": "acilar.json", "cardCount": 3 },
+    { "topicId": "ucgenler", "branchId": "geo", "title": "Üçgenler", "file": "ucgenler.json", "cardCount": 12 },
+    { "topicId": "dortgenler", "branchId": "geo", "title": "Dörtgenler", "file": "dortgenler.json", "cardCount": 8 },
+    { "topicId": "cember", "branchId": "geo", "title": "Çember ve Daire", "file": "cember.json", "cardCount": 6 }
   ]
 }

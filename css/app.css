@@ -1,4 +1,4 @@
-/* DGS Geometri - tek stil dosyasi. Telefon oncelikli, koyu tema. */
+/* DGS Matematik - tek stil dosyasi. Telefon oncelikli, koyu tema. */
 
 :root {
   --bg: #0f172a;
@@ -233,6 +233,26 @@ button { font: inherit; color: inherit; }
 }
 
 .badge.quiet { background: var(--surface-2); color: var(--muted); }
+
+/* Ana ekranda ders basligi - altindaki kartlari bir gruba bagli gosterir. */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0 -2px;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
 
 /* ---------- gunun ozeti / seri ---------- */
 
@@ -569,6 +589,8 @@ button { font: inherit; color: inherit; }
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.95rem;
   line-height: 1.5;
+  /* Cok satirli formuller (parcali tanimlar) JSON'da \n ile yazilabilsin. */
+  white-space: pre-wrap;
 }
 
 .formula-item .note {
@@ -585,6 +607,52 @@ button { font: inherit; color: inherit; }
 }
 
 .formula-card .tips li + li { margin-top: 4px; }
+
+/* Kartin cozumlu ornekleri. Kapali gelir ki once soru okunsun, cozum sonra acilsin. */
+.formula-examples {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.formula-examples .examples-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.example-item {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  padding: 8px 10px;
+}
+
+.example-item + .example-item { margin-top: 6px; }
+
+.example-item > summary {
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  min-height: 24px;
+}
+
+.example-item[open] > summary {
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.example-solution {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
 
 /* Formul girdisinin sekli - soru sekliyle ayni acik zemin, sadece daha derli toplu. */
 .formula-item .figure { margin-bottom: 8px; padding: 8px; }

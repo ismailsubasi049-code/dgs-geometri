@@ -50,11 +50,16 @@ function resolve(parts) {
   }
 }
 
-/** Iki duzeyli ekranlarin alt sayfasindan geri, ana ekrana degil ust listeye doner. */
+/**
+ * Cok duzeyli ekranlarin alt sayfasindan geri, ana ekrana degil ust listeye doner.
+ * Konu ve formul ekranlari uc duzeyli: ders -> konu -> icerik. Ders listesine ana
+ * ekrandan dogrudan girildigi icin tek parcali rotadan geri ana ekrandir.
+ */
 function backTargetFor(route) {
-  if (route.params.length === 0) return '#/';
-  if (route.name === 'topics') return '#/konular';
-  if (route.name === 'formulas') return '#/formuller';
+  if (route.params.length < 2) return '#/';
+  const branchId = encodeURIComponent(route.params[0]);
+  if (route.name === 'topics') return `#/konular/${branchId}`;
+  if (route.name === 'formulas') return `#/formuller/${branchId}`;
   return '#/';
 }
 
@@ -101,7 +106,7 @@ function makeContext(params) {
     goHome,
     setTitle(text) {
       titleNode.textContent = text;
-      document.title = text === 'DGS Geometri' ? text : `${text} · DGS Geometri`;
+      document.title = text === 'DGS Matematik' ? text : `${text} · DGS Matematik`;
     },
     setRight(text = '', urgent = false) {
       rightNode.textContent = text;
@@ -132,7 +137,7 @@ async function render() {
   const ctx = makeContext(route.params);
 
   // Varsayilanlar; ekran isterse degistirir.
-  ctx.setTitle('DGS Geometri');
+  ctx.setTitle('DGS Matematik');
   ctx.setRight('');
   backBtn.hidden = route.name === 'home';
   backHash = backTargetFor(route);

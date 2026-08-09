@@ -5,9 +5,15 @@
 //
 // Bir paket ya bir konunun tamami (duz konu) ya da bir alt konudur. Alt konu paketinde
 // index.json kaydinda subtopicId/subtopic alanlari bulunur; duz konuda bulunmaz.
+//
+// Konularin ustunde bir ders (brans) duzeyi var: index.json'daki branches dizisi. Her konu
+// bir branchId tasir; yazmayan konu geometri sayilir, boylece eski veri kirilmaz.
 
 const INDEX_URL = './data/index.json';
 const DATA_ROOT = './data/';
+
+/** branchId yazmayan eski kayitlarin dustugu ders. */
+const DEFAULT_BRANCH = 'geo';
 
 let indexPromise = null;
 const packPromises = new Map();
@@ -26,7 +32,8 @@ export function loadIndex() {
       const packs = Array.isArray(data.packs) ? data.packs : [];
       // topics dizisi konu sirasini ve kararli konu id'sini verir; yoksa paketlerden turetilir.
       const topics = Array.isArray(data.topics) ? data.topics : [];
-      return { schemaVersion: data.schemaVersion || 1, topics, packs };
+      const branches = Array.isArray(data.branches) ? data.branches : [];
+      return { schemaVersion: data.schemaVersion || 1, branches, topics, packs };
     }).catch((error) => {
       indexPromise = null; // sonraki denemede tekrar sansi olsun
       throw error;
@@ -106,8 +113,25 @@ export async function loadQuestionsFromPacks(packIds) {
 }
 
 /**
+ * Ders listesi. branches yazilmamissa konularin branchId'lerinden turetilir, boylece
+ * eski bir index.json ile de calisir.
+ * Donen her kayit: { id, title, emoji }
+ */
+export async function listBranches() {
+  const { branches, topics } = await loadIndex();
+  if (branches.length > 0) return branches;
+
+  const seen = new Map();
+  for (const topic of topics) {
+    const id = topic.branchId || DEFAULT_BRANCH;
+    if (!seen.has(id)) seen.set(id, { id, title: id, emoji: '📘' });
+  }
+  return [...seen.values()];
+}
+
+/**
  * Konu basina paket, alt konu ve soru sayisi - konu secim ekrani bunu kullanir.
- * Donen her kayit: { topicId, topic, packIds, count, subtopics[] }
+ * Donen her kayit: { topicId, topic, branchId, packIds, count, subtopics[] }
  * subtopics bos ise o konu duzdur (alt konusu yoktur).
  */
 export async function listTopics() {
@@ -119,6 +143,7 @@ export async function listTopics() {
     byId.set(topic.id, {
       topicId: topic.id,
       topic: topic.title,
+      branchId: topic.branchId || DEFAULT_BRANCH,
       packIds: [],
       count: 0,
       subtopics: [],
@@ -130,7 +155,14 @@ export async function listTopics() {
     // topicId yoksa (eski sema) gorunen ad kimlik yerine gecer.
     const id = pack.topicId || title;
     if (!byId.has(id)) {
-      byId.set(id, { topicId: id, topic: title, packIds: [], count: 0, subtopics: [] });
+      byId.set(id, {
+        topicId: id,
+        topic: title,
+        branchId: pack.branchId || DEFAULT_BRANCH,
+        packIds: [],
+        count: 0,
+        subtopics: [],
+      });
     }
 
     const entry = byId.get(id);

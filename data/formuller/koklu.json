@@ -1,0 +1,135 @@
+{
+  "topicId": "koklu",
+  "title": "Köklü Sayılar",
+  "cards": [
+    {
+      "id": "koklu-tanim",
+      "subtopicId": "koklu-tanim",
+      "title": "Kök kavramı ve tanım",
+      "aliases": ["Köklü sayılar", "Kök kavramı"],
+      "items": [
+        { "formula": "ⁿ√a = b  ⇔  bⁿ = a", "note": "n kök derecesi, a kök içi. Derece yazılmazsa 2'dir" },
+        { "formula": "√(a²) = |a|", "note": "Sonuç a değil |a|'dır — kök çıktısı negatif olamaz" },
+        { "formula": "(√a)² = a   (a ≥ 0)", "note": "Bu durumda mutlak değere gerek yok, çünkü a zaten negatif olamaz" },
+        { "formula": "Çift dereceli kökün içi negatif olamaz: √(−4) reel sayı değildir", "note": "Tek dereceli kökte içi negatif olabilir: ³√(−8) = −2" },
+        { "formula": "ⁿ√a = a^(1/n)", "note": "Kök, kesirli üs demektir: ³√(a²) = a^(2/3)" },
+        { "formula": "√0 = 0,   √1 = 1" }
+      ],
+      "tips": [
+        "√(x²) sorulduğunda cevabı x yazma; x'in işareti bilinmiyorsa |x| yaz.",
+        "Tam kareleri ezberle: 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225."
+      ],
+      "examples": [
+        {
+          "stem": "x < 0 ise √(x²) ifadesinin eşiti nedir?",
+          "solution": "√(x²) = |x|\nx < 0 olduğundan |x| = −x\nSonuç: −x"
+        },
+        {
+          "stem": "³√(−27) + √49 işleminin sonucu kaçtır?",
+          "solution": "(−3)³ = −27 → ³√(−27) = −3\n7² = 49 → √49 = 7\n−3 + 7 = 4"
+        },
+        {
+          "stem": "√(x − 3) ifadesinin reel sayı olması için x hangi aralıkta olmalıdır?",
+          "solution": "Çift dereceli kökün içi negatif olamaz.\nx − 3 ≥ 0\nx ≥ 3"
+        }
+      ]
+    },
+    {
+      "id": "koklu-kurallar",
+      "subtopicId": "koklu-kurallar",
+      "title": "Kök kuralları ve dönüşümler",
+      "aliases": ["Kök kuralları", "Köklü sayılarda işlemler", "Kök içine alma"],
+      "items": [
+        { "formula": "√a · √b = √(a · b)   (a, b ≥ 0)" },
+        { "formula": "√a / √b = √(a / b)   (a ≥ 0, b > 0)" },
+        { "formula": "Kök dışına çıkarma: √(a² · b) = a√b   (a ≥ 0)", "note": "√72 = √(36 · 2) = 6√2" },
+        { "formula": "Kök içine alma: a√b = √(a² · b)   (a ≥ 0)", "note": "3√5 = √(9 · 5) = √45" },
+        { "formula": "Toplama - çıkarma yalnızca kök içleri AYNI ise yapılır", "note": "2√3 + 5√3 = 7√3, ama √2 + √3 sadeleşmez" },
+        { "formula": "ⁿ√(ᵐ√a) = ⁿ·ᵐ√a", "note": "İç içe köklerde dereceler çarpılır" },
+        { "formula": "ⁿ√(aᵐ) = (ⁿ√a)ᵐ = a^(m/n)" }
+      ],
+      "tips": [
+        "√a + √b ≠ √(a + b) — kök toplamaya dağılmaz. Bu, üslü sayılardaki hatanın kardeşidir.",
+        "Kök dışına çıkarırken içeriden en büyük tam kare çarpanı ayır, yoksa iş uzar."
+      ],
+      "examples": [
+        {
+          "stem": "√8 + √18 işleminin sonucu kaçtır?",
+          "solution": "√8 = √(4 · 2) = 2√2\n√18 = √(9 · 2) = 3√2\nKök içleri aynı:\n2√2 + 3√2 = 5√2"
+        },
+        {
+          "stem": "√12 · √27 işleminin sonucu kaçtır?",
+          "solution": "√12 · √27 = √(12 · 27)\n= √324\n18² = 324 → sonuç 18"
+        },
+        {
+          "stem": "4√3 ifadesini tek bir kök olarak yazın.",
+          "solution": "a√b = √(a² · b)\n√(4² · 3)\n= √(16 · 3) = √48"
+        }
+      ]
+    },
+    {
+      "id": "koklu-paydayi-rasyonel",
+      "subtopicId": "koklu-paydayi-rasyonel",
+      "title": "Paydayı rasyonel yapma",
+      "aliases": ["Paydayı rasyonel yapma", "Eşlenik", "Payda rasyonelleştirme"],
+      "items": [
+        { "formula": "a / √b = (a · √b) / b", "note": "Pay ve paydayı √b ile çarp" },
+        { "formula": "Eşlenik: (√a + √b) ile (√a − √b)", "note": "Çarpımları köksüzdür: (√a + √b)(√a − √b) = a − b" },
+        { "formula": "c / (√a + √b) = c(√a − √b) / (a − b)", "note": "Paydanın eşleniğiyle genişletilir" },
+        { "formula": "c / (√a − √b) = c(√a + √b) / (a − b)" },
+        { "formula": "(√a + √b)² = a + b + 2√(a·b)", "note": "İki kare toplamı artı iki kat çarpım" },
+        { "formula": "a / ⁿ√b = (a · ⁿ√(bⁿ⁻¹)) / b", "note": "Derecesi 2'den büyük kökte, üssü n'ye tamamlayacak çarpan seçilir" }
+      ],
+      "tips": [
+        "Eşlenikte yalnızca ortadaki işaret değişir; kökler ve sayılar aynı kalır.",
+        "Paydada iki terim varsa mutlaka eşlenik kullan; tek terim varsa doğrudan kökle çarpmak yeter."
+      ],
+      "examples": [
+        {
+          "stem": "6 / √3 ifadesinin paydasını rasyonel yapın.",
+          "solution": "Pay ve paydayı √3 ile çarp:\n(6 · √3) / 3\n= 2√3"
+        },
+        {
+          "stem": "4 / (√5 − √3) ifadesinin paydasını rasyonel yapın.",
+          "solution": "Eşlenik: √5 + √3\n4(√5 + √3) / ((√5)² − (√3)²)\n= 4(√5 + √3) / (5 − 3)\n= 4(√5 + √3) / 2 = 2(√5 + √3)"
+        },
+        {
+          "stem": "(√7 + √3)(√7 − √3) çarpımının sonucu kaçtır?",
+          "solution": "İki kare farkı:\n(√7)² − (√3)²\n= 7 − 3 = 4"
+        }
+      ]
+    },
+    {
+      "id": "koklu-icice-siralama",
+      "subtopicId": "koklu-icice-siralama",
+      "title": "İç içe kökler ve sıralama",
+      "aliases": ["İç içe kökler", "Köklü sayılarda sıralama"],
+      "items": [
+        { "formula": "İç içe kökte en içteki kökten dışa doğru sadeleştir", "note": "√(4 · √16) = √(4 · 4) = √16 = 4" },
+        { "formula": "Sıralamada kök dereceleri eşitlenir", "note": "√2 ile ³√3 → ⁶√(2³) = ⁶√8 ve ⁶√(3²) = ⁶√9 → ³√3 büyük" },
+        { "formula": "Dereceler eşitse kök içi büyük olan büyüktür", "note": "√5 > √3" },
+        { "formula": "Kök içi eşitse derecesi küçük olan büyüktür   (kök içi > 1)", "note": "√2 > ³√2, çünkü 2 > 1" },
+        { "formula": "0 < a < 1 için sıralama ters döner", "note": "√0,25 = 0,5 > 0,25 — kök alınca sayı büyür" },
+        { "formula": "Kökleri karşılaştırmak için kareleri karşılaştır", "note": "2√3 ile 3√2 → (2√3)² = 12, (3√2)² = 18 → 3√2 büyük" }
+      ],
+      "tips": [
+        "Farklı dereceli kökleri sıralamak için derecelerin EKOK'unu ortak derece yap.",
+        "Kök içi 1'den küçük olduğunda \"büyük kök içi büyük sayı\" kuralı hâlâ geçerlidir; ters dönen, sayı ile kökünün karşılaştırılmasıdır."
+      ],
+      "examples": [
+        {
+          "stem": "√(9 · √81) ifadesinin değeri kaçtır?",
+          "solution": "En içten başla: √81 = 9\n√(9 · 9) = √81\n= 9"
+        },
+        {
+          "stem": "2√5 ile 3√2 sayılarından hangisi büyüktür?",
+          "solution": "Karelerini al:\n(2√5)² = 4 · 5 = 20\n(3√2)² = 9 · 2 = 18\n20 > 18\n2√5 büyüktür."
+        },
+        {
+          "stem": "√3 ile ³√5 sayılarından hangisi büyüktür?",
+          "solution": "Ortak derece: EKOK(2, 3) = 6\n√3 = ⁶√(3³) = ⁶√27\n³√5 = ⁶√(5²) = ⁶√25\n27 > 25\n√3 büyüktür."
+        }
+      ]
+    }
+  ]
+}

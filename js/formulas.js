@@ -5,9 +5,15 @@
 //
 // Bir kart soruya iki yoldan baglanir: alt konusu olan pakette subtopicId ile,
 // duz konuda ise sorunun subtopic/label metni kartin aliases listesiyle eslesir.
+//
+// Setlerin ustunde bir ders (brans) duzeyi var. Brans listesi packs.js'ten degil kendi
+// index.json'undan okunur - formuller bolumu soru paketlerinden bagimsiz kalsin diye.
 
 const INDEX_URL = './data/formuller/index.json';
 const DATA_ROOT = './data/formuller/';
+
+/** branchId yazmayan eski kayitlarin dustugu ders. */
+const DEFAULT_BRANCH = 'geo';
 
 let indexPromise = null;
 const setPromises = new Map();
@@ -24,8 +30,10 @@ async function fetchJson(url) {
 export function loadFormulaIndex() {
   if (!indexPromise) {
     indexPromise = fetchJson(INDEX_URL).then((data) => {
-      const sets = Array.isArray(data.sets) ? data.sets : [];
-      return { schemaVersion: data.schemaVersion || 1, sets };
+      const sets = (Array.isArray(data.sets) ? data.sets : [])
+        .map((set) => ({ ...set, branchId: set.branchId || DEFAULT_BRANCH }));
+      const branches = Array.isArray(data.branches) ? data.branches : [];
+      return { schemaVersion: data.schemaVersion || 1, branches, sets };
     }).catch((error) => {
       indexPromise = null; // sonraki denemede tekrar sansi olsun
       throw error;
@@ -105,10 +113,25 @@ export function getCardFor(question) {
   return null;
 }
 
-/** Formuller ekranindaki konu listesi. */
-export async function listFormulaSets() {
+/**
+ * Formul setlerinin ders listesi. branches yazilmamissa setlerin branchId'lerinden turetilir.
+ * Donen her kayit: { id, title, emoji }
+ */
+export async function listFormulaBranches() {
+  const { branches, sets } = await loadFormulaIndex();
+  if (branches.length > 0) return branches;
+
+  const seen = new Map();
+  for (const set of sets) {
+    if (!seen.has(set.branchId)) seen.set(set.branchId, { id: set.branchId, title: set.branchId, emoji: '📘' });
+  }
+  return [...seen.values()];
+}
+
+/** Formuller ekranindaki konu listesi. branchId verilirse yalnizca o dersin setleri. */
+export async function listFormulaSets(branchId = null) {
   const { sets } = await loadFormulaIndex();
-  return sets;
+  return branchId ? sets.filter((set) => set.branchId === branchId) : sets;
 }
 
 /** Tek bir konunun kartlari - Formuller ekraninin alt sayfasi bunu kullanir. */

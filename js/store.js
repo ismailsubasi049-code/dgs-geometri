@@ -319,7 +319,7 @@ export function exportJson() {
 export function importJson(text) {
   const parsed = JSON.parse(text);
   if (!parsed || typeof parsed !== 'object' || typeof parsed.questions !== 'object') {
-    throw new Error('Bu dosya bir DGS Geometri yedeği değil.');
+    throw new Error('Bu dosya bir DGS Matematik yedeği değil.');
   }
   const base = defaultState();
   state = {

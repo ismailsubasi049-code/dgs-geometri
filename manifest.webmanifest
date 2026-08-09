@@ -1,7 +1,7 @@
 {
-  "name": "DGS Geometri",
-  "short_name": "Geometri",
-  "description": "DGS geometri soru çözme uygulaması — internetsiz çalışır.",
+  "name": "DGS Matematik",
+  "short_name": "Matematik",
+  "description": "DGS matematik ve geometri soru çözme uygulaması — internetsiz çalışır.",
   "lang": "tr",
   "dir": "ltr",
   "start_url": "./",

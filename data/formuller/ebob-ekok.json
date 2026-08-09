@@ -1,0 +1,132 @@
+{
+  "topicId": "ebob-ekok",
+  "title": "EBOB - EKOK",
+  "cards": [
+    {
+      "id": "ebob-ekok-tanim",
+      "subtopicId": "ebob-ekok-tanim",
+      "title": "EBOB ve EKOK bulma",
+      "aliases": ["EBOB - EKOK", "EBOB ve EKOK", "En büyük ortak bölen"],
+      "items": [
+        { "formula": "EBOB: ortak asal çarpanların EN KÜÇÜK üsleri çarpılır", "note": "En büyük ortak bölen — sayıları birlikte bölen en büyük sayı" },
+        { "formula": "EKOK: TÜM asal çarpanların EN BÜYÜK üsleri çarpılır", "note": "En küçük ortak kat — sayıların ikisine de bölünen en küçük sayı" },
+        { "formula": "a = 2³ · 3² · 5,   b = 2² · 3³\nEBOB = 2² · 3² = 36\nEKOK = 2³ · 3³ · 5 = 1080", "note": "Ortak olmayan çarpan (5) EBOB'a girmez, EKOK'a girer" },
+        { "formula": "EBOB(a, b) daima a ve b'yi böler;  EKOK(a, b) daima a ve b'ye bölünür" },
+        { "formula": "a, b'yi tam bölüyorsa EBOB(a, b) = a  ve  EKOK(a, b) = b", "note": "Örnek: EBOB(6, 18) = 6, EKOK(6, 18) = 18" }
+      ],
+      "tips": [
+        "EBOB küçük, EKOK büyük çıkar. Sonucun bu sıralamaya uyduğunu kontrol et.",
+        "EBOB ≤ küçük sayı ≤ büyük sayı ≤ EKOK — bu zincir hızlı bir doğrulama verir."
+      ],
+      "examples": [
+        {
+          "stem": "EBOB(36, 60) kaçtır?",
+          "solution": "36 = 2² · 3²\n60 = 2² · 3 · 5\nOrtak çarpanların küçük üsleri: 2² · 3¹\nEBOB = 4 · 3 = 12"
+        },
+        {
+          "stem": "EKOK(12, 18) kaçtır?",
+          "solution": "12 = 2² · 3\n18 = 2 · 3²\nTüm çarpanların büyük üsleri: 2² · 3²\nEKOK = 4 · 9 = 36"
+        },
+        {
+          "stem": "EBOB(8, 12, 20) kaçtır?",
+          "solution": "8 = 2³\n12 = 2² · 3\n20 = 2² · 5\nÜçünde de olan tek asal 2, en küçük üssü 2²\nEBOB = 4"
+        }
+      ]
+    },
+    {
+      "id": "ebob-ekok-baginti",
+      "subtopicId": "ebob-ekok-baginti",
+      "title": "EBOB - EKOK bağıntıları",
+      "aliases": ["EBOB EKOK bağıntısı", "Aralarında asal sayılar ve EBOB"],
+      "items": [
+        { "formula": "EBOB(a, b) · EKOK(a, b) = a · b", "note": "Yalnızca İKİ sayı için geçerlidir; üç sayıda çalışmaz" },
+        { "formula": "a ile b aralarında asal ⇔ EBOB(a, b) = 1  ⇔  EKOK(a, b) = a · b" },
+        { "formula": "EBOB(a, b) = d ise  a = d · m,  b = d · n  ve  EBOB(m, n) = 1", "note": "Bölümler daima aralarında asaldır — çoğu soru bu adımdan çözülür" },
+        { "formula": "EKOK(a, b) = d · m · n   (aynı gösterimle)" },
+        { "formula": "EBOB(k·a, k·b) = k · EBOB(a, b)", "note": "EKOK için de aynı: EKOK(k·a, k·b) = k · EKOK(a, b)" },
+        { "formula": "Ardışık iki sayının EBOB'u 1, EKOK'u çarpımlarıdır" }
+      ],
+      "tips": [
+        "EBOB · EKOK = a · b bağıntısı iki sayı içindir. Üç sayıda kullanmak en sık yapılan hatadır.",
+        "\"EBOB'u 6, EKOK'u 90 olan iki sayı\" tipi sorularda a = 6m, b = 6n yazıp m·n = 15 kur."
+      ],
+      "examples": [
+        {
+          "stem": "İki sayının EBOB'u 6, EKOK'u 72 ve sayılardan biri 24 ise diğeri kaçtır?",
+          "solution": "EBOB · EKOK = a · b\n6 · 72 = 24 · b\n432 = 24b\nb = 18"
+        },
+        {
+          "stem": "EBOB'u 8 olan iki doğal sayının toplamı 40 ise bu sayılar kaçtır?",
+          "solution": "a = 8m, b = 8n ve EBOB(m, n) = 1\n8m + 8n = 40 → m + n = 5\nAralarında asal çiftler: (1, 4) ve (2, 3)\nSayılar: 8 ve 32  ya da  16 ve 24"
+        },
+        {
+          "stem": "a ile b aralarında asal ve a · b = 60 ise EKOK(a, b) kaçtır?",
+          "solution": "Aralarında asal → EBOB = 1\nEBOB · EKOK = a · b\n1 · EKOK = 60\nEKOK = 60"
+        }
+      ]
+    },
+    {
+      "id": "ebob-ekok-problem",
+      "subtopicId": "ebob-ekok-problem",
+      "title": "EBOB - EKOK problemleri",
+      "aliases": ["EBOB EKOK problemleri", "EBOB EKOK problem"],
+      "items": [
+        { "formula": "\"En büyük eş parçaya bölme\" → EBOB", "note": "Bir dikdörtgeni en büyük eş karelere ayırmak, kalansız en büyük paketi bulmak", "figure": "<svg viewBox='0 0 320 170' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none'><rect x='70' y='24' width='180' height='120'/><line x1='130' y1='24' x2='130' y2='144'/><line x1='190' y1='24' x2='190' y2='144'/><line x1='70' y1='84' x2='250' y2='84'/></g><g stroke='#0284c7' stroke-width='4' fill='none'><rect x='70' y='24' width='60' height='60'/></g><g font-family='system-ui, sans-serif' text-anchor='middle'><text x='160' y='16' font-size='13' fill='currentColor'>24 cm</text><text x='40' y='89' font-size='13' fill='currentColor'>16 cm</text><text x='100' y='60' font-size='15' fill='#0284c7'>8</text><text x='160' y='163' font-size='13' fill='#0284c7'>EBOB(24, 16) = 8 → 3 × 2 = 6 kare</text></g></svg>" },
+        { "formula": "\"Aynı anda tekrar buluşma / birlikte olma\" → EKOK", "note": "Turnike, otobüs seferi, ışıkların birlikte yanması" },
+        { "formula": "Kalansız bölünme, tam doldurma, en çok kişiye paylaştırma → EBOB" },
+        { "formula": "En küçük ortak zaman, en az sayıda tekrar → EKOK" },
+        { "formula": "\"a'ya bölününce r kalıyor\" → EBOB(sayı − r, …)", "note": "Kalanı çıkar, tam bölünen hale getir" },
+        { "formula": "\"a'ya bölününce hep r kalan en küçük sayı\" = EKOK(a, b, c) + r" }
+      ],
+      "tips": [
+        "Sonuç sayılardan küçükse EBOB, büyükse EKOK aramışsındır — mantık kontrolü olarak kullan.",
+        "\"En çok\", \"en büyük\", \"kalansız bölme\" EBOB'a; \"en az\", \"tekrar birlikte\" EKOK'a işaret eder."
+      ],
+      "examples": [
+        {
+          "stem": "24 cm ve 16 cm kenarlı dikdörtgen bir karton, artık kalmadan en büyük eş karelere bölünecektir. Kaç kare elde edilir?",
+          "solution": "Kare kenarı = EBOB(24, 16) = 8 cm\nUzun kenar: 24 / 8 = 3 kare\nKısa kenar: 16 / 8 = 2 kare\nToplam: 3 · 2 = 6 kare"
+        },
+        {
+          "stem": "Üç otobüs duraktan sırasıyla 12, 18 ve 30 dakikada bir kalkıyor. Birlikte kalktıktan kaç dakika sonra yine birlikte kalkarlar?",
+          "solution": "12 = 2² · 3\n18 = 2 · 3²\n30 = 2 · 3 · 5\nEKOK = 2² · 3² · 5 = 180\n180 dakika (3 saat) sonra"
+        },
+        {
+          "stem": "5, 6 ve 8'e bölündüğünde her seferinde 3 kalanını veren en küçük doğal sayı kaçtır?",
+          "solution": "Önce ortak katı bul: EKOK(5, 6, 8)\n5 · 2³ · 3 = 120\nHer bölmede 3 kalması için 3 ekle.\nSayı = 120 + 3 = 123"
+        }
+      ]
+    },
+    {
+      "id": "ebob-ekok-kesir",
+      "subtopicId": "ebob-ekok-kesir",
+      "title": "Kesirlerde EBOB - EKOK",
+      "aliases": ["Kesirlerde EBOB EKOK", "Kesirlerde EKOK"],
+      "items": [
+        { "formula": "EBOB(a/b, c/d) = EBOB(a, c) / EKOK(b, d)", "note": "Paylarda EBOB, paydalarda EKOK — ters gitmemeye dikkat" },
+        { "formula": "EKOK(a/b, c/d) = EKOK(a, c) / EBOB(b, d)" },
+        { "formula": "Kesirler önce en sade hâle getirilir", "note": "Sadeleştirmeden hesaplanan sonuç yanlış çıkar" },
+        { "formula": "Payda eşitlemede kullanılan sayı = paydaların EKOK'u" },
+        { "formula": "a/b kesrini tam sayı yapan en küçük çarpan = b / EBOB(a, b)" }
+      ],
+      "tips": [
+        "Formülü karıştırmamak için şunu hatırla: EBOB küçük çıkmalı, o yüzden paydası büyük (EKOK) olur.",
+        "\"Kesirle çarpılınca tam sayı olan en küçük sayı\" tipi sorular doğrudan bu kartın son satırıdır."
+      ],
+      "examples": [
+        {
+          "stem": "3/4 ile 5/6 kesirlerinin EBOB'u kaçtır?",
+          "solution": "EBOB(3, 5) = 1\nEKOK(4, 6) = 12\nEBOB = 1/12"
+        },
+        {
+          "stem": "2/3 ile 4/9 kesirlerinin EKOK'u kaçtır?",
+          "solution": "EKOK(2, 4) = 4\nEBOB(3, 9) = 3\nEKOK = 4/3"
+        },
+        {
+          "stem": "8/15 kesri ile çarpıldığında sonucu tam sayı yapan en küçük pozitif tam sayı kaçtır?",
+          "solution": "Kesir sade: EBOB(8, 15) = 1\nÇarpanın paydayı götürmesi gerekir.\nEn küçük sayı = 15"
+        }
+      ]
+    }
+  ]
+}

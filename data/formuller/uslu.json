@@ -1,0 +1,137 @@
+{
+  "topicId": "uslu",
+  "title": "Üslü Sayılar",
+  "cards": [
+    {
+      "id": "uslu-kurallar",
+      "subtopicId": "uslu-kurallar",
+      "title": "Üs kuralları",
+      "aliases": ["Üslü sayılar", "Üs kuralları", "Üslü ifadeler"],
+      "items": [
+        { "formula": "aⁿ = a · a · a · … · a   (n tane)", "note": "a taban, n üs" },
+        { "formula": "aᵐ · aⁿ = aᵐ⁺ⁿ", "note": "Tabanlar aynıysa çarpmada üsler toplanır" },
+        { "formula": "aᵐ / aⁿ = aᵐ⁻ⁿ   (a ≠ 0)", "note": "Tabanlar aynıysa bölmede üsler çıkarılır" },
+        { "formula": "(aᵐ)ⁿ = aᵐ·ⁿ", "note": "Kuvvetin kuvvetinde üsler çarpılır" },
+        { "formula": "(a · b)ⁿ = aⁿ · bⁿ", "note": "Üs çarpıma dağılır" },
+        { "formula": "(a / b)ⁿ = aⁿ / bⁿ   (b ≠ 0)", "note": "Üs bölmeye de dağılır" },
+        { "formula": "aⁿ · bⁿ = (a · b)ⁿ", "note": "Üsler aynıysa tabanlar çarpılabilir" },
+        { "formula": "Üs toplamaya DAĞILMAZ: (a + b)ⁿ ≠ aⁿ + bⁿ", "note": "En sık yapılan hata budur" }
+      ],
+      "tips": [
+        "Tabanlar aynı değilse üsleri toplayamazsın — önce ortak tabana getir (8 = 2³, 27 = 3³).",
+        "2ᵐ + 2ᵐ = 2 · 2ᵐ = 2ᵐ⁺¹ — toplamada üs değil, çarpan sayısı işe yarar."
+      ],
+      "examples": [
+        {
+          "stem": "2⁵ · 2³ / 2⁴ işleminin sonucu kaçtır?",
+          "solution": "Tabanlar aynı, üsler toplanıp çıkarılır.\n2⁵⁺³⁻⁴ = 2⁴\n= 16"
+        },
+        {
+          "stem": "(3²)³ · 3 işleminin sonucu kaç olur?",
+          "solution": "(3²)³ = 3⁶\n3⁶ · 3¹ = 3⁷\n= 2187"
+        },
+        {
+          "stem": "4³ · 2⁵ ifadesini 2'nin kuvveti olarak yazın.",
+          "solution": "4 = 2² → 4³ = (2²)³ = 2⁶\n2⁶ · 2⁵ = 2¹¹"
+        }
+      ]
+    },
+    {
+      "id": "uslu-ozel",
+      "subtopicId": "uslu-ozel",
+      "title": "Sıfır, negatif üs ve işaret",
+      "aliases": ["Negatif üslü sayılar", "Sıfır üs", "Üslü sayılarda işaret"],
+      "items": [
+        { "formula": "a⁰ = 1   (a ≠ 0)", "note": "0⁰ tanımsızdır" },
+        { "formula": "a⁻ⁿ = 1 / aⁿ", "note": "Negatif üs, sayıyı paydaya taşır" },
+        { "formula": "(a / b)⁻ⁿ = (b / a)ⁿ", "note": "Negatif üste kesir ters çevrilir" },
+        { "formula": "(−a)ⁿ : n çift ise pozitif, n tek ise negatif", "note": "(−2)⁴ = 16 ama (−2)³ = −8" },
+        { "formula": "−aⁿ  ile  (−a)ⁿ  farklıdır", "note": "−2⁴ = −16 iken (−2)⁴ = 16. Parantez yoksa üs sadece sayıya aittir" },
+        { "formula": "1ⁿ = 1,   (−1)ⁿ = 1 (n çift) veya −1 (n tek)" },
+        { "formula": "Pozitif tabanın her kuvveti pozitiftir" }
+      ],
+      "tips": [
+        "Negatif üs sayıyı negatif yapmaz, sadece tersine çevirir: 2⁻³ = 1/8, negatif değil.",
+        "Parantezin nerede olduğuna bakmadan işaret kararı verme."
+      ],
+      "examples": [
+        {
+          "stem": "(2/3)⁻² işleminin sonucu kaçtır?",
+          "solution": "Negatif üste kesir ters çevrilir.\n(3/2)²\n= 9/4"
+        },
+        {
+          "stem": "(−3)² + (−3)³ toplamı kaçtır?",
+          "solution": "2 çift → (−3)² = 9\n3 tek → (−3)³ = −27\n9 + (−27) = −18"
+        },
+        {
+          "stem": "5⁰ + 3⁻¹ işleminin sonucu kaçtır?",
+          "solution": "5⁰ = 1\n3⁻¹ = 1/3\n1 + 1/3 = 4/3"
+        }
+      ]
+    },
+    {
+      "id": "uslu-bilimsel",
+      "subtopicId": "uslu-bilimsel",
+      "title": "10'un kuvvetleri ve bilimsel gösterim",
+      "aliases": ["Bilimsel gösterim", "10'un kuvvetleri"],
+      "items": [
+        { "formula": "Bilimsel gösterim: a · 10ⁿ   ve   1 ≤ a < 10", "note": "a tek basamaklı bir tam kısma sahip olmalı" },
+        { "formula": "10ⁿ = 1'in sağına n tane sıfır", "note": "10³ = 1000" },
+        { "formula": "10⁻ⁿ = 1 / 10ⁿ = 0,00…1  (n basamak)", "note": "10⁻³ = 0,001" },
+        { "formula": "Virgülü sola kaydırmak üssü artırır, sağa kaydırmak azaltır", "note": "34500 = 3,45 · 10⁴" },
+        { "formula": "(a · 10ᵐ) · (b · 10ⁿ) = (a · b) · 10ᵐ⁺ⁿ", "note": "Çarpımda a·b ≥ 10 çıkarsa üs bir artırılıp düzeltilir" },
+        { "formula": "10ⁿ sayısının basamak sayısı = n + 1", "note": "2ⁿ · 5ⁿ = 10ⁿ eşitliği basamak sorularında çok işe yarar" }
+      ],
+      "tips": [
+        "a değeri 10 veya daha büyükse gösterim bilimsel değildir; 45 · 10³ yerine 4,5 · 10⁴ yaz.",
+        "2ᵃ · 5ᵇ biçimindeki sayılarda küçük üssü ortak alıp 10'un kuvvetine çevir."
+      ],
+      "examples": [
+        {
+          "stem": "0,00042 sayısını bilimsel gösterimle yazın.",
+          "solution": "Virgülü 4 basamak sağa kaydır: 4,2\nSağa kaydırma üssü negatif yapar.\n4,2 · 10⁻⁴"
+        },
+        {
+          "stem": "(3 · 10⁵) · (4 · 10⁻²) işleminin sonucunu bilimsel gösterimle yazın.",
+          "solution": "3 · 4 = 12\n10⁵ · 10⁻² = 10³\n12 · 10³ = 1,2 · 10⁴"
+        },
+        {
+          "stem": "2¹² · 5¹⁰ çarpımı kaç basamaklıdır?",
+          "solution": "2¹² · 5¹⁰ = 2² · (2¹⁰ · 5¹⁰)\n= 4 · 10¹⁰\n4'ün yanına 10 sıfır → 11 basamak"
+        }
+      ]
+    },
+    {
+      "id": "uslu-denklem",
+      "subtopicId": "uslu-denklem",
+      "title": "Üslü denklemler ve sıralama",
+      "aliases": ["Üslü denklemler", "Üslü sayılarda sıralama"],
+      "items": [
+        { "formula": "aˣ = aʸ  ⇒  x = y   (a > 0, a ≠ 1)", "note": "Tabanları eşitle, üsleri eşitle" },
+        { "formula": "aˣ = bˣ  ⇒  a = b   (x ≠ 0)", "note": "Üsleri eşitle, tabanları eşitle" },
+        { "formula": "Sıralama için ya tabanları ya üsleri eşitle", "note": "2³⁰ ile 3²⁰ → (2³)¹⁰ = 8¹⁰ ve (3²)¹⁰ = 9¹⁰ → 3²⁰ büyük" },
+        { "formula": "a > 1 için üs büyüdükçe sayı büyür", "note": "2³ < 2⁵" },
+        { "formula": "0 < a < 1 için üs büyüdükçe sayı KÜÇÜLÜR", "note": "(1/2)³ > (1/2)⁵ — bu satır sıralama sorularının tuzağıdır" },
+        { "formula": "2ˣ⁺¹ = 2 · 2ˣ,   2ˣ⁻¹ = 2ˣ / 2", "note": "Ortak parantez almak için bu ayrıştırma kullanılır" }
+      ],
+      "tips": [
+        "Toplamlı üslü denklemlerde ortak parantez al: 2ˣ + 2ˣ⁺¹ = 2ˣ(1 + 2) = 3 · 2ˣ.",
+        "Tabanı 1'den küçük kesirlerde sıralamanın ters döndüğünü unutma."
+      ],
+      "examples": [
+        {
+          "stem": "2ˣ⁺³ = 32 denkleminde x kaçtır?",
+          "solution": "32 = 2⁵\n2ˣ⁺³ = 2⁵\nx + 3 = 5\nx = 2"
+        },
+        {
+          "stem": "3ˣ + 3ˣ⁺¹ = 36 ise x kaçtır?",
+          "solution": "3ˣ(1 + 3) = 36\n3ˣ · 4 = 36\n3ˣ = 9 = 3²\nx = 2"
+        },
+        {
+          "stem": "a = 2⁶⁰ ve b = 3⁴⁰ sayılarından hangisi büyüktür?",
+          "solution": "Üsleri eşitle: ikisini de 20'nin katı yaz.\na = (2³)²⁰ = 8²⁰\nb = (3²)²⁰ = 9²⁰\n9 > 8 olduğundan b > a\nb büyüktür."
+        }
+      ]
+    }
+  ]
+}

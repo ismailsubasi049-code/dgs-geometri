@@ -1,0 +1,136 @@
+{
+  "topicId": "bolunebilme",
+  "title": "Bölünebilme",
+  "cards": [
+    {
+      "id": "bolunebilme-kurallari",
+      "subtopicId": "bolunebilme-kurallari",
+      "title": "Bölünebilme kuralları",
+      "aliases": ["Bölünebilme kuralları", "Bölünebilme"],
+      "items": [
+        { "formula": "2 ile: birler basamağı çift (0, 2, 4, 6, 8)" },
+        { "formula": "3 ile: rakamlar toplamı 3'ün katı" },
+        { "formula": "4 ile: son iki basamağın oluşturduğu sayı 4'ün katı", "note": "Son iki basamak 00 ise de bölünür" },
+        { "formula": "5 ile: birler basamağı 0 veya 5" },
+        { "formula": "6 ile: hem 2 hem 3 ile bölünüyorsa", "note": "2 ve 3 aralarında asal olduğu için ikisi birlikte 6'yı verir" },
+        { "formula": "8 ile: son üç basamağın oluşturduğu sayı 8'in katı" },
+        { "formula": "9 ile: rakamlar toplamı 9'un katı" },
+        { "formula": "10 ile: birler basamağı 0" },
+        { "formula": "11 ile: sağdan başlayarak rakamlar +, −, +, − diye toplanır; sonuç 0 veya 11'in katı", "note": "Örnek: 2 4 8 6 → 6 − 8 + 4 − 2 = 0 → 11'e bölünür" },
+        { "formula": "Aralarında asal m ve n için: m ve n ile bölünen sayı m·n ile de bölünür", "note": "Bu yüzden 12 ile bölünme = 3 ve 4 ile bölünme; 2 ve 6 ile bakmak yanlıştır" }
+      ],
+      "tips": [
+        "12 için \"2 ve 6\" bakmak hatalıdır — 2 ile 6 aralarında asal değil. Doğrusu 3 ve 4'tür.",
+        "15 = 3 · 5, 18 = 2 · 9, 45 = 5 · 9 — hep aralarında asal iki çarpana böl."
+      ],
+      "examples": [
+        {
+          "stem": "3A26 dört basamaklı sayısı 3 ile tam bölünüyorsa A'nın alabileceği en küçük değer kaçtır?",
+          "solution": "Rakamlar toplamı: 3 + A + 2 + 6 = 11 + A\nBu toplam 3'ün katı olmalı.\nA = 1 → 12 ✓\nEn küçük değer: 1"
+        },
+        {
+          "stem": "5B4 sayısı 4 ile tam bölünüyorsa B kaç farklı değer alabilir?",
+          "solution": "4 ile bölünme son iki basamağa bakar: B4\nB4 sayısı 4'ün katı olmalı.\n04, 24, 44, 64, 84 → B ∈ {0, 2, 4, 6, 8}\nCevap: 5 farklı değer"
+        },
+        {
+          "stem": "72C sayısının 12 ile tam bölünmesi için C kaç olmalıdır?",
+          "solution": "12 = 3 · 4 (aralarında asal)\n3 ile: 7 + 2 + C = 9 + C → C ∈ {0, 3, 6, 9}\n4 ile: 2C sayısı 4'ün katı → C ∈ {0, 4, 8}\nOrtak değer: C = 0"
+        }
+      ]
+    },
+    {
+      "id": "bolme-algoritmasi",
+      "subtopicId": "bolme-algoritmasi",
+      "title": "Bölme algoritması ve kalan",
+      "aliases": ["Bölme algoritması", "Bölme ve kalan"],
+      "items": [
+        { "formula": "A = B · C + K", "note": "A bölünen, B bölen, C bölüm, K kalan", "figure": "<svg viewBox='0 0 320 120' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none'><line x1='150' y1='16' x2='150' y2='96'/><line x1='150' y1='56' x2='250' y2='56'/></g><g font-family='system-ui, sans-serif' font-size='18'><text x='132' y='44' text-anchor='end' fill='currentColor'>A</text><text x='170' y='44' fill='currentColor'>B</text><text x='170' y='86' fill='currentColor'>C</text><text x='132' y='86' text-anchor='end' fill='#0284c7'>K</text></g><g font-family='system-ui, sans-serif'><text x='160' y='114' font-size='14' fill='#0284c7' text-anchor='middle'>A = B · C + K</text></g></svg>" },
+        { "formula": "0 ≤ K < B", "note": "Kalan daima bölenden küçüktür. K = 0 ise bölme tamdır" },
+        { "formula": "Tam bölünme: A = B · C   (K = 0)" },
+        { "formula": "En büyük kalan = B − 1", "note": "\"En çok kalan\" diyen soru hemen B − 1'i verir" },
+        { "formula": "A sayısı B ile bölündüğünde kalan K ise, A − K sayısı B ile tam bölünür" }
+      ],
+      "tips": [
+        "Soru \"3 eksiği tam bölünüyor\" diyorsa kalan 3'tür; \"3 fazlası tam bölünüyor\" diyorsa kalan B − 3'tür.",
+        "Bölen negatif ya da sıfır olamaz."
+      ],
+      "examples": [
+        {
+          "stem": "Bir A sayısı 7 ile bölündüğünde bölüm 12, kalan 5 ise A kaçtır?",
+          "solution": "A = B · C + K\nA = 7 · 12 + 5\nA = 84 + 5 = 89"
+        },
+        {
+          "stem": "Bir sayının 9 ile bölümünden kalan en çok kaç olabilir?",
+          "solution": "Kalan bölenden küçük olmak zorunda: 0 ≤ K < 9\nEn büyük kalan = 9 − 1 = 8"
+        },
+        {
+          "stem": "A sayısı 6 ile bölündüğünde bölüm ile kalan eşit ve kalan 4 ise A kaçtır?",
+          "solution": "Kalan = 4 → bölüm de 4\nA = 6 · 4 + 4\nA = 24 + 4 = 28"
+        }
+      ]
+    },
+    {
+      "id": "kalan-islemleri",
+      "subtopicId": "kalan-islemleri",
+      "title": "Kalanlarla işlemler",
+      "aliases": ["Kalan bulma", "Kalanlarla işlemler"],
+      "items": [
+        { "formula": "Toplamın kalanı = kalanların toplamının kalanı", "note": "Sayıları toplamadan önce tek tek kalanlarını almak işi kısaltır" },
+        { "formula": "Çarpımın kalanı = kalanların çarpımının kalanı" },
+        { "formula": "Üslü ifadede kalan: taban yerine kalanı yazıp devri bul", "note": "Kalanlar belli bir adımdan sonra tekrar eder; devir uzunluğunu bul, üssü ona böl" },
+        { "formula": "Ardışık n sayının çarpımı n! ile bölünür", "note": "Ardışık 2 sayının çarpımı 2'ye, ardışık 3 sayının çarpımı 6'ya bölünür" },
+        { "formula": "Bir sayının 9 ile bölümünden kalan, rakamları toplamının 9 ile bölümünden kalana eşittir", "note": "Aynı kısayol 3 için de geçerlidir" }
+      ],
+      "tips": [
+        "Kalan sorularında büyük sayıyı hesaplamaya çalışma; kalanla devam et.",
+        "Üslü kalan sorularında önce 4-5 terimi yazıp devri gör, sonra üssü devir uzunluğuna böl."
+      ],
+      "examples": [
+        {
+          "stem": "27 · 34 çarpımının 5 ile bölümünden kalan kaçtır?",
+          "solution": "27 = 5·5 + 2 → kalan 2\n34 = 5·6 + 4 → kalan 4\n2 · 4 = 8 → 8 = 5·1 + 3\nKalan: 3"
+        },
+        {
+          "stem": "3¹⁰⁰ sayısının 5 ile bölümünden kalan kaçtır?",
+          "solution": "3¹ → 3,  3² → 4,  3³ → 2,  3⁴ → 1\nDevir 4 adımda tamamlanıyor.\n100 = 4 · 25 → tam bölünüyor, devrin son adımı\nKalan: 1"
+        },
+        {
+          "stem": "A = 4523 sayısının 9 ile bölümünden kalan kaçtır?",
+          "solution": "Rakamlar toplamı: 4 + 5 + 2 + 3 = 14\n14 = 9 · 1 + 5\nKalan: 5"
+        }
+      ]
+    },
+    {
+      "id": "bolen-sayisi",
+      "subtopicId": "bolen-sayisi",
+      "title": "Pozitif bölen sayısı",
+      "aliases": ["Bölen sayısı", "Pozitif bölen sayısı", "Çarpan sayısı"],
+      "items": [
+        { "formula": "N = pᵃ · qᵇ · rᶜ  ise  bölen sayısı = (a + 1)(b + 1)(c + 1)", "note": "Her asal çarpanın üssünü 1 artırıp çarp" },
+        { "formula": "Asal olan bölen sayısı = farklı asal çarpan sayısı", "note": "N = 2³ · 3² · 5 için 3 tanedir: 2, 3 ve 5" },
+        { "formula": "Tam sayı bölen sayısı = 2 · (pozitif bölen sayısı)", "note": "Negatifler de sayılıyorsa iki katı alınır" },
+        { "formula": "Çift bölen sayısı = a · (b + 1)(c + 1)   (p = 2 ve üssü a)", "note": "Tek bölen sayısı = 2'nin üssü hiç alınmadan hesaplanır" },
+        { "formula": "Bölenleri çarpımı = N^(bölen sayısı / 2)" },
+        { "formula": "Bölen sayısı tek olan sayılar tam karedir", "note": "Çünkü tam karede ortadaki bölen kendisiyle eşleşir" }
+      ],
+      "tips": [
+        "Önce mutlaka asal çarpanlarına ayır; üsleri görmeden bölen sayısı hesaplanamaz.",
+        "\"Kaç farklı çarpanı vardır\" ile \"kaç asal çarpanı vardır\" farklı sorulardır."
+      ],
+      "examples": [
+        {
+          "stem": "72 sayısının kaç tane pozitif tam böleni vardır?",
+          "solution": "72 = 2³ · 3²\nBölen sayısı = (3 + 1)(2 + 1)\n= 4 · 3 = 12"
+        },
+        {
+          "stem": "600 sayısının kaç tane çift pozitif böleni vardır?",
+          "solution": "600 = 2³ · 3 · 5²\nToplam bölen = (3+1)(1+1)(2+1) = 24\nTek bölenler (2'siz): (1+1)(2+1) = 6\nÇift bölen = 24 − 6 = 18"
+        },
+        {
+          "stem": "2ᵃ · 3² biçimindeki bir sayının 15 pozitif böleni varsa a kaçtır?",
+          "solution": "(a + 1)(2 + 1) = 15\n(a + 1) · 3 = 15\na + 1 = 5 → a = 4"
+        }
+      ]
+    }
+  ]
+}

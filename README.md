@@ -1,7 +1,11 @@
-# DGS Geometri
+# DGS Matematik
 
-Telefonda ana ekrana kurulan, internetsiz çalışan DGS geometri soru uygulaması.
+Telefonda ana ekrana kurulan, internetsiz çalışan DGS matematik ve geometri soru uygulaması.
 Derleme adımı yok — saf HTML + CSS + ES modules. Dosyaları statik olarak sunmak yeterli.
+
+İçerik iki **ders** altında toplanır: Matematik ve Geometri. Ana ekranda her ders kendi
+konu ve formül girişini alır; ayrım `data/index.json` ile `data/formuller/index.json`
+içindeki `branches` dizisinden gelir (bkz. *Dersler*).
 
 ## Modlar
 
@@ -10,7 +14,7 @@ Derleme adımı yok — saf HTML + CSS + ES modules. Dosyaları statik olarak su
 | Günlük 10 soru | Tekrar zamanı gelenler önce; aynı gün hep aynı set gelir. Bitirince seri artar. |
 | Sadece yanlışlarım | Son denemesi yanlış olan sorular. Üst üste 2 doğru cevaplanınca listeden düşer. |
 | Süreli mini test | 10 soru, geri sayımlı. Çözümler sonuç ekranında topluca. |
-| Konu seçip çöz | Konu → alt konu, süresiz, çözüm anında görünür. |
+| Konu seçip çöz | Ders → konu → alt konu, süresiz, çözüm anında görünür. |
 
 ### Soru sırası
 
@@ -25,8 +29,32 @@ ezberlenmez. Zor bloğa geçerken bir kez, kapatılabilir bir hatırlatma satır
 Her soruda şıklar, **"Soru ne istiyor?"** satırı açılana kadar pasiftir. Bu davranış
 İstatistik ve ayarlar → *Şıkları hemen aç* ile kapatılabilir.
 
-Ayrıca ana ekranda bir **Formüller** bölümü var: konu başına formül kartları. Aynı kart,
+Ayrıca her ders için bir **Formüller** girişi var: konu başına formül kartları. Aynı kart,
 o konuda yanlış cevap verdiğinde çözümün hemen altında da çıkar.
+
+## Dersler
+
+Konuların ve formül setlerinin üstünde bir **ders (branş)** düzeyi vardır. Ders listesi iki
+index dosyasında da ayrı ayrı durur — Formüller bölümü soru paketlerinden bağımsız çalışsın,
+paketler okunamasa bile açılabilsin diye.
+
+```json
+"branches": [
+  { "id": "mat", "title": "Matematik", "emoji": "🔢" },
+  { "id": "geo", "title": "Geometri", "emoji": "📐" }
+]
+```
+
+Her konu (`topics[]`) ve her formül seti (`sets[]`) bir `branchId` taşır. Yazmayan kayıt
+`geo` sayılır, yani eski veri kırılmaz.
+
+Rotalar üç düzeylidir: `#/konular/{branchId}/{topicId}` ve `#/formuller/{branchId}/{topicId}`.
+Ders parçası olmayan eski bağlantılar (`#/formuller/cember`) da çalışmaya devam eder.
+
+Yeni bir ders eklemek için iki `branches` dizisine birer satır yazmak ve konuları o `branchId`
+ile işaretlemek yeterli — ekran kodu değişmez. Ne sorusu ne formülü olan ders ana ekranda hiç
+görünmez; yalnızca formülü olan ders ise konu kartını "soru paketleri henüz eklenmedi"
+durumunda gösterir.
 
 ## Localde çalıştırma
 
@@ -56,7 +84,8 @@ Farkı yalnızca `data/index.json` kaydındaki `subtopicId`/`subtopic` alanları
 varsa konu ekranı ara bir alt konu listesi açar, yoksa doğrudan oturuma girer.
 
 1. `data/packs/` altına yeni bir JSON koy.
-2. Konu yeniyse `data/index.json` içindeki `topics` dizisine bir satır ekle.
+2. Konu yeniyse `data/index.json` içindeki `topics` dizisine bir satır ekle —
+   `{ "id": "sayilar", "title": "Sayılar", "branchId": "mat" }`.
 3. Aynı dosyadaki `packs` dizisine bir kayıt ekle:
 
 ```json
@@ -80,6 +109,9 @@ Düz (alt konusuz) bir konu için `subtopicId` ve `subtopic` alanlarını hiç y
 Konu listesi, alt konu listesi, günlük havuz ve mini testin konulara yayılması bu dosyadan türer.
 `topicId` kararlı kimliktir (rotalarda ve formül dosyalarında kullanılır); `topic` ise ekranda
 görünen addır.
+
+`topics` dizisinde yazılı olup hiç paketi olmayan konu, konu listesinde **görünmez**. Formül
+kartları bundan bağımsızdır: paketi olmayan bir konunun formülleri yine okunur.
 
 ### Soru şeması
 
@@ -114,7 +146,9 @@ görünen addır.
 ## Formül kartları
 
 Kartlar `data/formuller/` altında, konu başına bir dosyada durur. Yeni bir set eklemek için
-dosyayı koy, `data/formuller/index.json` içindeki `sets` dizisine bir satır yaz, `VERSION`'ı artır.
+dosyayı koy, `data/formuller/index.json` içindeki `sets` dizisine bir satır yaz
+(`branchId` dahil), `VERSION`'ı artır. Oradaki `cardCount` elle tutulur ve koddan
+doğrulanmaz — dosyadaki gerçek kart sayısıyla aynı olmalı.
 
 ```json
 {
@@ -127,9 +161,16 @@ dosyayı koy, `data/formuller/index.json` içindeki `sets` dizisine bir satır y
     { "formula": "Dış açı = komşu olmayan iki iç açının toplamı",
       "figure": "<svg viewBox='0 0 320 150'>…</svg>" }
   ],
-  "tips": ["Önce dik açının hangi köşede olduğunu bul."]
+  "tips": ["Önce dik açının hangi köşede olduğunu bul."],
+  "examples": [
+    { "stem": "Dik kenarları 6 ve 8 olan üçgenin hipotenüsü kaçtır?",
+      "solution": "6² + 8² = 36 + 64 = 100\n√100 = 10" }
+  ]
 }
 ```
+
+`formula` metni `\n` ile çok satırlı yazılabilir (parçalı tanımlar için); satır sonları olduğu
+gibi görünür.
 
 Her formül girdisi isteğe bağlı bir `figure` alabilir: soru şekilleriyle aynı biçim ve aynı beyaz
 liste (bkz. *Soru şeması*). Şekil formülün üstünde görünür; şekli olmayan formüller değişmez.
@@ -144,6 +185,20 @@ Bir kart soruya iki yoldan bağlanır:
 
 Kart bulunamazsa hiçbir şey gösterilmez; soru yine normal çalışır. Formüller düz metindir
 (`²`, `√`, `·`, `°` gibi Unicode karakterler) — MathJax/KaTeX gibi bir bağımlılık yoktur.
+
+### Örnek sorular (`examples`)
+
+Kartın altında, çözümlü örnekler. Her örnek kapalı gelir: önce `stem` okunur, düşünülür,
+sonra açılınca `solution` görünür. `solution` içinde `\n` satır sonu verir. İsteğe bağlı bir
+`figure` de alabilir (aynı beyaz liste).
+
+Bunlar **soru paketi değildir**: Leitner takvimine girmez, istatistiğe sayılmaz, sınavda
+karşına çıkmaz. Yalnızca formülün nasıl kullanıldığını göstermek içindir. Sorulardaki
+`answer` alanı bir *indeks* olduğu için burada bilerek kullanılmaz — sonuç `solution`
+metninin sonunda yazılır.
+
+Örnekler yalnızca Formüller ekranında görünür. `formulaCard()`'ın `showExamples` seçeneği
+varsayılan olarak kapalıdır, böylece yanlış cevabın altında çıkan kart uzamaz.
 
 ## İlerleme ve yedekleme
 
@@ -206,11 +261,13 @@ js/
   packs.js formulas.js store.js scheduler.js quiz.js svg.js scratchpad.js ui.js
   screens/              home, session, result, topics, formulas, stats
 data/
-  index.json            konu ve paket kaydı — genişleme noktası
+  index.json            ders, konu ve paket kaydı — genişleme noktası
   packs/                soru paketleri (alt konu ya da tam konu)
   formuller/
-    index.json          formül seti kaydı
-    *.json              konu başına formül kartları
+    index.json          ders ve formül seti kaydı
+    sayilar.json bolunebilme.json ebob-ekok.json      matematik
+    rasyonel.json uslu.json koklu.json
+    acilar.json ucgenler.json dortgenler.json cember.json   geometri
 icons/                  make-icons.ps1 ile üretilir
 tools/
   serve.ps1             bağımlılıksız local sunucu

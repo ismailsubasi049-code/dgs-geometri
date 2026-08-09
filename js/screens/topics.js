@@ -1,8 +1,12 @@
-// Konu secimi - iki duzeyli. Liste data/index.json'dan turer; yeni paket eklenince
-// kendiliginden buyur. Alt konusu olan konu ara bir listeye acilir, olmayan dogrudan oturuma.
+// Konu secimi - uc duzeyli: ders -> konu -> alt konu. Liste data/index.json'dan turer;
+// yeni paket eklenince kendiliginden buyur. Alt konusu olan konu ara bir listeye acilir,
+// olmayan dogrudan oturuma.
+//
+// Rota: #/konular/{branchId}/{topicId}. Ders parcasi olmayan eski baglantilar
+// (#/konular/{topicId}) da calismaya devam eder.
 
 import { el, emptyState } from '../ui.js';
-import { listTopics, loadAllQuestions } from '../packs.js';
+import { listBranches, listTopics, loadAllQuestions } from '../packs.js';
 import { getStat, MAX_BOX } from '../store.js';
 import { isActive } from '../scheduler.js';
 
@@ -36,8 +40,41 @@ function progressRow({ title, sub, progress, disabled, onClick }) {
   );
 }
 
-/** Ust duzey: konu listesi. */
-function renderTopicList(ctx, topics, byTopicId) {
+/** En ust duzey: ders listesi. Yalnizca derin baglantiyla #/konular'a gelinirse gorunur. */
+function renderBranchList(ctx, branches, topics) {
+  const list = el('div', { class: 'list' });
+
+  for (const branch of branches) {
+    const own = topics.filter((topic) => topic.branchId === branch.id);
+    const count = own.reduce((sum, topic) => sum + topic.count, 0);
+
+    list.append(
+      el('button', {
+        class: 'row-item',
+        type: 'button',
+        disabled: own.length === 0,
+        on: { click: () => ctx.navigate(`#/konular/${encodeURIComponent(branch.id)}`) },
+      },
+        el('span', null, branch.emoji || '📘'),
+        el('span', { class: 'grow' },
+          el('div', { style: 'font-weight:600' }, branch.title),
+          el('div', { class: 'small muted' }, own.length > 0
+            ? `${own.length} konu · ${count} soru`
+            : 'Soru paketleri henüz eklenmedi')
+        ),
+        el('span', { class: 'muted' }, '›')
+      )
+    );
+  }
+
+  return el('div', { class: 'stack' },
+    el('div', { class: 'small muted' }, 'Hangi dersten çalışacaksın?'),
+    list
+  );
+}
+
+/** Orta duzey: bir dersin konu listesi. */
+function renderTopicList(ctx, branchId, topics, byTopicId) {
   const list = el('div', { class: 'list' });
 
   for (const topic of topics) {
@@ -55,7 +92,7 @@ function renderTopicList(ctx, topics, byTopicId) {
       progress,
       disabled: progress.total === 0,
       onClick: () => ctx.navigate(hasSubtopics
-        ? `#/konular/${encodeURIComponent(topic.topicId)}`
+        ? `#/konular/${encodeURIComponent(branchId)}/${encodeURIComponent(topic.topicId)}`
         : `#/oturum/konu/${encodeURIComponent(topic.topic)}`),
     }));
   }
@@ -110,7 +147,9 @@ function renderSubtopicList(ctx, topic, questions) {
 }
 
 export async function render(ctx) {
-  const [topics, all] = await Promise.all([listTopics(), loadAllQuestions()]);
+  const [branches, topics, all] = await Promise.all([
+    listBranches(), listTopics(), loadAllQuestions(),
+  ]);
 
   // Konu basina gercek soru listesi (index.json'daki count yerine yuklenen veri).
   const byTopicId = new Map();
@@ -120,12 +159,34 @@ export async function render(ctx) {
     byTopicId.get(key).push(question);
   }
 
-  const requestedId = ctx.params[0];
-  const topic = requestedId ? topics.find((t) => t.topicId === requestedId) : null;
+  const [first, second] = ctx.params;
+  const branch = first ? branches.find((b) => b.id === first) : null;
+
+  // Ders parcasi olmayan eski baglanti: ilk parca dogrudan konu kimligi olabilir.
+  const topicId = second || (branch ? null : first);
+  const topic = topicId ? topics.find((t) => t.topicId === topicId) : null;
 
   if (topic && topic.subtopics.length > 0) {
     ctx.setTitle(topic.topic);
     return renderSubtopicList(ctx, topic, byTopicId.get(topic.topicId) || []);
+  }
+
+  if (branch) {
+    ctx.setTitle(branch.title);
+    const own = topics.filter((t) => t.branchId === branch.id);
+
+    if (own.length === 0) {
+      return el('div', { class: 'stack' },
+        emptyState('🧩', `${branch.title} soru paketleri henüz eklenmedi`,
+          'Formül kartları hazır — konuya oradan bakabilirsin.'),
+        el('button', {
+          class: 'btn primary',
+          on: { click: () => ctx.navigate(`#/formuller/${encodeURIComponent(branch.id)}`) },
+        }, `${branch.title} formülleri`)
+      );
+    }
+
+    return renderTopicList(ctx, branch.id, own, byTopicId);
   }
 
   ctx.setTitle('Konu seç');
@@ -137,5 +198,5 @@ export async function render(ctx) {
     );
   }
 
-  return renderTopicList(ctx, topics, byTopicId);
+  return renderBranchList(ctx, branches, topics);
 }

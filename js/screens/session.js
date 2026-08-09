@@ -340,7 +340,7 @@ export async function render(ctx) {
     // konu / alt konu satiri
     body.append(
       el('div', { class: 'qmeta' },
-        el('span', { class: 'chip' }, question.topic || 'Geometri'),
+        el('span', { class: 'chip' }, question.topic || 'Soru'),
         question.subtopic ? el('span', null, question.subtopic) : null,
         // label, alt konu paketi icindeki sorunun kendi basligi (varsa).
         question.label && question.label !== question.subtopic

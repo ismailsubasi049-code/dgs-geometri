@@ -133,13 +133,38 @@ function itemFigure(item, collapse) {
 }
 
 /**
+ * Kartin cozumlu ornekleri. Her ornek kapali gelir: once soru okunur, sonra cozum acilir.
+ * Ornegi olmayan kart icin null doner.
+ */
+function cardExamples(card, collapseFigures) {
+  const examples = Array.isArray(card.examples) ? card.examples.filter((e) => e && e.stem) : [];
+  if (examples.length === 0) return null;
+
+  return el('div', { class: 'formula-examples' },
+    el('div', { class: 'examples-title' }, 'Örnekler'),
+    examples.map((example) =>
+      el('details', { class: 'example-item' },
+        el('summary', null, example.stem),
+        itemFigure({ figure: example.figure, formula: example.stem }, collapseFigures),
+        el('div', { class: 'example-solution' }, example.solution || '')
+      )
+    )
+  );
+}
+
+/**
  * Formul karti. data/formuller/ altindaki bir kart nesnesini DOM'a cevirir.
  * Yanlis cevap sonrasi, sonuc ekraninda ve Formuller ekraninda ayni bicim kullanilir.
  * label verilirse kartin ustune kucuk bir baslik satiri eklenir.
  * showTitle, basligi disarida gosteren yerlerde (acilir kart basligi) kapatilir.
  * collapseFigures, sekilleri acilir dugme altina alir.
+ * showExamples varsayilan olarak kapalidir: yanlis cevap sonrasi cikan kart uzamasin diye
+ * ornekleri yalnizca Formuller ekrani ister.
  */
-export function formulaCard(card, { label = null, showTitle = true, collapseFigures = false } = {}) {
+export function formulaCard(
+  card,
+  { label = null, showTitle = true, collapseFigures = false, showExamples = false } = {}
+) {
   if (!card) return null;
 
   return el('div', { class: 'formula-card' },
@@ -154,7 +179,8 @@ export function formulaCard(card, { label = null, showTitle = true, collapseFigu
     ),
     Array.isArray(card.tips) && card.tips.length > 0
       ? el('ul', { class: 'tips' }, card.tips.map((tip) => el('li', null, tip)))
-      : null
+      : null,
+    showExamples ? cardExamples(card, collapseFigures) : null
   );
 }
 
