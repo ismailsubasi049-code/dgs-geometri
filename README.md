@@ -219,8 +219,20 @@ Bu sessiz kayba karşı iki uyarı var (`js/backup.js`):
 
 Süreler `js/store.js` içindeki `BACKUP_REMIND_DAYS` ve `BACKUP_SNOOZE_DAYS` sabitlerinde.
 
-Tekrar takvimi hafif bir Leitner sistemidir: kutu 1-5, aralıklar 0 / 1 / 3 / 7 / 16 gün.
-Doğru cevap bir üst kutuya çıkarır, yanlış cevap 1. kutuya düşürür.
+Tekrar takvimi hafif bir Leitner sistemidir: kutu 1-5, aralıklar 1 / 1 / 3 / 7 / 16 gün.
+Doğru cevap bir üst kutuya çıkarır, yanlış cevap 1. kutuya düşürür. Takvim gün bazlıdır ve
+en küçük aralık 1 gündür (`MIN_INTERVAL_DAYS`): cevaplanan bir soru — doğru da olsa yanlış da
+olsa — aynı gün içinde bir daha havuza düşmez, en erken ertesi gün döner. Yanlışını beklemeden
+çalışmak isteyen "Sadece yanlışlarım" moduna girer; o mod vadeye bakmaz.
+
+### Aynı anda iki kopya
+
+Ana ekrana eklenmiş PWA ile tarayıcı sekmesi aynı `localStorage`'ı paylaşır. İkisi de açıkken
+biri diğerinin ilerlemesini silmesin diye `js/store.js` hiçbir zaman bellekteki kopyayı olduğu
+gibi diske basmaz: her yazma önce diski yeniden okur, iki tarafı birleştirir (`mergeStates`),
+sonra değişikliği uygular (`mutate`). Çakışan her alanda "daha ileri" olan kazanır, yani
+ilerleme asla geri gitmez. Ayrıca `storage` olayı ve sekmeye geri dönüş (`visibilitychange`)
+dinlenir; diğer kopya yazdığında açık ekran yeniden çizilir (soru çözerken hariç).
 
 ## Telefona kurma
 

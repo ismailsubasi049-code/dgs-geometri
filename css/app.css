@@ -124,6 +124,16 @@ button { font: inherit; color: inherit; }
 /* display:flex, [hidden] icin gelen display:none'i ezer; geri getir. */
 .banner[hidden] { display: none; }
 
+/* Veri kaybi uyarisi: guncelleme bandiyla ayni yerde durur ama dikkat cekmesi gerekir. */
+.banner-warn {
+  background: var(--bad);
+  color: #2b0b0b;
+}
+
+.banner-warn .banner-btn {
+  background: #2b0b0b;
+}
+
 .banner span { flex: 1; }
 
 .banner-btn {

@@ -87,14 +87,7 @@ export function createSession({ mode, questions, title = null, totalSeconds = nu
 
       store.recordAnswer(question.id, { correct, hintMs });
 
-      if (config.countsForDaily) {
-        const today = dayKey();
-        const daily = store.getDaily(today) || { done: 0, correct: 0, ids: [] };
-        store.setDaily(today, {
-          done: daily.done + 1,
-          correct: daily.correct + (correct ? 1 : 0),
-        });
-      }
+      if (config.countsForDaily) store.bumpDaily(dayKey(), correct);
 
       return record;
     },
@@ -111,7 +104,9 @@ export function createSession({ mode, questions, title = null, totalSeconds = nu
             elapsedMs: 0,
             skipped: true,
           };
-          // Bos birakilan soru "yanlis" sayilmaz, sadece tekrar havuzunda kalir.
+          // Bos birakilan soru "yanlis" sayilmaz ve kutusu degismez; yalnizca gorulmus
+          // isaretlenir ki "hic denenmemis" havuzunda kalip ayni gun geri gelmesin.
+          store.recordSkipped(this.questions[i].id);
         }
       }
     },

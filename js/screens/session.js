@@ -17,11 +17,28 @@ import { createScratchpad } from '../scratchpad.js';
 import { getSettings, getSavedSession, saveSession, clearSession } from '../store.js';
 
 /**
- * Ogrenme havuzu bos ama alt konuda soru varsa: hepsi pekismis demektir.
- * Tekrar gunu gosterilir, isteyene filtresiz tur icin bir cikis birakilir.
+ * Ogrenme havuzu bos ama konuda soru varsa: hepsi tekrar sirasina girmis demektir.
+ * Yanlisi olan sorular da (artik) ayni gun geri gelmedigi icin burada ayrica sayilir -
+ * yoksa "hepsini dogru cozdun" demek yanlis olurdu. Yanlislarini beklemeden calismak
+ * isteyene ve filtresiz tur isteyene birer cikis birakilir.
  */
-function masteredState(label, nextDue, allHash) {
+function masteredState(label, nextDue, allHash, pending = 0) {
   const when = fmtDay(nextDue);
+
+  if (pending > 0) {
+    return {
+      empty: emptyState(
+        '🕒',
+        `${label}: bugünlük bitti`,
+        `Yanlış yaptığın ${pending} soru dahil hepsi tekrar sırasına girdi.`
+        + (when ? ` İlk tekrar ${when}.` : '')
+        + ' Beklemek istemiyorsan yanlışlarını şimdi çalışabilirsin.'
+      ),
+      allHash,
+      wrongHash: '#/oturum/yanlis',
+    };
+  }
+
   return {
     empty: emptyState(
       '✅',
@@ -67,13 +84,19 @@ async function buildFor(mode, params, includeAll) {
     }
     case 'altkonu': {
       const subtopicId = params[0] || '';
-      const { questions, total, nextDue, label } = await buildSubtopicSet(subtopicId, { includeAll });
+      const { questions, total, nextDue, pending, label } =
+        await buildSubtopicSet(subtopicId, { includeAll });
       const title = label || 'Alt konu';
       if (total > 0 && questions.length === 0) {
         return {
           questions,
           title,
-          ...masteredState(title, nextDue, `#/oturum/altkonu/${encodeURIComponent(subtopicId)}/tumu`),
+          ...masteredState(
+            title,
+            nextDue,
+            `#/oturum/altkonu/${encodeURIComponent(subtopicId)}/tumu`,
+            pending
+          ),
         };
       }
       return {
@@ -85,13 +108,13 @@ async function buildFor(mode, params, includeAll) {
     case 'konu':
     default: {
       const topic = params[0] || '';
-      const { questions, total, nextDue } = await buildTopicSet(topic, { includeAll });
+      const { questions, total, nextDue, pending } = await buildTopicSet(topic, { includeAll });
       const title = topic || 'Serbest çözme';
       if (total > 0 && questions.length === 0) {
         return {
           questions,
           title,
-          ...masteredState(title, nextDue, `#/oturum/konu/${encodeURIComponent(topic)}/tumu`),
+          ...masteredState(title, nextDue, `#/oturum/konu/${encodeURIComponent(topic)}/tumu`, pending),
         };
       }
       return {
@@ -127,24 +150,22 @@ async function restoreSession(key) {
   const byId = new Map((await loadAllQuestions()).map((q) => [q.id, q]));
   const questions = [];
   const answers = [];
-  let index = null;
 
   for (let i = 0; i < saved.ids.length; i++) {
     const question = byId.get(saved.ids[i]);
     if (!question) continue; // paketten kalkmis soru
-    if (index === null && i >= saved.index) index = questions.length;
     questions.push(question);
     answers.push(saved.answers[i] || null);
   }
 
-  // Kalinan noktanin gerisinde soru kalmadiysa oturum fiilen bitmistir.
-  if (questions.length === 0 || index === null) return null;
+  // Kalinan yer kayittaki sayacla degil, cevaplanmamis ilk soruyla belirlenir.
+  // Boylece dizide bir bosluk kalmissa o soru atlanmaz - atlansa oturumun sonunda
+  // "bos" gorunur ve hic denenmemis sayilirdi. Cevaplanip "Sonraki"ye basilmadan
+  // cikilan durum da bundan dolayi kendiliginden bir sonraki soruyla acilir.
+  const index = answers.findIndex((answer) => answer === null);
 
-  // Cevaplanip "Sonraki"ye basilmadan cikilmissa bir sonraki soruyla ac.
-  if (answers[index]) {
-    if (index >= questions.length - 1) return null;
-    index += 1;
-  }
+  // Devam edilecek soru kalmadiysa oturum fiilen bitmistir; taze havuz kurulsun.
+  if (index === -1) return null;
 
   return { questions, answers, index };
 }
@@ -168,7 +189,7 @@ export async function render(ctx) {
         empty: null,
       }
     : await buildFor(mode, rest, includeAll);
-  const { questions, title, empty, allHash = null } = built;
+  const { questions, title, empty, allHash = null, wrongHash = null } = built;
   ctx.setTitle(title);
 
   // Formul kartlari pesin yuklenir; boylece yanlis cevaptan sonra kart senkron eklenebilir.
@@ -180,12 +201,20 @@ export async function render(ctx) {
   if (questions.length === 0) {
     return el('div', { class: 'stack' },
       empty,
-      allHash
-        ? el('button', { class: 'btn primary', on: { click: () => ctx.navigate(allHash) } },
-            'Yine de baştan çöz')
+      wrongHash
+        ? el('button', { class: 'btn primary', on: { click: () => ctx.navigate(wrongHash) } },
+            'Yanlışlarımı şimdi çalış')
         : null,
-      el('button', { class: allHash ? 'btn' : 'btn primary', on: { click: () => ctx.goHome() } },
-        'Ana ekrana dön')
+      allHash
+        ? el('button', {
+            class: wrongHash ? 'btn' : 'btn primary',
+            on: { click: () => ctx.navigate(allHash) },
+          }, 'Yine de baştan çöz')
+        : null,
+      el('button', {
+        class: allHash || wrongHash ? 'btn' : 'btn primary',
+        on: { click: () => ctx.goHome() },
+      }, 'Ana ekrana dön')
     );
   }
 

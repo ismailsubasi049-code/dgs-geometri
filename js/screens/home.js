@@ -52,7 +52,8 @@ export async function render(ctx) {
 
   if (!isPersistent()) {
     root.append(el('div', { class: 'error small' },
-      'Tarayıcı depolamaya izin vermiyor — ilerlemen bu oturumdan sonra kaybolacak.'));
+      'Son kayıt denemesi başarısız oldu — tarayıcı depolamayı engelliyor olabilir. '
+      + 'Uygulama yazmayı denemeye devam ediyor ama çözdüklerin kalıcı olmayabilir.'));
   }
 
   // Haftada bir: uzun suredir yedek alinmadiysa hatirlat.

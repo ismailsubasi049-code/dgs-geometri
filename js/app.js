@@ -5,6 +5,7 @@
 // boylece ana ekranda donanim geri tusu uygulamadan cikar.
 
 import { clear, el } from './ui.js';
+import { onExternalChange, onStorageTrouble } from './store.js';
 
 const appNode = document.getElementById('app');
 const titleNode = document.getElementById('topbar-title');
@@ -121,6 +122,9 @@ function makeContext(params) {
 
 let renderToken = 0;
 
+/** Su an cizili olan ekranin adi; disaridan gelen tazelemede karar vermek icin. */
+let currentRouteName = 'home';
+
 async function render() {
   const token = ++renderToken;
 
@@ -135,6 +139,7 @@ async function render() {
   const parts = parseHash();
   const route = resolve(parts);
   const ctx = makeContext(route.params);
+  currentRouteName = route.name;
 
   // Varsayilanlar; ekran isterse degistirir.
   ctx.setTitle('DGS Matematik');
@@ -166,6 +171,27 @@ async function render() {
     );
   }
 }
+
+// ---------- ilerleme depoya disaridan dokunulunca ----------
+
+// Uygulama ayni anda iki yerde acik olabilir: ana ekrana eklenmis PWA ve tarayici sekmesi
+// ayni depoyu paylasir. Diger kopya ilerlemeyi degistirdiginde ekrandaki sayilar
+// eskimesin diye yeniden cizilir. Oturum ekrani bunun disinda: cozulmekte olan soru
+// yeniden cizilirse kullanici yerini ve isaretledigi sikki kaybeder.
+onExternalChange(() => {
+  if (currentRouteName === 'session') return;
+  render();
+});
+
+// Yazma basarisiz olursa ana ekrana donmeyi beklemeden, oturumun ortasinda da uyar.
+onStorageTrouble(() => {
+  const banner = document.getElementById('storage-banner');
+  if (banner) banner.hidden = false;
+});
+
+document.getElementById('storage-dismiss').addEventListener('click', () => {
+  document.getElementById('storage-banner').hidden = true;
+});
 
 backBtn.addEventListener('click', () => {
   // Geri gitmek kayit tuketir; boylece yigin buyumez ve donanim geri tusu ayni sirayi izler.

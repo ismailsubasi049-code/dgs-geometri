@@ -36,8 +36,8 @@ function orderByDifficulty(questions, rand = Math.random) {
 
 /**
  * Havuzda kalmayi hak eden soru: ya hic denenmemis ya da Leitner vadesi gelmis.
- * Dogru cozulup vadesi ileri atilmis soru, o gun gelene kadar disarida kalir.
- * Yanlis cevap box'i 1'e ve vadeyi bugune cektigi icin yanlislar burada kalir.
+ * Cevaplanan soru - dogru da olsa yanlis da olsa - en erken ertesi gun geri doner.
+ * Yanlisini ayni gun calismak isteyen "Yanlislarim" moduna girer; o mod vadeye bakmaz.
  */
 export function isActive(question, today = dayKey()) {
   return store.getStat(question.id).seen === 0 || store.isDue(question.id, today);
@@ -98,8 +98,12 @@ export async function buildDaily() {
   // Yeni sorular kolaydan zora; blok icinde tarih tohumlu rastgelelik.
   const unseen = orderByDifficulty(all.filter((q) => store.getStat(q.id).seen === 0), rand);
   // Gorulmus ama vadesi gelmemisler yalnizca hedefi doldurur; burada zayif kutu once gelsin.
+  // Bugun cevaplanmislar disarida kalir - ayni gun icinde ayni soru bir daha gelmemeli.
   const rest = shuffle(
-    all.filter((q) => store.getStat(q.id).seen > 0 && !store.isDue(q.id, today)),
+    all.filter((q) => {
+      const stat = store.getStat(q.id);
+      return stat.seen > 0 && stat.lastSeen !== today && !store.isDue(q.id, today);
+    }),
     rand
   ).sort((a, b) => store.getStat(a.id).box - store.getStat(b.id).box);
 
@@ -157,13 +161,15 @@ export async function buildTest(count = 10) {
 
 /**
  * Ogrenme havuzunu ve ekranin bos durumu ayirt etmesi icin gereken sayilari dondurur.
- * total: filtre oncesi soru sayisi, nextDue: hepsi pekismisse bir sonraki tekrar gunu.
+ * total: filtre oncesi soru sayisi, nextDue: havuz bossa bir sonraki tekrar gunu,
+ * pending: son denemesi yanlis olan soru sayisi - "hepsini dogru cozdun" demeden once bakilir.
  */
 function learningSet(own, includeAll, label) {
   return {
     questions: orderForLearning(own, { includeAll }),
     total: own.length,
     nextDue: nextDueDay(own),
+    pending: own.filter((q) => store.getStat(q.id).lastWrong).length,
     label,
   };
 }

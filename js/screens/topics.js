@@ -10,13 +10,18 @@ import { listBranches, listTopics, loadAllQuestions } from '../packs.js';
 import { getStat, MAX_BOX } from '../store.js';
 import { isActive } from '../scheduler.js';
 
-/** Bir soru listesinin ilerleme ozeti. remaining: su an havuza girecek soru sayisi. */
+/**
+ * Bir soru listesinin ilerleme ozeti.
+ * remaining: su an havuza girecek soru sayisi.
+ * pending: son denemesi yanlis olanlar - havuz bos olsa bile "tamamlandi" denemez.
+ */
 function progressOf(questions) {
-  const entry = { total: questions.length, seen: 0, mastered: 0, remaining: 0 };
+  const entry = { total: questions.length, seen: 0, mastered: 0, remaining: 0, pending: 0 };
   for (const question of questions) {
     const stat = getStat(question.id);
     if (stat.seen > 0) entry.seen += 1;
     if (stat.box >= MAX_BOX) entry.mastered += 1;
+    if (stat.lastWrong) entry.pending += 1;
     if (isActive(question)) entry.remaining += 1;
   }
   entry.percent = entry.total > 0 ? Math.round((entry.mastered / entry.total) * 100) : 0;
@@ -128,11 +133,17 @@ function renderSubtopicList(ctx, topic, questions) {
     const own = bySubtopic.get(subtopicId) || [];
     const progress = progressOf(own);
 
+    // Havuz bosken bile yanlisi olan sorular varsa "tamamlandi" demek yaniltici olur;
+    // onlar ayni gun geri gelmiyor ama tekrar sirasinda bekliyor.
+    const tail = `${progress.total} soru · ${progress.mastered} pekişti`;
+    let sub;
+    if (progress.remaining > 0) sub = `${progress.remaining} çalışılacak · ${tail}`;
+    else if (progress.pending > 0) sub = `${progress.pending} yanlış tekrar bekliyor · ${tail}`;
+    else sub = `Tamamlandı · ${tail}`;
+
     list.append(progressRow({
       title: subtopic,
-      sub: progress.remaining > 0
-        ? `${progress.remaining} çalışılacak · ${progress.total} soru · ${progress.mastered} pekişti`
-        : `Tamamlandı · ${progress.total} soru · ${progress.mastered} pekişti`,
+      sub,
       progress,
       disabled: progress.total === 0,
       onClick: () => ctx.navigate(`#/oturum/altkonu/${encodeURIComponent(subtopicId)}`),
