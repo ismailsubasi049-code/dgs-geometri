@@ -4,7 +4,7 @@
   "topic": "Üçgenler",
   "subtopicId": "ucgen-pisagor",
   "subtopic": "Pisagor bağıntısı",
-  "version": 1,
+  "version": 2,
   "questions": [
     {
       "id": "ucgen-003",
@@ -15,6 +15,333 @@
       "choices": ["13", "15", "17", "19", "21"],
       "answer": 1,
       "solution": "Dik açı A köşesinde olduğundan hipotenüs, A'nın karşısındaki [BC] kenarıdır.\nPisagor bağıntısı: |AB|² + |AC|² = |BC|²\n8² + |AC|² = 17²\n64 + |AC|² = 289\n|AC|² = 225 → |AC| = 15 cm\n(8 - 15 - 17 bilinen bir Pisagor üçlüsüdür.)"
+    },
+    {
+      "id": "ucgen-101",
+      "label": "Hipotenüsü bulma",
+      "difficulty": 1,
+      "stem": "ABC dik üçgeninde m(B) = 90°, |AB| = 7 cm ve |BC| = 24 cm'dir. Buna göre |AC| kaç cm'dir?",
+      "asks": "Hipotenüs isteniyor. Dik açı B köşesinde olduğu için hipotenüs, B'nin karşısındaki [AC] kenarıdır. İki dik kenarın karesi toplanacak, sonunda karekök almayı unutma.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='55,110 55,165 285,165'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='55,153 67,153 67,165'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='47' y='142' fill='currentColor' text-anchor='end'>7</text><text x='170' y='185' fill='currentColor' text-anchor='middle'>24</text><text x='182' y='124' fill='#0284c7' text-anchor='start'>x</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='47' y='103'>A</text><text x='47' y='182'>B</text><text x='295' y='182'>C</text></g></svg>",
+      "choices": ["17", "25", "31", "49", "625"],
+      "answer": 1,
+      "solution": "Dik açı B'de olduğundan hipotenüs [AC]'dir.\n|AC|² = |AB|² + |BC|²\n|AC|² = 7² + 24² = 49 + 576 = 625\n|AC| = 25 cm\n(Sık yapılan hata 1: ara değer olan |AC|² = 625'i işaretlemek — karekök alınmamış.\nSık yapılan hata 2: kenarları doğrudan toplayıp 7 + 24 = 31 demek.\nSık yapılan hata 3: 24 − 7 = 17 farkını almak; çıkarma ancak hipotenüs verilmişken yapılır.\nSık yapılan hata 4: yolda hesaplanan 7² = 49'u işaretlemek.)"
+    },
+    {
+      "id": "ucgen-102",
+      "label": "Dik kenarı bulma",
+      "difficulty": 1,
+      "stem": "ABC dik üçgeninde m(B) = 90°, |AB| = 24 cm ve |AC| = 26 cm'dir. Buna göre |BC| kaç cm'dir?",
+      "asks": "Bir dik kenar isteniyor. En uzun kenar olan 26, dik açının karşısındaki hipotenüstür; 24 ise bir dik kenar. Bu durumda kareler toplanmaz, hipotenüsün karesinden dik kenarın karesi çıkarılır.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='35,150 275,150 275,50'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='263,150 263,138 275,138'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='155' y='170' fill='currentColor' text-anchor='middle'>24</text><text x='142' y='94' fill='currentColor' text-anchor='end'>26</text><text x='285' y='105' fill='#0284c7' text-anchor='start'>x</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='27' y='166'>A</text><text x='271' y='168'>B</text><text x='275' y='42'>C</text></g></svg>",
+      "choices": ["10", "24", "50", "100", "676"],
+      "answer": 0,
+      "solution": "Dik açı B'de olduğundan hipotenüs [AC] = 26 cm'dir.\n|AB|² + |BC|² = |AC|²\n24² + |BC|² = 26²\n576 + |BC|² = 676\n|BC|² = 100 → |BC| = 10 cm\n(10 - 24 - 26, 5 - 12 - 13 üçlüsünün 2 katıdır.)\n(Sık yapılan hata 1: ara değer olan |BC|² = 100'ü işaretlemek.\nSık yapılan hata 2: 26² = 676'yı sonuç sanmak.\nSık yapılan hata 3: kareleri toplayıp 24 + 26 = 50 demek — hipotenüs verilmişken çıkarma yapılır.\nSık yapılan hata 4: verilen kenar 24'ü işaretlemek.)"
+    },
+    {
+      "id": "ucgen-103",
+      "label": "Tepede dik açı",
+      "difficulty": 1,
+      "stem": "ABC üçgeninde m(C) = 90°, |CA| = 20 cm ve |CB| = 21 cm'dir. Buna göre |AB| kaç cm'dir?",
+      "asks": "Hipotenüs isteniyor. Dik açı tepedeki C köşesinde; hipotenüs onun karşısındaki taban [AB]'dir. Kenarlar birbirine yakın olduğu için şekle bakıp göz kararı seçme, bağıntıyı uygula.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='160,40 30,170 290,170'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='150.1,49.9 160,59.8 169.9,49.9'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='86' y='100' fill='currentColor' text-anchor='end'>20</text><text x='234' y='100' fill='currentColor' text-anchor='start'>21</text><text x='160' y='190' fill='#0284c7' text-anchor='middle'>x</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='160' y='32'>C</text><text x='22' y='186'>A</text><text x='298' y='186'>B</text></g></svg>",
+      "choices": ["1", "21", "29", "441", "841"],
+      "answer": 2,
+      "solution": "Dik açı C'de olduğundan hipotenüs [AB]'dir.\n|AB|² = |CA|² + |CB|²\n|AB|² = 20² + 21² = 400 + 441 = 841\n|AB| = 29 cm\n(20 - 21 - 29 da bir Pisagor üçlüsüdür.)\n(Sık yapılan hata 1: ara değer olan |AB|² = 841'i işaretlemek.\nSık yapılan hata 2: yoldaki 21² = 441'i işaretlemek.\nSık yapılan hata 3: 21 − 20 = 1 farkını almak.\nSık yapılan hata 4: kenarlar yakın diye |AB|'yi 21 sanmak; hipotenüs her zaman diğer ikisinden uzundur.)"
+    },
+    {
+      "id": "ucgen-104",
+      "label": "Eğik duran dik üçgen",
+      "difficulty": 1,
+      "stem": "Şekildeki ABC üçgeninde m(C) = 90°, |CB| = 9 cm ve |AB| = 41 cm'dir. Buna göre |CA| kaç cm'dir?",
+      "asks": "Bir dik kenar isteniyor. Üçgen eğik durduğu için hangi kenarın hipotenüs olduğunu şekle bakarak değil, dik açının yerine bakarak bulmalısın: dik açı C'de, öyleyse hipotenüs [AB] = 41 cm.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='255,50 25,125 272,102'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='241.7,54.3 246,67.7 259.3,63.3'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='136' y='74' fill='#0284c7' text-anchor='middle'>x</text><text x='279' y='71' fill='currentColor' text-anchor='start'>9</text><text x='135' y='122' fill='currentColor' text-anchor='middle'>41</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='263' y='42'>C</text><text x='17' y='138'>A</text><text x='282' y='112'>B</text></g></svg>",
+      "choices": ["32", "40", "50", "81", "1600"],
+      "answer": 1,
+      "solution": "Dik açı C'de olduğundan hipotenüs [AB] = 41 cm'dir.\n|CA|² + |CB|² = |AB|²\n|CA|² + 9² = 41²\n|CA|² + 81 = 1681\n|CA|² = 1600 → |CA| = 40 cm\n(9 - 40 - 41 bir Pisagor üçlüsüdür.)\n(Sık yapılan hata 1: ara değer olan |CA|² = 1600'ü işaretlemek.\nSık yapılan hata 2: yoldaki 9² = 81'i işaretlemek.\nSık yapılan hata 3: 41 − 9 = 32 diyerek kenarları kareye almadan çıkarmak.\nSık yapılan hata 4: 41 + 9 = 50 ile toplamak; hipotenüs verilmişken toplama yapılmaz.)"
+    },
+    {
+      "id": "ucgen-105",
+      "label": "Aşağı bakan üçgen",
+      "difficulty": 1,
+      "stem": "ABC dik üçgeninde m(A) = 90°, |AB| = 12 cm ve |AC| = 16 cm'dir. Buna göre |BC| kaç cm'dir?",
+      "asks": "Hipotenüs isteniyor. Dik açı sol üstteki A köşesinde; hipotenüs onun karşısındaki eğik kenar [BC]'dir. İki dik kenar da verildiğine göre kareleri toplayacaksın.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='60,45 60,175 233,45'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='60,59 74,59 74,45'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='52' y='116' fill='currentColor' text-anchor='end'>12</text><text x='146' y='37' fill='currentColor' text-anchor='middle'>16</text><text x='158' y='122' fill='#0284c7' text-anchor='start'>x</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='52' y='40'>A</text><text x='52' y='190'>B</text><text x='242' y='40'>C</text></g></svg>",
+      "choices": ["4", "12", "16", "20", "400"],
+      "answer": 3,
+      "solution": "Dik açı A'da olduğundan hipotenüs [BC]'dir.\n|BC|² = |AB|² + |AC|²\n|BC|² = 12² + 16² = 144 + 256 = 400\n|BC| = 20 cm\n(12 - 16 - 20, 3 - 4 - 5 üçlüsünün 4 katıdır.)\n(Sık yapılan hata 1: ara değer olan |BC|² = 400'ü işaretlemek.\nSık yapılan hata 2: 16 − 12 = 4 farkını almak.\nSık yapılan hata 3: verilen dik kenarlardan birini, 12 ya da 16'yı hipotenüs sanmak.)"
+    },
+    {
+      "id": "ucgen-106",
+      "label": "Yatık yerleşimde dik kenar",
+      "difficulty": 1,
+      "stem": "Şekildeki ABC üçgeninde m(B) = 90°, |BA| = 12 cm ve |AC| = 37 cm'dir. Buna göre |BC| kaç cm'dir?",
+      "asks": "Uzun dik kenar isteniyor. Üçgen yatık çizildiği için en uzun görünen kenara değil, dik açının karşısındaki kenara bak: hipotenüs [AC] = 37 cm. Verilenlerden biri hipotenüs olduğuna göre çıkarma yapacaksın.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='45,150 251,108 31,79'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='58.7,147.2 55.9,133.5 42.2,136.3'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='151' y='147' fill='#0284c7' text-anchor='middle'>x</text><text x='28' y='118' fill='currentColor' text-anchor='end'>12</text><text x='155' y='86' fill='currentColor' text-anchor='middle'>37</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='37' y='168'>B</text><text x='23' y='72'>A</text><text x='259' y='104'>C</text></g></svg>",
+      "choices": ["12", "25", "35", "49", "1225"],
+      "answer": 2,
+      "solution": "Dik açı B'de olduğundan hipotenüs [AC] = 37 cm'dir.\n|BA|² + |BC|² = |AC|²\n12² + |BC|² = 37²\n144 + |BC|² = 1369\n|BC|² = 1225 → |BC| = 35 cm\n(12 - 35 - 37 bir Pisagor üçlüsüdür.)\n(Sık yapılan hata 1: ara değer olan |BC|² = 1225'i işaretlemek.\nSık yapılan hata 2: 37 − 12 = 25 diyerek kenarları kareye almadan çıkarmak.\nSık yapılan hata 3: 37 + 12 = 49 ile toplamak.\nSık yapılan hata 4: verilen 12'yi işaretlemek.)"
+    },
+    {
+      "id": "ucgen-107",
+      "label": "Üçlü tanıma",
+      "difficulty": 1,
+      "stem": "Kenar uzunlukları aşağıda verilen üçgenlerden hangisi bir dik üçgendir?",
+      "asks": "Şekil yok; karar tamamen sayılarda. Bir üçgenin dik olması için en uzun kenarın karesi, diğer iki kenarın kareleri toplamına eşit olmalı. Her seçenekte en uzun kenarı bulup bu eşitliği dene — şıkların çoğu bilinen üçlülerin bozulmuş hali.",
+      "choices": ["6 - 8 - 11", "7 - 9 - 12", "9 - 12 - 16", "10 - 15 - 18", "20 - 21 - 29"],
+      "answer": 4,
+      "solution": "Her şıkta en uzun kenarın karesini, diğer ikisinin kareleri toplamıyla karşılaştıralım:\n6 - 8 - 11:  36 + 64 = 100,  11² = 121  → eşit değil\n7 - 9 - 12:  49 + 81 = 130,  12² = 144  → eşit değil\n9 - 12 - 16:  81 + 144 = 225,  16² = 256  → eşit değil\n10 - 15 - 18:  100 + 225 = 325,  18² = 324  → eşit değil (bir fark bile yeterlidir)\n20 - 21 - 29:  400 + 441 = 841,  29² = 841  → eşit\nCevap: 20 - 21 - 29\n(Sık yapılan hata 1: 6 - 8 - 11'i 6 - 8 - 10 üçlüsüne benzetip işaretlemek; 10 yerine 11 yazılmış, üçgen artık dik değil.\nSık yapılan hata 2: 9 - 12 - 16'yı 9 - 12 - 15 sanmak.\nSık yapılan hata 3: 10 - 15 - 18'de 325 ile 324 birbirine çok yakın diye eşit saymak.)"
+    },
+    {
+      "id": "ucgen-108",
+      "label": "Üçlünün katı",
+      "difficulty": 1,
+      "stem": "Bir dik üçgenin dik kenarları 21 cm ve 28 cm'dir. Buna göre hipotenüsü kaç cm'dir?",
+      "asks": "Hipotenüs isteniyor. Sayıları doğrudan kareye almadan önce ortak çarpanlarına bak: ikisi de 7'nin katı. Bilinen bir üçlünün katını yakalarsan işlem tek satıra iner. Bulduğun çarpanın kendisi cevap değildir.",
+      "choices": ["7", "21", "28", "35", "1225"],
+      "answer": 3,
+      "solution": "21 = 7 · 3 ve 28 = 7 · 4 olduğundan üçgen, 3 - 4 - 5 üçlüsünün 7 katıdır.\nHipotenüs = 7 · 5 = 35 cm\nAynı sonuç uzun yoldan da çıkar:\nc² = 21² + 28² = 441 + 784 = 1225\nc = 35 cm\n(Sık yapılan hata 1: ara değer olan c² = 1225'i işaretlemek.\nSık yapılan hata 2: kat çarpanı olan 7'yi cevap sanmak.\nSık yapılan hata 3: verilen dik kenarlardan 21 ya da 28'i hipotenüs sanmak.)"
+    },
+    {
+      "id": "ucgen-109",
+      "label": "İkizkenarda yükseklik",
+      "difficulty": 1,
+      "stem": "ABC ikizkenar üçgeninde |AB| = |AC| = 10 cm ve |BC| = 16 cm'dir. A köşesinden [BC]'ye indirilen [AH] yüksekliğinin uzunluğu kaç cm'dir?",
+      "asks": "Yükseklik isteniyor. İkizkenar üçgende tepeden inen yükseklik tabanı tam ortadan ikiye böler; böylece dik kenarlarından biri tabanın yarısı olan bir dik üçgen elde edersin. Dikkat: tabanın yarısı cevap değil, ara değerdir.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='160,83 50,165 270,165'/><line x1='160' y1='83' x2='160' y2='165'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='160,153 172,153 172,165'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='97' y='118' fill='currentColor' text-anchor='end'>10</text><text x='223' y='118' fill='currentColor' text-anchor='start'>10</text><text x='168' y='130' fill='#0284c7' text-anchor='start'>x</text><text x='160' y='196' fill='currentColor' font-size='14' text-anchor='middle'>|BC| = 16</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='160' y='75'>A</text><text x='42' y='182'>B</text><text x='278' y='182'>C</text><text x='160' y='182'>H</text></g></svg>",
+      "choices": ["6", "8", "36", "64", "100"],
+      "answer": 0,
+      "solution": "İkizkenar üçgende tepeden inen yükseklik tabanın orta noktasına düşer:\n|BH| = |HC| = 16 / 2 = 8 cm\nABH dik üçgeninde Pisagor uygulayalım (dik açı H'de, hipotenüs |AB| = 10):\n|AH|² + |BH|² = |AB|²\n|AH|² + 8² = 10²\n|AH|² + 64 = 100\n|AH|² = 36 → |AH| = 6 cm\n(Sık yapılan hata 1: ara değer olan tabanın yarısını, 8'i işaretlemek.\nSık yapılan hata 2: |AH|² = 36'yı işaretlemek — karekök alınmamış.\nSık yapılan hata 3: yoldaki 64 ya da 100 değerini sonuç sanmak.)"
+    },
+    {
+      "id": "ucgen-110",
+      "label": "İkizkenarda eşit kenar",
+      "difficulty": 1,
+      "stem": "ABC ikizkenar üçgeninde |AB| = |AC|, |BC| = 30 cm ve A köşesinden [BC]'ye indirilen yüksekliğin uzunluğu 8 cm'dir. Buna göre |AB| kaç cm'dir?",
+      "asks": "Eşit kenarlardan biri isteniyor. Bu kez yükseklik verilmiş, eğik kenar aranıyor. Yükseklik tabanı ikiye böldüğüne göre dik üçgenin dik kenarları belli olur; aranan kenar ise o dik üçgenin hipotenüsüdür. Tabanın yarısı yine sadece bir ara değer.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='45,50 285,50 165,114'/><line x1='165' y1='50' x2='165' y2='114'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='165,62 177,62 177,50'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='100' y='88' fill='#0284c7' text-anchor='middle'>x</text><text x='173' y='90' fill='currentColor' text-anchor='start'>8</text><text x='230' y='40' fill='currentColor' font-size='14' text-anchor='middle'>|BC| = 30</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='37' y='44'>B</text><text x='293' y='44'>C</text><text x='165' y='130'>A</text><text x='157' y='44'>H</text></g></svg>",
+      "choices": ["8", "15", "17", "23", "289"],
+      "answer": 2,
+      "solution": "Yükseklik tabanı ortadan böler:\n|BH| = 30 / 2 = 15 cm\nABH dik üçgeninde dik açı H'de, hipotenüs aranan |AB|'dir:\n|AB|² = |AH|² + |BH|²\n|AB|² = 8² + 15² = 64 + 225 = 289\n|AB| = 17 cm\n(8 - 15 - 17 bir Pisagor üçlüsüdür.)\n(Sık yapılan hata 1: ara değer olan tabanın yarısını, 15'i işaretlemek.\nSık yapılan hata 2: |AB|² = 289'u işaretlemek.\nSık yapılan hata 3: 8 + 15 = 23 diyerek dik kenarları toplamak.\nSık yapılan hata 4: verilen yükseklik 8'i işaretlemek.)"
+    },
+    {
+      "id": "ucgen-111",
+      "label": "Ortak dik kenarlı iki üçgen",
+      "difficulty": 2,
+      "stem": "Şekilde [BD] ⊥ [AC]'dir. |AD| = 15 cm, |AB| = 17 cm ve |DC| = 6 cm olduğuna göre |BC| kaç cm'dir?",
+      "asks": "Şekilde iki dik üçgen var ve ikisi de [BD] kenarını paylaşıyor. İstenen kenar sağdaki üçgende ama sağdaki üçgende yalnızca bir kenar verilmiş. Önce soldaki üçgenden ortak kenarı bulup onu köprü olarak kullanacaksın. Ortak kenarın kendisi cevap değil, ara değerdir.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='30,170 180,90 240,170'/><line x1='180' y1='90' x2='180' y2='170'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='180,158 192,158 192,170'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='97' y='122' fill='currentColor' text-anchor='end'>17</text><text x='105' y='190' fill='currentColor' text-anchor='middle'>15</text><text x='212' y='190' fill='currentColor' text-anchor='middle'>6</text><text x='218' y='124' fill='#0284c7' text-anchor='start'>x</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='22' y='186'>A</text><text x='180' y='82'>B</text><text x='248' y='186'>C</text><text x='172' y='186'>D</text></g></svg>",
+      "choices": ["2", "6", "8", "10", "64"],
+      "answer": 3,
+      "solution": "Önce ortak kenar [BD]'yi soldaki ABD dik üçgeninden bulalım (dik açı D'de, hipotenüs |AB| = 17):\n|BD|² + |AD|² = |AB|²\n|BD|² + 15² = 17²\n|BD|² + 225 = 289\n|BD|² = 64 → |BD| = 8 cm\nŞimdi sağdaki BDC dik üçgenine geçelim (dik açı yine D'de):\n|BC|² = |BD|² + |DC|² = 8² + 6² = 64 + 36 = 100\n|BC| = 10 cm\n(Sık yapılan hata 1: ara değer olan ortak kenar |BD| = 8'i işaretlemek.\nSık yapılan hata 2: |BD|² = 64'te durmak.\nSık yapılan hata 3: 8 ile 6'yı toplayıp 14, ya da çıkarıp 2 demek.\nSık yapılan hata 4: verilen |DC| = 6'yı işaretlemek.)"
+    },
+    {
+      "id": "ucgen-112",
+      "label": "Ortak hipotenüs",
+      "difficulty": 2,
+      "stem": "Şekilde m(ABC) = m(ADC) = 90°'dir. |AB| = 20 cm, |BC| = 15 cm ve |AD| = 24 cm olduğuna göre |DC| kaç cm'dir?",
+      "asks": "İki dik üçgen bu kez ortak bir hipotenüs paylaşıyor: [AC] hem ABC'nin hem ADC'nin hipotenüsü. Üstteki üçgende iki dik kenar da verildiğine göre önce ortak hipotenüsü bulabilirsin; alttaki üçgende ise o hipotenüs artık bilinen bir veri olur.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polyline points='50,117 178,21 250,117'/><polyline points='50,117 234,171 250,117'/><line x1='50' y1='117' x2='250' y2='117'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='166.8,29.4 175.2,40.6 186.4,32.2'/><polyline points='220.9,167.1 224.8,153.6 238.2,157.4'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='104' y='62' fill='currentColor' text-anchor='end'>20</text><text x='224' y='62' fill='currentColor' text-anchor='start'>15</text><text x='136' y='157' fill='currentColor' text-anchor='middle'>24</text><text x='254' y='152' fill='#0284c7' text-anchor='start'>x</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='40' y='121'>A</text><text x='186' y='20'>B</text><text x='260' y='121'>C</text><text x='238' y='187'>D</text></g></svg>",
+      "choices": ["7", "25", "44", "49", "576"],
+      "answer": 0,
+      "solution": "Üstteki ABC dik üçgeninde ortak hipotenüs [AC]'yi bulalım:\n|AC|² = |AB|² + |BC|² = 20² + 15² = 400 + 225 = 625\n|AC| = 25 cm\nAlttaki ADC dik üçgeninde artık hipotenüs bilinen bir veri:\n|AD|² + |DC|² = |AC|²\n24² + |DC|² = 25²\n576 + |DC|² = 625\n|DC|² = 49 → |DC| = 7 cm\n(Sık yapılan hata 1: ara değer olan ortak hipotenüs |AC| = 25'i işaretlemek.\nSık yapılan hata 2: |DC|² = 49'da durmak.\nSık yapılan hata 3: yoldaki 24² = 576'yı işaretlemek.\nSık yapılan hata 4: 20 + 24 = 44 gibi ilgisiz bir toplam kurmak.)"
+    },
+    {
+      "id": "ucgen-113",
+      "label": "Zincirleme iki üçgen",
+      "difficulty": 2,
+      "stem": "Şekilde m(ABC) = m(BCD) = 90°'dir. |AB| = 5 cm, |AC| = 13 cm ve |CD| = 9 cm olduğuna göre |BD| kaç cm'dir?",
+      "asks": "İki dik üçgen [BC] kenarını paylaşıyor, ama [BC] verilmemiş. Soldaki üçgende hipotenüs (13) ile bir dik kenar (5) verildiğine göre önce ortak kenarı çıkarabilirsin; istenen uzunluk ise sağdaki üçgenin hipotenüsü. İki adımın yönü farklı: önce çıkarma, sonra toplama.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polyline points='70,45 70,90 178,90 178,171'/><line x1='70' y1='45' x2='178' y2='90'/><line x1='70' y1='90' x2='178' y2='171'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='70,78 82,78 82,90'/><polyline points='166,90 166,102 178,102'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='62' y='72' fill='currentColor' text-anchor='end'>5</text><text x='128' y='58' fill='currentColor' text-anchor='start'>13</text><text x='188' y='134' fill='currentColor' text-anchor='start'>9</text><text x='112' y='140' fill='#0284c7' text-anchor='end'>x</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='62' y='40'>A</text><text x='58' y='95'>B</text><text x='190' y='86'>C</text><text x='186' y='187'>D</text></g></svg>",
+      "choices": ["12", "15", "21", "144", "225"],
+      "answer": 1,
+      "solution": "ABC dik üçgeninde dik açı B'de, hipotenüs |AC| = 13'tür:\n|AB|² + |BC|² = |AC|²\n5² + |BC|² = 13²\n25 + |BC|² = 169\n|BC|² = 144 → |BC| = 12 cm\nBCD dik üçgeninde dik açı C'de, aranan |BD| ise hipotenüs:\n|BD|² = |BC|² + |CD|² = 12² + 9² = 144 + 81 = 225\n|BD| = 15 cm\n(12 - 9 - 15, 3 - 4 - 5 üçlüsünün 3 katıdır.)\n(Sık yapılan hata 1: ara değer olan ortak kenar |BC| = 12'yi işaretlemek.\nSık yapılan hata 2: |BC|² = 144 ya da |BD|² = 225'te durmak.\nSık yapılan hata 3: 12 + 9 = 21 diyerek kenarları doğrudan toplamak.)"
+    },
+    {
+      "id": "ucgen-114",
+      "label": "Bölünmüş tabanda yükseklik",
+      "difficulty": 2,
+      "stem": "ABC üçgeninde |AB| = 13 cm, |AC| = 15 cm ve |BC| = 14 cm'dir. A köşesinden [BC]'ye indirilen [AH] yüksekliğinin uzunluğu kaç cm'dir?",
+      "asks": "Üçgen dik değil; dik olan, yüksekliğin ayırdığı iki küçük üçgen. Yükseklik tabanı iki parçaya bölüyor ama parçalar eşit değil — üçgen ikizkenar olmadığı için tabanın yarısını almak yanlış olur. |BH| = x dersen |HC| = 14 − x olur; iki üçgende de aynı yüksekliği yazıp denklemi kurmalısın.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='120,50 70,170 210,170'/><line x1='120' y1='50' x2='120' y2='170'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='120,158 132,158 132,170'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='87' y='104' fill='currentColor' text-anchor='end'>13</text><text x='173' y='104' fill='currentColor' text-anchor='start'>15</text><text x='128' y='118' fill='#0284c7' text-anchor='start'>x</text><text x='168' y='196' fill='currentColor' font-size='14' text-anchor='middle'>|BC| = 14</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='120' y='42'>A</text><text x='62' y='187'>B</text><text x='218' y='187'>C</text><text x='114' y='187'>H</text></g></svg>",
+      "choices": ["5", "7", "9", "12", "144"],
+      "answer": 3,
+      "solution": "|BH| = x dersek |HC| = 14 − x olur. [AH] iki dik üçgenin de ortak dik kenarıdır; |AH|²'yi iki yoldan yazalım:\nABH'den:  |AH|² = 13² − x² = 169 − x²\nAHC'den:  |AH|² = 15² − (14 − x)² = 225 − (196 − 28x + x²) = 29 + 28x − x²\nİkisini eşitleyelim:\n169 − x² = 29 + 28x − x²\n169 = 29 + 28x\n28x = 140 → x = 5,  yani |BH| = 5 cm\n|AH|² = 169 − 5² = 169 − 25 = 144\n|AH| = 12 cm\n(Sık yapılan hata 1: ara değer olan taban parçalarını, |BH| = 5 ya da |HC| = 9'u işaretlemek.\nSık yapılan hata 2: |AH|² = 144'te durmak.\nSık yapılan hata 3: üçgeni ikizkenar sanıp tabanın yarısını, 14 / 2 = 7'yi kullanmak.)"
+    },
+    {
+      "id": "ucgen-115",
+      "label": "Dışarıda kalan yükseklik",
+      "difficulty": 2,
+      "stem": "Geniş açılı ABC üçgeninde A köşesinden [BC] doğrusuna indirilen dikmenin ayağı H, [BC] kenarının dışında kalmaktadır. |AH| = 12 cm, |AB| = 13 cm ve |AC| = 20 cm olduğuna göre |HC| kaç cm'dir?",
+      "asks": "Yüksekliğin ayağı tabanın dışına düştüğü için iki dik üçgen üst üste biniyor: küçük olanı ABH, büyüğü AHC. İstenen |HC|, büyük dik üçgenin bir dik kenarı ve o üçgende hipotenüs (20) ile yükseklik (12) zaten verilmiş. Yani |AB| = 13 bu soruda seni |BH|'ye götüren yan bilgidir.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='60,40 110,160 220,160'/><line x1='60' y1='40' x2='60' y2='160'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-dasharray='5 4'><line x1='60' y1='160' x2='110' y2='160'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='60,148 72,148 72,160'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='52' y='104' fill='currentColor' text-anchor='end'>12</text><text x='94' y='102' fill='currentColor' text-anchor='start'>13</text><text x='152' y='96' fill='currentColor' text-anchor='start'>20</text><text x='165' y='182' fill='#0284c7' text-anchor='middle'>x</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='60' y='32'>A</text><text x='50' y='176'>H</text><text x='114' y='176'>B</text><text x='228' y='176'>C</text></g></svg>",
+      "choices": ["5", "11", "12", "16", "256"],
+      "answer": 3,
+      "solution": "AHC dik üçgeninde dik açı H'de, hipotenüs |AC| = 20'dir:\n|AH|² + |HC|² = |AC|²\n12² + |HC|² = 20²\n144 + |HC|² = 400\n|HC|² = 256 → |HC| = 16 cm\n(Kontrol: ABH'den |BH|² = 13² − 12² = 25, |BH| = 5 olur; buradan |BC| = 16 − 5 = 11 cm çıkar.)\n(Sık yapılan hata 1: ara değer olan |BH| = 5'i işaretlemek.\nSık yapılan hata 2: |HC| yerine |BC| = 11'i bulup işaretlemek — sorulan, H ile C arası.\nSık yapılan hata 3: |HC|² = 256'da durmak.\nSık yapılan hata 4: verilen yükseklik 12'yi işaretlemek.)"
+    },
+    {
+      "id": "ucgen-116",
+      "label": "Çevre verilmiş",
+      "difficulty": 2,
+      "stem": "Bir dik üçgenin çevresi 30 cm ve hipotenüsü 13 cm'dir. Buna göre bu üçgenin alanı kaç cm²'dir?",
+      "asks": "Dik kenarların ikisi de verilmemiş; elinde sadece toplamları ve kareleri toplamı var. Alan için dik kenarların çarpımı yeterli — çarpımı, toplamın karesi ile kareler toplamı arasındaki farktan çekebilirsin. Bulduğun çarpım alanın kendisi değil, iki katıdır.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='60,60 60,160 230,160'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='60,148 72,148 72,160'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='52' y='114' fill='#0284c7' text-anchor='end'>?</text><text x='145' y='182' fill='#0284c7' text-anchor='middle'>?</text><text x='157' y='102' fill='currentColor' text-anchor='start'>13</text><text x='205' y='52' fill='currentColor' font-size='14' text-anchor='middle'>Çevre = 30</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='52' y='54'>A</text><text x='52' y='176'>B</text><text x='238' y='176'>C</text></g></svg>",
+      "choices": ["5", "12", "17", "30", "60"],
+      "answer": 3,
+      "solution": "Dik kenarlara a ve b diyelim.\nÇevreden:  a + b + 13 = 30  →  a + b = 17\nPisagor'dan:  a² + b² = 13² = 169\nToplamın karesini açalım:\n(a + b)² = a² + 2ab + b²\n17² = 169 + 2ab\n289 = 169 + 2ab\n2ab = 120  →  ab = 60\nAlan = a · b / 2 = 60 / 2 = 30 cm²\n(Kenarlar 5 ve 12'dir; 5 + 12 = 17 ve 5² + 12² = 169 sağlanır.)\n(Sık yapılan hata 1: ara değer olan ab = 60'ı alan sanmak — ikiye bölmek unutulmuş.\nSık yapılan hata 2: dik kenarlar toplamı 17'yi işaretlemek.\nSık yapılan hata 3: kenarlardan biri olan 5 ya da 12'yi işaretlemek.)"
+    },
+    {
+      "id": "ucgen-117",
+      "label": "Alan verilmiş",
+      "difficulty": 2,
+      "stem": "Bir dik üçgenin alanı 54 cm² ve dik kenarlarından biri 12 cm'dir. Buna göre bu üçgenin hipotenüsü kaç cm'dir?",
+      "asks": "Hipotenüs isteniyor ama elinde tek bir dik kenar var. Dik üçgende alan, iki dik kenarın çarpımının yarısıdır; buradan diğer dik kenarı çekebilirsin. O kenar cevabın kendisi değil, Pisagor'a girecek ikinci veridir.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='140,50 230,50 230,170'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='218,50 218,62 230,62'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='240' y='116' fill='currentColor' text-anchor='start'>12</text><text x='175' y='116' fill='#0284c7' text-anchor='end'>x</text><text x='110' y='150' fill='currentColor' font-size='14' text-anchor='middle'>Alan = 54 cm²</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='132' y='44'>A</text><text x='238' y='186'>B</text><text x='238' y='44'>C</text></g></svg>",
+      "choices": ["15", "21", "108", "144", "225"],
+      "answer": 0,
+      "solution": "Dik kenarlara 12 ve b diyelim.\nAlan = (12 · b) / 2 = 54\n6b = 54  →  b = 9 cm\nŞimdi Pisagor:\nc² = 12² + 9² = 144 + 81 = 225\nc = 15 cm\n(9 - 12 - 15, 3 - 4 - 5 üçlüsünün 3 katıdır.)\n(Sık yapılan hata 1: ara değer olan ikinci dik kenar 9'u bulup dik kenarları toplayarak 9 + 12 = 21 demek.\nSık yapılan hata 2: c² = 225'te durmak.\nSık yapılan hata 3: alanı ikiye bölmeyi unutup 2 · 54 = 108 ile çalışmak.\nSık yapılan hata 4: yoldaki 12² = 144'ü işaretlemek.)"
+    },
+    {
+      "id": "ucgen-118",
+      "label": "Üçgenin türü",
+      "difficulty": 2,
+      "stem": "Kenar uzunlukları 9 cm, 12 cm ve 16 cm olan bir üçgen veriliyor. Bu üçgenle ilgili aşağıdakilerden hangisi doğrudur?",
+      "asks": "Şekil yok; karar yine karelerde. En uzun kenarın karesini, diğer iki kenarın kareleri toplamıyla karşılaştır. Eşitse dik, en uzun kenarın karesi küçükse dar açılı, büyükse geniş açılı olur. Karşılaştırmayı hep en uzun kenar üzerinden yapmalısın.",
+      "choices": ["9² + 12² = 16² olduğundan üçgen diktir.", "16² − 12² = 9² olduğundan üçgen diktir.", "12² + 16² > 9² olduğundan üçgen dar açılıdır.", "9² + 12² > 16² olduğundan üçgen dar açılıdır.", "9² + 12² < 16² olduğundan üçgen geniş açılıdır."],
+      "answer": 4,
+      "solution": "En uzun kenar 16 cm'dir; karşılaştırma bu kenar üzerinden yapılır.\n9² + 12² = 81 + 144 = 225\n16² = 256\n225 < 256, yani en uzun kenarın karesi diğer ikisinin kareleri toplamından büyüktür.\nBu durumda 16'nın gördüğü açı 90°'den büyüktür: üçgen geniş açılıdır.\nCevap: 9² + 12² < 16² olduğundan üçgen geniş açılıdır.\n(Sık yapılan hata 1: 9 - 12 - 15 üçlüsüne benzetip 225 = 256 sanmak ve dik demek.\nSık yapılan hata 2: 16² − 12² = 256 − 144 = 112 iken bunu 81'e eşit sanmak.\nSık yapılan hata 3: karşılaştırmayı en uzun kenarla değil, 9 ile yapmak — 12² + 16² > 9² her üçgende doğrudur, bir şey söylemez.\nSık yapılan hata 4: eşitsizliğin yönünü ters okuyup dar açılı demek.)"
+    },
+    {
+      "id": "ucgen-119",
+      "label": "Duvara dayalı merdiven",
+      "difficulty": 2,
+      "stem": "Boyu 25 m olan bir merdivenin alt ucu, düşey bir duvarın dibinden 7 m uzağa konuluyor. Merdivenin üst ucu duvara değdiğine göre, değdiği nokta yerden kaç metre yüksektedir?",
+      "asks": "Duvar yere dik olduğu için merdiven, duvar ve yer bir dik üçgen oluşturur. Merdivenin kendisi en uzun kenar, yani hipotenüstür — 25 verilen en büyük değer olduğu için kareleri toplamayacak, çıkaracaksın.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><line x1='230' y1='12' x2='230' y2='178'/><line x1='100' y1='165' x2='285' y2='165'/></g><g stroke='currentColor' stroke-width='2.5' fill='none'><line x1='188' y1='165' x2='230' y2='21'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='218,165 218,153 230,153'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='196' y='94' fill='currentColor' text-anchor='end'>25</text><text x='209' y='185' fill='currentColor' text-anchor='middle'>7</text><text x='240' y='95' fill='#0284c7' text-anchor='start'>x</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='120' y='185' text-anchor='middle'>yer</text><text x='252' y='30' text-anchor='start'>duvar</text></g></svg>",
+      "choices": ["18", "24", "32", "49", "576"],
+      "answer": 1,
+      "solution": "Duvar yere dik olduğundan merdiven hipotenüstür.\n(duvardaki yükseklik)² + (yerdeki uzaklık)² = (merdiven)²\nx² + 7² = 25²\nx² + 49 = 625\nx² = 576 → x = 24 m\n(7 - 24 - 25 bir Pisagor üçlüsüdür.)\n(Sık yapılan hata 1: ara değer olan x² = 576'yı işaretlemek.\nSık yapılan hata 2: yoldaki 7² = 49'u işaretlemek.\nSık yapılan hata 3: 25 − 7 = 18 diyerek kareye almadan çıkarmak.\nSık yapılan hata 4: 25 + 7 = 32 ile toplamak; merdiven hipotenüs olduğu için toplama yapılmaz.)"
+    },
+    {
+      "id": "ucgen-120",
+      "label": "İki direk arası tel",
+      "difficulty": 2,
+      "stem": "Düz bir zemine dikilmiş 6 m ve 11 m boyundaki iki direğin arasındaki uzaklık 12 m'dir. Direklerin tepe noktaları gergin bir telle birleştirildiğine göre telin uzunluğu kaç metredir?",
+      "asks": "İki direk de zemine dik olduğu için, kısa direğin tepesinden uzun direğe çizilen yatay doğru bir dik üçgen oluşturur. Bu üçgenin dik kenarları direkler arası uzaklık ile direklerin boy farkıdır — direklerin boyları değil. Boy farkı sadece bir ara değerdir.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><line x1='40' y1='175' x2='260' y2='175'/><line x1='70' y1='175' x2='70' y2='115'/><line x1='190' y1='175' x2='190' y2='65'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-dasharray='5 4'><line x1='70' y1='115' x2='190' y2='115'/></g><g stroke='currentColor' stroke-width='2.5' fill='none'><line x1='70' y1='115' x2='190' y2='65'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='178,115 178,103 190,103'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='62' y='150' fill='currentColor' text-anchor='end'>6</text><text x='198' y='124' fill='currentColor' text-anchor='start'>11</text><text x='130' y='134' fill='currentColor' text-anchor='middle'>12</text><text x='124' y='80' fill='#0284c7' text-anchor='middle'>x</text></g></svg>",
+      "choices": ["5", "12", "13", "17", "169"],
+      "answer": 2,
+      "solution": "Kısa direğin tepesinden uzun direğe yatay bir doğru çizelim. Oluşan dik üçgende:\ndik kenar 1 = direkler arası uzaklık = 12 m\ndik kenar 2 = boy farkı = 11 − 6 = 5 m\nTel ise hipotenüstür:\nx² = 12² + 5² = 144 + 25 = 169\nx = 13 m\n(Sık yapılan hata 1: ara değer olan boy farkı 5'i işaretlemek.\nSık yapılan hata 2: x² = 169'da durmak.\nSık yapılan hata 3: direklerin boylarını toplayıp 6 + 11 = 17 demek.\nSık yapılan hata 4: verilen 12'yi doğrudan tel sanmak — tel eğik olduğu için yatay uzaklıktan uzundur.)"
+    },
+    {
+      "id": "ucgen-121",
+      "label": "Dikdörtgenin köşegeni",
+      "difficulty": 2,
+      "stem": "Bir dikdörtgenin kısa kenarı 9 cm ve köşegeni 41 cm'dir. Buna göre bu dikdörtgenin çevresi kaç cm'dir?",
+      "asks": "Dikdörtgenin bütün açıları 90° olduğu için köşegen, iki kenarla birlikte bir dik üçgen oluşturur ve köşegen bu üçgenin hipotenüsüdür. Önce uzun kenarı bulacaksın; ama sorulan kenar değil, çevre — yani bulduğun kenarda durursan yanlış şıkka düşersin.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='45,60 285,60 285,115 45,115'/><line x1='45' y1='60' x2='285' y2='115'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='45,103 57,103 57,115'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='37' y='92' fill='currentColor' text-anchor='end'>9</text><text x='165' y='80' fill='currentColor' text-anchor='middle'>41</text><text x='165' y='135' fill='#0284c7' text-anchor='middle'>?</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='37' y='54'>A</text><text x='293' y='54'>B</text><text x='293' y='129'>C</text><text x='37' y='129'>D</text></g></svg>",
+      "choices": ["40", "41", "49", "80", "98"],
+      "answer": 4,
+      "solution": "Dikdörtgende her köşe 90° olduğundan köşegen, kenarlarla bir dik üçgen oluşturur ve hipotenüstür.\nUzun kenara a diyelim:\na² + 9² = 41²\na² + 81 = 1681\na² = 1600 → a = 40 cm\nÇevre = 2 · (kısa kenar + uzun kenar)\nÇevre = 2 · (9 + 40) = 2 · 49 = 98 cm\n(9 - 40 - 41 bir Pisagor üçlüsüdür.)\n(Sık yapılan hata 1: ara değer olan uzun kenar 40'ta durmak — sorulan çevre.\nSık yapılan hata 2: 9 + 40 = 49'u işaretlemek, yani çevrede 2 ile çarpmayı unutmak.\nSık yapılan hata 3: yalnızca uzun kenarları toplayıp 2 · 40 = 80 demek.\nSık yapılan hata 4: verilen köşegen 41'i işaretlemek.)"
+    },
+    {
+      "id": "ucgen-122",
+      "label": "Karenin köşegeni",
+      "difficulty": 2,
+      "stem": "Bir karenin köşegeni 8 cm'dir. Buna göre bu karenin alanı kaç cm²'dir?",
+      "asks": "Karenin kenarı verilmemiş, köşegeni verilmiş. Köşegen kareyi iki dik üçgene ayırır ve bu üçgenlerin iki dik kenarı da karenin kenarına eşittir. Alan için kenarın kendisini bulmak zorunda değilsin — Pisagor sana doğrudan kenarın karesini verir, alan da zaten odur.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='110,45 210,45 210,145 110,145'/><line x1='110' y1='45' x2='210' y2='145'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='110,57 122,57 122,45'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='168' y='88' fill='currentColor' text-anchor='start'>8</text><text x='160' y='178' fill='#0284c7' text-anchor='middle'>Alan = ?</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='102' y='39'>A</text><text x='218' y='39'>B</text><text x='218' y='159'>C</text><text x='102' y='159'>D</text></g></svg>",
+      "choices": ["8", "16", "32", "64", "128"],
+      "answer": 2,
+      "solution": "Karenin kenarına a diyelim. Köşegen, kenarları a ve a olan bir dik üçgenin hipotenüsüdür:\na² + a² = 8²\n2a² = 64\na² = 32\nKarenin alanı zaten a² olduğundan:\nAlan = 32 cm²\n(Sık yapılan hata 1: ara değer olan 8² = 64'ü alan sanmak — 2'ye bölmek unutulmuş.\nSık yapılan hata 2: 2a² = 64'te 2'ye bölmek yerine 2 ile çarpıp 128 demek.\nSık yapılan hata 3: a² = 32'yi bulduktan sonra gereksiz yere bölmeye devam edip 16 demek.\nSık yapılan hata 4: verilen köşegen 8'i işaretlemek.)"
+    },
+    {
+      "id": "ucgen-123",
+      "label": "Köşeyi köşeye katlama",
+      "difficulty": 3,
+      "stem": "ABCD dikdörtgen biçimindeki bir kağıtta |AB| = 16 cm ve |BC| = 8 cm'dir. Kağıt, A köşesi C köşesinin üzerine gelecek biçimde katlanıyor ve kat çizgisi [AB] kenarını E noktasında kesiyor. Buna göre |AE| kaç cm'dir?",
+      "asks": "Katlamanın tek kuralı şudur: kat çizgisi üzerindeki her nokta, üst üste gelen iki köşeye eşit uzaklıktadır. E kat çizgisi üzerinde olduğuna göre |EA| = |EC| yazabilirsin. |AE| = x dersen |EB| = 16 − x olur ve EBC dik üçgeninde Pisagor bir denklem verir. Bulacağın |EB| cevap değil, x'in tamamlayıcısıdır.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='40,150 280,150 280,30 40,30'/></g><g stroke='#0284c7' stroke-width='2.5' fill='none'><line x1='190' y1='150' x2='130' y2='30'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-dasharray='5 4'><line x1='190' y1='150' x2='280' y2='30'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='268,150 268,138 280,138'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='115' y='168' fill='#0284c7' text-anchor='middle'>x</text><text x='290' y='95' fill='currentColor' text-anchor='start'>8</text><text x='160' y='192' fill='currentColor' font-size='14' text-anchor='middle'>|AB| = 16</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='32' y='166'>A</text><text x='288' y='166'>B</text><text x='288' y='24'>C</text><text x='32' y='24'>D</text><text x='196' y='168'>E</text><text x='130' y='22'>F</text></g></svg>",
+      "choices": ["6", "10", "16", "64", "100"],
+      "answer": 1,
+      "solution": "Katlamada A köşesi C'ye çakıştığı için kat çizgisi [EF] üzerindeki her nokta A ile C'ye eşit uzaklıktadır:\n|EA| = |EC|\n|AE| = x dersek |EB| = 16 − x olur.\nEBC dik üçgeninde dik açı B'de, hipotenüs |EC|'dir:\n|EC|² = |EB|² + |BC|²\nx² = (16 − x)² + 8²\nx² = 256 − 32x + x² + 64\n32x = 320\nx = 10\n|AE| = 10 cm\n(Kontrol: |EB| = 6, |EC|² = 36 + 64 = 100, |EC| = 10 = |EA| ✓)\n(Sık yapılan hata 1: ara değer olan |EB| = 6'yı işaretlemek — sorulan, E'nin A'ya olan uzaklığı.\nSık yapılan hata 2: |EC|² = 100'de durmak.\nSık yapılan hata 3: yoldaki 8² = 64'ü işaretlemek.\nSık yapılan hata 4: kat çizgisinin kenarı ortadan böldüğünü sanıp 16 / 2 = 8 demek; kağıt kareye katlanmadığı için orta nokta çıkmaz.)"
+    },
+    {
+      "id": "ucgen-124",
+      "label": "Köşeyi kenara katlama",
+      "difficulty": 3,
+      "stem": "ABCD dikdörtgen biçimindeki bir kağıtta |DC| = 25 cm'dir. Kağıt, C köşesi [AD] kenarı üzerindeki E noktasına gelecek biçimde katlanıyor ve kat çizgisi [DC] kenarını F noktasında kesiyor. |DE| = 15 cm olduğuna göre |DF| kaç cm'dir?",
+      "asks": "Katlanan parça uzunluğunu korur: [FC] katlandığında [FE] olur, yani |FE| = |FC|. |DF| = x dersen |FC| = 25 − x olur ve DEF dik üçgeninde (dik açı D'de) hipotenüs tam da |FE|'dir. Denklemi kurduğunda karesel terimler birbirini götürür. Bulunan 25 − x değeri cevap değil, katlanan parçanın boyudur.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='70,40 245,40 245,166 70,166'/></g><g stroke='#0284c7' stroke-width='2.5' fill='none'><line x1='126' y1='40' x2='202' y2='166'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-dasharray='5 4'><line x1='70' y1='145' x2='126' y2='40'/><line x1='70' y1='145' x2='202' y2='166'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='70,52 82,52 82,40'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='98' y='32' fill='#0284c7' text-anchor='middle'>x</text><text x='62' y='98' fill='currentColor' text-anchor='end'>15</text><text x='200' y='32' fill='currentColor' font-size='14' text-anchor='middle'>|DC| = 25</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='62' y='34'>D</text><text x='253' y='34'>C</text><text x='253' y='182'>B</text><text x='62' y='182'>A</text><text x='58' y='150'>E</text><text x='132' y='32'>F</text><text x='206' y='182'>G</text></g></svg>",
+      "choices": ["8", "10", "15", "17", "25"],
+      "answer": 0,
+      "solution": "Katlamada [FC] parçası, [FE] parçasının üzerine gelir; katlanan parça uzunluğunu koruduğu için:\n|FE| = |FC|\n|DF| = x dersek |FC| = 25 − x, dolayısıyla |FE| = 25 − x olur.\nDEF üçgeninde dik açı D köşesindedir (dikdörtgenin köşesi) ve hipotenüs [FE]'dir:\n|FE|² = |DF|² + |DE|²\n(25 − x)² = x² + 15²\n625 − 50x + x² = x² + 225\n625 − 50x = 225\n50x = 400\nx = 8\n|DF| = 8 cm\n(Kontrol: |FC| = |FE| = 17 ve 8 - 15 - 17 bir Pisagor üçlüsüdür ✓)\n(Sık yapılan hata 1: ara değer olan katlanan parçayı, |FC| = 17'yi işaretlemek.\nSık yapılan hata 2: 25 − 15 = 10 diyerek kenarları doğrudan çıkarmak.\nSık yapılan hata 3: verilen |DE| = 15'i ya da |DC| = 25'i işaretlemek.)"
+    },
+    {
+      "id": "ucgen-125",
+      "label": "Pisagor + Öklid: yükseklik",
+      "difficulty": 3,
+      "stem": "ABC dik üçgeninde m(C) = 90°, |CA| = 15 cm ve |CB| = 20 cm'dir. C köşesinden hipotenüse indirilen [CH] yüksekliğinin uzunluğu kaç cm'dir?",
+      "asks": "İki dik kenar verilmiş, hipotenüse ait yükseklik isteniyor. Yükseklik bağıntısı a · b = c · h hipotenüsü ister; o yüzden önce Pisagor ile hipotenüsü bulmalısın. Bulduğun hipotenüs sadece bir ara değerdir. İkinci tuzak: yüksekliği dik kenarların ortalaması sanmak.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='126,50 40,165 280,165'/><line x1='126' y1='50' x2='126' y2='165'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='117.6,61.2 128.8,69.6 137.2,58.4'/><polyline points='126,153 138,153 138,165'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='73' y='102' fill='currentColor' text-anchor='end'>15</text><text x='213' y='102' fill='currentColor' text-anchor='start'>20</text><text x='134' y='118' fill='#0284c7' text-anchor='start'>x</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='126' y='42'>C</text><text x='32' y='182'>A</text><text x='288' y='182'>B</text><text x='126' y='182'>H</text></g></svg>",
+      "choices": ["5", "12", "25", "144", "625"],
+      "answer": 1,
+      "solution": "Önce hipotenüsü bulalım:\n|AB|² = |CA|² + |CB|² = 15² + 20² = 225 + 400 = 625\n|AB| = 25 cm\nŞimdi Öklid'in \"muhteşem üçlü\" bağıntısını kullanalım (alanı iki yoldan yazmaktan gelir):\n|CA| · |CB| = |AB| · |CH|\n15 · 20 = 25 · |CH|\n300 = 25 · |CH|\n|CH| = 12 cm\n(Sık yapılan hata 1: ara değer olan hipotenüs 25'i işaretlemek.\nSık yapılan hata 2: |AB|² = 625'te durmak.\nSık yapılan hata 3: yüksekliğin karesi olan 144'ü işaretlemek.\nSık yapılan hata 4: 20 − 15 = 5 gibi bir fark almak; yükseklik dik kenarlardan türetilmez, bağıntı ister.)"
+    },
+    {
+      "id": "ucgen-126",
+      "label": "Pisagor + Öklid: izdüşüm",
+      "difficulty": 3,
+      "stem": "ABC dik üçgeninde m(A) = 90° ve [AH] ⊥ [BC]'dir. |AH| = 12 cm ve |BH| = 9 cm olduğuna göre |AC| kaç cm'dir?",
+      "asks": "Yükseklik ve hipotenüs üzerindeki parçalardan biri verilmiş, karşı taraftaki dik kenar isteniyor. Yükseklik iki parçanın geometrik ortası olduğundan (h² = p · k) diğer parçayı çekebilirsin; sonra o parçayla yükseklik yeni bir dik üçgen kurar. Yoldaki |AB| ve |HC| değerleri cevap değil, basamaktır.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='200,50 40,170 290,170'/><line x1='200' y1='50' x2='200' y2='170'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='208.4,61.2 197.2,69.6 188.8,58.4'/><polyline points='200,158 212,158 212,170'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='208' y='118' fill='currentColor' text-anchor='start'>12</text><text x='245' y='190' fill='currentColor' text-anchor='middle'>9</text><text x='110' y='104' fill='#0284c7' text-anchor='end'>x</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='200' y='42'>A</text><text x='298' y='187'>B</text><text x='32' y='187'>C</text><text x='194' y='187'>H</text></g></svg>",
+      "choices": ["15", "16", "20", "25", "400"],
+      "answer": 2,
+      "solution": "Öklid'in yükseklik bağıntısı: yükseklik, hipotenüs üzerinde ayırdığı iki parçanın geometrik ortasıdır.\n|AH|² = |BH| · |HC|\n12² = 9 · |HC|\n144 = 9 · |HC|\n|HC| = 16 cm\nŞimdi AHC dik üçgeninde Pisagor uygulayalım (dik açı H'de, hipotenüs aranan |AC|):\n|AC|² = |AH|² + |HC|² = 12² + 16² = 144 + 256 = 400\n|AC| = 20 cm\n(Sık yapılan hata 1: ara değer olan |HC| = 16'yı işaretlemek.\nSık yapılan hata 2: öbür dik kenarı, |AB| = 15'i bulup işaretlemek — sorulan |AC|.\nSık yapılan hata 3: |AC|² = 400'de durmak.\nSık yapılan hata 4: hipotenüsün tamamını, |BC| = 9 + 16 = 25'i işaretlemek.)"
+    },
+    {
+      "id": "ucgen-127",
+      "label": "Pisagor + benzerlik: çevre",
+      "difficulty": 3,
+      "stem": "ABC dik üçgeninde m(B) = 90°, |AD| = 9 cm, |DB| = 3 cm ve |BC| = 16 cm'dir. D noktası [AB] üzerinde, E noktası [AC] üzerinde ve [DE] ⊥ [AB] olduğuna göre ADE üçgeninin çevresi kaç cm'dir?",
+      "asks": "İki üçgen var: küçük ADE ile büyük ABC. [DE] ⊥ [AB] ve [BC] ⊥ [AB] olduğundan [DE] // [BC]'dir, yani ADE ~ ABC. Önce büyük üçgenin eksik kenarını Pisagor'la tamamlayıp benzerlik oranını kurmalısın. Sorulan tek bir kenar değil, üç kenarın toplamı — bir kenarı bulup durursan yanlış şıkka düşersin.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='60,50 60,170 220,170'/><line x1='60' y1='140' x2='180' y2='140'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='60,158 72,158 72,170'/><polyline points='60,128 72,128 72,140'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='52' y='100' fill='currentColor' text-anchor='end'>9</text><text x='52' y='158' fill='currentColor' text-anchor='end'>3</text><text x='140' y='190' fill='currentColor' text-anchor='middle'>16</text><text x='118' y='132' fill='#0284c7' text-anchor='middle'>Çevre = ?</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='52' y='44'>A</text><text x='52' y='186'>B</text><text x='228' y='186'>C</text><text x='46' y='138'>D</text><text x='188' y='136'>E</text></g></svg>",
+      "choices": ["12", "15", "20", "27", "36"],
+      "answer": 4,
+      "solution": "|AB| = |AD| + |DB| = 9 + 3 = 12 cm\nBüyük ABC dik üçgeninde hipotenüsü bulalım:\n|AC|² = |AB|² + |BC|² = 12² + 16² = 144 + 256 = 400\n|AC| = 20 cm\n[DE] ⊥ [AB] ve [BC] ⊥ [AB] olduğundan [DE] // [BC]'dir; buradan ADE ~ ABC olur.\nBenzerlik oranı:\nk = |AD| / |AB| = 9 / 12 = 3/4\nKüçük üçgenin diğer kenarları:\n|DE| = 16 · 3/4 = 12 cm\n|AE| = 20 · 3/4 = 15 cm\nADE üçgeninin çevresi = |AD| + |DE| + |EA| = 9 + 12 + 15 = 36 cm\n(Sık yapılan hata 1: ara değer olan |AC| = 20'yi işaretlemek.\nSık yapılan hata 2: yalnızca bir kenarı, |DE| = 12 ya da |AE| = 15'i bulup işaretlemek.\nSık yapılan hata 3: çevrede |AD| = 9'u toplamayı unutup 12 + 15 = 27 demek.)"
+    },
+    {
+      "id": "ucgen-128",
+      "label": "Pisagor + benzerlik: kesişen doğrular",
+      "difficulty": 3,
+      "stem": "Şekilde [AB] ⊥ [BD], [CD] ⊥ [BD] ve E noktası [AC] ile [BD]'nin kesim noktasıdır. |AB| = 9 cm, |CD| = 12 cm ve |BD| = 28 cm olduğuna göre |AE| kaç cm'dir?",
+      "asks": "[AB] ve [CD] aynı doğruya dik olduğu için birbirine paraleldir; ters açılar ve iç ters açılardan ABE ~ DCE benzerliği çıkar. Benzerlik sana |BE| ile |ED| oranını verir, oranı 28'e paylaştırınca ABE dik üçgeninin iki dik kenarı belli olur ve istenen |AE| o üçgenin hipotenüsü olur. |BE| ile |CE| burada sadece basamaktır.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><line x1='70' y1='80' x2='238' y2='80'/><line x1='70' y1='80' x2='70' y2='26'/><line x1='238' y1='80' x2='238' y2='152'/><line x1='70' y1='26' x2='238' y2='152'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='70,68 82,68 82,80'/><polyline points='226,80 226,92 238,92'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='62' y='56' fill='currentColor' text-anchor='end'>9</text><text x='246' y='120' fill='currentColor' text-anchor='start'>12</text><text x='110' y='98' fill='currentColor' text-anchor='middle'>28</text><text x='116' y='44' fill='#0284c7' text-anchor='start'>x</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='62' y='20'>A</text><text x='60' y='92'>B</text><text x='246' y='160'>C</text><text x='246' y='74'>D</text><text x='148' y='70'>E</text></g></svg>",
+      "choices": ["15", "20", "28", "225", "400"],
+      "answer": 0,
+      "solution": "[AB] ⊥ [BD] ve [CD] ⊥ [BD] olduğundan [AB] // [CD]'dir. Ters açılardan ABE ~ DCE benzerliği çıkar:\n|BE| / |ED| = |AB| / |CD| = 9 / 12 = 3/4\n|BE| + |ED| = |BD| = 28 olduğundan 28'i 3 : 4 oranında paylaştıralım:\n|BE| = 28 · 3/7 = 12 cm\n|ED| = 28 · 4/7 = 16 cm\nABE dik üçgeninde dik açı B'de, aranan |AE| ise hipotenüs:\n|AE|² = |AB|² + |BE|² = 9² + 12² = 81 + 144 = 225\n|AE| = 15 cm\n(Sık yapılan hata 1: öbür kesişen parçayı, |CE| = √(12² + 16²) = 20'yi bulup işaretlemek.\nSık yapılan hata 2: |AE|² = 225'te durmak.\nSık yapılan hata 3: |CE|² = 400'ü işaretlemek.\nSık yapılan hata 4: verilen |BD| = 28'i işaretlemek.)"
+    },
+    {
+      "id": "ucgen-129",
+      "label": "Pisagor + kenarortay",
+      "difficulty": 3,
+      "stem": "ABC dik üçgeninde m(A) = 90°, |AB| = 12 cm ve |AC| = 16 cm'dir. A köşesinden [BC]'ye çizilen kenarortay [AD] olduğuna göre ABD üçgeninin çevresi kaç cm'dir?",
+      "asks": "Dik üçgende hipotenüse ait kenarortay, hipotenüsün yarısına eşittir — çünkü D noktası üç köşeye de eşit uzaklıktadır. Bu yüzden önce Pisagor'la hipotenüsü bulmalısın. Sorulan üç kenarın toplamı olduğundan kenarortayı bulup durmak ya da bir kenarı toplamayı unutmak buradaki iki klasik hatadır.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='60,50 60,170 220,50'/></g><g stroke='#0284c7' stroke-width='2.5' fill='none'><line x1='60' y1='50' x2='140' y2='110'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='60,62 72,62 72,50'/><line x1='97' y1='136' x2='103' y2='144'/><line x1='177' y1='76' x2='183' y2='84'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='52' y='116' fill='currentColor' text-anchor='end'>12</text><text x='140' y='42' fill='currentColor' text-anchor='middle'>16</text><text x='96' y='96' fill='#0284c7' text-anchor='end'>kenarortay</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='52' y='44'>A</text><text x='52' y='186'>B</text><text x='228' y='44'>C</text><text x='148' y='122'>D</text></g></svg>",
+      "choices": ["10", "16", "20", "22", "32"],
+      "answer": 4,
+      "solution": "Önce hipotenüsü bulalım:\n|BC|² = |AB|² + |AC|² = 12² + 16² = 144 + 256 = 400\n|BC| = 20 cm\nD, [BC]'nin orta noktasıdır:\n|BD| = |DC| = 20 / 2 = 10 cm\nDik üçgende hipotenüse ait kenarortay hipotenüsün yarısına eşittir (D üç köşeye de eşit uzaklıktadır):\n|AD| = |BC| / 2 = 10 cm\nABD üçgeninin çevresi = |AB| + |BD| + |DA|\n= 12 + 10 + 10 = 32 cm\n(Sık yapılan hata 1: ara değer olan kenarortay |AD| = 10'u işaretlemek.\nSık yapılan hata 2: hipotenüs |BC| = 20'yi işaretlemek.\nSık yapılan hata 3: çevrede iki eşit parçadan birini unutup 12 + 10 = 22 demek.\nSık yapılan hata 4: verilen |AC| = 16'yı çevreye katmak; ABD üçgeninde [AC] kenarı yoktur.)"
+    },
+    {
+      "id": "ucgen-130",
+      "label": "Kenarlar üzerindeki kareler",
+      "difficulty": 3,
+      "stem": "Şekilde bir dik üçgenin üç kenarının üzerine birer kare çizilmiştir. Dik kenarlar üzerindeki karelerin alanları 25 cm² ve 144 cm² olduğuna göre hipotenüs üzerindeki karenin alanı kaç cm²'dir?",
+      "asks": "Pisagor bağıntısındaki a², b² ve c² aslında kenarlar üzerine çizilen karelerin alanlarıdır. Yani verilen alanlar doğrudan kenarların kareleridir; kenar uzunluklarını bulmak için karekök almana bile gerek yok. Sorulan alan olduğu için sonuçta karekök alırsan bir adım fazla gitmiş olursun.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='160,85 160,110 220,110'/><polygon points='135,85 160,85 160,110 135,110'/><polygon points='160,110 220,110 220,170 160,170'/><polygon points='160,85 220,110 245,50 185,25'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='160,98 172,98 172,110'/></g><g font-family='system-ui, sans-serif' font-size='14'><text x='128' y='102' fill='currentColor' text-anchor='end'>25 cm²</text><text x='190' y='145' fill='currentColor' text-anchor='middle'>144 cm²</text><text x='202' y='72' fill='#0284c7' text-anchor='middle'>? cm²</text></g></svg>",
+      "choices": ["13", "17", "52", "119", "169"],
+      "answer": 4,
+      "solution": "Bir kenarı a olan karenin alanı a²'dir. Öyleyse verilen alanlar, dik kenarların kareleridir:\na² = 25  ve  b² = 144\nPisagor bağıntısı zaten bu kareler arasındadır:\nc² = a² + b²\nc² = 25 + 144 = 169\nHipotenüs üzerindeki karenin alanı c² olduğundan:\nAlan = 169 cm²\n(Kenarlar 5 - 12 - 13 üçlüsüdür; hipotenüs 13 cm, karesi 169 cm²'dir.)\n(Sık yapılan hata 1: son adımda karekök alıp hipotenüsün uzunluğunu, 13'ü işaretlemek — sorulan alan.\nSık yapılan hata 2: önce kareköklerini alıp 5 + 12 = 17 diye kenarları toplamak.\nSık yapılan hata 3: 13 · 4 = 52 ile karenin çevresini bulmak.\nSık yapılan hata 4: alanları toplamak yerine çıkarıp 144 − 25 = 119 demek.)"
     }
   ]
 }
