@@ -128,6 +128,17 @@
       "version": 1
     },
     {
+      "id": "ucgen-ozel-ucgenler",
+      "topicId": "ucgenler",
+      "topic": "Üçgenler",
+      "subtopicId": "ucgen-ozel-ucgenler",
+      "subtopic": "Özel üçgenler",
+      "title": "Özel üçgenler",
+      "file": "packs/ucgen-ozel-ucgenler.json",
+      "count": 30,
+      "version": 1
+    },
+    {
       "id": "ucgen-thales",
       "topicId": "ucgenler",
       "topic": "Üçgenler",

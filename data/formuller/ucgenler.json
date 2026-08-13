@@ -117,6 +117,26 @@
       ]
     },
     {
+      "id": "ucgen-ozel-ucgenler",
+      "subtopicId": "ucgen-ozel-ucgenler",
+      "title": "Özel üçgenler",
+      "aliases": ["Özel üçgenler"],
+      "items": [
+        { "formula": "30-60-90: kenarlar 1 : √3 : 2", "note": "30°'nin karşısı = hipotenüs / 2,  60°'nin karşısı = hipotenüs · √3 / 2" },
+        { "formula": "45-45-90 (ikizkenar dik): kenarlar 1 : 1 : √2", "note": "Hipotenüs = dik kenar · √2" },
+        { "formula": "İkizkenar dik üçgende hipotenüse ait yükseklik = hipotenüs / 2", "note": "Bu doğru parçası aynı zamanda kenarortaydır" },
+        { "formula": "Eşkenar üçgende h = a√3 / 2", "note": "Yükseklik üçgeni iki 30-60-90 üçgenine ayırır", "figure": "<svg viewBox='0 0 320 160' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='160,20 90,140 230,140'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-dasharray='5 4'><line x1='160' y1='20' x2='160' y2='140'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='160,128 172,128 172,140'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 105 114 A 30 30 0 0 1 120 140'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='115' y='84' fill='#0284c7' text-anchor='end'>a</text><text x='205' y='84' fill='#0284c7' text-anchor='start'>a</text><text x='160' y='156' fill='#0284c7' text-anchor='middle'>a</text><text x='168' y='90' fill='currentColor' text-anchor='start'>a√3/2</text><text x='118' y='133' fill='currentColor' font-size='12' text-anchor='middle'>60°</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='160' y='14'>A</text><text x='82' y='154'>B</text><text x='238' y='154'>C</text></g></svg>" },
+        { "formula": "Eşkenar üçgende Alan = a²√3 / 4", "note": "Yükseklikte durma: alan sorulduysa bir adım daha var" },
+        { "formula": "30-30-120 üçgende taban = a√3", "note": "a: eş kenarların uzunluğu; taban açıları 30°'dir", "figure": "<svg viewBox='0 0 320 160' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='160,52.3 60,110 260,110'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-dasharray='5 4'><line x1='160' y1='52.3' x2='160' y2='110'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='160,98 172,98 172,110'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 139.2 64.3 A 24 24 0 0 0 180.8 64.3'/><path d='M 89.4 93 A 34 34 0 0 1 94 110'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='100' y='78' fill='#0284c7' text-anchor='end'>a</text><text x='220' y='78' fill='#0284c7' text-anchor='start'>a</text><text x='160' y='130' fill='#0284c7' text-anchor='middle'>a√3</text><text x='186' y='76' fill='currentColor' font-size='12' text-anchor='start'>120°</text><text x='106' y='104' fill='currentColor' font-size='12' text-anchor='start'>30°</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='160' y='44'>A</text><text x='52' y='124'>B</text><text x='268' y='124'>C</text></g></svg>" },
+        { "formula": "30-30-120 üçgende Alan = a²√3 / 4", "note": "Eş kenarların uzunluğu a; yükseklik tepe köşesi dışındaki bir köşeden inerse üçgenin dışına düşer" }
+      ],
+      "tips": [
+        "Önce açıyı kenara bağla: aranan kenar hangi açının karşısında? 2 kat ilişkisi yalnızca hipotenüs ile 30°'nin karşısındaki kenar arasındadır.",
+        "Eşkenar üçgeni yükseklikle ikiye bölünce iki 30-60-90 üçgeni çıkar; 30-30-120 üçgende de tepeden inen yükseklik aynı ikiliyi verir.",
+        "45-45-90'da √2 · √2 = 2 sadeleşmesini unutma; 30-60-90'da ise √3 çarpanını düşürmemeye dikkat et."
+      ]
+    },
+    {
       "id": "ucgen-thales",
       "subtopicId": "ucgen-thales",
       "title": "Temel orantı (Thales)",
