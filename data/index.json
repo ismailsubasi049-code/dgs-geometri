@@ -150,6 +150,17 @@
       "version": 1
     },
     {
+      "id": "ucgen-aciortay",
+      "topicId": "ucgenler",
+      "topic": "Üçgenler",
+      "subtopicId": "ucgen-aciortay",
+      "subtopic": "Açıortay",
+      "title": "Açıortay",
+      "file": "packs/ucgen-aciortay.json",
+      "count": 30,
+      "version": 1
+    },
+    {
       "id": "ucgen-benzerlik",
       "topicId": "ucgenler",
       "topic": "Üçgenler",

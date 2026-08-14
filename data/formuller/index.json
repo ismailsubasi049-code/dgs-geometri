@@ -12,7 +12,7 @@
     { "topicId": "uslu", "branchId": "mat", "title": "Üslü Sayılar", "file": "uslu.json", "cardCount": 4 },
     { "topicId": "koklu", "branchId": "mat", "title": "Köklü Sayılar", "file": "koklu.json", "cardCount": 4 },
     { "topicId": "acilar", "branchId": "geo", "title": "Açılar", "file": "acilar.json", "cardCount": 3 },
-    { "topicId": "ucgenler", "branchId": "geo", "title": "Üçgenler", "file": "ucgenler.json", "cardCount": 12 },
+    { "topicId": "ucgenler", "branchId": "geo", "title": "Üçgenler", "file": "ucgenler.json", "cardCount": 13 },
     { "topicId": "dortgenler", "branchId": "geo", "title": "Dörtgenler", "file": "dortgenler.json", "cardCount": 8 },
     { "topicId": "cember", "branchId": "geo", "title": "Çember ve Daire", "file": "cember.json", "cardCount": 6 }
   ]
