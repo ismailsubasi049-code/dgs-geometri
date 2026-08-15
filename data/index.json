@@ -183,6 +183,17 @@
       "version": 2
     },
     {
+      "id": "ucgen-kenarortay",
+      "topicId": "ucgenler",
+      "topic": "Üçgenler",
+      "subtopicId": "ucgen-kenarortay",
+      "subtopic": "Kenarortay ve ağırlık merkezi",
+      "title": "Kenarortay ve ağırlık merkezi",
+      "file": "packs/ucgen-kenarortay.json",
+      "count": 30,
+      "version": 1
+    },
+    {
       "id": "ucgen-agirlik-merkezi",
       "topicId": "ucgenler",
       "topic": "Üçgenler",
