@@ -150,6 +150,17 @@
       "version": 2
     },
     {
+      "id": "ucgen-yukseklik",
+      "topicId": "ucgenler",
+      "topic": "Üçgenler",
+      "subtopicId": "ucgen-yukseklik",
+      "subtopic": "Yükseklik ve diklik merkezi",
+      "title": "Yükseklik ve diklik merkezi",
+      "file": "packs/ucgen-yukseklik.json",
+      "count": 20,
+      "version": 1
+    },
+    {
       "id": "geo-dortgenler",
       "topicId": "dortgenler",
       "topic": "Dörtgenler",
