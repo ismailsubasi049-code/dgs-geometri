@@ -3,33 +3,23 @@
   "title": "Üçgenler",
   "cards": [
     {
-      "id": "ucgen-aci-kenar",
-      "subtopicId": "ucgen-aci-kenar",
-      "title": "Açı - kenar bağıntısı",
-      "aliases": ["Açı - kenar bağıntısı"],
+      "id": "ucgen-esitsizlik",
+      "subtopicId": "ucgen-esitsizlik",
+      "title": "Üçgen eşitsizliği ve kenar-açı bağıntısı",
+      "aliases": ["Üçgen eşitsizliği ve kenar-açı bağıntısı"],
       "items": [
         { "formula": "Büyük açının karşısında büyük kenar bulunur", "note": "A > B > C ise a > b > c", "figure": "<svg viewBox='0 0 320 156' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='120,45 45,125 285,125'/></g><g stroke='#0284c7' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='45' y1='125' x2='285' y2='125'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 99.48 66.89 A 30 30 0 0 0 146.99 58.09'/></g><g stroke='currentColor' stroke-width='2' fill='none'><path d='M 71 125 A 26 26 0 0 0 62.78 106.03'/><path d='M 258.01 111.91 A 30 30 0 0 0 255 125'/></g><g font-family='system-ui, sans-serif' text-anchor='middle'><text x='120' y='37' font-size='14' fill='#0284c7'>A</text><text x='38' y='141' font-size='14' fill='currentColor'>B</text><text x='292' y='141' font-size='14' fill='currentColor'>C</text><text x='165' y='143' font-size='16' fill='#0284c7'>a</text><text x='209.5' y='70.6' font-size='16' fill='currentColor'>b</text><text x='70.8' y='74.1' font-size='16' fill='currentColor'>c</text></g></svg>" },
         { "formula": "Eşit açıların karşısındaki kenarlar eşittir", "note": "Tersi de doğrudur" },
-        { "formula": "İç açılar toplamı = 180°", "note": "Üçüncü açıyı bulmak için ilk adım" }
-      ],
-      "tips": [
-        "Kenarı sıralamadan önce mutlaka üç açının da ölçüsünü bul.",
-        "Kenar adı, karşısındaki köşenin harfini içermez: A açısının karşısı [BC]."
-      ]
-    },
-    {
-      "id": "ucgen-esitsizlik",
-      "subtopicId": "ucgen-esitsizlik",
-      "title": "Üçgen eşitsizliği",
-      "aliases": ["Üçgen eşitsizliği"],
-      "items": [
+        { "formula": "İç açılar toplamı = 180°", "note": "Üçüncü açıyı bulmak için ilk adım" },
         { "formula": "|b − c| < a < b + c", "note": "Üçüncü kenar, farktan büyük toplamdan küçüktür", "figure": "<svg viewBox='0 0 320 166' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='78,22 34,86 154,86'/></g><g stroke='#0284c7' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='34' y1='86' x2='154' y2='86'/></g><g stroke='currentColor' stroke-width='2' fill='none'><line x1='36' y1='132' x2='300' y2='132'/></g><g stroke='#0284c7' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='96' y1='132' x2='262' y2='132'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><line x1='95.93' y1='139' x2='95.93' y2='125'/><line x1='261.98' y1='139' x2='261.98' y2='125'/></g><g font-family='system-ui, sans-serif' text-anchor='middle'><text x='94' y='102' font-size='16' fill='#0284c7'>a</text><text x='125.7' y='42.5' font-size='16' fill='currentColor'>b</text><text x='43.6' y='45.5' font-size='16' fill='currentColor'>c</text><text x='179' y='126' font-size='16' fill='#0284c7'>a</text><text x='96' y='154' font-size='14' fill='currentColor'>|b − c|</text><text x='262' y='154' font-size='14' fill='currentColor'>b + c</text></g></svg>" },
         { "formula": "Sınırlar dahil değildir", "note": "a = b + c olsaydı üçgen değil doğru parçası olurdu", "figure": "<svg viewBox='0 0 320 158' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='120,26 40,60 210,60'/></g><g stroke='#0284c7' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='40' y1='116' x2='118' y2='116'/><line x1='118' y1='116' x2='210' y2='116'/></g><g stroke='currentColor' stroke-width='2' fill='none'><line x1='40' y1='116' x2='210' y2='116'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><line x1='40' y1='132' x2='210' y2='132'/><line x1='40' y1='138' x2='40' y2='126'/><line x1='210' y1='138' x2='210' y2='126'/></g><g fill='currentColor'><circle cx='118' cy='116' r='3'/></g><g font-family='system-ui, sans-serif' text-anchor='middle'><text x='72' y='36' font-size='16' fill='currentColor'>c</text><text x='172' y='36' font-size='16' fill='currentColor'>b</text><text x='125' y='76' font-size='16' fill='currentColor'>a</text><text x='79' y='108' font-size='16' fill='currentColor'>c</text><text x='164' y='108' font-size='16' fill='currentColor'>b</text><text x='125' y='150' font-size='16' fill='#0284c7'>a</text><text x='306' y='50' font-size='14' fill='currentColor' text-anchor='end'>a &lt; b + c</text><text x='306' y='112' font-size='14' fill='#0284c7' text-anchor='end'>a = b + c</text></g></svg>" },
         { "formula": "Tam sayı değer sayısı = (üst − 1) − (alt + 1) + 1", "note": "Yani üst − alt − 1" }
       ],
       "tips": [
+        "Kenarı sıralamadan önce mutlaka üç açının da ölçüsünü bul; dış açı verilmişse önce 180° ile iç açıya geç.",
+        "Kenar adı, karşısındaki köşenin harfini içermez: A açısının karşısı [BC].",
         "7 ve 11 için: 4 < x < 18 → 5'ten 17'ye kadar 13 değer. 18 − 4 − 1 = 13 ile de doğrulanır.",
-        "En küçük / en büyük çevre sorularında sınır değerin bir fazlası ya da bir eksiği alınır."
+        "Çevre sorulduğunda kenar aralığını bulup durma; sınır değerin bir fazlasını ya da bir eksiğini alıp diğer kenarlarla topla."
       ]
     },
     {

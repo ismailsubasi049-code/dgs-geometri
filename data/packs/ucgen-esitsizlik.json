@@ -3,17 +3,192 @@
   "topicId": "ucgenler",
   "topic": "Üçgenler",
   "subtopicId": "ucgen-esitsizlik",
-  "subtopic": "Üçgen eşitsizliği",
-  "version": 1,
+  "subtopic": "Üçgen eşitsizliği ve kenar-açı bağıntısı",
+  "version": 2,
   "questions": [
     {
-      "id": "ucgen-008",
+      "id": "esitsizlik-01",
+      "label": "Üçüncü kenarın tam sayı değer sayısı",
+      "difficulty": 1,
+      "stem": "Şekildeki ABC üçgeninde |AB| = 9 cm ve |AC| = 4 cm'dir. |BC| = x cm ve x bir tam sayı olduğuna göre x kaç farklı değer alabilir?",
+      "asks": "Kenarın kendisi değil, kaç farklı tam sayı değeri alabileceği isteniyor. Önce üçgen eşitsizliğiyle alt ve üst sınırı yazıp aradaki tam sayıları saymalısın; sınır değerlerin üçgen oluşturmadığına dikkat et.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='190,32 55,168 255,168' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><g font-family='system-ui, sans-serif' font-size='15'><text x='113' y='98' fill='currentColor' text-anchor='end'>9</text><text x='230' y='98' fill='currentColor' text-anchor='start'>4</text><text x='155' y='188' fill='#0284c7' text-anchor='middle'>x</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='190' y='24'>A</text><text x='45' y='184'>B</text><text x='265' y='184'>C</text></g></svg>",
+      "choices": ["7", "8", "9", "5", "6"],
+      "answer": 0,
+      "solution": "Üçgen eşitsizliği: bir kenar, diğer ikisinin farkından büyük ve toplamından küçüktür.\n|9 − 4| < x < 9 + 4\n5 < x < 13\nEşitsizlik kesin olduğundan 5 ve 13 dahil değildir.\nx tam sayı: 6, 7, 8, ..., 12\nDeğer sayısı = 12 − 6 + 1 = 7\n(Sık yapılan hata 1: 13 − 5 = 8 deyip aralığın genişliğini değer sayısı sanmak; iki uç da dışarıda kaldığı için bir eksiği alınır.\nSık yapılan hata 2: 5 ve 13'ü de sayıya katıp 9 değer bulmak; bu uzunluklarda üçgen kapanmaz, doğru parçası olur.\nSık yapılan hata 3: kenarların farkını (5) doğrudan işaretlemek; o değer alt sınırdır, cevabın kendisi değildir.\nSık yapılan hata 4: yalnız alt ucu dahil edip 6 demek.)"
+    },
+    {
+      "id": "esitsizlik-02",
+      "label": "Üçüncü kenarın en büyük değeri",
+      "difficulty": 1,
+      "stem": "Şekildeki ABC üçgeninde |AB| = 15 cm ve |BC| = 6 cm'dir. |AC| = x cm ve x bir tam sayı olduğuna göre x en çok kaç olabilir?",
+      "asks": "Değer sayısı değil, üçüncü kenarın alabileceği en büyük tam sayı isteniyor. Üst sınırı bulduktan sonra sınırın kendisinin üçgen oluşturmadığını hatırlaman gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='150,20 120,165 210,165' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><g font-family='system-ui, sans-serif' font-size='15'><text x='126' y='96' fill='currentColor' text-anchor='end'>15</text><text x='190' y='92' fill='#0284c7' text-anchor='start'>x</text><text x='165' y='185' fill='currentColor' text-anchor='middle'>6</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='150' y='14'>A</text><text x='110' y='182'>B</text><text x='220' y='182'>C</text></g></svg>",
+      "choices": ["21", "20", "11", "10", "9"],
+      "answer": 1,
+      "solution": "Üçgen eşitsizliğini x için yazalım:\n|15 − 6| < x < 15 + 6\n9 < x < 21\nÜst sınır 21 dahil değildir, çünkü x = 21 olsaydı üç nokta aynı doğru üzerinde olurdu.\nx'in alabileceği en büyük tam sayı 21'in bir eksiğidir:\nx = 20 cm\n(Sık yapılan hata 1: 21'i işaretlemek; eşitsizlik kesindir, üst sınır dışarıda kalır.\nSık yapılan hata 2: 21 − 9 − 1 = 11 deyip tam sayı değer sayısını cevap sanmak; soru değer sayısını değil en büyük değeri istiyor.\nSık yapılan hata 3: 10 demek; o değer x'in alabileceği en küçük tam sayıdır, sıralamayı ters çevirmek olur.\nSık yapılan hata 4: alt sınırın kendisini (9) yazmak.)"
+    },
+    {
+      "id": "esitsizlik-03",
+      "label": "Üçgen oluşma koşulu",
+      "difficulty": 1,
+      "stem": "Aşağıda verilen uzunluk üçlülerinden hangisi bir üçgenin kenar uzunlukları olabilir?",
+      "asks": "Hesap değil, koşul kontrolü isteniyor. Üç uzunluğun üçgen oluşturması için en uzun kenarın, diğer ikisinin toplamından kesinlikle küçük olması gerekir; eşitlik durumu üçgen vermez.",
+      "choices": ["3 cm, 5 cm, 8 cm", "2 cm, 6 cm, 9 cm", "4 cm, 7 cm, 10 cm", "5 cm, 5 cm, 11 cm", "1 cm, 4 cm, 5 cm"],
+      "answer": 2,
+      "solution": "Kısa iki kenarın toplamını en uzun kenarla karşılaştırmak yeterlidir.\n3 + 5 = 8, en uzun kenar 8: toplam ile eşit, üçgen olmaz.\n2 + 6 = 8, en uzun kenar 9: toplam daha küçük, üçgen olmaz.\n4 + 7 = 11, en uzun kenar 10: 11 > 10 olduğundan üçgen olur.\n5 + 5 = 10, en uzun kenar 11: 10 < 11, üçgen olmaz.\n1 + 4 = 5, en uzun kenar 5: eşitlik, üçgen olmaz.\nÜçgen oluşturan üçlü: 4 cm, 7 cm, 10 cm\n(Sık yapılan hata 1: 3, 5, 8 üçlüsünü kabul etmek; 3 + 5 = 8 olduğunda üçgen kapanmaz, kenarlar üst üste biner ve doğru parçası çıkar.\nSık yapılan hata 2: 1, 4, 5 üçlüsünde de aynı eşitlik tuzağına düşmek.\nSık yapılan hata 3: 5, 5, 11 üçlüsünü iki kenarı eşit diye ikizkenar sanıp kabul etmek; ikizkenar olması eşitsizliği sağladığı anlamına gelmez.\nSık yapılan hata 4: 2, 6, 9 üçlüsünde toplamı 2 + 9 ya da 6 + 9 gibi yanlış ikiliden almak; karşılaştırma her zaman en uzun kenarla kısa iki kenarın toplamı arasında yapılır.)"
+    },
+    {
+      "id": "esitsizlik-04",
+      "label": "Açılardan en kısa kenara",
+      "difficulty": 1,
+      "stem": "Şekildeki ABC üçgeninde m(A) = 40° ve m(B) = 105°'dir. Buna göre en kısa kenar aşağıdakilerden hangisidir?",
+      "asks": "Bir uzunluk değil, hangi kenarın en kısa olduğu isteniyor. Üçgende küçük açının karşısında küçük kenar bulunur; önce üçüncü açıyı bulup en küçüğünü seçmen, sonra onun karşısındaki kenarı yazman gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='45,45 120,155 275,120' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 64.2 73.1 A 34 34 0 0 0 77.3 55.5'/><path d='M 103.1 130.2 A 30 30 0 0 1 149.3 148.4'/></g><g font-family='system-ui, sans-serif' font-size='14' text-anchor='middle'><text x='90' y='80' fill='#0284c7'>40°</text><text x='138' y='116' fill='#0284c7'>105°</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='38' y='38'>A</text><text x='114' y='172'>B</text><text x='285' y='116'>C</text></g></svg>",
+      "choices": ["[AB]", "[AC]", "[BC]", "[AB] ile [BC] eşit uzunlukta", "Belirlenemez"],
+      "answer": 0,
+      "solution": "Üçüncü açıyı bulalım:\nm(C) = 180° − 40° − 105° = 35°\nAçılar küçükten büyüğe: C (35°) < A (40°) < B (105°)\nKüçük açının karşısındaki kenar daha kısadır. En küçük açı C olduğuna göre C'nin karşısındaki kenar en kısadır.\nC köşesinin karşısındaki kenar [AB]'dir.\nEn kısa kenar: [AB]\n(Sık yapılan hata 1: [AC]'yi işaretlemek; o kenar en büyük açı olan B'nin karşısındadır, yani en uzun kenardır - sıralamayı ters çevirmek en yaygın hatadır.\nSık yapılan hata 2: [BC] demek; o kenar 40°'lik A açısının karşısındadır, ortanca uzunluktadır.\nSık yapılan hata 3: 40° ile 35° birbirine yakın diye kenarları eşit saymak; açılar eşit olmadıkça kenarlar da eşit olmaz.\nSık yapılan hata 4: iki açı verildiği için sıralamanın yapılamayacağını düşünüp belirlenemez demek; üçüncü açı her zaman 180°'den bulunur.)"
+    },
+    {
+      "id": "esitsizlik-05",
+      "label": "Kenar sıralamasından açı sıralamasına",
+      "difficulty": 1,
+      "stem": "Şekildeki ABC üçgeninde |AB| = 8 cm, |AC| = 7 cm ve |BC| = 5 cm'dir. Buna göre açıların küçükten büyüğe sıralanışı aşağıdakilerden hangisidir?",
+      "asks": "Açı ölçüleri değil, sıralaması isteniyor. Bağıntı ters yönde de çalışır: büyük kenarın karşısında büyük açı bulunur. Her kenarın karşısındaki köşeyi doğru eşleştirmen gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='60,165 250,165 190,62' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><g font-family='system-ui, sans-serif' font-size='15'><text x='155' y='186' fill='currentColor' text-anchor='middle'>8</text><text x='112' y='108' fill='currentColor' text-anchor='end'>7</text><text x='232' y='110' fill='currentColor' text-anchor='start'>5</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='52' y='182'>A</text><text x='258' y='182'>B</text><text x='190' y='54'>C</text></g></svg>",
+      "choices": ["m(C) < m(B) < m(A)", "m(B) < m(A) < m(C)", "m(A) < m(C) < m(B)", "m(A) < m(B) < m(C)", "m(C) < m(A) < m(B)"],
+      "answer": 3,
+      "solution": "Her kenarın karşısındaki köşeyi yazalım:\n[BC] = 5 cm, karşısındaki köşe A\n[AC] = 7 cm, karşısındaki köşe B\n[AB] = 8 cm, karşısındaki köşe C\nKenarlar küçükten büyüğe: 5 < 7 < 8, yani [BC] < [AC] < [AB]\nKüçük kenarın karşısında küçük açı bulunur; sıralama aynı yönde açılara taşınır:\nm(A) < m(B) < m(C)\n(Sık yapılan hata 1: m(C) < m(B) < m(A) demek; bağıntıyı ters çevirip büyük kenarın karşısına küçük açı koymak.\nSık yapılan hata 2: kenar adındaki ilk harfe bakıp [BC] en kısa diye m(B)'yi en küçük saymak; kenar, adındaki harflerin köşelerine değil karşısındaki köşeye bağlıdır.\nSık yapılan hata 3: 7 ile 8'in karşılıklarını değiştirip m(A) < m(C) < m(B) yazmak.\nSık yapılan hata 4: yalnız en küçük kenarı doğru eşleyip kalan ikisini karıştırarak m(C) < m(A) < m(B) demek.)"
+    },
+    {
+      "id": "esitsizlik-06",
+      "label": "Üçüncü açıyı bulup en uzun kenar",
+      "difficulty": 2,
+      "stem": "Şekildeki ABC üçgeninde m(A) = 58° ve m(C) = 64°'dir. Buna göre en uzun kenar aşağıdakilerden hangisidir?",
+      "asks": "En uzun kenar isteniyor. Verilen iki açıdan üçüncüsünü bulup en büyük açıyı belirlemen, sonra o açının karşısındaki kenarı seçmen gerekiyor. İki açının eşit çıkması cevabı değiştirmez.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='159,35 75,170 225,170' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 142.1 62.1 A 32 32 0 0 0 173.1 63.7'/><path d='M 195 170 A 30 30 0 0 1 211.8 143.1'/></g><g font-family='system-ui, sans-serif' font-size='14' text-anchor='middle'><text x='157' y='82' fill='#0284c7'>58°</text><text x='190' y='150' fill='#0284c7'>64°</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='159' y='27'>A</text><text x='67' y='187'>B</text><text x='233' y='187'>C</text></g></svg>",
+      "choices": ["[AB]", "[BC]", "[AC]", "[BC] ile [AC] eşit ve en uzun", "Belirlenemez"],
+      "answer": 0,
+      "solution": "Üçüncü açıyı bulalım:\nm(B) = 180° − 58° − 64° = 58°\nAçılar: C (64°) > A (58°) = B (58°)\nEn büyük açı C'dir. Büyük açının karşısındaki kenar en uzundur.\nC köşesinin karşısındaki kenar [AB]'dir.\nEn uzun kenar: [AB]\n(Sık yapılan hata 1: [BC] demek; o kenar 58°'lik A açısının karşısındadır ve en kısa iki kenardan biridir.\nSık yapılan hata 2: [AC] demek; o kenar 58°'lik B açısının karşısındadır, o da en kısa iki kenardan biridir.\nSık yapılan hata 3: iki açı eşit çıktığı için [BC] ile [AC]'yi eşit ve en uzun saymak; bu iki kenar gerçekten eşittir ama en kısa olanlardır, en uzun kenar tektir.\nSık yapılan hata 4: üçüncü açıyı hesaplamadan verilen 64°'nin en büyük olup olmadığından emin olamayıp belirlenemez demek.)"
+    },
+    {
+      "id": "esitsizlik-07",
+      "label": "İkizkenarda tepe açısı ve kenar sıralaması",
+      "difficulty": 2,
+      "stem": "Şekildeki ABC üçgeninde |AB| = |AC| ve m(A) = 96°'dir. Buna göre kenar uzunlukları için aşağıdakilerden hangisi doğrudur?",
+      "asks": "Sayısal uzunluk değil, kenarlar arasındaki büyüklük ilişkisi isteniyor. İkizkenarlık taban açılarını eşitler; tepe açısının bu iki açıdan büyük mü küçük mü olduğu sıralamayı belirler.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='160,55 45,150 275,150' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><g stroke='currentColor' stroke-width='1.5' fill='none'><line x1='98' y1='97.1' x2='107' y2='107.9'/><line x1='222' y1='97.1' x2='213' y2='107.9'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 136.9 74.1 A 30 30 0 0 0 183.1 74.1'/></g><g font-family='system-ui, sans-serif' font-size='14' text-anchor='middle'><text x='160' y='98' fill='#0284c7'>96°</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='160' y='47'>A</text><text x='37' y='166'>B</text><text x='283' y='166'>C</text></g></svg>",
+      "choices": ["|AB| = |AC| > |BC|", "|BC| > |AB| = |AC|", "|AB| > |BC| > |AC|", "|AB| = |AC| = |BC|", "|BC| > |AB| > |AC|"],
+      "answer": 1,
+      "solution": "|AB| = |AC| olduğundan bu kenarların karşısındaki açılar eşittir:\nm(B) = m(C)\nİç açılar toplamından taban açılarını bulalım:\nm(B) + m(C) = 180° − 96° = 84°\nm(B) = m(C) = 42°\nAçılar: A (96°) > B (42°) = C (42°)\nEn büyük açı A'dır, karşısındaki kenar [BC] en uzundur. Eşit açıların karşısındaki [AB] ile [AC] birbirine eşit ve daha kısadır.\n|BC| > |AB| = |AC|\n(Sık yapılan hata 1: |AB| = |AC| > |BC| demek; eşit iki kenarı otomatik olarak en uzun saymak. Tepe açısı 96° ile en büyük olduğundan onun karşısındaki taban en uzundur.\nSık yapılan hata 2: ikizkenarlığı göz ardı edip |AB| > |BC| > |AC| gibi üç farklı uzunluk yazmak; |AB| ile |AC| verildiği gibi eşittir.\nSık yapılan hata 3: 96°'yi 60° gibi düşünüp üçgeni eşkenar saymak; eşkenarda bütün açılar 60° olurdu.\nSık yapılan hata 4: tabanı en uzun bulup eşit kenarları kendi aralarında da sıralamak ve |BC| > |AB| > |AC| demek.)"
+    },
+    {
+      "id": "esitsizlik-08",
+      "label": "Ortak kenarlı iki üçgende sıralama",
+      "difficulty": 2,
+      "stem": "Şekilde ABC ve ACD üçgenlerinin ortak kenarı [AC]'dir. m(BAC) = 70°, m(ABC) = 60°, m(ACD) = 45° ve m(ADC) = 80° olduğuna göre şekilde adı geçen doğru parçalarının en uzunu hangisidir?",
+      "asks": "Tek bir üçgenin değil, iki üçgenin tamamının en uzun parçası isteniyor. Her üçgende sıralamayı ayrı ayrı kurup ortak kenar [AC] üzerinden iki sıralamayı birleştirmen gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='110,45 45,170 215,170'/><polygon points='110,45 215,170 227,35'/></g><line x1='110' y1='45' x2='215' y2='170' stroke='#0284c7' stroke-width='2.5'/><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 57.9 145.2 A 28 28 0 0 1 73 170'/><path d='M 96.2 71.6 A 30 30 0 0 0 129.3 68'/><path d='M 193.1 144 A 34 34 0 0 1 218 136.1'/><path d='M 201.1 37.2 A 26 26 0 0 0 224.7 60.9'/></g><g font-family='system-ui, sans-serif' font-size='13' text-anchor='middle'><text x='81' y='149' fill='#0284c7'>60°</text><text x='115' y='92' fill='#0284c7'>70°</text><text x='197' y='126' fill='#0284c7'>45°</text><text x='194' y='68' fill='#0284c7'>80°</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='100' y='38'>A</text><text x='37' y='186'>B</text><text x='215' y='187'>C</text><text x='238' y='31'>D</text></g></svg>",
+      "choices": ["[AB]", "[BC]", "[AC]", "[CD]", "[AD]"],
+      "answer": 1,
+      "solution": "Önce ABC üçgenini sıralayalım. Üçüncü açı:\nm(BCA) = 180° − 70° − 60° = 50°\nAçılar: A (70°) > B (60°) > C (50°)\nKarşı kenarlar aynı sırayla: |BC| > |AC| > |AB|\nŞimdi ACD üçgenini sıralayalım. Üçüncü açı:\nm(DAC) = 180° − 45° − 80° = 55°\nAçılar: D (80°) > A (55°) > C (45°)\nKarşı kenarlar aynı sırayla: |AC| > |CD| > |AD|\nİki sıralamanın ortak kenarı [AC]'dir; zinciri onun üzerinden birleştirelim:\n|BC| > |AC| > |CD| > |AD| ve |AB| < |AC|\nEn uzun parça: [BC]\n(Sık yapılan hata 1: [AC] demek; [AC] yalnızca ACD üçgeninin en uzun kenarıdır, ABC üçgeninde [BC]'den kısadır.\nSık yapılan hata 2: [AD] demek; o parça zincirin en kısa ucudur, sıralamayı ters çevirmek olur.\nSık yapılan hata 3: [CD] demek; ACD üçgeninde ortanca kenardır, ortak kenarla birleştirildiğinde de [BC]'yi geçemez.\nSık yapılan hata 4: yalnız ABC üçgenine bakıp en küçük açının karşısındaki [AB]'yi işaretlemek.)"
+    },
+    {
+      "id": "esitsizlik-09",
+      "label": "Komşu iki üçgende en kısa parça",
+      "difficulty": 2,
+      "stem": "Şekilde D noktası [BC] üzerindedir. m(B) = 60°, m(ADB) = 50° ve m(C) = 20° olduğuna göre şekilde adı geçen doğru parçalarının en kısası hangisidir?",
+      "asks": "İki komşu üçgenin tamamındaki en kısa parça isteniyor. [AD] iki üçgende de ortaktır; her üçgeni ayrı sıralayıp zinciri bu ortak parça üzerinden kurman gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='105,55 45,165 285,165'/><line x1='105' y1='55' x2='200' y2='165'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 58.4 140.4 A 28 28 0 0 1 73 165'/><path d='M 174 165 A 26 26 0 0 1 183 145.3'/><path d='M 255 165 A 30 30 0 0 1 259.4 149.4'/></g><g font-family='system-ui, sans-serif' font-size='13' text-anchor='middle'><text x='83' y='146' fill='#0284c7'>60°</text><text x='160' y='152' fill='#0284c7'>50°</text><text x='238' y='153' fill='#0284c7'>20°</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='105' y='47'>A</text><text x='37' y='182'>B</text><text x='293' y='182'>C</text><text x='200' y='182'>D</text></g></svg>",
+      "choices": ["[AB]", "[AD]", "[BD]", "[DC]", "[AC]"],
+      "answer": 0,
+      "solution": "ABD üçgeninde üçüncü açı:\nm(BAD) = 180° − 60° − 50° = 70°\nAçılar: A (70°) > B (60°) > ADB (50°)\nKarşı kenarlar aynı sırayla: |BD| > |AD| > |AB|\nD noktası [BC] üzerinde olduğundan [AD] doğrusal çiftin bir kolunu oluşturur:\nm(ADC) = 180° − 50° = 130°\nADC üçgeninde üçüncü açı:\nm(DAC) = 180° − 130° − 20° = 30°\nAçılar: ADC (130°) > DAC (30°) > C (20°)\nKarşı kenarlar aynı sırayla: |AC| > |DC| > |AD|\nİki sıralamanın ortak parçası [AD]'dir:\n|AB| < |AD| < |DC| < |AC| ve |AD| < |BD|\nEn kısa parça: [AB]\n(Sık yapılan hata 1: [AD] demek; [AD] ADC üçgeninin en kısa kenarıdır ama ABD üçgeninde [AB]'den uzundur. İki üçgende de küçük görünen parçayı doğrudan en kısa saymak bu soru tipinin bir numaralı tuzağıdır.\nSık yapılan hata 2: [AC] demek; o parça zincirin en uzun ucudur, sıralamayı ters çevirmek olur.\nSık yapılan hata 3: [BD] demek; ABD üçgeninde en uzun kenardır.\nSık yapılan hata 4: [DC] demek; yalnız ADC üçgenine bakıp ADB tarafını hiç hesaba katmamak.)"
+    },
+    {
+      "id": "esitsizlik-10",
+      "label": "Çevrenin alabileceği en büyük değer",
+      "difficulty": 2,
+      "stem": "Bir üçgenin iki kenarının uzunlukları 8 cm ve 5 cm'dir. Üçüncü kenarın uzunluğu tam sayı olduğuna göre bu üçgenin çevresi en çok kaç cm olabilir?",
+      "asks": "Kenar değil çevre isteniyor. Önce üçüncü kenarın alabileceği en büyük tam sayıyı bulup sonra onu verilen iki kenarla toplaman gerekiyor; aralığın ucunun dışarıda kaldığına dikkat et.",
+      "choices": ["26", "17", "25", "12", "9"],
+      "answer": 2,
+      "solution": "Üçüncü kenara x diyelim ve eşitsizliği yazalım:\n|8 − 5| < x < 8 + 5\n3 < x < 13\nx tam sayı ve 13 dahil olmadığından en büyük değeri:\nx = 12 cm\nÇevre = 8 + 5 + x\nÇevre = 13 + 12\nÇevre = 25 cm\n(Sık yapılan hata 1: x = 13 alıp çevreyi 26 bulmak; 13 üst sınırdır, o uzunlukta üçgen kapanmaz.\nSık yapılan hata 2: x'in en küçük değerini (4) kullanıp 17 demek; o değer çevrenin en küçüğüdür, soru en büyüğünü istiyor.\nSık yapılan hata 3: 12'yi işaretlemek; o yalnızca üçüncü kenarın en büyük değeridir, çevre değildir.\nSık yapılan hata 4: x'in kaç farklı tam sayı değeri alabileceğini (4'ten 12'ye 9 değer) hesaplayıp cevap sanmak; çevre aralığı sorulurken kenar hesabında kalmak yaygın bir karıştırmadır.)"
+    },
+    {
+      "id": "esitsizlik-11",
+      "label": "Açı toplamı ve farkından sıralama",
+      "difficulty": 2,
+      "stem": "Şekildeki ABC üçgeninde m(A) + m(C) = 116° ve m(A) − m(C) = 24°'dir. Buna göre kenar uzunlukları için doğru sıralama aşağıdakilerden hangisidir?",
+      "asks": "Açılar doğrudan verilmemiş; toplam ve farktan iki açıyı çözüp üçüncüsünü 180°'den bulman gerekiyor. Sonra açı sıralamasını karşı kenarlara taşıyacaksın.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='150,35 50,165 270,140' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 130.5 60.4 A 32 32 0 0 0 174.1 56.1'/><path d='M 247.4 120.2 A 30 30 0 0 0 240.2 143.4'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='150' y='27'>A</text><text x='42' y='181'>B</text><text x='280' y='136'>C</text></g></svg>",
+      "choices": ["|AB| > |AC| > |BC|", "|AC| > |BC| > |AB|", "|AB| > |BC| > |AC|", "|BC| > |AC| > |AB|", "|BC| > |AB| > |AC|"],
+      "answer": 3,
+      "solution": "İki denklemi birlikte çözelim:\nm(A) + m(C) = 116°\nm(A) − m(C) = 24°\nTaraf tarafa toplayalım: 2 · m(A) = 140° → m(A) = 70°\nm(C) = 116° − 70° = 46°\nÜçüncü açı:\nm(B) = 180° − 116° = 64°\nAçılar büyükten küçüğe: A (70°) > B (64°) > C (46°)\nHer açının karşısındaki kenarı yazalım: A'nın karşısı [BC], B'nin karşısı [AC], C'nin karşısı [AB].\n|BC| > |AC| > |AB|\n(Sık yapılan hata 1: sıralamayı ters çevirip |AB| > |AC| > |BC| demek; büyük açının karşısında büyük kenar bulunur.\nSık yapılan hata 2: m(B)'yi 180° − 116° = 64° yerine yanlış hesaplayıp B'yi en büyük sanmak ve |AC| > |BC| > |AB| yazmak.\nSık yapılan hata 3: farkı yanlış yöne uygulayıp m(C) = 70°, m(A) = 46° almak ve |AB| > |BC| > |AC| demek.\nSık yapılan hata 4: en büyük açıyı doğru bulup kalan iki kenarı karıştırarak |BC| > |AB| > |AC| yazmak.)"
+    },
+    {
+      "id": "esitsizlik-12",
+      "label": "Dış açıdan en kısa kenara",
       "difficulty": 3,
+      "stem": "Şekilde [BC]'nin C yönündeki uzantısı üzerinde D noktası alınmıştır. m(ACD) = 105° ve m(A) = 55° olduğuna göre ABC üçgeninin en kısa kenarı hangisidir?",
+      "asks": "En kısa kenar isteniyor ama verilen 105° bir iç açı değil, dış açıdır. Önce dış açıdan iç açıya geçip üç açıyı da bulman, sonra en küçük açının karşısındaki kenarı seçmen gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='176,38 70,165 210,165' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><line x1='210' y1='165' x2='295' y2='165' stroke='currentColor' stroke-width='2'/><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 244 165 A 34 34 0 0 0 201.2 132.2'/><path d='M 156.8 68 A 30 30 0 0 0 183.8 74'/></g><g font-family='system-ui, sans-serif' font-size='14' text-anchor='middle'><text x='247' y='126' fill='#0284c7'>105°</text><text x='168' y='90' fill='#0284c7'>55°</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='176' y='30'>A</text><text x='62' y='182'>B</text><text x='207' y='182'>C</text><text x='295' y='182'>D</text></g></svg>",
+      "choices": ["[BC]", "[AB]", "[AB] ile [BC] eşit uzunlukta", "[AC]", "Belirlenemez"],
+      "answer": 3,
+      "solution": "m(ACD) dış açısı ile m(ACB) iç açısı bütünlerdir:\nm(ACB) = 180° − 105° = 75°\nÜçüncü açıyı bulalım:\nm(B) = 180° − 55° − 75° = 50°\nAçılar küçükten büyüğe: B (50°) < A (55°) < C (75°)\nEn küçük açı B'dir; küçük açının karşısındaki kenar en kısadır.\nB köşesinin karşısındaki kenar [AC]'dir.\nEn kısa kenar: [AC]\n(Sık yapılan hata 1: [AB] demek; o kenar en büyük açı olan C'nin (75°) karşısındadır, yani en uzun kenardır.\nSık yapılan hata 2: [BC] demek; en küçük açının karşısındaki kenar yerine B köşesinden çıkan kenarlardan birini işaretlemek. Kenar, açının karşısında aranır.\nSık yapılan hata 3: 55° ile 50° birbirine yakın diye [AB] ile [BC]'yi eşit saymak; açılar eşit olmadıkça kenarlar eşit olmaz.\nSık yapılan hata 4: dış açıdan iç açıya geçilemeyeceğini düşünüp belirlenemez demek; dış açı ile komşu iç açı her zaman 180°'yi tamamlar.)"
+    },
+    {
+      "id": "esitsizlik-13",
+      "label": "Dış açı zinciriyle en kısa parça",
+      "difficulty": 3,
+      "stem": "Şekilde D noktası [AC] üzerindedir. m(A) = 42°, m(ABD) = 70° ve m(C) = 30° olduğuna göre şekilde adı geçen doğru parçalarının en kısası hangisidir?",
+      "asks": "İki üçgene bölünmüş şeklin tamamındaki en kısa parça isteniyor. ABD üçgeninin D'deki dış açısı BDC açısıdır; bu köprüyü kurup her iki üçgenin sıralamasını ortak [BD] üzerinden birleştirmen gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='40,158 255,158 121,85'/></g><line x1='121' y1='85' x2='150' y2='158' stroke='currentColor' stroke-width='2'/><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 70 158 A 30 30 0 0 0 62.3 137.9'/><path d='M 100.2 103.8 A 28 28 0 0 0 131.3 111'/><path d='M 141.1 135.7 A 24 24 0 0 1 174 158'/><path d='M 230.4 144.6 A 28 28 0 0 0 227 158'/></g><g font-family='system-ui, sans-serif' font-size='13' text-anchor='middle'><text x='86' y='145' fill='#0284c7'>42°</text><text x='111' y='132' fill='#0284c7'>70°</text><text x='181' y='114' fill='#0284c7'>112°</text><text x='211' y='150' fill='#0284c7'>30°</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='32' y='174'>A</text><text x='121' y='77'>B</text><text x='263' y='174'>C</text><text x='150' y='175'>D</text></g></svg>",
+      "choices": ["[AB]", "[AD]", "[DC]", "[BC]", "[BD]"],
+      "answer": 4,
+      "solution": "ABD üçgeninde üçüncü açı:\nm(ADB) = 180° − 42° − 70° = 68°\nAçılar: ABD (70°) > ADB (68°) > A (42°)\nKarşı kenarlar aynı sırayla: |AD| > |AB| > |BD|\nD noktası [AC] üzerinde olduğundan m(BDC), ABD üçgeninin D'deki dış açısıdır:\nm(BDC) = 180° − 68° = 112°\nBDC üçgeninde üçüncü açı:\nm(DBC) = 180° − 112° − 30° = 38°\nAçılar: BDC (112°) > DBC (38°) > C (30°)\nKarşı kenarlar aynı sırayla: |BC| > |DC| > |BD|\n[BD] iki üçgende de en kısa kenar çıktığından şeklin tamamında da en kısadır.\nEn kısa parça: [BD]\n(Sık yapılan hata 1: [DC] demek; BDC üçgeninde ortanca kenardır, [BD]'den uzundur.\nSık yapılan hata 2: [BC] demek; o parça en uzun olandır, sıralamayı ters çevirmek olur.\nSık yapılan hata 3: [AD] demek; ABD üçgeninin en uzun kenarını en kısa sanmak.\nSık yapılan hata 4: yalnız ABD üçgenine bakıp [AB]'yi işaretlemek; [AB], [BD]'den uzundur ve zincirin ikinci sırasındadır.)"
+    },
+    {
+      "id": "esitsizlik-14",
+      "label": "İkizkenarda en küçük çevre",
+      "difficulty": 3,
+      "stem": "Şekildeki ABC üçgeninde |AB| = |AC| ve |BC| = 12 cm'dir. |AB| uzunluğu tam sayı olduğuna göre bu üçgenin çevresi en az kaç cm olabilir?",
+      "asks": "Kenar değil çevrenin en küçük değeri isteniyor. Eşit iki kenarın toplamının tabandan büyük olması gerektiğini yazıp en küçük tam sayıyı seçmen, sonra üç kenarı da toplaman gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='160,40 80,160 240,160' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><g stroke='currentColor' stroke-width='1.5' fill='none'><line x1='114.2' y1='96.1' x2='125.8' y2='103.9'/><line x1='205.8' y1='96.1' x2='194.2' y2='103.9'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='105' y='98' fill='#0284c7' text-anchor='end'>x</text><text x='215' y='98' fill='#0284c7' text-anchor='start'>x</text><text x='160' y='182' fill='currentColor' text-anchor='middle'>12</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='160' y='32'>A</text><text x='68' y='176'>B</text><text x='252' y='176'>C</text></g></svg>",
+      "choices": ["24", "19", "14", "26", "36"],
+      "answer": 3,
+      "solution": "|AB| = |AC| = x diyelim. Üçgen eşitsizliğine göre iki kenarın toplamı üçüncüsünden büyük olmalıdır:\nx + x > 12\n2x > 12\nx > 6\nDiğer koşul olan 12 + x > x her x için sağlanır, ek bir kısıt getirmez.\nx tam sayı ve x > 6 olduğundan en küçük değeri:\nx = 7 cm\nÇevre = x + x + 12\nÇevre = 7 + 7 + 12\nÇevre = 26 cm\n(Sık yapılan hata 1: x = 6 alıp çevreyi 24 bulmak; 6 + 6 = 12 olur, eşitlik durumunda üçgen kapanmaz - eşitsizliğin ucunu dahil etmek bu konunun bir numaralı tuzağıdır.\nSık yapılan hata 2: 7 + 12 = 19 deyip yalnız iki kenarı toplamak; ikizkenarda eşit kenar iki kez yazılır.\nSık yapılan hata 3: 7 + 7 = 14 deyip tabanı eklemeyi unutmak.\nSık yapılan hata 4: üçgeni eşkenar varsayıp 3 · 12 = 36 demek; veriler yalnız ikizkenarlık söylüyor.)"
+    },
+    {
+      "id": "esitsizlik-15",
+      "label": "Oranla verilen kenarlarda eşitsizlik",
+      "difficulty": 3,
+      "stem": "Şekildeki ABC üçgeninde |AB| : |AC| = 3 : 5 ve |BC| = 16 cm'dir. |AB| ve |AC| uzunlukları tam sayı olduğuna göre |AB| en az kaç cm olabilir?",
+      "asks": "Kenarlar sayı olarak değil oranla verilmiş. Ortak çarpana k deyip iki kenarı 3k ve 5k olarak yazman, üçgen eşitsizliğini 16 ile kurup k'nın alabileceği en küçük tam sayıyı bulman gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='110,35 55,165 265,150' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><g font-family='system-ui, sans-serif' font-size='15'><text x='74' y='102' fill='#0284c7' text-anchor='end'>3k</text><text x='196' y='88' fill='#0284c7' text-anchor='start'>5k</text><text x='160' y='184' fill='currentColor' text-anchor='middle'>16</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='110' y='27'>A</text><text x='47' y='181'>B</text><text x='275' y='146'>C</text></g></svg>",
+      "choices": ["6", "21", "24", "5", "9"],
+      "answer": 4,
+      "solution": "Oranı ortak çarpanla yazalım: |AB| = 3k, |AC| = 5k.\n3k ile 5k'nin ikisinin de tam sayı olması için k tam sayı olmalıdır (3 ile 5 aralarında asaldır).\nÜçgen eşitsizliğini [BC] = 16 için kuralım:\n|5k − 3k| < 16 < 5k + 3k\nSol taraf: 2k < 16 → k < 8\nSağ taraf: 8k > 16 → k > 2\nBirleştirelim: 2 < k < 8\nk tam sayı: 3, 4, 5, 6, 7\nEn küçük değer k = 3'tür:\n|AB| = 3 · 3 = 9 cm\n(Sık yapılan hata 1: k = 2 alıp 6 demek; 2 < k eşitsizliği kesindir, k = 2 için 6 + 10 = 16 olur ve üçgen kapanmaz.\nSık yapılan hata 2: k = 7'yi kullanıp 21 demek; o değer |AB|'nin en büyüğüdür, soru en küçüğünü istiyor.\nSık yapılan hata 3: üst sınırı dahil edip k = 8 ile 24 demek; hem sınır dahil edilmiş hem de ters uç alınmış olur.\nSık yapılan hata 4: k'nın alabileceği değer sayısını (5) cevap sanmak; soru uzunluk istiyor, değer sayısı değil.)"
+    },
+    {
+      "id": "ucgen-008",
+      "label": "Değer aralığından tam sayı sayma",
+      "difficulty": 2,
       "stem": "Bir üçgenin iki kenarının uzunlukları 7 cm ve 11 cm'dir. Üçüncü kenarın uzunluğu tam sayı olduğuna göre kaç farklı değer alabilir?",
       "asks": "Üçüncü kenarın kendisi değil, kaç farklı tam sayı değeri alabileceği isteniyor. Önce üçgen eşitsizliğiyle alt ve üst sınırı bulup aradaki tam sayıları saymalısın. Sınır değerlerin üçgen oluşturmadığına dikkat et.",
       "choices": ["9", "10", "11", "12", "13"],
       "answer": 4,
-      "solution": "Üçgen eşitsizliği: bir kenar, diğer ikisinin farkından büyük ve toplamından küçüktür.\n|11 − 7| < x < 11 + 7\n4 < x < 18\nEşitsizlik kesin olduğundan 4 ve 18 dahil değildir.\nx tam sayı: 5, 6, 7, ..., 17\nDeğer sayısı = 17 − 5 + 1 = 13"
+      "solution": "Üçgen eşitsizliği: bir kenar, diğer ikisinin farkından büyük ve toplamından küçüktür.\n|11 − 7| < x < 11 + 7\n4 < x < 18\nEşitsizlik kesin olduğundan 4 ve 18 dahil değildir.\nx tam sayı: 5, 6, 7, ..., 17\nDeğer sayısı = 17 − 5 + 1 = 13\n(Sık yapılan hata 1: 17 − 5 = 12 deyip son adımdaki +1'i unutmak; iki uç arasındaki tam sayılar sayılırken fark bir eksik verir.\nSık yapılan hata 2: alt sınırı farkla değil küçük kenarla belirleyip 7 < x < 18 sanmak; bu okuma 8'den 17'ye 10 değer verir.\nSık yapılan hata 3: toplam yerine bir kenarı çıkarıp 18 − 7 = 11 demek; aralığın genişliği de değer sayısı da bu şekilde bulunmaz.\nSık yapılan hata 4: doğru aralığı bulduktan sonra 5'ten 13'e kadar sayıp 9 demek; 13 sayısı cevaptır, üst sınır değildir.)"
+    },
+    {
+      "id": "ucgen-001",
+      "label": "Açı sıralamasından en uzun kenar",
+      "difficulty": 1,
+      "stem": "ABC üçgeninde m(A) = 80° ve m(B) = 60°'dir. Buna göre en uzun kenar hangisidir?",
+      "asks": "Bir kenarın uzunluğu değil, hangi kenarın en uzun olduğu isteniyor. Üçgende büyük açının karşısında büyük kenar bulunur; önce üçüncü açıyı bulup açıları sıralaman gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='160,35 55,165 265,165' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 185.1 66.2 A 40 40 0 0 0 134.9 66.2'/><path d='M 85 165 A 30 30 0 0 0 73.9 141.6'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='160' y='84' fill='#0284c7'>80°</text><text x='103' y='149' fill='#0284c7'>60°</text><text x='160' y='27' fill='currentColor' font-size='13'>A</text><text x='47' y='182' fill='currentColor' font-size='13'>B</text><text x='273' y='182' fill='currentColor' font-size='13'>C</text></g></svg>",
+      "choices": ["[AB]", "[AC]", "[BC]", "[AB] ile [AC] eşit ve en uzun", "Belirlenemez"],
+      "answer": 2,
+      "solution": "Üçüncü açı: m(C) = 180° − 80° − 60° = 40°.\nAçılar büyükten küçüğe: A (80°) > B (60°) > C (40°).\nÜçgende büyük açının karşısındaki kenar daha uzundur. En büyük açı A olduğuna göre, A'nın karşısındaki kenar olan [BC] en uzundur.\n(Sık yapılan hata 1: [AB] demek; o kenar en küçük açı olan C'nin (40°) karşısındadır, yani en kısa kenardır - sıralamayı ters çevirmek en yaygın hatadır.\nSık yapılan hata 2: [AC] demek; o kenar 60°'lik B açısının karşısındadır, ortanca uzunluktadır.\nSık yapılan hata 3: 80° ile 60°'nin kenarlarını eşit sanıp [AB] ile [AC]'yi birlikte işaretlemek; kenarlar ancak karşılarındaki açılar eşitse eşit olur.\nSık yapılan hata 4: üçüncü açı verilmedi diye belirlenemez demek; m(C) her zaman 180°'den bulunur.)"
     }
   ]
 }

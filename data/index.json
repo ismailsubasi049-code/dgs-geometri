@@ -51,26 +51,15 @@
       "version": 1
     },
     {
-      "id": "ucgen-aci-kenar",
-      "topicId": "ucgenler",
-      "topic": "Üçgenler",
-      "subtopicId": "ucgen-aci-kenar",
-      "subtopic": "Açı - kenar bağıntısı",
-      "title": "Açı - kenar bağıntısı",
-      "file": "packs/ucgen-aci-kenar.json",
-      "count": 1,
-      "version": 1
-    },
-    {
       "id": "ucgen-esitsizlik",
       "topicId": "ucgenler",
       "topic": "Üçgenler",
       "subtopicId": "ucgen-esitsizlik",
-      "subtopic": "Üçgen eşitsizliği",
-      "title": "Üçgen eşitsizliği",
+      "subtopic": "Üçgen eşitsizliği ve kenar-açı bağıntısı",
+      "title": "Üçgen eşitsizliği ve kenar-açı bağıntısı",
       "file": "packs/ucgen-esitsizlik.json",
-      "count": 1,
-      "version": 1
+      "count": 17,
+      "version": 2
     },
     {
       "id": "ucgen-pisagor",
