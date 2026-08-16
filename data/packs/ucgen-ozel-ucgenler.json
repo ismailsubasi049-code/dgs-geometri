@@ -115,6 +115,17 @@
       "solution": "|AB| = |AC| ve m(A) = 90° → üçgen 45-45-90 üçgenidir.\nBu üçgende A'dan hipotenüse inilen yükseklik aynı zamanda kenarortaydır:\n|BH| = |HC| = |AH|\nDik üçgende hipotenüse ait kenarortay hipotenüsün yarısı olduğundan:\n|AH| = 20 / 2 = 10 cm\n(Kontrol: dik kenar 20 / √2 = 10√2, alan = (10√2 · 10√2) / 2 = 100; aynı alan 20 · 10 / 2 = 100 ✓)\n(Sık yapılan hata 1: ara değer olan dik kenar 10√2'yi işaretlemek.\nSık yapılan hata 2: hipotenüsü 4'e bölüp 5 demek.\nSık yapılan hata 3: yarıya bölmek yerine √2 ile çarpıp 20√2 demek.\nSık yapılan hata 4: dik kenarın yarısını alıp 5√2 demek.)"
     },
     {
+      "id": "ucgen-002",
+      "label": "İkizkenarda taban açısı",
+      "difficulty": 1,
+      "stem": "ABC ikizkenar üçgeninde |AB| = |AC| ve m(A) = 40°'dir. Buna göre m(B) kaç derecedir?",
+      "asks": "Taban açılarından biri isteniyor. İkizkenar üçgende eşit kenarların karşısındaki açıların da eşit olduğunu kullanıp kalan 140°'yi ikiye bölmen gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='160,30 109,170 211,170' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><g stroke='currentColor' stroke-width='2' fill='none'><line x1='127' y1='97.3' x2='142' y2='102.7'/><line x1='193' y1='97.3' x2='178' y2='102.7'/></g><path d='M 173 65.7 A 38 38 0 0 0 147 65.7' stroke='#0284c7' stroke-width='2' fill='none'/><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='160' y='84' fill='#0284c7'>40°</text><text x='127' y='158' fill='#0284c7'>?</text><text x='160' y='22' fill='currentColor' font-size='13'>A</text><text x='101' y='187' fill='currentColor' font-size='13'>B</text><text x='219' y='187' fill='currentColor' font-size='13'>C</text></g></svg>",
+      "choices": ["40", "50", "60", "70", "80"],
+      "answer": 3,
+      "solution": "|AB| = |AC| olduğundan bu kenarların karşısındaki açılar eşittir: m(B) = m(C).\nÜçgende açılar toplamı 180°:\n40° + m(B) + m(C) = 180°\n2·m(B) = 140° → m(B) = 70°"
+    },
+    {
       "id": "ucgen-141",
       "label": "Ortak yükseklikte 45° ve 30°",
       "difficulty": 2,
@@ -245,6 +256,28 @@
       "choices": ["6√3", "6√3 − 5", "6√3 + 5", "5", "12√3 − 5"],
       "answer": 1,
       "solution": "P'yi köşelere birleştirirsek ABC üçgeni üç küçük üçgene ayrılır. Üçünün de tabanı 12 cm'dir:\nA(PAB) + A(PAC) + A(PBC) = A(ABC)\n12 · 2 / 2 + 12 · 3 / 2 + 12 · x / 2 = A(ABC)\nEşkenar üçgenin alanı: A(ABC) = 12 · h / 2 (h = yükseklik)\nHer terimde ortak olan 12 / 2 sadeleşir:\n2 + 3 + x = h\nEşkenar üçgende h = 12√3 / 2 = 6√3 cm\nx = 6√3 − 5 cm\n(Sık yapılan hata 1: yüksekliği bulup orada durmak: 6√3 üç uzaklığın toplamıdır.\nSık yapılan hata 2: verilenleri çıkarmak yerine eklemek: 6√3 + 5 demek.\nSık yapılan hata 3: 2'ye bölmeyi unutup yüksekliği 12√3 almak ve 12√3 − 5 demek.\nSık yapılan hata 4: verilenleri toplayıp 5'i cevap sanmak.)"
+    },
+    {
+      "id": "ucgen-004",
+      "label": "30-60-90: hipotenüsten 30°'nin karşısına",
+      "difficulty": 2,
+      "stem": "ABC üçgeninde m(A) = 90°, m(B) = 30° ve |BC| = 12 cm'dir. Buna göre |AC| kaç cm'dir?",
+      "asks": "[AC] kenarı isteniyor. Hangi açının karşısında olduğunu belirlemen gerekiyor: [AC], 30°'lik B açısının karşısındaki kenardır ve 30-60-90 üçgeninde bu kenar hipotenüsün yarısıdır.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='80,160 280,160 80,45' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><path d='M 94 160 L 94 146 L 80 146' stroke='currentColor' stroke-width='1.5' fill='none'/><path d='M 250 160 A 30 30 0 0 1 254 145.1' stroke='#0284c7' stroke-width='2' fill='none'/><g font-family='system-ui, sans-serif' font-size='15'><text x='226' y='151' fill='#0284c7' text-anchor='middle'>30°</text><text x='204' y='92' fill='currentColor' text-anchor='middle'>12</text><text x='68' y='106' fill='#0284c7' text-anchor='end'>x</text><text x='70' y='176' fill='currentColor' font-size='13' text-anchor='middle'>A</text><text x='290' y='176' fill='currentColor' font-size='13' text-anchor='middle'>B</text><text x='70' y='38' fill='currentColor' font-size='13' text-anchor='middle'>C</text></g></svg>",
+      "choices": ["6", "6√2", "6√3", "8", "12√3"],
+      "answer": 0,
+      "solution": "Dik açı A'da olduğundan hipotenüs [BC] = 12 cm.\n30-60-90 üçgeninde kenarlar 1 : √3 : 2 oranındadır ve 30°'nin karşısındaki kenar hipotenüsün yarısıdır.\n[AC], 30°'lik B açısının karşısındadır:\n|AC| = 12 / 2 = 6 cm\n(Diğer dik kenar |AB| = 6√3 cm olur — soruda istenen bu değildir.)"
+    },
+    {
+      "id": "ucgen-005",
+      "label": "45-45-90: dik kenardan hipotenüse",
+      "difficulty": 2,
+      "stem": "İkizkenar dik üçgenin dik kenarlarından biri 5√2 cm'dir. Buna göre hipotenüs kaç cm'dir?",
+      "asks": "Hipotenüs isteniyor. İkizkenar dik üçgen 45-45-90 üçgenidir; hipotenüs, dik kenarın √2 katıdır. √2 · √2 = 2 sadeleşmesini yapman gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='90,160 90,50 200,160' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><path d='M 104 160 L 104 146 L 90 146' stroke='currentColor' stroke-width='1.5' fill='none'/><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 174 160 A 26 26 0 0 1 181.6 141.6'/><path d='M 90 76 A 26 26 0 0 0 108.4 68.4'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='152' y='147' fill='#0284c7' text-anchor='middle'>45°</text><text x='118' y='99' fill='#0284c7' text-anchor='middle'>45°</text><text x='78' y='109' fill='currentColor' text-anchor='end'>5√2</text><text x='145' y='182' fill='currentColor' text-anchor='middle'>5√2</text><text x='170' y='96' fill='#0284c7' text-anchor='middle'>x</text></g></svg>",
+      "choices": ["5", "5√2", "10", "10√2", "20"],
+      "answer": 2,
+      "solution": "İkizkenar dik üçgende açılar 45°-45°-90°'dir ve kenarlar 1 : 1 : √2 oranındadır.\nHipotenüs = dik kenar × √2\n= 5√2 × √2\n= 5 × 2 = 10 cm"
     },
     {
       "id": "ucgen-153",

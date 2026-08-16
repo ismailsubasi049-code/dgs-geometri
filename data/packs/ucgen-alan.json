@@ -3,8 +3,8 @@
   "topicId": "ucgenler",
   "topic": "Üçgenler",
   "subtopicId": "ucgen-alan",
-  "subtopic": "Kenarortay ve alan",
-  "version": 2,
+  "subtopic": "Alan oranları",
+  "version": 3,
   "questions": [
     {
       "id": "ucgen-009",

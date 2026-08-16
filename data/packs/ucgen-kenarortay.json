@@ -334,6 +334,17 @@
       "choices": ["20", "30", "25", "15", "22.5"],
       "answer": 2,
       "solution": "[AD] kenarortayı üzerinde G ağırlık merkezidir: |AG| / |AD| = 2 / 3\n[KL] // [BC] olduğundan AKL ve ABC üçgenleri benzerdir.\nBenzerlik oranı, karşılıklı kenarortayların oranına eşittir: k = |AG| / |AD| = 2 / 3\nBenzer üçgenlerde alanlar oranı, benzerlik oranının karesidir:\nAlan(AKL) / Alan(ABC) = (2/3)² = 4 / 9\nAlan(AKL) = (4/9) · 45 = 20 cm²\nKBCL bölgesi, ABC üçgeninden AKL üçgeninin çıkarılmasıyla bulunur.\nAlan(KBCL) = 45 − 20\nAlan(KBCL) = 25 cm²\n(Sık yapılan hata 1: üst üçgen 20'yi bulup orada durmak.\nSık yapılan hata 2: alan oranını 2/3 sanıp 30 demek.\nSık yapılan hata 3: alan oranını 1/3 sanıp 15 demek.\nSık yapılan hata 4: paralelin alanı yarıya böldüğünü sanıp 22.5 demek.)"
+    },
+    {
+      "id": "ucgen-010",
+      "label": "Ağırlık merkezi: uzun parçadan kısa parçaya",
+      "difficulty": 3,
+      "stem": "ABC üçgeninde G ağırlık merkezi ve [AD] kenarortaydır. |AG| = 8 cm olduğuna göre |GD| kaç cm'dir?",
+      "asks": "Kenarortayın ağırlık merkezinden sonraki kısa parçası isteniyor. Ağırlık merkezinin kenarortayı 2:1 oranında böldüğünü, uzun parçanın köşe tarafında kaldığını kullanman gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><polygon points='160,30 50,175 270,175' stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'/><line x1='160' y1='30' x2='160' y2='175' stroke='#0284c7' stroke-width='2'/><g stroke='currentColor' stroke-width='1.5' opacity='0.55'><line x1='50' y1='175' x2='215' y2='102.5'/><line x1='270' y1='175' x2='105' y2='102.5'/></g><circle cx='160' cy='126.67' r='4' fill='#0284c7'/><g font-family='system-ui, sans-serif' font-size='15'><text x='148' y='82' fill='currentColor' text-anchor='end'>8</text><text x='148' y='157' fill='#0284c7' text-anchor='end'>?</text></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor' text-anchor='middle'><text x='160' y='22'>A</text><text x='42' y='191'>B</text><text x='278' y='191'>C</text><text x='160' y='191'>D</text><text x='176' y='124'>G</text></g></svg>",
+      "choices": ["4", "6", "8", "12", "16"],
+      "answer": 0,
+      "solution": "Ağırlık merkezi, her kenarortayı köşeden itibaren 2:1 oranında böler.\n|AG| / |GD| = 2 / 1\n8 / |GD| = 2 / 1\n|GD| = 4 cm\n(Kenarortayın tamamı |AD| = 8 + 4 = 12 cm olur.)"
     }
   ]
 }

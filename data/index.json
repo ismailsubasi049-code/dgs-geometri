@@ -73,17 +73,6 @@
       "version": 1
     },
     {
-      "id": "ucgen-ikizkenar",
-      "topicId": "ucgenler",
-      "topic": "Üçgenler",
-      "subtopicId": "ucgen-ikizkenar",
-      "subtopic": "İkizkenar üçgen",
-      "title": "İkizkenar üçgen",
-      "file": "packs/ucgen-ikizkenar.json",
-      "count": 1,
-      "version": 1
-    },
-    {
       "id": "ucgen-pisagor",
       "topicId": "ucgenler",
       "topic": "Üçgenler",
@@ -106,28 +95,6 @@
       "version": 1
     },
     {
-      "id": "ucgen-306090",
-      "topicId": "ucgenler",
-      "topic": "Üçgenler",
-      "subtopicId": "ucgen-306090",
-      "subtopic": "30-60-90 üçgeni",
-      "title": "30-60-90 üçgeni",
-      "file": "packs/ucgen-306090.json",
-      "count": 1,
-      "version": 1
-    },
-    {
-      "id": "ucgen-454590",
-      "topicId": "ucgenler",
-      "topic": "Üçgenler",
-      "subtopicId": "ucgen-454590",
-      "subtopic": "45-45-90 üçgeni",
-      "title": "45-45-90 üçgeni",
-      "file": "packs/ucgen-454590.json",
-      "count": 1,
-      "version": 1
-    },
-    {
       "id": "ucgen-ozel-ucgenler",
       "topicId": "ucgenler",
       "topic": "Üçgenler",
@@ -135,19 +102,8 @@
       "subtopic": "Özel üçgenler",
       "title": "Özel üçgenler",
       "file": "packs/ucgen-ozel-ucgenler.json",
-      "count": 30,
-      "version": 1
-    },
-    {
-      "id": "ucgen-thales",
-      "topicId": "ucgenler",
-      "topic": "Üçgenler",
-      "subtopicId": "ucgen-thales",
-      "subtopic": "Temel orantı (Thales)",
-      "title": "Temel orantı (Thales)",
-      "file": "packs/ucgen-thales.json",
-      "count": 1,
-      "version": 1
+      "count": 33,
+      "version": 2
     },
     {
       "id": "ucgen-aciortay",
@@ -168,19 +124,19 @@
       "subtopic": "Benzerlik oranı ve alan",
       "title": "Benzerlik oranı ve alan",
       "file": "packs/ucgen-benzerlik.json",
-      "count": 29,
-      "version": 3
+      "count": 30,
+      "version": 4
     },
     {
       "id": "ucgen-alan",
       "topicId": "ucgenler",
       "topic": "Üçgenler",
       "subtopicId": "ucgen-alan",
-      "subtopic": "Kenarortay ve alan",
-      "title": "Kenarortay ve alan",
+      "subtopic": "Alan oranları",
+      "title": "Alan oranları",
       "file": "packs/ucgen-alan.json",
       "count": 31,
-      "version": 2
+      "version": 3
     },
     {
       "id": "ucgen-kenarortay",
@@ -190,19 +146,8 @@
       "subtopic": "Kenarortay ve ağırlık merkezi",
       "title": "Kenarortay ve ağırlık merkezi",
       "file": "packs/ucgen-kenarortay.json",
-      "count": 30,
-      "version": 1
-    },
-    {
-      "id": "ucgen-agirlik-merkezi",
-      "topicId": "ucgenler",
-      "topic": "Üçgenler",
-      "subtopicId": "ucgen-agirlik-merkezi",
-      "subtopic": "Ağırlık merkezi",
-      "title": "Ağırlık merkezi",
-      "file": "packs/ucgen-agirlik-merkezi.json",
-      "count": 1,
-      "version": 1
+      "count": 31,
+      "version": 2
     },
     {
       "id": "geo-dortgenler",
