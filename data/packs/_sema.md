@@ -1,6 +1,6 @@
 # Soru paketi şeması — referans kartı
 
-Yeni paket yazarken tek referans budur. Konvansiyonlar mevcut 14 paket / 335
+Yeni paket yazarken tek referans budur. Konvansiyonlar mevcut 14 paket / 365
 soru ölçülerek çıkarıldı; uygulama bu dosyayı okumaz.
 
 ## 1. Paket dosyasının üst düzeyi
@@ -38,7 +38,7 @@ soru ölçülerek çıkarıldı; uygulama bu dosyayı okumaz.
 
 - `figure` = JSON string içinde tek satır ham SVG metni; nitelikler tek
   tırnaklı, `xmlns` yazılır.
-- **`viewBox='0 0 320 200'`** (300 şeklin 294'ü). Gerekirse sadece yükseklik
+- **`viewBox='0 0 320 200'`** (347 şeklin 341'i). Gerekirse sadece yükseklik
   artar; genişlik hep 320. `width`/`height` **yazma** — `js/svg.js` siler.
 - Renk iki tane: `currentColor` (çizgi/yazı, tema ile döner), `#0284c7`
   (vurgu: aranan büyüklük, verilen ölçü).
@@ -58,8 +58,7 @@ sonda parantez içinde numaralı hata bloğu.**
 "solution": "h² = |AH| · |HB|\nh² = 16 · 9 = 144\nh = 12 cm\n(Sık yapılan hata 1: ara değer olan h² = 144'ü işaretlemek.\nSık yapılan hata 2: kökü yanlış tarafa uygulamak.)"
 ```
 
-Hata bloğu 335 sorunun 302'sinde var, yeni sorularda **zorunlu**. İstisna:
-elden geçirilmeyi bekleyen `acilar-paralel`.
+Hata bloğu 365 sorunun 339'unda var, yeni sorularda **zorunlu**.
 
 ## 5. Tam örnek soru
 

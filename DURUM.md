@@ -1,10 +1,10 @@
 # Durum
 
-**Son güncelleme:** 2026-08-23 · **sw.js VERSION:** `v25`
+**Son güncelleme:** 2026-08-23 · **sw.js VERSION:** `v26`
 
 ## Özet
 
-**335 soru · 12 alt konu · 14 paket.** Tamamı geometri; matematik
+**365 soru · 12 alt konu · 14 paket.** Tamamı geometri; matematik
 branşında henüz soru paketi yok (formül kartları var).
 
 ## Paketler
@@ -12,7 +12,7 @@ branşında henüz soru paketi yok (formül kartları var).
 | konu | subtopicId | görünen ad | soru |
 |---|---|---|---|
 | Açılar | `acilar-temel` | Temel açı kavramları | 24 |
-| Açılar | `acilar-paralel` | Paralel doğrular ve kesenler | 3 |
+| Açılar | `acilar-paralel` | Paralel doğrular ve kesenler | 33 |
 | Açılar | `acilar-ucgende` | Üçgende açılar | 33 |
 | Üçgenler | `ucgen-esitsizlik` | Üçgen eşitsizliği ve kenar-açı bağıntısı | 17 |
 | Üçgenler | `ucgen-pisagor` | Pisagor bağıntısı | 31 |
@@ -25,11 +25,10 @@ branşında henüz soru paketi yok (formül kartları var).
 | Üçgenler | `ucgen-yukseklik` | Yükseklik ve diklik merkezi | 20 |
 | Dörtgenler | — | Dörtgenler | 10 |
 | Çember ve Daire | — | Çember ve Daire | 10 |
-| **Toplam** | | **14 paket** | **335** |
+| **Toplam** | | **14 paket** | **365** |
 
 ## Kalan işler
 
-- **Paralel doğrular ve kesenler** (`acilar-paralel`): 3 → 30 soru
 - **Karma üçgen paketi:** 30 soru, etiketsiz, konu ipucu vermeyen
 - **Sonraki aşama kararı:** dörtgen/çember paketleri mi, matematik-sayısal
   mantık mı

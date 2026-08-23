@@ -4,18 +4,259 @@
   "topic": "Açılar",
   "subtopicId": "acilar-paralel",
   "subtopic": "Paralel doğrular ve kesenler",
-  "version": 1,
+  "version": 2,
   "questions": [
+    {
+      "id": "acilar-paralel-01",
+      "label": "Yöndeş açılar",
+      "difficulty": 1,
+      "stem": "Şekilde d₁ ∥ d₂'dir. Buna göre x kaç derecedir?",
+      "asks": "Kesenin d₂ ile yaptığı açı isteniyor. İşaretli iki açı kesenin aynı tarafında ve iki paralelin aynı konumunda duruyor: yöndeş açılar. Bütünler değil, eşit olduklarını kullanman gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='16' y1='58' x2='304' y2='58'/><polyline points='52,63 58,58 52,53'/><line x1='16' y1='148' x2='304' y2='148'/><polyline points='52,153 58,148 52,143'/><line x1='257.4' y1='186' x2='113.08' y2='14'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 177 58 A 27 27 0 0 0 132.64 37.32'/><path d='M 254.52 148 A 29 29 0 0 0 206.88 125.78'/></g><g fill='currentColor'><circle cx='150' cy='58' r='3'/><circle cx='225.52' cy='148' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='25' y='49' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='25' y='165' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text><text x='167.75' y='24.94' fill='#0284c7'>130°</text><text x='244.11' y='113.12' fill='#0284c7'>x</text><text x='141' y='50' font-size='13' fill='currentColor' text-anchor='middle'>A</text><text x='235.52' y='164' font-size='13' fill='currentColor' text-anchor='middle'>B</text></g></svg>",
+      "choices": ["25", "50", "65", "80", "130"],
+      "answer": 4,
+      "solution": "İki açı da kesenin aynı tarafında ve paralellerin aynı konumundadır: yöndeş açılardır.\nYöndeş açılar eşittir:\nx = 130°\n(Sık yapılan hata 1: yöndeş açıyı bütünler sanıp 180° − 130° = 50° yazmak; bu konunun bir numaralı tuzağıdır.\nSık yapılan hata 2: açıyı ikiye bölüp 65° işaretlemek.\nSık yapılan hata 3: iki açının farkını (130° − 50° = 80°) cevap sanmak.)"
+    },
+    {
+      "id": "acilar-paralel-02",
+      "label": "Yöndeş açılar (eğik paraleller)",
+      "difficulty": 1,
+      "stem": "Şekilde d₁ ∥ d₂'dir. Buna göre x kaç derecedir?",
+      "asks": "Paraleller eğik çizilmiş; yönelim değişse de kural değişmez. İşaretli açılar yöndeş konumda olduğu için eşit olduklarını görmen isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='16' y1='86.42' x2='304' y2='14.62'/><polyline points='52.14,82.57 56.75,76.26 49.72,72.86'/><line x1='16' y1='172.99' x2='304' y2='101.19'/><polyline points='52.14,169.14 56.75,162.83 49.72,159.43'/><line x1='102.79' y1='186' x2='139.35' y2='14'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 155.23 51.71 A 26 26 0 0 0 135.41 32.57'/><path d='M 137.74 142.64 A 28 28 0 0 0 116.39 122.03'/></g><g fill='currentColor'><circle cx='130' cy='58' r='3'/><circle cx='110.57' cy='149.42' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='21.59' y='75.63' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='27.88' y='187.43' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text><text x='158.48' y='33.51' fill='#0284c7'>64°</text><text x='140.44' y='123.48' fill='#0284c7'>x</text></g></svg>",
+      "choices": ["32", "52", "58", "64", "116"],
+      "answer": 3,
+      "solution": "Paralellerin eğik durması kuralı değiştirmez; belirleyici olan açıların kesene göre konumudur.\nİki açı da kesenin aynı tarafında ve paralellerin aynı konumunda: yöndeş açılar.\nx = 64°\n(Sık yapılan hata 1: yöndeş açıyı bütünler sanıp 180° − 64° = 116° yazmak.\nSık yapılan hata 2: 116°'nin yarısı olan 58°'yi işaretlemek.\nSık yapılan hata 3: iki açının farkını (116° − 64° = 52°) almak.)"
+    },
+    {
+      "id": "acilar-paralel-03",
+      "label": "Yöndeş açı ve bütünleri",
+      "difficulty": 1,
+      "stem": "Şekilde d₁ ∥ d₂'dir. Buna göre x kaç derecedir?",
+      "asks": "x, 110°'lik açının d₂ üzerindeki yöndeşinin komşusudur. Önce açıyı d₂'ye taşıyıp sonra bütünlerini almak gerekiyor; doğrudan 110° yazmak tuzaktır.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='105' y1='186' x2='105' y2='14'/><polyline points='110,150 105,144 100,150'/><line x1='200' y1='186' x2='200' y2='14'/><polyline points='205,150 200,144 195,150'/><line x1='304' y1='47.57' x2='16' y2='152.39'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 105 93 A 27 27 0 0 0 79.63 129.23'/><path d='M 200 56.42 A 29 29 0 0 1 227.25 75.5'/></g><g fill='currentColor'><circle cx='105' cy='120' r='3'/><circle cx='200' cy='85.42' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='92' y='181' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='213' y='181' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text><text x='70.6' y='100.91' fill='#0284c7'>110°</text><text x='225.24' y='54.38' fill='#0284c7'>x</text></g></svg>",
+      "choices": ["35", "40", "55", "70", "110"],
+      "answer": 3,
+      "solution": "110°'lik açının d₂ üzerindeki yöndeşi yine 110°'dir.\nx bu açının doğrusal komşusudur, yani bütünlerdir:\nx = 180° − 110° = 70°\nx = 70°\n(Sık yapılan hata 1: taşınan açıyı doğrudan 110° işaretleyip bütünler adımını atlamak.\nSık yapılan hata 2: 110°'yi ikiye bölüp 55° demek.\nSık yapılan hata 3: iki açının farkını (110° − 70° = 40°) cevap sanmak.)"
+    },
+    {
+      "id": "acilar-paralel-04",
+      "label": "İç ters açılar",
+      "difficulty": 1,
+      "stem": "Şekilde d₁ ∥ d₂'dir. Buna göre x kaç derecedir?",
+      "asks": "İşaretli açılar paralellerin arasında ve kesenin farklı taraflarında: iç ters açılar. Şekildeki Z harfini görüp eşitliği kullanman isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='16' y1='52' x2='304' y2='52'/><polyline points='52,57 58,52 52,47'/><line x1='16' y1='154' x2='304' y2='154'/><polyline points='52,159 58,154 52,149'/><line x1='71.46' y1='186' x2='127.35' y2='14'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 87 52 A 28 28 0 0 0 106.35 78.63'/><path d='M 111.86 154 A 30 30 0 0 0 91.13 125.47'/></g><g fill='currentColor'><circle cx='115' cy='52' r='3'/><circle cx='81.86' cy='154' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='25' y='43' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='25' y='171' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text><text x='80.21' y='82.27' fill='#0284c7'>72°</text><text x='118.26' y='132.55' fill='#0284c7'>x</text></g></svg>",
+      "choices": ["36", "54", "72", "108", "144"],
+      "answer": 2,
+      "solution": "İki açı da paralellerin arasında ve kesenin farklı taraflarındadır: iç ters açılar (Z kuralı).\nİç ters açılar eşittir:\nx = 72°\n(Sık yapılan hata 1: iç ters açıyı bütünler sanıp 180° − 72° = 108° yazmak.\nSık yapılan hata 2: 72°'yi ikiye bölüp 36° işaretlemek.\nSık yapılan hata 3: 108°'nin yarısı olan 54°'yi cevap sanmak.)"
+    },
+    {
+      "id": "acilar-paralel-05",
+      "label": "İç ters açılar (eğik paraleller)",
+      "difficulty": 1,
+      "stem": "Şekilde d₁ ∥ d₂'dir. Buna göre x kaç derecedir?",
+      "asks": "Geniş bir açı iç ters olarak taşınıyor. Açının geniş olması kuralı değiştirmez; iç ters açılar her zaman eşittir.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='16' y1='85.85' x2='213.41' y2='14'/><polyline points='51.54,78.24 55.47,71.49 48.12,68.84'/><line x1='48.3' y1='172' x2='304' y2='78.93'/><polyline points='83.84,164.39 87.77,157.64 80.42,154.99'/><line x1='290.67' y1='172' x2='73.2' y2='14'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 91.81 58.26 A 30 30 0 0 0 144.27 65.63'/><path d='M 239.85 102.28 A 32 32 0 0 0 183.89 94.42'/></g><g fill='currentColor'><circle cx='120' cy='48' r='3'/><circle cx='209.78' cy='113.23' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='20.01' y='74.56' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='61.21' y='185.14' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text><text x='113.74' y='97.56' fill='#0284c7'>124°</text><text x='216.32' y='71.69' fill='#0284c7'>x</text></g></svg>",
+      "choices": ["28", "56", "62", "68", "124"],
+      "answer": 4,
+      "solution": "İşaretli açılar paralellerin arasında, kesenin farklı taraflarındadır: iç ters açılar.\nİç ters açılar eşittir:\nx = 124°\n(Sık yapılan hata 1: geniş açıyı taşırken bütünlerini alıp 180° − 124° = 56° yazmak.\nSık yapılan hata 2: 124°'nin yarısı olan 62°'yi işaretlemek.\nSık yapılan hata 3: iki açının farkını (124° − 56° = 68°) cevap sanmak.)"
+    },
+    {
+      "id": "acilar-paralel-06",
+      "label": "İç ters açılar (dikey paraleller)",
+      "difficulty": 1,
+      "stem": "Şekilde d₁ ∥ d₂'dir. Buna göre x kaç derecedir?",
+      "asks": "Paraleller bu kez dikey çizilmiş. Açıların konumunu kesene göre okuyup iç ters oldukları için eşit olduklarını kullanman isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='100' y1='186' x2='100' y2='14'/><polyline points='105,150 100,144 95,150'/><line x1='210' y1='186' x2='210' y2='14'/><polyline points='215,150 210,144 205,150'/><line x1='229.63' y1='186' x2='16' y2='52.51'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 100 133 A 28 28 0 0 0 123.75 119.84'/><path d='M 210 143.74 A 30 30 0 0 0 184.56 157.84'/></g><g fill='currentColor'><circle cx='100' cy='105' r='3'/><circle cx='210' cy='173.74' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='87' y='181' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='223' y='181' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text><text x='120.85' y='147.61' fill='#0284c7'>58°</text><text x='188.18' y='139.38' fill='#0284c7'>x</text></g></svg>",
+      "choices": ["58", "61", "64", "116", "122"],
+      "answer": 0,
+      "solution": "Doğruların dikey çizilmesi kuralı değiştirmez.\nİşaretli açılar paralellerin arasında, kesenin farklı taraflarındadır: iç ters açılar.\nx = 58°\n(Sık yapılan hata 1: iç ters açıyı bütünler sanıp 180° − 58° = 122° yazmak.\nSık yapılan hata 2: 122°'nin yarısı olan 61°'yi işaretlemek.\nSık yapılan hata 3: iki açının farkını (122° − 58° = 64°) cevap sanmak.)"
+    },
+    {
+      "id": "acilar-paralel-07",
+      "label": "Dış ters açılar",
+      "difficulty": 1,
+      "stem": "Şekilde d₁ ∥ d₂'dir. Buna göre x kaç derecedir?",
+      "asks": "İşaretli açılar paralellerin dışında ve kesenin farklı taraflarında: dış ters açılar. İç ters açılar gibi bunlar da eşittir.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='16' y1='62' x2='304' y2='62'/><polyline points='52,67 58,62 52,57'/><line x1='16' y1='154' x2='304' y2='154'/><polyline points='52,159 58,154 52,149'/><line x1='78.35' y1='186' x2='233.22' y2='14'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 217 62 A 27 27 0 0 0 208.07 41.94'/><path d='M 78.16 154 A 29 29 0 0 0 87.76 175.55'/></g><g fill='currentColor'><circle cx='190' cy='62' r='3'/><circle cx='107.16' cy='154' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='25' y='53' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='25' y='171' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text><text x='228.37' y='49.92' fill='#0284c7'>48°</text><text x='66.97' y='176.9' fill='#0284c7'>x</text></g></svg>",
+      "choices": ["24", "48", "84", "96", "132"],
+      "answer": 1,
+      "solution": "İki açı da paralellerin dış bölgesinde ve kesenin farklı taraflarındadır: dış ters açılar.\nDış ters açılar eşittir:\nx = 48°\n(Sık yapılan hata 1: dış ters açıyı bütünler sanıp 180° − 48° = 132° yazmak.\nSık yapılan hata 2: açının iki katını (96°) ya da yarısını (24°) işaretlemek.\nSık yapılan hata 3: iki açının farkını (132° − 48° = 84°) cevap sanmak.)"
+    },
+    {
+      "id": "acilar-paralel-08",
+      "label": "Karşı durumlu (iç yan) açılar",
+      "difficulty": 1,
+      "stem": "Şekilde d₁ ∥ d₂'dir. Buna göre x kaç derecedir?",
+      "asks": "İşaretli açılar paralellerin arasında ve kesenin aynı tarafında: karşı durumlu açılar. Bunlar eşit değil, bütünlerdir.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='16' y1='89.94' x2='299.43' y2='14'/><polyline points='52.07,85.46 56.57,79.07 49.48,75.8'/><line x1='42.57' y1='176' x2='304' y2='105.95'/><polyline points='78.63,171.51 83.14,165.13 76.05,161.85'/><line x1='179.44' y1='14' x2='182.27' y2='176'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 207.05 38.75 A 28 28 0 0 1 180.49 74'/><path d='M 210.6 130.98 A 30 30 0 0 0 181.1 108.75'/></g><g fill='currentColor'><circle cx='180' cy='46' r='3'/><circle cx='181.62' cy='138.74' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='21.33' y='79.06' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='54.62' y='190.23' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text><text x='214.34' y='76.88' fill='#0284c7'>104°</text><text x='208.7' y='107.8' fill='#0284c7'>x</text></g></svg>",
+      "choices": ["38", "52", "76", "104", "152"],
+      "answer": 2,
+      "solution": "Açılar paralellerin arasında ve kesenin aynı tarafındadır: karşı durumlu (iç yan) açılar.\nKarşı durumlu açıların toplamı 180°'dir:\nx = 180° − 104° = 76°\nx = 76°\n(Sık yapılan hata 1: karşı durumlu açıları eşit sanıp 104° işaretlemek.\nSık yapılan hata 2: açıların yarılarını (52° ya da 38°) yazmak.\nSık yapılan hata 3: bulunan açının iki katını (152°) cevap sanmak.)"
+    },
+    {
+      "id": "acilar-paralel-09",
+      "label": "Bütünler açı ve yöndeş açı",
+      "difficulty": 1,
+      "stem": "Şekilde d₁ ∥ d₂'dir. Buna göre x kaç derecedir?",
+      "asks": "Verilen açı ile x aynı konumda değil. Önce kesişim noktasındaki komşu açıyı bulup sonra onu d₂'ye taşıman gereken iki adımlı bir soru.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='16' y1='62' x2='304' y2='62'/><polyline points='52,67 58,62 52,57'/><line x1='16' y1='158' x2='304' y2='158'/><polyline points='52,163 58,158 52,153'/><line x1='69.07' y1='186' x2='160.52' y2='14'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 108 62 A 27 27 0 0 1 147.68 38.16'/><path d='M 112.96 158 A 29 29 0 0 0 97.57 132.39'/></g><g fill='currentColor'><circle cx='135' cy='62' r='3'/><circle cx='83.96' cy='158' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='25' y='53' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='25' y='175' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text><text x='113.37' y='31' fill='#0284c7'>118°</text><text x='121.67' y='140.34' fill='#0284c7'>x</text></g></svg>",
+      "choices": ["56", "59", "62", "118", "124"],
+      "answer": 2,
+      "solution": "A noktasında 118°'lik açının doğrusal komşusu bütünleridir:\n180° − 118° = 62°\nBu 62°'lik açı ile x, kesenin aynı tarafında ve paralellerin aynı konumundadır: yöndeş açılardır.\nx = 62°\n(Sık yapılan hata 1: bütünler adımını atlayıp 118°'yi doğrudan taşımak.\nSık yapılan hata 2: 118°'nin yarısı olan 59°'yi işaretlemek.\nSık yapılan hata 3: bulunan açının iki katını (124°) cevap sanmak.)"
+    },
+    {
+      "id": "acilar-paralel-10",
+      "label": "Kesenin dar ve geniş açısı",
+      "difficulty": 1,
+      "stem": "d₁ ∥ d₂ paralel doğruları bir ℓ keseni ile kesiliyor. ℓ keseninin d₁ ile yaptığı dar açı 37°'dir. Buna göre ℓ keseninin d₂ ile yaptığı geniş açı kaç derecedir?",
+      "asks": "Şekil yok; kesenin bir paralelle yaptığı dar açı verilmiş, diğer paralelle yaptığı geniş açı isteniyor. Bir kesen iki paraleli de aynı açıyla keser, sonra dar açının bütünlerini almak gerekir.",
+      "choices": ["37", "53", "74", "106", "143"],
+      "answer": 4,
+      "solution": "Bir kesen, paralel doğruların ikisini de aynı açıyla keser: ℓ keseninin d₂ ile yaptığı dar açı da 37°'dir.\nBir kesişim noktasında dar açı ile geniş açı doğrusal komşudur, yani bütünlerdir:\nGeniş açı = 180° − 37° = 143°\nGeniş açı = 143°\n(Sık yapılan hata 1: taşınan dar açıyı (37°) doğrudan işaretleyip geniş açıya geçmemek.\nSık yapılan hata 2: bütünler yerine tümler alıp 90° − 37° = 53° demek.\nSık yapılan hata 3: dar açının iki katını (74°) geniş açı sanmak.)"
+    },
+    {
+      "id": "acilar-paralel-11",
+      "label": "Kırık doğru: x = a + b",
+      "difficulty": 2,
+      "stem": "Şekilde d₁ ∥ d₂'dir. Buna göre x kaç derecedir?",
+      "asks": "Paralellerin arasındaki P kırılma noktasının açısı isteniyor. P'den paralellere paralel bir yardımcı doğru çizince açı iki iç ters parçaya ayrılır.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='16' y1='45' x2='304' y2='45'/><polyline points='52,50 58,45 52,40'/><line x1='16' y1='165' x2='304' y2='165'/><polyline points='52,170 58,165 52,160'/><polyline points='105,45 184.36,107 142.22,165'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 131 45 A 26 26 0 0 1 125.49 61.01'/><path d='M 168.22 165 A 26 26 0 0 0 157.5 143.97'/><path d='M 165.44 92.22 A 24 24 0 0 0 170.25 126.42'/></g><g fill='currentColor'><circle cx='105' cy='45' r='3'/><circle cx='184.36' cy='107' r='3'/><circle cx='142.22' cy='165' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='143.77' y='63.35' fill='#0284c7'>38°</text><text x='178.75' y='151.39' fill='#0284c7'>54°</text><text x='144.75' y='117.57' fill='#0284c7'>x</text><text x='99' y='35' font-size='13' fill='currentColor' text-anchor='middle'>A</text><text x='198.36' y='111' font-size='13' fill='currentColor' text-anchor='middle'>P</text><text x='138.22' y='183' font-size='13' fill='currentColor' text-anchor='middle'>B</text><text x='26' y='36' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='26' y='182' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text></g></svg>",
+      "choices": ["16", "46", "88", "92", "126"],
+      "answer": 3,
+      "solution": "P noktasından d₁'e (dolayısıyla d₂'ye) paralel bir yardımcı doğru çizilir; bu doğru x'i ikiye böler.\nÜst parça 38°'lik açıyla iç ters → 38°\nAlt parça 54°'lik açıyla iç ters → 54°\nx = 38° + 54° = 92°\nx = 92°\n(Sık yapılan hata 1: toplama yerine fark almak (54° − 38° = 16°).\nSık yapılan hata 2: bulunan açının bütünlerini (180° − 92° = 88°) işaretlemek.\nSık yapılan hata 3: tek parçada durup 54°'nin bütünlerini (126°) yazmak.)"
+    },
+    {
+      "id": "acilar-paralel-12",
+      "label": "Kırık doğruda taban açısı",
+      "difficulty": 2,
+      "stem": "Şekilde d₁ ∥ d₂'dir. Buna göre x kaç derecedir?",
+      "asks": "Bu kez kırılma noktasındaki açı verilmiş, alttaki açı isteniyor. x = a + b bağıntısını ters yönde, çıkarma yaparak kullanman gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='16' y1='27.21' x2='304' y2='88.42'/><polyline points='50.17,39.58 57.08,35.94 52.25,29.8'/><line x1='16' y1='144.78' x2='209.94' y2='186'/><polyline points='50.17,157.15 57.08,153.51 52.25,147.37'/><polyline points='95,44 141.26,110.06 113.06,165.41'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 120.43 49.41 A 26 26 0 0 1 109.91 65.3'/><path d='M 127.49 90.4 A 24 24 0 0 0 130.36 131.44'/><path d='M 138.49 170.81 A 26 26 0 0 0 124.86 142.24'/></g><g fill='currentColor'><circle cx='95' cy='44' r='3'/><circle cx='141.26' cy='110.06' r='3'/><circle cx='113.06' cy='165.41' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='129.19' y='71.63' fill='#0284c7'>43°</text><text x='100.36' y='117.92' fill='#0284c7'>118°</text><text x='150.06' y='152.76' fill='#0284c7'>x</text><text x='89' y='34' font-size='13' fill='currentColor' text-anchor='middle'>A</text><text x='156.26' y='113.06' font-size='13' fill='currentColor' text-anchor='middle'>P</text><text x='107.06' y='183.41' font-size='13' fill='currentColor' text-anchor='middle'>B</text><text x='26' y='18.21' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='26' y='161.78' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text></g></svg>",
+      "choices": ["75", "105", "118", "137", "161"],
+      "answer": 0,
+      "solution": "P noktasından paralellere paralel yardımcı doğru çizilir; kırık noktadaki açı iki iç ters parçaya ayrılır:\n118° = 43° + x\nx = 118° − 43° = 75°\nx = 75°\n(Sık yapılan hata 1: çıkarma yerine toplama yapıp 118° + 43° = 161° demek.\nSık yapılan hata 2: kırık noktadaki 118°'yi doğrudan cevap sanmak.\nSık yapılan hata 3: bulunan açının bütünlerini (180° − 75° = 105°) işaretlemek.)"
+    },
+    {
+      "id": "acilar-paralel-13",
+      "label": "Kırık doğru (dikey paraleller)",
+      "difficulty": 2,
+      "stem": "Şekilde d₁ ∥ d₂'dir. Buna göre x kaç derecedir?",
+      "asks": "Paraleller dikey, kırık doğru yatay yönde ilerliyor. Yardımcı doğruyu P'den paralellere paralel çizip kırık açıyı iki parçaya ayırman isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='85' y1='184' x2='85' y2='16'/><polyline points='90,148 85,142 80,148'/><line x1='203' y1='184' x2='203' y2='16'/><polyline points='208,148 203,142 198,148'/><polyline points='85,120 143,74.69 203,107.94'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 85 94 A 26 26 0 0 1 105.49 103.99'/><path d='M 203 81.94 A 26 26 0 0 0 180.26 95.34'/><path d='M 124.09 89.46 A 24 24 0 0 0 163.99 86.32'/></g><g fill='currentColor'><circle cx='85' cy='120' r='3'/><circle cx='143' cy='74.69' r='3'/><circle cx='203' cy='107.94' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='102.97' y='88.15' fill='#0284c7'>52°</text><text x='182.19' y='77.62' fill='#0284c7'>x</text><text x='146.22' y='120.56' fill='#0284c7'>113°</text><text x='71' y='126' font-size='13' fill='currentColor' text-anchor='middle'>A</text><text x='143' y='61.69' font-size='13' fill='currentColor' text-anchor='middle'>P</text><text x='217' y='113.94' font-size='13' fill='currentColor' text-anchor='middle'>B</text><text x='74' y='176' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='214' y='176' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text></g></svg>",
+      "choices": ["52", "61", "67", "113", "119"],
+      "answer": 1,
+      "solution": "P noktasından d₁ ve d₂'ye paralel yardımcı doğru çizilir; kırık noktadaki açı iki iç ters parçaya ayrılır:\n113° = 52° + x\nx = 113° − 52° = 61°\nx = 61°\n(Sık yapılan hata 1: verilen 52°'yi doğrudan cevap sanmak.\nSık yapılan hata 2: kırık noktadaki 113°'yi işaretlemek.\nSık yapılan hata 3: bulunan açının bütünlerini (180° − 61° = 119°) yazmak.)"
+    },
+    {
+      "id": "acilar-paralel-14",
+      "label": "Testere: sol toplam = sağ toplam",
+      "difficulty": 2,
+      "stem": "Şekilde d₁ ∥ d₂'dir. Buna göre x kaç derecedir?",
+      "asks": "İki kırıklı doğruda ortadaki açı isteniyor. Her kırık noktadan ayrı ayrı paralel çizmek yerine kısayolu kullan: aynı yöne bakan açıların toplamları eşittir.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='16' y1='35' x2='304' y2='35'/><polyline points='52,40 58,35 52,30'/><line x1='16' y1='165' x2='304' y2='165'/><polyline points='52,170 58,165 52,160'/><polyline points='200,35 135.73,80 191.26,130 172.65,165'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 174 35 A 26 26 0 0 0 178.7 49.91'/><path d='M 155.39 66.23 A 24 24 0 0 1 153.57 96.06'/><path d='M 173.43 113.94 A 24 24 0 0 0 180 151.19'/><path d='M 198.65 165 A 26 26 0 0 0 184.86 142.04'/></g><g fill='currentColor'><circle cx='200' cy='35' r='3'/><circle cx='135.73' cy='80' r='3'/><circle cx='191.26' cy='130' r='3'/><circle cx='172.65' cy='165' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='160.9' y='52.33' fill='#0284c7'>35°</text><text x='175.66' y='87.44' fill='#0284c7'>77°</text><text x='151.87' y='141.95' fill='#0284c7'>x</text><text x='207.8' y='148.88' fill='#0284c7'>62°</text><text x='208' y='25' font-size='13' fill='currentColor' text-anchor='middle'>A</text><text x='178.65' y='183' font-size='13' fill='currentColor' text-anchor='middle'>B</text><text x='26' y='26' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='26' y='182' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text></g></svg>",
+      "choices": ["35", "62", "76", "104", "112"],
+      "answer": 3,
+      "solution": "Her kırık noktadan paralellere paralel doğrular çizilirse şu kural çıkar: aynı yöne bakan açıların toplamı, diğer yöne bakanların toplamına eşittir.\nSola bakanlar: 35° + x\nSağa bakanlar: 77° + 62° = 139°\n35 + x = 139\nx = 104°\n(Sık yapılan hata 1: bulunan açının bütünlerini (180° − 104° = 76°) işaretlemek.\nSık yapılan hata 2: aynı yöne bakmayan açıları toplayıp 35° + 77° = 112° demek.\nSık yapılan hata 3: verilen 62°'yi doğrudan cevap sanmak.)"
+    },
+    {
+      "id": "acilar-paralel-15",
+      "label": "Testere şeklinde ara açı",
+      "difficulty": 2,
+      "stem": "Şekilde d₁ ∥ d₂'dir. Buna göre x kaç derecedir?",
+      "asks": "Testere şeklinde ilk kırığın açısı isteniyor. Hangi açıların aynı yöne baktığını doğru gruplaman gerekiyor; yanlış gruplama yakın ama hatalı bir sonuç verir.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='16' y1='82.3' x2='304' y2='21.08'/><polyline points='52.25,79.7 57.08,73.57 50.17,69.92'/><line x1='141.88' y1='168' x2='304' y2='133.54'/><polyline points='178.13,165.41 182.96,159.27 176.05,155.62'/><polyline points='215,40 193.55,80.34 231.94,116.14 203.83,154.83'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 189.57 45.41 A 26 26 0 0 0 202.79 62.96'/><path d='M 204.82 59.15 A 24 24 0 0 1 211.1 96.71'/><path d='M 214.39 99.77 A 24 24 0 0 0 217.83 135.56'/><path d='M 229.26 149.43 A 26 26 0 0 0 219.11 133.8'/></g><g fill='currentColor'><circle cx='215' cy='40' r='3'/><circle cx='193.55' cy='80.34' r='3'/><circle cx='231.94' cy='116.14' r='3'/><circle cx='203.83' cy='154.83' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='182.26' y='69.67' fill='#0284c7'>50°</text><text x='233' y='78.74' fill='#0284c7'>x</text><text x='192.13' y='124.98' fill='#0284c7'>97°</text><text x='238.22' y='137.5' fill='#0284c7'>42°</text><text x='224' y='30' font-size='13' fill='currentColor' text-anchor='middle'>A</text><text x='209.83' y='172.83' font-size='13' fill='currentColor' text-anchor='middle'>B</text><text x='26' y='73.3' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='151.88' y='185' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text></g></svg>",
+      "choices": ["42", "75", "92", "97", "105"],
+      "answer": 4,
+      "solution": "Aynı yöne bakan açıların toplamları eşittir.\nBir yöne bakanlar: 50° + 97° = 147°\nDiğer yöne bakanlar: x + 42°\nx + 42 = 147\nx = 105°\n(Sık yapılan hata 1: bulunan açının bütünlerini (180° − 105° = 75°) işaretlemek.\nSık yapılan hata 2: yanlış tarafları eşleştirip 50° + 42° = 92° demek.\nSık yapılan hata 3: verilen 97°'yi doğrudan cevap sanmak.)"
+    },
+    {
+      "id": "acilar-paralel-16",
+      "label": "Zıt yönlü kırık: a = b + x",
+      "difficulty": 2,
+      "stem": "Şekilde d₁ ∥ d₂'dir. Buna göre x kaç derecedir?",
+      "asks": "Kırık doğru yön değiştirmiyor; bu yüzden açılar toplanmaz, çıkarılır. Kesikli doğru kırılma olmasaydı gidilecek yönü gösteriyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='16' y1='40' x2='304' y2='40'/><polyline points='52,45 58,40 52,35'/><line x1='16' y1='160' x2='304' y2='160'/><polyline points='52,165 58,160 52,155'/><polyline points='80,40 100.02,95 204.04,160'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='100.02' y1='95' x2='117.8' y2='143.86' stroke-dasharray='5 4'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 106 40 A 26 26 0 0 1 88.89 64.43'/><path d='M 178.04 160 A 26 26 0 0 1 181.99 146.22'/><path d='M 110.28 123.19 A 30 30 0 0 0 125.46 110.9'/></g><g fill='currentColor'><circle cx='80' cy='40' r='3'/><circle cx='100.02' cy='95' r='3'/><circle cx='204.04' cy='160' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='113.59' y='68.52' fill='#0284c7'>70°</text><text x='164.63' y='153.7' fill='#0284c7'>32°</text><text x='128.97' y='135.75' fill='#0284c7'>x</text><text x='74' y='30' font-size='13' fill='currentColor' text-anchor='middle'>A</text><text x='87.02' y='97' font-size='13' fill='currentColor' text-anchor='middle'>P</text><text x='212.04' y='178' font-size='13' fill='currentColor' text-anchor='middle'>B</text><text x='26' y='31' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='26' y='177' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text></g></svg>",
+      "choices": ["38", "51", "102", "110", "148"],
+      "answer": 0,
+      "solution": "P noktasından çizilen kesikli doğru d₁ ve d₂'ye paraleldir.\nKesikli doğru ile 70°'lik açı iç ters açılardır, yani kesikli doğrunun altındaki açı 70°'dir.\nBu 70°'lik açı, 32°'lik açı ile x'in toplamıdır:\n70 = 32 + x\nx = 70° − 32° = 38°\nx = 38°\n(Sık yapılan hata 1: kırık doğru kuralını ezberden uygulayıp 70° + 32° = 102° demek; kırık yön değiştirmediğinde toplam değil fark çalışır.\nSık yapılan hata 2: 180° − 70° = 110° ile bütünler almak.\nSık yapılan hata 3: 180° − 32° = 148°'yi işaretlemek.)"
+    },
+    {
+      "id": "acilar-paralel-17",
+      "label": "Üç paralel doğru arasında kırık",
+      "difficulty": 2,
+      "stem": "Şekilde d₁ ∥ d₂ ∥ d₃'tür. Buna göre x kaç derecedir?",
+      "asks": "Kırılma noktası ortadaki paralel doğrunun üzerinde. Yardımcı doğru çizmene gerek yok; d₂'nin kendisi açıyı iki iç ters parçaya ayırıyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='16' y1='32' x2='304' y2='32'/><polyline points='52,37 58,32 52,27'/><line x1='16' y1='97' x2='304' y2='97'/><polyline points='52,102 58,97 52,92'/><line x1='16' y1='162' x2='304' y2='162'/><polyline points='52,167 58,162 52,157'/><polyline points='105,32 188.2,97 127.58,162'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 131 32 A 26 26 0 0 1 125.49 48.01'/><path d='M 153.58 162 A 26 26 0 0 0 145.31 142.98'/><path d='M 169.28 82.22 A 24 24 0 0 0 171.83 114.55'/></g><g fill='currentColor'><circle cx='105' cy='32' r='3'/><circle cx='188.2' cy='97' r='3'/><circle cx='127.58' cy='162' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='143.77' y='50.35' fill='#0284c7'>38°</text><text x='165.18' y='150.65' fill='#0284c7'>47°</text><text x='148.32' y='105.14' fill='#0284c7'>x</text><text x='99' y='22' font-size='13' fill='currentColor' text-anchor='middle'>A</text><text x='203.2' y='91' font-size='13' fill='currentColor' text-anchor='middle'>P</text><text x='123.58' y='180' font-size='13' fill='currentColor' text-anchor='middle'>B</text><text x='30' y='24' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='30' y='89' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text><text x='30' y='154' font-size='13' fill='currentColor' text-anchor='middle'>d₃</text></g></svg>",
+      "choices": ["9", "85", "95", "133", "142"],
+      "answer": 1,
+      "solution": "P noktası d₂ üzerindedir ve d₂ zaten d₁ ile d₃'e paraleldir: yardımcı doğru hazır.\nÜst parça 38° ile iç ters → 38°\nAlt parça 47° ile iç ters → 47°\nx = 38° + 47° = 85°\nx = 85°\n(Sık yapılan hata 1: toplama yerine fark almak (47° − 38° = 9°).\nSık yapılan hata 2: bulunan açının bütünlerini (180° − 85° = 95°) işaretlemek.\nSık yapılan hata 3: tek parçada durup 47°'nin bütünlerini (133°) yazmak.)"
+    },
+    {
+      "id": "acilar-paralel-18",
+      "label": "Üç paralel doğruda taban açısı",
+      "difficulty": 2,
+      "stem": "Şekilde d₁ ∥ d₂ ∥ d₃'tür. Buna göre x kaç derecedir?",
+      "asks": "Kırık noktadaki açı verilmiş, alttaki taban açısı isteniyor. Ortadaki doğru açıyı iki parçaya ayırdığı için çıkarma yapman gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='70' y1='184' x2='70' y2='16'/><polyline points='75,148 70,142 65,148'/><line x1='130' y1='184' x2='130' y2='16'/><polyline points='135,148 130,142 125,148'/><line x1='195' y1='184' x2='195' y2='16'/><polyline points='200,148 195,142 190,148'/><polyline points='70,130 130,70 195,109.06'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 70 104 A 26 26 0 0 1 88.38 111.62'/><path d='M 113.03 86.97 A 24 24 0 0 0 150.57 82.36'/><path d='M 195 83.06 A 26 26 0 0 0 172.71 95.66'/></g><g fill='currentColor'><circle cx='70' cy='130' r='3'/><circle cx='130' cy='70' r='3'/><circle cx='195' cy='109.06' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='85.69' y='97.12' fill='#0284c7'>45°</text><text x='135' y='115.69' fill='#0284c7'>104°</text><text x='174.81' y='78.37' fill='#0284c7'>x</text><text x='56' y='138' font-size='13' fill='currentColor' text-anchor='middle'>A</text><text x='124' y='58' font-size='13' fill='currentColor' text-anchor='middle'>P</text><text x='209' y='117.06' font-size='13' fill='currentColor' text-anchor='middle'>B</text><text x='70' y='176' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='130' y='176' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text><text x='195' y='176' font-size='13' fill='currentColor' text-anchor='middle'>d₃</text></g></svg>",
+      "choices": ["59", "76", "104", "121", "149"],
+      "answer": 0,
+      "solution": "P noktası d₂ üzerindedir; d₂ kırık açıyı iki iç ters parçaya böler.\nBir parça 45° ile iç ters → 45°\n104° = 45° + x\nx = 104° − 45° = 59°\nx = 59°\n(Sık yapılan hata 1: çıkarma yerine toplayıp 104° + 45° = 149° demek.\nSık yapılan hata 2: kırık noktadaki 104°'yi doğrudan işaretlemek.\nSık yapılan hata 3: bulunan açının bütünlerini (180° − 59° = 121°) yazmak.)"
+    },
+    {
+      "id": "acilar-paralel-19",
+      "label": "Paralellik koşulunu sınama",
+      "difficulty": 2,
+      "stem": "Şekilde d₁, d₂ ve d₃ doğruları ℓ keseni ile kesilmiştir ve oluşan açılardan bazıları işaretlenmiştir. Buna göre bu doğrulardan hangileri paraleldir?",
+      "asks": "Şekilde paralellik verilmemiş; işaretli açılardan çıkarman isteniyor. Ölçüt şu: aynı konumdaki (yöndeş) açılar eşitse doğrular paraleldir, eşit değilse paralel değildir.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='188.21' y1='180' x2='161.06' y2='26'/><line x1='85.62' y1='26' x2='304' y2='96.96'/><line x1='16' y1='91.23' x2='304' y2='121.5'/><line x1='16' y1='107.08' x2='240.44' y2='180'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 191.32 60.34 A 27 27 0 0 0 160.95 25.41'/><path d='M 202.37 110.82 A 27 27 0 0 0 170.83 81.41'/><path d='M 210.72 170.34 A 27 27 0 0 0 180.35 135.41'/></g><g fill='currentColor'><circle cx='165.64' cy='52' r='3'/><circle cx='175.52' cy='108' r='3'/><circle cx='185.04' cy='162' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='197.34' y='29.45' fill='#0284c7'>118°</text><text x='291' y='87.96' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='204.16' y='82.28' fill='#0284c7'>106°</text><text x='291' y='112.5' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text><text x='216.74' y='139.45' fill='#0284c7'>118°</text><text x='227.44' y='171' font-size='13' fill='currentColor' text-anchor='middle'>d₃</text><text x='201.21' y='190' font-size='13' fill='currentColor' text-anchor='middle'>ℓ</text></g></svg>",
+      "choices": ["d₁ ∥ d₂", "d₂ ∥ d₃", "d₁ ∥ d₂ ve d₂ ∥ d₃", "d₁ ∥ d₃", "Hiçbiri paralel değildir"],
+      "answer": 3,
+      "solution": "Üç açı da kesene göre aynı konumda, yani yöndeş konumda işaretlenmiştir.\nİki doğru paralelse yöndeş açıları eşittir; tersi de doğrudur: yöndeş açılar eşitse doğrular paraleldir.\nd₁ için 118°, d₃ için 118° → eşit, bu iki doğru paraleldir.\nd₂ için 106° → diğerlerinden farklı, d₂ hiçbiriyle paralel değildir.\nParalel olanlar: d₁ ∥ d₃\n(Sık yapılan hata 1: 118° ile 106°'yı birbirine yakın görüp d₁ ∥ d₂ demek; paralellikte eşitlik gerekir, yakınlık yetmez.\nSık yapılan hata 2: açıların toplamına (118° + 106° = 224°) ya da farkına bakmak; ölçüt yöndeş açıların eşitliğidir.\nSık yapılan hata 3: şekilde paralellik işareti görülmediği için hiçbirinin paralel olmadığını sanmak.)"
+    },
+    {
+      "id": "acilar-paralel-20",
+      "label": "Paralellik için x'i bulma",
+      "difficulty": 2,
+      "stem": "Şekildeki açı ölçülerine göre d₁ ∥ d₂ olması için x kaç olmalıdır?",
+      "asks": "İşaretli iki açı doğruların arasında ve kesenin aynı tarafında: karşı durumlu konumda. Paralellik için bunların eşit değil, bütünler olması gerekir; denklemi buna göre kurmalısın.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='16' y1='87.3' x2='289.57' y2='14'/><polyline points='52.07,82.81 56.57,76.43 49.48,73.16'/><line x1='109.72' y1='174' x2='304' y2='121.94'/><polyline points='145.79,169.51 150.29,163.13 143.2,159.85'/><line x1='195.77' y1='14' x2='223.98' y2='174'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 228.98 30.24 A 30 30 0 0 1 205.21 67.54'/><path d='M 247.8 137 A 30 30 0 0 0 213.62 115.22'/></g><g fill='currentColor'><circle cx='200' cy='38' r='3'/><circle cx='218.83' cy='144.77' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='21.33' y='76.42' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='121.78' y='188.23' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text><text x='242.17' y='69.86' fill='#0284c7'>(x+70)°</text><text x='245.69' y='107.6' fill='#0284c7'>(3x+10)°</text><text x='192' y='29' font-size='13' fill='currentColor' text-anchor='middle'>A</text><text x='210.83' y='161.77' font-size='13' fill='currentColor' text-anchor='middle'>B</text></g></svg>",
+      "choices": ["25", "30", "85", "95", "110"],
+      "answer": 0,
+      "solution": "İşaretli açılar kesenin aynı tarafında ve iki doğrunun arasındadır: karşı durumlu (iç yan) açılar.\nİki doğrunun paralel olması için bu açıların toplamı 180° olmalıdır:\n(x + 70) + (3x + 10) = 180\n4x + 80 = 180\n4x = 100\nx = 25\n(Sık yapılan hata 1: karşı durumlu açıları eşit sanıp x + 70 = 3x + 10 kurmak; bu yanlış denklem x = 30 verir.\nSık yapılan hata 2: x sorulmuşken açı ölçülerini (95° ya da 85°) işaretlemek.\nSık yapılan hata 3: tek açıyı 180°'ye tamamlamaya çalışıp 180 − 70 = 110 demek.)"
+    },
+    {
+      "id": "acilar-paralel-21",
+      "label": "Oran olarak verilen açılar",
+      "difficulty": 2,
+      "stem": "Şekilde d₁ ∥ d₂'dir. İşaretli açıların ölçüleri 3 ile 2 sayılarıyla orantılıdır. Buna göre büyük açı kaç derecedir?",
+      "asks": "Açı ölçüleri sayı olarak değil, oran olarak verilmiş. Açıların karşı durumlu olduğunu kullanıp oran çarpanını bulman, sonra çarpanı değil büyük açıyı yazman gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='16' y1='45' x2='304' y2='45'/><polyline points='52,50 58,45 52,40'/><line x1='16' y1='145' x2='304' y2='145'/><polyline points='52,150 58,145 52,140'/><line x1='170.07' y1='14' x2='114.19' y2='186'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 188 45 A 28 28 0 0 1 151.35 71.63'/><path d='M 155.51 145 A 28 28 0 0 0 136.16 118.37'/></g><g fill='currentColor'><circle cx='160' cy='45' r='3'/><circle cx='127.51' cy='145' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='25' y='36' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='25' y='162' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text><text x='185.86' y='85.6' fill='#0284c7'>3k</text><text x='163.1' y='124.14' fill='#0284c7'>2k</text><text x='151' y='36' font-size='13' fill='currentColor' text-anchor='middle'>A</text><text x='118.51' y='163' font-size='13' fill='currentColor' text-anchor='middle'>B</text></g></svg>",
+      "choices": ["36", "54", "72", "90", "108"],
+      "answer": 4,
+      "solution": "Açılar paralellerin arasında ve kesenin aynı tarafındadır: karşı durumlu açılardır, toplamları 180°'dir.\nÖlçüler 3k ve 2k olsun:\n3k + 2k = 180\n5k = 180 → k = 36\nBüyük açı = 3k = 3 · 36 = 108°\nBüyük açı = 108°\n(Sık yapılan hata 1: oran çarpanı k = 36'yı cevap olarak işaretlemek.\nSık yapılan hata 2: büyük açı sorulmuşken küçük açıyı (2k = 72°) yazmak.\nSık yapılan hata 3: karşı durumlu açıları eşit sanıp ikisini de 90° bulmak.)"
+    },
+    {
+      "id": "acilar-paralel-22",
+      "label": "Biri diğerinin katından fazla",
+      "difficulty": 2,
+      "stem": "Şekilde d₁ ∥ d₂'dir. b açısının ölçüsü, a açısının ölçüsünün 2 katından 15° fazladır. Buna göre a kaç derecedir?",
+      "asks": "İki açı karşı durumlu; ölçüleri sayı olarak değil birbirine bağlı olarak verilmiş. Bütünlük bağıntısıyla denklem kurup küçük açıyı bulman isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='16' y1='30.38' x2='304' y2='70.86'/><polyline points='50.95,40.35 57.59,36.23 52.35,30.44'/><line x1='16' y1='136.42' x2='304' y2='176.89'/><polyline points='50.95,146.38 57.59,142.26 52.35,136.47'/><line x1='104.2' y1='14' x2='191.84' y2='186'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 149.71 49.18 A 30 30 0 0 1 133.62 71.73'/><path d='M 205.92 163.11 A 28 28 0 0 0 165.48 134.26'/></g><g fill='currentColor'><circle cx='120' cy='45' r='3'/><circle cx='178.19' cy='159.21' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='26.72' y='22.76' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='23.1' y='154.54' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text><text x='157.45' y='76.71' fill='#0284c7'>a</text><text x='203.74' y='128.39' fill='#0284c7'>b</text><text x='110' y='37' font-size='13' fill='currentColor' text-anchor='middle'>A</text><text x='168.19' y='177.21' font-size='13' fill='currentColor' text-anchor='middle'>B</text></g></svg>",
+      "choices": ["55", "60", "70", "110", "125"],
+      "answer": 0,
+      "solution": "a ve b karşı durumlu açılardır, toplamları 180°'dir:\na + b = 180\nb = 2a + 15 verildiğinden:\na + (2a + 15) = 180\n3a + 15 = 180\n3a = 165\na = 55°\n(Sık yapılan hata 1: 15°'yi hesaba katmayıp 3a = 180'den a = 60° bulmak.\nSık yapılan hata 2: a sorulmuşken b = 125°'yi işaretlemek.\nSık yapılan hata 3: iki açının farkını (125° − 55° = 70°) cevap sanmak.)"
+    },
     {
       "id": "acilar-002",
       "label": "Paralel doğrular ve kesen",
-      "difficulty": 1,
+      "difficulty": 2,
       "stem": "Şekilde d₁ ∥ d₂'dir. Buna göre x kaçtır?",
       "asks": "İşaretli iki açı, paralellerin arasında ve kesenin aynı tarafında duruyor (iç yan açılar). Toplamlarının 180° olduğunu kurup x'i bulman isteniyor.",
       "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round'><line x1='25' y1='55' x2='295' y2='55'/><line x1='25' y1='150' x2='295' y2='150'/><line x1='85' y1='20' x2='180' y2='185'/><path d='M 36 50 L 42 55 L 36 60'/><path d='M 36 145 L 42 150 L 36 155'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 133 55 A 28 28 0 0 1 119 79.2'/><path d='M 190 150 A 30 30 0 0 0 145 124'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='152' y='84' fill='#0284c7' text-anchor='middle'>(x+10)°</text><text x='196' y='108' fill='#0284c7' text-anchor='start'>(3x−30)°</text><text x='52' y='48' fill='currentColor' font-size='13'>d₁</text><text x='52' y='168' fill='currentColor' font-size='13'>d₂</text></g></svg>",
       "choices": ["40", "45", "50", "55", "60"],
       "answer": 2,
-      "solution": "İç yan açılar bütünlerdir (toplamları 180°):\n(x + 10) + (3x − 30) = 180\n4x − 20 = 180\n4x = 200 → x = 50\nKontrol: açılar 60° ve 120°, toplamları 180°."
+      "solution": "İşaretli açılar kesenin aynı tarafında ve paralellerin arasındadır: karşı durumlu (iç yan) açılar, toplamları 180°'dir.\n(x + 10) + (3x − 30) = 180\n4x − 20 = 180\n4x = 200\nx = 50\n(Sık yapılan hata 1: karşı durumlu açıları eşit sanıp x + 10 = 3x − 30 kurmak; bu yanlış denklem x = 20 verir.\nSık yapılan hata 2: x sorulmuşken açı ölçülerini (60° ya da 120°) işaretlemek.\nSık yapılan hata 3: −20'yi karşı tarafa geçirirken işaret hatası yapıp 4x = 160'tan x = 40 bulmak.)"
     },
     {
       "id": "acilar-003",
@@ -26,7 +267,7 @@
       "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round'><line x1='20' y1='45' x2='300' y2='45'/><line x1='20' y1='165' x2='300' y2='165'/><path d='M 36 40 L 42 45 L 36 50'/><path d='M 36 160 L 42 165 L 36 170'/><polyline points='90,45 196,120 155,165'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 116 45 A 26 26 0 0 1 111.3 59.9'/><path d='M 181 165 A 26 26 0 0 0 172.4 145.7'/><path d='M 176.4 106.1 A 24 24 0 0 0 179.8 137.7'/></g><g fill='currentColor'><circle cx='90' cy='45' r='3'/><circle cx='196' cy='120' r='3'/><circle cx='155' cy='165' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15'><text x='138' y='64' fill='#0284c7' text-anchor='middle'>35°</text><text x='202' y='153' fill='#0284c7' text-anchor='middle'>48°</text><text x='156' y='129' fill='#0284c7' text-anchor='middle'>x</text><text x='84' y='36' fill='currentColor' font-size='13'>A</text><text x='204' y='116' fill='currentColor' font-size='13'>P</text><text x='149' y='182' fill='currentColor' font-size='13'>B</text><text x='26' y='38' fill='currentColor' font-size='13'>d₁</text><text x='26' y='182' fill='currentColor' font-size='13'>d₂</text></g></svg>",
       "choices": ["63", "73", "78", "83", "93"],
       "answer": 3,
-      "solution": "P noktasından d₁'e (dolayısıyla d₂'ye) paralel bir yardımcı doğru çizilir. Bu doğru x açısını ikiye böler.\nÜst parça, 35°'lik açıyla iç ters açıdır → 35°.\nAlt parça, 48°'lik açıyla iç ters açıdır → 48°.\nx = 35° + 48° = 83°\nKural olarak: kırık noktadaki açı, alttaki ve üstteki açıların toplamına eşittir."
+      "solution": "P noktasından d₁'e (dolayısıyla d₂'ye) paralel bir yardımcı doğru çizilir. Bu doğru x açısını ikiye böler.\nÜst parça, 35°'lik açıyla iç ters açıdır → 35°\nAlt parça, 48°'lik açıyla iç ters açıdır → 48°\nx = 35° + 48° = 83°\nx = 83°\n(Sık yapılan hata 1: toplama yerine fark almak (48° − 35° = 13°).\nSık yapılan hata 2: tek parçada durup 35° ya da 48°'yi cevap sanmak.\nSık yapılan hata 3: yardımcı doğruyu çizmeden açıyı şekilden göz kararı okumak; şıklardaki 73° ve 93° gibi yakın değerler tam bu yüzden konulmuştur.)"
     },
     {
       "id": "acilar-008",
@@ -37,7 +278,95 @@
       "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='20' y1='45' x2='305' y2='45'/><line x1='20' y1='170' x2='305' y2='170'/><path d='M 36 41 L 42 45 L 36 49'/><path d='M 36 166 L 42 170 L 36 174'/><polygon points='209,45 60,170 267,170'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 88 170 A 28 28 0 0 0 81.4 152'/><path d='M 235 45 A 26 26 0 0 1 219.9 68.6'/><path d='M 224.2 77.7 A 36 36 0 0 1 181.4 68.1'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='109' y='159' fill='#0284c7'>40°</text><text x='252' y='74' fill='#0284c7'>65°</text><text x='197' y='98' fill='#0284c7'>x</text><text x='209' y='36' fill='currentColor' font-size='13'>A</text><text x='52' y='187' fill='currentColor' font-size='13'>B</text><text x='274' y='187' fill='currentColor' font-size='13'>C</text><text x='26' y='38' fill='currentColor' font-size='13'>d₁</text><text x='26' y='163' fill='currentColor' font-size='13'>d₂</text></g></svg>",
       "choices": ["70", "75", "80", "85", "90"],
       "answer": 1,
-      "solution": "d₁ ∥ d₂ olduğundan, [AC keseni ile oluşan 65°'lik açı ile üçgenin C açısı iç ters açılardır:\nm(ACB) = 65°\nUçgende açılar toplamı 180°:\nx = 180° − 40° − 65° = 75°"
+      "solution": "d₁ ∥ d₂ olduğundan [AC keseni ile oluşan 65°'lik açı ile üçgenin C açısı iç ters açılardır:\nm(ACB) = 65°\nÜçgende iç açılar toplamı 180°'dir:\nx = 180° − 40° − 65° = 75°\nx = 75°\n(Sık yapılan hata 1: 65°'yi bütünler sanıp m(ACB) = 115° ile hesaba girmek.\nSık yapılan hata 2: 65°'yi C yerine A köşesine taşımak; hangi açının eş olduğunu kesene göre konum belirler.\nSık yapılan hata 3: iki açıyı toplayıp (40° + 65° = 105°) 180°'den çıkarmayı unutmak.)"
+    },
+    {
+      "id": "acilar-paralel-23",
+      "label": "Çok kırıklı zikzakta açı zinciri",
+      "difficulty": 3,
+      "stem": "Şekilde d₁ ∥ d₂'dir. Buna göre x kaç derecedir?",
+      "asks": "Üç kırıklı bir zikzakta son kırığın açısı isteniyor. Her kırık için ayrı yardımcı doğru çizmek yerine, aynı yöne bakan açıların toplamlarının eşitliğini kullan.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='16' y1='26' x2='304' y2='26'/><polyline points='52,31 58,26 52,21'/><line x1='16' y1='170' x2='304' y2='170'/><polyline points='52,175 58,170 52,165'/><polyline points='190,26 144.71,64 193.27,98 172,138 198.85,170'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 166 26 A 24 24 0 0 0 171.61 41.43'/><path d='M 161.57 49.86 A 22 22 0 0 1 162.73 76.62'/><path d='M 175.25 85.38 A 22 22 0 0 0 182.94 117.42'/><path d='M 182.33 118.58 A 22 22 0 0 1 186.14 154.85'/><path d='M 174.85 170 A 24 24 0 0 1 183.43 151.61'/></g><g fill='currentColor'><circle cx='190' cy='26' r='3'/><circle cx='144.71' cy='64' r='3'/><circle cx='193.27' cy='98' r='3'/><circle cx='172' cy='138' r='3'/><circle cx='198.85' cy='170' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='154.29' y='44' fill='#0284c7'>40°</text><text x='181.68' y='67.39' fill='#0284c7'>75°</text><text x='157.29' y='111.64' fill='#0284c7'>97°</text><text x='208.8' y='139.13' fill='#0284c7'>x</text><text x='164.41' y='158.94' fill='#0284c7'>50°</text><text x='199' y='17' font-size='13' fill='currentColor' text-anchor='middle'>A</text><text x='208.85' y='186' font-size='13' fill='currentColor' text-anchor='middle'>B</text><text x='26' y='18' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='26' y='187' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text></g></svg>",
+      "choices": ["25", "68", "112", "125", "137"],
+      "answer": 2,
+      "solution": "Her kırık noktadan paralellere paralel doğrular çizilirse, aynı yöne bakan açıların toplamı diğer yöne bakanların toplamına eşit olur.\nBir yöne bakanlar: 40° + 97° + 50° = 187°\nDiğer yöne bakanlar: 75° + x\n75 + x = 187\nx = 112°\n(Sık yapılan hata 1: zincirin ortasında durup 40° + 97° = 137°'yi cevap sanmak.\nSık yapılan hata 2: bulunan açının bütünlerini (180° − 112° = 68°) işaretlemek.\nSık yapılan hata 3: yalnız iki açıyı toplayıp 75° + 50° = 125° demek.)"
+    },
+    {
+      "id": "acilar-paralel-24",
+      "label": "Zikzak zinciri (dikey paraleller)",
+      "difficulty": 3,
+      "stem": "Şekilde d₁ ∥ d₂'dir. Buna göre x kaç derecedir?",
+      "asks": "Dikey paraleller arasında üç kırıklı bir zikzak var ve ortadaki açı isteniyor. Açıları yönlerine göre iki gruba ayırıp toplamları eşitlemen gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='60' y1='184' x2='60' y2='16'/><polyline points='65,148 60,142 55,148'/><line x1='210' y1='184' x2='210' y2='16'/><polyline points='215,148 210,142 205,148'/><polyline points='60,90 100,123.56 135,73.58 175,94.85 210,70.34'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 60 114 A 24 24 0 0 0 78.39 105.43'/><path d='M 83.15 109.42 A 22 22 0 0 1 112.62 105.54'/><path d='M 122.38 91.6 A 22 22 0 0 0 154.42 83.91'/><path d='M 155.58 84.52 A 22 22 0 0 1 193.02 82.23'/><path d='M 210 94.34 A 24 24 0 0 1 190.34 84.11'/></g><g fill='currentColor'><circle cx='60' cy='90' r='3'/><circle cx='100' cy='123.56' r='3'/><circle cx='135' cy='73.58' r='3'/><circle cx='175' cy='94.85' r='3'/><circle cx='210' cy='70.34' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='76.06' y='129.44' fill='#0284c7'>50°</text><text x='95.17' y='91.88' fill='#0284c7'>85°</text><text x='143.64' y='114.56' fill='#0284c7'>x</text><text x='172.68' y='61.92' fill='#0284c7'>117°</text><text x='192.45' y='109.05' fill='#0284c7'>55°</text><text x='47' y='96' font-size='13' fill='currentColor' text-anchor='middle'>A</text><text x='223' y='76.34' font-size='13' fill='currentColor' text-anchor='middle'>B</text><text x='49' y='176' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='221' y='176' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text></g></svg>",
+      "choices": ["83", "97", "105", "135", "152"],
+      "answer": 1,
+      "solution": "Aynı yöne bakan açıların toplamları eşittir.\nBir yöne bakanlar: 50° + x + 55°\nDiğer yöne bakanlar: 85° + 117° = 202°\n50 + x + 55 = 202\nx = 202 − 105 = 97°\nx = 97°\n(Sık yapılan hata 1: yalnız uç açıları toplayıp 50° + 55° = 105°'yi cevap sanmak.\nSık yapılan hata 2: bulunan açının bütünlerini (180° − 97° = 83°) işaretlemek.\nSık yapılan hata 3: yanlış gruplama yapıp 50° + 85° = 135° demek.)"
+    },
+    {
+      "id": "acilar-paralel-25",
+      "label": "Paralel doğrular ve açıortay",
+      "difficulty": 3,
+      "stem": "Şekilde d₁ ∥ d₂ ve [BK ışını B köşesindeki açının açıortayıdır. Buna göre x kaç derecedir?",
+      "asks": "İki adımlı bir soru: önce 116°'yi iç ters açıyla d₂ üzerine taşımak, sonra açıortayın bu açıyı iki eş parçaya böldüğünü kullanmak gerekiyor. Adımlardan birini atlamak şıklardaki tuzaklara düşürür.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='16' y1='45' x2='304' y2='45'/><polyline points='52,50 58,45 52,40'/><line x1='16' y1='150' x2='304' y2='150'/><polyline points='52,155 58,150 52,145'/><line x1='134.88' y1='14' x2='218.77' y2='186'/><line x1='201.21' y1='150' x2='249.96' y2='71.98'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 122 45 A 28 28 0 0 0 162.27 70.17'/><path d='M 231.21 150 A 30 30 0 0 0 217.11 124.56'/><path d='M 217.11 124.56 A 30 30 0 0 0 188.06 123.04'/><line x1='223.95' y1='137.39' x2='230.95' y2='133.52'/><line x1='202.57' y1='124.04' x2='202.99' y2='116.05'/></g><g fill='currentColor'><circle cx='150' cy='45' r='3'/><circle cx='201.21' cy='150' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='25' y='36' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='25' y='167' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text><text x='126.68' y='87.31' fill='#0284c7'>116°</text><text x='240.57' y='133.18' fill='#0284c7'>x</text><text x='160' y='36' font-size='13' fill='currentColor' text-anchor='middle'>A</text><text x='195.21' y='168' font-size='13' fill='currentColor' text-anchor='middle'>B</text><text x='239.96' y='65.98' font-size='13' fill='currentColor' text-anchor='middle'>K</text></g></svg>",
+      "choices": ["29", "32", "58", "64", "116"],
+      "answer": 2,
+      "solution": "116°'lik açı ile B köşesindeki açı iç ters açılardır:\nm(B) = 116°\n[BK açıortay olduğundan bu açıyı iki eş parçaya böler:\nx = 116° / 2 = 58°\nx = 58°\n(Sık yapılan hata 1: açıortay adımını atlayıp 116°'yi doğrudan işaretlemek.\nSık yapılan hata 2: iç ters yerine bütünler alıp 180° − 116° = 64° ile devam etmek.\nSık yapılan hata 3: önce bütünler alıp sonra ikiye bölerek 64° / 2 = 32° bulmak.)"
+    },
+    {
+      "id": "acilar-paralel-26",
+      "label": "İki açıortayın kesişme açısı",
+      "difficulty": 3,
+      "stem": "Şekilde d₁ ∥ d₂, [AK ve [BK ışınları sırasıyla A ve B köşelerindeki açıların açıortaylarıdır. Buna göre x kaç derecedir?",
+      "asks": "Karşı durumlu iki açının açıortayları arasındaki açı isteniyor. A-K-B kırık doğrusuna kırık doğru kuralını uygulaman gerekiyor: K'den çizilen paralel, x'i iki iç ters parçaya ayırır.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='16' y1='75.68' x2='304' y2='24.9'/><polyline points='52.32,74.35 57.36,68.39 50.58,64.51'/><line x1='16' y1='177.22' x2='304' y2='126.44'/><polyline points='52.32,175.9 57.36,169.93 50.58,166.05'/><line x1='192.17' y1='14' x2='180.14' y2='186'/><line x1='190' y1='45' x2='237.15' y2='87.46'/><line x1='182.81' y1='147.81' x2='237.15' y2='87.46'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 223.48 39.1 A 34 34 0 0 1 187.63 78.92'/><path d='M 211.67 41.18 A 22 22 0 0 1 206.35 59.72'/><path d='M 206.35 59.72 A 22 22 0 0 1 188.47 66.95'/><line x1='207.3' y1='49.96' x2='214.99' y2='52.17'/><line x1='196.74' y1='61.69' x2='199.74' y2='69.11'/><path d='M 204.48 143.99 A 22 22 0 0 0 197.53 131.46'/><path d='M 197.53 131.46 A 22 22 0 0 0 184.35 125.86'/><line x1='198.55' y1='139.08' x2='205.55' y2='135.21'/><line x1='189.84' y1='131.24' x2='192.97' y2='123.88'/><path d='M 222.29 74.07 A 20 20 0 0 0 223.77 102.32'/></g><g fill='currentColor'><circle cx='190' cy='45' r='3'/><circle cx='182.81' cy='147.81' r='3'/><circle cx='237.15' cy='87.46' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='22.61' y='65.32' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='27.12' y='192.46' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text><text x='227.9' y='84.13' fill='#0284c7'>104°</text><text x='202.2' y='94.29' fill='#0284c7'>x</text><text x='200' y='36' font-size='13' fill='currentColor' text-anchor='middle'>A</text><text x='172.81' y='165.81' font-size='13' fill='currentColor' text-anchor='middle'>B</text><text x='251.15' y='97.46' font-size='13' fill='currentColor' text-anchor='middle'>K</text></g></svg>",
+      "choices": ["38", "52", "76", "90", "104"],
+      "answer": 3,
+      "solution": "A ve B köşelerindeki açılar karşı durumludur:\n104° + m(B) = 180° → m(B) = 76°\nAçıortaylar bu açıları yarıya böler: A tarafında 52°, B tarafında 38°\nA-K-B bir kırık doğrudur; K noktasından paralellere paralel bir doğru çizilirse x iki parçaya ayrılır:\nÜst parça 52° ile iç ters, alt parça 38° ile iç ters\nx = 52° + 38° = 90°\nx = 90°\n(Sık yapılan hata 1: tek açıortay parçasında durup 52°'yi işaretlemek.\nSık yapılan hata 2: B'deki açıyı (76°) doğrudan cevap sanmak.\nSık yapılan hata 3: verilen 104°'yi işaretleyip açıortayları hiç kullanmamak.)"
+    },
+    {
+      "id": "acilar-paralel-27",
+      "label": "Paraleller arasında kapalı şekil",
+      "difficulty": 3,
+      "stem": "Şekilde d₁ ∥ d₂'dir. Buna göre x + y toplamı kaç derecedir?",
+      "asks": "İki kırık noktanın açılarının toplamı isteniyor. Her kırık açı, kendi üstündeki ve altındaki parçaların toplamı olduğu için ikisini ayrı ayrı bulup toplaman yeterli.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='16' y1='40' x2='304' y2='40'/><polyline points='52,45 58,40 52,35'/><line x1='16' y1='165' x2='304' y2='165'/><polyline points='52,170 58,165 52,160'/><polyline points='95,40 242.42,139.43 190,165 79.58,69.01 95,40'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 121 40 A 26 26 0 0 1 116.55 54.54'/><path d='M 69 40 A 26 26 0 0 0 82.79 62.96'/><path d='M 216 165 A 26 26 0 0 0 213.37 153.6'/><path d='M 164 165 A 26 26 0 0 1 170.38 147.94'/><path d='M 224.18 127.13 A 22 22 0 0 0 222.64 149.08'/><path d='M 89.9 49.58 A 22 22 0 0 1 96.18 83.44'/></g><g fill='currentColor'><circle cx='95' cy='40' r='3'/><circle cx='242.42' cy='139.43' r='3'/><circle cx='190' cy='165' r='3'/><circle cx='79.58' cy='69.01' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='134.21' y='56.99' fill='#0284c7'>34°</text><text x='59.86' y='66.12' fill='#0284c7'>62°</text><text x='229.95' y='160.78' fill='#0284c7'>26°</text><text x='151.6' y='155.64' fill='#0284c7'>41°</text><text x='205.51' y='141.85' fill='#0284c7'>x</text><text x='115.96' y='67.27' fill='#0284c7'>y</text><text x='87' y='31' font-size='13' fill='currentColor' text-anchor='middle'>A</text><text x='196' y='183' font-size='13' fill='currentColor' text-anchor='middle'>B</text><text x='255.42' y='144.43' font-size='13' fill='currentColor' text-anchor='middle'>P</text><text x='89.58' y='57.01' font-size='13' fill='currentColor' text-anchor='middle'>Q</text><text x='26' y='31' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='26' y='182' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text></g></svg>",
+      "choices": ["60", "67", "96", "103", "163"],
+      "answer": 4,
+      "solution": "P ve Q noktalarından paralellere paralel yardımcı doğrular çizilir; her kırık açı iki iç ters parçaya ayrılır.\nx = 34° + 26° = 60°\ny = 62° + 41° = 103°\nx + y = 60° + 103° = 163°\nx + y = 163°\n(Sık yapılan hata 1: toplam sorulmuşken yalnız x'i (60°) ya da yalnız y'yi (103°) işaretlemek.\nSık yapılan hata 2: yalnız d₁ üzerindeki açıları toplayıp 34° + 62° = 96° demek.\nSık yapılan hata 3: yalnız d₂ üzerindeki açıları toplayıp 26° + 41° = 67° demek.)"
+    },
+    {
+      "id": "acilar-paralel-28",
+      "label": "Kapalı şekilde açı çıkarımı",
+      "difficulty": 3,
+      "stem": "Şekilde d₁ ∥ d₂'dir. Buna göre x kaç derecedir?",
+      "asks": "Q köşesindeki açı isteniyor ama Q'nun d₂ tarafındaki parçası verilmemiş. Önce P üzerinden B'deki parçayı bulup sonra B'deki doğru açıyı kullanarak eksik parçayı çıkarman gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='16' y1='25.19' x2='304' y2='75.97'/><polyline points='50.58,36.36 57.36,32.48 52.32,26.52'/><line x1='16' y1='131.79' x2='304' y2='182.58'/><polyline points='50.58,142.97 57.36,139.09 52.32,133.12'/><polyline points='100,40 199.79,112.5 140.8,153.8 80.77,61.36 100,40'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 125.61 44.51 A 26 26 0 0 1 121.03 55.28'/><path d='M 74.39 35.49 A 26 26 0 0 0 82.6 59.32'/><path d='M 181.99 99.57 A 22 22 0 0 0 181.76 125.12'/><path d='M 157.18 142.33 A 20 20 0 0 0 129.91 137.03'/><path d='M 95.49 45.01 A 22 22 0 0 1 92.75 79.81'/></g><g fill='currentColor'><circle cx='100' cy='40' r='3'/><circle cx='199.79' cy='112.5' r='3'/><circle cx='140.8' cy='153.8' r='3'/><circle cx='80.77' cy='61.36' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='137.74' y='61.02' fill='#0284c7'>26°</text><text x='61.23' y='58.35' fill='#0284c7'>58°</text><text x='165.79' y='117.2' fill='#0284c7'>71°</text><text x='146.14' y='131.31' fill='#0284c7'>88°</text><text x='117.65' y='69.26' fill='#0284c7'>x</text><text x='92' y='31' font-size='13' fill='currentColor' text-anchor='middle'>A</text><text x='148.8' y='171.8' font-size='13' fill='currentColor' text-anchor='middle'>B</text><text x='218.79' y='102.5' font-size='13' fill='currentColor' text-anchor='middle'>P</text><text x='90.77' y='49.36' font-size='13' fill='currentColor' text-anchor='middle'>Q</text><text x='26' y='16.19' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='26' y='148.79' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text></g></svg>",
+      "choices": ["75", "84", "105", "114", "159"],
+      "answer": 2,
+      "solution": "P kırık noktasında açı iki parçadan oluşur:\n71° = 26° + ([BP ile d₂ arasındaki açı)\n[BP ile d₂ arasındaki açı = 45°\nB noktasında d₂ üzerindeki doğru açı üç parçaya ayrılmıştır:\n45° + 88° + ([BQ ile d₂ arasındaki açı) = 180°\n[BQ ile d₂ arasındaki açı = 47°\nQ kırık noktasında:\nx = 58° + 47° = 105°\nx = 105°\n(Sık yapılan hata 1: d₁ üzerindeki iki parçayı toplayıp 26° + 58° = 84° demek.\nSık yapılan hata 2: bulunan açının bütünlerini (180° − 105° = 75°) işaretlemek.\nSık yapılan hata 3: aynı köşeye ait olmayan açıları toplayıp 26° + 88° = 114° bulmak.\nSık yapılan hata 4: 71° + 88° = 159° gibi ilgisiz açıları toplamak.)"
+    },
+    {
+      "id": "acilar-paralel-29",
+      "label": "Denklem kurarak açı bulma",
+      "difficulty": 3,
+      "stem": "Şekilde d₁ ∥ d₂'dir. Buna göre işaretli açılardan büyük olanı kaç derecedir?",
+      "asks": "Açı ölçüleri x cinsinden verilmiş. Karşı durumlu açıların bütünler olduğunu kullanıp x'i bulman, sonra x'i değil istenen açıyı hesaplaman gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='16' y1='48' x2='304' y2='48'/><polyline points='52,53 58,48 52,43'/><line x1='16' y1='148' x2='304' y2='148'/><polyline points='52,153 58,148 52,143'/><line x1='181' y1='14' x2='150.67' y2='186'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 205 48 A 30 30 0 0 1 169.79 77.54'/><path d='M 187.37 148 A 30 30 0 0 0 162.58 118.46'/></g><g fill='currentColor'><circle cx='175' cy='48' r='3'/><circle cx='157.37' cy='148' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='25' y='39' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='25' y='165' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text><text x='207.14' y='91.3' fill='#0284c7'>(3x−20)°</text><text x='195.67' y='120.86' fill='#0284c7'>(x+40)°</text><text x='166' y='39' font-size='13' fill='currentColor' text-anchor='middle'>A</text><text x='148.37' y='166' font-size='13' fill='currentColor' text-anchor='middle'>B</text></g></svg>",
+      "choices": ["30", "40", "70", "80", "100"],
+      "answer": 4,
+      "solution": "İşaretli açılar kesenin aynı tarafında ve paralellerin arasındadır: karşı durumlu açılar, toplamları 180°'dir.\n(3x − 20) + (x + 40) = 180\n4x + 20 = 180\n4x = 160 → x = 40\nAçılar: 3 · 40 − 20 = 100° ve 40 + 40 = 80°\nBüyük açı = 100°\n(Sık yapılan hata 1: açı sorulmuşken x = 40'ı işaretlemek.\nSık yapılan hata 2: büyük açı sorulmuşken küçük açıyı (80°) yazmak.\nSık yapılan hata 3: karşı durumlu açıları eşit sanıp 3x − 20 = x + 40 kurmak; bu x = 30 ve 70° verir.)"
+    },
+    {
+      "id": "acilar-paralel-30",
+      "label": "İki kesen ve doğru açı",
+      "difficulty": 3,
+      "stem": "Şekilde d₁ ∥ d₂'dir. Buna göre (x + 20)° ile gösterilen açı kaç derecedir?",
+      "asks": "B noktasındaki doğru açı üç parçaya bölünmüş. (2x + 5)° açısını iç ters açıyla B'ye taşıyıp doğru açı bağıntısını kurman, sonra x'i değil istenen açıyı hesaplaman gerekiyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'><line x1='16' y1='160' x2='304' y2='160'/><polyline points='52,165 58,160 52,155'/><line x1='16' y1='45' x2='304' y2='45'/><polyline points='52,50 58,45 52,40'/><line x1='137.88' y1='186' x2='218.08' y2='14'/><line x1='150' y1='160' x2='82.51' y2='79.57'/></g><g stroke='#0284c7' stroke-width='2' fill='none'><path d='M 175.63 45 A 28 28 0 0 0 191.79 70.38'/><path d='M 164.37 129.19 A 34 34 0 0 0 128.15 133.95'/><path d='M 130.72 137.02 A 30 30 0 0 0 120 160'/></g><g fill='currentColor'><circle cx='203.63' cy='45' r='3'/><circle cx='150' cy='160' r='3'/></g><g font-family='system-ui, sans-serif' font-size='15' text-anchor='middle'><text x='163.14' y='75.79' fill='#0284c7'>(2x+5)°</text><text x='142.95' y='111.46' fill='#0284c7'>(3x−25)°</text><text x='105.59' y='144.29' fill='#0284c7'>(x+20)°</text><text x='214.63' y='37' font-size='13' fill='currentColor' text-anchor='middle'>A</text><text x='152' y='178' font-size='13' fill='currentColor' text-anchor='middle'>B</text><text x='74.51' y='71.57' font-size='13' fill='currentColor' text-anchor='middle'>K</text><text x='26' y='36' font-size='13' fill='currentColor' text-anchor='middle'>d₁</text><text x='26' y='177' font-size='13' fill='currentColor' text-anchor='middle'>d₂</text></g></svg>",
+      "choices": ["30", "50", "65", "115", "130"],
+      "answer": 1,
+      "solution": "A köşesindeki (2x + 5)° açısı ile B köşesinde [BA ile d₂ arasında kalan açı iç ters açılardır; ölçüleri eşittir.\nB noktasında d₂ üzerindeki doğru açı üç parçaya ayrılmıştır:\n(2x + 5) + (3x − 25) + (x + 20) = 180\n6x = 180 → x = 30\nİstenen açı = x + 20 = 30 + 20 = 50°\nİstenen açı = 50°\n(Sık yapılan hata 1: açı sorulmuşken x = 30'u işaretlemek.\nSık yapılan hata 2: diğer parçaları (2x + 5 = 65° ya da 3x − 25 = 65°) cevap sanmak.\nSık yapılan hata 3: iki eşit parçayı toplayıp 65° + 65° = 130° demek.\nSık yapılan hata 4: 180° − 65° = 115° alıp orada durmak.)"
     }
   ]
 }
