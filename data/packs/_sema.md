@@ -1,6 +1,6 @@
 # Soru paketi şeması — referans kartı
 
-Yeni paket yazarken tek referans budur. Konvansiyonlar mevcut 14 paket / 315
+Yeni paket yazarken tek referans budur. Konvansiyonlar mevcut 14 paket / 335
 soru ölçülerek çıkarıldı; uygulama bu dosyayı okumaz.
 
 ## 1. Paket dosyasının üst düzeyi
@@ -58,8 +58,8 @@ sonda parantez içinde numaralı hata bloğu.**
 "solution": "h² = |AH| · |HB|\nh² = 16 · 9 = 144\nh = 12 cm\n(Sık yapılan hata 1: ara değer olan h² = 144'ü işaretlemek.\nSık yapılan hata 2: kökü yanlış tarafa uygulamak.)"
 ```
 
-Hata bloğu 315 sorunun 282'sinde var, yeni sorularda **zorunlu**. İstisna:
-elden geçirilmeyi bekleyen `acilar-temel` ve `acilar-paralel`.
+Hata bloğu 335 sorunun 302'sinde var, yeni sorularda **zorunlu**. İstisna:
+elden geçirilmeyi bekleyen `acilar-paralel`.
 
 ## 5. Tam örnek soru
 
