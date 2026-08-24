@@ -150,6 +150,17 @@
       "version": 1
     },
     {
+      "id": "ucgen-karma",
+      "topicId": "ucgenler",
+      "topic": "Üçgenler",
+      "subtopicId": "ucgen-karma",
+      "subtopic": "Karma üçgen",
+      "title": "Karma üçgen",
+      "file": "packs/ucgen-karma.json",
+      "count": 30,
+      "version": 1
+    },
+    {
       "id": "geo-dortgenler",
       "topicId": "dortgenler",
       "topic": "Dörtgenler",

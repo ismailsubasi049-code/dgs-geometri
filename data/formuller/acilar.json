@@ -55,7 +55,7 @@
       "id": "acilar-ucgende",
       "subtopicId": "acilar-ucgende",
       "title": "Üçgende açılar",
-      "aliases": ["Üçgende dış açı", "Üçgende iç açıortaylar", "Yükseklik ile açıortay arasındaki açı"],
+      "aliases": ["Üçgende dış açı", "Üçgende iç açıortaylar", "Yükseklik ile açıortay arasındaki açı", "Karma 01", "Karma 09", "Karma 16", "Karma 21", "Karma 29"],
       "items": [
         { "formula": "İç açılar toplamı = 180°" },
         { "formula": "Dış açılar toplamı = 360°" },

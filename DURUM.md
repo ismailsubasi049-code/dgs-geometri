@@ -1,10 +1,10 @@
 # Durum
 
-**Son güncelleme:** 2026-08-23 · **sw.js VERSION:** `v26`
+**Son güncelleme:** 2026-08-24 · **sw.js VERSION:** `v27`
 
 ## Özet
 
-**365 soru · 12 alt konu · 14 paket.** Tamamı geometri; matematik
+**395 soru · 13 alt konu · 15 paket.** Tamamı geometri; matematik
 branşında henüz soru paketi yok (formül kartları var).
 
 ## Paketler
@@ -23,13 +23,13 @@ branşında henüz soru paketi yok (formül kartları var).
 | Üçgenler | `ucgen-alan` | Alan oranları | 31 |
 | Üçgenler | `ucgen-kenarortay` | Kenarortay ve ağırlık merkezi | 31 |
 | Üçgenler | `ucgen-yukseklik` | Yükseklik ve diklik merkezi | 20 |
+| Üçgenler | `ucgen-karma` | Karma üçgen | 30 |
 | Dörtgenler | — | Dörtgenler | 10 |
 | Çember ve Daire | — | Çember ve Daire | 10 |
-| **Toplam** | | **14 paket** | **365** |
+| **Toplam** | | **15 paket** | **395** |
 
 ## Kalan işler
 
-- **Karma üçgen paketi:** 30 soru, etiketsiz, konu ipucu vermeyen
 - **Sonraki aşama kararı:** dörtgen/çember paketleri mi, matematik-sayısal
   mantık mı
 
@@ -43,6 +43,10 @@ Düzeltilmedi, kayıt için duruyor:
   örtüşmüyor; maddelerin yarısı kenarortay kuralı.
 - `geo-dortgenler` ve `geo-cember` girdilerinde `subtopicId` yok. O paketler
   üretilene kadar bilinçli olarak eklenmeyecek.
+- `ucgen-karma` sorularının formül kartı alt konudan değil, `label` alias'ından
+  gelir (`Karma 07` → `ucgen-pisagor` gibi). Yeni bir karma sorusu eklenip
+  `data/formuller/ucgenler.json` ya da `acilar.json` içine alias yazılmazsa o
+  soruda yanlış cevapta hiç kart açılmaz. Ayrıntı: `data/packs/_sema.md` §7.
 
 ## Çalışma kuralları
 

@@ -1,6 +1,6 @@
 # Soru paketi şeması — referans kartı
 
-Yeni paket yazarken tek referans budur. Konvansiyonlar mevcut 14 paket / 365
+Yeni paket yazarken tek referans budur. Konvansiyonlar mevcut 15 paket / 395
 soru ölçülerek çıkarıldı; uygulama bu dosyayı okumaz.
 
 ## 1. Paket dosyasının üst düzeyi
@@ -38,7 +38,7 @@ soru ölçülerek çıkarıldı; uygulama bu dosyayı okumaz.
 
 - `figure` = JSON string içinde tek satır ham SVG metni; nitelikler tek
   tırnaklı, `xmlns` yazılır.
-- **`viewBox='0 0 320 200'`** (347 şeklin 341'i). Gerekirse sadece yükseklik
+- **`viewBox='0 0 320 200'`** (375 şeklin 369'u). Gerekirse sadece yükseklik
   artar; genişlik hep 320. `width`/`height` **yazma** — `js/svg.js` siler.
 - Renk iki tane: `currentColor` (çizgi/yazı, tema ile döner), `#0284c7`
   (vurgu: aranan büyüklük, verilen ölçü).
@@ -58,7 +58,7 @@ sonda parantez içinde numaralı hata bloğu.**
 "solution": "h² = |AH| · |HB|\nh² = 16 · 9 = 144\nh = 12 cm\n(Sık yapılan hata 1: ara değer olan h² = 144'ü işaretlemek.\nSık yapılan hata 2: kökü yanlış tarafa uygulamak.)"
 ```
 
-Hata bloğu 365 sorunun 339'unda var, yeni sorularda **zorunlu**.
+Hata bloğu 395 sorunun 369'unda var, yeni sorularda **zorunlu**.
 
 ## 5. Tam örnek soru
 
@@ -85,10 +85,32 @@ Hata bloğu 365 sorunun 339'unda var, yeni sorularda **zorunlu**.
    subtopic, title, file, count, version`); `count` fiili sayıyla birebir.
 3. `data/formuller/<konu>.json` — `subtopicId`'si eşleşen kart yoksa formül
    kartı görünmez. Kart eklendiyse `formuller/index.json` → `cardCount`.
+   Konusu karışık paketlerde kart bağlamanın yolu için §7.
 4. `sw.js` → `VERSION` artır. **`APP_SHELL`'e paket eklenmez** — paket
    dosyaları `data/index.json`'dan türetilir.
 
-## 7. Kalıcı kurallar
+## 7. `ucgen-karma` istisnası
+
+Karma paket konu ipucu vermeden sınamak için yazıldı; aşağıdaki dört noktada
+diğer paketlerden ayrılır. Yeni bir karma paket yazılırsa aynı kurallar geçerli.
+
+- **`label` nötrdür:** yalnız `Karma 01` … `Karma 30`. Konu, teorem ya da şekil
+  adı geçmez — etiketin kendisi ipucu olurdu.
+- **`solution` sabit bir satırla başlar:** `Bu soru şu bilgiyi istiyor: …` (tek
+  cümle, hangi araç gerektiği). Ardından §4'teki normal biçim gelir.
+- **Formül kartı `label` alias'ıyla bağlanır.** `ucgen-karma` için kart
+  **açılmaz**; bunun yerine her `Karma NN` etiketi, sorunun gerçek konusundaki
+  mevcut kartın `aliases` listesine yazılır (`data/formuller/ucgenler.json`,
+  açı soruları için `acilar.json`). `js/formulas.js:106-113` arama sırası
+  `subtopicId` → `subtopic` → `label` olduğundan, ilk iki adım boşa düşer ve
+  yanlış cevapta konuya özel kart açılır. Kart sayısı değişmez.
+  *Soruya `subtopicId` yazmak bu işi görmez:* `js/scheduler.js:186` aynı alana
+  bakar, sorular başka alt konuların çalışma setine sızar.
+- **Aynı konfigürasyon en fazla 2 soruda** (diğer paketlerde 3). Yön değiştirmek
+  ayrı konfigürasyon sayılır: ör. Öklid şekli üç kez geçiyorsa ikisi bir yönde,
+  üçüncüsü aynalanmış olmalı.
+
+## 8. Kalıcı kurallar
 
 - **id paketten türetilir:** `yukseklik-01`, `kenarortay-01`, `esitsizlik-01`,
   `ucgende-aci-01`. Eski `ucgen-NNN` / `acilar-NNN` sayacı sürdürülmez.
