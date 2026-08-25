@@ -1,6 +1,6 @@
 # Durum
 
-**Son güncelleme:** 2026-08-24 · **sw.js VERSION:** `v27`
+**Son güncelleme:** 2026-08-25 · **sw.js VERSION:** `v28`
 
 ## Özet
 
@@ -33,10 +33,42 @@ branşında henüz soru paketi yok (formül kartları var).
 - **Sonraki aşama kararı:** dörtgen/çember paketleri mi, matematik-sayısal
   mantık mı
 
+## Formül kartı denetimi
+
+**2026-08-25 · `data/formuller/ucgenler.json`** (9 kart · 72 madde · 42 şekil)
+uçtan uca denetlendi: ölçümler SVG koordinatlarından hesaplandı (kenar
+uzunlukları, iç açılar, yay kirişinden merkez açı, diklik sapması, etiket
+kutuları), bulgular headless Chrome render'ıyla gözle doğrulandı.
+**5 KRİTİK + 10 ORTA bulgu düzeltildi**, 11 şekil ve 1 formül metni değişti:
+
+- `ucgen-yukseklik` üç şekli de baştan çizildi — eski hâlinde hb bir yükseklik
+  değildi (14° sapma, kenarı 15,8 px aşıyordu), üç yükseklik tek noktada
+  kesişmiyordu ve "geniş açılı" paneli aslında bir dik üçgendi.
+- `ucgen-aciortay` item[6]'da BD açıortay değildi (29,2°+19,0°) ve eşit
+  işaretlenen iki parça 73,7 / 109,4 ölçüyordu; D gerçek ayağa taşındı.
+- `ucgen-benzerlik` item[7] "Kenarortayların birleşimi" diyordu (kenarortay =
+  medyan); "orta taban" olarak düzeltildi.
+- Ayrıca: çevrel çember kartında R/c etiketleri, çarpık dik açı işareti,
+  hipotenüs kenarortayında harf kuralı (c = [AB]) ve eğik çentikler, kenarortay
+  uzunluk formülünün çeşitkenar üçgene taşınması, etiket çakışmaları.
+
+Şekiller elle değil parametrik üreteçle çıkarıldı; üretim sonrası ölçüm
+tekrarlandı (`a·ha = b·hb = c·hc` birebir eşit, üç yükseklik 0 px sapmayla
+eşzamanlı, `Va² = (2b²+2c²−a²)/4` birebir).
+
+`data/formuller/` altındaki diğer konu dosyaları (`acilar`, `cember`,
+`dortgenler`, `sayilar`, …) **henüz denetlenmedi**.
+
 ## Bilinen açık maddeler
 
 Düzeltilmedi, kayıt için duruyor:
 
+- Denetimde **KOZMETİK** işaretlenen maddeler bilinçli olarak kapsam dışı
+  bırakıldı: `ucgen-oklid` item[0]/[2]/[3]'te `c` etiketi hipotenüsün ortasına
+  değil `p` parçasının altına düşüyor; `ucgen-alan` item[2]/[3] ve
+  `ucgen-kenarortay` item[1]/[7] ile `ucgen-ozel-ucgenler` item[11]'de bir
+  etiket bir çizgiye değiyor; `ucgen-benzerlik` item[0]'da tek/çift yay
+  işaretleri eşit açılara düşüyor.
 - `ucgen-006` ile `ucgen-014` içerik olarak neredeyse aynı soru (ikisi de
   `ucgen-benzerlik`'te).
 - `ucgen-alan` formül kartının içeriği yeni adıyla ("Alan oranları") tam
