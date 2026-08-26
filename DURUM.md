@@ -1,6 +1,6 @@
 # Durum
 
-**Son güncelleme:** 2026-08-25 · **sw.js VERSION:** `v28`
+**Son güncelleme:** 2026-08-26 · **sw.js VERSION:** `v29`
 
 ## Özet
 
@@ -32,6 +32,26 @@ branşında henüz soru paketi yok (formül kartları var).
 
 - **Sonraki aşama kararı:** dörtgen/çember paketleri mi, matematik-sayısal
   mantık mı
+
+## Öğrenme modu sıralaması
+
+**2026-08-26.** Öğrenme listesi iki bölümden oluşur — önce vadesi gelen
+tekrarlar, sonra geri kalanlar — ve artık **her iki bölüm kendi içinde
+kolaydan zora** dizilir. Önceden tekrar bölümü yalnızca `dueOrder` ile
+sıralandığı için vadesi gelmiş zor bir soru 2. sırada gelebiliyor ve "Zor
+sorulara geçtin" bildirimi oturumun başında tetikleniyordu.
+
+Leitner önceliği değişmedi: hangi soruların geleceği aynı, yalnızca sıraları
+değişti. Tekrar bölümünde blok içi rastgelelik yok — eşit zorlukta önce en çok
+gecikmiş, eşitlikte en zayıf kutu gelir (`orderDueByDifficulty`). Geri kalan
+bölümde blok içi rastgelelik korundu.
+
+Bildirim de bölümü biliyor: tekrar bölümünün zor kısmında "Tekrarların zor
+kısmına geldin", geri kalanın zor kısmında eski metin. Oturumda en fazla iki
+kez, her bölüm için bir kez çıkar. Artık **yalnızca konu ve alt konu
+modlarında** çıkıyor — günlük rutin (`dueOrder`) ve Yanlışlarım (`lastSeen`)
+listeleri zorluğa göre dizilmediği için oradaki 2 → 3 geçişi tesadüfiydi. O iki
+modun soru sırası değişmedi, sadece bildirim kalktı; süreli testte zaten yoktu.
 
 ## Formül kartı denetimi
 

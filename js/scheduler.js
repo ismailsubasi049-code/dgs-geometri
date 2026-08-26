@@ -1,5 +1,6 @@
 // Hangi soru ne zaman gelecek? Dort modun soru listesini bu dosya kurar.
-// Ogrenme modlarinda sira: once vadesi gelen tekrarlar, sonra kolay -> orta -> zor.
+// Ogrenme modlarinda sira: once vadesi gelen tekrarlar, sonra geri kalanlar; her iki
+// bolum de kendi icinde kolay -> orta -> zor.
 // Dogru cozulmus sorular Leitner vadesi gelene kadar havuza girmez.
 // Sureli mini test bunun disindadir, orada sorular karisik gelir.
 
@@ -24,14 +25,30 @@ export function difficultyOf(question) {
   return Math.min(3, Math.max(1, Math.round(value)));
 }
 
+/** Zorluk kovalari: [kolaylar, ortalar, zorlar]. Kova ICI sirayi cagiran belirler. */
+function difficultyBuckets(questions) {
+  const buckets = [[], [], []];
+  for (const question of questions) buckets[difficultyOf(question) - 1].push(question);
+  return buckets;
+}
+
 /**
  * Kolay -> orta -> zor bloklari. Blogun *icindeki* sira rastgele kalir;
  * boylece kademe korunur ama soru sirasi ezberlenmez.
  */
 function orderByDifficulty(questions, rand = Math.random) {
-  const buckets = [[], [], []];
-  for (const question of questions) buckets[difficultyOf(question) - 1].push(question);
-  return buckets.flatMap((bucket) => shuffle(bucket, rand));
+  return difficultyBuckets(questions).flatMap((bucket) => shuffle(bucket, rand));
+}
+
+/**
+ * Ayni kolay -> orta -> zor duzeni, ama blok icinde rastgelelik yok: vadesi gelen
+ * tekrarlarda esit zorluktakiler dueOrder'a gore gelir (once en cok gecikmis,
+ * esitlikte en zayif kutu). Kovalar difficultyBuckets'in urettigi yeni diziler,
+ * yerinde siralamak cagiranin listesini bozmaz.
+ */
+function orderDueByDifficulty(questions, today) {
+  return difficultyBuckets(questions)
+    .flatMap((bucket) => bucket.sort((a, b) => dueOrder(a, b, today)));
 }
 
 /**
@@ -41,6 +58,14 @@ function orderByDifficulty(questions, rand = Math.random) {
  */
 export function isActive(question, today = dayKey()) {
   return store.getStat(question.id).seen === 0 || store.isDue(question.id, today);
+}
+
+/**
+ * Bu soru vadesi gelmis bir tekrar mi? Ogrenme havuzunu ikiye bolen kural budur;
+ * soru ekrani da hangi bolumde oldugunu buradan ogrenir, kural iki yere kopyalanmasin.
+ */
+export function isRepeat(question, today = dayKey()) {
+  return store.isDue(question.id, today);
 }
 
 /** Bir listedeki en yakin tekrar gunu; hicbiri planlanmamissa null. */
@@ -55,8 +80,11 @@ export function nextDueDay(questions) {
 }
 
 /**
- * Ogrenme modlarinin sirasi: once Leitner'da tekrar zamani gelmis sorular,
- * ardindan geri kalanlar kolaydan zora. Sureli test bunu kullanmaz.
+ * Ogrenme modlarinin sirasi: once Leitner'da tekrar zamani gelmis sorular, ardindan
+ * geri kalanlar - ve her iki bolum kendi icinde kolaydan zora. Yani kolay tekrarlar,
+ * orta tekrarlar, zor tekrarlar, sonra kolay yeniler, orta yeniler, zor yeniler.
+ * Leitner onceligi degismez: hangi sorularin gelecegi ayni, yalnizca siralari degisir.
+ * Sureli test bunu kullanmaz.
  * includeAll, "yine de bastan coz" yolu icin filtreyi devre disi birakir.
  */
 function orderForLearning(questions, { today = dayKey(), rand = Math.random, includeAll = false } = {}) {
@@ -65,14 +93,12 @@ function orderForLearning(questions, { today = dayKey(), rand = Math.random, inc
   const due = [];
   const rest = [];
   for (const question of pool) {
-    if (store.isDue(question.id, today)) due.push(question);
+    if (isRepeat(question, today)) due.push(question);
     else rest.push(question);
   }
 
-  // Vadesi gelen tekrar, zorluk kademesinin onunde gelir.
-  due.sort((a, b) => dueOrder(a, b, today));
-
-  return [...due, ...orderByDifficulty(rest, rand)];
+  // Vadesi gelen tekrar, geri kalanin onunde gelir; kendi icinde de kolaydan zora.
+  return [...orderDueByDifficulty(due, today), ...orderByDifficulty(rest, rand)];
 }
 
 /**

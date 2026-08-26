@@ -10,6 +10,7 @@ import {
   buildTopicSet,
   buildSubtopicSet,
   difficultyOf,
+  isRepeat,
 } from '../scheduler.js';
 import { loadAllQuestions } from '../packs.js';
 import { loadAllCards, getCardFor } from '../formulas.js';
@@ -309,18 +310,29 @@ export async function render(ctx) {
   let hintMs = null;
 
   /**
-   * Zor bloga gecis bildirimi: oturum basina bir kez ve sadece gercek bir gecis olunca.
+   * Zor bloga gecis bildirimi: sadece gercek bir gecis olunca.
+   * Ogrenme listesi iki bolumden olusur - once vadesi gelen tekrarlar, sonra geri
+   * kalanlar - ve her ikisi de kendi icinde kolaydan zora dizilir. Bu yuzden bildirim
+   * oturumda iki kez cikabilir: her bolumun kendi zor kismina girerken bir kez.
    * Devam ettirilen oturumda onceki sorunun zorlugundan baslar, yoksa null kalir;
    * boylece ilk soru zor geldiginde (vadesi gelen bir tekrar olabilir) bildirim cikmaz.
    */
   let lastBlock = resumed && session.index > 0 ? difficultyOf(questions[session.index - 1]) : null;
-  let hardNoticeShown = false;
+  const hardNoticeShown = { due: false, rest: false };
+
+  /**
+   * Bildirim yalnizca listesi gercekten kolaydan zora dizilen modlarda anlamli.
+   * Gunluk rutin (vadesi gelenler dueOrder'la gelir) ve Yanlislarim (lastSeen sirasi)
+   * boyle dizilmiyor; oralarda 2 -> 3 gecisi tesadufi olurdu. Sureli test zaten disarida.
+   */
+  const blockNoticeAllowed = mode === 'konu' || mode === 'altkonu';
 
   /** Kapatilabilir tek satirlik bilgi; akisi kesmez, sadece basa eklenir. */
-  function hardBlockNotice() {
+  function hardBlockNotice(segment) {
     const box = el('div', { class: 'block-notice' },
       el('div', null,
-        el('strong', null, 'Zor sorulara geçtin.'),
+        el('strong', null,
+          segment === 'due' ? 'Tekrarların zor kısmına geldin.' : 'Zor sorulara geçtin.'),
         ' Buradan sonrası daha çok adım istiyor; takılmak normal — "Soru ne istiyor?"a bakmaktan çekinme.'
       ),
       el('button', {
@@ -358,11 +370,16 @@ export async function render(ctx) {
 
     clear(body);
 
-    // Zor bloga yeni girildiyse bir kez hatirlatma. Sureli testte hic gosterilmez.
+    // Zor bloga yeni girildiyse bolum basina bir kez hatirlatma.
+    // Bolumu soruya canli bakarak buluruz: gezinme tek yonlu oldugu icin burada her
+    // zaman cevaplanmamis soru cizilir, vadesi de ancak cevaplandiktan sonra ileri
+    // atilir - devam ettirilen oturumda da dogru bolumu verir.
     const block = difficultyOf(question);
-    if (!session.config.timed && block === 3 && lastBlock !== null && lastBlock < 3 && !hardNoticeShown) {
-      hardNoticeShown = true;
-      body.append(hardBlockNotice());
+    const segment = isRepeat(question) ? 'due' : 'rest';
+    if (blockNoticeAllowed && block === 3 && lastBlock !== null && lastBlock < 3
+      && !hardNoticeShown[segment]) {
+      hardNoticeShown[segment] = true;
+      body.append(hardBlockNotice(segment));
     }
     lastBlock = block;
 
