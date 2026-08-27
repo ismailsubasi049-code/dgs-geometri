@@ -1,6 +1,6 @@
 # Durum
 
-**Son güncelleme:** 2026-08-26 · **sw.js VERSION:** `v30`
+**Son güncelleme:** 2026-08-27 · **sw.js VERSION:** `v31`
 
 ## Özet
 
@@ -109,9 +109,66 @@ yükseklik–taban dikliği 90,00°, `x = a+b` · `a = b+x` · `a+y = x+b` · `x
 `x = (B−C)/2` ve dört açı toplamı 360,00 birebir; etiket kutusu–çizgi kesişimi
 yalnızca aşağıdaki iki kozmetik maddede kaldı.
 
-`data/formuller/` altındaki diğer konu dosyaları (`cember`, `dortgenler`,
-`sayilar`, `koklu`, `uslu`, `rasyonel`, `bolunebilme`, `ebob-ekok`) **henüz
-denetlenmedi**.
+**2026-08-27 · `data/formuller/dortgenler.json`** (8 kart · 46 madde · 33 şekil)
+aynı yöntemle denetlendi. **Formül satırlarının matematiği 45/46 doğru** çıktı;
+bulguların ağırlığı **şekil seçiminde** — genel kuralı anlatan şekiller kuralın
+özel hâlini gösteriyordu. **3 KRİTİK + 6 ORTA + 2 KOZMETİK bulgu düzeltildi**,
+10 şekil ve 8 metin alanı değişti:
+
+- `dortgen-yamuk` **beş şeklinin beşi de ikizkenar yamuktu** (yan kenarlar
+  104,2161 = 104,2161, köşegenler 216,4740 = 216,4740, sapma sıfır). Bu yüzden
+  "İkizkenar yamukta taban açıları eşit, köşegenler eşittir" maddesinin şekli,
+  genel yamuk kuralı anlatan item[0]/[1]/[3]/[5] şekilleriyle birebir aynıydı:
+  varsayımın ne kattığı görünmüyor, tersine *her* yamukta yan kenar ve
+  köşegenlerin eşit olduğu çıkarımına götürüyordu. Dört genel şeklin üst tabanı
+  `A(120,34) B(270,34)`'e kaydırıldı — a=150, c=240, h=94, alan=18330, orta
+  taban=195,000, köşegen orta noktaları arası=45,000 ve yan üçgen alanları
+  4338,46 = 4338,46 **korundu**; yan kenarlar 95,189 ≠ 120,254 ve köşegenler
+  189,897 ≠ 243,846 oldu. item[4] ikizkenar şeklini korudu, ayrımı artık o
+  taşıyor.
+- `dortgen-dikdortgen` item[5]'te P noktası `BD` köşegenine **1,187 px**
+  uzaktaydı (∠DPB = 178,493°): `PD` ile `PB` tek bir düz kesikli çizgi gibi
+  okunuyor, dört parça yerine üç görünüyor ve "içindeki herhangi bir nokta"
+  köşegen üstündeki özel bir nokta gibi duruyordu. P `(104,74)`'e taşındı —
+  kırılma 43,22°, köşegenlere uzaklık 18,36 / 32,61 px, `PA²+PC² = PB²+PD² =
+  26832` birebir.
+- `dortgen-paralelkenar` item[3] notu "Ama eşit değildirler", `dortgen-eskenar`
+  item[1] notu "Eşit değildirler ama dik kesişirler" diyordu. İkisi de koşulsuz
+  yanlış: dikdörtgen bir paralelkenardır, kare bir eşkenar dörtgendir ve
+  ikisinde de köşegenler eşittir — dosya bunu `dortgen-dikdortgen` item[1] ve
+  `dortgen-kare` item[4]'te zaten söylüyordu, kart kendisiyle çelişiyordu.
+- `dortgen-muhtesem-dortlu` şekli **deltoid gibi okunuyordu** (`|AB|`/`|BC|`
+  %3,1, `|CD|`/`|DA|` %2,3 farklıydı — 320 px'te görünmez), bu da `a = b`,
+  `c = d` izlenimi verip `a²+c² = b²+d²` kuralını bariz kılıyordu. Dörtgen
+  `A(148,34) B(90,70) C(148,134) D(244,70)` oldu: kenarlar 68,264 / 86,371 /
+  115,378 / 102,528, `a²+c² = b²+d² = 17972` ve `a²=p²+q²` … `d²=s²+p²` birebir,
+  köşegenler 90,0000°.
+- `dortgen-acilar` item[3] ve item[4]'te genel dörtgen kuralları gözle yamuk
+  görünen şekiller üzerinde anlatılıyordu (AB ∥ DC sapması 0,228° ve 0,570°).
+  Sapmalar 10,873° ve 6,678°'e çıkarıldı; item[3]'te açıortay kesişimi
+  `P = (164,23 · 111,90)`, açı yarıları 66,13 = 66,13 ve 52,08 = 52,08,
+  `∠APB = (C+D)/2 = 61,788` korundu.
+- `dortgen-acilar` item[3] başlığı **"komşu köşe"** koşulunu söylemiyordu;
+  karşılıklı köşelerde aynı şekil üzerinde ölçülen sapma 67,4°.
+- `dortgen-yamuk` item[4]'te "köşegenler eşittir" deniyor ama köşegenlerde
+  çentik yoktu (çentik yalnız yan kenarlardaydı); iki köşegene çift çentik
+  eklendi. Şeklin geri kalanı baytı baytına aynı kaldı.
+- `dortgen-yamuk` item[5]'te `|a − c|/2` etiketini iki köşegen birden kesiyor,
+  eksi işareti kayboluyordu (item[1]'deki `(a + c)/2` ile karışma riski).
+  Etiket `|a−c|/2` olarak `(180, 99)`'a alındı — köşegenlere ~12 px açıklık.
+- `dortgen-muhtesem-dortlu` item[3] notu "P'den köşelere çizilen parçalar da dik
+  kesişen bir dörtgen oluşturur" diyordu; `PA, PB, PC, PD` dörtgen oluşturmuyor.
+  Not, item[1]'in zaten çizdiği mekanizmayla değiştirildi.
+- Kozmetikten yükseltilenler: `paralelkenar` item[4] formülü "taban · yükseklik"
+  yerine "Alan = a · h" (şekil zaten `a`/`h` etiketliyor), ve `S` alan anlamında
+  kullanıldığı üç maddeye "S = alan" notu.
+
+Şekiller yine parametrik üreteçten çıkarıldı; üretim sonrası ölçüm tekrarlandı
+ve 33 şeklin tamamı `js/svg.js` beyaz listesinden kayıpsız geçti, hiçbir
+koordinat ya da etiket kutusu viewBox dışına taşmadı.
+
+`data/formuller/` altındaki diğer konu dosyaları (`cember`, `sayilar`, `koklu`,
+`uslu`, `rasyonel`, `bolunebilme`, `ebob-ekok`) **henüz denetlenmedi**.
 
 ## Bilinen açık maddeler
 
@@ -129,6 +186,19 @@ Düzeltilmedi, kayıt için duruyor:
   etiketi D'deki kamanın dışında duruyor; `acilar-temel` kartı "doğrusal
   açılar" (item[3]) / "doğrusal açı" (item[9]) / "doğru açı" (item[7])
   ifadelerini üç ayrı anlamda kullanıyor.
+- `dortgenler.json` denetiminin KOZMETİK maddeleri de bırakıldı: `dortgen-eskenar`
+  item[3]'te `h` etiketi yükseklik doğrusuna değiyor; `dortgen-kare` item[0]'da
+  dik açı D'de ve bir 45° A'da (ikisi △ADC'de) ama ikinci 45° C'de CB–CA
+  arasında, yani △ABC'de — `a√2`'yi veren üçgenin kendi 45°'lerinden biri
+  işaretsiz; `dortgen-kare` item[5] "Köşegenler açıları 45°'ye böler" diyor
+  (gevşek ifade) ve iki köşegen de çizili olmasına rağmen yalnız A ve C açıları
+  işaretli; `dortgen-yamuk` item[3] başlığının "Köşegenlerin kesiştiği
+  noktadan:" kurgusu bozuk. (`dortgen-acilar` item[3]'teki parantez–açıortay
+  çakışması, şeklin yeniden çizilmesiyle kendiliğinden kalktı.)
+- `dortgen-muhtesem-dortlu` item[1]'de O çevresindeki dört dik açı karesi tek
+  bir kutu gibi okunuyor ve `p`/`r` etiketleri bu kutuya 5 px kalıyor. Eski
+  şekilde de aynı kurgu vardı; yeni dörtgende `AO` kısaldığı için biraz daha
+  sıkışık.
 - `ucgen-006` ile `ucgen-014` içerik olarak neredeyse aynı soru (ikisi de
   `ucgen-benzerlik`'te).
 - `ucgen-alan` formül kartının içeriği yeni adıyla ("Alan oranları") tam
