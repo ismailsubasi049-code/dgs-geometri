@@ -1,6 +1,6 @@
 # Durum
 
-**Son güncelleme:** 2026-08-27 · **sw.js VERSION:** `v31`
+**Son güncelleme:** 2026-08-28 · **sw.js VERSION:** `v32`
 
 ## Özet
 
@@ -167,8 +167,65 @@ bulguların ağırlığı **şekil seçiminde** — genel kuralı anlatan şekil
 ve 33 şeklin tamamı `js/svg.js` beyaz listesinden kayıpsız geçti, hiçbir
 koordinat ya da etiket kutusu viewBox dışına taşmadı.
 
-`data/formuller/` altındaki diğer konu dosyaları (`cember`, `sayilar`, `koklu`,
-`uslu`, `rasyonel`, `bolunebilme`, `ebob-ekok`) **henüz denetlenmedi**.
+**2026-08-28 · `data/formuller/cember.json`** (6 kart · 33 madde · 26 şekil)
+aynı yöntemle denetlendi. **Formül matematiği 33/33 doğru çıktı**; ağırlık yine
+şekil seçimindeydi. **2 KRİTİK + 17 ORTA + kozmetikten yükseltilen 1 metin
+bulgusu düzeltildi**, 18 şekil ve 2 madde metni değişti:
+
+- `cember-acilar` item[6] ("iç açı = gördüğü iki yayın toplamı / 2") şeklinde
+  **iki kiriş de çaptı** (|AC| = |BD| = 116 = 2r, ikisinin de orta noktası
+  (160, 80) = O): kesişim tam merkezdeydi, m = n = 90° ve x = 90° çıkıyordu,
+  yani kural aynı kartın item[0]'ındaki merkez açıya çöküyordu. Kirişler yeniden
+  çizildi — kesişim merkeze 26,74 px uzakta, |AC| = 114,24 ve |BD| = 109,01
+  (ikisi de çap değil), m = 100° · n = 40° · x = 70,000 = (m + n)/2.
+- `cember-kirisler-dortgeni` kartının **dört şekli de aynı dörtgeni** kullanıyordu
+  ve o dörtgen görsel olarak kareydi: açılar 87,5 / 92,5 / 92,5 / 87,5 (90°'den
+  sapma 2,50° — 80 px'lik kenarda 3,5 px, görünmez), köşegenler birebir eşit
+  (111,893) ve dik, AD ∥ BC. "A + C = 180°" kuralı "90 + 90" diye okunuyordu.
+  Tek köşe kümesi dördünü birden değiştirdi: `A(105,44 · 69,40)`
+  `B(157,07 · 137,92)` `C(206,97 · 112,50)` `D(204,72 · 48,30)` — açılar
+  65 / 100 / 115 / 80, kenar oranı 1,81, köşegenler 110,30 ≠ 101,50 ve
+  aralarında 85°, paralel kenar yok; `A + C = B + D = 180` ve Ptolemy
+  `e·f = a·c + b·d = 11195,40` birebir.
+- `cember-teget` item[4]'te Pitot (`a + c = b + d`) bir **ikizkenar yamukta**
+  gösteriliyordu (b = d = 100,00, x = 160'ta tam simetrik); kural görsel olarak
+  `a + c = 2b`'ye çöküyordu. Genel teğetler dörtgeni çizildi: iç teğet çember
+  (160, 86) r = 44, dört kenarın çembere uzaklığı 43,999–44,001, kenarlar
+  83,25 / 88,15 / 92,76 / 97,66, `a + c = b + d = 180,91`, iç açılar
+  75 / 110 / 80 / 95.
+- `cember-acilar` item[5]'te teğet-kiriş kaması (55°) dar olduğu için `α/2`
+  etiketini vurgulu yay kesiyor, `α` ile arasında 6 px kalıyordu — etiket taşımak
+  yetmiyordu. Yay 110° → 150° yapıldı (kama 75°, segment sagittası 43 px):
+  teğetin merkeze uzaklığı 58,000 = r, yarıçap–teğet 90,000°, teğet-kiriş açısı
+  75,000 = yay/2.
+- `cember-kirisler-dortgeni` item[3] başlığı "Aynı kenarı gören açılar eşittir"
+  diyordu — koşulsuz ve **aynı kartın item[0]'ı ile çelişiyor** (∠A ile ∠C de BD
+  köşegenini görür ama eşit değil, bütünlerdir). "Bir kenarı **aynı taraftan**
+  gören açılar eşittir" oldu, nota `∠ACB = ∠ADB` eklendi.
+- Ayrıca: `cember-yay` item[1] ve `cember-alan` item[1]'de `r` etiketi hiçbir
+  yarıçapın üstünde değildi (en yakınına 32 px, çemberin boşluğunda asılı) ve not
+  "α merkez açı" derken merkez `O` etiketsizdi; `cember-alan` item[3]'te "üçgen"
+  etiketi üçgenin dışında, merkez noktasının ve iki kesikli yarıçapın üstündeydi
+  (üçgen ikinci tonla tarandı, "segment" merceğin içine alındı, formülün üçüncü
+  terimi "dilim" eklendi); `cember-teget` item[2]'de açıortayın iki eşit parçası
+  işaretsizdi ve aynı yarıçaptaki iki yay tek yay gibi birleşiyordu (radyal çentik
+  eklendi); `cember-kirisler-dortgeni` item[4]'te `a`, `b`, `c`, `d` kenarların
+  değil **yayların** ortasındaydı ve dördünü de çember kesiyordu; item[0]'da açı
+  etiketleri köşelerinden 47 / 42 px uzakta, şeklin ortasında duruyordu; ve
+  `cember-acilar` item[2]/[3], `cember-kiris` item[1]/[2]/[3]/[4] ile
+  `cember-alan` item[4]'te etiket–çizgi çakışmaları.
+- Kozmetikten yükseltilen: `cember-alan` item[3] notuna segment formülünün koşulu
+  eklendi ("Kirişin kestiği küçük bölge — α < 180° için"); kural büyük segmentte
+  dilim + üçgen olur.
+
+Şekiller yine parametrik üreteçten çıkarıldı; etiketler bu turda boş alan arayan
+bir yerleştiriciyle konumlandırıldı (kutu ile her çizgi/yay/etiket arası en küçük
+açıklık ölçülüp en iyisi seçildi). Üretim sonrası ölçüm tekrarlandı ve 26 şeklin
+tamamı `js/svg.js` beyaz listesinden kayıpsız geçti, hiçbir koordinat ya da
+etiket kutusu viewBox dışına taşmadı.
+
+`data/formuller/` altındaki diğer konu dosyaları (`sayilar`, `koklu`, `uslu`,
+`rasyonel`, `bolunebilme`, `ebob-ekok`) **henüz denetlenmedi**.
 
 ## Bilinen açık maddeler
 
@@ -195,6 +252,14 @@ Düzeltilmedi, kayıt için duruyor:
   işaretli; `dortgen-yamuk` item[3] başlığının "Köşegenlerin kesiştiği
   noktadan:" kurgusu bozuk. (`dortgen-acilar` item[3]'teki parantez–açıortay
   çakışması, şeklin yeniden çizilmesiyle kendiliğinden kalktı.)
+- `cember.json` denetiminin KOZMETİK maddeleri de bırakıldı: `cember-teget`
+  item[3]'te `d` etiketinin üst çıkıntısı `PO` doğrusuna değiyor; `cember-alan`
+  item[4]'te küçük `r` etiketi hem iç çemberle hem kendi yarıçapının uç kapağıyla
+  çakışıyor (büyük `R` düzeltildi, küçüğü bırakıldı); `cember-kirisler-dortgeni`
+  item[3]'te `CD` kenarı çizilmiyor, oysa kartın diğer üç şekli dörtgeni çiziyor;
+  `cember-kiris` item[3] notu "En uzun kiriş çaptır" diyor ama şekilde çap yok;
+  `cember-alan` item[2] ("dilim = yay uzunluğu · r / 2") şekilsiz, oysa item[1]'in
+  şekli birebir uyarlanabilir.
 - `dortgen-muhtesem-dortlu` item[1]'de O çevresindeki dört dik açı karesi tek
   bir kutu gibi okunuyor ve `p`/`r` etiketleri bu kutuya 5 px kalıyor. Eski
   şekilde de aynı kurgu vardı; yeni dörtgende `AO` kısaldığı için biraz daha
