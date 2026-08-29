@@ -12,6 +12,7 @@
     { "id": "uslu", "title": "Üslü Sayılar", "branchId": "mat" },
     { "id": "koklu", "title": "Köklü Sayılar", "branchId": "mat" },
     { "id": "ozdeslikler", "title": "Çarpanlara Ayırma ve Özdeşlikler", "branchId": "mat" },
+    { "id": "oran-oranti", "title": "Oran ve Orantı", "branchId": "mat" },
     { "id": "acilar", "title": "Açılar", "branchId": "geo" },
     { "id": "ucgenler", "title": "Üçgenler", "branchId": "geo" },
     { "id": "dortgenler", "title": "Dörtgenler", "branchId": "geo" },

@@ -12,6 +12,7 @@
     { "topicId": "uslu", "branchId": "mat", "title": "Üslü Sayılar", "file": "uslu.json", "cardCount": 4 },
     { "topicId": "koklu", "branchId": "mat", "title": "Köklü Sayılar", "file": "koklu.json", "cardCount": 4 },
     { "topicId": "ozdeslikler", "branchId": "mat", "title": "Çarpanlara Ayırma ve Özdeşlikler", "file": "ozdeslikler.json", "cardCount": 4 },
+    { "topicId": "oran-oranti", "branchId": "mat", "title": "Oran ve Orantı", "file": "oran-oranti.json", "cardCount": 4 },
     { "topicId": "acilar", "branchId": "geo", "title": "Açılar", "file": "acilar.json", "cardCount": 3 },
     { "topicId": "ucgenler", "branchId": "geo", "title": "Üçgenler", "file": "ucgenler.json", "cardCount": 9 },
     { "topicId": "dortgenler", "branchId": "geo", "title": "Dörtgenler", "file": "dortgenler.json", "cardCount": 8 },

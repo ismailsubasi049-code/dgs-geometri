@@ -1,6 +1,6 @@
 # Durum
 
-**Son güncelleme:** 2026-08-29 · **sw.js VERSION:** `v34`
+**Son güncelleme:** 2026-08-29 · **sw.js VERSION:** `v35`
 
 ## Özet
 
@@ -333,6 +333,52 @@ Kalan tek gerilim: `uslu-kurallar` item[7]'deki koşulsuz
 `(a + b)ⁿ ≠ aⁿ + bⁿ` ifadesi, yeni kartın koşullu ifadesinin yanında gevşek
 kalıyor. Aşağıda Z3 olarak zaten kayıtlı; bu turda kapsam dışı bırakıldı.
 
+**2026-08-29 · `data/formuller/oran-oranti.json`** (yeni konu — 4 kart ·
+28 madde · 8 ipucu · 12 örnek · şekil yok) üretildi ve **aynı turda
+denetlendi**; ayrı denetim turu açılmadı. Matematik branşı 7 → 8 konu,
+30 → 34 formül kartı oldu.
+
+Kartlar: `oran-temel` (oran/orantı tanımı, içler dışlar çarpımı, sadeleştirme,
+birim şartı), `oranti-turleri` (doğru orantı = oran sabit, ters orantı =
+çarpım sabit, bileşik orantı, grafik), `oranti-ozellikleri` (`(a±b)/b`,
+toplam özelliği, ters çevirme/yer değiştirme, zincir orantı),
+`oranti-uygulama` (doğru/ters orantılı paylaştırma, karışım, ölçek, yüzde).
+
+Doğrulama — PowerShell tam sayı/kesir aritmetiğiyle (ondalık yok, tr-TR
+virgül tuzağı devre dışı; kesirler `[bigint]` pay-payda çiftleri olarak
+tutuldu, `[Math]::Abs` bigint'te aşırı yüklenme hatası verdiği için elle
+mutlak değer):
+
+- 12 örneğin 12'si ve notlardaki her sayısal iddia **81 ayrı kontrolle**
+  yeniden hesaplandı. **81/81 doğru.**
+- 14 orantı özelliği sembolik olarak sınandı: `a = k·b`, `c = k·d` konularak
+  `b, d ∈ [−5, 5]\{0}` ve `k = p/q` (`p ∈ [−5, 5]`, `q ∈ [1, 5]`) ızgarasında
+  iki taraflı karşılaştırma. **109.870 doğrulama noktası, 0 yanlış.** Koşul
+  dışı bırakılan noktalar ayrıca *gerçekten tanımsız mı* diye sınandı:
+  `b + d = 0` olan 550 nokta ve `k = 1` olan 500 nokta 0/0 verdi (bu yüzden
+  `b + d ≠ 0` ve `k ≠ 1` koşulları maddelere yazıldı).
+- Çakışma taraması: 12 formül dosyası · 60 kart · 177 alias — kart id,
+  `subtopicId` ve alias çakışması yok. `cardCount = 4` ile fiili kart sayısı
+  eşit, her kartta `subtopicId = card.id`. `topicId`/`title`/`branchId` üç
+  dosyada birebir aynı.
+- Uygulamada `#/formuller/mat/oran-oranti` açıldı: 4 kart, 28 madde,
+  ipuçları ve 12 çözümlü örnek render oldu, ana ekran "8 konu · 34 formül
+  kartı" gösteriyor, konsolda hata yok.
+
+Önleyici yazım: koşulsuz "≠" yok — dosyadaki 25 `≠` parçasının hepsi ya bir
+ön koşul (`b ≠ 0` gibi) ya da koşullu bir ifade; `a/b` ile `b/a` için eşitlik
+hâli (`a = b` veya `a = −b`) yazılı. Zincir "≠" gösterimi yok. Dejenere
+örnekleme yok: sadeleştirme gerektiren oran (`12/18`, `12/30`), birim tuzağı
+(`40 cm / 2 m`), tam bölünmeyen ters orantı (`b = 24/5`), üç paylı hem doğru
+hem ters orantılı paylaştırma, kesirli orantı sabitleri (`k = 5/6`, `3/2`,
+`7/4`). Doğru/ters orantı ayrımı ölçütle veriliyor ("oran mı sabit, çarpım mı
+sabit") ve `oranti-turleri` ornek[0]'da aynı senaryonun iki şıkkı hangisinin
+geçerli olduğunu ayırt ettiriyor; `oranti-uygulama`'da ters orantılı payların
+sayıların **tersleriyle** dağıtıldığı açıkça yazılı. Sembol sözleşmesi dört
+kartta aynı: orantı sabiti `k`, oranın terimleri `a`/`b`, orantı `a/b = c/d`,
+orantılanan sayı üçlüsü `x`, `y`, `z`, paylaştırılan toplam `T` (`a` ile
+çakışmasın diye büyük harf `A` kullanılmadı).
+
 ## Bilinen açık maddeler
 
 Düzeltilmedi, kayıt için duruyor:
@@ -392,6 +438,12 @@ Düzeltilmedi, kayıt için duruyor:
   `koklu-icice-siralama` item[4] "0 < a < 1 için sıralama ters döner" derken
   hangi sıralamanın döndüğünü söylemiyor — yalnız item[3] dönüyor, item[2]
   dönmüyor (Z7).
+- Konular arası sembol gerilimi (Z8): `rasyonel-tanim` item[4] sadeleştirmeyi
+  `(a·k)/(b·k) = a/b` diye yazıyor, yani `k` = ortak çarpan; `oran-oranti`'nin
+  dört kartında ise `k` = orantı sabiti ve ortak çarpan `m`. İki konu da kendi
+  içinde tutarlı, çelişki yok; bitişik konularda aynı harfin iki anlamı Z1 ile
+  aynı sınıftan bir kozmetik madde. `ozdeslik-uygulama`'daki `a + 1/a = k` de
+  üçüncü bir yerel anlam.
 - `ucgen-006` ile `ucgen-014` içerik olarak neredeyse aynı soru (ikisi de
   `ucgen-benzerlik`'te).
 - `ucgen-alan` formül kartının içeriği yeni adıyla ("Alan oranları") tam

@@ -1,0 +1,138 @@
+{
+  "topicId": "oran-oranti",
+  "title": "Oran ve Orantı",
+  "cards": [
+    {
+      "id": "oran-temel",
+      "subtopicId": "oran-temel",
+      "title": "Oran ve orantının temel özellikleri",
+      "aliases": ["Oran ve orantı", "İçler dışlar çarpımı", "Orantı sabiti"],
+      "items": [
+        { "formula": "Oran: a / b   (b ≠ 0),   a : b biçiminde de yazılır", "note": "Aynı türden iki çokluğun bölümüdür ve birimsizdir: 12 kg ile 18 kg'ın oranı 12/18 = 2/3'tür, sonuç kg değildir" },
+        { "formula": "Orantı: a / b = c / d   (b ≠ 0, d ≠ 0)", "note": "İki oranın eşitliğidir. a : b = c : d yazılışında a ile d dışlar, b ile c içlerdir" },
+        { "formula": "İçler dışlar çarpımı: a / b = c / d   ⇔   a · d = b · c   (b ≠ 0, d ≠ 0)", "note": "Paydalı denklemi kurtarmanın en kısa yolu: x/12 = 15/18 → 18 · x = 12 · 15 = 180 → x = 10" },
+        { "formula": "Orantı sabiti: a / b = k   (b ≠ 0)   ⇒   a = k · b", "note": "k tek bir sayıdır ve orantının her yerinde aynı kalır. Bu konunun dört kartında da orantı sabiti k ile gösterilir" },
+        { "formula": "Genişletme ve sadeleştirme: a / b = (m · a) / (m · b)   (b ≠ 0, m ≠ 0)", "note": "Pay ile payda EBOB'larına bölününce oran değişmeden sadeleşir: EBOB(12, 18) = 6 olduğu için 12/18 = 2/3" },
+        { "formula": "Birim şartı: oran alınmadan önce iki çokluk aynı birime çevrilir", "note": "40 cm'nin 2 m'ye oranı 40/2 = 20 değildir; 2 m = 200 cm olduğundan oran 40/200 = 1/5'tir" },
+        { "formula": "a / b ile b / a genelde aynı sayı değildir; eşitlik yalnız a = b veya a = −b iken sağlanır   (a ≠ 0, b ≠ 0)", "note": "3/5 ile 5/3 farklıdır; ama a = b = 4 iken ikisi de 1, a = 3 ve b = −3 iken ikisi de −1'dir. 'a'nın b'ye oranı' ile 'b'nin a'ya oranı' karıştırılmamalı" }
+      ],
+      "tips": [
+        "Oran sorusunda sıra şudur: önce birimleri eşitle, sonra EBOB ile sadeleştir. Birim eşitlenmeden yapılan sadeleştirme yanlış bir orandan başlar.",
+        "Her orantıda paydalar sıfırdan farklı olmak zorundadır; a/b = c/d yazıldığı anda b ≠ 0 ve d ≠ 0 kabul edilmiştir. İçler dışlar çarpımı da ancak bu koşulda geçerlidir."
+      ],
+      "examples": [
+        {
+          "stem": "Bir sınıfta 12 kız, 18 erkek öğrenci vardır. Kızların erkeklere oranı ile kızların sınıf mevcuduna oranı kaçtır?",
+          "solution": "Kızların erkeklere oranı: 12/18\nEBOB(12, 18) = 6\n12/18 = 2/3\n\nSınıf mevcudu: 12 + 18 = 30\nKızların mevcuda oranı: 12/30\nEBOB(12, 30) = 6\n12/30 = 2/5"
+        },
+        {
+          "stem": "40 cm'nin 2 m'ye oranı kaçtır?",
+          "solution": "Birimler farklı, önce eşitlenir.\n2 m = 200 cm\nOran = 40/200\nEBOB(40, 200) = 40\n= 1/5"
+        },
+        {
+          "stem": "x / 12 = 15 / 18 orantısında x kaçtır?",
+          "solution": "İçler dışlar çarpımı:\n18 · x = 12 · 15\n18 · x = 180\nx = 10\n\nKontrol: 10/12 = 5/6 ve 15/18 = 5/6, orantı sabiti k = 5/6"
+        }
+      ]
+    },
+    {
+      "id": "oranti-turleri",
+      "subtopicId": "oranti-turleri",
+      "title": "Doğru ve ters orantı",
+      "aliases": ["Doğru orantı", "Ters orantı", "Bileşik orantı"],
+      "items": [
+        { "formula": "Doğru orantı: a ile b doğru orantılı   ⇔   a / b = k sabit   ⇔   a = k · b   (b ≠ 0, k ≠ 0)", "note": "Ölçüt ORANIN sabit kalmasıdır; 'biri artarken diğeri de artıyor' demek yetmez" },
+        { "formula": "Ters orantı: a ile b ters orantılı   ⇔   a · b = k sabit   ⇔   a = k / b   (a ≠ 0, b ≠ 0, k ≠ 0)", "note": "Ölçüt ÇARPIMIN sabit kalmasıdır. Ters orantıda hiçbir değişken 0 olamaz, çünkü çarpımları k ve k ≠ 0'dır" },
+        { "formula": "Ayırt etme ölçütü: değer çiftlerinde oran mı sabit, çarpım mı sabit diye bakılır", "note": "(2, 6) ve (3, 9): oranlar 2/6 = 1/3 ve 3/9 = 1/3, sabit → doğru orantı. (2, 6) ve (3, 4): çarpımlar 2 · 6 = 12 ve 3 · 4 = 12, sabit → ters orantı. (1, 10) ve (2, 9): oranlar 1/10 ile 2/9, çarpımlar 10 ile 18 — ikisi de tutmuyor; biri artarken diğeri azaldığı hâlde ters orantı yoktur" },
+        { "formula": "İki değer çifti ile: doğru orantıda a₁ / b₁ = a₂ / b₂,   ters orantıda a₁ · b₁ = a₂ · b₂", "note": "Soruların çoğu tek bilinmeyenli bu iki denklemden birine iner" },
+        { "formula": "Katlar: doğru orantıda b, m katına çıkarsa a da m katına çıkar; ters orantıda b, m katına çıkarsa a, 1/m katına iner   (m ≠ 0)", "note": "Ters orantıda 6 işçi, 4 işçinin 3/2 katıdır; o hâlde süre 2/3 katına iner: 15 · 2/3 = 10 gün" },
+        { "formula": "Bileşik orantı: a, b ile doğru ve c ile ters orantılı ise   a · c / b = k sabit   ⇒   a = k · b / c   (b ≠ 0, c ≠ 0)", "note": "Doğru orantılı büyüklükler paya, ters orantılı olanlar paydaya yazılır" },
+        { "formula": "Grafik: a = k · b bağıntısının grafiği orijinden geçen bir doğrudur; a · b = k bağıntısının grafiği ise eksenlere yaklaşan ama onları kesmeyen bir hiperboldür", "note": "a = k · b biçimi b = 0 için de anlamlıdır ve a = 0 verir; oran biçimi a/b = k ancak b ≠ 0 iken yazılabilir. Ters orantıda çarpım k ≠ 0 olduğu için ne a ne b sıfır olabilir, bu yüzden grafik eksenleri kesmez" }
+      ],
+      "tips": [
+        "Ayırt etmenin tek güvenilir yolu: iki değer çifti al, önce oranlarını karşılaştır (eşitse doğru orantı), sonra çarpımlarını karşılaştır (eşitse ters orantı). Hiçbiri sabit değilse ilişki ne doğru ne ters orantıdır — 'artıyor / azalıyor' gözlemi tek başına karar verdirmez.",
+        "Problem kalıbı çoğu zaman şudur: işçi sayısı ile süre ters, iş miktarı ile süre doğru orantılıdır. Aynı problemde iki ilişki birlikte geçebilir; her adımda neyin sabit tutulduğunu yaz."
+      ],
+      "examples": [
+        {
+          "stem": "Aynı hızda çalışan 4 işçi bir işi 15 günde bitiriyor. (a) Aynı işi 6 işçi kaç günde bitirir? (b) 4 işçi, bu işin 2 katı büyüklükteki bir işi kaç günde bitirir?",
+          "solution": "(a) İşçi sayısı ile süre TERS orantılıdır: işçi · gün = k sabit (toplam işçi-gün).\n4 · 15 = 60\n6 · t = 60\nt = 10 gün\n\n(b) İş miktarı ile süre DOĞRU orantılıdır: gün / iş = k sabit (işçi sayısı değişmiyor).\n15 / 1 = t / 2\nt = 30 gün\n\nAynı senaryoda sabit kalan ölçüt değişti: (a)'da çarpım, (b)'de oran."
+        },
+        {
+          "stem": "a ile b ters orantılıdır. a = 8 iken b = 3'tür. a = 5 iken b kaçtır?",
+          "solution": "Ters orantıda çarpım sabittir:\nk = 8 · 3 = 24\n5 · b = 24\nb = 24/5\n\nKontrol: 5 · 24/5 = 24, çarpım korundu."
+        },
+        {
+          "stem": "5 musluk 8 saatte 60 m³ su akıtıyor. Aynı musluklardan 3'ü 6 saatte kaç m³ su akıtır?",
+          "solution": "Su miktarı, musluk sayısı ile de süre ile de DOĞRU orantılıdır (bileşik orantı):\nsu / (musluk · saat) = k sabit\nk = 60 / (5 · 8) = 60/40 = 3/2\n\n3 musluk · 6 saat = 18\nsu = 18 · 3/2 = 27 m³"
+        }
+      ]
+    },
+    {
+      "id": "oranti-ozellikleri",
+      "subtopicId": "oranti-ozellikleri",
+      "title": "Orantı özellikleri ve zincir orantı",
+      "aliases": ["Orantı özellikleri", "Zincir orantı"],
+      "items": [
+        { "formula": "Aşağıdaki maddelerde   a / b = c / d = k   (b ≠ 0, d ≠ 0)   kabul edilmiştir", "note": "Bütün özellikler a = k · b ve c = k · d yazılıp yerine konarak çıkar; ezberlemek yerine bu iki eşitlikten türetmek daha güvenlidir" },
+        { "formula": "(a + b) / b = (c + d) / d = k + 1", "note": "Paya payda eklenir, payda aynı kalır: a/b = 7/4 iken (a + b)/b = 11/4" },
+        { "formula": "(a − b) / b = (c − d) / d = k − 1", "note": "a/b = 7/4 iken (a − b)/b = 3/4. k = 1 olduğunda bu değer 0 çıkar, tanımsız olmaz" },
+        { "formula": "Toplam özelliği: (a + c) / (b + d) = k   (b + d ≠ 0)", "note": "Paylar ve paydalar ayrı ayrı toplanır, oran değişmez. b + d ≠ 0 koşulu şarttır: b = 2, d = −2 ve k = 3 iken a + c = 6 + (−6) = 0 ve b + d = 0 olur, ifade 0/0 biçiminde tanımsız kalır" },
+        { "formula": "Ters çevirme: b / a = d / c = 1 / k   (a ≠ 0, c ≠ 0);   yer değiştirme: a / c = b / d   (c ≠ 0, d ≠ 0)", "note": "Ters çevirmede a ≠ 0 olması k ≠ 0 demektir. Yer değiştirmede dışlar kendi arasında, içler kendi arasında kalır" },
+        { "formula": "(a + b) / (a − b) = (c + d) / (c − d) = (k + 1) / (k − 1),   a ≠ b ve c ≠ d olmak koşuluyla (yani k ≠ 1)", "note": "k = 1 olsaydı paydalar a − b = 0 ve c − d = 0 olur, ifade tanımsız kalırdı" },
+        { "formula": "Zincir orantı: a / x = b / y = c / z = k   (x ≠ 0, y ≠ 0, z ≠ 0)   ⇒   a = k · x,   b = k · y,   c = k · z   ve   (a + b + c) / (x + y + z) = k   (x + y + z ≠ 0)", "note": "Üç ve daha çok terimli orantılarda hızlı yol: bütün terimleri tek bir k cinsinden yaz, verilen toplamı k ile çöz" }
+      ],
+      "tips": [
+        "Zincir orantı sorusunda önce k'yı bul: verilen toplam, paydaların toplamına bölünür. a/2 = b/5 = c/7 ve a + b + c = 84 ise k = 84/(2 + 5 + 7) = 6'dır; kalan her terim tek çarpma ile çıkar.",
+        "Toplam özelliğini kullanmadan önce payda toplamının sıfır olmadığını kontrol et. Paydalar aynı işaretliyse (DGS sorularının çoğunda pozitif tam sayı) bu koşul kendiliğinden sağlanır."
+      ],
+      "examples": [
+        {
+          "stem": "a / b = 7 / 4 ise (a + b) / b ve (a − b) / b kaçtır?",
+          "solution": "k = a/b = 7/4\n(a + b)/b = k + 1 = 7/4 + 4/4 = 11/4\n(a − b)/b = k − 1 = 7/4 − 4/4 = 3/4\n\nKontrol: a = 7, b = 4 alınırsa (7 + 4)/4 = 11/4 ve (7 − 4)/4 = 3/4"
+        },
+        {
+          "stem": "a / 2 = b / 5 = c / 7 ve a + b + c = 84 ise b kaçtır?",
+          "solution": "Zincir orantı: a = 2k, b = 5k, c = 7k\na + b + c = (2 + 5 + 7) · k = 14k\n14k = 84\nk = 6\nb = 5 · 6 = 30\n\nKontrol: a = 12, b = 30, c = 42 ve 12 + 30 + 42 = 84"
+        },
+        {
+          "stem": "a / b = c / d = 3 / 5 ve a + c = 27 ise b + d kaçtır? (b + d ≠ 0)",
+          "solution": "Toplam özelliği: (a + c)/(b + d) = 3/5\n27 / (b + d) = 3/5\nİçler dışlar çarpımı: 3 · (b + d) = 27 · 5 = 135\nb + d = 45\n\nKontrol: a = 3m, b = 5m ve c = 3n, d = 5n olsun. a + c = 3(m + n) = 27 → m + n = 9, o hâlde b + d = 5 · 9 = 45"
+        }
+      ]
+    },
+    {
+      "id": "oranti-uygulama",
+      "subtopicId": "oranti-uygulama",
+      "title": "Orantı uygulamaları",
+      "aliases": ["Orantılı paylaştırma", "Karışım oranı", "Ölçek"],
+      "items": [
+        { "formula": "Doğru orantılı paylaştırma: T toplamı x : y : z ile doğru orantılı bölünürse   k = T / (x + y + z)   ve paylar   k · x,   k · y,   k · z   (x + y + z ≠ 0)", "note": "Payların toplamı yeniden T eder; sonucu doğrulamanın en kolay yolu budur" },
+        { "formula": "Ters orantılı paylaştırma: paylar sayıların KENDİSİYLE değil, TERSLERİYLE doğru orantılıdır — T toplamı x, y, z ile ters orantılı bölünürse paylar 1/x : 1/y : 1/z ile doğru orantılıdır   (x ≠ 0, y ≠ 0, z ≠ 0)", "note": "En sık yapılan hata T'yi doğrudan x : y : z ile bölmektir; pozitif sayılarla ters orantılı paylaştırmada büyük sayıya küçük pay düşer" },
+        { "formula": "Terslerin tam sayıya çevrilmesi: 1/x : 1/y : 1/z = y·z : x·z : x·y", "note": "Paydaların EKOK'u ile genişletmek de aynı sonucu verir: 1/2 : 1/3 : 1/4 oranı 12 ile genişletilince 6 : 4 : 3 olur. İki terimde kestirme daha kısadır: 1/x : 1/y = y : x" },
+        { "formula": "Karışım oranı: bir bileşenin oranı = bileşen miktarı / toplam miktar; iki karışım birleşince MİKTARLAR toplanır, oranlar toplanmaz", "note": "%20'lik ile %50'lik iki çözelti karıştırılınca sonuç ancak miktarlar eşitse %35 olur; miktarlar farklıysa oran, miktarı çok olan tarafa kayar" },
+        { "formula": "Ölçek = harita uzunluğu / gerçek uzunluk   (iki uzunluk aynı birimde);   ölçek 1/n ise gerçek uzunluk = harita uzunluğu · n", "note": "Uzunluklar n katına çıkarken alanlar n² katına çıkar: 1/1000 ölçekli planda 1 cm² olan bir bölge gerçekte 1000² = 1 000 000 cm²'dir" },
+        { "formula": "Yüzde ile oran: %p = p / 100;   a / b = p / 100   ⇒   a = b · p / 100   (b ≠ 0)", "note": "Bir çokluk %m artarsa yeni değerin eskiye oranı (100 + m)/100, %m azalırsa (100 − m)/100 olur" },
+        { "formula": "Oranla verilen iki çokluk: a / b = x / y   (b ≠ 0, y ≠ 0)   ⇒   a = x · k,   b = y · k;   toplamları (x + y) · k,   farkları (x − y) · k", "note": "Bu, yukarıdaki doğru orantılı paylaştırmanın iki terimli hâlidir. Toplam ya da fark verildiğinde k tek adımda bulunur: a/b = 3/5 ve a + b = 40 ise 8k = 40, k = 5, buradan a = 15 ve b = 25" }
+      ],
+      "tips": [
+        "Ters orantılı paylaştırma iki adımlıdır: önce sayıların terslerini al, sonra o tersleri tam sayıya çevirip (1/x : 1/y : 1/z = y·z : x·z : x·y) doğru orantılı paylaştırma yap. Sayıları doğrudan pay olarak kullanmak doğru orantılı paylaştırma olur ve cevabı ters çevirir.",
+        "Karışım ve yüzde sorularında oranla değil miktarla çalış: bileşen miktarını ve toplam miktarı ayrı ayrı yaz, ekleme veya çıkarmayı miktarlar üzerinde yap, oranı en sonda hesapla."
+      ],
+      "examples": [
+        {
+          "stem": "540 TL, 2 : 3 : 4 ile doğru orantılı olarak üç kişiye paylaştırılıyor. En büyük pay kaç TL'dir?",
+          "solution": "Paylar 2k, 3k, 4k olsun.\n2k + 3k + 4k = 9k = 540\nk = 60\nPaylar: 2 · 60 = 120,  3 · 60 = 180,  4 · 60 = 240\nEn büyük pay 240 TL\n\nKontrol: 120 + 180 + 240 = 540"
+        },
+        {
+          "stem": "780 TL, 2, 3 ve 4 sayıları ile TERS orantılı olarak üç kişiye paylaştırılıyor. Paylar kaçar TL'dir?",
+          "solution": "Ters orantıda paylar sayıların tersleriyle doğru orantılıdır:\n1/2 : 1/3 : 1/4\nEKOK(2, 3, 4) = 12 ile genişlet:\n6 : 4 : 3\n6k + 4k + 3k = 13k = 780\nk = 60\nPaylar: 360, 240, 180\n\nKontrol: 360 + 240 + 180 = 780 ve 360 · 2 = 240 · 3 = 180 · 4 = 720 — pay ile sayının çarpımı sabit, ters orantı sağlanıyor."
+        },
+        {
+          "stem": "40 litrelik bir karışımın %35'i alkoldür. Karışıma 10 litre su eklenirse alkol oranı yüzde kaç olur?",
+          "solution": "Alkol miktarı: 40 · 35/100 = 14 litre\nSu eklenince alkol miktarı değişmez, toplam artar:\nYeni toplam = 40 + 10 = 50 litre\nYeni oran = 14/50 = 7/25\n7/25 = 28/100 = %28"
+        }
+      ]
+    }
+  ]
+}
