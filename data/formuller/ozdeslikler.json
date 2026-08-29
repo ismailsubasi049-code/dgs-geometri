@@ -6,7 +6,7 @@
       "id": "ozdeslik-temel",
       "subtopicId": "ozdeslik-temel",
       "title": "Temel özdeşlikler",
-      "aliases": ["Özdeşlikler", "Tam kare özdeşliği", "İki kare farkı"],
+      "aliases": ["Özdeşlikler", "Tam kare özdeşliği", "İki kare farkı", "Tam kare açılımı", "İki kare farkıyla ayırma", "Sayısal işlemde özdeşlik", "Üç terimli tam kare"],
       "items": [
         { "formula": "(a + b)² = a² + 2ab + b²", "note": "Orta terim 2ab: iki terimin çarpımının iki katı" },
         { "formula": "(a − b)² = a² − 2ab + b²", "note": "Yalnız orta terimin işareti değişir; b² her hâlde pozitiftir" },
@@ -39,7 +39,7 @@
       "id": "ozdeslik-kup",
       "subtopicId": "ozdeslik-kup",
       "title": "Küp özdeşlikleri",
-      "aliases": ["Küp özdeşlikleri", "Küplerin toplamı", "Küplerin farkı"],
+      "aliases": ["Küp özdeşlikleri", "Küplerin toplamı", "Küplerin farkı", "Küpler toplamı ve farkı", "Küp açılımı", "a + 1/a kalıbında küpler"],
       "items": [
         { "formula": "(a + b)³ = a³ + 3a²b + 3ab² + b³", "note": "Ortadaki iki terimin katsayısı 3'tür" },
         { "formula": "(a − b)³ = a³ − 3a²b + 3ab² − b³", "note": "İşaretler sırayla +, −, +, − gider" },
@@ -72,7 +72,7 @@
       "id": "carpanlara-ayirma",
       "subtopicId": "carpanlara-ayirma",
       "title": "Çarpanlara ayırma yöntemleri",
-      "aliases": ["Çarpanlara ayırma", "Ortak çarpan parantezi", "Gruplandırma"],
+      "aliases": ["Çarpanlara ayırma", "Ortak çarpan parantezi", "Gruplandırma", "x² + bx + c ayırma", "ax² + bx + c ayırma", "Ortak çarpan ve gruplandırma"],
       "items": [
         { "formula": "Ortak çarpan parantezine alma: ax + ay = a(x + y)", "note": "Katsayılarda EBOB, ortak harflerde en küçük üs alınır: 6x³ − 9x² = 3x²(2x − 3)" },
         { "formula": "Gruplandırma: ax + ay + bx + by = a(x + y) + b(x + y) = (a + b)(x + y)", "note": "Dört terimde ikişerli gruplardan aynı parantez çıkıyorsa uygulanır" },
@@ -105,7 +105,7 @@
       "id": "ozdeslik-uygulama",
       "subtopicId": "ozdeslik-uygulama",
       "title": "Özdeşlik uygulamaları",
-      "aliases": ["Özdeşlik uygulamaları", "Simetrik ifadeler", "a + 1/a kalıbı"],
+      "aliases": ["Özdeşlik uygulamaları", "Simetrik ifadeler", "a + 1/a kalıbı", "Toplam ve çarpımdan kareler toplamı", "Toplam ve çarpımdan fark", "a + 1/a kalıbında kareler"],
       "items": [
         { "formula": "x² + y² = (x + y)² − 2xy", "note": "x + y = 7 ve xy = 10 için 49 − 20 = 29" },
         { "formula": "x³ + y³ = (x + y)³ − 3xy(x + y)" },

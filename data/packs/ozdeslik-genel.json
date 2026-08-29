@@ -1,0 +1,210 @@
+{
+  "id": "ozdeslik-genel",
+  "topicId": "ozdeslikler",
+  "topic": "Çarpanlara Ayırma ve Özdeşlikler",
+  "subtopicId": "ozdeslik-genel",
+  "subtopic": "Genel özdeşlik soruları",
+  "version": 1,
+  "questions": [
+    {
+      "id": "ozdeslik-01",
+      "label": "Tam kare açılımı",
+      "difficulty": 1,
+      "stem": "(3x − 4y)² ifadesinin açılımı aşağıdakilerden hangisidir?",
+      "asks": "İki terimli bir farkın karesi isteniyor. Tam kare açılımı üç terimlidir; orta terim 2ab olduğu için katsayı ikiyle çarpılır ve son terim, ifadede çıkarma olsa bile artı kalır.",
+      "choices": ["9x² − 24xy + 16y²", "9x² + 16y²", "9x² − 12xy + 16y²", "9x² − 24xy − 16y²", "3x² − 24xy + 16y²"],
+      "answer": 0,
+      "solution": "(a − b)² = a² − 2ab + b², a = 3x ve b = 4y\n(3x)² = 9x²\n2 · 3x · 4y = 24xy, işareti eksi\n(4y)² = 16y², işareti artı\nSonuç: 9x² − 24xy + 16y²\n(Sık yapılan hata 1: orta terimi unutup 9x² + 16y² yazmak; iki ifade arasındaki fark tam olarak 2ab kadardır.\nSık yapılan hata 2: orta terimde 2 katsayısını unutup 12xy yazmak.\nSık yapılan hata 3: eksi işaretini son terime de taşıyıp −16y² yazmak; b² her hâlde artıdır.\nSık yapılan hata 4: 3x'in karesini alırken katsayıyı kareye almayıp 3x² yazmak.)"
+    },
+    {
+      "id": "ozdeslik-02",
+      "label": "İki kare farkıyla ayırma",
+      "difficulty": 1,
+      "stem": "49x² − 36y² ifadesinin çarpanlarına ayrılmış biçimi aşağıdakilerden hangisidir?",
+      "asks": "İki terimli bir farkın çarpanları isteniyor. Terimlerin ikisi de tam kare ve aralarında çıkarma var; bu bir tam kare açılımı değil, iki kare farkıdır.",
+      "choices": ["(7x + 6y)²", "(7x − 6y)(7x + 6y)", "(7x − 6y)²", "(49x − 36y)(49x + 36y)", "(7x² − 6y²)(7x² + 6y²)"],
+      "answer": 1,
+      "solution": "49x² = (7x)² ve 36y² = (6y)²\na² − b² = (a − b)(a + b), a = 7x ve b = 6y\nSonuç: (7x − 6y)(7x + 6y)\n(Sık yapılan hata 1: ifadeyi tam kare sanıp (7x − 6y)² yazmak; tam karenin açılımında orta terim bulunur, burada yoktur.\nSık yapılan hata 2: işareti karıştırıp (7x + 6y)² yazmak.\nSık yapılan hata 3: katsayıların karekökünü almadan (49x − 36y)(49x + 36y) yazmak.\nSık yapılan hata 4: x² ile y²'yi olduğu gibi bırakıp (7x² − 6y²)(7x² + 6y²) yazmak.)"
+    },
+    {
+      "id": "ozdeslik-03",
+      "label": "x² + bx + c ayırma",
+      "difficulty": 1,
+      "stem": "x² − 2x − 35 ifadesinin çarpanlarına ayrılmış biçimi aşağıdakilerden hangisidir?",
+      "asks": "Baş katsayısı 1 olan üç terimlinin çarpanları isteniyor. Çarpımı sabit terime (−35), toplamı orta terim katsayısına (−2) eşit iki sayı aranır; iki koşulun da sağlanması gerekir.",
+      "choices": ["(x + 7)(x − 5)", "(x − 7)(x − 5)", "(x − 7)(x + 5)", "(x + 7)(x + 5)", "(x − 35)(x + 1)"],
+      "answer": 2,
+      "solution": "Çarpımı −35, toplamı −2 olan iki sayı aranır.\nSabit terim negatif olduğu için sayılar zıt işaretlidir.\n−7 · 5 = −35 ve −7 + 5 = −2\nSonuç: (x − 7)(x + 5)\nKontrol: x² + 5x − 7x − 35 = x² − 2x − 35\n(Sık yapılan hata 1: işaretleri ters kurup (x + 7)(x − 5) yazmak; bu ifade x² + 2x − 35 verir.\nSık yapılan hata 2: sabit terim negatifken sayıları aynı işaretli seçip (x − 7)(x − 5) yazmak; bu ifade x² − 12x + 35 verir.\nSık yapılan hata 3: (x + 7)(x + 5) yazmak; ne toplam ne çarpım tutar.\nSık yapılan hata 4: yalnız çarpımı tutturup toplamı kontrol etmeden (x − 35)(x + 1) yazmak; toplamı −34'tür.)"
+    },
+    {
+      "id": "ozdeslik-04",
+      "label": "Toplam ve çarpımdan kareler toplamı",
+      "difficulty": 2,
+      "stem": "x ve y gerçek sayıları için x² + 2xy + y² = 64 ve x · y = 15 olduğuna göre x² + y² kaçtır?",
+      "asks": "Kareler toplamı isteniyor. Verilen ilk eşitlik aslında (x + y)² = 64'tür; kareler toplamına oradan inilirken çarpımın kendisi değil iki katı çıkarılır.",
+      "choices": ["49", "94", "4", "34", "64"],
+      "answer": 3,
+      "solution": "x² + 2xy + y² = (x + y)² olduğundan (x + y)² = 64\nx² + y² = (x + y)² − 2xy\n= 64 − 2 · 15\n= 64 − 30\nx² + y² = 34\n(Sık yapılan hata 1: 2xy yerine xy çıkarıp 64 − 15 = 49 bulmak.\nSık yapılan hata 2: işareti ters alıp 64 + 30 = 94 bulmak.\nSık yapılan hata 3: (x − y)² = 64 − 4 · 15 = 4 ara değerini cevap sanmak.\nSık yapılan hata 4: verilen 64'ü doğrudan işaretlemek.)"
+    },
+    {
+      "id": "ozdeslik-05",
+      "label": "Toplam ve çarpımdan fark",
+      "difficulty": 2,
+      "stem": "a + b = 9 ve a · b = 14 olduğuna göre (a − b)² kaçtır?",
+      "asks": "Farkın karesi isteniyor. (a − b)² = (a + b)² − 4ab bağıntısında çarpımın dört katı çıkarılır; kareler toplamındaki 2ab ile karıştırılmamalı.",
+      "choices": ["53", "137", "5", "67", "25"],
+      "answer": 4,
+      "solution": "(a − b)² = (a + b)² − 4ab\n= 9² − 4 · 14\n= 81 − 56\n(a − b)² = 25\n(Sık yapılan hata 1: 4ab yerine 2ab çıkarıp 81 − 28 = 53 bulmak; o değer a² + b²'dir.\nSık yapılan hata 2: bir adım fazla gidip karekök alarak 5 yazmak; soru karenin kendisini istiyor.\nSık yapılan hata 3: işareti ters alıp 81 + 56 = 137 bulmak.\nSık yapılan hata 4: 4ab yerine ab çıkarıp 81 − 14 = 67 bulmak.)"
+    },
+    {
+      "id": "ozdeslik-06",
+      "label": "Küpler toplamı ve farkı",
+      "difficulty": 2,
+      "stem": "x − y = 4 ve x · y = 6 olduğuna göre x³ − y³ kaçtır?",
+      "asks": "Küplerin farkı isteniyor. (x − y)³ ile x³ − y³ aynı şey değildir; aralarında 3xy(x − y) kadar fark vardır.",
+      "choices": ["64", "136", "88", "−8", "28"],
+      "answer": 1,
+      "solution": "x³ − y³ = (x − y)³ + 3xy(x − y)\n= 4³ + 3 · 6 · 4\n= 64 + 72\nx³ − y³ = 136\nKontrol: x² + y² = (x − y)² + 2xy = 16 + 12 = 28\n(x − y)(x² + xy + y²) = 4 · (28 + 6) = 4 · 34 = 136\n(Sık yapılan hata 1: (x − y)³ = 64 değerini cevap sanmak; küplerin farkı ile farkın küpü karıştırılmış olur.\nSık yapılan hata 2: 3xy(x − y) terimini eksi alıp 64 − 72 = −8 bulmak.\nSık yapılan hata 3: (x − y)(x² + xy + y²) ayrışmasında orta terimi eksi kullanıp 4 · (28 − 6) = 88 bulmak.\nSık yapılan hata 4: ara değer x² + y² = 28'i işaretlemek.)"
+    },
+    {
+      "id": "ozdeslik-07",
+      "label": "Küp açılımı",
+      "difficulty": 2,
+      "stem": "(3x + 2)³ ifadesinin açılımında x²'li terimin katsayısı kaçtır?",
+      "asks": "Açılımın tamamı değil, yalnız x²'li terimin katsayısı isteniyor. (a + b)³ açılımında bu terim 3a²b'dir; hem 3 katsayısı hem de a'nın karesi hesaba katılmalı.",
+      "choices": ["54", "36", "27", "18", "8"],
+      "answer": 0,
+      "solution": "(a + b)³ = a³ + 3a²b + 3ab² + b³, a = 3x ve b = 2\nx²'li terim 3a²b'dir:\n3 · (3x)² · 2 = 3 · 9x² · 2 = 54x²\nAçılımın tamamı: 27x³ + 54x² + 36x + 8\nx²'li terimin katsayısı: 54\n(Sık yapılan hata 1: x'li terimin katsayısı olan 36'yı işaretlemek.\nSık yapılan hata 2: 3 katsayısını unutup 9 · 2 = 18 bulmak.\nSık yapılan hata 3: x³'ün katsayısı olan 27'yi işaretlemek.\nSık yapılan hata 4: sabit terim 8'i işaretlemek.)"
+    },
+    {
+      "id": "ozdeslik-08",
+      "label": "a + 1/a kalıbında kareler",
+      "difficulty": 2,
+      "stem": "a ≠ 0 olmak üzere a − 1/a = 5 olduğuna göre a² + 1/a² kaçtır?",
+      "asks": "Kareler toplamı isteniyor. Verilen fark olduğu için karesi alınınca orta terim −2 çıkar ve karşı tarafa +2 olarak geçer; toplam verilseydi işaret ters olurdu.",
+      "choices": ["23", "25", "27", "140", "7"],
+      "answer": 2,
+      "solution": "(a − 1/a)² = a² − 2 · a · (1/a) + 1/a² = a² + 1/a² − 2\n5² = a² + 1/a² − 2\n25 = a² + 1/a² − 2\na² + 1/a² = 27\n(Sık yapılan hata 1: toplam kalıbının formülünü kullanıp 5² − 2 = 23 bulmak; verilen fark olduğu için işaret +2'dir.\nSık yapılan hata 2: kareyi alırken orta terimi hiç yazmayıp 25 demek.\nSık yapılan hata 3: küp kalıbına kayıp 5³ + 3 · 5 = 140 bulmak; o değer a³ − 1/a³'tür.\nSık yapılan hata 4: kare almadan 5 + 2 = 7 bulmak.)"
+    },
+    {
+      "id": "ozdeslik-09",
+      "label": "Sayısal işlemde özdeşlik",
+      "difficulty": 2,
+      "stem": "97 · 103 + 9 işleminin sonucu kaçtır?",
+      "asks": "Sayısal bir sonuç isteniyor ama çarpımı doğrudan yapmak gerekmiyor: 97 ile 103, 100'ün 3 eksiği ve 3 fazlasıdır; çarpımları iki kare farkıdır.",
+      "choices": ["9991", "10009", "10018", "9982", "10000"],
+      "answer": 4,
+      "solution": "97 · 103 = (100 − 3)(100 + 3)\n(a − b)(a + b) = a² − b²\n= 100² − 3² = 10000 − 9 = 9991\n9991 + 9 = 10000\nSonuç: 10000\n(Sık yapılan hata 1: ara değer 9991'i işaretleyip + 9 adımını unutmak.\nSık yapılan hata 2: iki kare farkı yerine toplam kurup 10000 + 9 = 10009 bulmak.\nSık yapılan hata 3: aynı işaret hatasının üstüne 9'u da eklemek: 10009 + 9 = 10018.\nSık yapılan hata 4: 9'u eklemek yerine çıkarıp 9982 bulmak.)"
+    },
+    {
+      "id": "ozdeslik-10",
+      "label": "Ortak çarpan ve gruplandırma",
+      "difficulty": 2,
+      "stem": "2x³ + 3x² − 8x − 12 ifadesinin tam olarak çarpanlarına ayrılmış biçimi aşağıdakilerden hangisidir?",
+      "asks": "Dört terimli ifadenin tam çarpanları isteniyor. Gruplandırma yalnızca ilk adımdır; ortaya çıkan ikinci parantez de ayrılabiliyorsa ayırma yarım bırakılmamalı.",
+      "choices": ["(2x + 3)(x² − 4)", "(2x + 3)(x − 2)²", "(2x − 3)(x − 2)(x + 2)", "(2x + 3)(x − 2)(x + 2)", "(2x + 3)(x² + 4)"],
+      "answer": 3,
+      "solution": "Dört terim ikişerli gruplanır:\n(2x³ + 3x²) + (−8x − 12)\n= x²(2x + 3) − 4(2x + 3)\n= (2x + 3)(x² − 4)\nx² − 4 iki kare farkıdır:\n= (2x + 3)(x − 2)(x + 2)\n(Sık yapılan hata 1: (2x + 3)(x² − 4) ara değerinde durmak; x² − 4 hâlâ ayrılabilir.\nSık yapılan hata 2: x² − 4'ü tam kare sanıp (2x + 3)(x − 2)² yazmak.\nSık yapılan hata 3: ilk parantezin işaretini ters alıp (2x − 3)(x − 2)(x + 2) yazmak.\nSık yapılan hata 4: ikinci grupta −4 yerine +4 parantezine alıp (2x + 3)(x² + 4) yazmak; kareler toplamı zaten reel katsayılı çarpanlara ayrılmaz.)"
+    },
+    {
+      "id": "ozdeslik-11",
+      "label": "ax² + bx + c ayırma",
+      "difficulty": 2,
+      "stem": "6x² − 5x − 6 ifadesinin çarpanlarına ayrılmış biçimi aşağıdakilerden hangisidir?",
+      "asks": "Baş katsayısı 1 olmayan üç terimlinin çarpanları isteniyor. Çapraz çarpım yönteminde baş katsayı ile sabit terim ayrı ayrı bölünür; çapraz çarpımların toplamı orta terime eşit olmalı.",
+      "choices": ["(3x + 2)(2x − 3)", "(3x − 2)(2x + 3)", "(3x + 2)(2x + 3)", "(6x + 2)(x − 3)", "(3x + 6)(2x − 1)"],
+      "answer": 0,
+      "solution": "6 = 3 · 2 ve −6 = 2 · (−3) seçilir.\n(3x + 2)(2x − 3) denenir.\nÇapraz çarpımlar: 3x · (−3) = −9x ve 2 · 2x = 4x\n−9x + 4x = −5x, orta terim tuttu.\nSonuç: (3x + 2)(2x − 3)\n(Sık yapılan hata 1: çapraz çarpımları ters kullanıp (3x − 2)(2x + 3) yazmak; bu ifade 6x² + 5x − 6 verir.\nSık yapılan hata 2: sabit terimin işaretini unutup (3x + 2)(2x + 3) yazmak; bu ifade 6x² + 13x + 6 verir.\nSık yapılan hata 3: baş katsayıyı 6 · 1 diye bölüp (6x + 2)(x − 3) yazmak; bu ifade 6x² − 16x − 6 verir.\nSık yapılan hata 4: sabit terimi 6 · (−1) diye bölüp (3x + 6)(2x − 1) yazmak; bu ifade 6x² + 9x − 6 verir.)"
+    },
+    {
+      "id": "ozdeslik-12",
+      "label": "Üç terimli tam kare",
+      "difficulty": 2,
+      "stem": "a + b + c = 9 ve ab + ac + bc = 11 olduğuna göre a² + b² + c² kaçtır?",
+      "asks": "Üç sayının kareleri toplamı isteniyor. (a + b + c)² açılımında ikişerli çarpımlar iki katıyla yer alır; o katsayı unutulursa sonuç 11 kadar sapar.",
+      "choices": ["70", "81", "59", "103", "92"],
+      "answer": 2,
+      "solution": "(a + b + c)² = a² + b² + c² + 2(ab + ac + bc)\n9² = a² + b² + c² + 2 · 11\n81 = a² + b² + c² + 22\na² + b² + c² = 59\n(Sık yapılan hata 1: 2 katsayısını unutup 81 − 11 = 70 bulmak.\nSık yapılan hata 2: (a + b + c)² = a² + b² + c² sanıp 81 yazmak.\nSık yapılan hata 3: işareti ters alıp 81 + 22 = 103 bulmak.\nSık yapılan hata 4: hem işareti ters alıp hem katsayıyı unutup 81 + 11 = 92 bulmak.)"
+    },
+    {
+      "id": "ozdeslik-13",
+      "label": "Toplam ve çarpımdan fark",
+      "difficulty": 3,
+      "stem": "x ve y gerçek sayıları için x + y = 7 ve x² + y² = 29 olduğuna göre x − y ifadesinin alabileceği değerler aşağıdakilerden hangisidir?",
+      "asks": "Farkın kendisi isteniyor, karesi değil. Bağıntılardan yalnız (x − y)² bulunur; karekök alınırken işaret belirsizdir, iki değer de mümkündür.",
+      "choices": ["yalnız 3", "3 veya −3", "9 veya −9", "yalnız 9", "10 veya −10"],
+      "answer": 1,
+      "solution": "x² + y² = (x + y)² − 2xy\n29 = 49 − 2xy → 2xy = 20 → xy = 10\n(x − y)² = (x + y)² − 4xy\n= 49 − 40 = 9\nx − y = ±3\nGerçekten x = 5, y = 2 için x − y = 3; x = 2, y = 5 için x − y = −3.\nCevap: 3 veya −3\n(Sık yapılan hata 1: karekökte işareti tek yönlü düşünüp yalnız 3 demek; soruda x ile y'den hangisinin büyük olduğu söylenmemiştir.\nSık yapılan hata 2: ara değer (x − y)² = 9'da durup 9 veya −9 demek; bir kare zaten negatif olamaz.\nSık yapılan hata 3: aynı ara değeri tek işaretle, yalnız 9 diye vermek.\nSık yapılan hata 4: xy = 10 ara değerini fark sanmak.)"
+    },
+    {
+      "id": "ozdeslik-14",
+      "label": "Tam kare açılımı",
+      "difficulty": 3,
+      "stem": "a = √10 + 3 olduğuna göre a² + 1/a ifadesinin değeri kaçtır?",
+      "asks": "İki parçalı bir değer isteniyor: karesi tam kare açılımıyla, tersi ise paydanın eşleniğiyle rasyonelleştirilerek bulunur. Eşleniğin işareti ters seçilirse sonuç sapar.",
+      "choices": ["22 + 7√10", "16 + √10", "19 + 6√10", "√10 − 3", "16 + 7√10"],
+      "answer": 4,
+      "solution": "a² = (√10 + 3)² = 10 + 2 · 3√10 + 9 = 19 + 6√10\n1/a = 1/(√10 + 3); pay ve paydayı eşlenik (√10 − 3) ile çarp:\n= (√10 − 3) / ((√10)² − 3²) = (√10 − 3) / (10 − 9) = √10 − 3\na² + 1/a = 19 + 6√10 + √10 − 3\n= 16 + 7√10\n(Sık yapılan hata 1: eşleniği aynı işaretle alıp 1/a = √10 + 3 sanmak ve 22 + 7√10 bulmak.\nSık yapılan hata 2: tam karede orta terimi unutup a² = 19 almak ve 16 + √10 bulmak.\nSık yapılan hata 3: ara değer a² = 19 + 6√10'u işaretlemek.\nSık yapılan hata 4: yalnız 1/a = √10 − 3 parçasını işaretlemek.)"
+    },
+    {
+      "id": "ozdeslik-15",
+      "label": "a + 1/a kalıbında küpler",
+      "difficulty": 3,
+      "stem": "a = 2 + √3 olduğuna göre a³ + 1/a³ kaçtır?",
+      "asks": "Küplerin toplamı isteniyor. Doğrudan küp almak yerine önce a + 1/a değeri bulunur; 1/a paydası eşlenikle rasyonelleştirilince kök terimleri sadeleşir.",
+      "choices": ["64", "76", "14", "52", "4"],
+      "answer": 3,
+      "solution": "1/a = 1/(2 + √3); eşlenik (2 − √3) ile genişlet:\n= (2 − √3) / (2² − (√3)²) = (2 − √3) / (4 − 3) = 2 − √3\na + 1/a = (2 + √3) + (2 − √3) = 4\na + 1/a = k ise a³ + 1/a³ = k³ − 3k\n= 4³ − 3 · 4 = 64 − 12\na³ + 1/a³ = 52\n(Sık yapılan hata 1: 3k terimini unutup 4³ = 64 demek.\nSık yapılan hata 2: işareti ters alıp 64 + 12 = 76 bulmak.\nSık yapılan hata 3: kare kalıbına kayıp k² − 2 = 14 bulmak; o değer a² + 1/a²'dir.\nSık yapılan hata 4: ara değer a + 1/a = 4'ü işaretlemek.)"
+    },
+    {
+      "id": "ozdeslik-16",
+      "label": "Küpler toplamı ve farkı",
+      "difficulty": 3,
+      "stem": "(4¹⁵ − 8) / (4⁵ − 2) işleminin sonucu aşağıdakilerden hangisine eşittir?",
+      "asks": "Bölmenin sonucu isteniyor. 4¹⁵ = (4⁵)³ ve 8 = 2³ olduğu görülürse pay küplerin farkıdır ve payda çarpanlardan biriyle sadeleşir; üsler doğrudan bölünmez.",
+      "choices": ["4¹⁰ − 2 · 4⁵ + 4", "4¹⁰ + 4⁵ + 4", "4¹⁰ + 2 · 4⁵ + 4", "4¹⁰ + 2 · 4⁵", "4¹⁰ + 2 · 4⁵ + 2"],
+      "answer": 2,
+      "solution": "4¹⁵ = (4⁵)³ ve 8 = 2³ olduğundan t = 4⁵ denirse pay t³ − 2³'tür.\na³ − b³ = (a − b)(a² + ab + b²), a = t ve b = 2\nt³ − 2³ = (t − 2)(t² + 2t + 4)\n(t³ − 8) / (t − 2) = t² + 2t + 4\nt = 4⁵ yerine konur:\n= (4⁵)² + 2 · 4⁵ + 2² = 4¹⁰ + 2 · 4⁵ + 4\n(Sık yapılan hata 1: küplerin toplamı parantezini kullanıp 4¹⁰ − 2 · 4⁵ + 4 yazmak; küp farkında orta terim artıdır.\nSık yapılan hata 2: orta terimdeki b = 2 katsayısını düşürüp 4¹⁰ + 4⁵ + 4 yazmak.\nSık yapılan hata 3: parantezin son terimini b² = 4 yerine b = 2 alıp 4¹⁰ + 2 · 4⁵ + 2 yazmak.\nSık yapılan hata 4: son terimi hiç yazmayıp 4¹⁰ + 2 · 4⁵ ile yetinmek.)"
+    },
+    {
+      "id": "ozdeslik-17",
+      "label": "Ortak çarpan ve gruplandırma",
+      "difficulty": 3,
+      "stem": "n bir tam sayı olmak üzere n³ − n ifadesi her n değeri için aşağıdaki sayılardan hangisine tam bölünür? (Bu koşulu sağlayan en büyük sayı isteniyor.)",
+      "asks": "Her n için geçerli olan en büyük bölen isteniyor. İfade çarpanlarına ayrılınca ardışık üç tam sayının çarpımı çıkar; tek bir n denemesinden bulunan bölen genellikle fazla büyük olur.",
+      "choices": ["6", "2", "3", "12", "24"],
+      "answer": 0,
+      "solution": "n³ − n = n(n² − 1)\nn² − 1 iki kare farkıdır:\n= n(n − 1)(n + 1) = (n − 1) · n · (n + 1)\nBu, ardışık üç tam sayının çarpımıdır.\nArdışık üç sayının en az biri 2'nin, tam olarak biri 3'ün katıdır; çarpım 2 · 3 = 6'ya bölünür.\nDaha büyüğü olamaz: n = 2 için ifadenin değeri 6'dır.\nCevap: 6\n(Sık yapılan hata 1: ayırmayı n(n² − 1) adımında bırakıp yalnız çift olduğunu görmek ve 2 demek.\nSık yapılan hata 2: yalnız 3'ün katı olma koşulunu görüp 3 demek.\nSık yapılan hata 3: n = 3 denemesinde 24 çıkınca bunu genelleyip 24 demek.\nSık yapılan hata 4: ardışık üç sayının çarpımını her zaman 12'nin katı sanmak; n = 2 için 6 çıktığından yanlıştır.)"
+    },
+    {
+      "id": "ozdeslik-18",
+      "label": "İki kare farkıyla ayırma",
+      "difficulty": 3,
+      "stem": "3⁴⁰ − 2⁴⁰ ve 3²⁰ − 2²⁰ sayılarının EBOB'u aşağıdakilerden hangisidir?",
+      "asks": "İki büyük sayının EBOB'u isteniyor. 3⁴⁰ = (3²⁰)² ve 2⁴⁰ = (2²⁰)² olduğu görülürse birinci sayı iki kare farkı olarak ayrılır ve ikincisinin onu böldüğü ortaya çıkar.",
+      "choices": ["3²⁰ + 2²⁰", "3²⁰ − 2²⁰", "3⁴⁰ − 2⁴⁰", "3²⁰", "1"],
+      "answer": 1,
+      "solution": "3⁴⁰ = (3²⁰)² ve 2⁴⁰ = (2²⁰)² olduğundan\n3⁴⁰ − 2⁴⁰ = (3²⁰)² − (2²⁰)² = (3²⁰ − 2²⁰)(3²⁰ + 2²⁰)\nDemek ki 3²⁰ − 2²⁰ sayısı 3⁴⁰ − 2⁴⁰'ı tam böler.\nBir sayı diğerini bölüyorsa EBOB, küçük olandır.\nEBOB = 3²⁰ − 2²⁰\n(Sık yapılan hata 1: ayrışmadaki öteki çarpanı seçip 3²⁰ + 2²⁰ demek.\nSık yapılan hata 2: EBOB yerine EKOK bulup 3⁴⁰ − 2⁴⁰ demek.\nSık yapılan hata 3: ortak çarpanı taban üzerinden düşünüp 3²⁰ demek; 3²⁰ sayıların hiçbirini bölmez.\nSık yapılan hata 4: 3 ile 2 aralarında asal diye EBOB'u 1 sanmak; kuvvetler değil, kuvvetlerin farkı soruluyor.)"
+    },
+    {
+      "id": "ozdeslik-19",
+      "label": "Tam kare açılımı",
+      "difficulty": 3,
+      "stem": "x < 2 olmak üzere √(x² − 4x + 4) + |x − 5| ifadesinin en sade biçimi aşağıdakilerden hangisidir?",
+      "asks": "Sadeleştirilmiş biçim isteniyor. Kök içi tam karedir ama √(a²) = a değil √(a²) = |a| olur; x < 2 koşulu her iki mutlak değerin de işaretini belirler.",
+      "choices": ["2x − 7", "3", "−3", "7 − 2x", "7"],
+      "answer": 3,
+      "solution": "x² − 4x + 4 = (x − 2)²\n√((x − 2)²) = |x − 2|\nx < 2 olduğundan x − 2 < 0, yani |x − 2| = 2 − x\nx < 2 < 5 olduğundan x − 5 < 0, yani |x − 5| = 5 − x\nToplam: (2 − x) + (5 − x) = 7 − 2x\n(Sık yapılan hata 1: √(a²) = a sanıp mutlak değerleri hiç açmadan (x − 2) + (x − 5) = 2x − 7 yazmak.\nSık yapılan hata 2: yalnız ikinci mutlak değeri doğru açıp (x − 2) + (5 − x) = 3 bulmak.\nSık yapılan hata 3: yalnız birinciyi doğru açıp (2 − x) + (x − 5) = −3 bulmak.\nSık yapılan hata 4: kök içini (x + 2)² sanıp (x + 2) + (5 − x) = 7 bulmak.)"
+    },
+    {
+      "id": "ozdeslik-20",
+      "label": "Toplam ve çarpımdan kareler toplamı",
+      "difficulty": 3,
+      "stem": "x ve y sıfırdan farklı gerçek sayılar olmak üzere x + y = 5 ve 1/x + 1/y = 5/6 olduğuna göre x/y + y/x kaçtır?",
+      "asks": "Simetrik bir kesirli ifade isteniyor. İkinci veri çarpımı dolaylı verir: 1/x + 1/y = (x + y) / (xy). Aranan ifade de (x² + y²) / (xy) biçiminde toplam ve çarpım cinsinden yazılır.",
+      "choices": ["25/6", "13", "1/6", "37/6", "13/6"],
+      "answer": 4,
+      "solution": "1/x + 1/y = (x + y) / (xy)\n5/6 = 5 / (xy) → xy = 6\nx² + y² = (x + y)² − 2xy = 25 − 12 = 13\nx/y + y/x = (x² + y²) / (xy)\n= 13 / 6\n(Sık yapılan hata 1: payda 2xy çıkarmayı unutup 25/6 bulmak.\nSık yapılan hata 2: ara değer x² + y² = 13'ü işaretleyip xy'ye bölmeyi unutmak.\nSık yapılan hata 3: pay için x² + y² yerine (x − y)² kullanıp (25 − 24) / 6 = 1/6 bulmak.\nSık yapılan hata 4: işareti ters alıp (25 + 12) / 6 = 37/6 bulmak.)"
+    }
+  ]
+}

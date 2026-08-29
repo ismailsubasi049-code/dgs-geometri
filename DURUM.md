@@ -1,16 +1,18 @@
 # Durum
 
-**Son güncelleme:** 2026-08-29 · **sw.js VERSION:** `v36`
+**Son güncelleme:** 2026-08-29 · **sw.js VERSION:** `v37`
 
 ## Özet
 
-**395 soru · 13 alt konu · 15 paket.** Tamamı geometri; matematik
-branşında henüz soru paketi yok (formül kartları var).
+**415 soru · 14 alt konu · 16 paket.** 395'i geometri, 20'si matematik.
+Matematik branşı 2026-08-29'da ilk soru paketiyle etkinleşti; kalan 7
+matematik konusunun hâlâ yalnız formül kartı var, paketi yok.
 
 ## Paketler
 
 | konu | subtopicId | görünen ad | soru |
 |---|---|---|---|
+| Çarpanlara Ayırma ve Özdeşlikler | `ozdeslik-genel` | Genel özdeşlik soruları | 20 |
 | Açılar | `acilar-temel` | Temel açı kavramları | 24 |
 | Açılar | `acilar-paralel` | Paralel doğrular ve kesenler | 33 |
 | Açılar | `acilar-ucgende` | Üçgende açılar | 33 |
@@ -26,12 +28,12 @@ branşında henüz soru paketi yok (formül kartları var).
 | Üçgenler | `ucgen-karma` | Karma üçgen | 30 |
 | Dörtgenler | — | Dörtgenler | 10 |
 | Çember ve Daire | — | Çember ve Daire | 10 |
-| **Toplam** | | **15 paket** | **395** |
+| **Toplam** | | **16 paket** | **415** |
 
 ## Kalan işler
 
-- **Sonraki aşama kararı:** dörtgen/çember paketleri mi, matematik-sayısal
-  mantık mı
+- **Sonraki aşama kararı:** matematiğin kalan 7 konusuna paket mi (formül
+  kartları hazır), yoksa dörtgen/çember paketleri mi
 
 ## Öğrenme modu sıralaması
 
@@ -411,6 +413,39 @@ kartta aynı: orantı sabiti `k`, oranın terimleri `a`/`b`, orantı `a/b = c/d`
 orantılanan sayı üçlüsü `x`, `y`, `z`, paylaştırılan toplam `T` (`a` ile
 çakışmasın diye büyük harf `A` kullanılmadı).
 
+## İlk matematik soru paketi
+
+**2026-08-29 (v37) · `data/packs/ozdeslik-genel.json`** — 20 soru, şekilsiz.
+Matematik branşındaki ilk paket. Kod değişmedi: `listTopics()` paketi olmayan
+konuyu elediği için (`js/packs.js:184`) ana ekranda "Matematik konuları" kartı
+`topics.length === 0` ile disabled duruyordu (`js/screens/home.js:157`); paket
+`ozdeslikler` konusuna bağlanınca kart etkinleşti.
+
+Zorluk dağılımı geometri paketlerinden farklı, bilinçli olarak zora kaymış:
+**kolay 3 · orta 9 · zor 8**. Kolay blok ısınma değil, Leitner'ın taban
+kalibrasyonu. Kolay ve orta blokta sorular **saf özdeşlik** — yanlış yapıldığında
+hatanın hangi konudan geldiği ayrışsın diye. Zor blokta çapraz konu serbest:
+8 sorunun 7'si birden fazla araç istiyor (köklü + eşlenikle rasyonelleştirme,
+üslü, mutlak değer, rasyonel, bölünebilme, EBOB).
+
+13 konfigürasyon 20 soruya dağıtıldı; en çok tekrarlanan konfigürasyon 3 soruda
+(tam kare açılımı). İki soru `±` tuzağı üzerine kurulu: `ozdeslik-13`
+((x − y)² = 9 bulup "x − y = 3" demek eksik cevap, ±3 olmalı — "yalnız 3" şıkkı
+kasten var) ve `ozdeslik-19` (√(a²) = |a|).
+
+**Formül kartı `label` alias'ıyla bağlanır** — `ucgen-karma` deseninin ikinci
+kullanımı. Alt konu id'si `ozdeslik-genel` bilinçli olarak hiçbir kartın
+`subtopicId`'siyle çakışmıyor; çakışsaydı 20 sorunun tamamı tek karta
+bağlanırdı. Bunun yerine her sorunun `label`'ı konfigürasyonun adıdır ve o ad
+`data/formuller/ozdeslikler.json` içindeki dört kartın `aliases` listesine
+dağıtıldı (13 yeni alias, kart/madde sayısı değişmedi). Böylece küp sorusunda
+`ozdeslik-kup`, ayırma sorusunda `carpanlara-ayirma` kartı açılıyor.
+
+Doğrulama: 20 sorunun 20'sinin cevabı PowerShell'de bağımsız yeniden hesaplandı
+(tam sayı, `BigInteger` ve kayan nokta karşılaştırmaları) — **20/20 doğru**.
+80 çeldiricinin 80'i de hangi hatadan doğduğu hesaplanarak eşleştirildi;
+rastgele sayı çeldirici yok.
+
 ## Bilinen açık maddeler
 
 Düzeltilmedi, kayıt için duruyor:
@@ -492,6 +527,13 @@ Düzeltilmedi, kayıt için duruyor:
   gelir (`Karma 07` → `ucgen-pisagor` gibi). Yeni bir karma sorusu eklenip
   `data/formuller/ucgenler.json` ya da `acilar.json` içine alias yazılmazsa o
   soruda yanlış cevapta hiç kart açılmaz. Ayrıntı: `data/packs/_sema.md` §7.
+- Aynı şey `ozdeslik-genel` için de geçerli: kart bağlantısı `subtopicId`'den
+  değil `label` alias'ından gelir. Bu pakete **yeni konfigürasyon** eklenirse
+  etiketi `data/formuller/ozdeslikler.json` içindeki uygun kartın `aliases`
+  listesine yazılmalı; yoksa o soruda kart açılmaz.
+- `ozdeslik-17` (n³ − n) `a² − b²` özdeşliğini b = 1 ile kullanır; paketin geri
+  kalanında dejenere kurulum yok. Ardışık üç sayı çarpımı klasik biçimiyle
+  yazılabilsin diye bilinçli bırakıldı — b = 1 burada hiçbir terimi düşürmüyor.
 
 ## Çalışma kuralları
 

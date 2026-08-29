@@ -20,6 +20,17 @@
   ],
   "packs": [
     {
+      "id": "ozdeslik-genel",
+      "topicId": "ozdeslikler",
+      "topic": "Çarpanlara Ayırma ve Özdeşlikler",
+      "subtopicId": "ozdeslik-genel",
+      "subtopic": "Genel özdeşlik soruları",
+      "title": "Genel özdeşlik soruları",
+      "file": "packs/ozdeslik-genel.json",
+      "count": 20,
+      "version": 1
+    },
+    {
       "id": "acilar-temel",
       "topicId": "acilar",
       "topic": "Açılar",
