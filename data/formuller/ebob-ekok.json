@@ -76,7 +76,7 @@
         { "formula": "Kalansız bölünme, tam doldurma, en çok kişiye paylaştırma → EBOB" },
         { "formula": "En küçük ortak zaman, en az sayıda tekrar → EKOK" },
         { "formula": "\"a'ya bölününce r kalıyor\" → EBOB(sayı − r, …)", "note": "Kalanı çıkar, tam bölünen hale getir" },
-        { "formula": "\"a'ya bölününce hep r kalan en küçük sayı\" = EKOK(a, b, c) + r" }
+        { "formula": "\"a, b, c'ye bölününce hep r kalan, bölenlerden büyük en küçük sayı\" = EKOK(a, b, c) + r" }
       ],
       "tips": [
         "Sonuç sayılardan küçükse EBOB, büyükse EKOK aramışsındır — mantık kontrolü olarak kullan.",
@@ -92,7 +92,7 @@
           "solution": "12 = 2² · 3\n18 = 2 · 3²\n30 = 2 · 3 · 5\nEKOK = 2² · 3² · 5 = 180\n180 dakika (3 saat) sonra"
         },
         {
-          "stem": "5, 6 ve 8'e bölündüğünde her seferinde 3 kalanını veren en küçük doğal sayı kaçtır?",
+          "stem": "5, 6 ve 8'e bölündüğünde her seferinde 3 kalanını veren, 8'den büyük en küçük doğal sayı kaçtır?",
           "solution": "Önce ortak katı bul: EKOK(5, 6, 8)\n5 · 2³ · 3 = 120\nHer bölmede 3 kalması için 3 ekle.\nSayı = 120 + 3 = 123"
         }
       ]
@@ -125,6 +125,10 @@
         {
           "stem": "8/15 kesri ile çarpıldığında sonucu tam sayı yapan en küçük pozitif tam sayı kaçtır?",
           "solution": "Kesir sade: EBOB(8, 15) = 1\nÇarpanın paydayı götürmesi gerekir.\nEn küçük sayı = 15"
+        },
+        {
+          "stem": "3/6 ile 4/8 kesirlerinin EBOB'u kaçtır?",
+          "solution": "Önce sadeleştir: 1/2 ve 1/2\nEBOB(1,1)/EKOK(2,2) = 1/2\n(Sadeleştirmeden 1/24 bulunurdu — yanlış.)"
         }
       ]
     }

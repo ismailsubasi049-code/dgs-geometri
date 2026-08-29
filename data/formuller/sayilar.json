@@ -43,7 +43,7 @@
         { "formula": "T + T = Ç,   Ç + Ç = Ç,   T + Ç = T", "note": "Çıkarmada da aynı kurallar geçerlidir" },
         { "formula": "T · T = T,   Ç · (herhangi bir tam sayı) = Ç", "note": "Bir çarpımın çift olması için tek bir çift çarpan yeter" },
         { "formula": "Ardışık iki tam sayının çarpımı daima çifttir" },
-        { "formula": "(−a)ⁿ : n tek ise sonuç negatif, n çift ise pozitif", "note": "−aⁿ ile (−a)ⁿ farklıdır: −2² = −4 ama (−2)² = 4" },
+        { "formula": "Negatif bir sayının kuvveti: n çift ise pozitif, n tek ise negatif (n pozitif tam sayı)", "note": "−aⁿ ile (−a)ⁿ aynı şey değildir: −2⁴ = −16 iken (−2)⁴ = 16. n tek olduğunda ikisi çakışır: −2³ = (−2)³ = −8" },
         { "formula": "Tek sayıda tek sayının toplamı tek, çift sayıda tek sayının toplamı çifttir" }
       ],
       "tips": [
@@ -107,7 +107,7 @@
         { "formula": "2 tek çift asal sayıdır; diğer bütün asallar tektir" },
         { "formula": "N = p₁ᵃ · p₂ᵇ · p₃ᶜ …", "note": "Asal çarpan gösterimi her sayı için tektir" },
         { "formula": "a ile b aralarında asal ⇔ EBOB(a, b) = 1", "note": "Ardışık iki tam sayı daima aralarında asaldır" },
-        { "formula": "N asal mı? √N'den küçük asallara bölünüyor mu diye bak", "note": "Hiçbirine bölünmüyorsa N asaldır" }
+        { "formula": "N asal mı? √N'den küçük veya √N'ye eşit asallara bölünüyor mu diye bak", "note": "Hiçbirine bölünmüyorsa N asaldır. Sınıra dikkat: 49 için 7'ye de bakılır (7 = √49)" }
       ],
       "tips": [
         "1 asal değildir; 0 da asal değildir.",
@@ -142,7 +142,7 @@
         { "formula": "n basamaklı en küçük sayı = 10ⁿ⁻¹", "note": "İlk basamağın rakamı 0 olamaz" }
       ],
       "tips": [
-        "Soruda \"rakamları farklı\" diyorsa a ≠ b ≠ c koşulunu daha işleme başlamadan yaz.",
+        "Soruda \"rakamları farklı\" diyorsa üç koşulu birden yaz: a ≠ b, b ≠ c ve a ≠ c. Zincir hâlinde a ≠ b ≠ c yazmak yetmez — 121 bu zinciri sağlar ama rakamları farklı değildir.",
         "Bir sayıyı büyütmek için büyük rakamı en soldaki basamağa koy."
       ],
       "examples": [
@@ -168,7 +168,7 @@
       "items": [
         { "formula": "|a| = a   (a ≥ 0)\n|a| = −a   (a < 0)", "note": "Mutlak değer hiçbir zaman negatif olmaz: |a| ≥ 0" },
         { "formula": "|a − b| = sayı doğrusunda a ile b arasındaki uzaklık", "note": "|a − b| = |b − a| — uzaklık yön tanımaz", "figure": "<svg viewBox='0 0 320 100' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><line x1='20' y1='60' x2='300' y2='60'/><polyline points='28,54 20,60 28,66'/><polyline points='292,54 300,60 292,66'/><line x1='90' y1='54' x2='90' y2='66'/><line x1='150' y1='54' x2='150' y2='66'/><line x1='240' y1='54' x2='240' y2='66'/></g><g stroke='#0284c7' stroke-width='3' fill='none'><line x1='90' y1='40' x2='240' y2='40'/><line x1='90' y1='34' x2='90' y2='46'/><line x1='240' y1='34' x2='240' y2='46'/></g><g font-family='system-ui, sans-serif' text-anchor='middle'><text x='165' y='26' font-size='14' fill='#0284c7'>|a − b|</text><text x='90' y='82' font-size='14' fill='currentColor'>a</text><text x='150' y='82' font-size='13' fill='currentColor'>0</text><text x='240' y='82' font-size='14' fill='currentColor'>b</text></g></svg>" },
-        { "formula": "|a · b| = |a| · |b|,   |a / b| = |a| / |b|   (b ≠ 0)", "note": "Mutlak değer toplamaya dağılmaz: |a + b| ≠ |a| + |b|" },
+        { "formula": "|a · b| = |a| · |b|,   |a / b| = |a| / |b|   (b ≠ 0)", "note": "Mutlak değer toplamaya dağılmaz: farklı işaretlilerde |a + b| < |a| + |b| olur (|−2 + 5| = 3 iken |−2| + |5| = 7)" },
         { "formula": "|a + b| ≤ |a| + |b|", "note": "Üçgen eşitsizliği; eşitlik ancak a ile b aynı işaretliyken sağlanır" },
         { "formula": "|x| = c ⇒ x = c veya x = −c   (c ≥ 0)", "note": "c < 0 ise denklemin çözümü yoktur" },
         { "formula": "|x| < c ⇒ −c < x < c\n|x| > c ⇒ x < −c veya x > c" }

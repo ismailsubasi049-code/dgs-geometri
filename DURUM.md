@@ -1,6 +1,6 @@
 # Durum
 
-**Son güncelleme:** 2026-08-28 · **sw.js VERSION:** `v32`
+**Son güncelleme:** 2026-08-29 · **sw.js VERSION:** `v33`
 
 ## Özet
 
@@ -224,8 +224,63 @@ açıklık ölçülüp en iyisi seçildi). Üretim sonrası ölçüm tekrarland�
 tamamı `js/svg.js` beyaz listesinden kayıpsız geçti, hiçbir koordinat ya da
 etiket kutusu viewBox dışına taşmadı.
 
-`data/formuller/` altındaki diğer konu dosyaları (`sayilar`, `koklu`, `uslu`,
-`rasyonel`, `bolunebilme`, `ebob-ekok`) **henüz denetlenmedi**.
+**2026-08-29 · matematik branşının tamamı** (`sayilar`, `bolunebilme`,
+`ebob-ekok`, `rasyonel`, `uslu`, `koklu` — 6 konu · 26 kart · 156 madde ·
+53 ipucu · 78 örnek · 5 şekil) denetlendi. Geometriden farklı olarak yük
+şekillerde değil metindeydi: **78 örneğin 78'i de sayısal olarak doğru**,
+**5 şeklin 5'i metrik olarak doğru** çıktı; bulguların tamamı formülasyon,
+koşul ve örnek-seçimi düzeyinde. **5 KRİTİK + 12 ORTA + kozmetikten
+yükseltilen 1 gerekçe düzeltildi**; 5 dosyada 15 kart, 1 şekil etiketi ve
+1 yeni örnek değişti:
+
+- `asal-sayilar` item[4] `p < √N` yazıyordu; kural olduğu gibi uygulanınca
+  **her tam kare asal çıkıyordu** (4, 9, 25, 49, 121, 169 — altısı da "asal").
+  Kartın kendi örneği (97, √97 ≈ 9,8 → sınır 10) fiilen `≤` ile çalıştığı için
+  madde ile örnek çelişiyordu. `p ≤ √N` oldu, nota sınır uyarısı eklendi
+  (49 için 7'ye de bakılır).
+- `uslu-denklem` item[1] `aˣ = bˣ ⇒ a = b (x ≠ 0)` diyordu; `2² = (−2)² = 4`
+  karşı örneği koşulu kırıyor. `(a, b > 0 ve x ≠ 0)` oldu. Aynı kartın item[0]'ı
+  titiz koşullar verdiği için okuyan listeyi tam sanıyordu.
+- "`−aⁿ` ile `(−a)ⁿ` farklıdır" iki kartta da (`uslu-ozel` item[4],
+  `sayi-cesitleri` item[4]) koşulsuzdu ve ikisi de yalnız çift üslü örnek
+  veriyordu; **n tek iken eşitler** (`−2³ = (−2)³ = −8`). Not artık çakışma
+  hâlini de gösteriyor.
+- `mutlak-deger` item[2] notu `|a + b| ≠ |a| + |b|` diyordu — koşulsuz ve **aynı
+  kartın item[3]'ü tersini söylüyordu** ("eşitlik aynı işaretliyken sağlanır");
+  `|2+3| = 5`. "Farklı işaretlilerde `<` olur" hâline getirildi.
+- `basamak-cozumleme` tips[0] "rakamları farklı" için `a ≠ b ≠ c` yazdırıyordu;
+  zincir bunu demiyor — **121 zinciri sağlıyor** ama rakamları farklı değil.
+  Üç koşul (a ≠ b, b ≠ c, a ≠ c) ayrı ayrı yazıldı.
+- Kuralın sınırını gizleyen koşullar eklendi: `ⁿ√a = b ⇔ bⁿ = a (n çift ise
+  b ≥ 0)`, `ⁿ√a = a^(1/n) (a ≥ 0)` ve `ⁿ√(aᵐ) = a^(m/n) (a ≥ 0)` —
+  koşulsuz hâlleri üslü kurallarıyla birleşince `(−8)^(1/3) = 64^(1/6) = 2`
+  çelişkisini veriyordu; eşlenik formüllerine `(a ≠ b)` (a = b iken payda 0/0);
+  negatif üsse `(a ≠ 0)` / `(a ≠ 0, b ≠ 0)`; basit ve bileşik kesir tanımına
+  `(pozitif kesirlerde)` (−3/5 için pay < payda sağlanıyor ama değer 0–1'de
+  değil); tam sayılı kesir notuna negatif hâli (`−2 1/3 = −7/3`, formül −5/3
+  veriyordu).
+- İşaret ve sıralama reçeteleri daraltıldı: `(−a)ⁿ` iki kartta da "negatif bir
+  sayının kuvveti" oldu (a = −2, n = 3 için `(−a)³ = 8`, pozitif);
+  `rasyonel-siralama` item[4] "İkisi de negatifse ters döner" oldu ve tips[1]
+  karışık işaretli hâli ayırdı ({−1/5, 1/3} için eski reçete `−1/5 > 1/3`
+  veriyordu).
+- Dejenere örnekler değişti: `ebob-ekok-problem` "en küçük sayı" diyordu ama
+  gerçekten en küçük olan `r`'nin kendisi (3 = 5·0+3 = 6·0+3 = 8·0+3), soru kökü
+  "8'den büyük" ile sınırlandı — cevap yine 123; `koklu-icice-siralama`'nın iki
+  iç içe kök örneğinde de sonuç iç kökün değerine eşitti (√(4·√16) = 4,
+  √(9·√81) = 9), `√(9·√16) = 6` ve `√(16·√81) = 12` ile değiştirildi;
+  `ebob-ekok-kesir` "sadeleştirmeden hesaplanan sonuç yanlış çıkar" diyordu ama
+  üç örneğin üçünde de kesirler zaten sadeydi — koşulun devreye girdiği örnek
+  eklendi (3/6 ile 4/8 → 1/2; sadeleştirmeden 1/24).
+- Tek şekil değişikliği `rasyonel-siralama` item[0]: madde "paydalar eşitse"
+  diyor ama sayı doğrusundaki noktalar 1/4, 1/2, 3/4 idi. `1/2` etiketi `2/4`
+  oldu — 2/4 de tam `x = 160`'a düştüğü için **tek bir koordinat değişmedi**
+  (0 → x=40, 1 → x=280, noktalar 100/160/220 birebir aynı).
+
+Kart sayısı (26), madde sayısı (156) ve ipucu sayısı (53) korundu; örnek sayısı
+78 → 79 (yalnız `ebob-ekok-kesir`'e eklenen sadeleştirme örneği). Değişen 15
+kartın bütün sayısal örnekleri PowerShell tam sayı aritmetiğiyle yeniden
+hesaplandı, 79/79 doğru.
 
 ## Bilinen açık maddeler
 
@@ -264,6 +319,28 @@ Düzeltilmedi, kayıt için duruyor:
   bir kutu gibi okunuyor ve `p`/`r` etiketleri bu kutuya 5 px kalıyor. Eski
   şekilde de aynı kurgu vardı; yeni dörtgende `AO` kısaldığı için biraz daha
   sıkışık.
+- Matematik denetiminin **toplu eksik-koşul tablosundaki 25 mekanik satırı** bu
+  turda bilinçli olarak kapsam dışı bırakıldı. Hiçbiri yanlış çıkarıma itmiyor
+  (DGS bağlamında taban zaten pozitif tam sayı kabul ediliyor), yalnız koşul
+  yazılı değil: `ardisik-sayilar` ve `uslu-kurallar` item[0]'da `n ∈ Z⁺`,
+  `bolen-sayisi` item[0]'da "p, q, r farklı asallar", `bolunebilme-kurallari`
+  item[0]–[8]'de "10'luk tabanda", `ebob-ekok`'un dört kartında "a, b pozitif
+  tam sayı", `rasyonel-islemler` item[2][3]'te `c ≠ 0`, `koklu-kurallar`
+  item[5]'te `a ≥ 0` gibi. Ayrı bir turda toplu uygulanacak; tam liste
+  `matematik-denetim-raporu.md` §"Toplu eksik-koşul tablosu".
+- Matematik denetiminin kalan **6 KOZMETİK maddesi** de bırakıldı: asal çarpan
+  gösterimi `asal-sayilar` item[2]'de indisli (`p₁ᵃ · p₂ᵇ`), `bolen-sayisi`
+  item[0]'da ayrı harfli (`pᵃ · qᵇ`) — bitişik iki konuda iki gösterim (Z1);
+  `uslu-kurallar` item[7] ve `koklu-kurallar` tips[0]'daki koşulsuz "≠" kalıbı
+  (`(a + b)ⁿ ≠ aⁿ + bⁿ` n = 1'de, `√a + √b ≠ √(a + b)` a = 0'da eşit — karşı
+  örnekler dejenere olduğu için K2'den ayrıldı) (Z3); `sayi-cesitleri` item[2]
+  notu ve `asal-sayilar` item[1] kartın T/Ç kısaltmasıyla çakışan "tek"
+  kelimesini "yalnızca bir tane" anlamında kullanıyor (Z4, Z5);
+  `ebob-ekok-problem` item[4] ile item[5]'in giriş cümleleri neredeyse aynı,
+  farkı ne arandığı (bölen mi sayı mı) belirliyor ama yazılı değil (Z6);
+  `koklu-icice-siralama` item[4] "0 < a < 1 için sıralama ters döner" derken
+  hangi sıralamanın döndüğünü söylemiyor — yalnız item[3] dönüyor, item[2]
+  dönmüyor (Z7).
 - `ucgen-006` ile `ucgen-014` içerik olarak neredeyse aynı soru (ikisi de
   `ucgen-benzerlik`'te).
 - `ucgen-alan` formül kartının içeriği yeni adıyla ("Alan oranları") tam

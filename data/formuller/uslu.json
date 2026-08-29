@@ -43,10 +43,10 @@
       "aliases": ["Negatif üslü sayılar", "Sıfır üs", "Üslü sayılarda işaret"],
       "items": [
         { "formula": "a⁰ = 1   (a ≠ 0)", "note": "0⁰ tanımsızdır" },
-        { "formula": "a⁻ⁿ = 1 / aⁿ", "note": "Negatif üs, sayıyı paydaya taşır" },
-        { "formula": "(a / b)⁻ⁿ = (b / a)ⁿ", "note": "Negatif üste kesir ters çevrilir" },
-        { "formula": "(−a)ⁿ : n çift ise pozitif, n tek ise negatif", "note": "(−2)⁴ = 16 ama (−2)³ = −8" },
-        { "formula": "−aⁿ  ile  (−a)ⁿ  farklıdır", "note": "−2⁴ = −16 iken (−2)⁴ = 16. Parantez yoksa üs sadece sayıya aittir" },
+        { "formula": "a⁻ⁿ = 1 / aⁿ   (a ≠ 0)", "note": "Negatif üs, sayıyı paydaya taşır" },
+        { "formula": "(a / b)⁻ⁿ = (b / a)ⁿ   (a ≠ 0, b ≠ 0)", "note": "Negatif üste kesir ters çevrilir" },
+        { "formula": "Negatif bir sayının kuvveti: n çift ise pozitif, n tek ise negatif (n pozitif tam sayı)", "note": "(−2)⁴ = 16 ama (−2)³ = −8" },
+        { "formula": "−aⁿ ile (−a)ⁿ aynı şey değildir: parantez yoksa üs sadece tabana aittir", "note": "−2⁴ = −16 iken (−2)⁴ = 16. n tek olduğunda ikisi çakışır: −2³ = (−2)³ = −8" },
         { "formula": "1ⁿ = 1,   (−1)ⁿ = 1 (n çift) veya −1 (n tek)" },
         { "formula": "Pozitif tabanın her kuvveti pozitiftir" }
       ],
@@ -89,7 +89,7 @@
       "examples": [
         {
           "stem": "0,00042 sayısını bilimsel gösterimle yazın.",
-          "solution": "Virgülü 4 basamak sağa kaydır: 4,2\nSağa kaydırma üssü negatif yapar.\n4,2 · 10⁻⁴"
+          "solution": "Virgülü 4 basamak sağa kaydır: 4,2\nSağa kaydırmak üssü azaltır: 0'dan 4 azalınca −4\n4,2 · 10⁻⁴"
         },
         {
           "stem": "(3 · 10⁵) · (4 · 10⁻²) işleminin sonucunu bilimsel gösterimle yazın.",
@@ -108,7 +108,7 @@
       "aliases": ["Üslü denklemler", "Üslü sayılarda sıralama"],
       "items": [
         { "formula": "aˣ = aʸ  ⇒  x = y   (a > 0, a ≠ 1)", "note": "Tabanları eşitle, üsleri eşitle" },
-        { "formula": "aˣ = bˣ  ⇒  a = b   (x ≠ 0)", "note": "Üsleri eşitle, tabanları eşitle" },
+        { "formula": "aˣ = bˣ  ⇒  a = b   (a, b > 0 ve x ≠ 0)", "note": "Tabanlar negatif olabiliyorsa çift üste iki kök vardır: (−2)² = 2²" },
         { "formula": "Sıralama için ya tabanları ya üsleri eşitle", "note": "2³⁰ ile 3²⁰ → (2³)¹⁰ = 8¹⁰ ve (3²)¹⁰ = 9¹⁰ → 3²⁰ büyük" },
         { "formula": "a > 1 için üs büyüdükçe sayı büyür", "note": "2³ < 2⁵" },
         { "formula": "0 < a < 1 için üs büyüdükçe sayı KÜÇÜLÜR", "note": "(1/2)³ > (1/2)⁵ — bu satır sıralama sorularının tuzağıdır" },

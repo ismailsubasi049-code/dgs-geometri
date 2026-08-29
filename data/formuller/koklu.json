@@ -8,11 +8,11 @@
       "title": "Kök kavramı ve tanım",
       "aliases": ["Köklü sayılar", "Kök kavramı"],
       "items": [
-        { "formula": "ⁿ√a = b  ⇔  bⁿ = a", "note": "n kök derecesi, a kök içi. Derece yazılmazsa 2'dir" },
+        { "formula": "ⁿ√a = b  ⇔  bⁿ = a   (n çift ise b ≥ 0)", "note": "n kök derecesi, a kök içi. Derece yazılmazsa 2'dir" },
         { "formula": "√(a²) = |a|", "note": "Sonuç a değil |a|'dır — kök çıktısı negatif olamaz" },
         { "formula": "(√a)² = a   (a ≥ 0)", "note": "Bu durumda mutlak değere gerek yok, çünkü a zaten negatif olamaz" },
         { "formula": "Çift dereceli kökün içi negatif olamaz: √(−4) reel sayı değildir", "note": "Tek dereceli kökte içi negatif olabilir: ³√(−8) = −2" },
-        { "formula": "ⁿ√a = a^(1/n)", "note": "Kök, kesirli üs demektir: ³√(a²) = a^(2/3)" },
+        { "formula": "ⁿ√a = a^(1/n)   (a ≥ 0)", "note": "Kök, kesirli üs demektir: ³√(a²) = a^(2/3). Negatif kök içinde kesirli üs kuralları geçerli değildir — ³√(−8) yazımında kal" },
         { "formula": "√0 = 0,   √1 = 1" }
       ],
       "tips": [
@@ -46,7 +46,7 @@
         { "formula": "Kök içine alma: a√b = √(a² · b)   (a ≥ 0)", "note": "3√5 = √(9 · 5) = √45" },
         { "formula": "Toplama - çıkarma yalnızca kök içleri AYNI ise yapılır", "note": "2√3 + 5√3 = 7√3, ama √2 + √3 sadeleşmez" },
         { "formula": "ⁿ√(ᵐ√a) = ⁿ·ᵐ√a", "note": "İç içe köklerde dereceler çarpılır" },
-        { "formula": "ⁿ√(aᵐ) = (ⁿ√a)ᵐ = a^(m/n)" }
+        { "formula": "ⁿ√(aᵐ) = (ⁿ√a)ᵐ = a^(m/n)   (a ≥ 0)" }
       ],
       "tips": [
         "√a + √b ≠ √(a + b) — kök toplamaya dağılmaz. Bu, üslü sayılardaki hatanın kardeşidir.",
@@ -74,9 +74,9 @@
       "aliases": ["Paydayı rasyonel yapma", "Eşlenik", "Payda rasyonelleştirme"],
       "items": [
         { "formula": "a / √b = (a · √b) / b", "note": "Pay ve paydayı √b ile çarp" },
-        { "formula": "Eşlenik: (√a + √b) ile (√a − √b)", "note": "Çarpımları köksüzdür: (√a + √b)(√a − √b) = a − b" },
-        { "formula": "c / (√a + √b) = c(√a − √b) / (a − b)", "note": "Paydanın eşleniğiyle genişletilir" },
-        { "formula": "c / (√a − √b) = c(√a + √b) / (a − b)" },
+        { "formula": "Eşlenik: (√a + √b) ile (√a − √b)", "note": "Çarpımları köksüzdür: (√a + √b)(√a − √b) = a − b. a = b ise eşlenik işe yaramaz, kökler zaten sadeleşir: c/(2√a)" },
+        { "formula": "c / (√a + √b) = c(√a − √b) / (a − b)   (a ≠ b)", "note": "Paydanın eşleniğiyle genişletilir" },
+        { "formula": "c / (√a − √b) = c(√a + √b) / (a − b)   (a ≠ b)" },
         { "formula": "(√a + √b)² = a + b + 2√(a·b)", "note": "İki kare toplamı artı iki kat çarpım" },
         { "formula": "a / ⁿ√b = (a · ⁿ√(bⁿ⁻¹)) / b", "note": "Derecesi 2'den büyük kökte, üssü n'ye tamamlayacak çarpan seçilir" }
       ],
@@ -105,7 +105,7 @@
       "title": "İç içe kökler ve sıralama",
       "aliases": ["İç içe kökler", "Köklü sayılarda sıralama"],
       "items": [
-        { "formula": "İç içe kökte en içteki kökten dışa doğru sadeleştir", "note": "√(4 · √16) = √(4 · 4) = √16 = 4" },
+        { "formula": "İç içe kökte en içteki kökten dışa doğru sadeleştir", "note": "√(9 · √16) = √(9 · 4) = √36 = 6" },
         { "formula": "Sıralamada kök dereceleri eşitlenir", "note": "√2 ile ³√3 → ⁶√(2³) = ⁶√8 ve ⁶√(3²) = ⁶√9 → ³√3 büyük" },
         { "formula": "Dereceler eşitse kök içi büyük olan büyüktür", "note": "√5 > √3" },
         { "formula": "Kök içi eşitse derecesi küçük olan büyüktür   (kök içi > 1)", "note": "√2 > ³√2, çünkü 2 > 1" },
@@ -118,8 +118,8 @@
       ],
       "examples": [
         {
-          "stem": "√(9 · √81) ifadesinin değeri kaçtır?",
-          "solution": "En içten başla: √81 = 9\n√(9 · 9) = √81\n= 9"
+          "stem": "√(16 · √81) ifadesinin değeri kaçtır?",
+          "solution": "En içten başla: √81 = 9\n√(16 · 9) = √144\n= 12"
         },
         {
           "stem": "2√5 ile 3√2 sayılarından hangisi büyüktür?",
