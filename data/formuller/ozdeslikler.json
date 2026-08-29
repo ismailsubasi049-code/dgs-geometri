@@ -1,0 +1,138 @@
+{
+  "topicId": "ozdeslikler",
+  "title": "Çarpanlara Ayırma ve Özdeşlikler",
+  "cards": [
+    {
+      "id": "ozdeslik-temel",
+      "subtopicId": "ozdeslik-temel",
+      "title": "Temel özdeşlikler",
+      "aliases": ["Özdeşlikler", "Tam kare özdeşliği", "İki kare farkı"],
+      "items": [
+        { "formula": "(a + b)² = a² + 2ab + b²", "note": "Orta terim 2ab: iki terimin çarpımının iki katı" },
+        { "formula": "(a − b)² = a² − 2ab + b²", "note": "Yalnız orta terimin işareti değişir; b² her hâlde pozitiftir" },
+        { "formula": "(a + b)(a − b) = a² − b²", "note": "İki kare farkı. 43 · 37 = (40 + 3)(40 − 3) = 1600 − 9 = 1591" },
+        { "formula": "a² + b² = (a + b)² − 2ab = (a − b)² + 2ab", "note": "Toplam-çarpım ya da fark-çarpım verildiğinde kareler toplamı buradan bulunur" },
+        { "formula": "(a + b)² − (a − b)² = 4ab", "note": "Toplamları ise: (a + b)² + (a − b)² = 2(a² + b²)" },
+        { "formula": "(a + b + c)² = a² + b² + c² + 2(ab + ac + bc)", "note": "Kareler artı ikişerli çarpımların iki katı: (2 + 3 + 5)² = 100, çünkü 4 + 9 + 25 + 2(6 + 10 + 15) = 38 + 62 = 100" },
+        { "formula": "(a + b)² ile a² + b² arasındaki fark 2ab'dir; eşitlik yalnız ab = 0, yani a = 0 veya b = 0 iken sağlanır", "note": "a = 3, b = 4 iken (a + b)² = 49 ama a² + b² = 25; a = 0, b = 4 iken ikisi de 16" }
+      ],
+      "tips": [
+        "Kareyi açarken orta terimi unutma: (a + b)² açılımı üç terimlidir. a = 0 ya da b = 0 olmadıkça a² + b² cevabı 2ab kadar eksik kalır.",
+        "a² − b² reel katsayılı çarpanlara ayrılır, a² + b² ayrılmaz. Kareler toplamı sorulduğunda çarpanlara ayırmayı değil, (a + b)² − 2ab bağıntısını kullan."
+      ],
+      "examples": [
+        {
+          "stem": "(3x + 5)² ifadesinin açılımı nedir?",
+          "solution": "(a + b)² = a² + 2ab + b², a = 3x ve b = 5\n(3x)² = 9x²\n2 · 3x · 5 = 30x\n5² = 25\nSonuç: 9x² + 30x + 25"
+        },
+        {
+          "stem": "a − b = 4 ve a · b = 6 ise a² + b² kaçtır?",
+          "solution": "a² + b² = (a − b)² + 2ab\n= 4² + 2 · 6\n= 16 + 12\n= 28"
+        },
+        {
+          "stem": "97² − 93² işleminin sonucu kaçtır?",
+          "solution": "a² − b² = (a − b)(a + b)\n= (97 − 93)(97 + 93)\n= 4 · 190\n= 760"
+        }
+      ]
+    },
+    {
+      "id": "ozdeslik-kup",
+      "subtopicId": "ozdeslik-kup",
+      "title": "Küp özdeşlikleri",
+      "aliases": ["Küp özdeşlikleri", "Küplerin toplamı", "Küplerin farkı"],
+      "items": [
+        { "formula": "(a + b)³ = a³ + 3a²b + 3ab² + b³", "note": "Ortadaki iki terimin katsayısı 3'tür" },
+        { "formula": "(a − b)³ = a³ − 3a²b + 3ab² − b³", "note": "İşaretler sırayla +, −, +, − gider" },
+        { "formula": "(a + b)³ = a³ + b³ + 3ab(a + b)   ⇒   a³ + b³ = (a + b)³ − 3ab(a + b)", "note": "Toplam ile çarpım verildiğinde küpler toplamı buradan bulunur" },
+        { "formula": "(a − b)³ = a³ − b³ − 3ab(a − b)   ⇒   a³ − b³ = (a − b)³ + 3ab(a − b)" },
+        { "formula": "a³ + b³ = (a + b)(a² − ab + b²)", "note": "4³ + 3³ = 91 ve (4 + 3)(16 − 12 + 9) = 7 · 13 = 91" },
+        { "formula": "a³ − b³ = (a − b)(a² + ab + b²)", "note": "5³ − 2³ = 117 ve (5 − 2)(25 + 10 + 4) = 3 · 39 = 117" },
+        { "formula": "(a² − ab + b²) ve (a² + ab + b²) parantezleri, b ≠ 0 iken reel katsayılı çarpanlara ayrılmaz", "note": "a'ya göre diskriminantları −3b², b ≠ 0 iken negatiftir. b = 0 iken parantez a² olur ve a · a diye ayrılır" }
+      ],
+      "tips": [
+        "İşaret hafızası: a³ + b³ = (a + b)(a² − ab + b²). Birinci parantezin işareti soruyla aynı, ikinci parantezin orta terimi ters işaretli, son terim daima artıdır.",
+        "(a + b)³ ile a³ + b³ arasındaki fark 3ab(a + b)'dir; eşitlik yalnız a = 0, b = 0 veya a = −b iken sağlanır."
+      ],
+      "examples": [
+        {
+          "stem": "x + y = 5 ve x · y = 3 ise x³ + y³ kaçtır?",
+          "solution": "x³ + y³ = (x + y)³ − 3xy(x + y)\n= 5³ − 3 · 3 · 5\n= 125 − 45\n= 80"
+        },
+        {
+          "stem": "(2x − 3)³ ifadesinin açılımı nedir?",
+          "solution": "(a − b)³ = a³ − 3a²b + 3ab² − b³, a = 2x ve b = 3\n(2x)³ = 8x³\n3 · (2x)² · 3 = 3 · 4x² · 3 = 36x²\n3 · 2x · 3² = 54x\n3³ = 27\nSonuç: 8x³ − 36x² + 54x − 27"
+        },
+        {
+          "stem": "8x³ − 27 ifadesini çarpanlarına ayırın.",
+          "solution": "8x³ = (2x)³ ve 27 = 3³\na³ − b³ = (a − b)(a² + ab + b²), a = 2x ve b = 3\n(2x − 3)((2x)² + 2x · 3 + 3²)\n= (2x − 3)(4x² + 6x + 9)"
+        }
+      ]
+    },
+    {
+      "id": "carpanlara-ayirma",
+      "subtopicId": "carpanlara-ayirma",
+      "title": "Çarpanlara ayırma yöntemleri",
+      "aliases": ["Çarpanlara ayırma", "Ortak çarpan parantezi", "Gruplandırma"],
+      "items": [
+        { "formula": "Ortak çarpan parantezine alma: ax + ay = a(x + y)", "note": "Katsayılarda EBOB, ortak harflerde en küçük üs alınır: 6x³ − 9x² = 3x²(2x − 3)" },
+        { "formula": "Gruplandırma: ax + ay + bx + by = a(x + y) + b(x + y) = (a + b)(x + y)", "note": "Dört terimde ikişerli gruplardan aynı parantez çıkıyorsa uygulanır" },
+        { "formula": "İki kare farkı ile ayırma: a² − b² = (a − b)(a + b)", "note": "9x² − 25y² = (3x − 5y)(3x + 5y)" },
+        { "formula": "Tam kare tanıma: a² + 2ab + b² = (a + b)²,   a² − 2ab + b² = (a − b)²", "note": "Orta terim 2ab'ye eşit mi diye bak: 4x² + 12x + 9'da 2 · 2x · 3 = 12x olduğu için (2x + 3)²" },
+        { "formula": "x² + bx + c = (x + m)(x + n),   m + n = b   ve   m · n = c", "note": "Bu, aşağıdaki genel hâlin baş katsayısı 1 olan durumudur; baş katsayı sabit ve 1 olduğu için ayrıca koşul gerekmez" },
+        { "formula": "ax² + bx + c = (a₁x + c₁)(a₂x + c₂)   (a ≠ 0),   a₁ · a₂ = a,   c₁ · c₂ = c,   a₁c₂ + a₂c₁ = b", "note": "Çapraz çarpım yöntemi: baş katsayı ile sabit terim ayrı ayrı çarpanlara ayrılır, çapraz çarpımların toplamı b'ye eşitlenir" },
+        { "formula": "ax² + bx + c (a, b, c tam sayı ve a ≠ 0) tam sayı katsayılı iki çarpana ancak Δ = b² − 4ac tam kare ise ayrılır; Δ = 0 durumu buna dâhildir ve o durumda ifade tam karedir", "note": "x² − 6x + 9'da Δ = 36 − 36 = 0 → (x − 3)². Δ negatifken reel katsayılı çarpanlara da ayrılmaz: x² + x + 1'de Δ = −3" }
+      ],
+      "tips": [
+        "Sıra bozulmaz: önce daima ortak çarpan, sonra terim sayısına bak — 2 terim ise iki kare farkı ya da küplerin toplamı/farkı, 3 terim ise tam kare ya da çarpımı c toplamı b olan iki sayı, 4 terim ise gruplandırma.",
+        "x² + bx + c'de c > 0 ise m ile n aynı işaretlidir (hangi işaret olduğunu b belirler), c < 0 ise zıt işaretlidir; c = 0 ise ifade zaten x(x + b)'dir."
+      ],
+      "examples": [
+        {
+          "stem": "x² − 3x − 28 ifadesini çarpanlarına ayırın.",
+          "solution": "Çarpımı −28, toplamı −3 olan iki sayı aranır.\n−7 · 4 = −28 ve −7 + 4 = −3\n(x − 7)(x + 4)\nKontrol: x² + 4x − 7x − 28 = x² − 3x − 28"
+        },
+        {
+          "stem": "6x² − 7x − 3 ifadesini çarpanlarına ayırın.",
+          "solution": "6 = 3 · 2 ve −3 = 1 · (−3) seçilir.\n(3x + 1)(2x − 3) denenir.\nÇapraz çarpımlar: 3x · (−3) = −9x ve 1 · 2x = 2x\n−9x + 2x = −7x, orta terim tuttu.\nSonuç: (3x + 1)(2x − 3)"
+        },
+        {
+          "stem": "x³ − 4x² − 9x + 36 ifadesini çarpanlarına ayırın.",
+          "solution": "Dört terim var, ikişerli grupla:\n(x³ − 4x²) + (−9x + 36)\n= x²(x − 4) − 9(x − 4)\n= (x − 4)(x² − 9)\nx² − 9 iki kare farkıdır:\n= (x − 4)(x − 3)(x + 3)"
+        }
+      ]
+    },
+    {
+      "id": "ozdeslik-uygulama",
+      "subtopicId": "ozdeslik-uygulama",
+      "title": "Özdeşlik uygulamaları",
+      "aliases": ["Özdeşlik uygulamaları", "Simetrik ifadeler", "a + 1/a kalıbı"],
+      "items": [
+        { "formula": "x² + y² = (x + y)² − 2xy", "note": "x + y = 7 ve xy = 10 için 49 − 20 = 29" },
+        { "formula": "x³ + y³ = (x + y)³ − 3xy(x + y)" },
+        { "formula": "(x − y)² = (x + y)² − 4xy", "note": "Buradan yalnız |x − y| bulunur, x − y'nin işareti belirsizdir: x + y = 7 ve xy = 10 iken (x − y)² = 9, yani x − y ya 3 ya −3'tür" },
+        { "formula": "a + 1/a = k   (a ≠ 0)   ise   a² + 1/a² = k² − 2", "note": "Kareyi al: (a + 1/a)² = a² + 2 · a · (1/a) + 1/a² = a² + 1/a² + 2" },
+        { "formula": "a + 1/a = k   (a ≠ 0)   ise   a³ + 1/a³ = k³ − 3k", "note": "Küp özdeşliğinin b = 1/a hâli: a · b = 1 olduğu için 3ab(a + b) terimi 3k'ye iner" },
+        { "formula": "a − 1/a = k   (a ≠ 0)   ise   a² + 1/a² = k² + 2", "note": "Karesi alınınca orta terim −2 olur, karşı tarafa +2 olarak geçer" },
+        { "formula": "1/x + 1/y = (x + y) / (xy)   (x ≠ 0, y ≠ 0)   ve   x/y + y/x = (x² + y²) / (xy)   (x ≠ 0, y ≠ 0)", "note": "İkisi de simetriktir; pay ve payda x + y ile xy cinsinden yazılabilir" }
+      ],
+      "tips": [
+        "Simetrik ifadelerde hedef tektir: ifadeyi x + y ile xy cinsinden yaz. Soruda verilenler bu ikisidir, gerisi özdeşliktir.",
+        "Paydalı kalıplarda a ≠ 0 koşulu her zaman vardır. Ayrıca a reel ise |a + 1/a| ≥ 2 olmak zorundadır (eşitlik a = 1 ve a = −1 iken sağlanır): a + 1/a = 3 mümkündür, a + 1/a = 1 değildir."
+      ],
+      "examples": [
+        {
+          "stem": "x + y = 7 ve x · y = 10 ise x² + y² ile (x − y)² kaçtır?",
+          "solution": "x² + y² = (x + y)² − 2xy\n= 49 − 20 = 29\n(x − y)² = (x + y)² − 4xy\n= 49 − 40 = 9\nx² + y² = 29 ve (x − y)² = 9"
+        },
+        {
+          "stem": "x + y = 6 ve x · y = 4 ise x³ + y³ kaçtır?",
+          "solution": "x³ + y³ = (x + y)³ − 3xy(x + y)\n= 6³ − 3 · 4 · 6\n= 216 − 72\n= 144"
+        },
+        {
+          "stem": "a + 1/a = 3 ise a² + 1/a² ve a³ + 1/a³ kaçtır?",
+          "solution": "a² + 1/a² = k² − 2 = 3² − 2 = 7\na³ + 1/a³ = k³ − 3k = 3³ − 3 · 3\n= 27 − 9 = 18"
+        }
+      ]
+    }
+  ]
+}

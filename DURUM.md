@@ -1,6 +1,6 @@
 # Durum
 
-**Son güncelleme:** 2026-08-29 · **sw.js VERSION:** `v33`
+**Son güncelleme:** 2026-08-29 · **sw.js VERSION:** `v34`
 
 ## Özet
 
@@ -281,6 +281,57 @@ Kart sayısı (26), madde sayısı (156) ve ipucu sayısı (53) korundu; örnek 
 78 → 79 (yalnız `ebob-ekok-kesir`'e eklenen sadeleştirme örneği). Değişen 15
 kartın bütün sayısal örnekleri PowerShell tam sayı aritmetiğiyle yeniden
 hesaplandı, 79/79 doğru.
+
+## Yeni formül konusu
+
+**2026-08-29 · `data/formuller/ozdeslikler.json`** (yeni konu — 4 kart ·
+28 madde · 8 ipucu · 12 örnek · şekil yok) üretildi ve **aynı turda
+denetlendi**; ayrı denetim turu açılmadı. Matematik branşı 6 → 7 konu,
+26 → 30 formül kartı oldu.
+
+Kartlar: `ozdeslik-temel` (tam kare, iki kare farkı, `(a+b+c)²`),
+`ozdeslik-kup` (küp açılımları, `a³ ± b³`), `carpanlara-ayirma` (ortak çarpan,
+gruplandırma, tam kare tanıma, `x² + bx + c`, `ax² + bx + c`),
+`ozdeslik-uygulama` (`x + y` ile `xy` verilince simetrik ifadeler,
+`a + 1/a` kalıbı).
+
+Doğrulama — Python/sympy bu makinede yok, PowerShell tam sayı aritmetiğiyle
+yapıldı (ondalık yok, tr-TR virgül tuzağı devre dışı):
+
+- 30 özdeşlik/kalıp `a, b, c ∈ [−5, 5]` ızgarasında iki taraflı denendi
+  (dereceler ≤ 3 olduğu için değişken başına 11 nokta kesin sonuç verir);
+  tek değişkenli açılım ve çarpanlara ayırma kimlikleri `x ∈ [−6, 6]`'da.
+  Hepsi ızgaranın her noktasında doğru.
+- 12 örneğin 12'si ve not içindeki sayısal iddialar 35 ayrı kontrolle
+  yeniden hesaplandı; `x³ + y³` örnekleri ayrıca Newton bağıntısıyla
+  (`p₃ = (x+y)p₂ − xy·p₁`) ikinci bir yoldan doğrulandı. **35/35 doğru.**
+- Çakışma taraması: 11 formül dosyası · 56 kart · 166 alias — kart id,
+  `subtopicId` ve alias çakışması yok (alias haritası global, son yüklenen
+  kazanıyor; `sayilar` kartının "Asal çarpanlara ayırma" alias'ıyla yeni
+  kartın "Çarpanlara ayırma" alias'ı farklı dizeler).
+- Uygulamada `#/formuller/mat/ozdeslikler` açıldı: 4 kart, maddeler,
+  ipuçları ve çözümlü örnekler render oldu, konsolda hata yok.
+
+Önleyici yazım (önceki turların hata örüntülerine karşı): koşulsuz "≠"
+kullanılmadı — `(a+b)²` ile `a²+b²` arasındaki fark "2ab, eşitlik yalnız
+`a = 0` veya `b = 0` iken" diye yazıldı, `(a+b)³` ile `a³+b³` için eşitlik
+hâli (`a = 0`, `b = 0`, `a = −b`) yazılı. Sınırlar dâhil olarak verildi
+(`Δ` tam kare olmalı, `Δ = 0` dâhil ve o durumda tam kare;
+`|a + 1/a| ≥ 2`, eşitlik `a = 1` ve `a = −1` iken). Ön koşullar eksiksiz:
+`ax² + bx + c` için `a ≠ 0`, paydalı kalıplarda `a ≠ 0`, `1/x + 1/y` için
+`x ≠ 0` ve `y ≠ 0` (zincir değil, ayrı ayrı). `a³ ± b³`'ün ikinci
+parantezinin `b ≠ 0` iken reel katsayılı çarpanlara ayrılmadığı, `b = 0`
+hâlinin ayrıldığı belirtildi. Örneklerde dejenere seçim yok: `a = 1` /
+`b = 1` ile örnekleme yok, `x² − 3x − 28`'in kökleri `7` ve `−4` (negatif
+kök var), `97² − 93²` tam kare olmayan sayılarla, simetrik örneklerde
+`x ≠ y`. Sembol sözleşmesi dört kartta aynı: genel özdeşlikte `a, b, c`,
+polinom değişkeni `x` (ikincisi `y`), `x² + bx + c`'nin iki sayısı `m, n`,
+`a ± 1/a` kalıbının değeri `k`. Asal çarpan gösterimi hiç kullanılmadı, Z1
+çakışması tekrarlanmadı.
+
+Kalan tek gerilim: `uslu-kurallar` item[7]'deki koşulsuz
+`(a + b)ⁿ ≠ aⁿ + bⁿ` ifadesi, yeni kartın koşullu ifadesinin yanında gevşek
+kalıyor. Aşağıda Z3 olarak zaten kayıtlı; bu turda kapsam dışı bırakıldı.
 
 ## Bilinen açık maddeler
 
