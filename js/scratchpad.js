@@ -1,19 +1,23 @@
-// Karalama alani. Soru ekraninda parmakla cizilebilen kucuk bir tuval.
+// Karalama alani. Soru ekraninda parmakla cizilebilen tuval.
 //
 // Akisi kesmemesi icin varsayilan kapalidir; kapaliyken sadece tek satirlik bir
-// dugme gorunur. Cizgiler strokes dizisinde tutulur, boylece ekran dondugunde
-// (yeniden boyutlandirmada) cizim kaybolmaz.
+// dugme gorunur. Cizgiler stroke listesinde tutulur: yeniden boyutlandirmada cizim
+// kaybolmaz, "Geri al" son hareketi atar. Silgi de bir stroke oldugu icin geri alinabilir.
 
 import { el } from './ui.js';
 
 const CANVAS_HEIGHT = 180;
 const PEN_WIDTH = 2.5;
 const PEN_COLOR = '#0f172a';
+/** Telefonda isabet ettirilebilecek kadar genis, fazlasini silmeyecek kadar dar. */
+const ERASER_WIDTH = 18;
+/** Geri al gecmisinin siniri; tasan en eski hareketler baseline tuvaline duzlestirilir. */
+const MAX_STROKES = 30;
 
 let nextId = 1;
 
 /**
- * createScratchpad({ open }) -> { node, reset, setOpen, isOpen, destroy }
+ * createScratchpad({ open }) -> { node, reset, setOpen, isOpen, setFullscreen, isFullscreen, destroy }
  * node, cagiran ekranin istedigi yere eklenir. Tek ornek uzun omurludur:
  * DOM'dan sokulup tekrar eklenmesi cizimi bozmaz.
  */
@@ -26,15 +30,37 @@ export function createScratchpad({ open = false } = {}) {
     'aria-label': 'Karalama tuvali',
   });
 
+  const fullButton = el('button', {
+    class: 'scratch-btn',
+    type: 'button',
+    on: { click: () => setFullscreen(!isFullscreen) },
+  }, 'Büyüt');
+
+  // Tek dugme iki modu tasir: basili gorunum silgi modu demektir.
+  const toolButton = el('button', {
+    class: 'scratch-btn',
+    type: 'button',
+    'aria-pressed': 'false',
+    'aria-label': 'Silgi modu',
+    on: { click: () => setTool(tool === 'erase' ? 'pen' : 'erase') },
+  }, 'Silgi');
+
+  const undoButton = el('button', {
+    class: 'scratch-btn',
+    type: 'button',
+    disabled: true,
+    on: { click: () => undo() },
+  }, 'Geri al');
+
   const clearButton = el('button', {
-    class: 'scratch-clear',
+    class: 'scratch-btn',
     type: 'button',
     on: { click: () => reset() },
   }, 'Temizle');
 
   const panel = el('div', { class: 'scratch-panel', id: panelId },
     canvas,
-    el('div', { class: 'scratch-tools' }, clearButton)
+    el('div', { class: 'scratch-tools' }, fullButton, toolButton, undoButton, clearButton)
   );
 
   const caret = el('span', { class: 'scratch-caret', 'aria-hidden': 'true' }, '▾');
@@ -50,73 +76,133 @@ export function createScratchpad({ open = false } = {}) {
 
   const ctx = canvas.getContext('2d');
 
-  /** [[{x,y}, ...], ...] - CSS pikseli cinsinden, tuvalin sol ust kosesine gore. */
+  /** [{ mode: 'pen'|'erase', points: [{x,y}, ...] }, ...] - CSS pikseli, tuvalin sol ust kosesine gore. */
   let strokes = [];
   let current = null;
   let activePointerId = null;
+  let tool = 'pen';
 
   let cssWidth = 0;
   let cssHeight = CANVAS_HEIGHT;
+  let dpr = 1;
   let isOpen = false;
+  let isFullscreen = false;
+
+  /**
+   * MAX_STROKES tasinca en eski hareketler buraya duzlestirilir: geri alinamazlar ama
+   * ekranda kalirlar. Boylece gecmis sinirliyken bile cizim kaybolmaz.
+   * baselineWidth/Height, goruntunun kapsadigi CSS alanidir - tuval kuculse bile baseline
+   * kucultulmez, yoksa tam ekranda cizilenler geri donulmez sekilde kirpilirdi.
+   */
+  let baseline = null;
+  let baselineWidth = 0;
+  let baselineHeight = 0;
 
   // ---------- cizim ----------
 
-  function applyPenStyle() {
-    ctx.lineWidth = PEN_WIDTH;
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-    ctx.strokeStyle = PEN_COLOR;
-    ctx.fillStyle = PEN_COLOR;
+  function widthOf(mode) {
+    return mode === 'erase' ? ERASER_WIDTH : PEN_WIDTH;
   }
 
-  function drawDot(point) {
-    ctx.beginPath();
-    ctx.arc(point.x, point.y, PEN_WIDTH / 2, 0, Math.PI * 2);
-    ctx.fill();
+  /** Silgi ayri bir renk degil: destination-out boyayi kaldirir, kagit CSS'ten gelir. */
+  function applyStyle(target, mode) {
+    target.lineCap = 'round';
+    target.lineJoin = 'round';
+    target.strokeStyle = PEN_COLOR;
+    target.fillStyle = PEN_COLOR;
+    target.lineWidth = widthOf(mode);
+    target.globalCompositeOperation = mode === 'erase' ? 'destination-out' : 'source-over';
   }
 
-  function drawSegment(from, to) {
-    ctx.beginPath();
-    ctx.moveTo(from.x, from.y);
-    ctx.lineTo(to.x, to.y);
-    ctx.stroke();
+  function drawDot(target, mode, point) {
+    target.beginPath();
+    target.arc(point.x, point.y, widthOf(mode) / 2, 0, Math.PI * 2);
+    target.fill();
   }
 
-  /** Tumunu bastan cizer; sadece yeniden boyutlandirmada gerekir. */
-  function redraw() {
-    ctx.clearRect(0, 0, cssWidth, cssHeight);
-    for (const stroke of strokes) {
-      if (stroke.length === 1) {
-        drawDot(stroke[0]);
-        continue;
-      }
-      ctx.beginPath();
-      ctx.moveTo(stroke[0].x, stroke[0].y);
-      for (let i = 1; i < stroke.length; i++) ctx.lineTo(stroke[i].x, stroke[i].y);
-      ctx.stroke();
+  function drawSegment(target, from, to) {
+    target.beginPath();
+    target.moveTo(from.x, from.y);
+    target.lineTo(to.x, to.y);
+    target.stroke();
+  }
+
+  function drawStroke(target, stroke) {
+    applyStyle(target, stroke.mode);
+    const points = stroke.points;
+    if (points.length === 1) {
+      drawDot(target, stroke.mode, points[0]);
+      return;
     }
+    target.beginPath();
+    target.moveTo(points[0].x, points[0].y);
+    for (let i = 1; i < points.length; i++) target.lineTo(points[i].x, points[i].y);
+    target.stroke();
+  }
+
+  /** Tumunu bastan cizer: yeniden boyutlandirmada, geri alda ve tam ekran gecisinde. */
+  function redraw() {
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.clearRect(0, 0, cssWidth, cssHeight);
+    // Kendi CSS olcusuyle cizilir; tuval buyudu diye eski cizim esnememeli.
+    if (baseline) ctx.drawImage(baseline, 0, 0, baselineWidth, baselineHeight);
+    for (const stroke of strokes) drawStroke(ctx, stroke);
+    applyStyle(ctx, tool);
+  }
+
+  /** Duzlestirme hedefi; tuval buyuduyse baseline'i buyuterek yeniden kurar. */
+  function baselineContext() {
+    const needWidth = Math.max(baselineWidth, cssWidth);
+    const needHeight = Math.max(baselineHeight, cssHeight);
+    const pixelWidth = Math.round(needWidth * dpr);
+    const pixelHeight = Math.round(needHeight * dpr);
+
+    if (!baseline || baseline.width !== pixelWidth || baseline.height !== pixelHeight) {
+      const next = document.createElement('canvas');
+      next.width = pixelWidth;
+      next.height = pixelHeight;
+      const nextCtx = next.getContext('2d');
+      nextCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (baseline) nextCtx.drawImage(baseline, 0, 0, baselineWidth, baselineHeight);
+      baseline = next;
+      baselineWidth = needWidth;
+      baselineHeight = needHeight;
+    }
+
+    const target = baseline.getContext('2d');
+    target.setTransform(dpr, 0, 0, dpr, 0, 0);
+    return target;
+  }
+
+  /** Gecmisi sinirda tutar: en eski hareket geri alinamaz hale gelir ama ekrandan silinmez. */
+  function pushStroke(stroke) {
+    strokes.push(stroke);
+    while (strokes.length > MAX_STROKES) drawStroke(baselineContext(), strokes.shift());
   }
 
   /**
    * Tuvali kendi CSS boyutuna ve ekran yogunluguna gore olceklendirir.
-   * Panel kapaliyken genislik 0 olacagi icin bir sey yapmaz.
+   * Panel kapaliyken (ya da node DOM disindayken) olculebilir boyut yok, bir sey yapmaz.
    */
   function resize() {
-    const width = Math.round(canvas.getBoundingClientRect().width);
-    if (width <= 0) return;
+    const rect = canvas.getBoundingClientRect();
+    const width = Math.round(rect.width);
+    // Yukseklik de olculur: tam ekranda tuval CSS'ten esner, sabit degildir.
+    const height = Math.round(rect.height);
+    if (width <= 0 || height <= 0) return;
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const pixelWidth = Math.round(width * dpr);
-    const pixelHeight = Math.round(CANVAS_HEIGHT * dpr);
+    const nextDpr = Math.min(window.devicePixelRatio || 1, 2);
+    const pixelWidth = Math.round(width * nextDpr);
+    const pixelHeight = Math.round(height * nextDpr);
     if (canvas.width === pixelWidth && canvas.height === pixelHeight) return;
 
+    dpr = nextDpr;
     cssWidth = width;
-    cssHeight = CANVAS_HEIGHT;
+    cssHeight = height;
     // width/height yazmak baglami sifirlar: donusum ve kalem ayari sonra gelmeli.
     canvas.width = pixelWidth;
     canvas.height = pixelHeight;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    applyPenStyle();
     redraw();
   }
 
@@ -141,9 +227,11 @@ export function createScratchpad({ open = false } = {}) {
     }
 
     const point = pointFrom(event);
-    current = [point];
-    strokes.push(current);
-    drawDot(point);
+    current = { mode: tool, points: [point] };
+    pushStroke(current);
+    applyStyle(ctx, tool);
+    drawDot(ctx, tool, point);
+    syncTools();
   }
 
   function onPointerMove(event) {
@@ -152,12 +240,13 @@ export function createScratchpad({ open = false } = {}) {
 
     // Hizli hareketlerde ara noktalar da alinir; cizgi kose kose olmaz.
     const events = event.getCoalescedEvents ? event.getCoalescedEvents() : [event];
+    const points = current.points;
     for (const item of events.length > 0 ? events : [event]) {
       const point = pointFrom(item);
-      const previous = current[current.length - 1];
+      const previous = points[points.length - 1];
       if (point.x === previous.x && point.y === previous.y) continue;
-      current.push(point);
-      drawSegment(previous, point);
+      points.push(point);
+      drawSegment(ctx, previous, point);
     }
   }
 
@@ -181,14 +270,84 @@ export function createScratchpad({ open = false } = {}) {
 
   window.addEventListener('resize', onWindowResize);
 
+  // ---------- araclar ----------
+
+  function syncTools() {
+    undoButton.disabled = strokes.length === 0;
+    toolButton.setAttribute('aria-pressed', tool === 'erase' ? 'true' : 'false');
+    fullButton.textContent = isFullscreen ? 'Küçült' : 'Büyüt';
+    fullButton.setAttribute('aria-label', isFullscreen ? 'Karalamayı küçült' : 'Karalamayı büyüt');
+  }
+
+  function setTool(value) {
+    tool = value === 'erase' ? 'erase' : 'pen';
+    applyStyle(ctx, tool);
+    syncTools();
+  }
+
+  /** Son hareketi (kalem ya da silgi) iptal eder. Cizim surerken calismaz. */
+  function undo() {
+    if (current || strokes.length === 0) return;
+    strokes.pop();
+    redraw();
+    syncTools();
+  }
+
+  // ---------- tam ekran ----------
+
+  /** Gecmis kaydina dokunmadan yalnizca gorunumu kapatir. */
+  function closeFullscreenView() {
+    if (!isFullscreen) return;
+    isFullscreen = false;
+    node.classList.remove('scratch--full');
+    document.body.classList.remove('scratch-fullscreen-open');
+    resize();
+    syncTools();
+  }
+
+  function setFullscreen(value) {
+    if (value) {
+      if (isFullscreen) return;
+      isFullscreen = true;
+      node.classList.add('scratch--full');
+      document.body.classList.add('scratch-fullscreen-open');
+      // Donanim geri tusu once karalamayi kapatsin. Hash degismedigi icin hashchange
+      // tetiklenmez, router'in dgsDepth muhasebesi bozulmaz: derinlik damgasi tasinir.
+      history.pushState({ ...(history.state || {}), dgsScratch: true }, '');
+      resize();
+      syncTools();
+      return;
+    }
+
+    if (!isFullscreen) return;
+    closeFullscreenView();
+    // Girerken eklenen kaydi tuket; popstate geldiginde kapanacak bir sey kalmaz.
+    if (history.state && history.state.dgsScratch) history.back();
+  }
+
+  function onPopState() {
+    if (!isFullscreen) return;
+    if (history.state && history.state.dgsScratch) return;
+    closeFullscreenView();
+  }
+
+  window.addEventListener('popstate', onPopState);
+
   // ---------- dis arayuz ----------
 
-  /** Cizimi siler. Panelin acik/kapali durumuna dokunmaz. */
+  /** Cizimi ve geri al gecmisini siler. Panelin acik/kapali ve tam ekran durumuna dokunmaz. */
   function reset() {
     strokes = [];
     current = null;
     activePointerId = null;
+    baseline = null;
+    baselineWidth = 0;
+    baselineHeight = 0;
+    tool = 'pen';
+    ctx.globalCompositeOperation = 'source-over';
     ctx.clearRect(0, 0, cssWidth, cssHeight);
+    applyStyle(ctx, tool);
+    syncTools();
   }
 
   function setOpen(value) {
@@ -197,13 +356,18 @@ export function createScratchpad({ open = false } = {}) {
     toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     // Kapaliyken tuvalin olculebilir genisligi yok; acilir acilmaz olcekle.
     if (isOpen) resize();
+    else setFullscreen(false);
   }
 
   function destroy() {
     window.removeEventListener('resize', onWindowResize);
+    window.removeEventListener('popstate', onPopState);
+    // Ekrandan cikilirken gezinme surer; gecmise dokunmak riskli, sadece gorunumu kapat.
+    closeFullscreenView();
   }
 
   setOpen(open);
+  syncTools();
 
   return {
     node,
@@ -211,6 +375,10 @@ export function createScratchpad({ open = false } = {}) {
     setOpen,
     get isOpen() {
       return isOpen;
+    },
+    setFullscreen,
+    get isFullscreen() {
+      return isFullscreen;
     },
     destroy,
   };

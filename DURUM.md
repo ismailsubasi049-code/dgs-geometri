@@ -1,6 +1,6 @@
 # Durum
 
-**Son güncelleme:** 2026-08-29 · **sw.js VERSION:** `v35`
+**Son güncelleme:** 2026-08-29 · **sw.js VERSION:** `v36`
 
 ## Özet
 
@@ -52,6 +52,38 @@ kez, her bölüm için bir kez çıkar. Artık **yalnızca konu ve alt konu
 modlarında** çıkıyor — günlük rutin (`dueOrder`) ve Yanlışlarım (`lastSeen`)
 listeleri zorluğa göre dizilmediği için oradaki 2 → 3 geçişi tesadüfiydi. O iki
 modun soru sırası değişmedi, sadece bildirim kalktı; süreli testte zaten yoktu.
+
+## Karalama alanı
+
+**2026-08-29 (v36).** Karalama alanı çok aşamalı sorularda — özellikle
+telefonda — yetersiz kalıyordu ve tek düzenleme seçeneği "Temizle" olduğu için
+küçük bir düzeltme bütün çalışmayı siliyordu. `js/scratchpad.js` dört düğmeye
+çıktı: **Büyüt / Silgi / Geri al / Temizle** (hepsi `min-height: var(--tap)`,
+dar ekranda tek satırda sığar). Soru verisine, paketlere ve localStorage
+şemasına dokunulmadı; karalama hâlâ oturumluk.
+
+Zemin zaten hazırdı: çizgiler `strokes` dizisinde nokta listesi olarak
+tutuluyordu (yeniden boyutlandırmada `redraw()` için). Artık her stroke
+`{ mode: 'pen'|'erase', points }`:
+
+- **Silgi**, `globalCompositeOperation = 'destination-out'` ile 18 CSS piksel
+  uçlu piksel silgisi. Kâğıt boya değil CSS arka planı olduğu için silinen yer
+  temiz görünür. Silme de bir stroke olduğundan **geri al silgiyi de iptal eder**.
+- **Geri al** son stroke'u atıp `redraw()` çağırır; çizim yokken düğme pasif.
+  Geçmiş `MAX_STROKES = 30` ile sınırlı — taşan en eski hareketler bir offscreen
+  `baseline` tuvaline düzleştirilir: geri alınamaz olurlar ama ekrandan silinmez.
+  `baseline` küçültülmez, yoksa tam ekranda çizilen alt kısım kalıcı kırpılırdı.
+- **Tam ekran** `.scratch--full` sınıfı (fixed, `z-index: 60` — üst barın üstü,
+  yedek kapısının altı) + `body.scratch-fullscreen-open`. `resize()` artık
+  yüksekliği de `getBoundingClientRect()`'ten okuyor (eskiden sabit
+  `CANVAS_HEIGHT` idi). Tuval tam ekranda da `max-width: var(--maxw)` ile
+  sınırlı: iki mod arasında **yalnızca yükseklik** değişir, CSS piksel cinsinden
+  tutulan koordinatlar birebir korunur, girip çıkınca çizim kaymaz.
+- **Geri tuşu:** tam ekrana girerken `history.pushState({...state, dgsScratch:true})`.
+  Hash değişmediği için `hashchange` tetiklenmez, router'ın `dgsDepth` muhasebesi
+  bozulmaz; `popstate` gelince önce karalama kapanır, soru terk edilmez.
+  `session.js` `showQuestion()` başında `scratch.setFullscreen(false)` çağırır —
+  `clear(body)` node'u sökeceği için tam ekran soru değişimine taşınamaz.
 
 ## Formül kartı denetimi
 
@@ -383,6 +415,12 @@ orantılanan sayı üçlüsü `x`, `y`, `z`, paylaştırılan toplam `T` (`a` il
 
 Düzeltilmedi, kayıt için duruyor:
 
+- **Karalama tam ekrandayken süreli testin süresi dolarsa** `finishSession`
+  → `navigate('#/sonuc', { replace: true })` karalamanın geçmiş kaydının
+  üzerine yazar; yığında fazladan bir `#/oturum/...` kaydı kalır ve sonuç
+  ekranından bir geri, listeye değil oturuma iner. Çökme değil, dar bir kenar
+  durum: `destroy()` gezinme ortasında `history.back()` çağırmak daha riskli
+  olacağı için yalnızca görünümü kapatıyor.
 - Denetimde **KOZMETİK** işaretlenen maddeler bilinçli olarak kapsam dışı
   bırakıldı: `ucgen-oklid` item[0]/[2]/[3]'te `c` etiketi hipotenüsün ortasına
   değil `p` parçasının altına düşüyor; `ucgen-alan` item[2]/[3] ve

@@ -368,6 +368,8 @@ export async function render(ctx) {
     counter.textContent = `Soru ${number} / ${session.questions.length}`;
     progressFill.style.width = `${((number - 1) / session.questions.length) * 100}%`;
 
+    // Karalama tam ekranda kalmis olabilir; clear(body) node'u sokecegi icin once kapat.
+    scratch.setFullscreen(false);
     clear(body);
 
     // Zor bloga yeni girildiyse bolum basina bir kez hatirlatma.

@@ -430,21 +430,73 @@ button { font: inherit; color: inherit; }
   -webkit-touch-callout: none;
 }
 
-.scratch-tools { display: flex; justify-content: flex-end; }
+/* Dort dugme: buyut, silgi, geri al, temizle. Dar ekranda da dordu yan yana sigar. */
+.scratch-tools { display: flex; gap: 8px; }
 
-.scratch-clear {
-  min-height: 40px;
-  padding: 8px 16px;
+.scratch-btn {
+  flex: 1;
+  min-height: var(--tap);
+  padding: 8px 4px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface);
   color: var(--text);
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
 }
 
-.scratch-clear:active { background: var(--surface-2); }
+.scratch-btn:active { background: var(--surface-2); }
+
+/* Silgi modundayken dugme basili durur: hangi moddayiz tek bakista bellidir. */
+.scratch-btn[aria-pressed='true'] {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.scratch-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/*
+ * Tam ekran. Kaplama tum ekrani orter ama tuval uygulama sutunu genisliginde kalir:
+ * iki mod arasinda yalnizca yukseklik degisir, boylece CSS piksel cinsinden tutulan
+ * cizim koordinatlari birebir korunur - girip cikinca cizim kaymaz, kirpilmaz.
+ */
+.scratch--full {
+  position: fixed;
+  inset: 0;
+  z-index: 60; /* ust barin ve bildirimlerin ustu, yedek kapisinin (100) alti */
+  grid-template-rows: minmax(0, 1fr);
+  padding: calc(var(--safe-t) + 10px) 12px calc(var(--safe-b) + 10px);
+  background: var(--bg);
+}
+
+.scratch--full .scratch-toggle { display: none; }
+
+.scratch--full .scratch-panel:not([hidden]) {
+  grid-template-rows: minmax(0, 1fr) auto;
+  min-height: 0;
+}
+
+.scratch--full .scratch-canvas {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+/* Araclar altta: tam ekranda basparmakla erisilen yer burasi. */
+.scratch--full .scratch-tools {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+body.scratch-fullscreen-open { overflow: hidden; }
 
 /* zor bloga gecis bildirimi: akisi kesmeyen, kapatilabilir tek satir */
 
