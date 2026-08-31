@@ -382,6 +382,36 @@ button { font: inherit; color: inherit; }
   margin-bottom: 4px;
 }
 
+/* ortak kok: blok sorularinin ustundeki paylasilan tanim/senaryo/tablo.
+   Katlanabilir, cunku ayni kok 2-3 soruda tekrar eder - kapaliyken tek satir.
+   .block-notice ile ilgisi yok: oradaki "blok" zorluk blogu. */
+
+.shared-stem {
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--muted);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 10px 14px;
+}
+
+.shared-stem > summary {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+  cursor: pointer;
+  /* Katlanmis kutunun dokunma alani tek satirdan genis olsun. */
+  padding: 4px 0;
+}
+
+.shared-stem[open] > summary { margin-bottom: 8px; }
+
+.shared-stem-body { white-space: pre-line; }
+
+/* Kok icindeki tablo/grafik, soru sekliyle ayni zeminde. */
+.shared-stem .figure { margin-bottom: 8px; }
+
 /* karalama alani: varsayilan kapali, akisi kesmeyen tek satirlik dugme */
 
 .scratch { display: grid; gap: 8px; }

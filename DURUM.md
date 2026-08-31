@@ -1,6 +1,6 @@
 # Durum
 
-**Son güncelleme:** 2026-08-31 · **sw.js VERSION:** `v38`
+**Son güncelleme:** 2026-09-01 · **sw.js VERSION:** `v39`
 
 ## Özet
 
@@ -38,7 +38,8 @@ konusunun hâlâ yalnız formül kartı var, paketi yok: `sayilar`,
   kartları hazır), yoksa dörtgen/çember paketleri mi
 - `_format_profili.md` §11.4'ün sırasına göre oran-orantıdan önce gelen üç
   **sayısal mantık** paketi (tanımlı kavram/sembol, tablo-algoritma,
-  grafik yorumlama) hâlâ yazılmadı; sınavda her yıl çıkıyor.
+  grafik yorumlama) hâlâ yazılmadı; sınavda her yıl çıkıyor. Şema tarafındaki
+  engel kalktı: ortak köklü blok desteği v39'da geldi (`_sema.md` §8).
 
 ## Öğrenme modu sıralaması
 
@@ -531,6 +532,67 @@ harf dağılımı, iddia edilen her ara değerin çözüm adımlarında gerçekt
 geçtiği ve 210 alias arasında çakışma olmadığı ayrıca tarandı. Bulunan
 değerler verilen orantılara geri konarak sağlandığı gösterildi (ör.
 `oranti-13`: 1800 · 2 = 1200 · 3 = 600 · 6 = 3600).
+
+## Ortak köklü blok desteği
+
+**2026-09-01 (v39) · şema + `js/packs.js`, `js/ui.js`, iki ekran, `css/app.css`.**
+Gerçek sınavın 26–42 arası — 50 sorunun **%34'ü** — ortak köklü bloklardan oluşuyor:
+tek bir tanım/senaryo/tablo üzerine 2 ya da 3 soru kuruluyor ve kök her soruda
+birebir tekrar basılıyor (`_format_profili.md` §3, "uygulamadaki en büyük eksik").
+O güne kadar 17 paketin 435 sorusunun tamamı bağımsız soruydu.
+
+**Şema kararı: ayrı `blocks` dizisi, soruda `blockId`** (`_sema.md` §8).
+Değerlendirilen ikinci yol — kökü ilk soruya yazıp sonrakilere "önceki kökü kullan"
+işareti koymak — bu kod tabanında çalışmaz, iki bağımsız nedenle:
+
+1. **Dizi sırası render'a kadar yaşamıyor.** `js/scheduler.js` soruları zorluk
+   kovalarına ayırıyor, Leitner vadesine göre ikiye bölüyor, blok içinde `shuffle`
+   ediyor; mini test konu konu serpiştiriyor; "Yanlışlarım" soruyu tek başına
+   getiriyor. Render anında "önceki soru" diye bir şey yok.
+2. **Geçersiz soru sessizce düşüyor.** Kök zincirin ilk halkasındaysa ve o soru
+   `isValidQuestion`'a takılırsa, kök arkasındaki 2 soruyla birlikte yok olurdu.
+
+**Üyelik tek yerde:** blokta `questionIds` listesi tutulmuyor. İki yerde yazılan
+üyelik senkronsuz kalır; yanlış `blockId` doğrulamaya takılıp `console.warn` ile
+soruyu atlatır, bir `questionIds` listesindeki aynı hata ise sessiz kalır ve soru
+köksüz basılırdı. Köksüz bir blok sorusu cevaplanamaz — yarım göstermektense
+göstermemek doğru.
+
+**Kök soruya yükleme sırasında yapıştırılıyor** (`js/packs.js` → `question.block`).
+Kritik olan bu: `restoreSession`, `resolveQuestions`, `getLoadedQuestion` ve dört
+oturum modu soruyu bağlamsız alır, hepsi kendi kendine yeten bir nesne görür.
+
+**Render tek yerden** (`sharedStem`, `js/ui.js`) — iki ekran da aynı `<details>`
+iskeletini kullanır, aralarındaki tek fark varsayılan açıklık:
+
+- **Oturumda** kök açık gelir; **aynı blok arka arkaya** geldiyse ikincisinde
+  katlanmış gelir (`lastBlockId`). Kutu yerinde durur, başlığı görünür, ama 8–15
+  satırlık metni ikinci kez okutmaz.
+- **Sonuç ekranında** kök, o bloğun listedeki **ilk yanlış/boş** sorusunda açık,
+  diğer her yerde kapalı (`openRootIndexes`, `js/screens/result.js`). İlk *soruda*
+  değil ilk *yanlışta*: kökü okuman gereken yer dönüp baktığın sorudur. Tam gruplama
+  (blok bir kez, altında o bloğun yanlışları) yapılmadı — gözden geçirme listesini
+  oturum sırasından koparır, `${index + 1}.` numarası oturumda görülen sıraya
+  karşılık gelmez olurdu.
+
+Kök metni soru metniyle **aynı `richText`'ten** geçer: `**kalın**`, satır başı `Not:`
+ve HTML-escape (`a < b < c` yutulmaz). Satır sonları korunuyor
+(`.shared-stem-body { white-space: pre-line }`), kök çok satırlı yazılabilir.
+Şekil `parseFigure` ile aynı beyaz listeden geçer; yeni güvenlik yüzeyi yok.
+
+**Leitner'a dokunulmadı.** `js/scheduler.js` ve `js/store.js` değişmedi. Blok bir
+öğrenme birimi değil, yalnızca ortak metin: kardeş sorular bağımsız kutu değiştirir,
+ayrı günlerde geri gelir, ayrı ayrı "Yanlışlarım"a düşer. Aynı kökün oturumda birkaç
+kez görünmesi gerçek sınavın davranışının aynısı.
+
+**Geriye dönük uyum:** 17 paketin hiçbirinde `blocks` ya da `blockId` yok
+(`grep` ile doğrulandı); `question.block` `null` kalır, iki ekrandaki tek satırlık
+koşul atlanır, DOM birebir eskisi gibi. Hiçbir soru id'si değişmedi, Leitner
+ilerlemesi korundu. CSS sınıfı `.shared-stem` — mevcut `.block-notice` ile ilgisi
+yok, oradaki "blok" zorluk bloğu.
+
+Sıra: şema artık hazır; ilk sayısal mantık blok paketi kod değişikliği
+gerektirmeden yazılabilir.
 
 ## Bilinen açık maddeler
 

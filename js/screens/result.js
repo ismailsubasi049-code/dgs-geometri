@@ -1,6 +1,7 @@
 // Oturum sonucu: skor, ipucu kullanimi ve soru soru gozden gecirme.
 
-import { el, richText, emptyState, fmtTime, formulaCard, CHOICE_LETTERS } from '../ui.js';
+import { el, richText, emptyState, fmtTime, formulaCard, sharedStem, CHOICE_LETTERS }
+  from '../ui.js';
 import { parseFigure } from '../svg.js';
 import { getLastSession } from '../quiz.js';
 import { getCardFor } from '../formulas.js';
@@ -11,7 +12,27 @@ function verdictOf(record) {
   return record.correct ? 'ok' : 'bad';
 }
 
-function reviewItem(question, record, index) {
+/**
+ * Ortak kokun ACIK gelecegi sorularin indeksleri: her blogun listedeki ilk yanlis
+ * ya da bos sorusu. Ayni bloktan birden fazla soru yanlissa kok bir kez acilir ve
+ * acildigi yer dogru bilinen soru degil, donup bakilacak soru olur. Blogun hic
+ * yanlisi yoksa kok hicbirinde acilmaz; liste kisa kalir, isteyen basligindan acar.
+ */
+function openRootIndexes(questions, answers) {
+  const opened = new Set(); // kokun zaten acildigi blok kimlikleri
+  const at = new Set();     // soru indeksi
+
+  for (let i = 0; i < questions.length; i++) {
+    const block = questions[i].block;
+    if (!block || opened.has(block.id)) continue;
+    if (verdictOf(answers[i]) === 'ok') continue;
+    opened.add(block.id);
+    at.add(i);
+  }
+  return at;
+}
+
+function reviewItem(question, record, index, openRoot) {
   const kind = verdictOf(record);
   const label = { ok: '✓ Doğru', bad: '✗ Yanlış', skip: '— Boş' }[kind];
 
@@ -21,6 +42,9 @@ function reviewItem(question, record, index) {
   );
 
   const detailStack = el('div', { class: 'stack', style: 'margin-top:10px' });
+
+  // Ortak kok soru metninin ustunde; blok sorularinda kok sorunun yarisidir.
+  if (question.block) detailStack.append(sharedStem(question.block, { open: openRoot }));
 
   const figure = parseFigure(question.figure, question.subtopic || 'Soru şekli');
   if (figure) detailStack.append(el('div', { class: 'figure' }, figure));
@@ -123,8 +147,9 @@ export async function render(ctx) {
   root.append(el('h2', { style: 'font-size:1rem;margin-top:6px' }, 'Soruların üstünden geç'));
 
   const list = el('div', { class: 'list' });
+  const openRoots = openRootIndexes(session.questions, session.answers);
   session.questions.forEach((question, index) => {
-    list.append(reviewItem(question, session.answers[index], index));
+    list.append(reviewItem(question, session.answers[index], index, openRoots.has(index)));
   });
   root.append(list);
 

@@ -216,7 +216,31 @@ export function formulaCard(
   );
 }
 
+/**
+ * Ortak kok kutusu. Bir blok sorusunun ustunde, sorunun kendi sekli ve metninden once
+ * cizilir; kok metni her soruda tekrar basilir (gercek sinav da boyle basiyor).
+ *
+ * Her zaman <details>: iki ekran da ayni iskeleti kullanir, aralarindaki tek fark
+ * varsayilan aciklik. Oturumda ayni blok arka arkaya gelirse kutu kapali gelir,
+ * sonuc ekraninda ise bloguna donup bakilacak soruda - ilk yanlisinda - acik gelir.
+ *
+ * Kok metni soru metniyle ayni isaretleyicilerden gecer (richText): **kalin**, satir
+ * basi "Not:" ve HTML-escape. Sekil de sorununkiyle ayni beyaz listeden (parseFigure).
+ */
+export function sharedStem(block, { open = true } = {}) {
+  if (!block) return null;
+
+  const figure = parseFigure(block.figure, block.label || 'Ortak kök şekli');
+
+  return el('details', { class: 'shared-stem', open },
+    el('summary', null, block.label ? `Ortak kök — ${block.label}` : 'Ortak kök'),
+    figure ? el('div', { class: 'figure' }, figure) : null,
+    el('div', { class: 'shared-stem-body', html: richText(block.stem) })
+  );
+}
+
 /** Bos durum kutusu. */
+
 export function emptyState(emoji, title, detail) {
   return el('div', { class: 'empty' },
     el('span', { class: 'emoji' }, emoji),

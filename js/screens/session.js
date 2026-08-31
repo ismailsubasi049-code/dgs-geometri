@@ -1,6 +1,7 @@
 // Soru ekrani. Dort modun da kullandigi tek ekran; farki mod yapilandirmasi belirler.
 
-import { el, clear, richText, fmtTime, fmtDay, emptyState, formulaCard, CHOICE_LETTERS } from '../ui.js';
+import { el, clear, richText, fmtTime, fmtDay, emptyState, formulaCard, sharedStem, CHOICE_LETTERS }
+  from '../ui.js';
 import { parseFigure } from '../svg.js';
 import { createSession, MODES } from '../quiz.js';
 import {
@@ -321,6 +322,14 @@ export async function render(ctx) {
   const hardNoticeShown = { due: false, rest: false };
 
   /**
+   * En son cizilen ortak kok blogunun kimligi. lastBlock (zorluk blogu) ile ilgisi yok.
+   * Ayni blok arka arkaya gelirse kok ikinci kez katlanmis gelir: kutu yerinde durur,
+   * basligi gorunur, ama 8-15 satirlik metin tekrar okunmaya zorlamaz. Devam ettirilen
+   * oturumda da null baslar - oturumun ilk sorusunda kok daima acik.
+   */
+  let lastBlockId = null;
+
+  /**
    * Bildirim yalnizca listesi gercekten kolaydan zora dizilen modlarda anlamli.
    * Gunluk rutin (vadesi gelenler dueOrder'la gelir) ve Yanlislarim (lastSeen sirasi)
    * boyle dizilmiyor; oralarda 2 -> 3 gecisi tesadufi olurdu. Sureli test zaten disarida.
@@ -396,6 +405,12 @@ export async function render(ctx) {
           : null
       )
     );
+
+    // ortak kok: sorunun kendi sekli ve metninden once
+    if (question.block) {
+      body.append(sharedStem(question.block, { open: question.block.id !== lastBlockId }));
+    }
+    lastBlockId = question.block ? question.block.id : null;
 
     // sekil
     const figure = parseFigure(question.figure, question.subtopic || 'Soru şekli');

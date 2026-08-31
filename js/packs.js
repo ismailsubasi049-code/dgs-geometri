@@ -3,6 +3,10 @@
 // Genisleme noktasi: data/index.json. Yeni bir paket eklemek icin data/packs/ altina JSON
 // koymak ve index.json'a bir kayit satiri yazmak yeterli - bu dosya dahil hicbir kod degismez.
 //
+// Bir paketin sorulari ortak koklu bloklar halinde de yazilabilir: paketin ustundeki blocks
+// dizisi kokleri bir kez tanimlar, soru blockId ile bagi kurar. Kok yukleme sirasinda soruya
+// cozulerek yapistirilir (block alani), boylece her tuketici kendi kendine yeten soru alir.
+//
 // Bir paket ya bir konunun tamami (duz konu) ya da bir alt konudur. Alt konu paketinde
 // index.json kaydinda subtopicId/subtopic alanlari bulunur; duz konuda bulunmaz.
 //
@@ -42,8 +46,32 @@ export function loadIndex() {
   return indexPromise;
 }
 
+/**
+ * Paketin ortak kok bloklari: id -> { id, label, stem, figure }.
+ * Kimligi ya da kok metni olmayan blok kullanilamaz; atlanir. Blok yazmayan paket
+ * (bagimsiz sorulardan olusan her paket) bos bir Map alir, asagisi degismez.
+ */
+function indexBlocks(data, packId) {
+  const blocks = new Map();
+  const raw = Array.isArray(data.blocks) ? data.blocks : [];
+
+  for (const block of raw) {
+    if (!block || !block.id || !block.stem) {
+      console.warn(`Blok atlandı (${packId} / ${(block && block.id) || '?'}): id ya da stem yok`);
+      continue;
+    }
+    blocks.set(block.id, {
+      id: block.id,
+      label: block.label || null,
+      stem: block.stem,
+      figure: block.figure || null,
+    });
+  }
+  return blocks;
+}
+
 /** Bir sorunun kullanilabilir olmasi icin gereken en az alanlar. */
-function isValidQuestion(question, packId) {
+function isValidQuestion(question, packId, blocks) {
   const problems = [];
   if (!question.id) problems.push('id yok');
   if (!question.stem) problems.push('stem yok');
@@ -53,6 +81,11 @@ function isValidQuestion(question, packId) {
   else if (Array.isArray(question.choices) &&
            (question.answer < 0 || question.answer >= question.choices.length)) {
     problems.push('answer aralık dışı');
+  }
+  // Blogu bulunamayan soru koksuz kalirdi; koksuz bir blok sorusu cevaplanamaz,
+  // o yuzden eksik zorunlu alan gibi disarida birakilir.
+  if (question.blockId && !blocks.has(question.blockId)) {
+    problems.push(`blockId bulunamadı (${question.blockId})`);
   }
 
   if (problems.length > 0) {
@@ -67,8 +100,9 @@ export function loadPack(entry) {
   const id = entry.id;
   if (!packPromises.has(id)) {
     const promise = fetchJson(DATA_ROOT + entry.file).then((data) => {
+      const blocks = indexBlocks(data, id);
       const raw = Array.isArray(data.questions) ? data.questions : [];
-      const questions = raw.filter((q) => isValidQuestion(q, id)).map((q) => ({
+      const questions = raw.filter((q) => isValidQuestion(q, id, blocks)).map((q) => ({
         ...q,
         packId: id,
         topic: q.topic || entry.topic || entry.title,
@@ -76,6 +110,9 @@ export function loadPack(entry) {
         // Alt konu paketinde her sorunun alt konusu paketten devralinir.
         subtopicId: q.subtopicId || entry.subtopicId || null,
         subtopic: q.subtopic || entry.subtopic || null,
+        // Ortak kok burada cozulur: soru nesnesi tek basina tasinabilir hale gelir
+        // (kaydedilmis oturum, Yanlislarim, mini test - hepsi soruyu baglamsiz alir).
+        block: q.blockId ? blocks.get(q.blockId) : null,
       }));
       for (const question of questions) questionsById.set(question.id, question);
       return questions;

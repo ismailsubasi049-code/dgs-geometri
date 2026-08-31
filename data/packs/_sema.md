@@ -5,12 +5,14 @@ soru ölçülerek çıkarıldı; uygulama bu dosyayı okumaz.
 
 ## 1. Paket dosyasının üst düzeyi
 
-`{ id, topicId, topic, subtopicId, subtopic, version, questions: [ … ] }`
+`{ id, topicId, topic, subtopicId, subtopic, version, blocks?: [ … ], questions: [ … ] }`
 
-- **Koda ulaşan tek alan `questions`** (`js/packs.js:69`); gerisi dekoratiftir.
+- **Koda ulaşan alanlar `questions` ve — varsa — `blocks`**; gerisi dekoratiftir.
   Gerçek `topic`/`subtopic` `data/index.json` kaydından gelir, çelişirse index
   kazanır. Paket eklerken kod değişmez: dosyayı koy + index'e kayıt yaz.
-- `js/packs.js:69-79` her soruya paket kaydından devreder: `packId`, `topic`
+- `blocks` ortak köklü soru bloklarını tanımlar (§8); yazmayan paketin soruları
+  bağımsızdır ve blok kavramı hiç devreye girmez.
+- `js/packs.js:104-116` her soruya paket kaydından devreder: `packId`, `topic`
   (`entry.topic || entry.title`), `topicId`, `subtopicId`, `subtopic`. Soruda
   aynı adlı alan varsa o öncelikli.
 
@@ -27,9 +29,10 @@ soru ölçülerek çıkarıldı; uygulama bu dosyayı okumaz.
 | `difficulty` | — | `1` kolay / `2` orta / `3` zor; oturum sırası buna göre | `2` sayılır |
 | `figure` | — | satır içi SVG metni | şekilsiz |
 | `solution` | — | çözüm metni | `—` basılır |
+| `blockId` | — | sorunun bağlı olduğu ortak kök bloğu (§8) | bağımsız soru |
 
 - Zorunlu alan eksikse soru **sessizce atlanır**, sadece `console.warn` düşer
-  (`js/packs.js:44-64`). `label`, `subtopic` ile aynıysa gösterilmez.
+  (`js/packs.js:73-96`). `label`, `subtopic` ile aynıysa gösterilmez.
 - **`subtopicId` soruya yazılmaz** — index kaydından devralınır. Formül kartı
   eşleşmesinin birincil anahtarı odur (`js/formulas.js:106`); bulunamazsa
   sırayla `subtopic`, `label` alias'ı denenir.
@@ -110,7 +113,93 @@ diğer paketlerden ayrılır. Yeni bir karma paket yazılırsa aynı kurallar ge
   ayrı konfigürasyon sayılır: ör. Öklid şekli üç kez geçiyorsa ikisi bir yönde,
   üçüncüsü aynalanmış olmalı.
 
-## 8. Kalıcı kurallar
+## 8. Ortak köklü bloklar
+
+Gerçek sınavda 26–42 arası 17 sorunun tamamı blok hâlinde gelir: tek bir
+tanım/senaryo/tablo/grafik üzerine **2 ya da 3 soru** kurulur ve kök her soruda
+birebir tekrar basılır (`_format_profili.md` §3). Şema bunu `blocks` dizisiyle
+karşılar.
+
+- Kök **bir kez** yazılır; sorularda tekrar edilmez.
+- Soru bloğa `blockId` ile bağlanır. `blockId` yazmayan soru bağımsızdır.
+- Kök yükleme sırasında soruya çözülüp yapıştırılır (`js/packs.js` → `question.block`);
+  soru nerede gösterilirse gösterilsin köküyle birlikte gelir.
+
+### 8.1 `blocks` alanları
+
+| alan | zorunlu | işlevi | yoksa |
+|---|---|---|---|
+| `id` | ✅ | paket içinde tekil blok kimliği; sorular buna bağlanır | blok atlanır |
+| `stem` | ✅ | ortak kök metni | blok atlanır |
+| `label` | — | blok adı; kutu başlığında görünür ("Ortak kök — Denge sayısı") | yalnız "Ortak kök" yazar |
+| `figure` | — | bloğa ait tablo/grafik SVG'si; §3'ün kuralları aynen geçerli | şekilsiz |
+
+- **Üyelik yalnız soruda yazılıdır.** Blokta `questionIds` listesi **tutulmaz**: iki
+  yerde yazılan üyelik senkronsuz kalır. Yanlış `blockId` soruyu `console.warn` ile
+  **atlatır** (köksüz blok sorusu cevaplanamaz); bir `questionIds` listesindeki aynı
+  hata ise sessiz kalır, soru köksüz basılırdı.
+- Bloğun soru sırası `questions` dizisinin sırasıdır.
+- `data/index.json`'daki `count` **soru** sayısıdır; bloklar sayılmaz.
+- Blok kimliği de paketten türetilir (§9): `denge-sayisi`, `tarife-01`.
+
+### 8.2 Nasıl gösterilir
+
+- Kök, konu satırının altında, sorunun kendi şeklinin ve metninin **üstünde**
+  katlanabilir bir kutuda çizilir (`sharedStem`, `js/ui.js`).
+- Kök metni soru metniyle **aynı işaretleyicilerden** geçer: `**kalın**`, satır başı
+  `Not:` kutusu ve HTML-escape — yani `a < b < c` yutulmaz (§4 ile aynı `richText`).
+  Satır sonları korunur, kök çok satırlı yazılabilir.
+- Oturumda kutu açık gelir; **aynı blok arka arkaya** geldiyse ikincisinde katlanmış
+  gelir, aynı metni ikinci kez okutmaz.
+- Sonuç ekranında kutu, o bloğun listedeki **ilk yanlış/boş** sorusunda açık, diğer
+  her yerde kapalı gelir.
+
+### 8.3 Leitner ile ilişkisi
+
+**Blok bir öğrenme birimi değil, yalnızca ortak metindir.** İlerleme, kutu ve tekrar
+vadesi soru id'sine bağlıdır; blok kardeşleri birbirinden bağımsız kutu değiştirir,
+ayrı günlerde geri gelir, ayrı ayrı "Yanlışlarım"a düşer. Sıralayıcı onları yan yana
+getirmeye çalışmaz — tek başına gelen blok sorusu kökünü yanında getirir.
+
+### 8.4 Örnek (2'li blok)
+
+```json
+{
+  "id": "sayisal-tanim",
+  "topicId": "sayisal-mantik",
+  "blocks": [
+    {
+      "id": "denge-sayisi",
+      "label": "Denge sayısı",
+      "stem": "Rakamları soldan sağa a, b, c, d olan dört basamaklı bir sayıda\na + b = c + d ise bu sayıya **denge sayısı** denir.\nÖrnek: 3417 sayısında 3 + 4 = 1 + 7 olduğundan 3417 bir denge sayısıdır."
+    }
+  ],
+  "questions": [
+    {
+      "id": "denge-01",
+      "blockId": "denge-sayisi",
+      "difficulty": 1,
+      "stem": "Buna göre aşağıdakilerden hangisi bir denge sayısıdır?",
+      "asks": "...",
+      "choices": ["...", "...", "...", "...", "..."],
+      "answer": 2,
+      "solution": "..."
+    },
+    {
+      "id": "denge-02",
+      "blockId": "denge-sayisi",
+      "difficulty": 3,
+      "stem": "Buna göre en büyük denge sayısı ile en küçük denge sayısının farkı kaçtır?",
+      "asks": "...",
+      "choices": ["...", "...", "...", "...", "..."],
+      "answer": 0,
+      "solution": "..."
+    }
+  ]
+}
+```
+
+## 9. Kalıcı kurallar
 
 - **id paketten türetilir:** `yukseklik-01`, `kenarortay-01`, `esitsizlik-01`,
   `ucgende-aci-01`. Eski `ucgen-NNN` / `acilar-NNN` sayacı sürdürülmez.
