@@ -6,7 +6,7 @@
       "id": "oran-temel",
       "subtopicId": "oran-temel",
       "title": "Oran ve orantının temel özellikleri",
-      "aliases": ["Oran ve orantı", "İçler dışlar çarpımı", "Orantı sabiti"],
+      "aliases": ["Oran ve orantı", "İçler dışlar çarpımı", "Orantı sabiti", "Ortak oran katsayısı", "Orantıda terim değişimi", "Oranda tam sayı koşulu"],
       "items": [
         { "formula": "Oran: a / b   (b ≠ 0),   a : b biçiminde de yazılır", "note": "Aynı türden iki çokluğun bölümüdür ve birimsizdir: 12 kg ile 18 kg'ın oranı 12/18 = 2/3'tür, sonuç kg değildir" },
         { "formula": "Orantı: a / b = c / d   (b ≠ 0, d ≠ 0)", "note": "İki oranın eşitliğidir. a : b = c : d yazılışında a ile d dışlar, b ile c içlerdir" },
@@ -39,7 +39,7 @@
       "id": "oranti-turleri",
       "subtopicId": "oranti-turleri",
       "title": "Doğru ve ters orantı",
-      "aliases": ["Doğru orantı", "Ters orantı", "Bileşik orantı"],
+      "aliases": ["Doğru orantı", "Ters orantı", "Bileşik orantı", "Ters orantıda çarpım sabiti", "İşçi-gün ters orantısı", "Ters orantıda yüzde değişim"],
       "items": [
         { "formula": "Doğru orantı: a ile b doğru orantılı   ⇔   a / b = k sabit   ⇔   a = k · b   (b ≠ 0, k ≠ 0)", "note": "Ölçüt ORANIN sabit kalmasıdır; 'biri artarken diğeri de artıyor' demek yetmez" },
         { "formula": "Ters orantı: a ile b ters orantılı   ⇔   a · b = k sabit   ⇔   a = k / b   (a ≠ 0, b ≠ 0, k ≠ 0)", "note": "Ölçüt ÇARPIMIN sabit kalmasıdır. Ters orantıda hiçbir değişken 0 olamaz, çünkü çarpımları k ve k ≠ 0'dır" },
@@ -72,7 +72,7 @@
       "id": "oranti-ozellikleri",
       "subtopicId": "oranti-ozellikleri",
       "title": "Orantı özellikleri ve zincir orantı",
-      "aliases": ["Orantı özellikleri", "Zincir orantı"],
+      "aliases": ["Orantı özellikleri", "Zincir orantı", "Zincir orantıda ortak terim", "Eşit oranlar teoremi", "Zincir orantıda üçlü oran", "Zincir orantıda EKOK", "Çapraz çarpımdan zincir orantı"],
       "items": [
         { "formula": "Aşağıdaki maddelerde   a / b = c / d = k   (b ≠ 0, d ≠ 0)   kabul edilmiştir", "note": "Bütün özellikler a = k · b ve c = k · d yazılıp yerine konarak çıkar; ezberlemek yerine bu iki eşitlikten türetmek daha güvenlidir" },
         { "formula": "(a + b) / b = (c + d) / d = k + 1", "note": "Paya payda eklenir, payda aynı kalır: a/b = 7/4 iken (a + b)/b = 11/4" },
@@ -105,7 +105,7 @@
       "id": "oranti-uygulama",
       "subtopicId": "oranti-uygulama",
       "title": "Orantı uygulamaları",
-      "aliases": ["Orantılı paylaştırma", "Karışım oranı", "Ölçek"],
+      "aliases": ["Orantılı paylaştırma", "Karışım oranı", "Ölçek", "Harita ölçeği", "Ters orantılı paylaştırma", "Karışıma su ekleme", "Doğru orantılı paylaştırma", "Karışıma madde ekleme", "Ters orantılı paylaştırmada pay kurulumu", "İki karışımı birleştirme", "İşçi veriminden ücret paylaştırma", "Alaşım karışım oranı"],
       "items": [
         { "formula": "Doğru orantılı paylaştırma: T toplamı x : y : z ile doğru orantılı bölünürse   k = T / (x + y + z)   ve paylar   k · x,   k · y,   k · z   (x + y + z ≠ 0)", "note": "Payların toplamı yeniden T eder; sonucu doğrulamanın en kolay yolu budur" },
         { "formula": "Ters orantılı paylaştırma: paylar sayıların KENDİSİYLE değil, TERSLERİYLE doğru orantılıdır — T toplamı x, y, z ile ters orantılı bölünürse paylar 1/x : 1/y : 1/z ile doğru orantılıdır   (x ≠ 0, y ≠ 0, z ≠ 0)", "note": "En sık yapılan hata T'yi doğrudan x : y : z ile bölmektir; pozitif sayılarla ters orantılı paylaştırmada büyük sayıya küçük pay düşer" },

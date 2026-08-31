@@ -31,6 +31,17 @@
       "version": 1
     },
     {
+      "id": "oran-oranti-genel",
+      "topicId": "oran-oranti",
+      "topic": "Oran ve Orantı",
+      "subtopicId": "oran-oranti-genel",
+      "subtopic": "Genel oran-orantı soruları",
+      "title": "Genel oran-orantı soruları",
+      "file": "packs/oran-oranti-genel.json",
+      "count": 20,
+      "version": 1
+    },
+    {
       "id": "acilar-temel",
       "topicId": "acilar",
       "topic": "Açılar",

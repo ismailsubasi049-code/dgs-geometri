@@ -37,6 +37,38 @@ export function clear(node) {
   while (node.firstChild) node.removeChild(node.firstChild);
 }
 
+const HTML_ESCAPE = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' };
+
+/**
+ * Soru metnini (stem / asks / solution) guvenli HTML'e cevirir. Tam bir markdown
+ * ayristiricisi degil - yalnizca iki donusum tanir:
+ *   **kalin**             -> <strong>kalin</strong>   (uc deger: en buyuk, olamaz, ...)
+ *   satir basinda "Not:"  -> .solution-note sari kutusu, metnin sonuna kadar
+ *
+ * Sira onemli:
+ *  1) Once HTML-escape. Olmazsa "a < b < c" gibi esitsizlikleri tarayici etiket
+ *     sanip yutar; oran-orantida bu ifade cok geciyor. & ilk sirada olmali, yoksa
+ *     kendi urettigimiz &lt; ikinci kez kacisa ugrar.
+ *  2) Sonra kalin. ** karakterleri escape'ten etkilenmedigi icin desen bozulmaz;
+ *     [^*\n] sinifi satir atlamayi ve ic ice * eslesmesini engeller.
+ *  3) En son Not kutusu, ki blok icindeki kalinlar da donusmus olsun.
+ *
+ * Isaret icermeyen metin escape disinda degismeden gecer - mevcut paketlerin
+ * hicbirinde ** ya da satir basi "Not:" yok, gorunumleri aynen korunur.
+ */
+export function richText(text) {
+  const raw = text === null || text === undefined ? '' : String(text);
+  const escaped = raw.replace(/[&<>"]/g, (ch) => HTML_ESCAPE[ch]);
+  const bolded = escaped.replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>');
+
+  const noteAt = bolded.search(/^Not:/m);
+  if (noteAt < 0) return bolded;
+
+  const before = bolded.slice(0, noteAt).replace(/\n+$/, '');
+  const note = bolded.slice(noteAt);
+  return (before ? `<div>${before}</div>` : '') + `<div class="solution-note">${note}</div>`;
+}
+
 /** Saniyeyi 12:05 bicimine cevirir. */
 export function fmtTime(totalSeconds) {
   const s = Math.max(0, Math.round(totalSeconds));

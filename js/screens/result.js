@@ -1,6 +1,6 @@
 // Oturum sonucu: skor, ipucu kullanimi ve soru soru gozden gecirme.
 
-import { el, emptyState, fmtTime, formulaCard, CHOICE_LETTERS } from '../ui.js';
+import { el, richText, emptyState, fmtTime, formulaCard, CHOICE_LETTERS } from '../ui.js';
 import { parseFigure } from '../svg.js';
 import { getLastSession } from '../quiz.js';
 import { getCardFor } from '../formulas.js';
@@ -25,12 +25,12 @@ function reviewItem(question, record, index) {
   const figure = parseFigure(question.figure, question.subtopic || 'Soru şekli');
   if (figure) detailStack.append(el('div', { class: 'figure' }, figure));
 
-  detailStack.append(el('div', null, question.stem));
+  detailStack.append(el('div', { html: richText(question.stem) }));
 
   detailStack.append(
     el('div', { class: 'asks-box' },
       el('div', { class: 'label' }, 'Soru ne istiyor?'),
-      el('div', null, question.asks)
+      el('div', { html: richText(question.asks) })
     )
   );
 
@@ -49,7 +49,7 @@ function reviewItem(question, record, index) {
   detailStack.append(
     el('div', { class: 'solution' },
       el('div', { class: 'label' }, 'Çözüm'),
-      el('div', { class: 'solution-body' }, question.solution || '—')
+      el('div', { class: 'solution-body', html: richText(question.solution || '—') })
     )
   );
 

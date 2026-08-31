@@ -1,6 +1,6 @@
 // Soru ekrani. Dort modun da kullandigi tek ekran; farki mod yapilandirmasi belirler.
 
-import { el, clear, fmtTime, fmtDay, emptyState, formulaCard, CHOICE_LETTERS } from '../ui.js';
+import { el, clear, richText, fmtTime, fmtDay, emptyState, formulaCard, CHOICE_LETTERS } from '../ui.js';
 import { parseFigure } from '../svg.js';
 import { createSession, MODES } from '../quiz.js';
 import {
@@ -402,7 +402,7 @@ export async function render(ctx) {
     if (figure) body.append(el('div', { class: 'figure' }, figure));
 
     // soru metni
-    body.append(el('div', { class: 'stem' }, question.stem));
+    body.append(el('div', { class: 'stem', html: richText(question.stem) }));
 
     // karalama alani: clear(body) node'u sadece DOM'dan soker, nesne yasar.
     scratch.reset();
@@ -427,7 +427,7 @@ export async function render(ctx) {
       asksSlot.append(
         el('div', { class: 'asks-box' },
           el('div', { class: 'label' }, 'Soru ne istiyor?'),
-          el('div', null, question.asks)
+          el('div', { html: richText(question.asks) })
         )
       );
       unlockChoices();
@@ -552,7 +552,7 @@ export async function render(ctx) {
             : `✗ Yanlış — doğru cevap ${CHOICE_LETTERS[question.answer]}`),
         el('div', { class: 'solution' },
           el('div', { class: 'label' }, 'Çözüm'),
-          el('div', { class: 'solution-body' }, question.solution || '—')
+          el('div', { class: 'solution-body', html: richText(question.solution || '—') })
         )
       );
       if (card) feedback.append(card);

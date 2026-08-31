@@ -1,0 +1,210 @@
+{
+  "id": "oran-oranti-genel",
+  "topicId": "oran-oranti",
+  "topic": "Oran ve Orantı",
+  "subtopicId": "oran-oranti-genel",
+  "subtopic": "Genel oran-orantı soruları",
+  "version": 1,
+  "questions": [
+    {
+      "id": "oranti-01",
+      "label": "Ters orantıda çarpım sabiti",
+      "difficulty": 1,
+      "stem": "x ile y ters orantılı iki değişkendir. x = 6 iken y = 15'tir. Buna göre, x = 10 iken y kaçtır?",
+      "asks": "Ters orantıda çarpımın sabit olduğu kullanılacak. x · y çarpımı her durumda aynı kalır; önce bu sabit bulunur, sonra yeni x değerine bölünür.",
+      "choices": ["6", "7", "8", "9", "10"],
+      "answer": 3,
+      "solution": "1) Ters orantıda çarpım sabittir: x · y = k\n2) Verilen değerlerle: k = 6 · 15 = **90**\n3) x = 10 için: 10 · y = 90\nSoru x = 10 iken y'yi soruyor: y = 90 / 10 = **9**\n(Sık yapılan hata 1: doğru orantı kurup 6/15 = 10/y ile y = 25 bulmak.\nSık yapılan hata 2: x arttığı için y'nin de artacağını sanmak; ters orantıda biri artarken diğeri azalır.)"
+    },
+    {
+      "id": "oranti-02",
+      "label": "Harita ölçeği",
+      "difficulty": 1,
+      "stem": "Ölçeği 1/500 000 olan bir haritada iki kent arasındaki uzaklık 4 cm ölçülmüştür. Buna göre, bu iki kent arasındaki gerçek uzaklık kaç km'dir?",
+      "asks": "Ölçek, harita uzunluğunun gerçek uzunluğa oranıdır. Harita uzunluğu ölçeğin paydasıyla çarpılır; çıkan sonuç santimetredir ve kilometreye çevrilmesi gerekir.",
+      "choices": ["15", "20", "25", "30", "35"],
+      "answer": 1,
+      "solution": "1) Ölçek = harita uzunluğu / gerçek uzunluk = 1 / 500 000\n2) Gerçek uzunluk = 4 · 500 000 = **2 000 000 cm**\n3) 1 km = 100 000 cm olduğundan: 2 000 000 / 100 000 = 20\nSoru gerçek uzaklığı kilometre cinsinden soruyor: **20 km**\n(Sık yapılan hata 1: santimetreyi metreye çevirip 20 000 m'de durmak ve birimi karıştırmak.\nSık yapılan hata 2: ölçeği ters kullanıp 4 / 500 000 hesaplamak.)"
+    },
+    {
+      "id": "oranti-03",
+      "label": "Zincir orantıda ortak terim",
+      "difficulty": 1,
+      "stem": "a/b = 3/5 ve b/c = 5/7 olduğuna göre, a/c oranı kaçtır?",
+      "asks": "İki oranın ortak terimi b'dir. a/c oranı, a/b ile b/c oranlarının çarpımına eşittir; çarpımda b sadeleşir.",
+      "choices": ["2/7", "3/7", "4/7", "5/7", "6/7"],
+      "answer": 1,
+      "solution": "1) a/c = (a/b) · (b/c)\n2) Yerine yazılır: a/c = (3/5) · (5/7)\n3) 5'ler sadeleşir: a/c = **3/7**\nSoru a/c oranını soruyor: a/c = **3/7**\n(Sık yapılan hata 1: payları ve paydaları ayrı ayrı toplayıp 8/12 yazmak.\nSık yapılan hata 2: oranı ters çevirip c/a = 7/3 bulmak.)"
+    },
+    {
+      "id": "oranti-04",
+      "label": "Ortak oran katsayısı",
+      "difficulty": 2,
+      "stem": "a/4 = b/7 = c/9 ve a + b + c = 120 olduğuna göre, c − a farkı kaçtır?",
+      "asks": "Eşit oranların ortak değerine k denip a, b ve c bu k cinsinden yazılacak. Toplam koşulundan k bulunur, ancak sorulan k'nin kendisi değil c − a farkıdır.",
+      "choices": ["6", "12", "18", "24", "30"],
+      "answer": 4,
+      "solution": "1) a/4 = b/7 = c/9 = k dersek: a = 4k, b = 7k, c = 9k\n2) Toplam koşulu: 4k + 7k + 9k = 20k = 120\n3) k = **6**\n4) a = 4 · 6 = **24**, b = 7 · 6 = **42**, c = 9 · 6 = **54**\nSoru c − a farkını soruyor: 54 − 24 = **30**\nDoğrulama: 24/4 = 42/7 = 54/9 = 6 ve 24 + 42 + 54 = 120\n(Sık yapılan hata 1: 4 + 7 + 9 = 20 toplamını sonucun kendisi sanmak.\nSık yapılan hata 2: c − a yerine a − c hesaplayıp işareti kaçırmak.)\nNot: A şıkkındaki 6, çözümün 3. adımında çıkan ortak katsayı k'dir. D şıkkındaki 24 ise 4. adımda çıkan a değeridir. Soru bunların hiçbirini değil, c − a farkını istiyor: **30**."
+    },
+    {
+      "id": "oranti-05",
+      "label": "Eşit oranlar teoremi",
+      "difficulty": 2,
+      "stem": "a/b = c/d = 3/8 ve 2b + 5d = 40 olduğuna göre, 2a + 5c toplamı kaçtır?",
+      "asks": "Eşit oranlarda payların ve paydaların aynı katsayılarla ağırlıklandırılmış toplamları da aynı oranı verir: (2a + 5c) / (2b + 5d) = 3/8. Paydası verildiğine göre payı aranıyor.",
+      "choices": ["15", "18", "21", "24", "27"],
+      "answer": 0,
+      "solution": "1) Eşit oranlar teoremi: a/b = c/d = 3/8 ise (2a + 5c) / (2b + 5d) = **3/8**\n2) Paydaya karşılık gelen değer verilmiş: 2b + 5d = 40\n3) Denklem kurulur: (2a + 5c) / 40 = 3/8\nSoru 2a + 5c toplamını soruyor: 2a + 5c = 40 · 3/8 = **15**\n(Sık yapılan hata 1: teoremi katsayısız sanıp (a + c) / (b + d) ile çalışmak; 2 ve 5 katsayıları hem paya hem paydaya girmelidir.\nSık yapılan hata 2: 40'ı 3/8 yerine 8/3 ile çarpmak.)"
+    },
+    {
+      "id": "oranti-06",
+      "label": "Ters orantılı paylaştırma",
+      "difficulty": 2,
+      "stem": "Bir ikramiye iki çalışana 2 ve 3 sayılarıyla ters orantılı olarak paylaştırılmıştır. Küçük payı alan çalışan 1200 TL aldığına göre, ikramiyenin tamamı kaç TL'dir?",
+      "asks": "Ters orantılı paylaştırmada paylar verilen sayılarla değil, o sayıların tersleriyle (1/2 ve 1/3) doğru orantılıdır. Küçük payın kaç birime karşılık geldiği önce belirlenecek.",
+      "choices": ["1200", "1800", "2400", "3000", "3600"],
+      "answer": 3,
+      "solution": "1) Ters orantılı paylaştırmada paylar 1/2 ve 1/3 ile doğru orantılıdır.\n2) Paydalar 6'da eşitlenir: 1/2 = 3/6 ve 1/3 = 2/6 → paylar **3 : 2**\n3) Küçük pay 2 birime karşılık gelir: 2 birim = 1200 TL → 1 birim = **600 TL**\n4) Büyük pay: 3 · 600 = **1800 TL**\nSoru ikramiyenin tamamını soruyor: (3 + 2) · 600 = **3000 TL**\nDoğrulama: 1800 · 2 = 1200 · 3 = 3600 — çarpımlar eşit, ters orantı sağlanıyor.\n(Sık yapılan hata 1: payları doğrudan 2 : 3 alıp ters orantıyı doğru orantı gibi çözmek.\nSık yapılan hata 2: küçük payı 3 birim sanmak; ters orantıda büyük sayıya küçük pay düşer.)\nNot: B şıkkındaki 1800, çözümün 4. adımında çıkan büyük paydır. Soru tek bir payı değil, iki payın toplamını istiyor: **3000 TL**."
+    },
+    {
+      "id": "oranti-07",
+      "label": "Karışıma su ekleme",
+      "difficulty": 2,
+      "stem": "Şeker oranı %20 olan 40 litre şerbete 10 litre su eklenmiştir. Buna göre, elde edilen karışımın şeker oranı yüzde kaçtır?",
+      "asks": "Su eklendiğinde şeker miktarı değişmez, yalnızca toplam hacim büyür. Önce sabit kalan şeker miktarı bulunacak, sonra yeni toplam hacme bölünecek.",
+      "choices": ["8", "10", "12", "14", "16"],
+      "answer": 4,
+      "solution": "1) Başlangıçtaki şeker miktarı: 40 · 20/100 = **8 litre**\n2) Su eklenince şeker miktarı değişmez, yine 8 litredir.\n3) Yeni toplam hacim: 40 + 10 = **50 litre**\nSoru son karışımın şeker oranını soruyor: 8 / 50 = 0,16 = **%16**\n(Sık yapılan hata 1: su eklenince şeker miktarının da arttığını sanmak.\nSık yapılan hata 2: yeni oranı eski hacme bölmek: 8/40 = %20 diyerek oranın değişmediğini düşünmek.)\nNot: A şıkkındaki 8, çözümün 1. adımında çıkan şeker miktarıdır ve birimi litredir. Soru litre değil, son karışımdaki şeker yüzdesini istiyor: **%16**."
+    },
+    {
+      "id": "oranti-08",
+      "label": "İşçi-gün ters orantısı",
+      "difficulty": 2,
+      "stem": "Bir işi 12 işçi 15 günde bitirmektedir. Aynı işin 9 günde bitirilmesi için mevcut işçilere kaç işçi daha eklenmelidir?",
+      "asks": "İşçi sayısı ile gün sayısı ters orantılıdır; işçi · gün çarpımı sabittir. Bulunması gereken toplam işçi sayısı değil, mevcut 12 işçinin üzerine eklenecek işçi sayısıdır.",
+      "choices": ["8", "11", "14", "17", "20"],
+      "answer": 0,
+      "solution": "1) İşçi sayısı ile gün sayısı ters orantılıdır: işçi · gün = sabit\n2) İşin büyüklüğü: 12 · 15 = **180 işçi-gün**\n3) İşi 9 günde bitirmek için gereken işçi sayısı: 180 / 9 = **20 işçi**\nSoru kaç işçi daha ekleneceğini soruyor: 20 − 12 = **8 işçi**\nDoğrulama: 20 · 9 = 180 — iş miktarı değişmedi.\n(Sık yapılan hata 1: doğru orantı kurup 12/15 = x/9 ile x = 7,2 bulmak.\nSık yapılan hata 2: gün farkını (15 − 9 = 6) işçi farkı sanmak.)\nNot: E şıkkındaki 20, çözümün 3. adımında çıkan toplam işçi sayısıdır. Soru toplam işçiyi değil, mevcutlara eklenecek işçi sayısını istiyor: **8**."
+    },
+    {
+      "id": "oranti-09",
+      "label": "Orantıda terim değişimi",
+      "difficulty": 2,
+      "stem": "Bir sınıfta kız öğrenci sayısının erkek öğrenci sayısına oranı 3/5'tir. Sınıfa 4 kız öğrenci katıldığında bu oran 5/7 olmaktadır. Buna göre, sınıftaki erkek öğrenci sayısı kaçtır?",
+      "asks": "Erkek sayısı değişmediği için oranın paydası sabittir. Kız ve erkek sayıları 3k ve 5k olarak yazılıp değişim sonrası oran kurulacak; sorulan k değil erkek öğrenci sayısıdır.",
+      "choices": ["21", "28", "35", "42", "49"],
+      "answer": 2,
+      "solution": "1) Kız sayısı 3k, erkek sayısı 5k olsun.\n2) 4 kız katıldıktan sonra: (3k + 4) / 5k = 5/7\n3) İçler dışlar çarpımı: 7(3k + 4) = 25k → 21k + 28 = 25k → 4k = 28 → k = **7**\n4) Başlangıçtaki kız sayısı: 3 · 7 = **21**, son kız sayısı: 21 + 4 = **25**\nSoru erkek öğrenci sayısını soruyor: 5 · 7 = **35**\nDoğrulama: 21/35 = 3/5 ve 25/35 = 5/7\n(Sık yapılan hata 1: erkek sayısının da değiştiğini varsayıp paydaya 4 eklemek.\nSık yapılan hata 2: 3/5 ile 5/7 oranlarını doğrudan eşitleyip k kurmadan çözmeye çalışmak.)\nNot: A şıkkındaki 21, çözümün 4. adımında çıkan başlangıçtaki kız öğrenci sayısıdır. Soru kız sayısını değil, erkek öğrenci sayısını istiyor: **35**."
+    },
+    {
+      "id": "oranti-10",
+      "label": "Zincir orantıda üçlü oran",
+      "difficulty": 2,
+      "stem": "a/b = 2/3, b/c = 4/5 ve a + b + c = 140 olduğuna göre, c − a farkı kaçtır?",
+      "asks": "İki oranın ortak terimi b'dir; b iki oranda farklı değerler (3 ve 4) aldığı için önce eşitlenmelidir. Üçlü oran kurulduktan sonra toplam koşuluyla katsayı bulunur.",
+      "choices": ["26", "28", "30", "32", "34"],
+      "answer": 1,
+      "solution": "1) a : b = 2 : 3 ve b : c = 4 : 5. Ortak terim b'nin değerleri 3 ve 4, EKOK'ları **12**.\n2) İlk oran 4 ile, ikinci oran 3 ile genişletilir: a : b = 8 : 12 ve b : c = 12 : 15\n3) Zincir kurulur: a : b : c = **8 : 12 : 15**\n4) a = 8k, b = 12k, c = 15k → 35k = 140 → k = **4**\n5) a = **32**, b = 48, c = **60**\nSoru c − a farkını soruyor: 60 − 32 = **28**\nDoğrulama: 32/48 = 2/3 ve 48/60 = 4/5\n(Sık yapılan hata 1: b'yi eşitlemeden a : b : c = 2 : 3 : 5 ya da 2 : 4 : 5 yazmak.\nSık yapılan hata 2: c − a yerine b − a farkını hesaplamak.)\nNot: D şıkkındaki 32, çözümün 5. adımında çıkan a değeridir. Soru a'yı değil, c − a farkını istiyor: **28**."
+    },
+    {
+      "id": "oranti-11",
+      "label": "Doğru orantılı paylaştırma",
+      "difficulty": 2,
+      "stem": "Bir prim üç çalışana, çalıştıkları gün sayıları olan 5, 7 ve 8 ile doğru orantılı olarak paylaştırılmıştır. **En çok** pay alan çalışan ile **en az** pay alan çalışanın aldıkları arasındaki fark 1800 TL olduğuna göre, primin tamamı kaç TL'dir?",
+      "asks": "Doğru orantılı paylaştırmada paylar 5k, 7k ve 8k biçimindedir. Verilen 1800 TL tek bir pay değil, en büyük pay ile en küçük pay arasındaki farktır; önce k bulunacak.",
+      "choices": ["3000", "6000", "9000", "12000", "15000"],
+      "answer": 3,
+      "solution": "1) Paylar doğru orantılı olduğundan sırasıyla 5k, 7k ve 8k'dır.\n2) En çok pay 8k, en az pay 5k'dır.\n3) Aradaki fark: 8k − 5k = 3k = 1800 → k = **600**\n4) En az pay: 5 · 600 = **3000 TL**, en çok pay: 8 · 600 = **4800 TL**\nSoru primin tamamını soruyor: (5 + 7 + 8) · 600 = 20 · 600 = **12 000 TL**\nDoğrulama: 4800 − 3000 = 1800\n(Sık yapılan hata 1: 1800 TL'yi paylardan biri sanıp k'yi 360 ya da 225 bulmak.\nSık yapılan hata 2: ters orantılı paylaştırma kurup 1/5 : 1/7 : 1/8 ile çalışmak.)\nNot: A şıkkındaki 3000, çözümün 4. adımında çıkan **en az** paydır. Soru tek bir payı değil, üç payın toplamını istiyor: **12 000 TL**."
+    },
+    {
+      "id": "oranti-12",
+      "label": "Karışıma madde ekleme",
+      "difficulty": 2,
+      "stem": "Süt oranı %40 olan 25 litrelik bir karışıma bir miktar süt eklendiğinde karışımın süt oranı %50 olmaktadır. Buna göre, eklenen süt kaç litredir?",
+      "asks": "Süt eklendiğinde hem süt miktarı hem toplam hacim artar; yalnız su miktarı sabit kalır. Eklenen miktara x denip yeni oran kurulacak, sorulan doğrudan x'tir.",
+      "choices": ["5", "10", "15", "20", "25"],
+      "answer": 0,
+      "solution": "1) Başlangıçtaki süt: 25 · 40/100 = **10 litre**, su: 25 − 10 = **15 litre**\n2) x litre süt eklenirse süt miktarı 10 + x, toplam hacim 25 + x olur.\n3) Yeni oran: (10 + x) / (25 + x) = 50/100 = 1/2\n4) İçler dışlar çarpımı: 2(10 + x) = 25 + x → 20 + 2x = 25 + x\nSoru eklenen süt miktarını soruyor: x = **5 litre**\nDoğrulama: süt 15, toplam 30 → 15/30 = 1/2 = %50\n(Sık yapılan hata 1: süt eklenirken toplam hacmin sabit kaldığını sanmak.\nSık yapılan hata 2: %50 oranını başlangıçtaki 25 litrenin yarısı (12,5) alıp 12,5 − 10 = 2,5 demek.)\nNot: B şıkkındaki 10 çözümün 1. adımındaki süt miktarı, C şıkkındaki 15 aynı adımdaki su miktarı, E şıkkındaki 25 ise başlangıçtaki toplam hacimdir. Soru bunların hiçbirini değil, sonradan eklenen süt miktarını istiyor: **5 litre**."
+    },
+    {
+      "id": "oranti-13",
+      "label": "Ters orantılı paylaştırmada pay kurulumu",
+      "difficulty": 3,
+      "stem": "Bir ödül üç kişiye 2, 3 ve 6 sayılarıyla ters orantılı olarak paylaştırılmıştır. **En büyük** payı alan kişi 1800 TL aldığına göre, ödülün tamamı kaç TL'dir?",
+      "asks": "Ters orantılı paylaştırmanın kritik adımı payların kurulmasıdır: 2, 3 ve 6 sayılarının kendileri değil, tersleri (1/2, 1/3, 1/6) doğru orantı katsayısı olur. En büyük pay, en küçük sayıya karşılık gelir.",
+      "choices": ["3300", "3600", "3900", "4200", "4500"],
+      "answer": 1,
+      "solution": "1) Ters orantılı paylaştırmada paylar 1/2, 1/3 ve 1/6 ile doğru orantılıdır.\n2) Paydalar 6'da eşitlenir: 1/2 = 3/6, 1/3 = 2/6, 1/6 = 1/6 → paylar **3 : 2 : 1**\n3) En büyük pay 3 birimdir: 3 birim = 1800 TL → 1 birim = **600 TL**\n4) Paylar sırasıyla: **1800 TL**, **1200 TL**, **600 TL**\nSoru ödülün tamamını soruyor: (3 + 2 + 1) · 600 = **3600 TL**\nDoğrulama: 1800 · 2 = 1200 · 3 = 600 · 6 = 3600 — çarpımlar eşit, ters orantı sağlanıyor.\n(Sık yapılan hata 1: en büyük payı en büyük sayıya (6) karşılık getirmek; ters orantıda en küçük sayı en büyük payı alır.\nSık yapılan hata 2: 1800'ü toplamın bir parçası değil, doğrudan toplam sanmak.)\nNot: A şıkkındaki 3300, paylar ters çevrilmeden doğrudan 2 : 3 : 6 alındığında çıkan sonuçtur (1800/6 = 300 ve 11 · 300 = 3300). Ters orantıda doğru paylar **3 : 2 : 1**'dir, doğru toplam **3600 TL**'dir."
+    },
+    {
+      "id": "oranti-14",
+      "label": "İki karışımı birleştirme",
+      "difficulty": 3,
+      "stem": "Alkol oranı %30 olan 20 litre karışım ile alkol oranı %60 olan 40 litre karışım birleştirilmiştir. Buna göre, elde edilen yeni karışımın alkol oranı yüzde kaçtır?",
+      "asks": "İki karışım farklı hacimlerde olduğu için oranların ortalaması alınamaz. Her karışımdaki saf alkol miktarı ayrı ayrı hesaplanıp toplanacak, sonra toplam hacme bölünecek.",
+      "choices": ["40", "45", "50", "55", "60"],
+      "answer": 2,
+      "solution": "1) Birinci karışımdaki alkol: 20 · 30/100 = **6 litre**\n2) İkinci karışımdaki alkol: 40 · 60/100 = **24 litre**\n3) Toplam alkol: 6 + 24 = **30 litre**\n4) Toplam hacim: 20 + 40 = **60 litre**\nSoru yeni karışımın alkol oranını soruyor: 30 / 60 = **%50**\n(Sık yapılan hata 1: alkol miktarlarını değil yüzdeleri toplamak.\nSık yapılan hata 2: toplam hacmi 20 ya da 40 alıp yalnız bir karışıma bölmek.)\nNot: B şıkkındaki 45, iki oranın ağırlıksız ortalamasıdır: (30 + 60) / 2 = 45. Karışımlar eşit hacimde olmadığı için ortalama alınamaz; 40 litrelik karışım sonucu kendine daha çok çeker ve doğru oran **%50** olur."
+    },
+    {
+      "id": "oranti-15",
+      "label": "İşçi veriminden ücret paylaştırma",
+      "difficulty": 3,
+      "stem": "Bir işi tek başına A işçisi 12 günde, B işçisi 18 günde bitirmektedir. İkisi birlikte çalışarak işi bitirmiş ve toplam 3000 TL ücret almıştır. Ücret, işçilerin yaptıkları iş miktarıyla doğru orantılı paylaştırıldığına göre, A işçisinin aldığı ücret kaç TL'dir?",
+      "asks": "Ücret gün sayısıyla değil, birim zamanda yapılan iş miktarıyla (verimle) doğru orantılıdır. Verimler 1/12 ve 1/18'dir; paylaştırma oranı bu iki kesrin oranıdır.",
+      "choices": ["1200", "1400", "1600", "1800", "2000"],
+      "answer": 3,
+      "solution": "1) Verimler: A günde işin 1/12'sini, B ise 1/18'ini yapar.\n2) Paydalar 36'da eşitlenir: 1/12 = 3/36 ve 1/18 = 2/36 → verim oranı **3 : 2**\n3) Ücret verimle doğru orantılı olduğundan paylar 3k ve 2k'dır: 5k = 3000 → k = **600**\n4) B işçisinin payı: 2 · 600 = **1200 TL**\nSoru A işçisinin aldığı ücreti soruyor: 3 · 600 = **1800 TL**\nDoğrulama: 1800 + 1200 = 3000 ve 1800/1200 = 3/2\n(Sık yapılan hata 1: ücreti gün sayılarıyla doğru orantılı paylaştırmak: 12 : 18 = 2 : 3 kurup A'ya 1200 TL vermek. Az günde bitiren daha çok iş yapar, dolayısıyla daha çok almalıdır.\nSık yapılan hata 2: birlikte bitirme süresini (36/5 = 7,2 gün) hesaplayıp ücreti ona bölmek; bu soruda süreye hiç gerek yoktur.)\nNot: A şıkkındaki 1200 iki ayrı yoldan tuzaktır: hem ücretin gün sayılarıyla (12 : 18) paylaştırılmasının sonucu, hem de çözümün 4. adımında çıkan B işçisinin payıdır. Soru A işçisinin payını istiyor: **1800 TL**."
+    },
+    {
+      "id": "oranti-16",
+      "label": "Ters orantıda yüzde değişim",
+      "difficulty": 3,
+      "stem": "x ile y ters orantılı iki pozitif değişkendir. x değeri %25 artırıldığında y değeri yüzde kaç azalır?",
+      "asks": "Ters orantıda x · y çarpımı sabit kalır. x bir katsayıyla çarpıldığında y aynı katsayıya bölünür; bu yüzden azalma yüzdesi artış yüzdesine eşit değildir.",
+      "choices": ["20", "25", "30", "35", "40"],
+      "answer": 0,
+      "solution": "1) Ters orantıda çarpım sabittir: x · y = k\n2) x %25 artınca yeni değeri: x' = x · 125/100 = **5x/4**\n3) Çarpım sabit kalacağından: y' = k / x' = k / (5x/4) = (4/5) · (k/x) = **4y/5**\n4) y' = 0,8y olduğuna göre y, değerinin 1/5'ini kaybetmiştir.\nSoru y'deki azalma yüzdesini soruyor: 1 − 4/5 = 1/5 = **%20**\nDoğrulama: x' · y' = (5x/4) · (4y/5) = xy — çarpım gerçekten sabit kaldı.\n(Sık yapılan hata 1: 125/100 yerine 100/125 ile karıştırıp yönü ters çevirmek.\nSık yapılan hata 2: ters orantıyı doğru orantı gibi işleyip y'nin de artacağını sanmak.)\nNot: B şıkkındaki 25, “x %25 artarsa y de %25 azalır” varsayımının sonucudur ve yanlıştır. %25 azalma y'yi 0,75y yapardı; o durumda çarpım (5x/4) · (3y/4) = 15xy/16 olurdu ve sabit kalmazdı. Doğru azalma **%20**'dir."
+    },
+    {
+      "id": "oranti-17",
+      "label": "Zincir orantıda EKOK",
+      "difficulty": 3,
+      "stem": "a/b = 2/3 ve b/c = 4/5'tir. a, b ve c pozitif tam sayılar olduğuna göre, a + b + c toplamının alabileceği **en küçük** değer kaçtır?",
+      "asks": "Önce b eşitlenerek a : b : c zinciri kurulacak. Zincirin her tam katı koşulu sağlar; toplamın en küçük olması için katsayının alabileceği en küçük pozitif tam sayı seçilmelidir. Şıkların azalan sırada olduğuna dikkat edilmeli.",
+      "choices": ["175", "140", "105", "70", "35"],
+      "answer": 4,
+      "solution": "1) a : b = 2 : 3 ve b : c = 4 : 5. Ortak terim b'nin değerleri 3 ve 4, EKOK'ları **12**.\n2) Genişletme: a : b = 8 : 12 ve b : c = 12 : 15 → a : b : c = **8 : 12 : 15**\n3) a = 8k, b = 12k, c = 15k biçimindedir; k pozitif tam sayıdır.\n4) Toplam: a + b + c = **35k**. En küçük değer için k'nin alabileceği en küçük pozitif tam sayı alınır: k = **1**\nSoru toplamın alabileceği en küçük değeri soruyor: 35 · 1 = **35**\nDoğrulama: a = 8, b = 12, c = 15 → 8/12 = 2/3 ve 12/15 = 4/5\n(Sık yapılan hata 1: b'yi eşitlemeden a : b : c = 2 : 3 : 5 yazıp toplamı 10 bulmak.\nSık yapılan hata 2: şıklar azalan sıralandığı için listenin başındaki 175'i en küçük değer sanmak.)\nNot: Şıklardaki 175, 140, 105 ve 70 sırasıyla k = 5, k = 4, k = 3 ve k = 2 için çıkan toplamlardır (35k). Dördü de a + b + c toplamının alabileceği geçerli değerlerdir, ama sorulan en küçük olanıdır: k = 1 için **35**."
+    },
+    {
+      "id": "oranti-18",
+      "label": "Oranda tam sayı koşulu",
+      "difficulty": 3,
+      "stem": "a/b = 3/5 olacak biçimde seçilen a ve b pozitif tam sayıları için a + b < 50'dir. Buna göre, b − a farkı aşağıdakilerden hangisi **olamaz**?",
+      "asks": "a ve b, 3k ve 5k biçiminde yazılacak. a + b < 50 koşulu k'nin alabileceği en büyük değeri sınırlar; b − a = 2k olduğundan hangi farkların mümkün olduğu bu sınırdan çıkar.",
+      "choices": ["6", "8", "10", "12", "14"],
+      "answer": 4,
+      "solution": "1) a/b = 3/5 olduğundan a = 3k ve b = 5k'dır (k pozitif tam sayı).\n2) Koşul: a + b = 8k < 50 → k < 6,25 → k en fazla **6** olabilir.\n3) Aranan fark: b − a = 5k − 3k = **2k**\n4) k = 1, 2, 3, 4, 5, 6 için b − a değerleri sırasıyla: 2, 4, 6, 8, 10, **12**\n5) 14 için 2k = 14 → k = 7 gerekirdi; o durumda a + b = 8 · 7 = 56 olur ve 56 < 50 koşulu sağlanmaz.\nSoru b − a farkının alamayacağı değeri soruyor: **14**\n(Sık yapılan hata 1: b − a = 2k olduğunu atlayıp k değerlerini doğrudan şıklarda aramak.\nSık yapılan hata 2: a + b < 50 koşulunu a + b ≤ 50 okumak.)\nNot: A şıkkındaki 6, çözümün 2. adımında çıkan k'nin en büyük değeridir, b − a farkı değildir. D şıkkındaki 12 ise 4. adımda çıkan **en büyük** mümkün farktır — mümkün olduğu için cevap olamaz. Soru mümkün olanı değil, olamayanı istiyor: **14**."
+    },
+    {
+      "id": "oranti-19",
+      "label": "Çapraz çarpımdan zincir orantı",
+      "difficulty": 3,
+      "stem": "3a = 4b, 5b = 6c ve a + b + c = 76 olduğuna göre, a − c farkı kaçtır?",
+      "asks": "Eşitlikler önce orana çevrilecek: 3a = 4b ise a/b = 4/3'tür. İki oranın ortak terimi b, farklı değerler aldığı için eşitlenmelidir; sorulan katsayı değil a − c farkıdır.",
+      "choices": ["4", "8", "12", "16", "20"],
+      "answer": 2,
+      "solution": "1) 3a = 4b eşitliğinden: a/b = **4/3**\n2) 5b = 6c eşitliğinden: b/c = **6/5**\n3) Ortak terim b'nin değerleri 3 ve 6, EKOK'ları **6**. İlk oran 2 ile genişletilir: a : b = 8 : 6\n4) Zincir kurulur: a : b : c = **8 : 6 : 5**\n5) a = 8k, b = 6k, c = 5k → 19k = 76 → k = **4**\n6) a = **32**, b = 24, c = **20**\nSoru a − c farkını soruyor: 32 − 20 = **12**\nDoğrulama: 3 · 32 = 96 = 4 · 24 ve 5 · 24 = 120 = 6 · 20\n(Sık yapılan hata 1: 3a = 4b eşitliğinden a/b = 3/4 yazmak; çapraz çarpımda katsayılar yer değiştirir.\nSık yapılan hata 2: b'yi eşitlemeden a : b : c = 4 : 3 : 5 ya da 4 : 6 : 5 kurmak.)\nNot: A şıkkındaki 4, çözümün 5. adımında çıkan k katsayısıdır. E şıkkındaki 20 ise 6. adımda çıkan c değeridir. Soru bunları değil, a − c farkını istiyor: **12**."
+    },
+    {
+      "id": "oranti-20",
+      "label": "Alaşım karışım oranı",
+      "difficulty": 3,
+      "stem": "Altın oranı %75 olan 60 gramlık bir alaşım ile altın oranı %40 olan bir miktar alaşım eritilip karıştırılmıştır. Elde edilen yeni alaşımın altın oranı %55 olduğuna göre, yeni alaşım kaç gramdır?",
+      "asks": "Karıştırmadan önceki ve sonraki toplam altın miktarı korunur. İkinci alaşımın kütlesine x denip altın denklemi kurulacak; sorulan x değil, iki alaşımın toplam kütlesidir.",
+      "choices": ["80", "100", "120", "140", "160"],
+      "answer": 3,
+      "solution": "1) Birinci alaşımdaki altın: 60 · 75/100 = **45 gram**\n2) İkinci alaşım x gram olsun; içindeki altın 0,40x gramdır.\n3) Yeni alaşımın kütlesi 60 + x, altın oranı %55 olduğundan: 45 + 0,40x = 0,55 · (60 + x)\n4) 45 + 0,40x = 33 + 0,55x → 12 = 0,15x → x = **80 gram**\nSoru yeni alaşımın kütlesini soruyor: 60 + 80 = **140 gram**\nDoğrulama: altın = 45 + 0,40 · 80 = 77 gram ve 77 / 140 = 0,55 = %55\n(Sık yapılan hata 1: oranların ortalamasını alıp (75 + 40) / 2 = %57,5 ile çalışmak.\nSık yapılan hata 2: altın miktarlarını değil yüzdeleri toplamak.)\nNot: A şıkkındaki 80, çözümün 4. adımında çıkan ikinci alaşımın kütlesidir. Soru eklenen alaşımı değil, ikisinin toplamı olan yeni alaşımın kütlesini istiyor: **140 gram**."
+    }
+  ]
+}

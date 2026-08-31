@@ -618,6 +618,18 @@ body.scratch-fullscreen-open { overflow: hidden; }
 /* Cozum metinleri satir sonlarini korur. */
 .solution-body { white-space: pre-line; }
 
+/* Ara deger celdiricisini tesir eden kutu. richText() "Not:" ile baslayan satiri
+   buraya sarar; sari, cunku cozumun geri kalanindan ayrilmasi gerekiyor. */
+.solution-note {
+  border: 1px solid var(--warn);
+  border-left-width: 4px;
+  border-radius: var(--radius);
+  background: rgba(251, 191, 36, 0.10);
+  padding: 10px 12px;
+  margin-top: 10px;
+  white-space: pre-line;
+}
+
 .verdict { font-weight: 700; }
 .verdict.ok { color: var(--ok); }
 .verdict.bad { color: var(--bad); }

@@ -1,18 +1,20 @@
 # Durum
 
-**Son güncelleme:** 2026-08-29 · **sw.js VERSION:** `v37`
+**Son güncelleme:** 2026-08-31 · **sw.js VERSION:** `v38`
 
 ## Özet
 
-**415 soru · 14 alt konu · 16 paket.** 395'i geometri, 20'si matematik.
-Matematik branşı 2026-08-29'da ilk soru paketiyle etkinleşti; kalan 7
-matematik konusunun hâlâ yalnız formül kartı var, paketi yok.
+**435 soru · 15 alt konu · 17 paket.** 395'i geometri, 40'ı matematik
+(2 paket: `ozdeslik-genel`, `oran-oranti-genel`). Kalan **6** matematik
+konusunun hâlâ yalnız formül kartı var, paketi yok: `sayilar`,
+`bolunebilme`, `ebob-ekok`, `rasyonel`, `uslu`, `koklu`.
 
 ## Paketler
 
 | konu | subtopicId | görünen ad | soru |
 |---|---|---|---|
 | Çarpanlara Ayırma ve Özdeşlikler | `ozdeslik-genel` | Genel özdeşlik soruları | 20 |
+| Oran ve Orantı | `oran-oranti-genel` | Genel oran-orantı soruları | 20 |
 | Açılar | `acilar-temel` | Temel açı kavramları | 24 |
 | Açılar | `acilar-paralel` | Paralel doğrular ve kesenler | 33 |
 | Açılar | `acilar-ucgende` | Üçgende açılar | 33 |
@@ -28,12 +30,15 @@ matematik konusunun hâlâ yalnız formül kartı var, paketi yok.
 | Üçgenler | `ucgen-karma` | Karma üçgen | 30 |
 | Dörtgenler | — | Dörtgenler | 10 |
 | Çember ve Daire | — | Çember ve Daire | 10 |
-| **Toplam** | | **16 paket** | **415** |
+| **Toplam** | | **17 paket** | **435** |
 
 ## Kalan işler
 
-- **Sonraki aşama kararı:** matematiğin kalan 7 konusuna paket mi (formül
+- **Sonraki aşama kararı:** matematiğin kalan 6 konusuna paket mi (formül
   kartları hazır), yoksa dörtgen/çember paketleri mi
+- `_format_profili.md` §11.4'ün sırasına göre oran-orantıdan önce gelen üç
+  **sayısal mantık** paketi (tanımlı kavram/sembol, tablo-algoritma,
+  grafik yorumlama) hâlâ yazılmadı; sınavda her yıl çıkıyor.
 
 ## Öğrenme modu sıralaması
 
@@ -445,6 +450,87 @@ Doğrulama: 20 sorunun 20'sinin cevabı PowerShell'de bağımsız yeniden hesapl
 (tam sayı, `BigInteger` ve kayan nokta karşılaştırmaları) — **20/20 doğru**.
 80 çeldiricinin 80'i de hangi hatadan doğduğu hesaplanarak eşleştirildi;
 rastgele sayı çeldirici yok.
+
+## Metin işaretleyici (`richText`)
+
+**2026-08-31 (v38) · `js/ui.js`.** O güne kadar `stem`, `asks` ve `solution`
+düz metin basılıyordu (`el()` → `createTextNode`), bu yüzden
+`_format_profili.md` §11.3'ün 4. kuralı (uç değer ifadelerinin vurgulanması)
+hiç uygulanamamıştı. Dar kapsamlı bir işaretleyici eklendi — tam markdown
+ayrıştırıcısı **değil**, yalnız iki dönüşüm:
+
+1. `**kalın**` → `<strong>`
+2. Satır başındaki `Not:` → metnin sonuna kadar `.solution-note` sarı kutusu
+
+**Sıra kritik ve şudur: önce HTML-escape, sonra kalın, en son Not kutusu.**
+Escape olmazsa `a < b < c` gibi eşitsizlikleri tarayıcı etiket sanıp yutar;
+oran-orantı ve sıralama sorularında bu ifade sık geçiyor (`oranti-18`'de
+`a + b < 50` ve `k < 6,25` var). Escape içinde `&` ilk sırada olmalı, yoksa
+kendi ürettiğimiz `&lt;` ikinci kez kaçışa uğrar.
+
+İşaretleyici **"varsa dönüştür, yoksa dokunma"** çalışır. Mevcut 415 sorunun
+hiçbirinde `**` ya da satır başı `Not:` yok, görünümleri değişmedi —
+`ozdeslik-genel` (metin) ve `ucgen-oklid` (SVG) üzerinde doğrulandı. Sarı kutu
+yeni renk tanımlamaz, mevcut `--warn` değişkenini kullanır.
+
+Çağrı yerleri altı nokta: `js/screens/session.js` (stem, asks, solution) ve
+`js/screens/result.js` (aynı üçü). `figure` bu yoldan **geçmez**, `js/svg.js`
+davranışı değişmedi.
+
+## İkinci matematik soru paketi
+
+**2026-08-31 (v38) · `data/packs/oran-oranti-genel.json`** — 20 soru, şekilsiz.
+Zorluk `ozdeslik-genel` ile aynı: **kolay 3 · orta 9 · zor 8**; kolay blok
+Leitner taban kalibrasyonu için, üçü de tek adımlık.
+
+On alt başlığın hepsi en az bir kez geçiyor: k yöntemi, ters orantı çarpım
+sabiti, zincir orantı, eşit oranlar teoremi, doğru/ters orantılı paylaştırma,
+karışım ve karışıma ekleme, işçi-gün, harita ölçeği, ters orantıda yüzde
+değişim, EKOK ile en küçük değer.
+
+**Paketin tasarım ekseni ara değer çeldiricisi** (`_format_profili.md` §8.1,
+İsmail'in kayıtlı ana hata deseni). 13 soruda 18 çeldirici, doğru çözümün
+adımlarında birebir üretilen değerlerdir: `oranti-04`'te k = 6 ve a = 24,
+`oranti-12`'de süt 10 / su 15 / toplam 25, `oranti-19`'da k = 4 ve c = 20.
+Ayrıca 5 soru **yanlış model kurmayı** ölçer — doğru çözüm o değeri hiç
+üretmez, çeldirici yanlış modelin sonucudur:
+
+| soru | yanlış model | sonucu |
+|---|---|---|
+| `oranti-13` | ters orantılı payları 2 : 3 : 6 almak (3 : 2 : 1 olmalı) | 3300 |
+| `oranti-14` | farklı hacimli iki karışımın oranlarını ortalamak | 45 |
+| `oranti-15` | ücreti gün sayısıyla paylaştırmak (verimle olmalı) | 1200 |
+| `oranti-16` | "x %25 artarsa y %25 azalır" varsayımı | 25 |
+| `oranti-17` | k = 1 yerine k'nin başka bir katını almak | 70 / 105 / 140 / 175 |
+
+Her çeldirici çözümün sonundaki **sarı Not kutusunda** teşhir edilir: hangi
+şıkkın hangi ara değer olduğu ve sorunun aslında ne istediği yazılıdır.
+16 soruda Not kutusu var.
+
+Şıkların tamamı beş terimli aritmetik dizi. `oranti-17` **azalan** dizilidir
+(175 → 35, fark −35) ve "**en küçük** değer" istemiyle birleştirilmiştir —
+§8.4'teki "uç değer ters okuma" tuzağı. `oranti-18` **olamaz** formatındadır;
+bölünebilme temelli bir "olamaz" kurgusu beş terimli aritmetik diziye
+oturmadığı için (dizinin ya hepsi ya hiçbiri bölünür) eşitsizlik koşulu
+(`a + b < 50`) üzerine kuruldu, tam olarak bir şık imkânsız çıkıyor.
+
+Cevap anahtarı `D B B E A D E A C B D A B C D A E E C D` — A=4, B=4, C=3, D=5,
+E=4; en uzun aynı harf serisi 2.
+
+**Formül kartı `label` alias'ıyla bağlanır** — `ucgen-karma` deseninin üçüncü
+kullanımı. `oran-oranti-genel` bilinçli olarak hiçbir kartın `subtopicId`'siyle
+çakışmıyor; çakışsaydı 20 sorunun tamamı tek karta bağlanırdı. 20 yeni alias
+`data/formuller/oran-oranti.json`'daki dört karta dağıtıldı, kart ve madde
+sayısı değişmedi (`cardCount` 4). Dağılım: `oran-temel` 3, `oranti-turleri` 3,
+`oranti-ozellikleri` 5, `oranti-uygulama` 9. Sonuncusu ağır çünkü paylaştırma,
+karışım, ölçek ve işçi-gün dört alt başlığın hepsi o kartın altında.
+
+Doğrulama: 20 sorunun 20'sinin cevabı awk'ta bağımsız yöntemle yeniden
+hesaplandı — **20/20 doğru**. Şık dizilerinin ardışık farkları, cevap anahtarı
+harf dağılımı, iddia edilen her ara değerin çözüm adımlarında gerçekten
+geçtiği ve 210 alias arasında çakışma olmadığı ayrıca tarandı. Bulunan
+değerler verilen orantılara geri konarak sağlandığı gösterildi (ör.
+`oranti-13`: 1800 · 2 = 1200 · 3 = 600 · 6 = 3600).
 
 ## Bilinen açık maddeler
 
