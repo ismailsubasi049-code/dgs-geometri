@@ -1,2 +1,5 @@
 # serve.ps1'in gelistirme sirasinda yazdigi onizleme goruntuleri
 tools/.preview/
+
+# Soru yazarken bakilan gercek sinav kitapciklari (buyuk PDF'ler, depoya girmez)
+referans/
