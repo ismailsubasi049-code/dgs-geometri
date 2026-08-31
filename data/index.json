@@ -13,6 +13,7 @@
     { "id": "koklu", "title": "Köklü Sayılar", "branchId": "mat" },
     { "id": "ozdeslikler", "title": "Çarpanlara Ayırma ve Özdeşlikler", "branchId": "mat" },
     { "id": "oran-oranti", "title": "Oran ve Orantı", "branchId": "mat" },
+    { "id": "sayisal-mantik", "title": "Sayısal Mantık", "branchId": "mat" },
     { "id": "acilar", "title": "Açılar", "branchId": "geo" },
     { "id": "ucgenler", "title": "Üçgenler", "branchId": "geo" },
     { "id": "dortgenler", "title": "Dörtgenler", "branchId": "geo" },
@@ -39,6 +40,17 @@
       "title": "Genel oran-orantı soruları",
       "file": "packs/oran-oranti-genel.json",
       "count": 20,
+      "version": 1
+    },
+    {
+      "id": "mantik-blok-1",
+      "topicId": "sayisal-mantik",
+      "topic": "Sayısal Mantık",
+      "subtopicId": "mantik-blok-1",
+      "subtopic": "Tanımlı sembol, kavram, senaryo ve oyun blokları",
+      "title": "Tanımlı sembol, kavram, senaryo ve oyun blokları",
+      "file": "packs/mantik-blok-1.json",
+      "count": 24,
       "version": 1
     },
     {

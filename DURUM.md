@@ -1,13 +1,14 @@
 # Durum
 
-**Son güncelleme:** 2026-09-01 · **sw.js VERSION:** `v39`
+**Son güncelleme:** 2026-09-01 · **sw.js VERSION:** `v40`
 
 ## Özet
 
-**435 soru · 15 alt konu · 17 paket.** 395'i geometri, 40'ı matematik
-(2 paket: `ozdeslik-genel`, `oran-oranti-genel`). Kalan **6** matematik
-konusunun hâlâ yalnız formül kartı var, paketi yok: `sayilar`,
-`bolunebilme`, `ebob-ekok`, `rasyonel`, `uslu`, `koklu`.
+**459 soru · 16 alt konu · 18 paket.** 395'i geometri, 64'ü matematik
+(3 paket: `ozdeslik-genel`, `oran-oranti-genel`, `mantik-blok-1`). Kalan **6**
+matematik konusunun hâlâ yalnız formül kartı var, paketi yok: `sayilar`,
+`bolunebilme`, `ebob-ekok`, `rasyonel`, `uslu`, `koklu`. **Sayısal mantık ise
+tersi:** paketi var, formül kartı yok.
 
 ## Paketler
 
@@ -15,6 +16,7 @@ konusunun hâlâ yalnız formül kartı var, paketi yok: `sayilar`,
 |---|---|---|---|
 | Çarpanlara Ayırma ve Özdeşlikler | `ozdeslik-genel` | Genel özdeşlik soruları | 20 |
 | Oran ve Orantı | `oran-oranti-genel` | Genel oran-orantı soruları | 20 |
+| Sayısal Mantık | `mantik-blok-1` | Tanımlı sembol, kavram, senaryo ve oyun blokları | 24 |
 | Açılar | `acilar-temel` | Temel açı kavramları | 24 |
 | Açılar | `acilar-paralel` | Paralel doğrular ve kesenler | 33 |
 | Açılar | `acilar-ucgende` | Üçgende açılar | 33 |
@@ -30,16 +32,30 @@ konusunun hâlâ yalnız formül kartı var, paketi yok: `sayilar`,
 | Üçgenler | `ucgen-karma` | Karma üçgen | 30 |
 | Dörtgenler | — | Dörtgenler | 10 |
 | Çember ve Daire | — | Çember ve Daire | 10 |
-| **Toplam** | | **17 paket** | **435** |
+| **Toplam** | | **18 paket** | **459** |
 
 ## Kalan işler
 
 - **Sonraki aşama kararı:** matematiğin kalan 6 konusuna paket mi (formül
   kartları hazır), yoksa dörtgen/çember paketleri mi
-- `_format_profili.md` §11.4'ün sırasına göre oran-orantıdan önce gelen üç
-  **sayısal mantık** paketi (tanımlı kavram/sembol, tablo-algoritma,
-  grafik yorumlama) hâlâ yazılmadı; sınavda her yıl çıkıyor. Şema tarafındaki
-  engel kalktı: ortak köklü blok desteği v39'da geldi (`_sema.md` §8).
+- **Sayısal mantığın formül kartı yok** (`data/formuller/` altında
+  `sayisal-mantik.json` yok, `formuller/index.json`'da kayıt yok). Yanlış
+  cevapta kart açılmıyor: `js/formulas.js:106` önce `subtopicId`
+  (`mantik-blok-1`), sonra `subtopic`, sonra `label` alias'ı arıyor; üçü de
+  boşa düşüyor. Eksik, hata değil — paket bu hâliyle çalışıyor.
+- O kart yazıldığında **diğer konulardakinden farklı olmak zorunda: formül
+  kartı değil, yöntem kartı.** Sayısal mantıkta ezberlenecek formül yok;
+  kartlar tekrar eden *hamleleri* anlatmalı — algoritmayı geriye işletme,
+  mutlak değerde iki yönü de sayma, parçalı tanımda her iki dalı da deneme,
+  iki koşulu kesiştirirken daha kısıtlayıcı olandan başlama, tanımı sayı
+  bitene kadar tekrarlama (rakam olma sınırı gibi örtük koşulları unutmama).
+  Bağlanma yolu da farklı olacak: `subtopicId` paket başına tek kart açardı,
+  bu yüzden `ucgen-karma` / `ozdeslik-genel` desenindeki `label` alias'ı daha
+  uygun — ama o zaman sorulara `label` yazmak gerekir (şu an yazılmıyor).
+- `_format_profili.md` §11.4'ün sırasına göre gereken üç **sayısal mantık**
+  paketinden ilki (`mantik-blok-1`) yazıldı; **tablo-algoritma** ve **grafik
+  yorumlama** paketleri hâlâ yok. İkisi de `blocks[].figure` isteyecek —
+  bu pakette şekil yoktu, o yol henüz sınanmadı.
 
 ## Öğrenme modu sıralaması
 
@@ -593,6 +609,62 @@ yok, oradaki "blok" zorluk bloğu.
 
 Sıra: şema artık hazır; ilk sayısal mantık blok paketi kod değişikliği
 gerektirmeden yazılabilir.
+
+## İlk sayısal mantık blok paketi
+
+**2026-09-01 (v40) · `data/packs/mantik-blok-1.json`** — 24 soru · 9 blok
+(5 üçlü, 4 ikili) · bağımsız soru yok · şekil yok. **Sayısal mantık konusu
+bu paketle açıldı** (matematik 8 → 9 konu, 40 → 64 soru) ve `blocks` şeması
+ilk kez gerçek veriyle çalıştı. Önceki turun tahmini doğrulandı: **kod
+değişmedi**, yalnız dosya + index kaydı.
+
+Bu bir **transkripsiyon** turuydu — sorular üretilmedi,
+`referans/mantik_blok_1_TAM.md`'den aktarıldı. Kök, şıklar, çözüm ve sarı Not
+kutusu birebir; zorluk etiketleri kaynaktan (**orta 13 · zor 11**).
+
+Bloklar dört kalıba dağılıyor: **tanımlı sembol** (`mantik-sembol-A` parçalı
+tanımlı ⟪n⟫, `mantik-sembol-B` iki sembolün birlikte kullanımı), **tanımlı
+kavram** (`mantik-kavram-denge`, `-oz`, `-ayrim`), **senaryo + kademeli kural**
+(`mantik-senaryo-kargo` eşikli indirim, `-yarisma` üç kurallı puanlama),
+**oyun / algoritma** (`mantik-oyun-bolme`, `-oyun-rakam`).
+
+Transkripsiyonda üç karar gerekti, üçü de kaynağın uygulamaya birebir
+oturmamasından:
+
+- **LaTeX yok.** `\begin{cases}` bloğu iki düz satıra açıldı
+  (`⟪n⟫ = |4n − 18|, n ≥ 0 ise` / `⟪n⟫ = |5n + 12|, n < 0 ise`) — `richText`
+  HTML-escape ettiği için `n < 0` yutulmuyor, `.shared-stem-body`
+  `white-space: pre-line` satır sonlarını koruyor.
+- **Üstü çizili basamak gösterimi kalın düz metne çevrildi:** `$\overline{3AB}$`
+  → `**3AB**`. 14 geçişin 4'üne bağlam eklendi ("Sayı **üç basamaklı** abc
+  olsun" gibi), kalan 10'unda bitişik cümle bağlamı zaten veriyordu. Amaç
+  `3AB`'nin basamak dizisi olduğunun anlaşılması, `3 · A · B` sanılmaması.
+- **`asks` kaynakta yok** ama şema zorunlu tutuyor (`js/packs.js:78`). Yazıldı
+  ve bir tur sonra **yeniden yazıldı**: ilk hâli Not kutusundaki tuzağı
+  özetliyordu, ama `asks` **cevaptan önce ve zorunlu** okunuyor —
+  `js/screens/session.js:517` şıkları `locked` doğuruyor, kilidi yalnız
+  "Soru ne istiyor?" düğmesi açıyor (`revealAsks` → `unlockChoices`,
+  `session.js:439`). Tuzağı orada söylemek soruyu bozuyordu: "ayrım değeri
+  9'un katıdır" ya da "rakamlar toplamı 8'dir" sorunun tamamını veriyor.
+  Şimdi 24 `asks` de **tek kısa cümle, yalnız istenen büyüklük** — yöntem yok,
+  tuzak yok, şık harfi yok (en uzunu 59 karakter). Tuzak açıklaması yalnız
+  çözümün sonundaki sarı Not kutusunda, yani cevaptan **sonra**.
+
+Not kutusu 21 soruda var; 9, 20 ve 23'te kaynakta yok, uydurulmadı. `_sema.md`
+§4'ün "(Sık yapılan hata N: …)" parantez bloğu bu pakette kullanılmıyor —
+kaynağın kendi biçimi Not kutusu. Soru `label`'ı da yazılmadı: kart açma
+işlevi bu konuda yok (kart yok) ve blok bağlamını `js/ui.js:236` zaten
+`Ortak kök — <label>` diye basıyor.
+
+Doğrulama: 24 kök + 120 şık + 24 çözüm + 9 blok kökü kaynakla karakter
+karakter karşılaştırıldı (izinli dönüşümler dışında fark yok). **24 cevabın
+24'ü PowerShell'de bağımsız olarak yeniden hesaplandı** — tam sayı
+aritmetiğiyle, sembol/öz/ayrım/ücret/hamle fonksiyonları yeniden yazılıp
+aralık taranarak; oyun soruları (21, 22) 5000'e kadar, rakam ekleme soruları
+(23, 24) bütün hamle ağacı üretilerek. **24/24 doğru.** Harf dağılımı
+**A:5 B:4 C:6 D:4 E:5**, blok üyeliği 9/9, Not kutularının hepsi metnin son
+satırında (`richText` `/^Not:/m` bulduğu yerden sona kadar kutuya alıyor —
+Not'tan sonra satır yazılırsa o da sarı kutuya girerdi).
 
 ## Bilinen açık maddeler
 

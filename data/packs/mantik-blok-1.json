@@ -1,0 +1,297 @@
+{
+  "id": "mantik-blok-1",
+  "topicId": "sayisal-mantik",
+  "topic": "Sayısal Mantık",
+  "subtopicId": "mantik-blok-1",
+  "subtopic": "Tanımlı sembol, kavram, senaryo ve oyun blokları",
+  "version": 1,
+  "blocks": [
+    {
+      "id": "mantik-sembol-A",
+      "label": "Parçalı tanımlı sembol ⟪n⟫",
+      "stem": "n bir tam sayı olmak üzere ⟪n⟫ gösterimi\n\n⟪n⟫ = |4n − 18|,   n ≥ 0 ise\n⟪n⟫ = |5n + 12|,   n < 0 ise\n\nbiçiminde tanımlanıyor."
+    },
+    {
+      "id": "mantik-sembol-B",
+      "label": "[AB] ve ⟨AB⟩ sembolleri",
+      "stem": "AB iki basamaklı bir doğal sayı olmak üzere [AB] ve ⟨AB⟩ gösterimleri\n\n- **[AB] :** AB sayısının pozitif tam sayı bölenlerinin sayısı\n- **⟨AB⟩ :** AB sayısının rakamları toplamının karesi\n\nbiçiminde tanımlanmaktadır."
+    },
+    {
+      "id": "mantik-kavram-denge",
+      "label": "Denge sayısı",
+      "stem": "Üç basamaklı bir doğal sayının **yüzler** ve **birler** basamağındaki rakamların toplamı, **onlar** basamağındaki rakamın 2 katına eşitse bu sayıya **denge sayısı** denir.\n\nÖrneğin 246 sayısında 2 + 6 = 8 ve 2 · 4 = 8 olduğundan 246 bir denge sayısıdır."
+    },
+    {
+      "id": "mantik-kavram-oz",
+      "label": "Bir sayının özü",
+      "stem": "Bir doğal sayının rakamları toplamı hesaplanıyor. Elde edilen sayı tek basamaklı değilse aynı işlem tekrarlanıyor. Bu şekilde ulaşılan tek basamaklı sayıya, başlangıçtaki sayının **özü** denir.\n\nÖrneğin 4859 sayısı için 4 + 8 + 5 + 9 = 26 ve 2 + 6 = 8 olduğundan 4859 sayısının özü 8'dir."
+    },
+    {
+      "id": "mantik-kavram-ayrim",
+      "label": "Ayrım değeri",
+      "stem": "İki basamaklı bir doğal sayı ile bu sayının rakamlarının yer değiştirmesiyle elde edilen sayının farkının mutlak değerine, o sayının **ayrım değeri** denir.\n\nÖrneğin 62 sayısı için |62 − 26| = 36 olduğundan 62 sayısının ayrım değeri 36'dır."
+    },
+    {
+      "id": "mantik-senaryo-kargo",
+      "label": "Kargo ücret tarifesi",
+      "stem": "Bir kargo firması gönderi ücretini şu kurallara göre hesaplamaktadır:\n\n- İlk 2 kilogram için **60 TL** alınır.\n- 2 kilogramdan sonraki her kilogram için ayrıca **20 TL** alınır.\n- Gönderinin ağırlığı tam sayı değilse, **bir üst tam kilograma** yuvarlanır.\n- Bu şekilde hesaplanan ücret **200 TL'yi geçerse**, 200 TL'yi aşan kısma **%50 indirim** uygulanır."
+    },
+    {
+      "id": "mantik-senaryo-yarisma",
+      "label": "Bilgi yarışması puanlaması",
+      "stem": "Bir bilgi yarışmasında her yarışmacıya 20 soru sorulmaktadır. Puanlama şu şekildedir:\n\n- Doğru cevaplanan her soru için **5 puan** eklenir.\n- Boş bırakılan her soru için **1 puan** eklenir.\n- Yanlış cevaplanan her soru için **2 puan** silinir."
+    },
+    {
+      "id": "mantik-oyun-bolme",
+      "label": "Tahtadaki sayı oyunu",
+      "stem": "Bir oyunda tahtada pozitif bir tam sayı yazılıdır. Her hamlede tahtadaki sayıya şu kurallardan **uygun olan** uygulanır:\n\n- Sayı 3 ile tam bölünüyorsa, sayı 3'e bölünür.\n- Sayı 3 ile tam bölünmüyorsa, sayıya 1 eklenir.\n\nTahtada 1 sayısı yazdığında oyun biter."
+    },
+    {
+      "id": "mantik-oyun-rakam",
+      "label": "Rakam ekleme oyunu",
+      "stem": "Ali, Berk ve Can bir oyun oynamaktadır. Tahtada yazılı olan sayının **soluna ya da sağına** birer rakam yazarak sırayla yeni sayılar oluştururlar. Her hamleden sonra tahtada oluşan sayı:\n\n- Ali'nin hamlesinden sonra **2 ile**,\n- Berk'in hamlesinden sonra **5 ile**,\n- Can'ın hamlesinden sonra **9 ile**\n\ntam bölünmelidir. Bir sayının soluna 0 rakamı yazılamaz."
+    }
+  ],
+  "questions": [
+    {
+      "id": "mantik-01",
+      "blockId": "mantik-sembol-A",
+      "difficulty": 2,
+      "stem": "Yukarıdaki tanıma göre, ⟪6⟫ + ⟪−5⟫ işleminin sonucu kaçtır?",
+      "asks": "İki gösterimin toplamı isteniyor.",
+      "choices": ["13", "16", "19", "22", "25"],
+      "answer": 2,
+      "solution": "1. 6 ≥ 0 olduğu için birinci kural geçerli: ⟪6⟫ = |4 · 6 − 18| = |24 − 18| = **6**\n2. −5 < 0 olduğu için ikinci kural geçerli: ⟪−5⟫ = |5 · (−5) + 12| = |−25 + 12| = |−13| = **13**\n3. Toplam: 6 + 13 = **19**\nNot: A şıkkındaki 13, yalnızca ⟪−5⟫ değeridir. İkinci kuralı uygulayıp orada durmak bu şıkka götürür. Soru **toplamı** istiyor."
+    },
+    {
+      "id": "mantik-02",
+      "blockId": "mantik-sembol-A",
+      "difficulty": 3,
+      "stem": "Yukarıdaki tanıma göre, ⟪a⟫ = 2 eşitliğini sağlayan a tam sayılarının toplamı kaçtır?",
+      "asks": "Koşulu sağlayan a tam sayılarının toplamı isteniyor.",
+      "choices": ["7", "9", "11", "13", "15"],
+      "answer": 0,
+      "solution": "1. İki kuralı ayrı ayrı incelemek gerekir.\n2. **Birinci durum (a ≥ 0):** |4a − 18| = 2\n- 4a − 18 = 2 → 4a = 20 → **a = 5** (a ≥ 0 sağlanıyor ✓)\n- 4a − 18 = −2 → 4a = 16 → **a = 4** (sağlanıyor ✓)\n3. **İkinci durum (a < 0):** |5a + 12| = 2\n- 5a + 12 = 2 → 5a = −10 → **a = −2** (a < 0 sağlanıyor ✓)\n- 5a + 12 = −2 → 5a = −14 → a = −2,8 tam sayı değil ✗\n4. Çözümler: 5, 4 ve −2. Toplam = 5 + 4 + (−2) = **7**\nNot: B şıkkındaki 9, yalnızca birinci durumun çözümlerinin toplamıdır (5 + 4). Parçalı tanımlı sembollerde **her iki kuralı da denemek zorunludur**; negatif dalı atlamak en yaygın hatadır. Ayrıca mutlak değer eşitliğinin **iki** kökü olduğu unutulmamalıdır."
+    },
+    {
+      "id": "mantik-03",
+      "blockId": "mantik-sembol-A",
+      "difficulty": 2,
+      "stem": "Yukarıdaki tanıma göre, ⟪⟪−3⟫⟫ ifadesinin değeri kaçtır?",
+      "asks": "İç içe yazılmış gösterimin değeri isteniyor.",
+      "choices": ["3", "6", "9", "12", "15"],
+      "answer": 1,
+      "solution": "1. İçteki gösterimden başlanır. −3 < 0 olduğu için ikinci kural geçerli:\n⟪−3⟫ = |5 · (−3) + 12| = |−15 + 12| = **3**\n2. Şimdi dıştaki gösterim ⟪3⟫ hâline geldi. 3 ≥ 0 olduğu için **birinci** kural geçerli:\n⟪3⟫ = |4 · 3 − 18| = |−6| = **6**\n3. Sonuç: **6**\nNot: A şıkkındaki 3, içteki ⟪−3⟫ değeridir; işlem yarıda bırakılırsa oraya düşülür. Ayrıca içteki sonuç **pozitif** çıktığı için dışta kural değişir — aynı kuralı iki kez uygulamak yanlıştır."
+    },
+    {
+      "id": "mantik-04",
+      "blockId": "mantik-sembol-B",
+      "difficulty": 2,
+      "stem": "Yukarıdaki tanımlara göre, [36] + ⟨36⟩ işleminin sonucu kaçtır?",
+      "asks": "İki sembolün toplamı isteniyor.",
+      "choices": ["78", "81", "84", "87", "90"],
+      "answer": 4,
+      "solution": "1. **[36]:** 36 = 2² · 3² olduğundan bölen sayısı (2 + 1) · (2 + 1) = **9**\n(Bölenler: 1, 2, 3, 4, 6, 9, 12, 18, 36 → 9 tane ✓)\n2. **⟨36⟩:** Rakamlar toplamı 3 + 6 = 9, karesi 9² = **81**\n3. Toplam: 9 + 81 = **90**\nNot: B şıkkındaki 81, yalnızca ⟨36⟩ değeridir. İki sembollü tanımlarda hesabı kolay olanı bulup durmak sık rastlanan hatadır."
+    },
+    {
+      "id": "mantik-05",
+      "blockId": "mantik-sembol-B",
+      "difficulty": 3,
+      "stem": "Yukarıdaki tanımlara göre, [AB] = 3 eşitliğini sağlayan iki basamaklı AB doğal sayılarının toplamı kaçtır?",
+      "asks": "Koşulu sağlayan sayıların toplamı isteniyor.",
+      "choices": ["66", "70", "74", "78", "82"],
+      "answer": 2,
+      "solution": "1. Bir sayının bölen sayısının **tek** olması, o sayının tam kare olmasını gerektirir.\n2. Bölen sayısının tam olarak 3 olması ise daha dar bir koşuldur: sayı **bir asalın karesi** biçiminde olmalıdır. Çünkü p² sayısının bölenleri yalnızca 1, p ve p²'dir.\n3. İki basamaklı asal kareleri:\n- 5² = **25** ✓\n- 7² = **49** ✓\n- 2² = 4 ve 3² = 9 tek basamaklı ✗ · 11² = 121 üç basamaklı ✗\n4. Toplam: 25 + 49 = **74**\nNot: \"Tam kare olsun yeter\" diye düşünüp 16 ve 81'i de listeye katmak yanlıştır. 16 = 2⁴'ün 5 böleni (1, 2, 4, 8, 16), 81 = 3⁴'ün de 5 böleni vardır; ikisi de koşulu sağlamaz."
+    },
+    {
+      "id": "mantik-06",
+      "blockId": "mantik-sembol-B",
+      "difficulty": 3,
+      "stem": "Yukarıdaki tanımlara göre, ⟨AB⟩ = 64 ve [AB] = 4 koşullarının **ikisini birden** sağlayan iki basamaklı AB doğal sayılarının toplamı kaçtır?",
+      "asks": "İki koşulu birden sağlayan sayıların toplamı isteniyor.",
+      "choices": ["111", "115", "119", "123", "127"],
+      "answer": 3,
+      "solution": "1. **Önce daha kısıtlayıcı olan koşuldan başlanır.** ⟨AB⟩ = 64 ise rakamlar toplamının karesi 64, yani **rakamlar toplamı 8**'dir.\n2. Rakamları toplamı 8 olan iki basamaklı sayılar: **17, 26, 35, 44, 53, 62, 71, 80**\n3. Şimdi bu sekiz sayı içinde [AB] = 4, yani tam olarak 4 böleni olanlar aranır:\n- 17 → asal, 2 bölen ✗\n- 26 = 2 · 13 → 4 bölen ✓\n- 35 = 5 · 7 → 4 bölen ✓\n- 44 = 2² · 11 → 3 · 2 = 6 bölen ✗\n- 53 → asal, 2 bölen ✗\n- 62 = 2 · 31 → 4 bölen ✓\n- 71 → asal, 2 bölen ✗\n- 80 = 2⁴ · 5 → 5 · 2 = 10 bölen ✗\n4. Koşulu sağlayanlar: 26, 35 ve 62. Toplam = **123**\nNot: Tam olarak 4 böleni olan sayılar ya iki farklı asalın çarpımıdır (p · q) ya da bir asalın küpüdür (p³). Bu listede hepsi p · q biçiminde çıktı. Ayrıca rakamlar toplamının **karesi** 64 olduğu için toplamın 8 olduğunu görmek şart; 64'ü doğrudan rakam toplamı sanmak listeyi tamamen bozar."
+    },
+    {
+      "id": "mantik-07",
+      "blockId": "mantik-kavram-denge",
+      "difficulty": 2,
+      "stem": "Rakamları birbirinden farklı olan üç basamaklı **en büyük** denge sayısı kaçtır?",
+      "asks": "Rakamları farklı olan en büyük denge sayısı isteniyor.",
+      "choices": ["963", "969", "975", "981", "987"],
+      "answer": 4,
+      "solution": "1. Sayı üç basamaklı **abc** olsun. Koşul: **a + c = 2b**\n2. En büyüğü aradığımız için yüzler basamağı en büyük olmalı: **a = 9**\n3. Sırada onlar basamağı geliyor, onu da olabildiğince büyük seçeriz. b = 9 denenirse 9 + c = 18 → c = 9 çıkar, ama rakamlar farklı olmalı ✗\n4. **b = 8** denenir: 9 + c = 16 → **c = 7**. Üç rakam da farklı ✓\n5. Sayı: **987**\nNot: Koşul a + c = 2b, aslında **a, b, c'nin bu sırayla aritmetik dizi oluşturması** demektir; b ortadaki terimdir. Bu görülürse soru çok hızlanır."
+    },
+    {
+      "id": "mantik-08",
+      "blockId": "mantik-kavram-denge",
+      "difficulty": 2,
+      "stem": "Yüzler basamağındaki rakamı 4 olan kaç tane üç basamaklı denge sayısı vardır?",
+      "asks": "Koşulu sağlayan sayıların adedi isteniyor.",
+      "choices": ["2", "3", "4", "5", "6"],
+      "answer": 3,
+      "solution": "1. Sayı üç basamaklı **4xy** olsun. Koşul: 4 + y = 2x → **y = 2x − 4**\n2. y bir rakam olduğu için 0 ≤ y ≤ 9 olmalı:\n- x = 0 → y = −4 ✗\n- x = 1 → y = −2 ✗\n- x = 2 → y = 0 ✓ (420)\n- x = 3 → y = 2 ✓ (432)\n- x = 4 → y = 4 ✓ (444)\n- x = 5 → y = 6 ✓ (456)\n- x = 6 → y = 8 ✓ (468)\n- x = 7 → y = 10 ✗ (rakam değil)\n3. Toplam **5** sayı.\nNot: y'nin rakam olma koşulu (0–9) unutulursa x = 7, 8, 9 da sayılır ve 8 bulunur. Tanımlı kavram sorularında **rakam olma sınırı** en sık atlanan koşuldur."
+    },
+    {
+      "id": "mantik-09",
+      "blockId": "mantik-kavram-denge",
+      "difficulty": 3,
+      "stem": "İki basamaklı **AB** sayısı için, üç basamaklı **3AB** ve **AB6** sayılarının **ikisi de** birer denge sayısıdır.\n\nBuna göre A · B çarpımı kaçtır?",
+      "asks": "A ile B'nin çarpımı isteniyor.",
+      "choices": ["20", "24", "28", "32", "36"],
+      "answer": 0,
+      "solution": "1. **3AB** için basamaklar 3, A, B: **3 + B = 2A**\n2. **AB6** için basamaklar A, B, 6: **A + 6 = 2B**\n3. Birinci denklemden **B = 2A − 3**\n4. İkinci denklemde yerine koyalım: A + 6 = 2(2A − 3) = 4A − 6 → **3A = 12** → **A = 4**\n5. **B = 2 · 4 − 3 = 5**\n6. Doğrulama: 345 → 3 + 5 = 8 = 2 · 4 ✓ · 456 → 4 + 6 = 10 = 2 · 5 ✓\n7. **A · B = 4 · 5 = 20**"
+    },
+    {
+      "id": "mantik-10",
+      "blockId": "mantik-kavram-oz",
+      "difficulty": 2,
+      "stem": "987654 sayısının özü kaçtır?",
+      "asks": "Sayının özü isteniyor.",
+      "choices": ["1", "2", "3", "4", "5"],
+      "answer": 2,
+      "solution": "1. Birinci adım: 9 + 8 + 7 + 6 + 5 + 4 = **39**\n2. 39 tek basamaklı olmadığı için işlem tekrarlanır: 3 + 9 = **12**\n3. 12 de tek basamaklı değil: 1 + 2 = **3**\n4. Öz: **3**\nNot: İşlem \"tek basamaklı sayı elde edilene kadar\" sürer. İlk adımda 39 bulup durmak ya da ikinci adımda 12'de kalmak yaygın hatadır; tanım kaç kez tekrarlanacağını sayı belirler, sen değil."
+    },
+    {
+      "id": "mantik-11",
+      "blockId": "mantik-kavram-oz",
+      "difficulty": 2,
+      "stem": "Özü 5 olan iki basamaklı doğal sayıların **en büyüğü** ile **en küçüğünün** toplamı kaçtır?",
+      "asks": "En büyük ile en küçüğün toplamı isteniyor.",
+      "choices": ["100", "103", "106", "109", "112"],
+      "answer": 3,
+      "solution": "1. En küçüğü arayalım. İki basamaklı sayılar 10'dan başlar:\n10 → 1 · · · özü 1 · 11 → 2 · 12 → 3 · 13 → 4 · **14 → 1 + 4 = 5 ✓**\n2. En büyüğü arayalım. 99 → 18 → 9 ✗ · 98 → 17 → 8 ✗ · 97 → 7 ✗ · 96 → 6 ✗ · **95 → 14 → 5 ✓**\n3. Toplam: 14 + 95 = **109**\nNot: Özü 5 olan sayılar 14, 23, 32, 41, 50, 59, 68, 77, 86, 95 biçiminde **9'ar 9'ar** ilerler. Bu örüntü görülürse en büyük ve en küçük doğrudan okunur."
+    },
+    {
+      "id": "mantik-12",
+      "blockId": "mantik-kavram-oz",
+      "difficulty": 3,
+      "stem": "Üç basamaklı bir **A5B** sayısının özü 7'dir.\n\nBuna göre A + B toplamının alabileceği **kaç farklı** değer vardır?",
+      "asks": "A + B toplamının alabileceği farklı değer sayısı isteniyor.",
+      "choices": ["1", "2", "3", "4", "5"],
+      "answer": 1,
+      "solution": "1. Sayının rakamları toplamı **A + 5 + B**'dir. A + B toplamına S diyelim, rakamlar toplamı **S + 5** olur.\n2. A yüzler basamağı olduğu için 1 ≤ A ≤ 9, ayrıca 0 ≤ B ≤ 9. Dolayısıyla **1 ≤ S ≤ 18** ve rakamlar toplamı 6 ile 23 arasındadır.\n3. Bu aralıkta özü 7 olan sayılar: **7** ve **16** (16 → 1 + 6 = 7 ✓). Bir sonraki 25 olurdu, aralığın dışında.\n4. Buradan:\n- S + 5 = 7 → **S = 2**\n- S + 5 = 16 → **S = 11**\n5. İkisi de 1–18 aralığında geçerli. **2 farklı** değer.\nNot: Özü 7 olan sayılar 7, 16, 25, 34, … yine 9'ar artar. Yalnızca S + 5 = 7 durumunu görüp durmak A şıkkına götürür; ikinci basamağı aramak zorunludur."
+    },
+    {
+      "id": "mantik-13",
+      "blockId": "mantik-kavram-ayrim",
+      "difficulty": 3,
+      "stem": "Ayrım değeri 45 olan kaç tane iki basamaklı doğal sayı vardır?",
+      "asks": "Koşulu sağlayan sayıların adedi isteniyor.",
+      "choices": ["5", "7", "9", "11", "13"],
+      "answer": 2,
+      "solution": "1. Sayı iki basamaklı **ab** = 10a + b, ters çevrilmişi 10b + a olsun.\n2. Fark: |(10a + b) − (10b + a)| = |9a − 9b| = **9 · |a − b|**\n3. Koşul: 9 · |a − b| = 45 → **|a − b| = 5**\n4. **a − b = 5** olanlar: 50, 61, 72, 83, 94 → **5 tane**\n5. **b − a = 5** olanlar: 16, 27, 38, 49 → **4 tane**\n(05 iki basamaklı olmadığı için a = 0 alınamaz.)\n6. Toplam: 5 + 4 = **9**\nNot: A şıkkındaki 5, yalnızca birinci durumun sayısıdır. Mutlak değer **iki yönü birden** kapsar; tek yönü sayıp durmak bu sorunun ana tuzağıdır."
+    },
+    {
+      "id": "mantik-14",
+      "blockId": "mantik-kavram-ayrim",
+      "difficulty": 2,
+      "stem": "İki basamaklı bir doğal sayının ayrım değeri aşağıdakilerden hangisi **olamaz**?",
+      "asks": "Ayrım değeri olamayacak şık isteniyor.",
+      "choices": ["0", "27", "54", "63", "70"],
+      "answer": 4,
+      "solution": "1. Yukarıda gösterildiği gibi ayrım değeri her zaman **9 · |a − b|** biçimindedir.\n2. Yani ayrım değeri **9'un katı** olmak zorundadır.\n3. |a − b| en fazla 9 olabileceği için (a = 9, b = 0) mümkün değerler: 0, 9, 18, 27, 36, 45, 54, 63, 72, 81\n4. Şıklardan 0, 27, 54 ve 63 bu listede vardır. **70, 9'un katı değildir.**\nNot: A şıkkındaki 0 mümkündür: rakamları eşit olan sayılarda (33, 77 gibi) fark sıfırdır. \"Fark sıfır olamaz\" varsayımı yanlıştır."
+    },
+    {
+      "id": "mantik-15",
+      "blockId": "mantik-senaryo-kargo",
+      "difficulty": 2,
+      "stem": "Ağırlığı 7,4 kilogram olan bir gönderinin ücreti kaç TL'dir?",
+      "asks": "Gönderinin ücreti isteniyor.",
+      "choices": ["160", "165", "170", "175", "180"],
+      "answer": 4,
+      "solution": "1. Ağırlık bir üst tam kilograma yuvarlanır: 7,4 → **8 kilogram**\n2. İlk 2 kilogram: **60 TL**\n3. Kalan 8 − 2 = 6 kilogram: 6 · 20 = **120 TL**\n4. Toplam: 60 + 120 = **180 TL**\n5. 180 TL, 200 TL'yi geçmediği için indirim uygulanmaz. Ücret: **180 TL**\nNot: A şıkkındaki 160, yuvarlama yapılmadan 7 kilogram üzerinden hesaplanan ücrettir (60 + 5 · 20). Yuvarlama kuralı kökte açıkça yazılıdır."
+    },
+    {
+      "id": "mantik-16",
+      "blockId": "mantik-senaryo-kargo",
+      "difficulty": 3,
+      "stem": "Ağırlığı tam sayı kilogram olan bir gönderinin ücreti 230 TL'dir.\n\nBuna göre bu gönderi kaç kilogramdır?",
+      "asks": "Gönderinin ağırlığı isteniyor.",
+      "choices": ["8", "10", "12", "14", "16"],
+      "answer": 2,
+      "solution": "1. Önce indirimin uygulanıp uygulanmadığına bakılır. 230 > 200 olduğu için **indirim uygulanmıştır.**\n2. İndirimsiz ücrete H diyelim. 200 TL'yi aşan kısım (H − 200) yarıya indiğine göre:\n**230 = 200 + 0,5 · (H − 200)**\n3. Buradan 30 = 0,5 · (H − 200) → H − 200 = 60 → **H = 260 TL**\n4. Şimdi ağırlığı bulalım: 60 + 20 · (k − 2) = 260 → 20 · (k − 2) = 200 → k − 2 = 10 → **k = 12**\nNot: İndirimi görmeyip doğrudan 60 + 20(k − 2) = 230 kurulursa k = 10,5 çıkar. **Tam sayı çıkmaması**, indirim basamağının atlandığının işaretidir; oradan B şıkkına yuvarlamak yanlıştır."
+    },
+    {
+      "id": "mantik-17",
+      "blockId": "mantik-senaryo-kargo",
+      "difficulty": 2,
+      "stem": "Ağırlıkları 5 kilogram ve 12 kilogram olan iki gönderinin ücretleri arasındaki fark kaç TL'dir?",
+      "asks": "İki ücret arasındaki fark isteniyor.",
+      "choices": ["110", "120", "130", "140", "150"],
+      "answer": 0,
+      "solution": "1. **5 kilogram:** 60 + 20 · 3 = **120 TL**. 200'ü geçmediği için indirim yok.\n2. **12 kilogram:** 60 + 20 · 10 = 260 TL. 200'ü geçtiği için aşan kısım olan 60 TL yarıya iner: 200 + 30 = **230 TL**\n3. Fark: 230 − 120 = **110 TL**\nNot: D şıkkındaki 140, indirim hesaba katılmadan bulunan farktır (260 − 120). İki gönderiden yalnızca birinin eşiği aşması, farkın orantısız çıkmasına yol açar."
+    },
+    {
+      "id": "mantik-18",
+      "blockId": "mantik-senaryo-yarisma",
+      "difficulty": 2,
+      "stem": "Bir yarışmacı 20 sorunun tamamını cevaplamış, hiç boş bırakmamış ve toplam 58 puan almıştır.\n\nBuna göre bu yarışmacı kaç soruyu yanlış cevaplamıştır?",
+      "asks": "Yanlış cevaplanan soru sayısı isteniyor.",
+      "choices": ["6", "8", "10", "12", "14"],
+      "answer": 0,
+      "solution": "1. Doğru sayısına d, yanlış sayısına y diyelim. Boş olmadığı için **d + y = 20**\n2. Puan denklemi: **5d − 2y = 58**\n3. Birinci denklemden d = 20 − y. Yerine koyalım:\n5(20 − y) − 2y = 58 → 100 − 5y − 2y = 58 → **7y = 42** → **y = 6**\nNot: E şıkkındaki 14, **doğru** sayısıdır (d = 20 − 6). Denklemi çözüp d'yi bulup durmak buraya götürür; soru yanlış sayısını istiyor."
+    },
+    {
+      "id": "mantik-19",
+      "blockId": "mantik-senaryo-yarisma",
+      "difficulty": 3,
+      "stem": "Bir yarışmacı 4 soruyu boş bırakmış ve toplam 42 puan almıştır.\n\nBuna göre bu yarışmacı kaç soruyu doğru cevaplamıştır?",
+      "asks": "Doğru cevaplanan soru sayısı isteniyor.",
+      "choices": ["8", "10", "12", "14", "16"],
+      "answer": 1,
+      "solution": "1. Boş sayısı 4 olduğuna göre doğru ve yanlışların toplamı: **d + y = 16**\n2. Boşlardan gelen puan: 4 · 1 = **4 puan**\n3. Puan denklemi: 5d − 2y + 4 = 42 → **5d − 2y = 38**\n4. y = 16 − d yerine konur: 5d − 2(16 − d) = 38 → 5d − 32 + 2d = 38 → **7d = 70** → **d = 10**\n5. Doğrulama: 10 doğru (50) + 4 boş (4) + 6 yanlış (−12) = **42 ✓**\nNot: Boş bırakılan soruların **puan getirdiği** gözden kaçarsa denklem 5d − 2y = 42 olur ve d tam sayı çıkmaz. Kökteki üç kuralın üçü de denkleme girmelidir."
+    },
+    {
+      "id": "mantik-20",
+      "blockId": "mantik-oyun-bolme",
+      "difficulty": 2,
+      "stem": "Tahtada başlangıçta 20 sayısı yazılıdır.\n\nBuna göre oyun kaç hamlede biter?",
+      "asks": "Oyunun bittiği hamle sayısı isteniyor.",
+      "choices": ["3", "4", "5", "6", "7"],
+      "answer": 3,
+      "solution": "1. 20 → 3 ile bölünmez → 21 **(1. hamle)**\n2. 21 → 3 ile bölünür → 7 **(2. hamle)**\n3. 7 → bölünmez → 8 **(3. hamle)**\n4. 8 → bölünmez → 9 **(4. hamle)**\n5. 9 → bölünür → 3 **(5. hamle)**\n6. 3 → bölünür → 1 **(6. hamle)**\n7. Tahtada 1 yazdı, oyun bitti: **6 hamle**"
+    },
+    {
+      "id": "mantik-21",
+      "blockId": "mantik-oyun-bolme",
+      "difficulty": 3,
+      "stem": "Oyunun tam **4 hamlede** bittiği **en büyük** başlangıç sayısı kaçtır?",
+      "asks": "Koşulu sağlayan en büyük başlangıç sayısı isteniyor.",
+      "choices": ["27", "54", "81", "108", "135"],
+      "answer": 2,
+      "solution": "1. Geriye doğru gidelim. 1'e ulaşmak için gereken hamle sayısını yazalım:\n- **1 hamlede** biten: 3 (3 → 1)\n- **2 hamlede** biten: 9 (9 → 3 → 1) ve 2 (2 → 3 → 1)\n- **3 hamlede** biten: 27, 6 ve 8\n- **4 hamlede** biten: 81, 18, 24, 26, …\n2. En büyüğü ararken, sayıyı büyütmenin tek yolu **3 ile çarpmaktır** (bölme kuralının tersi). Toplama kuralının tersi sayıyı küçültür.\n3. Bu yüzden en büyük değer, her adımda 3 ile çarparak elde edilir: 1 → 3 → 9 → 27 → **81**\n4. Doğrulama: 81 → 27 → 9 → 3 → 1, tam **4 hamle ✓**\nNot: A şıkkındaki 27, **3 hamlede** biten en büyük sayıdır — bir adım eksik kalmıştır. Geriye sayarken adım sayısını kaybetmemek gerekir."
+    },
+    {
+      "id": "mantik-22",
+      "blockId": "mantik-oyun-bolme",
+      "difficulty": 3,
+      "stem": "Başlangıç sayısı 2'den büyük olmak üzere, oyunun tam **3 hamlede** bittiği kaç farklı başlangıç sayısı vardır?",
+      "asks": "Koşulu sağlayan başlangıç sayılarının adedi isteniyor.",
+      "choices": ["2", "3", "4", "5", "6"],
+      "answer": 1,
+      "solution": "1. Önce **2 hamlede** bitenleri bulalım. Bir hamlede biten tek sayı 3'tür.\n- 3'e bölünerek 3'e ulaşan: **9**\n- 1 eklenerek 3'e ulaşan: **2** (2, 3 ile bölünmediği için kural uygundur ✓)\n- 2 hamlede bitenler: **{2, 9}**\n2. Şimdi **3 hamlede** bitenler, bir hamlede 2 veya 9'a ulaşanlardır:\n- 3'e bölünerek 2'ye ulaşan: **6** ✓\n- 1 eklenerek 2'ye ulaşan: 1 — ama tahtada 1 yazdığında oyun zaten biter, hamle yapılamaz ✗\n- 3'e bölünerek 9'a ulaşan: **27** ✓\n- 1 eklenerek 9'a ulaşan: **8** (8, 3 ile bölünmez ✓)\n3. Bulunanlar: **6, 8, 27** — üçü de 2'den büyük.\n4. Doğrulama: 6 → 2 → 3 → 1 ✓ · 8 → 9 → 3 → 1 ✓ · 27 → 9 → 3 → 1 ✓\n5. **3 farklı** sayı.\nNot: Her adımda **iki** ters yol denenmelidir: 3 ile çarpmak ve 1 çıkarmak. Yalnızca 3 ile çarpanı sayarsak 6 ve 27 bulunur, 8 kaçar. Ayrıca 1 çıkarma yolunda çıkan sayının 3'e bölünmediğini kontrol etmek şarttır."
+    },
+    {
+      "id": "mantik-23",
+      "blockId": "mantik-oyun-rakam",
+      "difficulty": 2,
+      "stem": "Tahtada başlangıçta 6 sayısı yazılıdır. Sırasıyla **Ali** ve **Berk** birer hamle yaptığında tahtada oluşabilecek **en küçük** sayı kaçtır?",
+      "asks": "İki hamle sonunda oluşabilecek en küçük sayı isteniyor.",
+      "choices": ["160", "165", "170", "175", "180"],
+      "answer": 0,
+      "solution": "1. **Ali'nin hamlesi:** İki basamaklı ve çift bir sayı oluşmalı.\n- Sağa yazarsa: **6d** çift olmalı → 60, 62, 64, 66, 68\n- Sola yazarsa: **d6** — birler basamağı 6 olduğu için hepsi çift ✓ → 16, 26, …, 96\n2. **Berk'in hamlesi:** Üç basamaklı ve 5 ile bölünen bir sayı oluşmalı, yani **0 veya 5 ile bitmeli.**\n3. Sonuç 100'lü olursa en küçük olur. İki yol var:\n- Berk sola 1 yazar: sonuç **1XY**. 5 ile bölünmesi için Ali'nin sayısı 0 veya 5 ile bitmeli. Ali'nin sayısı çift olduğundan **0 ile bitmeli** → Ali'nin sayısı 60 olmalı → **160**\n- Berk sağa yazar: sonuç **XYd**, 100'lü olması için Ali'nin sayısı 16 olmalı → 160 veya 165 → en küçüğü **160**\n4. Her iki yol da aynı sonuca çıkıyor: **160**"
+    },
+    {
+      "id": "mantik-24",
+      "blockId": "mantik-oyun-rakam",
+      "difficulty": 3,
+      "stem": "Tahtada başlangıçta 4 sayısı yazılıdır. Sırasıyla **Can**, **Ali** ve **Berk** birer hamle yapıyor.\n\nBuna göre tahtada oluşan son sayı aşağıdakilerden hangisi **olamaz**?",
+      "asks": "Oluşması imkânsız olan son sayı isteniyor.",
+      "choices": ["4520", "5465", "3545", "6540", "4590"],
+      "answer": 4,
+      "solution": "1. **Can'ın hamlesi:** İki basamaklı, 9 ile bölünen sayı. Rakamlar toplamı 9'un katı olmalı.\n- Sağa: **4d** → 4 + d = 9 → d = 5 → **45**\n- Sola: **d4** → d + 4 = 9 → d = 5 → **54**\n2. **Ali'nin hamlesi:** Üç basamaklı ve çift.\n- 45'ten sağa: 450, 452, 454, 456, 458 (sola yazılamaz, **d45** tek sayıdır)\n- 54'ten sağa: 540, 542, 544, 546, 548 · sola: 154, 254, …, 954\n3. **Berk'in hamlesi:** Dört basamaklı ve 5 ile bölünen sayı.\n4. Şıkları tek tek deneyelim:\n- **A) 4520** → Berk sağa 0 yazmış, Ali'nin sayısı 452. 452 çift ✓ ve 45'ten türetilebilir ✓ **olabilir**\n- **B) 5465** → Berk sağa 5 yazmış, Ali'nin sayısı 546. 546 çift ✓ ve 54'ten türetilebilir ✓ **olabilir**\n- **C) 3545** → Berk sağa 5 yazmış, Ali'nin sayısı 354. 354 çift ✓ ve 54'ün soluna 3 yazılarak elde edilir ✓ **olabilir**\n- **D) 6540** → Berk sola 6 yazmış, Ali'nin sayısı 540. 540 çift ✓, 54'ten türetilebilir ✓, sonuç 0 ile bitiyor ✓ **olabilir**\n- **E) 4590** → İki olasılık var. Berk sağa yazmışsa Ali'nin sayısı 459 olurdu, ama **459 tek sayıdır** ✗. Berk sola yazmışsa Ali'nin sayısı 590 olurdu, ama 590 ne 45'ten ne 54'ten türetilebilir ✗ → **olamaz**\nNot: Berk'in hamlesinde sayının 5 ile bölünmesi gerektiği için sondaki rakam 0 ya da 5'tir; beş şıkkın hepsi bu koşulu sağlıyor. Ayrım, **bir önceki adımda** yani Ali'nin sayısının geçerli olup olmamasında ortaya çıkıyor. Geriye doğru bir adım daha gitmek zorunludur."
+    }
+  ]
+}
