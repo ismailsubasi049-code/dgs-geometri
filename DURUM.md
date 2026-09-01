@@ -911,8 +911,14 @@ Düzeltilmedi, kayıt için duruyor:
 - Plan modunda başla.
 - Üretim miktarını (kaç soru) planda teyit ettir.
 - Force push yapma.
-- Kullanıcıya giden içerik (paket/formül/kod/CSS) değiştiyse `sw.js` →
-  `VERSION` artır. Salt geliştirme dokümanı değiştiyse artırma.
+- **`js/`, `css/` veya `data/` altında kullanıcıya giden herhangi bir dosya
+  değiştiyse `sw.js` → `VERSION` artırılacak. Bu, düzeltme turlarında da
+  geçerlidir — commit öncesi son kontrol adımıdır.** Salt geliştirme dokümanı
+  (`DURUM.md`, `_sema.md`, denetim raporları) değiştiyse artırma.
+  - Neden vurgulu: unutulduğunda hata görünmez. Kod doğru, test geçer, ama
+    service worker eski cache'i servis ettiği için yüklü kullanıcılar
+    değişikliği hiç görmez. Tek satırlık düzeltme turlarında en sık atlanan
+    adım bu.
 - İş bitince `/clear`.
 
 ## Referans
