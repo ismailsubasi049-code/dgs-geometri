@@ -386,9 +386,9 @@ export async function render(ctx) {
 
   /**
    * En son cizilen ortak kok blogunun kimligi. lastBlock (zorluk blogu) ile ilgisi yok.
-   * Ayni blok arka arkaya gelirse kok ikinci kez katlanmis gelir: kutu yerinde durur,
-   * basligi gorunur, ama 8-15 satirlik metin tekrar okunmaya zorlamaz. Devam ettirilen
-   * oturumda da null baslar - oturumun ilk sorusunda kok daima acik.
+   * Katlama icin DEGIL: oturumda kok her soruda acik gelir. Tek isi asagidaki midBlock
+   * kontrolu - zor blok bildirimini blogun ortasinda bastirmak. Devam ettirilen
+   * oturumda null baslar; bildirim zaten oturumun ilk sorusunda cikmiyor.
    */
   let lastBlockId = null;
 
@@ -480,7 +480,7 @@ export async function render(ctx) {
 
     // ortak kok: sorunun kendi sekli ve metninden once
     if (question.block) {
-      body.append(sharedStem(question.block, { open: question.block.id !== lastBlockId }));
+      body.append(sharedStem(question.block, { open: true }));
     }
     lastBlockId = question.block ? question.block.id : null;
 

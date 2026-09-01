@@ -144,15 +144,21 @@ karşılar.
 
 ### 8.2 Nasıl gösterilir
 
-- Kök, konu satırının altında, sorunun kendi şeklinin ve metninin **üstünde**
-  katlanabilir bir kutuda çizilir (`sharedStem`, `js/ui.js`).
+- Kök, konu satırının altında, sorunun kendi şeklinin ve metninin **üstünde** kendi
+  kutusunda çizilir (`sharedStem`, `js/ui.js`). Kutu iki ekranda da aynı iskelettir;
+  **tek fark varsayılan açıklıktır** ve kararı her ekran kendi çağrı yerinde verir.
 - Kök metni soru metniyle **aynı işaretleyicilerden** geçer: `**kalın**`, satır başı
   `Not:` kutusu ve HTML-escape — yani `a < b < c` yutulmaz (§4 ile aynı `richText`).
   Satır sonları korunur, kök çok satırlı yazılabilir.
-- Oturumda kutu açık gelir; **aynı blok arka arkaya** geldiyse ikincisinde katlanmış
-  gelir, aynı metni ikinci kez okutmaz.
-- Sonuç ekranında kutu, o bloğun listedeki **ilk yanlış/boş** sorusunda açık, diğer
-  her yerde kapalı gelir.
+- **Oturumda** kök **her soruda açık** gelir; katlanmış hâl yoktur. Gerçek sınavda kök
+  her soruda tam basılır, kapalı kutu formatı taklit etmez; ayrıca her blok sorusunda
+  fazladan bir dokunuş, soru başına 90 saniye bütçesinde gereksiz sürtünmedir.
+  Kullanıcı isterse başlığa dokunup katlayabilir, ama sonraki soruda kutu baştan
+  kurulduğu için yine açık gelir.
+- **Sonuç ekranında** kutu, o bloğun listedeki **ilk yanlış/boş** sorusunda açık, diğer
+  her yerde kapalı gelir. Buradaki gerekçe farklı: aynı kök listede iki-üç kez tam açık
+  tekrarlanırsa gözden geçirme listesi şişer, kökü okuman gereken yer ise dönüp
+  baktığın sorudur.
 
 ### 8.3 Leitner ile ilişkisi: öğrenme birimi değil
 

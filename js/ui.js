@@ -221,8 +221,13 @@ export function formulaCard(
  * cizilir; kok metni her soruda tekrar basilir (gercek sinav da boyle basiyor).
  *
  * Her zaman <details>: iki ekran da ayni iskeleti kullanir, aralarindaki tek fark
- * varsayilan aciklik. Oturumda ayni blok arka arkaya gelirse kutu kapali gelir,
- * sonuc ekraninda ise bloguna donup bakilacak soruda - ilk yanlisinda - acik gelir.
+ * varsayilan aciklik ve karari her ekran kendi cagri yerinde verir.
+ *   - Oturum (js/screens/session.js): kok HER soruda acik gelir. Gercek sinavda kok
+ *     her soruda tam basilir; blok sorusunda fazladan bir dokunus istemeyiz.
+ *     Kullanici elle katlayabilir, ama sonraki soruda kutu bastan kurulur.
+ *   - Sonuc ekrani (js/screens/result.js): bloguna donup bakilacak soruda - o blogun
+ *     ilk yanlisinda - acik, diger her yerde kapali; ayni kok listede uc kez tam
+ *     acik tekrarlanirsa listeyi sisirir.
  *
  * Kok metni soru metniyle ayni isaretleyicilerden gecer (richText): **kalin**, satir
  * basi "Not:" ve HTML-escape. Sekil de sorununkiyle ayni beyaz listeden (parseFigure).

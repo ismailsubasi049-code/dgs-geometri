@@ -383,7 +383,8 @@ button { font: inherit; color: inherit; }
 }
 
 /* ortak kok: blok sorularinin ustundeki paylasilan tanim/senaryo/tablo.
-   Katlanabilir, cunku ayni kok 2-3 soruda tekrar eder - kapaliyken tek satir.
+   Katlanabilirlik sonuc ekrani icin: orada ayni kok 2-3 kez tekrar eder, dogru
+   cevaplanan soruda kapaliyken tek satir. Oturumda kutu her soruda acik gelir.
    .block-notice ile ilgisi yok: oradaki "blok" zorluk blogu. */
 
 .shared-stem {

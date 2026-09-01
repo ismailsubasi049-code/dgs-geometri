@@ -584,6 +584,9 @@ iskeletini kullanır, aralarındaki tek fark varsayılan açıklık:
 - **Oturumda** kök açık gelir; **aynı blok arka arkaya** geldiyse ikincisinde
   katlanmış gelir (`lastBlockId`). Kutu yerinde durur, başlığı görünür, ama 8–15
   satırlık metni ikinci kez okutmaz.
+  > **Sonradan değişti (2026-09-01):** oturumda kök artık **her soruda** açık geliyor;
+  > katlanmış hâl kaldırıldı — bkz. "Oturumda kök her soruda açık". Sonuç ekranı
+  > kuralı aynen duruyor.
 - **Sonuç ekranında** kök, o bloğun listedeki **ilk yanlış/boş** sorusunda açık,
   diğer her yerde kapalı (`openRootIndexes`, `js/screens/result.js`). İlk *soruda*
   değil ilk *yanlışta*: kökü okuman gereken yer dönüp baktığın sorudur. Tam gruplama
@@ -773,8 +776,46 @@ Kök kutusunun katlanma mantığı (`sharedStem`, `js/screens/session.js`) deği
 ardışık gelen ikinci/üçüncü soruda kökün katlanmış gelmesi `_sema.md` §8.2'nin zaten
 istediği davranıştı, blok ardışık olunca ilk kez gerçekten devreye girdi.
 
+> **Sonradan değişti (2026-09-01):** blok ardışık olunca davranış ilk kez görülebildi
+> ve istenmediği anlaşıldı; oturumdaki katlama kaldırıldı — bkz. "Oturumda kök her
+> soruda açık".
+
 Şema dokümanı buna göre güncellendi: `_sema.md` §8.3 (öğrenme birimi değil) ve yeni
 §8.4 (sıralama birimi + kapsam tablosu).
+
+## Oturumda kök her soruda açık
+
+**2026-09-01 (v43) · `js/screens/session.js`** — blok birimli sıralama gelince aynı
+blok arka arkaya gelmeye başladı ve `lastBlockId` katlaması ilk kez gerçekten görüldü:
+üçlü bir bloğun 2. ve 3. sorusunda kök katlanmış geliyor, okumak için dokunmak
+gerekiyordu. Kaldırıldı.
+
+**Değişen tek satır** (`js/screens/session.js`):
+`sharedStem(question.block, { open: question.block.id !== lastBlockId })` →
+`sharedStem(question.block, { open: true })`. Gerekçe üç başlık: gerçek DGS'de kök her
+soruda tam basılır (kapalı hâl formatı taklit etmiyor); her blok sorusundaki fazladan
+dokunuş soru başına 90 saniye bütçesinde gereksiz sürtünme; kök ile soru oturumda tek
+görsel bütün, ayırmak okuma akışını bozuyor.
+
+**Sonuç ekranı bilerek değişmedi.** `openRootIndexes` ve `js/screens/result.js`'e hiç
+dokunulmadı: gözden geçirme listesinde aynı kökün üç kez tam açık tekrarlanması listeyi
+şişirir, "yanlışta açık / doğruda kapalı" kuralı orada hâlâ doğru. İki ekranın
+ayrışması `sharedStem`'in `open` parametresiyle zaten mümkündü — ortak fonksiyonun
+gövdesine de dokunulmadı, karar her ekranın kendi çağrı yerinde.
+
+**`lastBlockId` silinmedi.** İkinci bir tüketicisi var: zor blok bildirimini bloğun
+ortasında bastıran `midBlock` kontrolü (bildirim, kolay bir soruyla başlayan zor bloğun
+2. sorusunda patlamasın diye). Kontrol atamadan **önce** çalıştığı için sıra korundu;
+değişkenin yorumu "artık yalnız bildirim için" diye yeniden yazıldı. Yukarıdaki eski
+kayıtlarda geçen "tek gelen blok sorusunda kök `lastBlockId` eşleşmediği için açık
+çizilir" cümlelerinin **sonucu** hâlâ doğru, yalnız mekanizma açıklaması geçersiz:
+artık koşulsuz açık.
+
+Katlama durumu hiçbir yerde saklanmıyordu (`toggle` dinleyicisi yok, her soruda
+`clear(body)` DOM'u baştan kuruyor), yani kullanıcı kutuyu elle katlarsa bir sonraki
+soruda yine açık gelir. Kutu `<details>` olarak kaldı; CSS kuralları değişmedi.
+Dokümanlar buna göre güncellendi: `_sema.md` §8.2'de oturum ve sonuç ekranı artık ayrı
+maddeler, `sharedStem` JSDoc'u ve `css/app.css` yorumu da öyle.
 
 ## Bilinen açık maddeler
 
