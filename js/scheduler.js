@@ -145,16 +145,39 @@ export async function buildDaily() {
   return { questions: picked, day: today, record: saved };
 }
 
-/** Son denemesi yanlis olan sorular; en eski gorulen basta. */
-export async function buildWrongQueue() {
+/**
+ * Son denemesi yanlis olan sorular; en eski gorulen basta.
+ *
+ * Kapsam verilirse once ona indirgenir - alt konu kimligi konu adindan onceliklidir.
+ * Kapsamsiz cagri (ana ekrandaki "Sadece yanlislarim") tum sorulari tarar.
+ * Ilerleme kaydinda konu bilgisi yok ama gerek de yok: loadPack her soruya
+ * topic/subtopicId yapistirdigi icin filtre yuklu listede yapilir.
+ *
+ * label, kapsam suzgecinden SONRA ama lastWrong suzgecinden ONCE alinir; boylece
+ * listede hic yanlis kalmasa da ekran dogru baslikla acilir.
+ */
+export async function buildWrongQueue({ topic = null, subtopicId = null } = {}) {
   const all = await loadAllQuestions();
-  return all
+
+  let own = all;
+  let label = null;
+  if (subtopicId) {
+    own = all.filter((q) => q.subtopicId === subtopicId);
+    label = own.length > 0 ? own[0].subtopic : null;
+  } else if (topic) {
+    own = all.filter((q) => q.topic === topic);
+    label = topic;
+  }
+
+  const questions = own
     .filter((q) => store.getStat(q.id).lastWrong)
     .sort((a, b) => {
       const sa = store.getStat(a.id).lastSeen || '';
       const sb = store.getStat(b.id).lastSeen || '';
       return sa.localeCompare(sb);
     });
+
+  return { questions, label };
 }
 
 /**

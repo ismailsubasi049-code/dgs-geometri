@@ -48,13 +48,18 @@ export function getLastSession() {
   return lastFinished;
 }
 
-export function createSession({ mode, questions, title = null, totalSeconds = null }) {
+export function createSession({ mode, questions, title = null, scope = null, totalSeconds = null }) {
   const config = MODES[mode] || MODES.konu;
 
   return {
     mode: config.key,
     config,
     title: title || config.title,
+    /**
+     * Oturumun konu kapsami: { kind: 'konu' | 'altkonu', value } ya da null.
+     * Sonuc ekrani yanlis tekrarini buna gore daraltir; motorun kendisi kullanmaz.
+     */
+    scope,
     questions,
     /** Her soru icin: { id, picked, correct, hintMs, elapsedMs } */
     answers: new Array(questions.length).fill(null),

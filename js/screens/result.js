@@ -5,6 +5,7 @@ import { el, richText, emptyState, fmtTime, formulaCard, sharedStem, CHOICE_LETT
 import { parseFigure } from '../svg.js';
 import { getLastSession } from '../quiz.js';
 import { getCardFor } from '../formulas.js';
+import { wrongHashFor } from './session.js';
 
 function verdictOf(record) {
   if (!record) return 'skip';
@@ -155,12 +156,21 @@ export async function render(ctx) {
 
   const actions = el('div', { class: 'stack', style: 'margin-top:8px' });
 
+  // Kapsamli bir oturum bittiyse tekrar da o konuda kalir; ana ekrandaki genel giris
+  // zaten ayri durdugu icin buradan tum derslerin yanlislarina dusmek istenmez.
   if (score.wrong > 0 || score.skipped > 0) {
+    const scope = session.scope || null;
+    const label = scope
+      ? (scope.kind === 'altkonu'
+          ? 'Bu alt konudaki yanlışlarımı tekrar et'
+          : 'Bu konudaki yanlışlarımı tekrar et')
+      : 'Yanlışlarımı şimdi tekrar et';
+
     actions.append(
       el('button', {
         class: 'btn primary',
-        on: { click: () => ctx.navigate('#/oturum/yanlis') },
-      }, 'Yanlışlarımı şimdi tekrar et')
+        on: { click: () => ctx.navigate(wrongHashFor(scope)) },
+      }, label)
     );
   }
 

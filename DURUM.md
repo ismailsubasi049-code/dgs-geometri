@@ -1,6 +1,6 @@
 # Durum
 
-**Son güncelleme:** 2026-09-01 · **sw.js VERSION:** `v40`
+**Son güncelleme:** 2026-09-01 · **sw.js VERSION:** `v41`
 
 ## Özet
 
@@ -665,6 +665,60 @@ aralık taranarak; oyun soruları (21, 22) 5000'e kadar, rakam ekleme soruları
 **A:5 B:4 C:6 D:4 E:5**, blok üyeliği 9/9, Not kutularının hepsi metnin son
 satırında (`richText` `/^Not:/m` bulduğu yerden sona kadar kutuya alıyor —
 Not'tan sonra satır yazılırsa o da sarı kutuya girerdi).
+
+## Yanlışlarım ekranında konu kapsamı
+
+**2026-09-01 (v41) · `js/scheduler.js`, `js/quiz.js`, iki ekran.**
+Bir paketi bitirip "Yanlışlarımı şimdi tekrar et"e basınca — ya da konu bugünlük
+bitip "Yanlışlarımı şimdi çalış" çıkınca — tüm derslerin yanlışları geliyordu.
+Ana ekranda **"Sadece yanlışlarım"** girişi zaten ayrı durduğu için konu içinden
+aynı listeye düşmek o girişi işlevsiz kılıyordu.
+
+**Filtre uygulanmıyor değildi, hiç yazılmamıştı.** `buildWrongQueue()` parametresizdi,
+`buildFor`'un `yanlis` dalı `params`'ı hiç okumuyordu (`#/oturum/yanlis/...` yazılsa
+bile parçalar sessizce düşerdi) ve iki düğme de düz `'#/oturum/yanlis'` gönderiyordu —
+oysa ikisi de o an hangi konuda olduğunu biliyordu.
+
+**Filtre için ek veri gerekmedi.** İlerleme kaydında konu bilgisi yok
+(`questions[id]` yalnızca `lastWrong` tutar) ama `loadPack` yükleme anında her soruya
+`topic`/`subtopicId` yapıştırıyor ve `buildWrongQueue` zaten `loadAllQuestions()`
+çağırıyordu; kapsam süzgeci yüklü listede tek satır. Soru id önekinden konuya gitmek
+**yanlış olurdu**: `ucgen-003` pisagor, `ucgen-041` öklid, `ucgen-161` açıortay
+paketinde — `ucgen-*` id'leri 8 alt konuya dağılmış durumda.
+
+**Rota:** `#/oturum/yanlis/konu/<konu adı>` ve `#/oturum/yanlis/altkonu/<subtopicId>`.
+Parçasız `#/oturum/yanlis` bugünkü anlamını korur; ana ekranın girişi ve eski
+bağlantılar aynen çalışır, `home.js` değişmedi. Alt konu kimliği konu adından
+önceliklidir (`buildTopicSet` konu **adına**, `buildSubtopicSet` `subtopicId`'ye
+baktığı için kapsam da aynı alanları kullanır — rota şekli mevcut `konu`/`altkonu`
+rotalarıyla birebir).
+
+**Başlık boş listede de doğru:** `label`, kapsam süzgecinden sonra ama `lastWrong`
+süzgecinden **önce** alınır. Yoksa yanlışı kalmamış bir alt konu "Yanlışlarım · null"
+diye açılırdı.
+
+**Sonuç ekranı kapsamı oturumdan öğrenir.** `createSession`'a `scope`
+(`{ kind: 'konu' | 'altkonu', value }` ya da `null`) eklendi; motor kullanmaz, yalnız
+taşır. Günlük rutin ve mini test tek konuya bağlı olmadığı için `null` kalır — orada
+düğme eskisi gibi tüm yanlışlara gider. Kapsamlı yanlış oturumu kendi kapsamını
+taşıdığı için tekrarın tekrarında da aynı konuda kalınır. Kapsam sorulardan
+*çıkarılmadı*, rotadan geldi: tek alt konusu olan bir konuda çıkarım kapsamı sessizce
+alt konuya daraltırdı.
+
+**Bloklara dokunulmadı.** İstenen davranış zaten sağlanıyordu: kök soru nesnesinde
+durduğu için (`question.block`) bir bloğun tek sorusu listeye düşse de kökünü yanında
+getirir, `lastBlockId` eşleşmediğinden **açık** gelir. Kuyruk `lastSeen` sırasında
+kaldı; kardeş soruları listeye çekmek ya da blok blok gruplamak yapılmadı.
+
+**İlerleme kayıtları etkilenmedi.** `dgs.progress.v1` şeması, `lastWrong` anlamı ve
+"üst üste 2 doğru → listeden düşer" kuralı aynı; göç yok. `buildWrongQueue` salt
+okunur bir türetme, cevap yolu (`store.recordAnswer`) değişmedi — soru hangi listede
+görünürse görünsün Leitner kutusu aynı ilerler. Yanlışlar modunda yarım oturum zaten
+kaydedilmiyordu (`resumeKeyFor` → `null`), yeni rotalar hiçbir kayıtlı oturumu
+geçersiz kılmaz. Ana ekrandaki rozet **bilerek global kaldı**.
+
+Yan kazanç: alt konu satırındaki "N yanlış tekrar bekliyor" ve boş durumdaki `pending`
+sayısı zaten konuya filtreliydi; düğme artık tam da o N soruyu açıyor.
 
 ## Bilinen açık maddeler
 

@@ -24,10 +24,10 @@ import { getSettings, getSavedSession, saveSession, clearSession } from '../stor
  * yoksa "hepsini dogru cozdun" demek yanlis olurdu. Yanlislarini beklemeden calismak
  * isteyene ve filtresiz tur isteyene birer cikis birakilir.
  */
-function masteredState(label, nextDue, allHash, pending = 0) {
+function masteredState(label, nextDue, allHash, pending = 0, wrongHash = null) {
   const when = fmtDay(nextDue);
 
-  if (pending > 0) {
+  if (pending > 0 && wrongHash) {
     return {
       empty: emptyState(
         '🕒',
@@ -37,7 +37,7 @@ function masteredState(label, nextDue, allHash, pending = 0) {
         + ' Beklemek istemiyorsan yanlışlarını şimdi çalışabilirsin.'
       ),
       allHash,
-      wrongHash: '#/oturum/yanlis',
+      wrongHash,
     };
   }
 
@@ -53,8 +53,41 @@ function masteredState(label, nextDue, allHash, pending = 0) {
   };
 }
 
+/**
+ * Oturumun konu kapsami. Sonuc ekrani "yanlislarimi tekrar et" dugmesini buna gore
+ * kurar, boylece paket bitince ayni konuda kalinir. Gunluk rutin ve mini test tek
+ * konuya bagli olmadigi icin null kalir - onlarda dugme tum yanlislara gider.
+ * Yanlislar modu kendi kapsamini tasir: kapsamli listenin sonucundan tekrar
+ * basildiginda yine ayni konuda kalinir.
+ */
+function scopeFor(mode, params) {
+  if (mode === 'konu' && params[0]) return { kind: 'konu', value: params[0] };
+  if (mode === 'altkonu' && params[0]) return { kind: 'altkonu', value: params[0] };
+  if (mode === 'yanlis') return wrongScopeFrom(params);
+  return null;
+}
+
+/**
+ * "#/oturum/yanlis/konu/<konu adi>" ya da ".../altkonu/<subtopicId>" rotasindan kapsam.
+ * Parcasiz "#/oturum/yanlis" - ana ekrandaki giris ve eski baglantilar - null doner:
+ * tum konularin yanlislari.
+ */
+function wrongScopeFrom(params) {
+  const kind = params[0];
+  const value = params[1] || '';
+  if (!value) return null;
+  if (kind === 'konu' || kind === 'altkonu') return { kind, value };
+  return null;
+}
+
+/** Kapsamin yanlislar rotasi; kapsam yoksa genel giris. Sonuc ekrani da bunu kullanir. */
+export function wrongHashFor(scope) {
+  if (!scope) return '#/oturum/yanlis';
+  return `#/oturum/yanlis/${scope.kind}/${encodeURIComponent(scope.value)}`;
+}
+
 /** Rota parametresinden soru listesini ve baslik bilgisini uretir. */
-async function buildFor(mode, params, includeAll) {
+async function buildFor(mode, params, includeAll, scope) {
   switch (mode) {
     case 'gunluk': {
       const { questions } = await buildDaily();
@@ -65,7 +98,25 @@ async function buildFor(mode, params, includeAll) {
       };
     }
     case 'yanlis': {
-      const questions = await buildWrongQueue();
+      const { questions, label } = await buildWrongQueue(
+        scope && scope.kind === 'altkonu' ? { subtopicId: scope.value }
+          : scope ? { topic: scope.value }
+          : {}
+      );
+
+      if (scope) {
+        return {
+          questions,
+          title: `Yanlışlarım · ${label || scope.value}`,
+          empty: emptyState(
+            '🎉',
+            'Bu başlıkta tekrar edilecek yanlış yok',
+            'Buradaki yanlışların bitti. Bir soru üst üste 2 kez doğru cevaplanınca listeden düşer;'
+            + ' başka konulardaki yanlışların ana ekrandaki "Sadece yanlışlarım" girişinde bekler.'
+          ),
+        };
+      }
+
       return {
         questions,
         title: 'Yanlışlarım',
@@ -97,7 +148,8 @@ async function buildFor(mode, params, includeAll) {
             title,
             nextDue,
             `#/oturum/altkonu/${encodeURIComponent(subtopicId)}/tumu`,
-            pending
+            pending,
+            wrongHashFor(scope)
           ),
         };
       }
@@ -116,7 +168,13 @@ async function buildFor(mode, params, includeAll) {
         return {
           questions,
           title,
-          ...masteredState(title, nextDue, `#/oturum/konu/${encodeURIComponent(topic)}/tumu`, pending),
+          ...masteredState(
+            title,
+            nextDue,
+            `#/oturum/konu/${encodeURIComponent(topic)}/tumu`,
+            pending,
+            wrongHashFor(scope)
+          ),
         };
       }
       return {
@@ -178,7 +236,9 @@ export async function render(ctx) {
   const settings = getSettings();
 
   // "#/oturum/altkonu/<id>/tumu": pekismis sorular dahil filtresiz tur.
-  const includeAll = rest[1] === 'tumu';
+  // Yanlislar modunda ikinci parca kapsam degeridir, "tumu" turu oraya islemez.
+  const includeAll = (mode === 'konu' || mode === 'altkonu') && rest[1] === 'tumu';
+  const scope = scopeFor(mode, rest);
   const resumeKey = resumeKeyFor(mode, rest, includeAll);
   const resumed = resumeKey ? await restoreSession(resumeKey) : null;
 
@@ -190,7 +250,7 @@ export async function render(ctx) {
           : (rest[0] || 'Serbest çözme'),
         empty: null,
       }
-    : await buildFor(mode, rest, includeAll);
+    : await buildFor(mode, rest, includeAll, scope);
   const { questions, title, empty, allHash = null, wrongHash = null } = built;
   ctx.setTitle(title);
 
@@ -224,6 +284,7 @@ export async function render(ctx) {
     mode,
     questions,
     title,
+    scope,
     totalSeconds: settings.testMinutes * 60,
   });
 
