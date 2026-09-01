@@ -1,6 +1,8 @@
 // Hangi soru ne zaman gelecek? Dort modun soru listesini bu dosya kurar.
 // Ogrenme modlarinda sira: once vadesi gelen tekrarlar, sonra geri kalanlar; her iki
 // bolum de kendi icinde kolay -> orta -> zor.
+// Ilk kez cozulen bolumde siralama birimi tek soru degil BLOK: ayni ortak koke bagli
+// sorular ardisik kalir (orderUnitsByDifficulty). Tekrar bolumu blok tanimaz.
 // Dogru cozulmus sorular Leitner vadesi gelene kadar havuza girmez.
 // Sureli mini test bunun disindadir, orada sorular karisik gelir.
 
@@ -33,11 +35,57 @@ function difficultyBuckets(questions) {
 }
 
 /**
- * Kolay -> orta -> zor bloklari. Blogun *icindeki* sira rastgele kalir;
+ * Kolay -> orta -> zor kovalari. Kovanin *icindeki* sira rastgele kalir;
  * boylece kademe korunur ama soru sirasi ezberlenmez.
+ * Burada birim TEK SORU, yani ortak koklu blok kardesleri dagilabilir. Gunluk
+ * rutin bunu bilerek kullanir: set zaten hedef soru sayisina gore kesildigi icin
+ * blok orada nasilsa bolunurdu. Paketi cozme akisi orderUnitsByDifficulty'ye gider.
  */
 function orderByDifficulty(questions, rand = Math.random) {
   return difficultyBuckets(questions).flatMap((bucket) => shuffle(bucket, rand));
+}
+
+/**
+ * Siralama birimi: bagimsiz soru tek basina bir birim, ayni bloga bagli sorular
+ * TEK birim. Blok listede ILK sorusunun yerini tutar ve ic sirasi kaynak dosyadaki
+ * sira olarak kalir. Blogun zorlugu icindeki EN YUKSEK zorluktur - kolay bir soruyla
+ * baslayan uclu blok, son sorusu zorsa yine de zor kovasina girer.
+ *
+ * Bloksuz pakette her soru kendi birimi olur: birim dizisi girdiyle birebir ayni
+ * uzunlukta ve ayni sirada doner, zorluklari da sorunun kendi zorlugudur. Blok
+ * tanimayan paketlerin siralamasi bu yuzden soru soru ayni kalir.
+ */
+function orderingUnits(questions) {
+  const units = [];
+  const byBlock = new Map();
+
+  for (const question of questions) {
+    const blockId = question.block ? question.block.id : null;
+    const known = blockId ? byBlock.get(blockId) : null;
+    if (known) {
+      known.questions.push(question);
+      known.difficulty = Math.max(known.difficulty, difficultyOf(question));
+      continue;
+    }
+    const unit = { questions: [question], difficulty: difficultyOf(question) };
+    units.push(unit);
+    if (blockId) byBlock.set(blockId, unit);
+  }
+
+  return units;
+}
+
+/**
+ * orderByDifficulty'nin blok birimli hali: yine kolay -> orta -> zor, ama kova
+ * icinde karilan sey soru degil BIRIM. Blok kardesleri boylece hep ardisik gelir,
+ * kok bir kez okunur - gercek sinavdaki gibi.
+ */
+function orderUnitsByDifficulty(questions, rand = Math.random) {
+  const buckets = [[], [], []];
+  for (const unit of orderingUnits(questions)) buckets[unit.difficulty - 1].push(unit);
+  return buckets
+    .flatMap((bucket) => shuffle(bucket, rand))
+    .flatMap((unit) => unit.questions);
 }
 
 /**
@@ -86,6 +134,13 @@ export function nextDueDay(questions) {
  * Leitner onceligi degismez: hangi sorularin gelecegi ayni, yalnizca siralari degisir.
  * Sureli test bunu kullanmaz.
  * includeAll, "yine de bastan coz" yolu icin filtreyi devre disi birakir.
+ *
+ * Iki bolum ayni duzeni FARKLI birimle kurar. Tekrar bolumu soru soru dizilir: blok
+ * bir ogrenme birimi degildir, kardes sorular ayri gunlerde geri doner ve tek basina
+ * gelir - kok soru nesnesinde durdugu icin yaninda gelmeye devam eder. Geri kalan
+ * bolum - paketi ilk kez cozme - blok birimlidir, blok sorulari ardisik gelir.
+ * Bir blogun bir kismi vadeye dusmusse blok kendiliginden ikiye ayrilir: o sorular
+ * tekrar bolumunde tek tek, gorulmemis kardesleri geri kalan bolumde gelir.
  */
 function orderForLearning(questions, { today = dayKey(), rand = Math.random, includeAll = false } = {}) {
   const pool = includeAll ? questions : questions.filter((q) => isActive(q, today));
@@ -98,7 +153,7 @@ function orderForLearning(questions, { today = dayKey(), rand = Math.random, inc
   }
 
   // Vadesi gelen tekrar, geri kalanin onunde gelir; kendi icinde de kolaydan zora.
-  return [...orderDueByDifficulty(due, today), ...orderByDifficulty(rest, rand)];
+  return [...orderDueByDifficulty(due, today), ...orderUnitsByDifficulty(rest, rand)];
 }
 
 /**

@@ -154,14 +154,42 @@ karşılar.
 - Sonuç ekranında kutu, o bloğun listedeki **ilk yanlış/boş** sorusunda açık, diğer
   her yerde kapalı gelir.
 
-### 8.3 Leitner ile ilişkisi
+### 8.3 Leitner ile ilişkisi: öğrenme birimi değil
 
-**Blok bir öğrenme birimi değil, yalnızca ortak metindir.** İlerleme, kutu ve tekrar
-vadesi soru id'sine bağlıdır; blok kardeşleri birbirinden bağımsız kutu değiştirir,
-ayrı günlerde geri gelir, ayrı ayrı "Yanlışlarım"a düşer. Sıralayıcı onları yan yana
-getirmeye çalışmaz — tek başına gelen blok sorusu kökünü yanında getirir.
+**Blok bir öğrenme birimi değildir.** İlerleme, Leitner kutusu ve tekrar vadesi soru
+id'sine bağlıdır; blok kardeşleri birbirinden bağımsız kutu değiştirir, ayrı günlerde
+geri döner, ayrı ayrı "Yanlışlarım"a düşer. Tek başına gelen blok sorusu kökünü yanında
+getirir (kök soru nesnesine yapıştırılmıştır) ve kutusu **açık** çizilir.
 
-### 8.4 Örnek (2'li blok)
+### 8.4 Sıralama birimi: blok
+
+Öğrenme listesi iki bölümdür — önce vadesi gelen tekrarlar, sonra geri kalanlar — ve
+**blok yalnızca ikinci bölümün, yani paketi ilk kez çözmenin sıralama birimidir**
+(`js/scheduler.js` → `orderingUnits` + `orderUnitsByDifficulty`). Kurallar:
+
+- Bir bloğun soruları **ardışık** gelir; araya başka soru girmez, kök bir kez okunur.
+- Blok içindeki sıra `questions` dizisindeki **kaynak sıradır**; karıştırılmaz.
+- Bloklar kendi aralarında **içlerindeki en yüksek zorluğa** göre kolay→zor dizilir.
+  Kolay bir soruyla başlayan üçlü blok, son sorusu zorsa zor kovasına girer.
+- Bloğa ait olmayan **bağımsız sorular tek tek** sıralanır ve blokların arasına girer.
+- Kova içinde karılan şey soru değil birimdir; blok sırası ezberlenmez ama blok
+  içindeki ilerleme (tanımı uygulat → üstüne bin) korunur.
+
+**Kapsam — bunun dışında blok ardışıklığı yoktur:**
+
+| akış | blok ardışık mı |
+|---|---|
+| konu / alt konu çözme (`orderForLearning`) | ✅ evet |
+| tekrar bölümü (vadesi gelen sorular, aynı listenin başı) | ❌ hayır, soru soru |
+| günlük rutin (`buildDaily`) | ❌ hayır — set hedef sayıya göre kesiliyor |
+| süreli mini test (`buildTest`) | ❌ hayır, bilerek karışık |
+| Yanlışlarım (`buildWrongQueue`) | ❌ hayır, `lastSeen` sırası |
+
+Kısmen çözülmüş pakette blok kendiliğinden ikiye ayrılır: vadesi gelen kardeşleri
+tekrar bölümünde tek tek, hiç görülmemiş kardeşleri geri kalan bölümde ardışık gelir.
+Bu beklenen davranıştır — ardışıklık yalnız ilk çözüm içindir.
+
+### 8.5 Örnek (2'li blok)
 
 ```json
 {

@@ -601,6 +601,9 @@ ve HTML-escape (`a < b < c` yutulmaz). Satır sonları korunuyor
 ayrı günlerde geri gelir, ayrı ayrı "Yanlışlarım"a düşer. Aynı kökün oturumda birkaç
 kez görünmesi gerçek sınavın davranışının aynısı.
 
+> **Sonradan değişti (2026-09-01):** blok öğrenme birimi olmamaya devam ediyor ama
+> artık **sıralama birimi** — bkz. "Blok birimli zorluk sıralaması".
+
 **Geriye dönük uyum:** 17 paketin hiçbirinde `blocks` ya da `blockId` yok
 (`grep` ile doğrulandı); `question.block` `null` kalır, iki ekrandaki tek satırlık
 koşul atlanır, DOM birebir eskisi gibi. Hiçbir soru id'si değişmedi, Leitner
@@ -719,6 +722,59 @@ geçersiz kılmaz. Ana ekrandaki rozet **bilerek global kaldı**.
 
 Yan kazanç: alt konu satırındaki "N yanlış tekrar bekliyor" ve boş durumdaki `pending`
 sayısı zaten konuya filtreliydi; düğme artık tam da o N soruyu açıyor.
+
+## Blok birimli zorluk sıralaması
+
+**2026-09-01 (v42) · `js/scheduler.js`, `js/screens/session.js`** — sıralama birimi
+tek soru olduğu için üçlü bir bloğun soruları 2., 12. ve 24. sıraya dağılıyordu. İki
+zararı vardı: aynı 8–15 satırlık kök üç kez okunuyordu (gerçek sınavda blok soruları
+peş peşe gelir, kök bir kez okunur) ve blok kendi içinde artan zorlukta kurulduğu
+için — ilki tanımı uygulatır, sonuncusu üstüne biner — araya soru girince bu ilerleme
+kayboluyordu.
+
+**Çözüm: birim kavramı.** `orderingUnits` listeyi birimlere böler — bağımsız soru tek
+başına bir birim, aynı bloğa bağlı sorular tek birim. Blok listede ilk sorusunun
+yerini tutar, iç sırası `questions` dizisindeki kaynak sıradır, zorluğu içindeki en
+yüksek zorluktur. `orderUnitsByDifficulty` sonra eski düzeni kurar (kolay → orta →
+zor, kova içi rastgele), yalnız karılan şey soru değil birimdir. Blok kardeşleri
+böylece hep ardışık kalır, bağımsız sorular aralarına girebilir.
+
+**Kapsam bilinçli olarak dar.** Yalnız `orderForLearning`'in "geri kalanlar" bölümü,
+yani konu / alt konu çözerken paketi ilk kez görme. Değişen tek satır orası.
+
+- **Tekrar bölümü (`orderDueByDifficulty`) dokunulmadı.** Leitner'da blok birim değil:
+  kardeş sorular ayrı günlerde döner, tekrara düşen tek soru yalnız gelir. Kökü
+  yanında gelir çünkü `js/packs.js` kökü yükleme sırasında soru nesnesine yapıştırır;
+  `lastBlockId` eşleşmediği için de açık çizilir.
+- **`buildDaily` dokunulmadı**, `orderByDifficulty`'yi kullanmaya devam ediyor. Günlük
+  set hedef soru sayısına göre kesildiği için blok orada nasılsa bölünürdü; ardışıklığı
+  oraya taşımak yarım blok riskini çözmeden karmaşıklık eklerdi.
+- `buildTest` (bilerek karışık) ve `buildWrongQueue` (`lastSeen` sırası) zaten dışarıda.
+- Kısmen çözülmüş pakette blok kendiliğinden ikiye ayrılır: vadesi gelen kardeşleri
+  tekrar bölümünde tek tek, görülmemişleri geri kalan bölümde ardışık. İstenen bu.
+
+**17 paket neden etkilenmedi — yapısal garanti, gözlem değil.** Bloksuz pakette her
+sorunun `question.block` alanı `null`, dolayısıyla `orderingUnits` her soru için ayrı
+birim üretir: birim dizisi girdiyle birebir aynı uzunlukta ve aynı sırada, her birimin
+zorluğu o sorunun kendi zorluğu. Kovalama `difficultyBuckets` ile aynı sonucu verir ve
+`shuffle` (`js/ui.js`) yalnız dizi uzunluğuna bakan Fisher–Yates olduğu için aynı
+sayıda `rand()` çekilir — çıktı soru soru özdeş, tohumlu çağrılarda bile. Blok alanı
+olan tek paket `mantik-blok-1`.
+
+**"Zor sorulara geçtin" bildirimi.** Blok tek birim olarak zor kovasına girdiği ve
+zorluğu içindeki maksimum olduğu için zor bir blok kolay bir soruyla başlayabiliyor;
+kontrol soru soru yapıldığından bildirim bloğun 2. ya da 3. sorusunda patlıyordu.
+`midBlock` şartı eklendi: bildirim yalnız blok sınırında ya da bağımsız soruda
+çıkabilir. Sınırda kaçarsa bir sonraki birime kayar — yumuşak bir hatırlatma, kaçması
+bir şey bozmuyor. `lastBlockId` bu kontrolden sonra güncellendiği için orada hâlâ
+önceki sorunun bloğunu tutuyor.
+
+Kök kutusunun katlanma mantığı (`sharedStem`, `js/screens/session.js`) değişmedi —
+ardışık gelen ikinci/üçüncü soruda kökün katlanmış gelmesi `_sema.md` §8.2'nin zaten
+istediği davranıştı, blok ardışık olunca ilk kez gerçekten devreye girdi.
+
+Şema dokümanı buna göre güncellendi: `_sema.md` §8.3 (öğrenme birimi değil) ve yeni
+§8.4 (sıralama birimi + kapsam tablosu).
 
 ## Bilinen açık maddeler
 

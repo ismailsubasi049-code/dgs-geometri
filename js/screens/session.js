@@ -378,6 +378,8 @@ export async function render(ctx) {
    * oturumda iki kez cikabilir: her bolumun kendi zor kismina girerken bir kez.
    * Devam ettirilen oturumda onceki sorunun zorlugundan baslar, yoksa null kalir;
    * boylece ilk soru zor geldiginde (vadesi gelen bir tekrar olabilir) bildirim cikmaz.
+   * Geri kalan bolum blok birimli dizilir; bildirim blok ortasinda cikmaz, gerekcesi
+   * showQuestion icindeki kontrolde.
    */
   let lastBlock = resumed && session.index > 0 ? difficultyOf(questions[session.index - 1]) : null;
   const hardNoticeShown = { due: false, rest: false };
@@ -446,9 +448,18 @@ export async function render(ctx) {
     // Bolumu soruya canli bakarak buluruz: gezinme tek yonlu oldugu icin burada her
     // zaman cevaplanmamis soru cizilir, vadesi de ancak cevaplandiktan sonra ileri
     // atilir - devam ettirilen oturumda da dogru bolumu verir.
+    //
+    // Ortak koklu blogun ORTASINDA bildirim cikmaz. Siralayici blogu tek birim olarak
+    // zor kovasina koyar ve blogun zorlugu icindeki en yuksek zorluktur, yani zor bir
+    // blok kolay bir soruyla baslayabilir; kontrol soru soru yapildigi icin bildirim
+    // blogun 2. ya da 3. sorusunda patlardi. Sinirda kacirirsak bir sonraki birime
+    // kayar - bildirim yumusak bir hatirlatma, kacirilmasi bir sey bozmaz.
+    // lastBlockId asagida, bu kontrolden SONRA guncellenir: burada hala onceki
+    // sorunun blogunu tutar.
     const block = difficultyOf(question);
     const segment = isRepeat(question) ? 'due' : 'rest';
-    if (blockNoticeAllowed && block === 3 && lastBlock !== null && lastBlock < 3
+    const midBlock = Boolean(question.block) && question.block.id === lastBlockId;
+    if (blockNoticeAllowed && !midBlock && block === 3 && lastBlock !== null && lastBlock < 3
       && !hardNoticeShown[segment]) {
       hardNoticeShown[segment] = true;
       body.append(hardBlockNotice(segment));
