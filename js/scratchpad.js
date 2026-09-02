@@ -80,6 +80,8 @@ export function createScratchpad({ open = false } = {}) {
   let strokes = [];
   let current = null;
   let activePointerId = null;
+  /** setPointerCapture gercekten kuruldu mu; bayat pointer tespitinde kullanilir. */
+  let captureHeld = false;
   let tool = 'pen';
 
   let cssWidth = 0;
@@ -208,12 +210,42 @@ export function createScratchpad({ open = false } = {}) {
 
   // ---------- girdi ----------
 
+  function releaseCapture(pointerId) {
+    captureHeld = false;
+    if (pointerId === null) return;
+    try {
+      if (canvas.hasPointerCapture(pointerId)) canvas.releasePointerCapture(pointerId);
+    } catch (error) {
+      /* yoksay */
+    }
+  }
+
   function pointFrom(event) {
     const rect = canvas.getBoundingClientRect();
     return { x: event.clientX - rect.left, y: event.clientY - rect.top };
   }
 
+  /**
+   * Elimizdeki aktif pointer gercekten hala ekranda mi? Iki bagimsiz sinyal:
+   *  - isPrimary: spesifikasyon geregi ortada baska aktif dokunus yokken gelen ilk parmak.
+   *    Boyle bir olay geldiyse eskisi kesinlikle bitmis, bitis olayi bize ulasmamis demektir.
+   *  - Yakalama kurulmusken hasPointerCapture'in false donmesi: pointer bittigi icin
+   *    tarayici yakalamayi ortuk olarak birakmistir.
+   * Ikinci sinyal captureHeld ile korunur: setPointerCapture hic kurulamadiysa
+   * hasPointerCapture zaten false doner ve mesru ikinci parmak haksiz yere tahliye edilirdi.
+   */
+  function activePointerGone(event) {
+    if (activePointerId === null) return false;
+    if (event.isPrimary) return true;
+    return captureHeld && !canvas.hasPointerCapture(activePointerId);
+  }
+
   function onPointerDown(event) {
+    // Tek yonlu giris kapisi birakma: bayat pointer burada tahliye edilir, yoksa tuval
+    // bir daha hicbir sey cizmez. Avuc ya da hala basili duran ikinci parmak bu kapidan
+    // gecmez, yani tek parmak kurali bozulmaz.
+    if (activePointerGone(event)) abortStroke();
+
     // Ayni anda tek parmak cizer; ikinci dokunus yok sayilir.
     if (activePointerId !== null) return;
     event.preventDefault();
@@ -222,6 +254,7 @@ export function createScratchpad({ open = false } = {}) {
     // Yakalama basarisiz olursa (pointer araya girip birakildiysa) cizim yine surer.
     try {
       canvas.setPointerCapture(event.pointerId);
+      captureHeld = true;
     } catch (error) {
       /* yoksay */
     }
@@ -250,17 +283,53 @@ export function createScratchpad({ open = false } = {}) {
     }
   }
 
+  /**
+   * Darbeyi kapatir. Yalnizca aktif pointer'in bitis olayina cevap verir; baska bir
+   * parmagin olayi buraya dusse de bir sey yapmaz. Yakalama da birakilir, yoksa tuval
+   * DOM'dan sokulup geri eklendiginde bayat bir yakalama kalabilir.
+   */
   function endStroke(event) {
     if (event.pointerId !== activePointerId) return;
+    releaseCapture(activePointerId);
     activePointerId = null;
     current = null;
+    syncTools();
   }
 
+  /** Acik bir darbe varsa zorla kapatir; bitis olayi hic gelmeyen dokunuslar icin. */
+  function abortStroke() {
+    if (activePointerId === null) return;
+    endStroke({ pointerId: activePointerId });
+  }
+
+  // Baslatma tuvalde: cizim yalnizca tuvale dokununca baslar.
   canvas.addEventListener('pointerdown', onPointerDown);
   canvas.addEventListener('pointermove', onPointerMove);
-  canvas.addEventListener('pointerup', endStroke);
-  canvas.addEventListener('pointercancel', endStroke);
-  canvas.addEventListener('lostpointercapture', endStroke);
+
+  /**
+   * Bitis olaylari tuvalde DEGIL, pencerede dinlenir. Tuvalde dinlenirse parmak 180 px'lik
+   * kutunun disinda kaldirildiginda birakma olayi baska bir ogeye duser, activePointerId
+   * sonsuza kadar takili kalir ve tuval olur: onPointerDown aktif pointer varken erken
+   * doner, "Geri al" da bloke olur - "karalama dondu" sikayeti tam olarak budur.
+   * Ucu de kabarciklanir, dolayisiyla yakalama kurulmus olsun olmasin pencereye ulasirlar.
+   * endStroke pointerId eslesmesine baktigi icin sayfadaki alakasiz dokunuslar no-op.
+   * lostpointercapture ayrica tarayicinin dokunusu devraldigi durumu yakalar.
+   */
+  window.addEventListener('pointerup', endStroke);
+  window.addEventListener('pointercancel', endStroke);
+  window.addEventListener('lostpointercapture', endStroke);
+
+  /**
+   * Ekran kilidi, bildirim, uygulama degistirme: dokunus akisi haber verilmeden kesilir.
+   * Iki yonde de kapatilir - geri donuldugunde parmagin hala basili olmasi gercekci degil,
+   * en kotu ihtimalle darbe bolunur; takili kalmasi ise tuvali oldururdu.
+   */
+  function onVisibilityChange() {
+    abortStroke();
+  }
+
+  document.addEventListener('visibilitychange', onVisibilityChange);
+  window.addEventListener('pagehide', abortStroke);
 
   // Tuvalin genisligi yalnizca viewport degisince degisir (.app sabit genislikli akiskan
   // bir kapsayici), o yuzden pencereyi dinlemek yeterli: ekran donmesi de buradan gelir.
@@ -273,7 +342,8 @@ export function createScratchpad({ open = false } = {}) {
   // ---------- araclar ----------
 
   function syncTools() {
-    undoButton.disabled = strokes.length === 0;
+    // Cizim surerken undo() zaten calismiyor; dugme de bunu gostersin, sessizce olu kalmasin.
+    undoButton.disabled = Boolean(current) || strokes.length === 0;
     toolButton.setAttribute('aria-pressed', tool === 'erase' ? 'true' : 'false');
     fullButton.textContent = isFullscreen ? 'Küçült' : 'Büyüt';
     fullButton.setAttribute('aria-label', isFullscreen ? 'Karalamayı küçült' : 'Karalamayı büyüt');
@@ -339,6 +409,7 @@ export function createScratchpad({ open = false } = {}) {
   function reset() {
     strokes = [];
     current = null;
+    releaseCapture(activePointerId);
     activePointerId = null;
     baseline = null;
     baselineWidth = 0;
@@ -362,6 +433,12 @@ export function createScratchpad({ open = false } = {}) {
   function destroy() {
     window.removeEventListener('resize', onWindowResize);
     window.removeEventListener('popstate', onPopState);
+    window.removeEventListener('pointerup', endStroke);
+    window.removeEventListener('pointercancel', endStroke);
+    window.removeEventListener('lostpointercapture', endStroke);
+    window.removeEventListener('pagehide', abortStroke);
+    document.removeEventListener('visibilitychange', onVisibilityChange);
+    abortStroke();
     // Ekrandan cikilirken gezinme surer; gecmise dokunmak riskli, sadece gorunumu kapat.
     closeFullscreenView();
   }

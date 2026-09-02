@@ -867,6 +867,81 @@ pakete **D** yazıldı. Ortaya çıkan dağılım A:4 B:4 C:4 **D:5 E:3**,
 içinde. **Sırf 4-4-4-4-4 simetrisi için doğru kurulmuş soru bozulmadı** —
 dağılım kuralı bir aralık, hedef değer değil.
 
+## Karalama alanı donması
+
+**2026-09-02 (v45) · `js/scratchpad.js`** — Şikâyet: telefonda uzun
+oturumlarda karalama alanı donuyor, çizilemiyor ve silinemiyor; yalnızca
+uygulamayı tamamen kapatıp açmak düzeltiyor. Uygulamanın geri kalanı sağlam.
+
+**Sızıntı sanıldı, değildi.** Tarayıcıda `addEventListener` yamalanarak 20
+soruluk oturum ölçüldü: canvas dinleyicisi 5'te, window 2'de, DOM'daki canvas
+1'de, heap ~4 MB'de sabit kaldı. 60 büyüt/küçült turu + 420 fırça darbesi
+sonrasında da toplam `addEventListener` 181 → 181, `history.length` 3 → 3,
+`body.className` boş. Undo yığını zaten tam görüntü değil yol verisi tutuyor,
+`MAX_STROKES = 30` ile sınırlı ve `reset()` her soruda temizliyor.
+Karalamada `requestAnimationFrame` ya da `setInterval` hiç yok.
+
+**Gerçek sebep: kurtarma yolu olmayan `activePointerId`.** `onPointerDown` ilk
+satırda `if (activePointerId !== null) return;` diyordu ve bu değişkeni yalnız
+`endStroke` sıfırlıyordu. `endStroke`'u tetikleyen üç olay da (`pointerup`,
+`pointercancel`, `lostpointercapture`) **sadece tuval üzerinde** dinleniyordu.
+Bitiş olayı tuvale ulaşmazsa değişken sonsuza kadar takılı kalıyor, tuval
+ölüyordu. `setPointerCapture` yedeği `try/catch` içinde sessizce yutuluyordu.
+Ölçülen tuzaklar: parmak tuvalin dışında bırakılıyor, bitiş olayı hiç gelmiyor,
+`pointerup` farklı `pointerId` ile geliyor, ekran kilitleniyor/bildirim geliyor.
+
+**"Uzun oturumlarda" olması kaynak birikmesi değil, olasılık birikmesi.** Her
+dokunuş bu tek yönlü tuzağa girme şansı taşıyor; yüzlerce darbede en az bir kez
+düşmek kesinleşiyor. Bellek düz kaldığı hâlde deneyim bozuluyor.
+
+**"Sadece yeniden başlatmak düzeltiyor" algısının sebebi:** çalışan iki kurtarma
+yolu (`Temizle` ve sonraki soru) çizimi de siliyordu. `Silgi`, `Büyüt/Küçült`
+ve paneli kapat-aç hiçbir şey yapmıyordu; `Geri al` ise `if (current || ...)`
+yüzünden bloke olduğu hâlde düğme **aktif görünüyordu** — "silemiyorum"
+tarifinin karşılığı bu.
+
+Üç katmanlı savunma eklendi, hiçbiri çizimi yok etmiyor:
+
+- **Bırakma olayları tuvalden alınıp pencereye taşındı.** Tuvalde yalnız
+  `pointerdown` ve `pointermove` kaldı; `pointerup`, `pointercancel` ve
+  `lostpointercapture` artık `window` üzerinde. Üçü de kabarcıklandığı için
+  yakalama kurulsun kurulmasın pencereye ulaşırlar — parmak 180 px'lik kutunun
+  dışında kaldırıldığında bile `activePointerId` sıfırlanır. `endStroke`
+  `pointerId` eşleşmesine baktığından sayfadaki alakasız dokunuşlar no-op.
+- **Bayat pointer tahliyesi** (`activePointerGone`): yeni bir `pointerdown`
+  geldiğinde eski pointer artık aktif değilse iptal edilip yenisi kabul edilir.
+  İki bağımsız sinyal: `event.isPrimary` (spesifikasyon gereği "ortada başka
+  aktif dokunuş yok"), **veya** yakalama kurulmuşken `hasPointerCapture` artık
+  `false` (tarayıcı örtük olarak bırakmış). İkincisi `captureHeld` bayrağıyla
+  korunuyor — `setPointerCapture` hiç kurulamadıysa `hasPointerCapture` zaten
+  `false` döner ve **meşru ikinci parmağı haksız yere tahliye ederdi**.
+  Avuç/ikinci parmak bu kapıdan geçmiyor: **tek parmak kuralı ve avuç reddi
+  bozulmadı**, ölçüldü.
+- **`visibilitychange` (iki yönde de) ve `pagehide`** darbeyi kapatıyor: ekran
+  kilidi, bildirim, uygulama değiştirme. Geri dönüldüğünde parmağın hâlâ basılı
+  olması gerçekçi değil; en kötü ihtimalle darbe bölünür, tuval ölmez.
+
+Ayrıca `endStroke` ve `reset()` artık `releasePointerCapture` çağırıyor (tuval
+`clear(body)` ile sökülüp geri eklendiğinde bayat yakalama kalmasın) ve
+`syncTools` darbe sürerken `Geri al`'ı pasifleştiriyor — sessizce ölü düğme
+kalmasın. Yeni dinleyicilerin hepsi `destroy()` içinde kaldırılıyor; ekrandan
+çıkınca window/document sayacı **sıfıra** iniyor, 3 kez gir-çık sonrası da öyle.
+
+Doğrulamada dört tuzak senaryosunun (parmağı tuval dışında bırakma, bitiş
+olayının hiç gelmemesi, farklı `pointerId` ile gelmesi, sayfanın gizlenmesi)
+dördünde de sonraki darbe çiziliyor; `pointercancel` ve `lostpointercapture`
+yolları da kurtarıyor ve **önceki çizim korunuyor** — kurtarma `Temizle`'ye
+düşmüyor. 20 soru boyunca bilerek düşürülen 40 bitiş olayına rağmen tuval
+çalışmaya devam etti; dinleyici sayıları (tuval 2, window 5, document 1) ve heap
+(~4,7 MB) düz kaldı. `destroy()` sonrası window/document sayacı **sıfır**, 3 kez
+gir-çık sonrası da öyle.
+
+**Doğrulamanın kendi tuzağı:** ilk turda service worker eski sürümü servis etti
+ve testler yanlış "başarısız" verdi. Tarayıcıda ölçmeden önce SW unregister +
+`caches` temizliği + reload, ardından `fetch('/js/scratchpad.js')` içeriğiyle
+yeni kodun gerçekten servis edildiğinin teyidi şart. Ayrıca önizleme paneli
+gizliyken `setTimeout` 1 sn'ye kısılıyor; test kodu eşzamanlı yazılmalı.
+
 ## Bilinen açık maddeler
 
 Düzeltilmedi, kayıt için duruyor:
