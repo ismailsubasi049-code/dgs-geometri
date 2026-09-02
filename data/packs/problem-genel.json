@@ -1,0 +1,210 @@
+{
+  "id": "problem-genel",
+  "topicId": "problemler",
+  "topic": "Problemler",
+  "subtopicId": "problem-genel",
+  "subtopic": "Genel problem soruları",
+  "version": 1,
+  "questions": [
+    {
+      "id": "problem-01",
+      "label": "Ardışık yüzde artış ve indirim",
+      "difficulty": 1,
+      "stem": "Bir ürünün fiyatı önce %20 artırılıyor, daha sonra yeni fiyatı üzerinden %20 indirim yapılıyor.\n\nBuna göre ürünün son fiyatı, ilk fiyatının yüzde kaçıdır?",
+      "asks": "Son fiyatın, ilk fiyatın yüzde kaçı olduğu isteniyor.",
+      "choices": ["96", "97", "98", "99", "100"],
+      "answer": 0,
+      "solution": "1. İlk fiyata **100** diyelim.\n2. %20 artış: 100 · 1,20 = **120**\n3. %20 indirim, **yeni fiyat üzerinden**: 120 · 0,80 = **96**\n4. Son fiyat ilk fiyatın **%96**'sıdır.\nNot: E şıkkındaki 100, \"aynı yüzde artıp aynı yüzde indiği için değişmez\" varsayımının sonucudur. Artış küçük sayı üzerinden, indirim büyük sayı üzerinden hesaplandığı için ikisi birbirini götürmez."
+    },
+    {
+      "id": "problem-02",
+      "label": "Sabit hızda yol ve süre",
+      "difficulty": 1,
+      "stem": "Bir araç sabit hızla 3 saatte 210 kilometre yol almaktadır.\n\nBuna göre aynı araç 350 kilometrelik bir yolu kaç saatte alır?",
+      "asks": "350 kilometrelik yolun kaç saatte alınacağı isteniyor. Önce sabit hız bulunmalı.",
+      "choices": ["4", "5", "6", "7", "8"],
+      "answer": 1,
+      "solution": "1. Hız: 210 / 3 = **70 km/sa**\n2. Süre: 350 / 70 = **5 saat**"
+    },
+    {
+      "id": "problem-03",
+      "label": "Yaş toplamı ve farkı",
+      "difficulty": 1,
+      "stem": "Bir baba ile oğlunun yaşları toplamı 50'dir. Baba, oğlundan 26 yaş büyüktür.\n\nBuna göre oğlun yaşı kaçtır?",
+      "asks": "Oğlun yaşı isteniyor.",
+      "choices": ["10", "11", "12", "13", "14"],
+      "answer": 2,
+      "solution": "1. Oğlun yaşı x olsun, babanın yaşı **x + 26** olur.\n2. x + (x + 26) = 50 → **2x = 24** → **x = 12**\n3. Doğrulama: 12 + 38 = 50 ✓"
+    },
+    {
+      "id": "problem-04",
+      "label": "Kâr üstüne indirim",
+      "difficulty": 2,
+      "stem": "Bir esnaf, maliyeti 400 TL olan bir ürüne %35 kâr koyarak etiket fiyatını belirlemiştir. Daha sonra etiket fiyatı üzerinden %20 indirim yaparak ürünü satmıştır.\n\nBuna göre esnaf bu üründen kaç TL kâr etmiştir?",
+      "asks": "Esnafın bu üründen ettiği kâr TL cinsinden isteniyor.",
+      "choices": ["20", "24", "28", "32", "36"],
+      "answer": 3,
+      "solution": "1. Etiket fiyatı: 400 · 1,35 = **540 TL**\n2. İndirimli satış fiyatı: 540 · 0,80 = **432 TL**\n3. Kâr: 432 − 400 = **32 TL**\nNot: \"%35 kâr, %20 indirim → net %15 kâr\" biçiminde düşünmek 60 TL verir ve yanlıştır. İki yüzde farklı tabanlar üzerinden işler: kâr maliyet üzerinden, indirim etiket fiyatı üzerinden hesaplanır."
+    },
+    {
+      "id": "problem-05",
+      "label": "Saf su ekleyince oranın düşmesi",
+      "difficulty": 2,
+      "stem": "Alkol oranı %30 olan 40 litrelik bir çözeltiye bir miktar **saf su** ekleniyor ve çözeltinin alkol oranı %24 oluyor.\n\nBuna göre kaç litre su eklenmiştir?",
+      "asks": "Eklenen suyun kaç litre olduğu isteniyor.",
+      "choices": ["6", "7", "8", "9", "10"],
+      "answer": 4,
+      "solution": "1. Başlangıçtaki alkol miktarı: 40 · 0,30 = **12 litre**\n2. Saf su eklendiği için **alkol miktarı değişmez**, yalnız toplam hacim artar.\n3. Eklenen su x olsun: 12 / (40 + x) = 0,24\n4. 12 = 0,24 · (40 + x) → 40 + x = 50 → **x = 10 litre**\nNot: Karışım problemlerinde önce **değişmeyen** büyüklüğü bulmak gerekir. Burada saf su eklendiği için alkol sabittir; toplam hacim üzerinden gitmeye çalışmak gereksiz denklem üretir."
+    },
+    {
+      "id": "problem-06",
+      "label": "İki işçinin birlikte çalışması",
+      "difficulty": 2,
+      "stem": "Bir işi A işçisi tek başına 15 günde, B işçisi tek başına 10 günde bitirmektedir.\n\nBuna göre bu iki işçi birlikte çalışırsa aynı işi kaç günde bitirir?",
+      "asks": "İki işçinin birlikte çalışırsa işi kaç günde bitireceği isteniyor.",
+      "choices": ["6", "7", "8", "9", "10"],
+      "answer": 0,
+      "solution": "1. Günlük iş miktarları: A → **1/15**, B → **1/10**\n2. Birlikte günlük iş: 1/15 + 1/10 = 2/30 + 3/30 = 5/30 = **1/6**\n3. Günde işin 1/6'sı bittiğine göre iş **6 günde** biter.\nNot: Gün sayılarının ortalamasını almak (12,5 gün) yanlıştır. Toplanabilen büyüklük gün değil, **günlük iş miktarıdır**."
+    },
+    {
+      "id": "problem-07",
+      "label": "Dolduran ve boşaltan musluk",
+      "difficulty": 2,
+      "stem": "Bir havuzu A musluğu tek başına 12 saatte doldurmakta, B musluğu tek başına 18 saatte boşaltmaktadır. Havuz boşken iki musluk aynı anda açılıyor.\n\nBuna göre havuz kaç saatte dolar?",
+      "asks": "Havuzun kaç saatte dolacağı isteniyor.",
+      "choices": ["30", "36", "42", "48", "54"],
+      "answer": 1,
+      "solution": "1. A saatte havuzun **1/12**'sini doldurur, B saatte **1/18**'ini boşaltır.\n2. Net dolum hızı: 1/12 − 1/18 = 3/36 − 2/36 = **1/36**\n3. Saatte havuzun 1/36'sı dolduğuna göre havuz **36 saatte** dolar."
+    },
+    {
+      "id": "problem-08",
+      "label": "Sınıf mevcudunda oran değişimi",
+      "difficulty": 2,
+      "stem": "Bir sınıftaki öğrencilerin %60'ı kızdır. Sınıfa 6 erkek öğrenci daha katıldığında kızların oranı %50 olmaktadır.\n\nBuna göre sınıfta başlangıçta kaç öğrenci vardı?",
+      "asks": "Sınıfın başlangıçtaki mevcudu isteniyor.",
+      "choices": ["20", "25", "30", "35", "40"],
+      "answer": 2,
+      "solution": "1. Başlangıçtaki mevcut n olsun: kız **0,6n**, erkek **0,4n**\n2. 6 erkek katılınca **kız sayısı değişmez**, toplam n + 6 olur.\n3. 0,6n / (n + 6) = 0,50 → 0,6n = 0,5n + 3 → **0,1n = 3** → **n = 30**\n4. Doğrulama: kız 18, erkek 12. 6 erkek katılınca 18 kız, 18 erkek → %50 ✓"
+    },
+    {
+      "id": "problem-09",
+      "label": "Karşılaşma noktasının uzaklığı",
+      "difficulty": 2,
+      "stem": "Aralarındaki uzaklık 300 kilometre olan iki kentten, birbirlerine doğru aynı anda iki araç hareket ediyor. Araçların sabit hızları 60 km/sa ve 90 km/sa'tir.\n\nBuna göre araçların karşılaştığı nokta, **hızlı** aracın hareket ettiği kente kaç kilometre uzaklıktadır?",
+      "asks": "Karşılaşma noktasının, hızlı aracın hareket ettiği kente uzaklığı isteniyor.",
+      "choices": ["120", "140", "160", "180", "200"],
+      "answer": 3,
+      "solution": "1. Birbirlerine yaklaştıkları için hızlar toplanır: 60 + 90 = **150 km/sa**\n2. Karşılaşma süresi: 300 / 150 = **2 saat**\n3. Hızlı aracın aldığı yol: 90 · 2 = **180 km**\nNot: A şıkkındaki 120, **yavaş** aracın aldığı yoldur. Ayrıca 2 (karşılaşma süresi) bir ara değerdir; soru uzaklığı istiyor."
+    },
+    {
+      "id": "problem-10",
+      "label": "Aynı yönde yakalama",
+      "difficulty": 2,
+      "stem": "Bir noktadan sabit 50 km/sa hızla bir araç hareket ediyor. Bu araç hareket ettikten 2 saat sonra, aynı noktadan aynı yönde sabit 70 km/sa hızla ikinci bir araç hareket ediyor.\n\nBuna göre ikinci araç, birinci aracı hareketinden kaç saat sonra yakalar?",
+      "asks": "İkinci aracın, kendi hareketinden kaç saat sonra yakalayacağı isteniyor.",
+      "choices": ["1", "2", "3", "4", "5"],
+      "answer": 4,
+      "solution": "1. İkinci araç harekete başladığında birinci araç: 50 · 2 = **100 km** öndedir.\n2. Aynı yöne gittikleri için aradaki fark, **hız farkı** kadar kapanır: 70 − 50 = **20 km/sa**\n3. Yakalama süresi: 100 / 20 = **5 saat**\nNot: 100 km bir ara değerdir, cevap değil. Ayrıca soru \"ikinci aracın hareketinden sonra\" diyor; birinci aracın toplam süresi 7 saattir ve o istenmiyor."
+    },
+    {
+      "id": "problem-11",
+      "label": "Toplamı ve farkı bilinen iki sayı",
+      "difficulty": 2,
+      "stem": "İki sayının toplamı 84, farkı 12'dir.\n\nBuna göre büyük sayı kaçtır?",
+      "asks": "İki sayıdan büyük olanı isteniyor.",
+      "choices": ["48", "51", "54", "57", "60"],
+      "answer": 0,
+      "solution": "1. Sayılara x ve y diyelim (x > y): x + y = 84 ve x − y = 12\n2. İki denklemi taraf tarafa toplayalım: **2x = 96** → **x = 48**\n3. Doğrulama: y = 36; 48 + 36 = 84 ✓ ve 48 − 36 = 12 ✓"
+    },
+    {
+      "id": "problem-12",
+      "label": "Bileşik zam",
+      "difficulty": 2,
+      "stem": "Bir mağazada bir ürünün fiyatına önce %10, ardından yeni fiyatı üzerinden tekrar %10 zam yapılmıştır.\n\nBuna göre ürünün fiyatına toplam yüzde kaç zam yapılmıştır?",
+      "asks": "Fiyata toplam yüzde kaç zam yapıldığı isteniyor.",
+      "choices": ["20", "21", "22", "23", "24"],
+      "answer": 1,
+      "solution": "1. İlk fiyata **100** diyelim.\n2. Birinci zam: 100 · 1,10 = **110**\n3. İkinci zam, **110 üzerinden**: 110 · 1,10 = **121**\n4. Toplam artış: 121 − 100 = 21 → **%21**\nNot: A şıkkındaki 20, iki yüzdenin doğrudan toplanmasıyla bulunur ve yanlıştır. İkinci zam artmış fiyat üzerinden işlediği için fazladan %1'lik bir pay doğar."
+    },
+    {
+      "id": "problem-13",
+      "label": "Farklı hacimli iki çözeltinin karışımı",
+      "difficulty": 3,
+      "stem": "Alkol oranı %40 olan 30 litrelik çözelti ile alkol oranı %70 olan 20 litrelik çözelti karıştırılıyor.\n\nBuna göre elde edilen karışımın alkol oranı yüzde kaçtır?",
+      "asks": "Elde edilen karışımın alkol oranı isteniyor.",
+      "choices": ["56", "54", "52", "50", "48"],
+      "answer": 2,
+      "solution": "1. Birinci çözeltideki alkol: 30 · 0,40 = **12 litre**\n2. İkinci çözeltideki alkol: 20 · 0,70 = **14 litre**\n3. Toplam alkol: 12 + 14 = **26 litre** · Toplam hacim: 30 + 20 = **50 litre**\n4. Oran: 26 / 50 = 0,52 → **%52**\nNot: Bu sorunun şıkları **büyükten küçüğe** sıralanmıştır. Ayrıca iki yüzdenin ortalamasını almak (%55) yanlıştır; hacimler eşit olmadığı için ağırlıklı ortalama gerekir ve sonuç daha büyük hacimli çözeltiye yakın çıkar."
+    },
+    {
+      "id": "problem-14",
+      "label": "İşçi-gün ile ekip büyütme",
+      "difficulty": 3,
+      "stem": "8 işçi bir işin yarısını 6 günde bitirmiştir. İşin kalan kısmının 4 günde bitirilmesi istenmektedir.\n\nBuna göre ekibe kaç işçi eklenmelidir?\n\n(Bütün işçilerin günlük iş verimi eşittir.)",
+      "asks": "Ekibe **eklenecek** işçi sayısı isteniyor.",
+      "choices": ["1", "2", "3", "4", "5"],
+      "answer": 3,
+      "solution": "1. İşin yarısı için harcanan emek: 8 · 6 = **48 işçi-gün**\n2. Kalan yarı da aynı büyüklükte olduğu için yine **48 işçi-gün** gerekir.\n3. Bunu 4 günde bitirmek için gereken işçi: 48 / 4 = **12 işçi**\n4. Soru **eklenecek** işçiyi istiyor: 12 − 8 = **4**\nNot: 12 sayısı gereken **toplam** işçidir, eklenen değil. Sorunun ne istediğini başlamadan önce yazmak bu tuzağı kapatır."
+    },
+    {
+      "id": "problem-15",
+      "label": "Dairesel pistte tur geçme",
+      "difficulty": 3,
+      "stem": "Çevresi 400 metre olan dairesel bir pistte iki koşucu aynı noktadan aynı anda **aynı yönde** koşmaya başlıyor. Koşucuların sabit hızları 6 m/sn ve 4 m/sn'dir.\n\nBuna göre hızlı koşucu, yavaş koşucuyu **ilk kez** kaç saniye sonra bir tur geçer?",
+      "asks": "Hızlı koşucunun yavaş koşucuyu ilk kez kaç saniye sonra bir tur geçeceği isteniyor.",
+      "choices": ["120", "140", "160", "180", "200"],
+      "answer": 4,
+      "solution": "1. Aynı yönde koştukları için aralarındaki fark **hız farkı** kadar açılır: 6 − 4 = **2 m/sn**\n2. Bir tur geçmek, aradaki farkın **bir pist uzunluğu** kadar olması demektir: 400 metre\n3. Süre: 400 / 2 = **200 saniye**\nNot: Hızları toplamak (400 / 10 = 40 sn) yalnızca **zıt yönde** koşulsaydı doğru olurdu. Yön bilgisi bu soruda belirleyicidir."
+    },
+    {
+      "id": "problem-16",
+      "label": "Geri dönüş indirimi",
+      "difficulty": 3,
+      "stem": "Bir ürünün fiyatına %25 zam yapılmıştır.\n\nBuna göre ürünün fiyatının tekrar ilk hâline dönmesi için yeni fiyatı üzerinden yüzde kaç indirim yapılmalıdır?",
+      "asks": "Fiyatın ilk hâline dönmesi için yeni fiyat üzerinden yapılacak indirim yüzdesi isteniyor.",
+      "choices": ["20", "25", "30", "35", "40"],
+      "answer": 0,
+      "solution": "1. İlk fiyata **100** diyelim. Zamlı fiyat: 100 · 1,25 = **125**\n2. 125'ten 100'e dönmek için 25 birim inmek gerekir.\n3. Ama indirim **yeni fiyat üzerinden** hesaplanır: 25 / 125 = 0,20 → **%20**\nNot: B şıkkındaki 25, \"ne kadar zam yapıldıysa o kadar indirim\" varsayımıdır ve yanlıştır. Zam küçük sayı (100), indirim büyük sayı (125) üzerinden işler; bu yüzden geri dönüş yüzdesi daima daha küçüktür."
+    },
+    {
+      "id": "problem-17",
+      "label": "Eşit satış fiyatı",
+      "difficulty": 3,
+      "stem": "Bir tüccar iki ürünün her birini 600'er TL'ye satmıştır. Bu satışlardan birinde %20 kâr, diğerinde %20 zarar etmiştir.\n\nBuna göre tüccar bu iki satıştan toplam kaç TL **zarar** etmiştir?",
+      "asks": "İki satıştan toplam kaç TL zarar edildiği isteniyor.",
+      "choices": ["25", "50", "75", "100", "125"],
+      "answer": 1,
+      "solution": "1. **Kârlı ürün:** Satış fiyatı maliyetin 1,20 katıdır. Maliyet = 600 / 1,20 = **500 TL**\n2. **Zararlı ürün:** Satış fiyatı maliyetin 0,80 katıdır. Maliyet = 600 / 0,80 = **750 TL**\n3. Toplam maliyet: 500 + 750 = **1250 TL** · Toplam satış: 1200 TL\n4. Zarar: 1250 − 1200 = **50 TL**\nNot: \"%20 kâr ile %20 zarar birbirini götürür, sonuç sıfırdır\" düşüncesi yanlıştır. İki yüzde **farklı maliyetler** üzerinden işler; zararlı ürünün maliyeti daha büyük olduğu için zarar ağır basar. Satış fiyatları eşit olan bu tip sorularda sonuç **her zaman zarardır**."
+    },
+    {
+      "id": "problem-18",
+      "label": "Kat ilişkisiyle yaş kurulumu",
+      "difficulty": 3,
+      "stem": "Ahmet'in bugünkü yaşı, Berk'in bugünkü yaşının 3 katıdır. 8 yıl sonra Ahmet'in yaşı, Berk'in yaşının 2 katı olacaktır.\n\nBuna göre Ahmet ile Berk'in bugünkü yaşları toplamı kaçtır?",
+      "asks": "Ahmet ile Berk'in bugünkü yaşları **toplamı** isteniyor.",
+      "choices": ["28", "30", "32", "34", "36"],
+      "answer": 2,
+      "solution": "1. Berk'in yaşı **B**, Ahmet'in yaşı **3B** olsun.\n2. 8 yıl sonra: 3B + 8 = 2 · (B + 8)\n3. 3B + 8 = 2B + 16 → **B = 8**, buradan Ahmet **24** yaşındadır.\n4. Toplam: 24 + 8 = **32**\n5. Doğrulama: 8 yıl sonra 32 ve 16 → 32 = 2 · 16 ✓\nNot: B = 8 ya da 3B = 24 bulup durmak eksik cevaptır; 24 değeri de şıklarda görünse tuzak olurdu. Yaş problemlerinde \"kaç yıl sonra\" ifadesi **her iki yaşa birden** eklenir; yalnız birine eklemek en yaygın hatadır."
+    },
+    {
+      "id": "problem-19",
+      "label": "Birlikte süreden tek başına süre",
+      "difficulty": 3,
+      "stem": "Bir havuzu A ve B muslukları birlikte 4 saatte doldurmaktadır. A musluğu bu havuzu tek başına 12 saatte doldurmaktadır.\n\nBuna göre B musluğu havuzu tek başına kaç saatte doldurur?",
+      "asks": "B musluğunun havuzu tek başına kaç saatte dolduracağı isteniyor.",
+      "choices": ["3", "4", "5", "6", "7"],
+      "answer": 3,
+      "solution": "1. Saatlik dolum miktarları toplanır: 1/A + 1/B = 1/4\n2. A için 1/12 yerine konur: 1/12 + 1/B = 1/4\n3. 1/B = 3/12 − 1/12 = 2/12 = **1/6**\n4. **B tek başına 6 saatte** doldurur.\nNot: Süreleri çıkarmak (12 − 4 = 8) yanlıştır. Toplanan ve çıkarılan büyüklük süre değil, **saatlik iş miktarıdır**. Ayrıca B tek başına A'dan hızlı olmalıdır; 8 gibi bir sonuç mantık kontrolünden de geçmez."
+    },
+    {
+      "id": "problem-20",
+      "label": "Mevcutta tam sayı koşulu",
+      "difficulty": 3,
+      "stem": "Bir sınıftaki öğrencilerin %36'sı kızdır.\n\nBuna göre bu sınıfın mevcudu aşağıdakilerden hangisi **olamaz**?",
+      "asks": "Sınıf mevcudunun hangisi **olamayacağı** isteniyor.",
+      "choices": ["50", "75", "100", "125", "140"],
+      "answer": 4,
+      "solution": "1. %36 oranını sadeleştirelim: 36/100 = **9/25**\n2. Kız sayısı bir **tam sayı** olmalıdır: mevcut · 9/25 tam sayı olmalı.\n3. 9 ile 25 aralarında asal olduğu için, mevcudun **25'in katı** olması gerekir.\n4. Şıkları kontrol edelim: 50 ✓ (18 kız) · 75 ✓ (27 kız) · 100 ✓ (36 kız) · 125 ✓ (45 kız) · **140 ✗** (140 · 9/25 = 50,4)\nNot: Yüzdeyi sadeleştirmeden 0,36 ile çarparak denemek de sonuca götürür ama daha yavaştır. Oranı en sade hâline indirip **paydanın katı** koşulunu görmek, bu tip soruları tek bakışta çözer."
+    }
+  ]
+}

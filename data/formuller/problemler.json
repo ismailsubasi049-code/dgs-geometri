@@ -1,0 +1,151 @@
+{
+  "topicId": "problemler",
+  "title": "Problemler",
+  "cards": [
+    {
+      "id": "problem-yuzde",
+      "subtopicId": "problem-yuzde",
+      "title": "Yüzde ve bileşik değişim",
+      "aliases": ["Ardışık yüzde artış ve indirim", "Bileşik zam", "Geri dönüş indirimi"],
+      "items": [
+        { "formula": "Temel dönüşüm — bir x değeri (x > 0) için:\n%a artarsa yeni değer: x · (1 + a/100)\n%a azalırsa yeni değer: x · (1 − a/100),   burada 0 ≤ a ≤ 100 olmalıdır" },
+        { "formula": "Ardışık değişimler çarpılır, toplanmaz — önce %a, sonra %b değişim uygulanırsa:\nx_son = x · (1 + a/100) · (1 + b/100)", "note": "Azalış için ilgili yüzde negatif alınır." },
+        { "formula": "Toplam değişim yüzdesi:\ntoplam = a + b + (a · b)/100", "note": "Üçüncü terim, ikinci değişimin artmış (ya da azalmış) taban üzerinden işlemesinden doğar. Bu terim atlanırsa sonuç daima yanlış çıkar." },
+        { "formula": "Geri dönüş indirimi — %a artan bir değerin ilk hâline dönmesi için gereken indirim yüzdesi:\n(100 · a) / (100 + a)", "note": "Bu değer daima a'dan küçüktür, çünkü indirim büyümüş taban üzerinden işler. Örnek: %25 artan bir değer için (100 · 25)/125 = %20" }
+      ],
+      "examples": [
+        {
+          "stem": "Önce %10, sonra %20 artış.",
+          "solution": "100 → 110 → 132. Toplam artış %32.\nFormülle: 10 + 20 + (10 · 20)/100 = 30 + 2 = 32 ✓"
+        },
+        {
+          "stem": "Biri artış biri azalış: önce %20 artış, sonra %20 azalış.",
+          "solution": "100 → 120 → 96. Toplam %4 azalış.\nFormülle: 20 + (−20) + (20 · (−20))/100 = 0 − 4 = −4 ✓"
+        }
+      ]
+    },
+    {
+      "id": "problem-kar-zarar",
+      "subtopicId": "problem-kar-zarar",
+      "title": "Kâr, zarar ve indirim",
+      "aliases": ["Kâr üstüne indirim", "Eşit satış fiyatı"],
+      "items": [
+        { "formula": "Tanımlar — maliyet M (M > 0), satış fiyatı S olsun:\nS > M ise kâr = S − M\nS < M ise zarar = M − S" },
+        { "formula": "Kâr ve zarar yüzdesi daima maliyet üzerinden hesaplanır:\n%k = (S − M) / M · 100\n%z = (M − S) / M · 100" },
+        { "formula": "Satış fiyatından maliyete dönüş:\n%k kârla satıldıysa:   M = S / (1 + k/100)\n%z zararla satıldıysa: M = S / (1 − z/100),   burada 0 ≤ z < 100" },
+        { "formula": "İki farklı taban: kâr yüzdesi maliyet üzerinden, indirim yüzdesi etiket fiyatı üzerinden hesaplanır", "note": "Bu ikisi aynı sayı değildir ve birbirinden çıkarılamaz." },
+        { "formula": "Eşit satış fiyatı kuralı — iki ürün aynı fiyata satılıp birinden %k kâr, diğerinden %k zarar edilirse sonuç daima zarardır. Toplam maliyet üzerinden zarar oranı:\nk² / 100  %" }
+      ],
+      "examples": [
+        {
+          "stem": "Maliyeti 400 TL olan ürüne %35 kâr konup etiket fiyatı belirleniyor, sonra etiketten %20 indirim yapılıyor.",
+          "solution": "Etiket: 400 · 1,35 = 540\nSatış: 540 · 0,80 = 432\nKâr: 32 TL\n\n\"%35 − %20 = %15 kâr\" yaklaşımı 60 TL verir ve yanlıştır."
+        },
+        {
+          "stem": "İki ürün 1200'er TL'ye satılıyor, biri %20 kârla diğeri %20 zararla.",
+          "solution": "Maliyetler: 1200/1,20 = 1000 ve 1200/0,80 = 1500\nToplam maliyet 2500, toplam satış 2400\nZarar 100 TL → 100/2500 = %4\nFormülle: 20²/100 = 4 ✓"
+        }
+      ]
+    },
+    {
+      "id": "problem-karisim",
+      "subtopicId": "problem-karisim",
+      "title": "Karışım",
+      "aliases": ["Saf su ekleyince oranın düşmesi", "Farklı hacimli iki çözeltinin karışımı"],
+      "items": [
+        { "formula": "Temel ilişki:\nmadde miktarı = toplam miktar × oran" },
+        { "formula": "İki karışımın birleştirilmesi — madde miktarları ayrı ayrı hesaplanıp toplanır, hacimler toplanır, sonra bölünür:\nyeni oran = (m₁ · o₁ + m₂ · o₂) / (m₁ + m₂)", "note": "Bu bir ağırlıklı ortalamadır. Oranların basit ortalamasını almak, ancak m₁ = m₂ olduğu özel durumda doğru sonuç verir; genel durumda yanlıştır." },
+        { "formula": "Saf madde ekleme:\nSaf su eklenirse    → madde miktarı değişmez, toplam hacim artar\nSaf madde eklenirse → madde miktarı eklenen kadar artar, toplam hacim eklenen kadar artar", "note": "Bu ayrım kurulumun tamamını belirler. Önce hangi büyüklüğün sabit kaldığını yazmak gerekir." }
+      ],
+      "examples": [
+        {
+          "stem": "%20'lik 20 litre ile %50'lik 30 litre karıştırılıyor.",
+          "solution": "Madde: 20 · 0,20 = 4 ve 30 · 0,50 = 15 → toplam 19 litre\nHacim: 20 + 30 = 50 litre → oran 19/50 = %38\n\nBasit ortalama %35 verirdi; hacmi büyük olan çözeltiye yakın çıktığına dikkat."
+        },
+        {
+          "stem": "%30'luk 40 litre çözeltiye saf su ekleniyor, oran %24 oluyor.",
+          "solution": "Alkol sabit: 40 · 0,30 = 12 litre.\n12 / (40 + x) = 0,24\n40 + x = 50\nx = 10 litre"
+        }
+      ]
+    },
+    {
+      "id": "problem-isci-havuz",
+      "subtopicId": "problem-isci-havuz",
+      "title": "İşçi ve havuz",
+      "aliases": ["İki işçinin birlikte çalışması", "Dolduran ve boşaltan musluk", "İşçi-gün ile ekip büyütme", "Birlikte süreden tek başına süre"],
+      "items": [
+        { "formula": "Birim iş yaklaşımı — bir işi tek başına t birim zamanda bitiren bir kaynak (t > 0), birim zamanda işin 1/t'sini yapar", "note": "Toplanabilen büyüklük süre değil, birim zamandaki iş miktarıdır." },
+        { "formula": "Birlikte çalışma:\n1/t₁ + 1/t₂ = 1/T\nİki kaynak için kapalı biçim: T = (t₁ · t₂) / (t₁ + t₂)", "note": "Sürelerin ortalamasını almak yanlıştır." },
+        { "formula": "Ters yönde çalışan kaynak (boşaltan musluk):\n1/t₁ − 1/t₂ = 1/T", "note": "Burada t₁ < t₂ olmalıdır; aksi hâlde havuz hiç dolmaz. Eşitlik durumunda (t₁ = t₂) su seviyesi sabit kalır." },
+        { "formula": "İş miktarı yaklaşımı — bütün çalışanların verimi eşitse:\niş = çalışan sayısı × süre", "note": "Bu çarpım sabit kalır; çalışan sayısı ile süre ters orantılıdır." }
+      ],
+      "examples": [
+        {
+          "stem": "t₁ = 6, t₂ = 12 olan iki kaynak birlikte çalışıyor.",
+          "solution": "T = 72/18 = 4\nKontrol: 1/6 + 1/12 = 2/12 + 1/12 = 3/12 = 1/4 ✓\n\nSürelerin ortalamasını almak (bu örnekte 9) yanlıştır."
+        },
+        {
+          "stem": "Dolduran musluk 12 saat, boşaltan musluk 18 saat.",
+          "solution": "1/12 − 1/18 = 3/36 − 2/36 = 1/36 → 36 saat"
+        },
+        {
+          "stem": "8 işçi işin yarısını 6 günde bitiriyor; kalan yarının 4 günde bitmesi isteniyor.",
+          "solution": "Yarım iş = 48 işçi-gün.\nKalan yarıyı 4 günde bitirmek için 48/4 = 12 işçi gerekir, yani 4 işçi eklenir."
+        }
+      ]
+    },
+    {
+      "id": "problem-hareket",
+      "subtopicId": "problem-hareket",
+      "title": "Hareket",
+      "aliases": ["Sabit hızda yol ve süre", "Karşılaşma noktasının uzaklığı", "Aynı yönde yakalama", "Dairesel pistte tur geçme"],
+      "items": [
+        { "formula": "Temel bağıntı:\nyol = hız × zaman", "note": "Birimler tutarlı olmalıdır: km/sa ile saat, m/sn ile saniye. Dönüşüm: 1 m/sn = 3,6 km/sa" },
+        { "formula": "Bağıl hız:\nZıt yönde hareket (karşılıklı yaklaşma veya uzaklaşma) → v₁ + v₂\nAynı yönde hareket                                → |v₁ − v₂|" },
+        { "formula": "Karşılaşma — aralarında d mesafe olan iki araç birbirine doğru hareket ederse:\nt = d / (v₁ + v₂)", "note": "Karşılaşma noktasının uzaklığı, ilgili aracın kendi hızı ile bu sürenin çarpımıdır." },
+        { "formula": "Yakalama — aralarında d fark olan iki araç aynı yönde hareket ederse:\nt = d / |v₁ − v₂|", "note": "Burada v₁ ≠ v₂ olmalıdır; hızlar eşitse fark hiç kapanmaz." },
+        { "formula": "Dairesel pist — uzunluğu L olan pistte aynı yönde koşan iki kişiden hızlı olanın diğerini bir tur geçmesi için:\nt = L / |v₁ − v₂|", "note": "Zıt yönde koşuluyorsa ilk karşılaşma için payda v₁ + v₂ olur. Yön bilgisi belirleyicidir." }
+      ],
+      "examples": [
+        {
+          "stem": "d = 300 km, hızlar 60 ve 90 km/sa; iki araç birbirine doğru gidiyor.",
+          "solution": "t = 300/150 = 2 saat\nHızlı araç 90 · 2 = 180 km, yavaş araç 120 km yol almıştır."
+        },
+        {
+          "stem": "Önde giden 50 km/sa ile 2 saat önce çıkmış, yani 100 km önde. Arkadaki 70 km/sa.",
+          "solution": "t = 100/(70 − 50) = 5 saat"
+        },
+        {
+          "stem": "L = 500 m, hızlar 9 ve 4 m/sn, aynı yönde.",
+          "solution": "t = 500/(9 − 4) = 100 saniye"
+        }
+      ]
+    },
+    {
+      "id": "problem-yas-sayi",
+      "subtopicId": "problem-yas-sayi",
+      "title": "Yaş ve sayı problemleri",
+      "aliases": ["Yaş toplamı ve farkı", "Sınıf mevcudunda oran değişimi", "Toplamı ve farkı bilinen iki sayı", "Kat ilişkisiyle yaş kurulumu", "Mevcutta tam sayı koşulu"],
+      "items": [
+        { "formula": "Yaş problemleri:\nİki kişinin yaş farkı zamanla değişmez\n\"n yıl sonra\" → her kişinin yaşına n eklenir\n\"n yıl önce\"  → her kişinin yaşından n çıkarılır\nk kişinin yaşları toplamı, n yıl sonra k · n kadar artar", "note": "Yaş farkı, kurulumdaki en güvenilir sabittir." },
+        { "formula": "Toplamı ve farkı bilinen iki sayı — toplam T, fark F ise:\nbüyük = (T + F) / 2\nküçük = (T − F) / 2", "note": "T ve F aynı parite olmalı, yani ikisi de çift ya da ikisi de tek." },
+        { "formula": "Ardışık sayılar:\nArdışık tam sayı  → n, n+1, n+2, …\nArdışık çift sayı → n, n+2, n+4, …   (n çift)\nArdışık tek sayı  → n, n+2, n+4, …   (n tek)" },
+        { "formula": "Yüzde ve tam sayı koşulu — bir topluluğun %a'sı bir alt gruba aitse oran en sade hâline indirilir:\na/100 = p/q   (p ile q aralarında asal)", "note": "Alt gruptaki eleman sayısının tam sayı olması için toplam mevcut q'nun katı olmalıdır." }
+      ],
+      "examples": [
+        {
+          "stem": "Ahmet'in yaşı Berk'in 4 katı. 6 yıl sonra Ahmet'in yaşı Berk'in 3 katı olacak.",
+          "solution": "A = 4B ve A + 6 = 3(B + 6)\n4B + 6 = 3B + 18\nB = 12, A = 48\n\nKontrol: 6 yıl sonra 54 ve 18 → 54 = 3 · 18 ✓\nFark kontrolü: bugün 36, altı yıl sonra 54 − 18 = 36 ✓ değişmedi"
+        },
+        {
+          "stem": "Toplamı 50, farkı 8 olan iki sayı.",
+          "solution": "büyük = (50 + 8)/2 = 29\nküçük = (50 − 8)/2 = 21\nKontrol: 29 + 21 = 50 ✓ ve 29 − 21 = 8 ✓"
+        },
+        {
+          "stem": "Mevcudun %36'sı kız ise mevcut neyin katı olmalıdır?",
+          "solution": "36/100 = 9/25 olduğundan mevcut 25'in katı olmalıdır.\n140 mevcut olamaz, çünkü 140 · 9/25 = 50,4 tam sayı değildir."
+        }
+      ]
+    }
+  ]
+}

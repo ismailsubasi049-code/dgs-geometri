@@ -6,9 +6,9 @@ her turda aşağıdaki günlüğe yazılıyor)
 
 ## Özet
 
-**479 soru · 17 alt konu · 19 paket.** 395'i geometri, 84'ü matematik
-(4 paket: `ozdeslik-genel`, `oran-oranti-genel`, `mantik-blok-1`,
-`mantik-blok-2`). Kalan **6**
+**499 soru · 18 alt konu · 20 paket.** 395'i geometri, 104'ü matematik
+(5 paket: `ozdeslik-genel`, `oran-oranti-genel`, `mantik-blok-1`,
+`mantik-blok-2`, `problem-genel`). Kalan **6**
 matematik konusunun hâlâ yalnız formül kartı var, paketi yok: `sayilar`,
 `bolunebilme`, `ebob-ekok`, `rasyonel`, `uslu`, `koklu`. **Sayısal mantık ise
 tersi:** paketi var, formül kartı yok.
@@ -19,6 +19,7 @@ tersi:** paketi var, formül kartı yok.
 |---|---|---|---|
 | Çarpanlara Ayırma ve Özdeşlikler | `ozdeslik-genel` | Genel özdeşlik soruları | 20 |
 | Oran ve Orantı | `oran-oranti-genel` | Genel oran-orantı soruları | 20 |
+| Problemler | `problem-genel` | Genel problem soruları | 20 |
 | Sayısal Mantık | `mantik-blok-1` | Tanımlı sembol, kavram, senaryo ve oyun blokları | 24 |
 | Sayısal Mantık | `mantik-blok-2` | Tablo, grafik ve şekil blokları | 20 |
 | Açılar | `acilar-temel` | Temel açı kavramları | 24 |
@@ -36,7 +37,7 @@ tersi:** paketi var, formül kartı yok.
 | Üçgenler | `ucgen-karma` | Karma üçgen | 30 |
 | Dörtgenler | — | Dörtgenler | 10 |
 | Çember ve Daire | — | Çember ve Daire | 10 |
-| **Toplam** | | **19 paket** | **479** |
+| **Toplam** | | **20 paket** | **499** |
 
 ## Kalan işler
 
@@ -1027,6 +1028,18 @@ Düzeltilmedi, kayıt için duruyor:
   değil `label` alias'ından gelir. Bu pakete **yeni konfigürasyon** eklenirse
   etiketi `data/formuller/ozdeslikler.json` içindeki uygun kartın `aliases`
   listesine yazılmalı; yoksa o soruda kart açılmaz.
+- Aynı şey **`problem-genel`** için de geçerli: altı kartın hiçbirinin
+  `subtopicId`'si paketin `problem-genel` alt konusuyla çakışmıyor, kart
+  bağlantısı `label` alias'ından geliyor. Bu pakete yeni bir soru eklenirse
+  etiketi `data/formuller/problemler.json` içindeki uygun kartın `aliases`
+  listesine yazılmalı; yoksa o soruda yanlış cevapta kart açılmaz.
+- `problem-20`'nin şıkları (50, 75, 100, 125, 140) **aritmetik dizi değil** —
+  farklar 25, 25, 25, 15. Bilinçli: "olamaz" kurgusu %36 = 9/25 oranının
+  paydasının katı olma koşuluna dayanıyor ve beş terimli bir aritmetik dizide
+  ya bütün terimler 25'in katı olur ya da hiçbiri, yani tam olarak bir şıkkın
+  imkânsız olması sağlanamazdı. `oran-oranti-genel`'deki `oranti-18` ile aynı
+  gerekçe. Kaynak dosyanın kendi denetim tablosu bu satırda ("şık dizilerinin
+  hepsi aritmetik") hatalı; paket doğru.
 - `ozdeslik-17` (n³ − n) `a² − b²` özdeşliğini b = 1 ile kullanır; paketin geri
   kalanında dejenere kurulum yok. Ardışık üç sayı çarpımı klasik biçimiyle
   yazılabilsin diye bilinçli bırakıldı — b = 1 burada hiçbir terimi düşürmüyor.
@@ -1203,6 +1216,114 @@ ve `document.hasFocus()` sayfa görünürken bile `false` dönüyor. Bu yüzden
 `blur`/`freeze` senaryoları olay gönderilerek ölçüldü — kod yolu birebir aynı yol,
 ama cihaz düzeyinde bir test değil. Telefonda ilk oturumda bir kez göz ucuyla
 bakılmalı: bir soruyu açıp uygulamayı kapatıp dönünce süre makul mü.
+
+## Problemler konusu
+
+**2026-09-03 (v47) · yeni `data/formuller/problemler.json` (6 kart) + yeni
+`data/packs/problem-genel.json` (20 soru).** Konu sıfırdan açıldı: matematik
+branşı 9 → 10 konu, 34 → 40 formül kartı, 4 → 5 paket. Gerçek sınavda
+problemler soru 17–22 aralığında, yılda ~6 soru (%12). Kod değişmedi — dosya +
+index kaydı + `sw.js` VERSION, `mantik-blok-1`/`-2` turlarının aynı deseni.
+
+Bu bir **transkripsiyon** turuydu: ne kart ne soru üretildi,
+`referans/kartlar_problemler.md` ve `referans/paket_problemler.md`'den
+aktarıldı. Kök, şıklar, çözüm ve sarı Not kutusu birebir; zorluk etiketleri
+kaynaktan (**kolay 3 · orta 9 · zor 8**, `ozdeslik-genel` ve
+`oran-oranti-genel` ile aynı).
+
+Kartlar **formül kartından çok yöntem kartıdır** — kaynağın bilinçli kararı.
+Problem sorularında ezberlenecek formül azdır, eleyici olan kurulum hatasıdır;
+bu yüzden her kartta hangi büyüklüğün sabit kaldığı, hangi taban üzerinden
+hesap yapıldığı ve hangi büyüklüğün toplanabilir olduğu açıkça yazılı:
+`problem-yuzde` (4 madde), `problem-kar-zarar` (5), `problem-karisim` (3),
+`problem-isci-havuz` (4), `problem-hareket` (5), `problem-yas-sayi` (4).
+
+### Aktarımda dört karar
+
+- **LaTeX düz metne açıldı.** Kart render'ı düz metindir (`js/ui.js:208`,
+  `createTextNode`), `$\dfrac{12}{40+x}$` olduğu gibi ekrana basılırdı.
+  Altı çözümde (5, 6, 7, 8, 19, 20) ve kartların tamamında `$…$` parçaları
+  `12 / (40 + x)` biçimine çevrildi. Çok satırlı formüller `\n` ile yazıldı;
+  `.formula-item .formula` `white-space: pre-wrap` olduğu için satırlar korunuyor
+  (`css/app.css:693`).
+- **Kaynaktaki `> **Not:**` alıntısı satır başı `Not:` oldu.** `richText` sarı
+  kutuyu `^Not:` ile yakalıyor ve regex kalınlaştırmadan **sonra** çalıştığı için
+  `**Not:**` yazılsaydı kutu hiç açılmazdı (`js/ui.js:64`) — v44 turunun kaydı.
+  Not kutusu **15 soruda** var (1, 4, 5, 6, 9, 10, 12, 13, 14, 15, 16, 17, 18,
+  19, 20); kalan 5'te kaynakta yok, uydurulmadı.
+- **`_sema.md` §4'ün "(Sık yapılan hata N: …)" bloğu bu pakette kullanılmıyor** —
+  kaynağın kendi biçimi Not kutusu, `mantik-blok-1`/`-2` ile aynı karar.
+  `ozdeslik-genel` ve `oran-oranti-genel`'de 20/20 blok var; orada sorular
+  üretilmişti, burada aktarıldı.
+- **`asks` kaynakta yok**, şema zorunlu tutuyor (`js/packs.js:78` — yoksa soru
+  sessizce atlanır). Yazıldı: birinci cümle "… isteniyor.", gerekirse tek kısa
+  çerçeveleme cümlesi. `asks` cevaptan **önce** okunuyor ve şıkların kilidini
+  açıyor (`js/screens/session.js:439`), bu yüzden yöntem ve tuzak açıklaması
+  `asks`'e taşınmadı — özellikle 1, 12, 16 ve 17'de yöntemi söylemek soruyu
+  bitirirdi. Yalnız *hangi büyüklüğün* istendiği keskinleştirildi (14'te
+  "eklenecek işçi", 18'de "yaşları toplamı"), çünkü kutunun işlevi tam olarak o.
+
+Kartların 16 örneğinin 15'i `examples[]`'a, biri (tek satırlık geri dönüş
+indirimi örneği) `note` içine kondu. Gerekçe ölçüldü: `.example-solution`
+`white-space: pre-wrap` taşıyor, `.formula-item .note` **taşımıyor** — çok
+satırlı bir hesap not içinde tek paragrafa çökerdi.
+
+### Formül kartı `label` alias'ıyla bağlanır
+
+`ucgen-karma` deseninin dördüncü kullanımı. `problem-genel` alt konu kimliği
+hiçbir kartın `subtopicId`'siyle çakışmıyor; çakışsaydı 20 sorunun tamamı tek
+karta bağlanırdı (`cardsBySubtopic` bir Map, son yüklenen kazanır). Bunun
+yerine her sorunun `label`'ı konfigürasyonun adıdır ve o ad ilgili kartın
+`aliases` listesine yazıldı (20 yeni alias). Dağılım kaynak kart tablosuyla
+birebir: `problem-yuzde` 3 (soru 1, 12, 16), `problem-kar-zarar` 2 (4, 17),
+`problem-karisim` 2 (5, 13), `problem-isci-havuz` 4 (6, 7, 14, 19),
+`problem-hareket` 4 (2, 9, 10, 15), `problem-yas-sayi` 5 (3, 8, 11, 18, 20).
+**Bağsız kart yok.**
+
+**Sorulara `subtopicId` yazılmadı** — ilk talimat öyleydi ama uygulamada
+çalışmazdı: `js/packs.js:111` soru alanını paketinkinden öncelikli kılıyor,
+`js/scheduler.js:290` ve `js/screens/topics.js:115` bu alana baktığı için 20
+soru altı hayalî alt konuya dağılır, "Genel problem soruları" seti boşalır ve
+paket konu ekranından açılamazdı.
+
+### Doğrulama
+
+- **20 sorunun 20'sinin cevabı PowerShell'de bağımsız yeniden hesaplandı** (tam
+  sayı / rasyonel aritmetik, ondalık yok — tr-TR virgül tuzağı devre dışı) ve
+  `answer` indeksinin işaret ettiği şıkla karşılaştırıldı: **20/20 doğru.**
+- Kaynakla karakter karşılaştırması: 20 kök, 100 şık ve 20 cevap harfi **birebir**
+  (boşluk normalizasyonu dışında fark yok); 20 çözümün farkları yalnız izinli
+  dönüşümlerden (LaTeX açma, `> **Not:**` → `Not:`, sonuç kesrinin kalınlaştırılması).
+- Kart içeriği: kaynağın **57 kural/koşul ifadesinin 57'si** JSON'da bulundu
+  (`0 ≤ a ≤ 100`, `0 ≤ z < 100`, `t₁ < t₂`, `v₁ ≠ v₂`, `m₁ = m₂`, `T`/`F` parite
+  koşulu dâhil); kartlardaki **43 sayısal iddia** tam sayı aritmetiğiyle yeniden
+  hesaplandı, **43/43 doğru**; 16 kaynak örneğinin 16'sı aktarıldı.
+- Harf dağılımı **A:4 B:4 C:4 D:4 E:4**, anahtar `A B C D E` × 4. Şık dizileri
+  19 soruda aritmetik, `problem-13` **azalan** (56 → 48, fark −2), `problem-20`
+  bilinçli istisna (yukarıda "Bilinen açık maddeler").
+- **Alias çakışması taraması:** 13 formül dosyası · 66 kart · 230 alias — kart
+  id, `subtopicId` ve alias çakışması **yok**. Yeni 20 etiket mevcut hiçbir
+  alias'la çakışmıyor (`oran-oranti.json`'daki "Karışıma su ekleme",
+  "İki karışımı birleştirme", "İşçi-gün ters orantısı", "Oranda tam sayı koşulu"
+  yakın duruyordu; etiketler bilerek farklı seçildi).
+- **Tarayıcıda** (SW unregister + `caches` temizliği + reload sonrası):
+  `#/formuller/mat/problemler` 6 kartı, maddeleri ve örnekleri render etti;
+  konu ekranı **"Problemler · 1 alt konu · 20 soru · 20 çalışılacak"** gösterdi,
+  alt konu satırı **"Genel problem soruları · 20 soru"** — 20 sorunun tamamı tek
+  set altında, paket oradan açılıyor. `loadAllQuestions()` + `loadAllCards()`
+  **tek bir `console.warn` üretmedi** (hiçbir soru/kart atlanmadı), 499 soru ·
+  66 kart yüklendi, 20 sorunun 20'si için `getCardFor` kart döndürdü.
+- **Üç ayrı soruda bilerek yanlış cevap verildi**, üçünde de doğru kart açıldı:
+  `problem-02` → "Hareket", `problem-01` → "Yüzde ve bileşik değişim",
+  `problem-03` → "Yaş ve sayı problemleri". Sarı Not kutusu `.solution-note`
+  olarak çizildi (arka plan `rgba(251,191,36,0.1)`, sol kenarlık `#fbbf24`).
+- **Süre ölçümü bu pakette de kayıt açıyor:** 4 kayıt yazıldı,
+  `packId: "problem-genel"`, `topic: "Problemler"`,
+  `subtopic: "Genel problem soruları"`, doğru `difficulty`, makul `ms`
+  (6993 / 7402 / 12823 / 14577), `counterVisible: false`, `suspect` yok,
+  `blockId` yok (paket bloksuz); hem `correct: false` hem `correct: true`
+  kaydedildi. Deneme sonrası ilerleme ana ekranda temizlenip hemen reload edildi,
+  `dgs.progress.v1` temiz kaldı; reload sonrası cache adı **`dgs-v47`**.
 
 ## Çalışma kuralları
 

@@ -13,6 +13,7 @@
     { "id": "koklu", "title": "Köklü Sayılar", "branchId": "mat" },
     { "id": "ozdeslikler", "title": "Çarpanlara Ayırma ve Özdeşlikler", "branchId": "mat" },
     { "id": "oran-oranti", "title": "Oran ve Orantı", "branchId": "mat" },
+    { "id": "problemler", "title": "Problemler", "branchId": "mat" },
     { "id": "sayisal-mantik", "title": "Sayısal Mantık", "branchId": "mat" },
     { "id": "acilar", "title": "Açılar", "branchId": "geo" },
     { "id": "ucgenler", "title": "Üçgenler", "branchId": "geo" },
@@ -39,6 +40,17 @@
       "subtopic": "Genel oran-orantı soruları",
       "title": "Genel oran-orantı soruları",
       "file": "packs/oran-oranti-genel.json",
+      "count": 20,
+      "version": 1
+    },
+    {
+      "id": "problem-genel",
+      "topicId": "problemler",
+      "topic": "Problemler",
+      "subtopicId": "problem-genel",
+      "subtopic": "Genel problem soruları",
+      "title": "Genel problem soruları",
+      "file": "packs/problem-genel.json",
       "count": 20,
       "version": 1
     },
