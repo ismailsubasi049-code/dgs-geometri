@@ -1,11 +1,14 @@
 # Durum
 
-**Son güncelleme:** 2026-09-01 · **sw.js VERSION:** `v41`
+**Son güncelleme:** 2026-09-02 · **sw.js VERSION:** güncel değer için `sw.js:4`
+(elle tutulan kopya iki tur geride kaldığı için buradan kaldırıldı; sürüm zaten
+her turda aşağıdaki günlüğe yazılıyor)
 
 ## Özet
 
-**459 soru · 16 alt konu · 18 paket.** 395'i geometri, 64'ü matematik
-(3 paket: `ozdeslik-genel`, `oran-oranti-genel`, `mantik-blok-1`). Kalan **6**
+**479 soru · 17 alt konu · 19 paket.** 395'i geometri, 84'ü matematik
+(4 paket: `ozdeslik-genel`, `oran-oranti-genel`, `mantik-blok-1`,
+`mantik-blok-2`). Kalan **6**
 matematik konusunun hâlâ yalnız formül kartı var, paketi yok: `sayilar`,
 `bolunebilme`, `ebob-ekok`, `rasyonel`, `uslu`, `koklu`. **Sayısal mantık ise
 tersi:** paketi var, formül kartı yok.
@@ -17,6 +20,7 @@ tersi:** paketi var, formül kartı yok.
 | Çarpanlara Ayırma ve Özdeşlikler | `ozdeslik-genel` | Genel özdeşlik soruları | 20 |
 | Oran ve Orantı | `oran-oranti-genel` | Genel oran-orantı soruları | 20 |
 | Sayısal Mantık | `mantik-blok-1` | Tanımlı sembol, kavram, senaryo ve oyun blokları | 24 |
+| Sayısal Mantık | `mantik-blok-2` | Tablo, grafik ve şekil blokları | 20 |
 | Açılar | `acilar-temel` | Temel açı kavramları | 24 |
 | Açılar | `acilar-paralel` | Paralel doğrular ve kesenler | 33 |
 | Açılar | `acilar-ucgende` | Üçgende açılar | 33 |
@@ -32,7 +36,7 @@ tersi:** paketi var, formül kartı yok.
 | Üçgenler | `ucgen-karma` | Karma üçgen | 30 |
 | Dörtgenler | — | Dörtgenler | 10 |
 | Çember ve Daire | — | Çember ve Daire | 10 |
-| **Toplam** | | **18 paket** | **459** |
+| **Toplam** | | **19 paket** | **479** |
 
 ## Kalan işler
 
@@ -53,9 +57,10 @@ tersi:** paketi var, formül kartı yok.
   bu yüzden `ucgen-karma` / `ozdeslik-genel` desenindeki `label` alias'ı daha
   uygun — ama o zaman sorulara `label` yazmak gerekir (şu an yazılmıyor).
 - `_format_profili.md` §11.4'ün sırasına göre gereken üç **sayısal mantık**
-  paketinden ilki (`mantik-blok-1`) yazıldı; **tablo-algoritma** ve **grafik
-  yorumlama** paketleri hâlâ yok. İkisi de `blocks[].figure` isteyecek —
-  bu pakette şekil yoktu, o yol henüz sınanmadı.
+  paketinden ikisi yazıldı: `mantik-blok-1` (tanım/senaryo) ve `mantik-blok-2`
+  (tablo + grafik, 14 şekil). `blocks[].figure` yolu bu ikinci paketle **ilk kez
+  gerçek veriyle sınandı ve çalışıyor** — kod yine değişmedi. Üçüncü paket
+  (saf grafik yorumlama / algoritma akışı) hâlâ yok.
 
 ## Öğrenme modu sıralaması
 
@@ -816,6 +821,51 @@ Katlama durumu hiçbir yerde saklanmıyordu (`toggle` dinleyicisi yok, her sorud
 soruda yine açık gelir. Kutu `<details>` olarak kaldı; CSS kuralları değişmedi.
 Dokümanlar buna göre güncellendi: `_sema.md` §8.2'de oturum ve sonuç ekranı artık ayrı
 maddeler, `sharedStem` JSDoc'u ve `css/app.css` yorumu da öyle.
+
+## Görsel sayısal mantık paketi
+
+**2026-09-02 (v44) · `data/packs/mantik-blok-2.json`** — 20 soru · 8 blok
+(4 üçlü, 4 ikili) · bağımsız soru yok · **14 SVG**. Kaynak
+`referans/paket_mantik_gorsel.md`; iş transkripsiyondu, soru üretilmedi.
+Soru id'leri `gorsel-01…20`, blok id'leri `gorsel-*` (paket 1'in
+`mantik-01…24` sayacıyla çakışmaz). Kod yine değişmedi.
+
+**`blocks[].figure` yolu ilk kez gerçek veriyle sınandı.** Beş blok ortak SVG
+taşıyor (`gorsel-pasta`, `gorsel-sutun`, `gorsel-duzenek`, `gorsel-dondurme`,
+`gorsel-oda`), üç blokta şekil soru başına değişiyor ve `questions[].figure`'da
+duruyor. Oturumda 20 sorunun 20'sinde de kök kutusu açık geldi, bloklar ardışık
+sıralandı.
+
+Aktarımda üç bilinçli dönüşüm yapıldı:
+
+- **Kaynaktaki `fill='var(--bg, white)'` düğüm dolgusu `#f8fafc` ile
+  değiştirildi.** `--bg` koyu lacivert `#0f172a`, oysa `.figure` paneli her
+  temada sabit açık zemin (`css/app.css:336`). Değişken bırakılsaydı oda-kapı
+  çizgesindeki daireler koyu dolar, içlerindeki A–F harfleri de `currentColor`
+  olduğu için görünmez olurdu. **Şekillerde CSS değişkeni kullanılmaz** — panel
+  temayla dönmüyor.
+- **viewBox'lar 320 genişliğe normalize edildi**, çizim koordinatlarına
+  dokunulmadan: pencere içerik kutusunun çevresinde yatay ve dikey ortalandı.
+  Kaynak 160–400 arası yedi farklı genişlik kullanıyordu; `.figure svg` kutu
+  genişliğine gerildiği için 3×3 tablo ile pasta grafik aynı boya şişiyordu.
+  İki şekil (`gorsel-pasta`, `gorsel-duzenek`) tam 320 birim geniş olduğundan
+  onlarda pencere 332'ye açıldı — kırpılmasınlar diye. Doğrulama tarayıcıda
+  `getBBox()` ile yapıldı: 14 şeklin hepsinde sol/sağ ve üst/alt boşluk eşit,
+  hepsi ≥ 6 birim, taşma yok.
+- Çözümlerdeki `$…$` LaTeX parçaları ve markdown tablosu düz metne çevrildi;
+  kaynaktaki `> **Not:**` alıntısı satır başı `Not:` oldu — `richText` sarı
+  kutuyu `^Not:` ile yakalıyor ve regex kalınlaştırmadan **sonra** çalıştığı
+  için `**Not:**` yazılsa kutu hiç açılmazdı (`js/ui.js:64`).
+
+**Soru 14'ün cevabı D, dağılım bilerek 4-4-4-5-3.** Kaynakta iç tutarsızlık
+vardı: soru gövdesi, çözümü ve şekli **D** (1 çakışan hücre) diyor, kaynağın
+özet anahtar tablosu ise **E** (0). Gövde doğru — 90° dönüşte (r,c) → (c, 4−r),
+görüntüler (1,3), (2,3), (2,2), (3,1) ve ilk kümeyle ortak eleman yalnız merkez
+hücre (2,2); kaynağın kendi Not kutusu da bunu söylüyor. Yanlış olan özet tablo,
+pakete **D** yazıldı. Ortaya çıkan dağılım A:4 B:4 C:4 **D:5 E:3**,
+`_format_profili.md` §9'un "20 soruluk pakette her harf 3–5 arası" kuralının
+içinde. **Sırf 4-4-4-4-4 simetrisi için doğru kurulmuş soru bozulmadı** —
+dağılım kuralı bir aralık, hedef değer değil.
 
 ## Bilinen açık maddeler
 

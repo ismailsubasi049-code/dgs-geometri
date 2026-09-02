@@ -54,6 +54,17 @@
       "version": 1
     },
     {
+      "id": "mantik-blok-2",
+      "topicId": "sayisal-mantik",
+      "topic": "Sayısal Mantık",
+      "subtopicId": "mantik-blok-2",
+      "subtopic": "Tablo, grafik ve şekil blokları",
+      "title": "Tablo, grafik ve şekil blokları",
+      "file": "packs/mantik-blok-2.json",
+      "count": 20,
+      "version": 1
+    },
+    {
       "id": "acilar-temel",
       "topicId": "acilar",
       "topic": "Açılar",
