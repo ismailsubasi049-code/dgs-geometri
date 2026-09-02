@@ -3,3 +3,9 @@ tools/.preview/
 
 # Soru yazarken bakilan gercek sinav kitapciklari (buyuk PDF'ler, depoya girmez)
 referans/
+
+# Formul karti denetim ve envanter raporlari: tek seferlik calisma notlari.
+# Diskte kalirlar, git durumunda gorunmezler.
+cember-denetim-raporu.md
+matematik-denetim-raporu.md
+matematik-envanter-raporu.md
