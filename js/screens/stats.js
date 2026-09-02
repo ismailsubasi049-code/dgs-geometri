@@ -82,6 +82,25 @@ function lastBackupLine() {
   return `Son yedek: ${sinceDays} gün önce.`;
 }
 
+/**
+ * Sure kayitlarinin nereden basladigi. Sinira takilip dusen kayit sessizce gitmesin:
+ * verinin hangi tarihten itibaren tam oldugu buradan gorunur.
+ */
+function timingsLine() {
+  const { count, oldestAt, dropped } = store.timingsInfo();
+  if (count === 0) return null;
+
+  // fmtDay gecmis tarihleri "bugun" diye ozetliyor (ileriye donuk yazilmis);
+  // burada aranan tam tersi, kaydin ne kadar geriye gittigi.
+  const oldest = oldestAt
+    ? new Date(oldestAt).toLocaleDateString('tr-TR', { day: 'numeric', month: 'long' })
+    : null;
+  const text = `Süre kaydı: ${count} kayıt${oldest ? ` · en eskisi ${oldest}` : ''}.`
+    + (dropped > 0 ? ` Sınıra takılan ${dropped} eski kayıt düştü.` : '');
+
+  return el('div', { class: 'small muted' }, text);
+}
+
 function backupSection(rerender) {
   const status = el('div', { class: 'small muted' }, lastBackupLine());
 
@@ -115,7 +134,8 @@ function backupSection(rerender) {
     on: {
       click: () => {
         const ok = window.confirm(
-          'Tüm ilerleme silinecek: çözüm geçmişi, seri ve tekrar takvimi. Bu geri alınamaz. Emin misin?'
+          'Tüm ilerleme silinecek: çözüm geçmişi, seri, tekrar takvimi ve süre kayıtları. '
+          + 'Bu geri alınamaz. Emin misin?'
         );
         if (!ok) return;
         store.resetAll();
@@ -132,6 +152,7 @@ function backupSection(rerender) {
     exportButton,
     importButton,
     status,
+    timingsLine(),
     el('div', { style: 'height:8px' }),
     resetButton
   );

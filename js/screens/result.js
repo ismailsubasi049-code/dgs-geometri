@@ -91,6 +91,59 @@ function reviewItem(question, record, index, openRoot) {
     summary, detailStack);
 }
 
+/**
+ * Sure olcumu ozeti. Hesap js/quiz.js -> timingSummary(); burasi yalnizca basar.
+ * Baski unsuru yok: hedef cizgisi, renk, uyari, kiyas yok - sade sayi.
+ */
+function timingCard(summary) {
+  if (!summary || summary.totalMs === 0) return null;
+
+  const seconds = (ms) => fmtTime(ms / 1000);
+  const ROW = 'display:flex;justify-content:space-between;gap:10px';
+
+  const rows = el('div', { class: 'stack' },
+    el('div', { style: ROW },
+      el('span', null, 'Toplam süre'),
+      el('strong', null, seconds(summary.totalMs))),
+    el('div', { style: ROW },
+      el('span', null,
+        `Cevaplanan ortalaması${summary.answeredCount > 0 ? ` (${summary.answeredCount} soru)` : ''}`),
+      el('strong', null, summary.answeredCount > 0 ? seconds(summary.avgMs) : '—'))
+  );
+
+  const notes = el('div', { class: 'stack' });
+
+  if (summary.blankCount > 0) {
+    notes.append(el('div', { class: 'small muted' },
+      `Boş bıraktığın ${summary.blankCount} soruda ${seconds(summary.blankMs)} geçti.`));
+  }
+
+  if (summary.suspectCount > 0) {
+    notes.append(el('div', { class: 'small muted' },
+      `${summary.suspectCount} kayıt 15 dakikayı aştı; şüpheli sayıldı, ortalamaya katılmadı.`));
+  }
+
+  const top = el('div', { class: 'stack' },
+    el('div', { class: 'small muted' }, 'En uzun süren sorular'),
+    summary.top.map((row) =>
+      el('div', { class: 'small', style: ROW },
+        el('span', null,
+          `${row.number}. soru${row.label ? ` · ${row.label}` : ''}`
+          + (row.blank ? ' · boş' : '') + (row.suspect ? ' · şüpheli' : '')),
+        el('span', null, seconds(row.ms))))
+  );
+
+  return el('div', { class: 'card stack' },
+    el('div', { style: 'font-weight:600' }, 'Süre ölçümü'),
+    rows,
+    notes,
+    top,
+    el('div', { class: 'small muted' },
+      'Ölçüm, sorunun ekrana gelmesinden şıkkı işaretlemene kadar geçen süredir; '
+      + 'çözüm okuma ve uygulama arka plandayken geçen süre buna dahil değil.')
+  );
+}
+
 export async function render(ctx) {
   const session = getLastSession();
 
@@ -139,6 +192,9 @@ export async function render(ctx) {
         el('div', { class: 'v' }, `${score.hintOpens}/${score.total}`))
     )
   );
+
+  const timing = timingCard(session.timingSummary());
+  if (timing) root.append(timing);
 
   if (score.hintOpens === score.total && score.total > 0) {
     root.append(el('div', { class: 'card small muted' },

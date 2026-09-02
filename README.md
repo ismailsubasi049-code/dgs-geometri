@@ -219,6 +219,23 @@ Bu sessiz kayba karşı iki uyarı var (`js/backup.js`):
 
 Süreler `js/store.js` içindeki `BACKUP_REMIND_DAYS` ve `BACKUP_SNOOZE_DAYS` sabitlerinde.
 
+### Soru bazlı süre ölçümü
+
+Her cevap için bir süre kaydı tutulur (`dgs.progress.v1` → `timings`): sorunun ekranda
+görünmesinden şıkkı işaretlemene kadar geçen süre, soru/paket/konu/zorluk, doğru mu,
+bloklu soruda blok kimliği ve tarih. Aynı soruyu tekrar çözdüğünde **yeni bir kayıt**
+açılır, eskisi korunur. Ölçüm tamamen arka plandadır; çözerken hiçbir şey görünmez.
+
+Sayaç uygulama arka plana geçince durur, dönünce devam eder (`js/timing.js`:
+`visibilitychange`, `pagehide`/`pageshow`, `blur`/`focus`, `freeze`/`resume`). Uygulama
+tamamen kapatılırsa yarım kalan sorunun kaydı hiç açılmaz, dönüşte ölçüm sıfırdan
+başlar. 15 dakikayı aşan kayıt `suspect` işaretlenir ve ortalamalara katılmaz.
+
+Kayıtlar ilerlemeyle aynı anahtarda durduğu için yedeğe kendiliğinden girer.
+Depoda en fazla `MAX_TIMINGS` (3000, ~60 gün) kayıt tutulur; taşınca en eskiler düşer.
+Sınır yalnız depo içindir — yedek dosyası o andaki verinin tamamını taşır. Kaç kaydın
+düştüğü ve en eski kaydın tarihi İstatistik ekranında, yedekleme bölümünün altında yazar.
+
 Tekrar takvimi hafif bir Leitner sistemidir: kutu 1-5, aralıklar 1 / 1 / 3 / 7 / 16 gün.
 Doğru cevap bir üst kutuya çıkarır, yanlış cevap 1. kutuya düşürür. Takvim gün bazlıdır ve
 en küçük aralık 1 gündür (`MIN_INTERVAL_DAYS`): cevaplanan bir soru — doğru da olsa yanlış da
@@ -271,6 +288,7 @@ css/app.css
 js/
   app.js                hash router, service worker kaydı
   packs.js formulas.js store.js scheduler.js quiz.js svg.js scratchpad.js ui.js
+  timing.js             soru bazlı süre ölçümü (ölçen kısım; gösterim ekranlarda)
   screens/              home, session, result, topics, formulas, stats
 data/
   index.json            ders, konu ve paket kaydı — genişleme noktası

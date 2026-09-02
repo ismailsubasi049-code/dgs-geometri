@@ -33,6 +33,15 @@ const BACKUP_REMIND_DAYS = 7;
 /** "Sonra" denince hatirlatmanin susacagi sure. */
 const BACKUP_SNOOZE_DAYS = 3;
 
+/**
+ * Saklanan sure kaydi ust siniri (~60 gun x 50 soru). Ekleme sirasinda uygulanir:
+ * localStorage hicbir zaman bundan fazlasini tutmaz. Sinir yalnizca DEPO icindir -
+ * exportJson kendi basina kirpma yapmaz, yedek o andaki verinin tamamini tasir.
+ * Tasma sessiz degil: timingsSeen sayaci sayesinde kac kaydin dustugu hesaplanabilir,
+ * Istatistik ekrani hem bunu hem de en eski kaydin tarihini yazar.
+ */
+const MAX_TIMINGS = 3000;
+
 function defaultState() {
   return {
     schema: 1,
@@ -40,6 +49,19 @@ function defaultState() {
     daily: {},
     /** Yarim kalan ogrenme oturumlari: "altkonu:<id>" -> { ids, index, answers, savedAt } */
     sessions: {},
+    /**
+     * Soru bazli sure olcumu: EKLEME-TABANLI liste, hicbir kayit digerini ezmez.
+     * Ayni soru tekrar cozulunce yeni bir kayit acilir (zaman icindeki degisim gorunsun).
+     * Kayit bicimi js/timing.js -> makeTimingRecord.
+     */
+    timings: [],
+    /**
+     * Bugune kadar EKLENEN toplam sure kaydi. Dusen kayit sayisi bundan turetilir
+     * (seen - liste uzunlugu). Dogrudan bir "dusen" sayaci tutmak yaniltici cikti:
+     * mergeStates her yazmada calistigi icin ayni dusme birden fazla kez sayilabiliyor
+     * (dogrulamada 6 yerine 11 yazdi). Bu sayac yalnizca artar, tekrar sayilmaz.
+     */
+    timingsSeen: 0,
     streak: { current: 0, best: 0, lastDay: null },
     settings: { dailyCount: 10, testMinutes: 12, instantChoices: false },
     /** Hic yedek alinmadiysa hatirlatma bu tarihten sayilir. */
@@ -101,6 +123,9 @@ function normalize(parsed) {
     questions: parsed.questions || {},
     daily: parsed.daily || {},
     sessions: parsed.sessions || {},
+    // Sure olcumunden onceki yedekler bu alani tasimaz; bos liste ile acilir.
+    timings: Array.isArray(parsed.timings) ? parsed.timings : [],
+    timingsSeen: Number(parsed.timingsSeen) || (Array.isArray(parsed.timings) ? parsed.timings.length : 0),
   };
 }
 
@@ -154,6 +179,39 @@ function pickStat(mine, theirs) {
 }
 
 /**
+ * Sure kayitlari ekleme-tabanlidir: burada "daha ileri kazanir" degil BIRLESIM gecerli.
+ * Iki kopya (PWA + sekme) ayni anda cozerse iki tarafin kayitlari da yasar; ayni kaydin
+ * iki kez girmemesi icin at + qid ile tekillestirilir.
+ */
+function mergeTimings(mine, disk) {
+  // Tek kopya calisirken (olagan hal) iki taraf ayni listedir; 3000 kayitlik birlesimi
+  // her yazmada yeniden kurmak bos yere ~7 ms harciyordu. Uzunluk ile ilk/son kaydin
+  // zaman damgasi tutuyorsa liste aynidir, dokunmadan gecilir.
+  if (mine && disk && mine.length === disk.length) {
+    const n = mine.length;
+    if (n === 0) return mine;
+    if (mine[0].at === disk[0].at && mine[n - 1].at === disk[n - 1].at
+      && mine[n - 1].qid === disk[n - 1].qid) {
+      return mine;
+    }
+  }
+
+  const seen = new Set();
+  const out = [];
+
+  for (const record of [...(disk || []), ...(mine || [])]) {
+    if (!record || !record.qid) continue;
+    const key = `${record.at}:${record.qid}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(record);
+  }
+
+  out.sort((a, b) => (a.at || 0) - (b.at || 0));
+  return out.length <= MAX_TIMINGS ? out : out.slice(out.length - MAX_TIMINGS);
+}
+
+/**
  * Bellekteki kopya ile diskteki kopyayi birlestirir; catisan her alanda "daha ileri"
  * olan kazanir. Boylece eski kalmis bir sekmenin yazmasi bile ilerlemeyi geri alamaz.
  *
@@ -184,6 +242,8 @@ function mergeStates(mine, disk) {
   // Seriyi en son calisilan gun belirler; en iyi seri iki taraftan buyuk olani.
   const streak = (mine.streak.lastDay || '') >= (disk.streak.lastDay || '') ? mine.streak : disk.streak;
 
+  const timings = mergeTimings(mine.timings, disk.timings);
+
   return {
     ...disk,
     // Ayarlarda disk taze kabul edilir; bu yazmanin kendi degisikligi zaten sonra uygulanacak.
@@ -191,6 +251,10 @@ function mergeStates(mine, disk) {
     questions,
     daily,
     sessions,
+    timings,
+    // Yalnizca artan bir sayac: iki kopya bagimsiz eklemis olabilir, ama ayni dusme
+    // tekrar tekrar sayilmasin diye toplanmaz - en buyugu (ve en az liste kadari) alinir.
+    timingsSeen: Math.max(mine.timingsSeen || 0, disk.timingsSeen || 0, timings.length),
     streak: { ...streak, best: Math.max(mine.streak.best || 0, disk.streak.best || 0) },
     installedAt: Math.min(mine.installedAt || Date.now(), disk.installedAt || Date.now()),
     backup: {
@@ -427,6 +491,62 @@ export function clearSession(key) {
   mutate((store) => {
     delete store.sessions[key];
   });
+}
+
+// ---------- sure olcumu ----------
+
+/**
+ * Olculen sure kayitlarini ekler. Tek yazma: oturum ekrani kayitlari biriktirip
+ * toplu verir, boylece cevap basina fazladan disk yazmasi olmaz.
+ *
+ * Kayitlar hicbir zaman ustune yazilmaz - ayni soru tekrar cozulunce yanina yeni
+ * bir kayit dusar. Sinir asilirsa EN ESKI kayitlar dusurulur ve sayaca islenir.
+ */
+export function addTimings(records) {
+  if (!Array.isArray(records) || records.length === 0) return;
+
+  mutate((store) => {
+    // Emniyet agi: ayni cevap (at + qid) iki kez yazilmasin. Ayni sorunun FARKLI
+    // zamanlardaki cozumleri ayri kayitlardir - onlarin at'i farklidir, elenmezler.
+    const seen = new Set(store.timings.map((record) => `${record.at}:${record.qid}`));
+    let added = 0;
+    for (const record of records) {
+      const key = `${record.at}:${record.qid}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      store.timings.push(record);
+      added += 1;
+    }
+    store.timingsSeen = (store.timingsSeen || 0) + added;
+
+    const excess = store.timings.length - MAX_TIMINGS;
+    if (excess <= 0) return;
+    store.timings.splice(0, excess);
+    console.info(
+      `Sure kaydi sinirina takildi: ${excess} eski kayit dustu `
+      + `(toplam ${store.timingsSeen - store.timings.length}).`
+    );
+  });
+}
+
+/** Istatistik ekranindaki "sure kaydi" satiri icin: kac kayit, en eskisi ne zaman, kac tanesi dustu. */
+export function timingsInfo() {
+  const store = load();
+  const list = store.timings || [];
+  let oldestAt = null;
+  for (const record of list) {
+    if (!record || !record.at) continue;
+    if (oldestAt === null || record.at < oldestAt) oldestAt = record.at;
+  }
+  // Dusen sayisi turetilir: eklenen toplam - elde kalan. Sayac yalnizca arttigi icin
+  // ayni dusme iki kez sayilmaz.
+  const dropped = Math.max(0, (store.timingsSeen || 0) - list.length);
+  return { count: list.length, oldestAt, dropped };
+}
+
+/** Rapor ekrani gelene kadar disariya acik tek okuma yolu; kopya doner. */
+export function allTimings() {
+  return (load().timings || []).slice();
 }
 
 export function getStreak() {

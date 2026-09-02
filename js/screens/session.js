@@ -16,7 +16,8 @@ import {
 import { loadAllQuestions } from '../packs.js';
 import { loadAllCards, getCardFor } from '../formulas.js';
 import { createScratchpad } from '../scratchpad.js';
-import { getSettings, getSavedSession, saveSession, clearSession } from '../store.js';
+import { createQuestionTimer, makeTimingRecord } from '../timing.js';
+import { getSettings, getSavedSession, saveSession, clearSession, addTimings } from '../store.js';
 
 /**
  * Ogrenme havuzu bos ama konuda soru varsa: hepsi tekrar sirasina girmis demektir.
@@ -302,6 +303,65 @@ export async function render(ctx) {
     else saveSession(resumeKey, session.snapshot());
   }
 
+  // ---------- soru bazli sure olcumu ----------
+
+  /**
+   * Olcum tamamen arka planda: ekranda hicbir sey degismez. Sayac soru gorununce
+   * baslar, sik isaretlenince durur; sekme arka plana gecince (ve dort senaryonun
+   * hepsinde, bkz. js/timing.js) duraklar.
+   *
+   * SONRAKI TUR: gorunur sayac buraya baglanacak - timer.subscribe(...) ile bir
+   * rozet beslenip counterVisible: true yazilacak. Olcum mantigi degismeyecek.
+   */
+  const timer = createQuestionTimer();
+  ctx.onLeave(timer.destroy);
+
+  /**
+   * Depoya yazilmis cevap indeksleri; ayni kayit iki kez yazilmasin.
+   * Devam ettirilen oturumda diskten gelen cevaplarin olcumu ONCEKI acilista zaten
+   * yazilmisti; isaretlenmezse oturuma her donuste hepsi yeniden yazilir ve kayitlar
+   * cogalirdi (dogrulamada 6 cevap 12 kayit oldu).
+   */
+  const flushedTimings = new Set();
+  if (resumed) {
+    for (let i = 0; i < session.answers.length; i++) {
+      if (session.answers[i]) flushedTimings.add(i);
+    }
+  }
+
+  /**
+   * Biriken olcumleri tek yazmada depoya gecirir. Cevap basina disk yazmasi yok:
+   * cozme akisi yavaslamasin diye oturum sonunda, ekrandan cikarken ve sayfa arka
+   * plana giderken toplu yazilir. Yazacak bir sey yoksa hicbir sey yapmaz.
+   */
+  function flushTimings() {
+    const records = [];
+
+    for (let i = 0; i < session.answers.length; i++) {
+      const answer = session.answers[i];
+      if (!answer || flushedTimings.has(i)) continue;
+      // Hic ekrana gelmemis soru kayit acmaz.
+      if (answer.skipped && !answer.shown) continue;
+      flushedTimings.add(i);
+      records.push(makeTimingRecord(session.questions[i], answer, { counterVisible: false }));
+    }
+
+    if (records.length > 0) addTimings(records);
+  }
+
+  function onHiddenFlush() {
+    if (document.visibilityState === 'hidden') flushTimings();
+  }
+
+  window.addEventListener('pagehide', flushTimings);
+  document.addEventListener('visibilitychange', onHiddenFlush);
+
+  ctx.onLeave(() => {
+    window.removeEventListener('pagehide', flushTimings);
+    document.removeEventListener('visibilitychange', onHiddenFlush);
+    flushTimings();
+  });
+
   // ---------- sure ----------
 
   let timerId = null;
@@ -372,6 +432,13 @@ export async function render(ctx) {
   let hintMs = null;
 
   /**
+   * Sik isaretlendigi andaki olcum. Olcum "cevap isaretlenmesine kadar" tanimli;
+   * testte secim degistirilebildigi icin her isarette yeniden okunur - son isaretin
+   * ani gecerlidir. Sayac durdurulmaz, yalnizca okunur (peek).
+   */
+  let pickedTiming = null;
+
+  /**
    * Zor bloga gecis bildirimi: sadece gercek bir gecis olunca.
    * Ogrenme listesi iki bolumden olusur - once vadesi gelen tekrarlar, sonra geri
    * kalanlar - ve her ikisi de kendi icinde kolaydan zora dizilir. Bu yuzden bildirim
@@ -419,11 +486,17 @@ export async function render(ctx) {
 
   function finishSession({ timedOut = false } = {}) {
     stopTimer();
+    // Ekranda duran sorunun olcumu: cevaplanmadiysa "bos" kaydina yazilacak.
+    const measured = timer.stop();
     // Testte sik isaretlenmis ama "Sonraki"ye basilmadan sure dolduysa o cevap da sayilir.
+    // Suresi isaretleme aninda okunmustu; bekleyen sure cevaba yazilmaz.
     if (pendingPick !== null && !session.isAnswered()) {
-      session.submit(pendingPick, { hintMs, elapsedMs: Date.now() - shownAt });
+      const picked = pickedTiming || measured;
+      session.submit(pendingPick, { hintMs, elapsedMs: picked.ms, pausedMs: picked.pausedMs });
     }
-    session.finish({ timedOut });
+    // Cevaplanmis sorunun olcumu zaten kaydinda; yalnizca gorunup bos kalan soru buradan gecer.
+    session.finish({ timedOut, current: session.isAnswered() ? null : measured });
+    flushTimings();
     if (resumeKey) clearSession(resumeKey);
     // Biten oturum gecmiste kalmasin: sonuc ekranindan geri, oturuma degil listeye insin.
     ctx.navigate('#/sonuc', { replace: true });
@@ -434,8 +507,11 @@ export async function render(ctx) {
     const number = session.index + 1;
 
     pendingPick = null;
+    pickedTiming = null;
     hintMs = null;
     shownAt = Date.now();
+    // Olcum sorunun ekrana geldigi andan baslar; ipucu suresiyle ayni baslangic.
+    timer.start();
 
     counter.textContent = `Soru ${number} / ${session.questions.length}`;
     progressFill.style.width = `${((number - 1) / session.questions.length) * 100}%`;
@@ -543,9 +619,11 @@ export async function render(ctx) {
     }
 
     function commit(pickedIndex) {
+      const measured = pickedTiming || timer.peek();
       const record = session.submit(pickedIndex, {
         hintMs,
-        elapsedMs: Date.now() - shownAt,
+        elapsedMs: measured.ms,
+        pausedMs: measured.pausedMs,
       });
       if (!record) return;
       persist();
@@ -560,6 +638,9 @@ export async function render(ctx) {
     }
 
     function onPick(pickedIndex) {
+      // Olcum burada biter; testte secim degistirilirse son isaret gecerli olur.
+      pickedTiming = timer.peek();
+
       if (session.config.timed) {
         // Testte secim gecicidir; "Sonraki"ye basilinca kesinlesir.
         pendingPick = pickedIndex;

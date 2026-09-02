@@ -2,6 +2,7 @@
 
 import * as store from './store.js';
 import { dayKey } from './ui.js';
+import { MAX_QUESTION_MS } from './timing.js';
 
 export const MODES = {
   gunluk: {
@@ -61,7 +62,11 @@ export function createSession({ mode, questions, title = null, scope = null, tot
      */
     scope,
     questions,
-    /** Her soru icin: { id, picked, correct, hintMs, elapsedMs } */
+    /**
+     * Her soru icin: { id, picked, correct, hintMs, elapsedMs, pausedMs, at }
+     * elapsedMs / pausedMs duraklamali sayactan gelir (js/timing.js); at cevabin
+     * verildigi andir - kayit sonradan diske yazilsa da zaman damgasi kaymaz.
+     */
     answers: new Array(questions.length).fill(null),
     index: 0,
     totalSeconds: config.timed ? totalSeconds : null,
@@ -82,12 +87,20 @@ export function createSession({ mode, questions, title = null, scope = null, tot
      * Secilen sikki isler ve ilerlemeyi kaydeder.
      * hintMs: soru gorunduginden ipucuna dokunulana kadar gecen sure.
      */
-    submit(pickedIndex, { hintMs = null, elapsedMs = 0 } = {}) {
+    submit(pickedIndex, { hintMs = null, elapsedMs = 0, pausedMs = 0 } = {}) {
       const question = this.current();
       if (!question || this.answers[this.index]) return null;
 
       const correct = pickedIndex === question.answer;
-      const record = { id: question.id, picked: pickedIndex, correct, hintMs, elapsedMs };
+      const record = {
+        id: question.id,
+        picked: pickedIndex,
+        correct,
+        hintMs,
+        elapsedMs,
+        pausedMs,
+        at: Date.now(),
+      };
       this.answers[this.index] = record;
 
       store.recordAnswer(question.id, { correct, hintMs });
@@ -97,17 +110,26 @@ export function createSession({ mode, questions, title = null, scope = null, tot
       return record;
     },
 
-    /** Cevaplanmamis sorulari bos gecmis say (sure dolunca kullanilir). */
-    markRemainingSkipped() {
+    /**
+     * Cevaplanmamis sorulari bos gecmis say (sure dolunca kullanilir).
+     * current: ekranda duran ama cevaplanmamis sorunun olcumu ({ ms, pausedMs }) ya da null.
+     * Yalnizca o soru "gorulmus" (shown) isaretlenir; hic ekrana gelmemis sorular sure
+     * kaydi acmaz - 0 saniyelik sahte kayitlar ortalamayi bozardi.
+     */
+    markRemainingSkipped(current = null) {
       for (let i = 0; i < this.questions.length; i++) {
         if (this.answers[i] === null) {
+          const shown = current !== null && i === this.index;
           this.answers[i] = {
             id: this.questions[i].id,
             picked: null,
             correct: false,
             hintMs: null,
-            elapsedMs: 0,
+            elapsedMs: shown ? current.ms : 0,
+            pausedMs: shown ? current.pausedMs : 0,
+            at: Date.now(),
             skipped: true,
+            shown,
           };
           // Bos birakilan soru "yanlis" sayilmaz ve kutusu degismez; yalnizca gorulmus
           // isaretlenir ki "hic denenmemis" havuzunda kalip ayni gun geri gelmesin.
@@ -146,9 +168,56 @@ export function createSession({ mode, questions, title = null, scope = null, tot
       return { correct, wrong, skipped, hintOpens, total: this.questions.length };
     },
 
-    finish({ timedOut = false } = {}) {
+    /**
+     * Oturum sonu sure ozeti - HESAP burada, gosterim sonuc ekraninda.
+     *
+     * Uc ayri kova, ust uste binmez (toplam = cevaplanan + bos + supheli):
+     *  - cevaplanan: temiz olcum, ORTALAMA yalnizca bundan hesaplanir
+     *  - bos: gorunup cevaplanmadan gecilen soru; toplama girer, ortalamaya girmez
+     *  - supheli: 15 dakikayi asan kayit; kacirilan bir duraklatma senaryosunun
+     *    ortalamayi bozmamasi icin ayrilir, ama toplamda ve listede gorunur
+     * Hic ekrana gelmemis sorular hicbir kovaya girmez.
+     */
+    timingSummary() {
+      const rows = [];
+
+      for (let i = 0; i < this.answers.length; i++) {
+        const answer = this.answers[i];
+        if (!answer) continue;
+        if (answer.skipped && !answer.shown) continue;
+
+        const question = this.questions[i] || {};
+        const ms = Math.max(0, Math.round(answer.elapsedMs || 0));
+        rows.push({
+          number: i + 1,
+          ms,
+          suspect: ms > MAX_QUESTION_MS,
+          blank: Boolean(answer.skipped),
+          label: question.subtopic || question.topic || '',
+        });
+      }
+
+      const total = (list) => list.reduce((sum, row) => sum + row.ms, 0);
+      const suspects = rows.filter((row) => row.suspect);
+      const blanks = rows.filter((row) => !row.suspect && row.blank);
+      const clean = rows.filter((row) => !row.suspect && !row.blank);
+
+      return {
+        totalMs: total(rows),
+        answeredMs: total(clean),
+        answeredCount: clean.length,
+        avgMs: clean.length > 0 ? Math.round(total(clean) / clean.length) : 0,
+        blankMs: total(blanks),
+        blankCount: blanks.length,
+        suspectMs: total(suspects),
+        suspectCount: suspects.length,
+        top: rows.slice().sort((a, b) => b.ms - a.ms).slice(0, 3),
+      };
+    },
+
+    finish({ timedOut = false, current = null } = {}) {
       if (this.finished) return this;
-      this.markRemainingSkipped();
+      this.markRemainingSkipped(current);
       this.finished = true;
       this.timedOut = timedOut;
       this.endedAt = Date.now();

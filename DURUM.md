@@ -1,6 +1,6 @@
 # Durum
 
-**Son güncelleme:** 2026-09-02 · **sw.js VERSION:** güncel değer için `sw.js:4`
+**Son güncelleme:** 2026-09-03 · **sw.js VERSION:** güncel değer için `sw.js:4`
 (elle tutulan kopya iki tur geride kaldığı için buradan kaldırıldı; sürüm zaten
 her turda aşağıdaki günlüğe yazılıyor)
 
@@ -1030,6 +1030,179 @@ Düzeltilmedi, kayıt için duruyor:
 - `ozdeslik-17` (n³ − n) `a² − b²` özdeşliğini b = 1 ile kullanır; paketin geri
   kalanında dejenere kurulum yok. Ardışık üç sayı çarpımı klasik biçimiyle
   yazılabilsin diye bilinçli bırakıldı — b = 1 burada hiçbir terimi düşürmüyor.
+
+## Soru bazlı süre ölçümü
+
+**2026-09-03 (v46) · yeni `js/timing.js` + `store.js`, `quiz.js`, iki ekran, `sw.js`.**
+DGS'de 50 soru 75 dakika — soru başına 90 saniye. Paketler bu bütçenin üstünde
+bitiyordu ama sürenin nereye gittiği bilinmiyordu: tek bir soruya mı takılınıyor,
+yoksa süre tüm sorulara mı yayılıyor. Bu tur **yalnızca ölçüm** ekledi.
+
+**Çözme akışında görünür hiçbir şey değişmedi** — uyarı yok, kronometre yok, renk
+yok. Gerekçe İsmail'in koyduğu şart: görünür bir sayaç davranışı değiştirir, o
+zaman doğal hız değil sayaca tepki ölçülmüş olur. Önce sayaçsız bir **referans
+ölçümü** toplanacak.
+
+### Ölçen ve gösteren ayrı
+
+Bir sonraki turda açılıp kapanabilen **görünür** bir sayaç gelecek. O turda ölçüm
+mantığı yeniden yazılmasın diye ikisi baştan ayrıldı:
+
+- **Ölçen:** `js/timing.js` → `createQuestionTimer()`. `start()` / `stop()` /
+  `peek()` / `subscribe()` / `destroy()`.
+- **Gösteren:** ekranlar. Bu turda tek gösterim oturum sonu özeti.
+- **Bağlanma noktası:** `timer.subscribe(fn)`. İlk abone gelince 1 saniyelik aralık
+  kurulur, son abone gidince kalkar, arka planda hiç çalışmaz. **Bu turda hiç abone
+  yok, dolayısıyla hiç zamanlayıcı kurulmuyor** — ölçüm yalnız `Date.now()`
+  farklarından birikiyor.
+- Her kayıt `counterVisible` alanı taşır (şimdilik hep `false`). Sayaç açıldığında
+  `true` yazılacak; iki dönemin verisi karışmayacak.
+
+Hesap da gösterimden ayrı: `session.timingSummary()` (`js/quiz.js`) sayıları üretir,
+`js/screens/result.js` yalnızca basar.
+
+### Duraklatma: tek yüklem, beş senaryo
+
+Sayaç tek bir yüklemden karar verir; her olay yalnızca bir bayrak çevirir:
+
+    calisiyor = visible && focused && !frozen && !pageHidden
+
+Bayraklar **içerde** tutulur, `document.hasFocus()` gibi canlı sorgular tekrar
+sorulmaz: davranış belirlenimli olur ve doğrulamada olay göndererek sınanabilir.
+
+| senaryo | olaylar | davranış |
+|---|---|---|
+| Sekme/uygulama gizlendi, ekran kilitlendi, kare tuşu | `visibilitychange` | anında durur |
+| Mobil tarayıcıda arka plana atma, bfcache | `pagehide` / `pageshow` | anında durur |
+| Odak kaybı (başka pencere, bildirim çekmecesi) | `blur` / `focus` | 2 sn tolerans, sonra **blur anına geri tarihlenerek** durur |
+| Tarayıcı sayfayı dondurdu | `freeze` / `resume` | anında durur |
+| PWA tamamen kapanıp açıldı | — | aşağıda |
+
+**Blur toleransı (`BLUR_GRACE_MS = 2000`)** adres çubuğuna dokunmak gibi anlık odak
+kayıplarında sayacın durmaması için. Tolerans dolarsa duraklama blur'un olduğu ana
+geri tarihlenir, böylece **o 2 saniye soruya yazılmaz** (ölçüldü: sızıntı 0 ms).
+
+**`focused` başlangıçta `true` kabul edilir, `document.hasFocus()` bilerek
+sorulmaz.** Doğrulama tarayıcısı sayfa görünür dururken bile `hasFocus() = false`
+döndürdü; başlangıçta ona güvenilen ilk sürümde sayaç hiç çalışmadı ve soru
+**0 sn** ölçüldü. Duraklatmanın eksik çalışması, hiç çalışmamasından iyidir:
+gerçek bir odak kaybı zaten `blur` olayıyla gelir.
+
+**PWA tamamen kapanıp açılırsa** JS hiç çalışmaz, sayaç nesnesi yok olur. Kayıt
+yalnız cevaplanmış sorular için açıldığından **yarım kalan sorunun kaydı hiç
+açılmamıştır**; dönüşte `restoreSession` soruyu yeniden gösterir ve sayaç sıfırdan
+başlar. Kapalı geçen sürenin yazılabileceği bir kayıt yoktur.
+
+**Emniyet kemeri — `MAX_QUESTION_MS` (15 dk):** kaçırılan bir senaryo veriyi
+bozmasın diye 15 dakikayı aşan kayıt `suspect: true` alır. Değer **kırpılmaz**
+(bilgi kaybolmasın) ama ortalamaya katılmaz; sonuç ekranı ayrıca söyler.
+
+### Kayıt şeması ve depo
+
+Kayıtlar mevcut ilerlemeyle **aynı anahtarda** (`dgs.progress.v1` → `timings`),
+ekleme tabanlı bir dizide. Aynı soru tekrar çözülünce **yeni kayıt açılır**, eskisi
+korunur (zaman içindeki değişim görünsün). Boş ve `false` alanlar yazılmaz; tek
+istisna `counterVisible`, o her kayıtta açıkça durur. Kayıt başına ~197 bayt.
+
+    { qid, packId, topic, subtopic, difficulty, blockId?, ms, pausedMs?,
+      suspect?, correct, day, at, counterVisible }
+
+`correct`: `true` / `false` / **`null` = görünüp cevaplanmadan geçilen soru.**
+Hiç ekrana gelmemiş sorular kayıt açmaz (0 saniyelik sahte kayıt olmaz).
+
+**Yazma cevap başına değil, toplu:** `session.answers` zaten tampon görevi görüyor;
+`flushTimings()` oturum sonunda, ekrandan çıkarken, `pagehide`'da ve sayfa arka
+plana geçtiğinde tek `addTimings()` çağrısıyla yazar. Çözme akışında cevap başına
+fazladan disk yazması yok.
+
+**Sınır `MAX_TIMINGS = 3000`** (~60 gün × 50 soru, dolu hâlde 583 KB). Ekleme
+anında uygulanır, en eskiler düşer. **Sınır yalnız depo içindir:** `exportJson()`
+kendi başına kırpma yapmaz, yedek o andaki verinin tamamını taşır. Ama düşmüş bir
+kayıt hiçbir yerde durmadığı için yedeğe de giremez — haftada bir yedek alındığında
+hiçbir şey kaybolmaz.
+
+**Düşme sessiz değil:** İstatistik ekranında yedekleme başlığının altında tek satır
+— "Süre kaydı: 3000 kayıt · en eskisi 19 Haziran. Sınıra takılan 6 eski kayıt
+düştü." Ana ekranda süre bölümü **yok**.
+
+Sayaç `timingsSeen` (bugüne kadar eklenen toplam); düşen sayısı bundan türetilir.
+İlk hâlde doğrudan bir `timingsDropped` sayacı vardı ve **yanlış sayıyordu**:
+`mergeStates` her yazmada çalıştığı için aynı düşme birden fazla kez toplanıyordu
+(6 yerine 11 yazdı). Yalnızca artan bir sayaçtan çıkarma yapmak bu sınıfı bitirdi.
+
+**Leitner'a ve ilerlemeye tek satır dokunulmadı.** `recordAnswer`, `recordSkipped`,
+`pickStat`, kutu/vade mantığı aynen duruyor; `timings` yanlarına eklenen bağımsız
+bir dizi. Yedek alma/yükleme/sıfırlama durumun tamamını yazıp okuduğu için süre
+kayıtları kendiliğinden dahil oldu (eski, `timings` alanı olmayan bir yedek de
+sorunsuz yükleniyor).
+
+### Oturum sonu özeti
+
+Sonuç ekranındaki mevcut kutular ve gözden geçirme listesi aynen kaldı. Altına sade
+bir kart: **toplam süre**, **cevaplanan ortalaması**, en uzun üç soru (numarası ve
+süresiyle). Hedef çizgisi, renk, uyarı yok.
+
+Üç kova üst üste binmez, toplam = cevaplanan + boş + şüpheli:
+
+- **ortalama yalnız cevaplanan sorulardan** (boş ve şüpheli hariç) — temiz ölçüm,
+- **toplam üçünü de içerir** — geçen süre,
+- aradaki fark boşa giden süreyi doğrudan gösterir; boş kayıt varsa ayrıca yazılır
+  ("Boş bıraktığın 1 soruda 1:14 geçti").
+
+Ölçüm sorunun görünmesinden şıkkın işaretlenmesine kadardır: çözüm okuma süresi
+dışarıdadır, bu yüzden üstteki mevcut "Süre" kutusundan (oturumun duvar saati)
+küçüktür. Kartın altındaki tek satır bunu söylüyor.
+
+### Doğrulama (tarayıcıda, sayıyla)
+
+Duraklatmanın beş senaryosu **ayrı ayrı ölçüldü**. Desen aynı: soru gösterilir,
+senaryo uygulanır, duvar saatiyle T saniye beklenir, dönülüp cevaplanır; kaydın
+`ms` değeri "görünür geçen süre"ye eşit olmalı, `pausedMs` ≈ T olmalı.
+
+| senaryo | görünür toplam | uzakta | beklenen ms | ölçülen ms | pausedMs | sapma |
+|---|---|---|---|---|---|---|
+| `visibilitychange` | 7268 | 5005 | 2263 | 2258 | 5005 | **5 ms** |
+| `pagehide`/`pageshow` | 7763 | 4994 | 2769 | 2765 | 4994 | **4 ms** |
+| kısa blur (1 sn, tolerans) | 4488 | — | 4488 | 4484 | **0** | **4 ms** |
+| uzun blur (5 sn, geri tarihli) | 8800 | 5987 | 2813 | 2805 | 5987 | **8 ms** |
+| `freeze`/`resume` | 6870 | 5004 | 1866 | 1859 | 5004 | **7 ms** |
+
+**PWA kapanıp açılması:** oturumun ortasında belge tamamen yıkıldı, **41,4 saniye**
+kapalı kalındı, sonra uygulama açıldı. Yarım soru için kayıt **açılmadı**
+(12 → 12), oturum aynı soruyla devam etti (Soru 13/30) ve dönüşten sonra ölçülen
+süre 3109 ms — dönüşteki görünür pencere 3116 ms, **sapma 7 ms**. Kapalı geçen
+41 saniye hiçbir kayda sızmadı.
+
+Diğerleri: 15 dk emniyet kemeri (`Date.now` 16 dk ileri kaydırıldı → `ms` 961142,
+`suspect: true`, kırpılmadı, ortalamaya girmedi); aynı soru iki kez → aynı `qid`
+ile iki ayrı kayıt (112 sn arayla, 2993 ve 3455 ms); bloklu soruda `blockId`;
+mini testte gerçek süre dolması → ekrandaki soru `correct: null` + 74 sn, hiç
+görülmemiş 7 soru için kayıt yok, ortalama 2 cevaptan, toplam boşu da içeriyor;
+yedek al–geri yükle (19/19 kayıt, `timings` alanı olmayan eski yedek de sorunsuz);
+sınır (3005 + 1 → 3000, düşen 6); iki kopya birleşimi (her iki tarafın kaydı yaşadı).
+
+**Doğrulamada bulunup düzeltilen iki hata:** (1) devam ettirilen oturumda diskten
+gelen cevaplar yeniden yazılıyor, oturuma her dönüşte kayıtlar çoğalıyordu — 6 cevap
+12 kayıt oldu. Artık `resumed` ise o indeksler yazılmış sayılıyor, ayrıca
+`addTimings` `at + qid` ile aynı kaydı ikinci kez almıyor. (2) yukarıdaki
+`timingsDropped` yanlış sayması.
+
+**Regresyon:** karalama alanı (çizim, parmağı kutunun dışında bırakma, ikinci
+çizim, geri al, silgi, büyüt/küçült) sağlam; ortak kök, formül kartı, yarıda
+bırakıp devam etme, oturumu sonuna kadar bitirme çalışıyor; konsol temiz.
+
+**Ölçülen maliyet (masaüstü, 3000 kayıt / 583 KB dolu depo):** `recordAnswer`
+12,6 ms, 5 kayıtlık `addTimings` 15,8 ms. `mergeTimings`'e hızlı yol eklendi —
+tek kopya çalışırken iki liste aynıdır (uzunluk + ilk/son kaydın damgası), birleşim
+yeniden kurulmaz; bu tek başına cevap başına yazmayı 18,3 ms'den 12,6 ms'ye indirdi.
+
+**Doğrulama ortamının sınırı:** uygulama içi tarayıcı arka plandaki sekmeyi gerçekten
+arka plana atmıyor (ikinci sekme öne alındığında `visibilitychange` hiç tetiklenmedi)
+ve `document.hasFocus()` sayfa görünürken bile `false` dönüyor. Bu yüzden
+`visibilitychange` senaryosu `document.visibilityState` gerçekten geçersiz kılınarak,
+`blur`/`freeze` senaryoları olay gönderilerek ölçüldü — kod yolu birebir aynı yol,
+ama cihaz düzeyinde bir test değil. Telefonda ilk oturumda bir kez göz ucuyla
+bakılmalı: bir soruyu açıp uygulamayı kapatıp dönünce süre makul mü.
 
 ## Çalışma kuralları
 
