@@ -49,6 +49,29 @@ function settingsSection(onChanged) {
     on: { change: (event) => store.setSetting('instantChoices', event.target.checked) },
   });
 
+  const timerInput = el('input', {
+    type: 'checkbox',
+    checked: settings.showQuestionTimer,
+    on: { change: (event) => store.setSetting('showQuestionTimer', event.target.checked) },
+  });
+
+  const triageInput = el('input', {
+    type: 'checkbox',
+    checked: settings.triageWarning,
+    on: { change: (event) => store.setSetting('triageWarning', event.target.checked) },
+  });
+
+  const triageMinutesInput = el('input', {
+    type: 'number', min: '1', max: '3', step: '1', value: String(settings.triageMinutes),
+    on: {
+      change: (event) => {
+        const value = Math.min(3, Math.max(1, Number(event.target.value) || 2));
+        event.target.value = String(value);
+        store.setSetting('triageMinutes', value);
+      },
+    },
+  });
+
   return el('div', { class: 'stack' },
     el('h2', { style: 'font-size:1rem' }, 'Ayarlar'),
     el('label', { class: 'switch-row' },
@@ -69,6 +92,26 @@ function settingsSection(onChanged) {
         el('div', { class: 'small muted' },
           'Kapalıyken şıklar "Soru ne istiyor?" satırını açana kadar pasif kalır')),
       instantInput
+    ),
+    el('label', { class: 'switch-row' },
+      el('span', { class: 'grow' },
+        el('div', null, 'Soru sayacını göster'),
+        el('div', { class: 'small muted' },
+          'Açıkken o sorunun süresi köşede görünür; kapalıyken ölçüm arka planda sürer')),
+      timerInput
+    ),
+    el('label', { class: 'switch-row' },
+      el('span', { class: 'grow' },
+        el('div', null, 'Triyaj uyarısı'),
+        el('div', { class: 'small muted' },
+          'Eşiği aşınca bir kez sade bir hatırlatma çıkar. Sayaç kapalıyken de çalışır')),
+      triageInput
+    ),
+    el('label', { class: 'switch-row' },
+      el('span', { class: 'grow' },
+        el('div', null, 'Triyaj eşiği'),
+        el('div', { class: 'small muted' }, 'Dakika — bir soruda bu süreyi aşınca uyarı çıkar')),
+      triageMinutesInput
     )
   );
 }

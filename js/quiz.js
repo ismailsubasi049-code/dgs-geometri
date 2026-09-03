@@ -49,13 +49,21 @@ export function getLastSession() {
   return lastFinished;
 }
 
-export function createSession({ mode, questions, title = null, scope = null, totalSeconds = null }) {
+export function createSession({
+  mode, questions, title = null, scope = null, totalSeconds = null, triageMs = 120000,
+}) {
   const config = MODES[mode] || MODES.konu;
 
   return {
     mode: config.key,
     config,
     title: title || config.title,
+    /**
+     * Triyaj esigi (ms). Oturum sonu ozeti "kac soruda saplandim" satirini bundan
+     * hesaplar. Uyari ayardan kapatilmis olsa bile hesap yapilir: saplanma olcumu
+     * uyaridan bagimsiz bir gercektir.
+     */
+    triageMs,
     /**
      * Oturumun konu kapsami: { kind: 'konu' | 'altkonu', value } ya da null.
      * Sonuc ekrani yanlis tekrarini buna gore daraltir; motorun kendisi kullanmaz.
@@ -177,6 +185,10 @@ export function createSession({ mode, questions, title = null, scope = null, tot
      *  - supheli: 15 dakikayi asan kayit; kacirilan bir duraklatma senaryosunun
      *    ortalamayi bozmamasi icin ayrilir, ama toplamda ve listede gorunur
      * Hic ekrana gelmemis sorular hicbir kovaya girmez.
+     *
+     * Buna ek olarak kovalari KESEN bir olcum: triyaj esigini asan sorular
+     * (overCount / overMs / overShare). Saplanma miktari budur ve hangi kovada
+     * oldugundan bagimsizdir.
      */
     timingSummary() {
       const rows = [];
@@ -202,8 +214,18 @@ export function createSession({ mode, questions, title = null, scope = null, tot
       const blanks = rows.filter((row) => !row.suspect && row.blank);
       const clean = rows.filter((row) => !row.suspect && !row.blank);
 
+      // Esigi asanlar uc kovadan bagimsiz bir KESIT: bos da supheli de saplanmadir,
+      // ikisi de bu sayiya girer. Kosul uyaridakiyle ayni (>=), yoksa esige tam
+      // oturan bir soru uyariyi alir ama ozete girmezdi.
+      const over = rows.filter((row) => row.ms >= this.triageMs);
+      const totalMs = total(rows);
+
       return {
-        totalMs: total(rows),
+        totalMs,
+        triageMs: this.triageMs,
+        overCount: over.length,
+        overMs: total(over),
+        overShare: totalMs > 0 ? total(over) / totalMs : 0,
         answeredMs: total(clean),
         answeredCount: clean.length,
         avgMs: clean.length > 0 ? Math.round(total(clean) / clean.length) : 0,

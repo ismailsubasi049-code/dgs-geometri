@@ -101,6 +101,11 @@ function timingCard(summary) {
   const seconds = (ms) => fmtTime(ms / 1000);
   const ROW = 'display:flex;justify-content:space-between;gap:10px';
 
+  // Saplanma satirlari: hangi sorularda takilindigi tek bakista gorunsun. Asan yoksa
+  // ikinci satir hic kurulmaz - "0:00 · %0" bilgi tasimaz, sadece gurultu olur.
+  const triageMinutes = Math.round((summary.triageMs || 120000) / 60000);
+  const overLabel = `${triageMinutes} dakikayı aşan`;
+
   const rows = el('div', { class: 'stack' },
     el('div', { style: ROW },
       el('span', null, 'Toplam süre'),
@@ -108,7 +113,16 @@ function timingCard(summary) {
     el('div', { style: ROW },
       el('span', null,
         `Cevaplanan ortalaması${summary.answeredCount > 0 ? ` (${summary.answeredCount} soru)` : ''}`),
-      el('strong', null, summary.answeredCount > 0 ? seconds(summary.avgMs) : '—'))
+      el('strong', null, summary.answeredCount > 0 ? seconds(summary.avgMs) : '—')),
+    el('div', { style: ROW },
+      el('span', null, overLabel),
+      el('strong', null, summary.overCount > 0 ? `${summary.overCount} soru` : 'yok')),
+    summary.overCount > 0
+      ? el('div', { style: ROW },
+          el('span', null, 'Bu sorularda geçen'),
+          el('strong', null,
+            `${seconds(summary.overMs)} · toplamın %${Math.round(summary.overShare * 100)} kadarı`))
+      : null
   );
 
   const notes = el('div', { class: 'stack' });

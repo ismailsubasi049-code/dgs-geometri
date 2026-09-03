@@ -62,6 +62,15 @@ tersi:** paketi var, formül kartı yok.
   (tablo + grafik, 14 şekil). `blocks[].figure` yolu bu ikinci paketle **ilk kez
   gerçek veriyle sınandı ve çalışıyor** — kod yine değişmedi. Üçüncü paket
   (saf grafik yorumlama / algoritma akışı) hâlâ yok.
+- **"İşaretle ve geç" turu (sıradaki).** Triyaj uyarısı v48'de eklendi ama
+  yönlendirdiği eylem uygulamada yok: hiçbir modda soruyu atlama yolu yok, geri
+  gezinme de yok. Gereken üç dokunuş: `js/quiz.js` cevap kaydına `flagged` alanı
+  ve şık işaretlemeden ilerleyebilen bir yol; `js/screens/session.js`'e
+  "İşaretle ve geç" butonu; oturum sonunda işaretlilerin sırayla geri gelmesi.
+  Asıl maliyet gezinmenin tek yönlü olması — `snapshot()` / `restoreSession()`
+  buna göre gözden geçirilmeli (`restoreSession` şu an "cevaplanmamış ilk soru"ya
+  konumlanıyor, işaretli sorularla bu kural yeniden tanımlanacak). Ayrıntı:
+  `## Görünür soru sayacı ve triyaj uyarısı` → "Açık madde".
 
 ## Öğrenme modu sıralaması
 
@@ -1043,6 +1052,11 @@ Düzeltilmedi, kayıt için duruyor:
 - `ozdeslik-17` (n³ − n) `a² − b²` özdeşliğini b = 1 ile kullanır; paketin geri
   kalanında dejenere kurulum yok. Ardışık üç sayı çarpımı klasik biçimiyle
   yazılabilsin diye bilinçli bırakıldı — b = 1 burada hiçbir terimi düşürmüyor.
+- **Triyaj uyarısı (v48) henüz yapılamayan bir eylemi öneriyor.** "Emin değilsen
+  boş bırakmak, tahmin etmekten iyidir" diyor ama uygulamada hiçbir modda soruyu
+  atlama yolu yok; bu bugün yalnızca mini testte, soruyu hiç cevaplamayıp
+  sürenin dolmasını bekleyerek mümkün. Tavsiye doğru olduğu için metin
+  değiştirilmedi; boşluğu kapatacak tur `## Kalan işler` altında.
 
 ## Soru bazlı süre ölçümü
 
@@ -1324,6 +1338,179 @@ paket konu ekranından açılamazdı.
   `blockId` yok (paket bloksuz); hem `correct: false` hem `correct: true`
   kaydedildi. Deneme sonrası ilerleme ana ekranda temizlenip hemen reload edildi,
   `dgs.progress.v1` temiz kaldı; reload sonrası cache adı **`dgs-v47`**.
+
+## Görünür soru sayacı ve triyaj uyarısı
+
+**2026-09-03 (v48) · `js/store.js`, `js/timing.js`, `js/quiz.js`, üç ekran
+(`session.js`, `stats.js`, `result.js`), `css/app.css`, `sw.js`.** Ölçüm sessiz
+bir kayıttan, karar anında görünen bir sinyale çevrildi.
+
+### Neden hız değil, triyaj
+
+İlk (görünmez) ölçüm turunun verisi: `problem-genel` paketinde 20 soru **62
+dakika** sürdü, ama süre eşit dağılmadı — **en uzun 3 soru 27:38, yani toplamın
+%44'ü**; kalan 17 soru ortalama 2:02. Üstelik 9 dakika verilen soru yine yanlış
+çözüldü; DGS'de 4 yanlış 1 doğruyu götürdüğü için o soru boş kalsa daha kârlıydı.
+
+Yani problem genel yavaşlık değil, **belirli sorularda saplanmak**. Eklenen şey
+bu yüzden hız baskısı değil: bir soruya ne zaman veda edileceğine karar verdiren
+bir işaret. Sonuç ekranındaki iki yeni satır da aynı soruyu her oturumda tekrar
+sorar — "bu oturumda kaç soruda saplandım, süremin ne kadarını yedi".
+
+### Üç ayar
+
+| Anahtar | Varsayılan | Etkisi |
+|---|---|---|
+| `showQuestionTimer` | **kapalı** | Rozet görünür; kapalıyken ölçüm arka planda sürer (eski davranış) |
+| `triageWarning` | **açık** | Eşik aşılınca soru başına bir kez şerit çıkar; **sayaç kapalıyken de** |
+| `triageMinutes` | **2** | Eşik, dakika (1–3). Kod tabanında `<select>` hiç yok, `type="number"` kalıbı kullanıldı |
+
+Üçü de `defaultState()`'e eklendi; `normalize()` ayarları varsayılanla derin
+birleştirdiği için **migrasyon yok** — eski kayıtlar ve süre ölçümünden önceki
+yedekler kendiliğinden bu değerlerle açılır (doğrulandı).
+
+### Ölçen dosya neredeyse hiç değişmedi
+
+v46 bu turu öngörerek `subscribe()` kancasını ve `counterVisible` alanını
+bırakmıştı; ikisi de olduğu gibi kullanıldı. **`createQuestionTimer` birebir
+aynı** — duraklatma yüklemi, beş senaryo, blur toleransı, hiçbiri değişmedi.
+`js/timing.js`'te dokunulan tek yer `makeTimingRecord`, yani kayıt şemasının
+sahibi. Triyaj alanlarını `session.js`'te elle eklemek dosya sayısını bir
+azaltırdı ama kayıt alanlarını iki dosyaya bölerdi; `counterVisible` de zaten
+oradaki seçenek torbasından geçen bir ekran bilgisi.
+
+**Regresyon kilidi:** sayaç ve uyarı ikisi birden kapalıysa `subscribe()` hiç
+çağrılmaz; `syncTick()` abone yokken zamanlayıcı kurmadığı için ölçüm birebir
+eski davranışına döner. Doğrulamada ölçüldü: **kurulan aralık 0.**
+
+### İki sayı birbirine karışmasın
+
+Mini testte üst barda zaten toplam geri sayım var. Aynı biçimde iki sayı yan yana
+dursa hangisinin ne olduğu her seferinde düşünülürdü — bu da süre yer. Üç ayrı
+fark konuldu:
+
+| | Üst bar | Köşe rozeti |
+|---|---|---|
+| Konum | üst barda, sabit | içerik akışında, `.session-head` sağında |
+| Boyut | 0.95rem, kalın | 0.8rem, muted |
+| Etiket | `kalan 11:57` | `bu soru 0:03` |
+
+`kalan` ön eki `ctx.setRight()`'a metin olarak verildi; `js/app.js` değişmedi.
+
+### Rozet ne zaman durur
+
+- **Şık işaretlenince donar.** Ölçüm tanımı "sorunun ekrana gelmesinden şıkkı
+  işaretlemene kadar"; sayaç işaretten sonra da koşsaydı çözüm okunurken artar,
+  hatta triyaj uyarısı çıkarırdı. Testte seçim değiştirilirse rozet yeni değere
+  atlar.
+- **Uygulama arka plana geçince donar.** Bunun için ayrı bir kod yazılmadı:
+  `syncTick()` aralığı yalnızca sayaç çalışırken kurar, duraklamada kaldırır.
+
+### Uyarının biçimi
+
+Kırmızı yok, sarı yok (`.block-notice`'in `--warn` kenarı bilerek kullanılmadı),
+yanıp sönme yok, animasyon yok, ses/titreşim yok. Zemin `--surface-2`, kenar
+`--border`. Ekranın altına sabit (`z-index: 70`) — kaydırma nerede olursa olsun
+görünür, soru metnini örtmez. **Şeridin tamamı `<button>`:** tek dokunuşla
+kapanır, dokunulmazsa 12 saniyede kendiliğinden gider.
+
+`document.body`'ye eklenir, oturum gövdesine değil: `clear(body)` silmesin ve
+hiçbir kapsayıcı kırpmasın. Pencere düzeyinde **hiçbir olay dinleyicisi
+eklemez**, bu yüzden karalama alanının pointer çiftiyle (tuvalde `pointerdown`,
+pencerede `pointerup`) çakışmaz. Tam ekran karalamada (z 60) üstte kalır ama
+alttaki araç satırını örtmemesi için `body.scratch-fullscreen-open` altında
+yukarı kayar.
+
+### Metin
+
+> **2 dakikayı geçtin.** Bu soruya ne kadar daha vereceğine şimdi karar ver.
+> Emin değilsen boş bırakmak, tahmin etmekten iyidir.
+
+İlk cümle bilerek "hızlan" ya da "süre doldu" demiyor: verilen karar süreyi
+uzatmak da olabilir, uyarı bunu yasaklamıyor — kararın farkında verilmesini
+istiyor. **İkinci cümle kullanıcının kendi ölçümünden geldi:** 9 dakika verilen
+soru yine yanlış çözülmüştü ve 4 yanlış 1 doğruyu götürdüğü için tahmin net
+kaybettiriyor. Bu yüzden "en makul şıkkı işaretleyip geç" biçimindeki alternatif
+metin **reddedildi** — uygulama tahmini teşvik etmemeli.
+
+### Kayıt şeması eki
+
+`makeTimingRecord` üç alan daha yazabiliyor. Sözleşme korundu: boş/false alan
+yazılmaz, uyarı çıkmayan kayıtta üçü de yoktur.
+
+| Alan | Ne zaman | Neden |
+|---|---|---|
+| `counterVisible` | her kayıtta (artık **gerçek** değer) | Sayaçlı ve sayaçsız dönemin verisi karışmasın |
+| `triageWarned` | uyarı çıktıysa | Uyarının çıktığı sorular ayrılabilsin |
+| `triageMs` | uyarı çıktıysa | Eşik ayardan değişince eski kayıt yorumlanabilir kalsın |
+| `afterWarnMs` | uyarı çıktıysa | **Uyarının işe yarayıp yaramadığı ancak bununla ölçülür** |
+
+İki boyut birbirinden bağımsız: doğrulamada `counterVisible: false` ile
+`triageWarned: true` aynı kayıtta bir arada yazıldı. Yani "sayaç açıkken mi daha
+iyi" ve "uyarı işe yarıyor mu" ayrı ayrı sorulabilir.
+
+Uyarının hangi soruda çıktığı `session.js` içinde bir **`Map`**'te tutuluyor,
+`js/quiz.js` cevap şemasında değil: uyarı bir ekran olayı ve diske yazılan
+`snapshot()`'a girmesi gerekmiyor. Devam ettirilen oturumda bu bilgi kaybolur ama
+sorun değil — o cevapların kaydı önceki açılışta yazıldı ve `flushedTimings`
+tekrar yazılmasını engelliyor.
+
+### Oturum sonu iki satır
+
+`timingSummary()`'nin üç kovası (cevaplanan / boş / şüpheli) korundu; eşik aşımı
+bunları **kesen** bir ölçüm olarak eklendi — boş da şüpheli de saplanmadır, ikisi
+de sayıya girer. Koşul uyarıdakiyle aynı (`>=`), yoksa eşiğe tam oturan bir soru
+uyarıyı alır ama özete girmezdi. Hesap **ayardan bağımsız her zaman** yapılır:
+uyarı kapalı olsa da saplanma ölçülür.
+
+- Aşan varsa iki satır: `2 dakikayı aşan → 3 soru` ve
+  `Bu sorularda geçen → 4:47 · toplamın %92 kadarı`
+- Aşan yoksa tek satır: `2 dakikayı aşan → yok`. İkinci satır hiç kurulmaz —
+  "0:00 · %0" bilgi taşımaz.
+
+### Doğrulama (tarayıcıda, sayıyla)
+
+Bekleme kısalsın diye eşik geçici olarak 1 dakikaya çekildi.
+
+| Senaryo | Beklenen | Ölçülen |
+|---|---|---|
+| İkisi de kapalı | hiç zamanlayıcı yok, rozet yok | kurulan aralık **0**; `counterVisible:false`, triyaj alanı yok; `ms` 17677 / 4015 |
+| Sayaç açık | 0:00'dan ileri sayar | 0:01 → 0:34 (33 sn duvar saati) |
+| Yeni soru | rozet sıfırlanır | `0:00` |
+| Şık işaretlenince | rozet donar | 1:37'de dondu, 6 sn sonra hâlâ 1:37 |
+| Eşik aşımı | soru başına **bir kez** | 59. sn'de çıktı; 84. sn'ye kadar ikinci çıkış yok |
+| Kendiliğinden kapanma | 12 sn | **12,008 sn** |
+| Tek dokunuş | anında kapanır | 1:08'de dokunuldu, anında kalktı |
+| Arka plan (22 sn gizli) | rozet donar, aralık kalkar | rozet **0:20**'de kaldı, canlı aralık **0**; dönünce aralık 1, rozet 0:22 |
+| Sayaç KAPALI + uyarı AÇIK | rozet yok, uyarı var | rozet yok, uyarı bir kez; kayıt `counterVisible:false` + `triageWarned:true` |
+| Kayıt alanları | üçü de doğru | `triageMs:60000`, `afterWarnMs:45989` = 106003 − 60014 |
+| Ekrandan çıkınca | aralık kalkar | canlı aralık 0 |
+| Oturum sonu (aşan var) | elle hesapla aynı | 3 soru · **4:47** (107+97+84 sn) · **%92** (287/313) |
+| Oturum sonu (aşan yok) | "yok", ikinci satır yok | `1 dakikayı aşan → yok` |
+| Mini test | iki sayı ayırt edilir | üstte `kalan 11:57`, köşede `bu soru 0:03` |
+| Tam ekran karalama | araç satırını örtmez | şerit araçların üstünde; çizim ve "Geri al" çalışıyor, şeride dokunmak çizgi bırakmıyor |
+| Blok paketi (ortak kök) | regresyon yok | `Sayısal Mantık` oturumu: kök + 5 şık + karalama sorunsuz |
+| Konsol | temiz | hiç çıktı yok |
+
+Arka plan senaryosunda kayda `pausedMs: 29136` yazıldı; bunun 22 saniyesi
+bilerek gizlenen süre, kalanı otomasyonun tur başına yaşadığı odak kayıpları.
+Ölçülen `ms`'e hiçbiri girmedi — kontrol edilen buydu.
+
+Deneme sonrası ilerleme temizlenip yeniden kuruldu; varsayılanlar doğrulandı
+(`showQuestionTimer: false`, `triageWarning: true`, `triageMinutes: 2`).
+
+### Açık madde: uyarı henüz yapılamayan bir eylemi öneriyor
+
+**"İşaretle ve geç" yok — hatta hiçbir modda soruyu atlama yolu yok.** Öğrenme
+modlarında şık işaretlemek `commit()` → `advance()` zincirini tetikler,
+işaretlemeden ilerlenemez; mini testte de "Sonraki" seçim yapılana kadar pasif.
+Geri gezinme de yok (`next()` var, `previous()` yok). Depodaki `skipped` alanı
+kullanıcının kararı değil, **süre dolunca boş kalan** soru demek.
+
+Yani uyarının "boş bırakmak, tahmin etmekten iyidir" cümlesi bugün yalnızca mini
+testte (soruyu hiç cevaplamayıp sürenin dolmasını bekleyerek) fiilen mümkün.
+Tavsiye doğru, uygulama henüz izin vermiyor. Ayrı tur olarak bırakıldı; taslak
+`## Kalan işler` altında.
 
 ## Çalışma kuralları
 

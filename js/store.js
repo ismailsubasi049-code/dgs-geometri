@@ -63,7 +63,17 @@ function defaultState() {
      */
     timingsSeen: 0,
     streak: { current: 0, best: 0, lastDay: null },
-    settings: { dailyCount: 10, testMinutes: 12, instantChoices: false },
+    settings: {
+      dailyCount: 10,
+      testMinutes: 12,
+      instantChoices: false,
+      /** Gorunur soru sayaci: varsayilan KAPALI - olcum yine arka planda surer. */
+      showQuestionTimer: false,
+      /** Triyaj uyarisi: varsayilan ACIK; sayac kapaliyken de calisir. */
+      triageWarning: true,
+      /** Uyarinin cikacagi esik, dakika (1-3). */
+      triageMinutes: 2,
+    },
     /** Hic yedek alinmadiysa hatirlatma bu tarihten sayilir. */
     installedAt: Date.now(),
     /** lastAt: son yedegin zamani. remindAt: bu ana kadar hatirlatma gosterilmez. */

@@ -281,12 +281,22 @@ export async function render(ctx) {
     );
   }
 
+  // ---------- gorunur sayac ve triyaj ayarlari ----------
+
+  /** Sayac gorunur mu; kayitlara da bu deger yazilir (counterVisible). */
+  const wantsTimer = Boolean(settings.showQuestionTimer);
+  const wantsTriage = Boolean(settings.triageWarning);
+  /** Bozuk/eski bir ayara karsi kirpilir; uyari metni de bu degerden yazilir. */
+  const triageMinutes = Math.max(1, Number(settings.triageMinutes) || 2);
+  const triageMs = triageMinutes * 60000;
+
   const session = createSession({
     mode,
     questions,
     title,
     scope,
     totalSeconds: settings.testMinutes * 60,
+    triageMs,
   });
 
   if (resumed) {
@@ -306,12 +316,12 @@ export async function render(ctx) {
   // ---------- soru bazli sure olcumu ----------
 
   /**
-   * Olcum tamamen arka planda: ekranda hicbir sey degismez. Sayac soru gorununce
-   * baslar, sik isaretlenince durur; sekme arka plana gecince (ve dort senaryonun
-   * hepsinde, bkz. js/timing.js) duraklar.
+   * Sayac soru gorununce baslar, sik isaretlenince durur; sekme arka plana gecince
+   * (ve dort senaryonun hepsinde, bkz. js/timing.js) duraklar.
    *
-   * SONRAKI TUR: gorunur sayac buraya baglanacak - timer.subscribe(...) ile bir
-   * rozet beslenip counterVisible: true yazilacak. Olcum mantigi degismeyecek.
+   * Gorunur sayac ve triyaj uyarisi buraya subscribe() ile baglanir. IKISI DE
+   * KAPALIYSA hic abone olunmaz; js/timing.js abone yokken zamanlayici kurmadigi
+   * icin olcum birebir eski (gorunmez) davranisina doner.
    */
   const timer = createQuestionTimer();
   ctx.onLeave(timer.destroy);
@@ -330,6 +340,15 @@ export async function render(ctx) {
   }
 
   /**
+   * Triyaj uyarisi cikan sorular: soru indeksi -> { atMs, thresholdMs }.
+   * Bilerek burada, js/quiz.js cevap semasinda DEGIL: uyari bir ekran olayidir ve
+   * diske yazilan snapshot()'a girmesi gerekmez. Devam ettirilen oturumda bu bilgi
+   * kaybolur ama sorun degil - o cevaplarin kaydi onceki aciliste zaten yazildi ve
+   * flushedTimings sayesinde tekrar yazilmaz.
+   */
+  const triageInfo = new Map();
+
+  /**
    * Biriken olcumleri tek yazmada depoya gecirir. Cevap basina disk yazmasi yok:
    * cozme akisi yavaslamasin diye oturum sonunda, ekrandan cikarken ve sayfa arka
    * plana giderken toplu yazilir. Yazacak bir sey yoksa hicbir sey yapmaz.
@@ -343,7 +362,10 @@ export async function render(ctx) {
       // Hic ekrana gelmemis soru kayit acmaz.
       if (answer.skipped && !answer.shown) continue;
       flushedTimings.add(i);
-      records.push(makeTimingRecord(session.questions[i], answer, { counterVisible: false }));
+      records.push(makeTimingRecord(session.questions[i], answer, {
+        counterVisible: wantsTimer,
+        triage: triageInfo.get(i) || null,
+      }));
     }
 
     if (records.length > 0) addTimings(records);
@@ -379,7 +401,8 @@ export async function render(ctx) {
 
     const tick = () => {
       const left = Math.max(0, (endsAt - Date.now()) / 1000);
-      ctx.setRight(fmtTime(left), left <= 60);
+      // "kalan" etiketi: kosedeki soru sayaci da acikken iki sayi karismasin.
+      ctx.setRight(`kalan ${fmtTime(left)}`, left <= 60);
       // finishSession, isaretli ama onaylanmamis sikki de kaydeder.
       if (left <= 0) finishSession({ timedOut: true });
     };
@@ -415,8 +438,25 @@ export async function render(ctx) {
       }, 'baştan başla')
     : null;
 
+  /**
+   * Gorunur soru sayaci. Ust bardaki geri sayimla karismasin diye uc yonden ayrilir:
+   * icerik akisinda durur (ust barda degil), daha kucuktur ve "bu soru" etiketi tasir.
+   * Ileri sayar; esik asilinca rengi ya da bicimi DEGISMEZ - tek sinyal triyaj seridi.
+   */
+  const qtimerValue = el('span', { class: 'qtimer-value' }, '0:00');
+  const qtimer = wantsTimer
+    ? el('span', { class: 'qtimer' },
+        el('span', { class: 'qtimer-label' }, 'bu soru'),
+        qtimerValue)
+    : null;
+
   root.append(
-    el('div', { class: 'session-head' }, counter, restartLink),
+    el('div', { class: 'session-head' },
+      counter,
+      qtimer || restartLink
+        ? el('div', { class: 'session-head-right' }, qtimer, restartLink)
+        : null
+    ),
     progressBar,
     body
   );
@@ -437,6 +477,80 @@ export async function render(ctx) {
    * ani gecerlidir. Sayac durdurulmaz, yalnizca okunur (peek).
    */
   let pickedTiming = null;
+
+  // ---------- triyaj uyarisi ----------
+
+  /** Soru basina BIR KEZ; showQuestion her soruda sifirlar. */
+  let triageShown = false;
+  let triageToast = null;
+  let triageToastTimer = null;
+
+  /** Kendiliginden kaybolma suresi: iki cumleyi okumaya yeter, ekranda oyalanmaz. */
+  const TOAST_MS = 12000;
+
+  function dismissTriageToast() {
+    if (triageToastTimer !== null) {
+      clearTimeout(triageToastTimer);
+      triageToastTimer = null;
+    }
+    if (triageToast) {
+      triageToast.remove();
+      triageToast = null;
+    }
+  }
+
+  /**
+   * Sade bir serit: renk baskisi, animasyon, ses, titresim yok. Metin "hizlan"
+   * demez - bir soruya ne kadar daha verilecegine karar verdirmeye calisir.
+   *
+   * document.body'ye eklenir: sabit konumlu oldugu icin kaydirma nerede olursa olsun
+   * gorunur, clear(body) ile silinmez ve hicbir kapsayici tarafindan kirpilmaz.
+   * Pencere duzeyinde olay dinleyicisi EKLEMEZ - karalama alaninin pointer
+   * ciftiyle (tuvalde pointerdown, pencerede pointerup) cakismaz.
+   */
+  function showTriageToast() {
+    dismissTriageToast();
+
+    triageToast = el('button', {
+      class: 'triage-toast',
+      type: 'button',
+      on: { click: dismissTriageToast },
+    },
+      el('span', { class: 'grow' },
+        el('strong', null, `${triageMinutes} dakikayı geçtin.`),
+        ' Bu soruya ne kadar daha vereceğine şimdi karar ver.'
+        + ' Emin değilsen boş bırakmak, tahmin etmekten iyidir.'),
+      el('span', { class: 'x' }, '×')
+    );
+
+    document.body.append(triageToast);
+    triageToastTimer = setTimeout(dismissTriageToast, TOAST_MS);
+  }
+
+  ctx.onLeave(dismissTriageToast);
+
+  /**
+   * Sayaci besleyen ve esigi kollayan tek abone. Ikisi de kapaliysa hic kurulmaz.
+   *
+   * Sik isaretlenince (pickedTiming) durur: olcum tanimi "sik isaretlenene kadar"
+   * oldugu icin sayac o degerde donar ve cozum okunurken uyari cikmaz. Testte secim
+   * degistirilirse pickedTiming yeniden okunur, rozet de yeni degeri gosterir.
+   *
+   * Duraklatma kendiliginden gecerli: js/timing.js araligini yalnizca sayac
+   * calisirken kurar, uygulama arka plana gecince kaldirir. Rozet o sirada donar,
+   * esik kontrolu de durur.
+   */
+  if (wantsTimer || wantsTriage) {
+    timer.subscribe(({ ms }) => {
+      if (pickedTiming !== null) return;
+      if (wantsTimer) qtimerValue.textContent = fmtTime(ms / 1000);
+      if (wantsTriage && !triageShown && ms >= triageMs) {
+        triageShown = true;
+        triageInfo.set(session.index, { atMs: ms, thresholdMs: triageMs });
+        showTriageToast();
+      }
+    });
+  }
 
   /**
    * Zor bloga gecis bildirimi: sadece gercek bir gecis olunca.
@@ -512,6 +626,12 @@ export async function render(ctx) {
     shownAt = Date.now();
     // Olcum sorunun ekrana geldigi andan baslar; ipucu suresiyle ayni baslangic.
     timer.start();
+
+    // Yeni soru: uyari hakki tazelenir, onceki sorunun seridi varsa kalkar.
+    triageShown = false;
+    dismissTriageToast();
+    // Ilk tik bir saniye sonra gelir; rozet o ana kadar onceki soruyu gostermesin.
+    if (wantsTimer) qtimerValue.textContent = '0:00';
 
     counter.textContent = `Soru ${number} / ${session.questions.length}`;
     progressFill.style.width = `${((number - 1) / session.questions.length) * 100}%`;
@@ -640,6 +760,9 @@ export async function render(ctx) {
     function onPick(pickedIndex) {
       // Olcum burada biter; testte secim degistirilirse son isaret gecerli olur.
       pickedTiming = timer.peek();
+      // Rozet isaretlenen degerde donar (abone bundan sonra guncellemez); secim
+      // degistirilirse yeni degere atlar.
+      if (wantsTimer) qtimerValue.textContent = fmtTime(pickedTiming.ms / 1000);
 
       if (session.config.timed) {
         // Testte secim gecicidir; "Sonraki"ye basilinca kesinlesir.

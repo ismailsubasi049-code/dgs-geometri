@@ -253,8 +253,13 @@ export function createQuestionTimer() {
  * Bos ve false alanlar yazilmaz - kayit kucuk kalsin, localStorage'da binlercesi
  * birikecek. Tek istisna counterVisible: iki donemin verisi karismasin diye
  * her kayitta acikca durur.
+ *
+ * triage: uyari CIKTIYSA { atMs, thresholdMs }, yoksa null. Ekran bilgisidir -
+ * counterVisible gibi disaridan gelir; olcumun kendisi triyajdan habersizdir.
+ * Uyarinin ise yarayip yaramadigi ancak "uyaridan sonra kac saniye daha gecti"
+ * ile olculebilir, o yuzden afterWarnMs burada turetilir.
  */
-export function makeTimingRecord(question, answer, { counterVisible = false } = {}) {
+export function makeTimingRecord(question, answer, { counterVisible = false, triage = null } = {}) {
   const at = answer.at || Date.now();
   const ms = Math.max(0, Math.round(answer.elapsedMs || 0));
   const paused = Math.max(0, Math.round(answer.pausedMs || 0));
@@ -277,6 +282,13 @@ export function makeTimingRecord(question, answer, { counterVisible = false } = 
   if (question.block) record.blockId = question.block.id;
   if (paused > 0) record.pausedMs = paused;
   if (ms > MAX_QUESTION_MS) record.suspect = true;
+
+  if (triage) {
+    record.triageWarned = true;
+    // Esik kayda yazilir: ayar degisince eski kayitlar yorumlanabilir kalsin.
+    record.triageMs = Math.round(triage.thresholdMs);
+    record.afterWarnMs = Math.max(0, ms - Math.round(triage.atMs));
+  }
 
   return record;
 }
