@@ -1,15 +1,15 @@
 # Durum
 
-**Son güncelleme:** 2026-09-03 · **sw.js VERSION:** güncel değer için `sw.js:4`
+**Son güncelleme:** 2026-09-04 · **sw.js VERSION:** güncel değer için `sw.js:4`
 (elle tutulan kopya iki tur geride kaldığı için buradan kaldırıldı; sürüm zaten
 her turda aşağıdaki günlüğe yazılıyor)
 
 ## Özet
 
-**571 soru · 21 alt konu · 23 paket.** 395'i geometri, 176'sı matematik
-(8 paket: `ozdeslik-genel`, `oran-oranti-genel`, `mantik-blok-1`,
-`mantik-blok-2`, `problem-genel`, `rasyonel-genel`, `uslu-genel`,
-`koklu-genel`). Kalan **3**
+**595 soru · 22 alt konu · 24 paket.** 395'i geometri, 200'ü matematik
+(9 paket: `ozdeslik-genel`, `oran-oranti-genel`, `mantik-blok-1`,
+`mantik-blok-2`, `mantik-blok-3`, `problem-genel`, `rasyonel-genel`,
+`uslu-genel`, `koklu-genel`). Kalan **3**
 matematik konusunun hâlâ yalnız formül kartı var, paketi yok: `sayilar`,
 `bolunebilme`, `ebob-ekok`. **Sayısal mantık ise
 tersi:** paketi var, formül kartı yok.
@@ -26,6 +26,7 @@ tersi:** paketi var, formül kartı yok.
 | Köklü Sayılar | `koklu-genel` | Genel köklü sayı soruları | 24 |
 | Sayısal Mantık | `mantik-blok-1` | Tanımlı sembol, kavram, senaryo ve oyun blokları | 24 |
 | Sayısal Mantık | `mantik-blok-2` | Tablo, grafik ve şekil blokları | 20 |
+| Sayısal Mantık | `mantik-blok-3` | İşlem, şifre, dizi ve düzenek blokları | 24 |
 | Açılar | `acilar-temel` | Temel açı kavramları | 24 |
 | Açılar | `acilar-paralel` | Paralel doğrular ve kesenler | 33 |
 | Açılar | `acilar-ucgende` | Üçgende açılar | 33 |
@@ -41,7 +42,7 @@ tersi:** paketi var, formül kartı yok.
 | Üçgenler | `ucgen-karma` | Karma üçgen | 30 |
 | Dörtgenler | — | Dörtgenler | 10 |
 | Çember ve Daire | — | Çember ve Daire | 10 |
-| **Toplam** | | **23 paket** | **571** |
+| **Toplam** | | **24 paket** | **595** |
 
 ## Kalan işler
 
@@ -1525,6 +1526,43 @@ Yani uyarının "boş bırakmak, tahmin etmekten iyidir" cümlesi bugün yalnız
 testte (soruyu hiç cevaplamayıp sürenin dolmasını bekleyerek) fiilen mümkün.
 Tavsiye doğru, uygulama henüz izin vermiyor. Ayrı tur olarak bırakıldı; taslak
 `## Kalan işler` altında.
+
+## Üçüncü sayısal mantık paketi
+
+**2026-09-04 (v51) · `data/packs/mantik-blok-3.json`** — 24 soru · 7 blok
+(4 ikili: 1–8, 3 üçlü: 9–17) · 7 bağımsız soru (18–24) · şekil yok. Kaynak
+`referans/mantik-blok-3.md`; iş **saf transkripsiyondu** — soru kökü, şık, sayı
+ya da çözüm satırı değiştirilmedi, eklenmedi, çıkarılmadı. Kod değişmedi.
+
+Soru id'leri `mantik3-01…24`, blok id'leri `mantik3-sembol`, `mantik3-sifre`,
+`mantik3-dizi`, `mantik3-sayac`, `mantik3-harf`, `mantik3-eritme`,
+`mantik3-bilye` — paket 1'in `mantik-*` ve paket 2'nin `gorsel-*` sayaçlarıyla
+çakışmaz.
+
+Aktarım kararları:
+
+- **Kök her sorudan çıkarıldı, `blocks[]`'e bir kez yazıldı.** Kaynak md, gerçek
+  sınav dizgisini taklit ettiği için kökü blok içindeki her sorunun başında
+  birebir tekrarlıyordu (§8'in tam olarak çözdüğü durum).
+- **`label` hiçbir soruya yazılmadı.** Sayısal mantığın formül kartı yok;
+  `data/formuller/` altına dokunulmadı, kart sayısı değişmedi. Blokların
+  `label`'ı var, o kart eşleşmesi değil kutu başlığıdır.
+- **`asks` yalnız istenen büyüklüğü adlandırıyor** ("x değeri isteniyor",
+  "kesinlikle doğru olan ifadeler isteniyor"). Şemadaki "tuzak + istenen
+  büyüklük" kalıbının tuzak yarısı bilerek yazılmadı: bu pakette tuzak zaten her
+  çözümün sonundaki `Not:` paragrafında duruyor, `asks`'e taşınsaydı soru
+  ekranında cevabı sızdırırdı.
+- **Hata bloğu (`Sık yapılan hata …`) yok, `Not:` var.** Her iki mantık paketi de
+  bu biçimde; `richText()` satır başı `Not:` etiketini kendi kutusunda basıyor.
+- Şıklar kaynaktaki sırayla duruyor: **3 ve 16 azalan şıklıdır**, düzeltilmedi.
+
+**Kaynağın kendi notundan devralınan açık maddeler** (sonraki mantık paketine):
+**tanımlı kavram** kategorisi ("şu özellikteki sayıya X denir") bu pakette hiç
+yok, DGS'nin büyük kategorilerinden biri. Ayrıca yedi blok dört ayrı beceri
+ölçüyor: blok 3 ile 6'nın ikisi de parçalı kural + iterasyon, blok 4 ile 7'nin
+ikisi de deterministik düzenek simülasyonu. Blok 1 kalibrasyon dışı — tanımlı
+sembol kılığında bir sayılar teorisi (EBOB bölenleri) taraması; zor blokta
+bırakıldı.
 
 ## Çalışma kuralları
 

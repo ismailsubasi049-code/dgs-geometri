@@ -1,0 +1,280 @@
+{
+  "id": "mantik-blok-3",
+  "topicId": "sayisal-mantik",
+  "topic": "Sayısal Mantık",
+  "subtopicId": "mantik-blok-3",
+  "subtopic": "İşlem, şifre, dizi ve düzenek blokları",
+  "version": 1,
+  "blocks": [
+    {
+      "id": "mantik3-sembol",
+      "label": "Tanımlı sembol ⊗",
+      "stem": "Pozitif tam sayılar kümesi üzerinde tanımlı ⊗ işlemi, her a ve b pozitif tam sayısı için\n\na ⊗ b = 2a + 3b − 5 · EBOB(a, b)\n\nbiçiminde tanımlanıyor."
+    },
+    {
+      "id": "mantik3-sifre",
+      "label": "K şifreleme kuralı",
+      "stem": "Dört basamaklı bir ABCD doğal sayısı, K adı verilen bir şifreleme kuralıyla dört basamaklı bir sayıya dönüştürülüyor. Kural şudur:\n- Birinci basamak: A sayısının 3 ile bölümünden kalan\n- İkinci basamak: (A + B) toplamının 5 ile bölümünden kalan\n- Üçüncü basamak: (B + C) toplamının 4 ile bölümünden kalan\n- Dördüncü basamak: (C + D) toplamının 2 ile bölümünden kalan\n\nElde edilen kalanlar bu sırayla yan yana yazılarak K(ABCD) şifresi oluşturulur."
+    },
+    {
+      "id": "mantik3-dizi",
+      "label": "Parçalı kurallı dizi",
+      "stem": "Bir sayı dizisinin terimleri arasında, her n ≥ 1 tam sayısı için\n\naₙ₊₁ = aₙ + 5 (aₙ tek ise)\naₙ₊₁ = aₙ / 2 (aₙ çift ise)\n\nbağıntısı vardır. Dizinin bütün terimleri pozitif tam sayıdır."
+    },
+    {
+      "id": "mantik3-sayac",
+      "label": "Sayaç düzeneği",
+      "stem": "Bir düzenekte A, B ve C olmak üzere üç sayaç bulunmaktadır. Düzeneğe pozitif bir X tam sayısı girildiğinde şu adımlar uygulanır:\n- 1. Adım: A sayacına X, B sayacına 0, C sayacına 1 yazılır.\n- 2. Adım: A sayacındaki sayı tek ise B sayacı, C sayacındaki değer kadar artırılır; A çift ise B değiştirilmez.\n- 3. Adım: A sayacındaki sayı 2'ye bölünür ve bölümün tam kısmı A'ya yazılır. C sayacındaki sayı 2 ile çarpılır.\n- 4. Adım: A sayacı 0 ise işlem durur ve B sayacındaki değer çıktı olarak verilir; değilse 2. Adıma dönülür."
+    },
+    {
+      "id": "mantik3-harf",
+      "label": "Harf kaydırma şifresi",
+      "stem": "Bir kelimenin harfleri soldan sağa 1, 2, 3, … biçiminde numaralandırılıyor. Kaydırma şifrelemesi kuralına göre, n. sıradaki harf alfabede kendisinden n harf sonraki harfe dönüştürülüyor. Z harfinden sonra tekrar A harfine dönülüyor.\n\nTürk alfabesindeki 29 harfin sıra numaraları:\n1:A 2:B 3:C 4:Ç 5:D 6:E 7:F 8:G 9:Ğ 10:H 11:I 12:İ 13:J 14:K 15:L 16:M 17:N 18:O 19:Ö 20:P 21:R 22:S 23:Ş 24:T 25:U 26:Ü 27:V 28:Y 29:Z"
+    },
+    {
+      "id": "mantik3-eritme",
+      "label": "Sayı eritme oyunu",
+      "stem": "Pozitif tam sayılarla oynanan bir \"sayı eritme\" oyununda bir N sayısı seçiliyor ve sayıya sırasıyla şu kurallar uygulanıyor:\n- Sayı 3'e tam bölünüyorsa 3'e bölünür.\n- Sayı 3'e tam bölünmüyor ve çift ise 2'ye bölünür.\n- Sayı 3'e tam bölünmüyor ve tek ise sayıya 1 eklenir.\n\nİşlem, elde edilen sayı 1 olana kadar sürdürülür. 1'e ulaşmak için uygulanan toplam işlem sayısı, o sayının **adım sayısı** olarak adlandırılır."
+    },
+    {
+      "id": "mantik3-bilye",
+      "label": "Bilye düzeneği",
+      "stem": "Dört hücreden oluşan doğrusal bir düzenekte hücreler soldan sağa 1, 2, 3, 4 olarak numaralanmıştır. Başlangıçta her hücrede birer bilye vardır. Düzenek üzerinde çalışan bir robot her hamlede sırasıyla şu işlemleri yapar:\n- 1. İşlem: Numarası tek olan hücrelerdeki bilye sayısını 1 artırır.\n- 2. İşlem: Numarası çift olan hücrelerdeki bilye sayısını 2 ile çarpar.\n- 3. İşlem: 4. hücredeki bilyelerin yarısını 1. hücreye aktarır."
+    }
+  ],
+  "questions": [
+    {
+      "id": "mantik3-01",
+      "blockId": "mantik3-sembol",
+      "difficulty": 2,
+      "stem": "6 ⊗ x = 60\n\nolduğuna göre, x kaçtır?",
+      "asks": "x değeri isteniyor.",
+      "choices": ["12", "15", "18", "21", "24"],
+      "answer": 3,
+      "solution": "1. Kural uygulanır:\n2·6 + 3x − 5·EBOB(6, x) = 60\n12 + 3x − 5·EBOB(6, x) = 60\n**3x − 5·EBOB(6, x) = 48**\n2. d = EBOB(6, x) denir. d, 6'nın böleni olmak zorundadır: d ∈ {1, 2, 3, 6}\n3. 3x = 48 + 5d yazılır. Sol taraf 3'ün katıdır, 48 de 3'ün katıdır; öyleyse **5d de 3'ün katı olmalıdır**, yani d, 3'e bölünmelidir. Geriye d = 3 ve d = 6 kalır.\n4. İki dal denenir:\nd = 6 → 3x = 48 + 30 = 78 → x = 26. Denetim: EBOB(6, 26) = 2 ≠ 6. **Elenir.**\nd = 3 → 3x = 48 + 15 = 63 → x = **21**. Denetim: EBOB(6, 21) = 3. Sağlar.\nNot: Bu tip sorularda d için bulunan her aday, sonunda **geri konup denetlenmek** zorundadır. d = 6 dalı denklemi sağlıyor gibi görünür ama kendi varsayımını çürütür. Denklemi sağlamak yeterli değil, varsayımı da tutmalı."
+    },
+    {
+      "id": "mantik3-02",
+      "blockId": "mantik3-sembol",
+      "difficulty": 2,
+      "stem": "y bir asal sayı olmak üzere,\n\ny ⊗ 4 = 41\n\nolduğuna göre, y kaçtır?",
+      "asks": "y değeri isteniyor.",
+      "choices": ["11", "13", "15", "17", "19"],
+      "answer": 3,
+      "solution": "1. Kural uygulanır:\n2y + 3·4 − 5·EBOB(y, 4) = 41\n2y + 12 − 5·EBOB(y, 4) = 41\n**2y − 5·EBOB(y, 4) = 29**\n2. y asal olduğundan EBOB(y, 4) yalnız iki değer alabilir:\ny = 2 ise EBOB(2, 4) = 2\ny ≠ 2 ise y tek asaldır, 4 ile aralarında asaldır, EBOB(y, 4) = 1\n3. İki durum denenir:\ny = 2 → 2·2 − 5·2 = 4 − 10 = −6 ≠ 29. Sağlamaz.\ny ≠ 2 → 2y − 5 = 29 → 2y = 34 → y = **17**\n4. Denetim: 17 asaldır ve EBOB(17, 4) = 1'dir. Tutarlı.\nNot: C şıkkındaki 15 asal değildir. Şıklarda asal olmayan sayı bulunması, \"y asal\" koşulunu okumadan denklem çözenler için kurulmuş bir tuzaktır. Koşul yalnız süs değil, çözüm uzayını daraltan bir veridir."
+    },
+    {
+      "id": "mantik3-03",
+      "blockId": "mantik3-sifre",
+      "difficulty": 2,
+      "stem": "Rakamları birbirinden farklı bir ABCD sayısı için\n\nK(ABCD) = 2310\n\nolduğuna göre, ABCD sayısının alabileceği **en büyük** değerin rakamları toplamı kaçtır?",
+      "asks": "ABCD sayısının alabileceği en büyük değerin rakamları toplamı isteniyor.",
+      "choices": ["25", "23", "21", "19", "17"],
+      "answer": 1,
+      "solution": "1. Şifreden dört koşul okunur:\nA'nın 3 ile bölümünden kalan 2\n(A + B)'nin 5 ile bölümünden kalan 3\n(B + C)'nin 4 ile bölümünden kalan 1\n(C + D)'nin 2 ile bölümünden kalan 0\n2. Sayının **en büyük** olması için soldaki basamaklardan başlayarak en büyük rakam seçilir.\nA: 3'e bölümünden 2 kalan rakamlar {2, 5, 8}. En büyüğü A = **8**\n3. A = 8 iken 8 + B'nin 5 ile bölümünden kalan 3 olmalı. 8'in kalanı 3 olduğundan B'nin kalanı 0 olmalı: B ∈ {0, 5}. En büyüğü B = **5**\n4. B = 5 iken 5 + C'nin 4 ile bölümünden kalan 1 olmalı. 5'in kalanı 1 olduğundan C'nin kalanı 0 olmalı: C ∈ {0, 4, 8}. A = 8 kullanıldığından C = **4**\n5. C = 4 iken 4 + D çift olmalı, yani **D çift** olmalıdır. Kullanılmayan en büyük çift rakam D = **6**\n6. En büyük sayı 8546'dır. Rakamları toplamı: 8 + 5 + 4 + 6 = **23**\nNot: A şıkkındaki 25, D = 8 seçilirse çıkar (8 + 5 + 4 + 8). Ama A zaten 8'dir ve soru **rakamları birbirinden farklı** diyor. Şıklar bu soruda **azalan** sırada verilmiştir."
+    },
+    {
+      "id": "mantik3-04",
+      "blockId": "mantik3-sifre",
+      "difficulty": 2,
+      "stem": "ABCD sayısının bütün rakamları sıfırdan farklı olduğuna göre, K(ABCD) şifresinin rakamları toplamının alabileceği **en büyük** değer kaçtır?",
+      "asks": "K(ABCD) şifresinin rakamları toplamının alabileceği en büyük değer isteniyor.",
+      "choices": ["10", "12", "14", "16", "18"],
+      "answer": 0,
+      "solution": "1. Bir bölme işleminde **kalan, bölenden daima küçüktür**. Her basamağın üst sınırı buradan çıkar:\n3 ile bölümünden kalan en fazla **2**\n5 ile bölümünden kalan en fazla **4**\n4 ile bölümünden kalan en fazla **3**\n2 ile bölümünden kalan en fazla **1**\n2. Üst sınırların toplamı 2 + 4 + 3 + 1 = 10'dur. Ama bu değerin gerçekten elde edilebileceğini göstermek gerekir; sınırların aynı anda tutması zorunlu değildir.\n3. Bir örnek kurulur:\nA = 8 → 8'in 3 ile bölümünden kalan 2 ✓\nB = 6 → (8 + 6) = 14, 5 ile bölümünden kalan 4 ✓\nC = 5 → (6 + 5) = 11, 4 ile bölümünden kalan 3 ✓\nD = 2 → (5 + 2) = 7, 2 ile bölümünden kalan 1 ✓\n4. ABCD = 8652 sayısı için şifre 2431 olur ve bütün rakamlar sıfırdan farklıdır. Rakamları toplamı 2 + 4 + 3 + 1 = **10**\nNot: Bu soruda iki iş var — üst sınırı **bulmak** ve o sınırın **erişilebilir olduğunu göstermek**. Yalnız birincisini yapıp durmak çoğu zaman doğru sayıyı verir ama yöntem eksiktir; sınırların çakıştığı sorularda yanlış cevaba götürür."
+    },
+    {
+      "id": "mantik3-05",
+      "blockId": "mantik3-dizi",
+      "difficulty": 2,
+      "stem": "a₁ = 7\n\nolduğuna göre, a₁₄ kaçtır?",
+      "asks": "a₁₄ teriminin değeri isteniyor.",
+      "choices": ["1", "2", "3", "4", "5"],
+      "answer": 0,
+      "solution": "1. Terimler sırayla yazılır:\na₁ = 7 (tek) → a₂ = 12\na₂ = 12 (çift) → a₃ = 6\na₃ = 6 (çift) → a₄ = 3\na₄ = 3 (tek) → a₅ = 8\na₅ = 8 (çift) → a₆ = 4\na₆ = 4 (çift) → a₇ = 2\na₇ = 2 (çift) → a₈ = 1\na₈ = 1 (tek) → a₉ = 6\n2. a₉ = 6 = a₃ olduğu görülür. Dizi a₃'ten itibaren **periyodiktir** ve periyot 6 terimdir:\n6 → 3 → 8 → 4 → 2 → 1 → 6 → …\n3. a₃'ten başlayarak indis kaydırılır. 14 − 2 = 12 ve 12, 6'nın tam katıdır; bu, periyodun **son** terimine denk gelir:\na₁₄ = a₈ = **1**\n4. Doğrudan sayarak da görülür: a₉ = 6, a₁₀ = 3, a₁₁ = 8, a₁₂ = 4, a₁₃ = 2, a₁₄ = **1**\nNot: Periyot bulunduktan sonra kaydırma yapılırken periyodun **nereden başladığı** kritiktir. Burada periyot a₁'den değil a₃'ten başlar; a₁ ve a₂ döngüye dahil değildir. Bunu atlayıp 14'ü doğrudan 6'ya bölmek yanlış terime götürür."
+    },
+    {
+      "id": "mantik3-06",
+      "blockId": "mantik3-dizi",
+      "difficulty": 2,
+      "stem": "a₄ = 2\n\nolduğuna göre, a₁ teriminin alabileceği **en büyük** değer kaçtır?",
+      "asks": "a₁ teriminin alabileceği en büyük değer isteniyor.",
+      "choices": ["8", "12", "16", "20", "24"],
+      "answer": 2,
+      "solution": "1. Kural **geriye** işletilir. Bir terimden bir öncekine iki yol vardır:\nÖnceki terim tek ise: aₖ = aₖ₊₁ − 5\nÖnceki terim çift ise: aₖ = 2 · aₖ₊₁\nHer iki yolda da bulunan değerin **kendi varsayımını sağlaması** (tek/çift olması) ve pozitif olması gerekir.\n2. a₄ = 2'den geriye:\nTek yolu: a₃ = 2 − 5 = −3, pozitif değil, **elenir**.\nÇift yolu: a₃ = 2 · 2 = 4. 4 çifttir, geçerli. Tek seçenek a₃ = **4**\n3. a₃ = 4'ten geriye:\nTek yolu: a₂ = 4 − 5 = −1, elenir.\nÇift yolu: a₂ = 2 · 4 = **8**\n4. a₂ = 8'den geriye, burada **iki dal birden açılır**:\nTek yolu: a₁ = 8 − 5 = 3. 3 tektir, geçerli.\nÇift yolu: a₁ = 2 · 8 = 16. 16 çifttir, geçerli.\n5. a₁ ∈ {3, 16}. En büyüğü **16**\nNot: A şıkkındaki 8, a₂ değeridir. Geriye işletmede her adımda iki yolu da denemek zorunludur; ilk üç adımda tek dal kapandığı için son adımda da tek dal beklenirse 16 kaçırılır ve elde kalan son sayı (8) cevap sanılır."
+    },
+    {
+      "id": "mantik3-07",
+      "blockId": "mantik3-sayac",
+      "difficulty": 2,
+      "stem": "Bu düzeneğe X = 27 girildiğinde, düzeneğin verdiği çıktı kaçtır?",
+      "asks": "düzeneğin verdiği çıktı isteniyor.",
+      "choices": ["11", "15", "19", "23", "27"],
+      "answer": 4,
+      "solution": "1. Sayaçlar adım adım izlenir. Başlangıç: A = 27, B = 0, C = 1\n2. Tur 1: A = 27 tek → B = 0 + 1 = 1. Sonra A = 13, C = 2\nTur 2: A = 13 tek → B = 1 + 2 = 3. Sonra A = 6, C = 4\nTur 3: A = 6 çift → B değişmez, B = 3. Sonra A = 3, C = 8\nTur 4: A = 3 tek → B = 3 + 8 = 11. Sonra A = 1, C = 16\nTur 5: A = 1 tek → B = 11 + 16 = **27**. Sonra A = 0, C = 32. A = 0 olduğundan durulur.\n3. Çıktı **27**'dir.\nNot: A şıkkındaki 11, dördüncü turun sonundaki B değeridir. Bu düzenek aslında X sayısını ikilik tabanda parçalayıp yeniden toplar; yani her zaman **girilen sayının kendisini** verir. Bunu fark etmek çözümü kısaltır ama fark edilmese de adım adım izlemek yeter — yeter ki durma koşuluna kadar gidilsin."
+    },
+    {
+      "id": "mantik3-08",
+      "blockId": "mantik3-sayac",
+      "difficulty": 3,
+      "stem": "Bu düzenekte 3. Adım **tam 4 kez** uygulandıktan sonra işlem durduğuna göre, düzeneğe girilen X sayısının alabileceği **en büyük** değer kaçtır?",
+      "asks": "X sayısının alabileceği en büyük değer isteniyor.",
+      "choices": ["13", "14", "15", "16", "17"],
+      "answer": 2,
+      "solution": "1. 3. Adım her turda bir kez uygulanır ve A sayacını yarılar. Tam 4 kez uygulanmışsa A, dört yarılamadan sonra 0 olmuştur; üçüncü yarılamadan sonra ise henüz 0 değildir.\n2. Geriye doğru yazılır:\nDördüncü yarılamadan sonra A = 0. Bunun için üçüncü yarılamadan sonra **A = 1** olmalıdır.\nA = 1 elde edilmesi için ikinci yarılamadan sonraki değer 2 veya 3 olabilir. **En büyük** için 3.\n3 elde edilmesi için birinci yarılamadan sonraki değer 6 veya 7 olabilir. En büyük için 7.\n7 elde edilmesi için X, 14 veya 15 olabilir. En büyük için X = **15**\n3. Denetim: 15 → 7 → 3 → 1 → 0. Tam dört yarılama yapılır.\nNot: B şıkkındaki 14 de dört yarılama yapar (14 → 7 → 3 → 1 → 0) ve doğru bir değerdir; ama soru **en büyük** olanı istiyor. Aşağıdan yukarı giderken her adımda iki aday çıkar ve her defasında büyüğü seçilmelidir; bir adımda küçüğü seçmek sonuca kadar taşınır."
+    },
+    {
+      "id": "mantik3-09",
+      "blockId": "mantik3-harf",
+      "difficulty": 2,
+      "stem": "Bu kurala göre \"KARTAL\" kelimesi şifrelendiğinde, elde edilen kelimenin son harfinin alfabedeki sıra numarası kaçtır?",
+      "asks": "şifreli kelimenin son harfinin alfabedeki sıra numarası isteniyor.",
+      "choices": ["9", "12", "15", "18", "21"],
+      "answer": 4,
+      "solution": "1. Her harfe, kendi sırasındaki numara kadar eklenir:\n1. harf K (14) → 14 + 1 = 15 → L\n2. harf A (1) → 1 + 2 = 3 → C\n3. harf R (21) → 21 + 3 = 24 → T\n4. harf T (24) → 24 + 4 = 28 → Y\n5. harf A (1) → 1 + 5 = 6 → E\n6. harf L (15) → 15 + 6 = **21** → R\n2. Şifreli kelime LCTYER'dir. Son harf R olup sıra numarası **21**'dir.\nNot: C şıkkındaki 15, L harfinin **kaydırılmadan önceki** sıra numarasıdır. Aynı harf hem 1. sırada hem 6. sırada geçtiğinde farklı harflere dönüşür; kaydırma miktarı harfin kendisine değil, **kelimedeki konumuna** bağlıdır."
+    },
+    {
+      "id": "mantik3-10",
+      "blockId": "mantik3-harf",
+      "difficulty": 2,
+      "stem": "Dört harfli bir kelimenin bu kurala göre şifrelenmesiyle elde edilen kelime \"DĞİT\" olduğuna göre, şifrelenmemiş kelimenin harflerinin alfabedeki sıra numaraları toplamı kaçtır?",
+      "asks": "şifrelenmemiş kelimenin harflerinin sıra numaraları toplamı isteniyor.",
+      "choices": ["28", "32", "36", "40", "44"],
+      "answer": 3,
+      "solution": "1. Şifreleme geriye işletilir; her harften kendi sırasındaki numara **çıkarılır**:\n1. harf D (5) → 5 − 1 = 4 → Ç\n2. harf Ğ (9) → 9 − 2 = 7 → F\n3. harf İ (12) → 12 − 3 = 9 → Ğ\n4. harf T (24) → 24 − 4 = 20 → P\n2. Kelime ÇFĞP'dir. Sıra numaraları toplamı: 4 + 7 + 9 + 20 = **40**\n3. Kısa yol: şifreli harflerin toplamı 5 + 9 + 12 + 24 = 50'dir. Kaydırma miktarları toplamı 1 + 2 + 3 + 4 = 10'dur. 50 − 10 = **40**\nNot: Bu soruda harfleri tek tek çözmeye gerek yoktur; yalnız toplam soruluyorsa **toplamdan toplam çıkarmak** yeter. Kaydırmalı şifrelerde sorulan büyüklük toplamsa, harf harf çözmek zaman kaybıdır."
+    },
+    {
+      "id": "mantik3-11",
+      "blockId": "mantik3-harf",
+      "difficulty": 3,
+      "stem": "Bir kelimede, bu kural uygulandığında şifrelendikten sonra **yine kendisine** dönüşen bir harf bulunmaktadır.\n\nBuna göre, bu kelime **en az** kaç harfli olmalıdır?",
+      "asks": "kelimenin en az harf sayısı isteniyor.",
+      "choices": ["25", "26", "27", "28", "29"],
+      "answer": 4,
+      "solution": "1. Bir harfin n kadar kaydırıldıktan sonra yine kendisi olabilmesi için, alfabenin **tam turunun** atılması gerekir. Yani kaydırma miktarı alfabedeki harf sayısının tam katı olmalıdır.\n2. Türk alfabesinde 29 harf vardır ve n. harfin kaydırma miktarı n'dir. Öyleyse n, 29'un katı olmalıdır.\n3. n pozitif tam sayı olduğundan bu koşulu sağlayan **en küçük** değer n = **29**'dur.\n4. Bir kelimede 29. harfin bulunabilmesi için kelimenin en az **29** harfli olması gerekir.\nNot: D şıkkındaki 28, alfabeyi 28 harf sanmaktan veya kaydırmayı n − 1 kabul etmekten çıkar. Ayrıca dikkat: burada aranan, harfin **hangi harf olduğu** değil, **kaçıncı sırada olduğudur** — kural harfin kendisine bakmaz, yalnız konumuna bakar. Bu yüzden alfabedeki her harf 29. sırada olsaydı kendine dönerdi."
+    },
+    {
+      "id": "mantik3-12",
+      "blockId": "mantik3-eritme",
+      "difficulty": 1,
+      "stem": "N = 19 sayısının adım sayısı kaçtır?",
+      "asks": "19 sayısının adım sayısı isteniyor.",
+      "choices": ["2", "3", "4", "5", "6"],
+      "answer": 4,
+      "solution": "1. Her adımda hangi kuralın geçerli olduğuna bakılır. **Önce 3'e bölünme** kontrol edilir.\n2. Adımlar:\n19 → 3'e bölünmez, tek → 19 + 1 = 20 (1. adım)\n20 → 3'e bölünmez, çift → 20 / 2 = 10 (2. adım)\n10 → 3'e bölünmez, çift → 10 / 2 = 5 (3. adım)\n5 → 3'e bölünmez, tek → 5 + 1 = 6 (4. adım)\n6 → 3'e bölünür → 6 / 3 = 2 (5. adım)\n2 → 3'e bölünmez, çift → 2 / 2 = 1 (6. adım)\n3. Toplam **6** işlem yapılmıştır.\nNot: 5. adımda 6 sayısı hem 3'e hem 2'ye bölünür. Kuralların **sırası** belirleyicidir: önce 3'e bölünme denenir. 6'yı 2'ye bölmek fazladan adım üretir ve yanlış cevaba götürür."
+    },
+    {
+      "id": "mantik3-13",
+      "blockId": "mantik3-eritme",
+      "difficulty": 3,
+      "stem": "Adım sayısı 3 olan iki basamaklı **en küçük** N sayısının rakamları toplamı kaçtır?",
+      "asks": "adım sayısı 3 olan iki basamaklı en küçük sayının rakamları toplamı isteniyor.",
+      "choices": ["3", "6", "9", "12", "15"],
+      "answer": 0,
+      "solution": "1. İki basamaklı sayılar küçükten büyüğe denenir. Adım sayısı doğrudan hesaplanır.\n2. 10 → 5 → 6 → 2 → 1 : **4** adım\n11 → 12 → 4 → 2 → 1 : **4** adım\n12 → 4 → 2 → 1 : **3** adım ✓\n3. Aranan en küçük sayı N = **12**'dir. Rakamları toplamı 1 + 2 = **3**\nNot: C şıkkındaki 9, N = 18 sayısının rakamları toplamıdır (1 + 8). 18 de adım sayısı 3 olan bir sayıdır (18 → 6 → 2 → 1) ama iki basamaklı **en küçüğü** değildir. Bu tip sorularda geriye doğru ağaç kurup adayları toplamak yerine, küçükten başlayıp ileri hesaplamak hem daha kısa hem daha güvenlidir."
+    },
+    {
+      "id": "mantik3-14",
+      "blockId": "mantik3-eritme",
+      "difficulty": 3,
+      "stem": "Bu oyunla ilgili olarak,\n\nI. Adım sayısı 1 olan yalnızca iki farklı N pozitif tam sayısı vardır.\nII. N çift sayı ise adım sayısı **her zaman** çifttir.\nIII. Ardışık iki pozitif tam sayının adım sayıları **her zaman** birbirinden farklıdır.\n\nifadelerinden hangileri kesinlikle doğrudur?",
+      "asks": "kesinlikle doğru olan ifadeler isteniyor.",
+      "choices": ["Yalnız I", "Yalnız II", "Yalnız III", "I ve II", "II ve III"],
+      "answer": 0,
+      "solution": "1. **I. ifade.** Adım sayısı 1 olan sayılar, tek işlemde 1'e inenlerdir:\n3'e bölünme yolu: N / 3 = 1 → N = 3 ✓\n2'ye bölünme yolu: N / 2 = 1 → N = 2. 2 sayısı 3'e bölünmez ve çifttir, kural uyar ✓\n1 ekleme yolu: N + 1 = 1 → N = 0, pozitif değil ✗\nYalnızca 2 ve 3 vardır. I **doğrudur**.\n2. **II. ifade.** Karşıt örnek aranır: N = 2 çifttir ve adım sayısı 1'dir, yani tektir. II **yanlıştır**.\n3. **III. ifade.** Karşıt örnek aranır:\n10 → 5 → 6 → 2 → 1 : 4 adım\n11 → 12 → 4 → 2 → 1 : 4 adım\n10 ile 11 ardışıktır ve adım sayıları eşittir. III **yanlıştır**.\n4. Yalnız I kesinlikle doğrudur.\nNot: II ve III'te \"her zaman\" geçtiği için **tek bir karşıt örnek** ifadeyi çürütmeye yeter; ifadeyi doğrulamak için ise bütün sayıları denemek gerekir. Bu asimetri I-II-III sorularının temelidir: önce karşıt örnek ara, bulamazsan ispatla."
+    },
+    {
+      "id": "mantik3-15",
+      "blockId": "mantik3-bilye",
+      "difficulty": 1,
+      "stem": "Robot **1 hamle** yaptıktan sonra 1. hücredeki bilye sayısı kaç olur?",
+      "asks": "1 hamle sonunda 1. hücredeki bilye sayısı isteniyor.",
+      "choices": ["2", "3", "4", "5", "6"],
+      "answer": 1,
+      "solution": "1. Başlangıç: [1, 1, 1, 1]\n2. 1. İşlem — tek numaralı hücreler (1 ve 3) 1 artırılır:\n[2, 1, 2, 1]\n3. 2. İşlem — çift numaralı hücreler (2 ve 4) 2 ile çarpılır:\n[2, 2, 2, 2]\n4. 3. İşlem — 4. hücrede 2 bilye var, yarısı 1'dir. 4. hücreden 1 eksilir, 1. hücreye 1 eklenir:\n[**3**, 2, 2, 1]\n5. 1. hücredeki bilye sayısı **3**'tür.\nNot: A şıkkındaki 2, 3. işlem yapılmadan önceki değerdir. Hamle üç işlemden oluşur; ikisini yapıp durmak bu soruda doğrudan bir şıkka denk gelir."
+    },
+    {
+      "id": "mantik3-16",
+      "blockId": "mantik3-bilye",
+      "difficulty": 2,
+      "stem": "Robot **2 hamle** yaptıktan sonra tüm hücrelerdeki toplam bilye sayısı kaç olur?",
+      "asks": "2 hamle sonunda tüm hücrelerdeki toplam bilye sayısı isteniyor.",
+      "choices": ["15", "14", "13", "12", "11"],
+      "answer": 2,
+      "solution": "1. 1. hamle sonu: [3, 2, 2, 1]\n2. 2. hamle:\n1. İşlem — tekler artırılır: [4, 2, 3, 1]\n2. İşlem — çiftler 2 ile çarpılır: [4, 4, 3, 2]\n3. İşlem — 4. hücrenin yarısı olan 1 bilye 1. hücreye aktarılır: [**5, 4, 3, 1**]\n3. Toplam: 5 + 4 + 3 + 1 = **13**\nNot: B şıkkındaki 14, 3. işlemde 4. hücreden bilyeyi **eksiltmeyi unutup** yalnız 1. hücreye eklemekten çıkar. Aktarma işlemi toplam bilye sayısını değiştirmez; toplam yalnız 1. ve 2. işlemlerle artar. Şıklar bu soruda **azalan** sırada verilmiştir."
+    },
+    {
+      "id": "mantik3-17",
+      "blockId": "mantik3-bilye",
+      "difficulty": 3,
+      "stem": "Bu düzenekle ilgili olarak,\n\nI. Her hamlenin sonunda 4. hücredeki bilye sayısı **her zaman** 1 olur.\nII. 2. hücredeki bilye sayısı her hamlede 2 katına çıkar.\nIII. Herhangi bir hamlenin sonunda tüm hücrelerdeki bilye sayıları toplamı **her zaman** çift sayıdır.\n\nifadelerinden hangileri kesinlikle doğrudur?",
+      "asks": "kesinlikle doğru olan ifadeler isteniyor.",
+      "choices": ["Yalnız I", "Yalnız II", "Yalnız III", "I ve II", "I, II ve III"],
+      "answer": 3,
+      "solution": "1. **I. ifade.** 4. hücre çift numaralıdır, 1. işlemden etkilenmez. Hamle başında değeri k ise 2. işlemde 2k olur, 3. işlemde yarısı gider ve geriye k kalır. Başlangıçta k = 1'dir, öyleyse her hamle sonunda yine 1 kalır. I **doğrudur**.\n2. **II. ifade.** 2. hücre çift numaralıdır, 1. işlemden etkilenmez; 3. işlem yalnız 1. ve 4. hücreleri ilgilendirir. Geriye tek etki kalır: 2. işlemdeki 2 ile çarpma. Dizi 1 → 2 → 4 → 8 → … biçiminde ilerler. II **doğrudur**.\n3. **III. ifade.** Karşıt örnek aranır:\n1. hamle sonu toplamı: 3 + 2 + 2 + 1 = 8 (çift)\n2. hamle sonu toplamı: 5 + 4 + 3 + 1 = **13** (tek)\nIII **yanlıştır**.\n4. I ve II kesinlikle doğrudur.\nNot: I ve II'yi **ispatlamak**, III'ü ise **çürütmek** gerekti. İspat için her hamlede neyin değişmediğini (4. hücre sabit, 2. hücre yalnız çarpılıyor) görmek yeterlidir; bunlara değişmez denir. Sayısal mantıkta düzenek soruları çoğu zaman bir değişmez arayışıdır."
+    },
+    {
+      "id": "mantik3-18",
+      "difficulty": 1,
+      "stem": "Pozitif tam sayılar kümesi üzerinde bir Δ işlemi,\n\nx Δ y = (x · y) / (x + y + 2)\n\nbiçiminde tanımlanıyor.\n\n6 Δ 4 ifadesinin değeri kaçtır?",
+      "asks": "6 Δ 4 ifadesinin değeri isteniyor.",
+      "choices": ["2", "3", "4", "5", "6"],
+      "answer": 0,
+      "solution": "1. Tanımda x = 6 ve y = 4 yazılır:\n6 Δ 4 = (6 · 4) / (6 + 4 + 2)\n2. Pay: 6 · 4 = 24\nPayda: 6 + 4 + 2 = 12\n3. Sonuç: 24 / 12 = **2**\nNot: Paydadaki **+2 sabiti** tanımın parçasıdır. Atlanırsa 24 / 10 = 2,4 çıkar ve şıklarda yer almaz. Tanımlı sembol sorularında formülü kâğıda birebir kopyalayıp sonra yerine koymak, sabitleri düşürmeyi engeller."
+    },
+    {
+      "id": "mantik3-19",
+      "difficulty": 2,
+      "stem": "Dört basamaklı bir sayının her basamağına şu şifreleme kuralı uygulanıyor:\n- Binler ve birler basamağındaki rakamlar 3 artırılıyor. Sonuç 9'u geçerse 10 ile bölümünden kalan yazılıyor.\n- Yüzler ve onlar basamağındaki rakamlar 2 azaltılıyor. Sonuç 0'ın altına düşerse 10 ekleniyor.\n\nŞifrelenmiş hâli 5168 olan sayının rakamları toplamı kaçtır?",
+      "asks": "şifrelenmemiş sayının rakamları toplamı isteniyor.",
+      "choices": ["12", "14", "16", "18", "20"],
+      "answer": 3,
+      "solution": "1. Şifrelenmemiş sayı ABCD olsun. Kural geriye işletilir.\n2. Binler basamağı: A + 3 = 5 → A = **2**\nYüzler basamağı: B − 2 = 1 → B = **3**\nOnlar basamağı: C − 2 = 6 → C = **8**\nBirler basamağı: D + 3 = 8 → D = **5**\n3. Sayı 2385'tir. Rakamları toplamı: 2 + 3 + 8 + 5 = **18**\nNot: E şıkkındaki 20, **şifrelenmiş** sayının rakamları toplamıdır (5 + 1 + 6 + 8). Soru şifrelenmemiş sayıyı istiyor. Ayrıca artırma ile azaltmanın hangi basamaklara uygulandığını karıştırmak dört rakamın da yanlış çıkmasına yol açar; basamakları çözmeden önce hangisine hangi kural uygulanacağını yaz."
+    },
+    {
+      "id": "mantik3-20",
+      "difficulty": 2,
+      "stem": "Bir sayı dizisinin terimleri arasında,\n\nT₁ = 2\nTₙ₊₁ = Tₙ + 3n + 1 (n ≥ 1)\n\nbağıntısı vardır.\n\nBuna göre, T₆ kaçtır?",
+      "asks": "T₆ teriminin değeri isteniyor.",
+      "choices": ["36", "44", "52", "60", "68"],
+      "answer": 2,
+      "solution": "1. Terimler sırayla hesaplanır:\nn = 1 → T₂ = 2 + 3·1 + 1 = 6\nn = 2 → T₃ = 6 + 3·2 + 1 = 13\nn = 3 → T₄ = 13 + 3·3 + 1 = 23\nn = 4 → T₅ = 23 + 3·4 + 1 = **36**\nn = 5 → T₆ = 36 + 3·5 + 1 = **52**\n2. T₆ = **52**\nNot: A şıkkındaki 36, T₅ değeridir. Bu tip özyinelemeli bağıntılarda T₆'yı bulmak için **n = 5** yazılır, n = 6 değil. Bir fazla adım atmak da bir eksik atmak da doğrudan bir şıkka denk gelir; kaç adım atılacağını başlangıçta kâğıda yaz."
+    },
+    {
+      "id": "mantik3-21",
+      "difficulty": 3,
+      "stem": "Bir tartı mekanizmasında ağırlıkları tam sayı olan cisimler tartılmaktadır. Mekanizma şu kurala göre çalışır:\n- Tartıya konulan cisimlerin toplam ağırlığı çift sayı ise tartı gerçek ağırlığı gösterir.\n- Toplam ağırlık tek sayı ise tartı gerçek ağırlıktan 1 kg **fazla** gösterir.\n\nBu tartıya önce tek başına bir K cismi konulduğunda tartı 16 kg göstermiştir. Ardından K cismi kaldırılmadan yanına bir L cismi eklendiğinde tartı 30 kg göstermiştir.\n\nBuna göre, L cisminin gerçek ağırlığının alabileceği değerlerin toplamı kaç kg'dır?",
+      "asks": "L cisminin gerçek ağırlığının alabileceği değerlerin toplamı isteniyor.",
+      "choices": ["28", "42", "56", "70", "84"],
+      "answer": 1,
+      "solution": "1. **K tek başına, gösterge 16.** İki durum da mümkündür:\nK çift ise gösterge gerçek ağırlıktır → K = 16. 16 çifttir, tutarlı ✓\nK tek ise gösterge 1 fazladır → K + 1 = 16 → K = 15. 15 tektir, tutarlı ✓\nYani K ∈ {15, 16}\n2. **K ve L birlikte, gösterge 30.** Yine iki durum:\nK + L çift ise → K + L = 30 (30 çifttir, tutarlı) ✓\nK + L tek ise → K + L + 1 = 30 → K + L = 29 (29 tektir, tutarlı) ✓\n3. Dört bileşim de denetlenir:\nK = 16, K + L = 30 → L = 14. Toplam 30 çift ✓\nK = 16, K + L = 29 → L = 13. Toplam 29 tek ✓\nK = 15, K + L = 30 → L = 15. Toplam 30 çift ✓\nK = 15, K + L = 29 → L = 14. Toplam 29 tek ✓\n4. L'nin alabileceği farklı değerler {13, 14, 15}'tir. Toplam: 13 + 14 + 15 = **42**\nNot: A şıkkındaki 28, yalnız iki dalın incelenip 13 + 15 bulunmasından çıkar. Bu soruda **iki ayrı belirsizlik** var: K'nın paritesi ve K + L'nin paritesi. İkisi bağımsız olduğu için dört bileşim de denenmelidir; birini sabitleyip diğerini taramak eksik cevap verir."
+    },
+    {
+      "id": "mantik3-22",
+      "difficulty": 3,
+      "stem": "Rakamları sıfırdan ve birbirinden farklı üç basamaklı bir XYZ sayısı için f fonksiyonu\n\nf(XYZ) = X·Y + Y·Z + Z·X\n\nbiçiminde tanımlanıyor. Örneğin f(123) = 1·2 + 2·3 + 3·1 = 11'dir.\n\nf(XYZ) = 29\n\nolduğuna göre, bu koşulu sağlayan **en büyük** XYZ sayısının onlar basamağındaki rakam kaçtır?",
+      "asks": "koşulu sağlayan en büyük XYZ sayısının onlar basamağındaki rakam isteniyor.",
+      "choices": ["1", "2", "3", "4", "5"],
+      "answer": 1,
+      "solution": "1. İfade düzenlenir: f(XYZ) = X·(Y + Z) + Y·Z\n2. Sayının **en büyük** olması için yüzler basamağı X en büyük seçilmelidir. X = 9'dan başlanır:\n9·(Y + Z) + Y·Z = 29\n3. Y ve Z sıfırdan ve birbirinden farklı rakamlardır, öyleyse Y + Z ≥ 1 + 2 = 3'tür.\nY + Z = 3 → 27 + Y·Z = 29 → Y·Z = **2**\nToplamı 3, çarpımı 2 olan rakamlar: **1 ve 2** ✓\nY + Z ≥ 4 → 9·4 = 36 > 29, olamaz.\n4. X = 9, {Y, Z} = {1, 2}. Sayının en büyük olması için onlar basamağı büyük seçilir: Y = 2, Z = 1\n5. En büyük sayı **921**'dir. Denetim: 9·2 + 2·1 + 1·9 = 18 + 2 + 9 = 29 ✓\nOnlar basamağı **2**'dir.\nNot: D şıkkındaki 4, X = 5 alındığında bulunan 541 sayısından gelir. 541 de f = 29 koşulunu sağlar (5·4 + 4·1 + 1·5 = 29) ama en büyük sayı değildir. Bu soruda tuzak, X'i büyükten küçüğe taramaya **9'dan değil daha küçük bir değerden** başlamaktır. En büyük aranıyorsa tarama mutlaka en büyük olasılıktan başlar."
+    },
+    {
+      "id": "mantik3-23",
+      "difficulty": 3,
+      "stem": "A ve B birer pozitif tam sayı olmak üzere, bu sayılar arasında\n\nA ⊕ B = A^B + B^A\n\nişlemi tanımlanıyor.\n\nA ⊕ B ifadesinin tek sayı olduğu bilindiğine göre,\n\nI. A · B çarpımı çift sayıdır.\nII. A + B toplamı tek sayıdır.\nIII. A^B ifadesi **her zaman** çift sayıdır.\n\nifadelerinden hangileri kesinlikle doğrudur?",
+      "asks": "kesinlikle doğru olan ifadeler isteniyor.",
+      "choices": ["Yalnız I", "Yalnız II", "I ve II", "Yalnız III", "I, II ve III"],
+      "answer": 2,
+      "solution": "1. Bir toplamın tek olması için terimlerden biri tek, diğeri çift olmalıdır.\n2. A ve B'nin pariteleri incelenir:\nİkisi de tek olsaydı: tek^tek = tek, tek + tek = **çift** ✗\nİkisi de çift olsaydı: çift^çift = çift, çift + çift = **çift** ✗\nÖyleyse **biri tek, diğeri çifttir**.\n3. **I. ifade.** Biri tek biri çift olan iki sayının çarpımı her zaman çifttir. I **doğrudur**.\n4. **II. ifade.** Biri tek biri çift olan iki sayının toplamı her zaman tektir. II **doğrudur**.\n5. **III. ifade.** Karşıt örnek: A = 3 (tek), B = 2 (çift) alınsın.\nA^B = 3² = 9, **tektir**. III **yanlıştır**.\n6. I ve II kesinlikle doğrudur.\nNot: Buradaki tuzak, \"biri çift olmalı\" sonucundan sonra **çift olanın A olduğunu varsaymaktır**. Soru A ile B arasında hangisinin çift olduğunu söylemiyor; iki dağılım da mümkün. A tek, B çift seçildiğinde A^B tek çıkar ve III çöker. Simetrik olmayan bir ifadede hangi harfin hangi rolde olduğu belirsizse, iki atamayı da dene."
+    },
+    {
+      "id": "mantik3-24",
+      "difficulty": 2,
+      "stem": "Dairesel bir düzende 1'den 8'e kadar numaralandırılmış 8 lamba bulunmaktadır. Bir kontrol kutusu lambaların durumunu şu kurala göre değiştirir:\n- 1. adımda 1 numaralı lambanın durumu değiştirilir.\n- k. adımda (k ≥ 2), bir önceki adımda durumu değiştirilen lambadan saat yönünde k lamba sonraki lambanın durumu değiştirilir.\n\nBuna göre, 9. adım tamamlandığında durumu değiştirilen lambanın numarası kaçtır?",
+      "asks": "9. adımda durumu değiştirilen lambanın numarası isteniyor.",
+      "choices": ["4", "5", "6", "7", "8"],
+      "answer": 1,
+      "solution": "1. Lambalar dairesel olduğundan 8'den sonra 1'e dönülür; hesap 8'e göre kalan üzerinden yürütülür.\n2. Konumlar sırayla:\n1. adım: 1\n2. adım: 1 + 2 = 3\n3. adım: 3 + 3 = 6\n4. adım: 6 + 4 = 10 → 10 − 8 = 2\n5. adım: 2 + 5 = 7\n6. adım: 7 + 6 = 13 → 13 − 8 = 5\n7. adım: 5 + 7 = 12 → 12 − 8 = **4**\n8. adım: 4 + 8 = 12 → 12 − 8 = 4\n9. adım: 4 + 9 = 13 → 13 − 8 = **5**\n3. Kısa yol: toplam ilerleme 1 + 2 + 3 + … + 9 = 45'tir. 45'in 8 ile bölümünden kalan **5**'tir.\n4. Aranan lamba **5** numaralıdır.\nNot: A şıkkındaki 4, 7. ve 8. adımlardaki konumdur. 8. adımda 8 lamba ilerlendiği için tam tur atılır ve konum **değişmez**; bu adımı atlamak veya sonucu orada okumak yanlış cevap verir. Kısa yolda 1'den 9'a kadar toplama, ilk adımın da (1 numaralı lamba) toplama dahil edilmesiyle çalışır."
+    }
+  ]
+}
