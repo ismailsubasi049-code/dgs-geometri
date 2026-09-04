@@ -1,0 +1,248 @@
+{
+  "id": "rasyonel-genel",
+  "topicId": "rasyonel",
+  "topic": "Rasyonel Sayılar",
+  "subtopicId": "rasyonel-genel",
+  "subtopic": "Genel rasyonel sayı soruları",
+  "version": 1,
+  "blocks": [],
+  "questions": [
+    {
+      "id": "rasyonel-01",
+      "label": "Kesirlerde dört işlem",
+      "difficulty": 1,
+      "stem": "2/3 ÷ 4/9 + 1/2 işleminin sonucu kaçtır?",
+      "asks": "işlemin sonucu",
+      "choices": ["1", "2", "3", "4", "5"],
+      "answer": 1,
+      "solution": "İşlem önceliği gereği **önce bölme** yapılır. Kesirde bölme, ikinci kesrin tersiyle çarpmadır:\n2/3 ÷ 4/9 = (2/3) · (9/4) = 18/12 = 3/2\n\nSonra toplama:\n3/2 + 1/2 = 4/2 = **2**"
+    },
+    {
+      "id": "rasyonel-02",
+      "label": "Devirli ondalık sayılar",
+      "difficulty": 1,
+      "stem": "0,363636… + 0,272727… işleminin sonucu kaçtır? (Her iki sayıda da virgülden sonraki iki basamak devretmektedir.)",
+      "asks": "işlemin sonucu",
+      "choices": ["5/11", "6/11", "7/11", "8/11", "9/11"],
+      "answer": 2,
+      "solution": "Virgülden sonra **iki basamağı** devreden ve devirsiz kısmı olmayan sayıda payda 99'dur:\n0,363636… = 36/99\n0,272727… = 27/99\n\n36/99 + 27/99 = 63/99\n\n9 ile sadeleştirilir: 63/99 = **7/11**"
+    },
+    {
+      "id": "rasyonel-03",
+      "label": "Karmaşık kesirler",
+      "difficulty": 1,
+      "stem": "1 + 1/(1 + 1/(1 + 1/2)) işleminin sonucu kaçtır?",
+      "asks": "işlemin sonucu",
+      "choices": ["1", "6/5", "7/5", "8/5", "9/5"],
+      "answer": 3,
+      "solution": "Sürekli kesirde **en içteki** basamaktan başlanır:\n1 + 1/2 = 3/2\n\nBir üst basamak:\n1 + 1/(3/2) = 1 + 2/3 = 5/3\n\nEn dış basamak:\n1 + 1/(5/3) = 1 + 3/5 = **8/5**"
+    },
+    {
+      "id": "rasyonel-04",
+      "label": "Karmaşık kesirler",
+      "difficulty": 2,
+      "stem": "1 + 2/(2 − 2/(2 − 1/2)) işleminin sonucu kaçtır?",
+      "asks": "işlemin sonucu",
+      "choices": ["0", "1", "2", "3", "4"],
+      "answer": 4,
+      "solution": "En içteki paydadan başlanır:\n2 − 1/2 = 3/2\n\nBir üst basamak:\n2/(3/2) = 4/3\n\nBir sonraki payda:\n2 − 4/3 = 2/3\n\nAna kesir:\n2/(2/3) = **3**\n\nSon işlem:\n1 + 3 = **4**\n\nNot: D şıkkındaki 3, ana kesrin değeridir; en dıştaki \"1 +\" işlemi yapılmadan önceki **ara değerdir**. Sürekli kesirlerde en dış katman en son yapılır ve en sık unutulan katman odur."
+    },
+    {
+      "id": "rasyonel-05",
+      "label": "Karmaşık kesirler",
+      "difficulty": 2,
+      "stem": "3 − 4/(1 + 2/(1 + 1/3)) işleminin sonucu kaçtır?",
+      "asks": "işlemin sonucu",
+      "choices": ["11/5", "2", "9/5", "8/5", "7/5"],
+      "answer": 4,
+      "solution": "En alttaki payda:\n1 + 1/3 = 4/3\n\nBir üst basamak:\n2/(4/3) = 3/2\n\nPayda:\n1 + 3/2 = 5/2\n\nÇıkarılacak kesir:\n4/(5/2) = **8/5**\n\nSonuç:\n3 − 8/5 = 15/5 − 8/5 = **7/5**\n\nNot: D şıkkındaki 8/5, çıkarılacak kesrin kendisidir. \"3 − …\" işlemini yapmadan durmak bu paketin en sık tuzağı. Şıklar bu soruda **azalan** sırada verilmiştir, dikkat et."
+    },
+    {
+      "id": "rasyonel-06",
+      "label": "Karmaşık kesirler",
+      "difficulty": 2,
+      "stem": "(1,2 − 1/5) / (1/(1 − 1/3) − 1/4) işleminin sonucu kaçtır?",
+      "asks": "işlemin sonucu",
+      "choices": ["1/5", "2/5", "3/5", "4/5", "1"],
+      "answer": 3,
+      "solution": "Pay hesaplanır. Ondalık kesre çevrilir:\n1,2 = 12/10 = 6/5\n6/5 − 1/5 = 5/5 = **1**\n\nPayda hesaplanır. Önce parantez:\n1 − 1/3 = 2/3 → 1/(2/3) = 3/2\n3/2 − 1/4 = 6/4 − 1/4 = 5/4\n\nAna kesir:\n1/(5/4) = **4/5**\n\nNot: E şıkkındaki 1, yalnızca **payın** değeridir. Payı 1 çıkan bileşik kesirlerde \"sonuç da 1'dir\" refleksi yanlıştır; 1/(5/4) = 4/5'tir."
+    },
+    {
+      "id": "rasyonel-07",
+      "label": "Karmaşık kesirler",
+      "difficulty": 2,
+      "stem": "[2 − (1/2)·(2/3)] / [(3/4) ÷ (9/8) − 1/6] işleminin sonucu kaçtır?",
+      "asks": "işlemin sonucu",
+      "choices": ["5/3", "10/3", "5", "20/3", "25/3"],
+      "answer": 1,
+      "solution": "Payda işlem önceliği gereği önce çarpma:\n(1/2)·(2/3) = 1/3\n2 − 1/3 = **5/3**\n\nPaydada önce bölme:\n(3/4) ÷ (9/8) = (3/4)·(8/9) = 24/36 = 2/3\n2/3 − 1/6 = 4/6 − 1/6 = 3/6 = **1/2**\n\nAna kesir:\n(5/3) / (1/2) = (5/3)·2 = **10/3**\n\nNot: A şıkkındaki 5/3, yalnızca **payın** değeridir. Bileşik kesirde pay ve payda ayrı ayrı bulunduktan sonra bölme işleminin yapılması gerekir."
+    },
+    {
+      "id": "rasyonel-08",
+      "label": "Kesirlerde sıralama",
+      "difficulty": 2,
+      "stem": "x = −11/14 , y = −17/20 , z = −23/26 olduğuna göre, aşağıdaki sıralamalardan hangisi doğrudur?",
+      "asks": "doğru sıralama",
+      "choices": ["z < y < x", "x < y < z", "y < x < z", "x < z < y", "z < x < y"],
+      "answer": 0,
+      "solution": "Önce sayıların **pozitif** hâlleri karşılaştırılır: 11/14 , 17/20 , 23/26\n\nÜçünde de payda ile pay arasındaki fark eşittir:\n14 − 11 = 3 , 20 − 17 = 3 , 26 − 23 = 3\n\nPayı paydasından küçük olan pozitif kesirlerde bu fark eşitse, **payı büyük olan** 1'e daha yakındır, dolayısıyla daha büyüktür:\n11/14 < 17/20 < 23/26\n\nSayılar negatif olduğundan eşitsizlik **yön değiştirir**:\n−23/26 < −17/20 < −11/14 → **z < y < x**\n\nNot: Negatife geçerken sıralamayı çevirmeyi unutmak bu soruda doğrudan D şıkkına götürür (x < z < y de değil, tam ters sıralama olan x'ten z'ye gidiş). Negatif kesirlerde **mutlak değeri büyük olan daha küçüktür**."
+    },
+    {
+      "id": "rasyonel-09",
+      "label": "Kesirlerde sıralama",
+      "difficulty": 2,
+      "stem": "a = 101/98 , b = 201/198 , c = 301/298 olduğuna göre, aşağıdaki sıralamalardan hangisi doğrudur?",
+      "asks": "doğru sıralama",
+      "choices": ["a < b < c", "b < a < c", "c < b < a", "c < a < b", "a < c < b"],
+      "answer": 2,
+      "solution": "Üç kesir de bileşik kesirdir; tam sayılı biçimde ayrıştırılır:\na = 101/98 = 1 + 3/98\nb = 201/198 = 1 + 3/198\nc = 301/298 = 1 + 3/298\n\nKesirli kısımların payları eşittir (hepsi 3). Payları eşit kesirlerde **paydası küçük olan büyüktür**:\n3/98 > 3/198 > 3/298\n\nBuradan a > b > c, yani **c < b < a**"
+    },
+    {
+      "id": "rasyonel-10",
+      "label": "Kesirlerde sıralama",
+      "difficulty": 2,
+      "stem": "a = 7/12 , b = 11/18 , c = 13/24 olduğuna göre, aşağıdaki sıralamalardan hangisi doğrudur?",
+      "asks": "doğru sıralama",
+      "choices": ["c < a < b", "c < b < a", "a < c < b", "b < a < c", "a < b < c"],
+      "answer": 0,
+      "solution": "Paydalar arasında ortak bir kalıp yok, EKOK ile eşitlenir:\nEKOK(12, 18, 24) = 72\n\na = 7·6/72 = 42/72\nb = 11·4/72 = 44/72\nc = 13·3/72 = 39/72\n\nPaydalar eşit olduğundan paylar sıralanır:\n39 < 42 < 44 → **c < a < b**"
+    },
+    {
+      "id": "rasyonel-11",
+      "label": "Kesirleri karşılaştırma",
+      "difficulty": 2,
+      "stem": "2/5 < x/30 < 3/4 eşitsizliğini sağlayan kaç farklı x tam sayısı vardır?",
+      "asks": "kaç farklı x tam sayısı olduğu",
+      "choices": ["6", "7", "8", "9", "10"],
+      "answer": 4,
+      "solution": "Paydalar 60'ta eşitlenir:\n2/5 = 24/60 , x/30 = 2x/60 , 3/4 = 45/60\n\n24/60 < 2x/60 < 45/60 → 24 < 2x < 45\n12 < x < 22,5\n\nx tam sayı olduğundan x ∈ {13, 14, 15, …, 22}\n\nTerim sayısı: 22 − 13 + 1 = **10**\n\nNot: D şıkkındaki 9, 22 − 13 farkıdır. Ardışık tam sayı sayarken **+1** eklenmesi zorunludur; aksi hâlde bir eleman eksik sayılır. Ayrıca eşitsizlik **katı** olduğu için 12 ve 22,5 dahil değildir, alt uçtan 13'ten başlanır."
+    },
+    {
+      "id": "rasyonel-12",
+      "label": "Devirli ondalık sayılar",
+      "difficulty": 2,
+      "stem": "(0,666… + 0,333…) / (0,454545… − 0,181818…) işleminin sonucu kaçtır? (Paydaki sayılarda bir, paydadaki sayılarda iki basamak devretmektedir.)",
+      "asks": "işlemin sonucu",
+      "choices": ["11/3", "10/3", "3", "8/3", "7/3"],
+      "answer": 0,
+      "solution": "Bir basamağı devreden sayılarda payda 9, iki basamağı devredende 99'dur:\n0,666… = 6/9 , 0,333… = 3/9 → Pay = 9/9 = **1**\n0,454545… = 45/99 , 0,181818… = 18/99 → Payda = 27/99 = **3/11**\n\nAna kesir:\n1 / (3/11) = **11/3**\n\nNot: Bu soruda en sık hata paydayı bulup **ters çevirmeyi unutmak**, yani 3/11 cevabını vermektir. 3/11 şıklarda yok; bulduğun değer şıklarda yoksa son bölme işlemini yapmadığını düşün. Şıklar bu soruda **azalan** sırada."
+    },
+    {
+      "id": "rasyonel-13",
+      "label": "Devirli ondalık sayılar",
+      "difficulty": 2,
+      "stem": "a = 1,2666… ve b = 0,8333… olduğuna göre, (a + b) / (a − b) ifadesinin değeri kaçtır? (Her iki sayıda da son basamak devretmektedir.)",
+      "asks": "ifadenin değeri",
+      "choices": ["63/13", "65/13", "67/13", "69/13", "71/13"],
+      "answer": 0,
+      "solution": "Devirli kısmı olan **ve** devirsiz basamağı da olan sayılarda kesre çevirme kuralı: (tüm sayı − devretmeyen kısım) / (devreden basamak sayısı kadar 9, devretmeyen basamak sayısı kadar 0)\n\na = 1,2666… → (1266 − 126)/900 = 1140/900 = 114/90\nb = 0,8333… → (83 − 8)/90 = 75/90\n\nPaydalar eşit olduğundan doğrudan işlem yapılır:\na + b = 189/90\na − b = 39/90\n\nBölme işleminde 90'lar sadeleşir:\n(189/90) / (39/90) = 189/39\n\n3 ile sadeleştirilir: 189/39 = **63/13**"
+    },
+    {
+      "id": "rasyonel-14",
+      "difficulty": 2,
+      "stem": "1/(1·2) + 1/(2·3) + 1/(3·4) + … + 1/(19·20) toplamının sonucu kaçtır?",
+      "asks": "toplamın sonucu",
+      "choices": ["1/20", "1/10", "9/10", "19/20", "1"],
+      "answer": 3,
+      "solution": "Paydası ardışık iki sayının çarpımı olan kesirler için özdeşlik:\n1/(n·(n+1)) = 1/n − 1/(n+1)\n\nToplam açılır:\n(1/1 − 1/2) + (1/2 − 1/3) + (1/3 − 1/4) + … + (1/19 − 1/20)\n\nAradaki tüm terimler birbirini götürür, **yalnızca ilk ve son** kalır:\n1 − 1/20 = **19/20**\n\nNot: E şıkkındaki 1, son terimi düşürmeyi unutmaktan; A şıkkındaki 1/20 ise \"geriye 1/20 kaldı\" deyip onu cevap sanmaktan gelir. Teleskopik toplamda geriye **iki** terim kalır ve aralarında çıkarma vardır."
+    },
+    {
+      "id": "rasyonel-15",
+      "label": "Karmaşık kesirler",
+      "difficulty": 2,
+      "stem": "5 − 6/(1 + 4/(x − 1)) = 3 denklemini sağlayan x gerçel sayısı kaçtır?",
+      "asks": "x değeri",
+      "choices": ["1", "2", "3", "4", "5"],
+      "answer": 2,
+      "solution": "Dıştan içe doğru, her adımda \"neyi ne yaparsak bu çıkar\" sorusu sorulur:\n\n5'ten neyi çıkarırsak 3 olur? → 6/(1 + 4/(x−1)) = **2**\n6'yı kaça bölersek 2 olur? → 1 + 4/(x−1) = **3**\n1 ile neyi toplarsak 3 olur? → 4/(x−1) = **2**\n4'ü kaça bölersek 2 olur? → x − 1 = **2**\n\nx = **3**\n\nNot: B şıkkındaki 2, x − 1 değeridir. Bu tip denklemlerde son satırda bulunan sayı çoğunlukla x değil, x'i içeren bir ifadedir. Son bir adım daha var."
+    },
+    {
+      "id": "rasyonel-16",
+      "label": "Kesirlerde dört işlem",
+      "difficulty": 2,
+      "stem": "(3x − 1)/4 − (x + 1)/3 = (x − 2)/6 + 3/2 denklemini sağlayan x gerçel sayısı kaçtır?",
+      "asks": "x değeri",
+      "choices": ["5", "6", "7", "8", "9"],
+      "answer": 2,
+      "solution": "Tüm paydalar 12'de eşitlenir:\nEKOK(4, 3, 6, 2) = 12\n\n3(3x − 1)/12 − 4(x + 1)/12 = 2(x − 2)/12 + 18/12\n\nPaydalar eşit olduğundan paylar eşitlenir:\n3(3x − 1) − 4(x + 1) = 2(x − 2) + 18\n9x − 3 − 4x − 4 = 2x − 4 + 18\n5x − 7 = 2x + 14\n3x = 21\nx = **7**"
+    },
+    {
+      "id": "rasyonel-17",
+      "label": "Devirli ondalık sayılar",
+      "difficulty": 3,
+      "stem": "x ve y sıfırdan farklı birer rakam olmak üzere, 0,xxx… + 0,yyy… + 0,xyxyxy… = 16/11 olduğuna göre, x + y toplamı kaçtır?",
+      "asks": "x + y toplamı",
+      "choices": ["5", "7", "9", "11", "13"],
+      "answer": 2,
+      "solution": "Devirli ifadeler kesre çevrilir:\n0,xxx… = x/9\n0,yyy… = y/9\n0,xyxyxy… = (10x + y)/99\n\nPaydalar 99'da eşitlenir:\n11x/99 + 11y/99 + (10x + y)/99 = (21x + 12y)/99\n\nVerilen eşitlik 99 paydasına çevrilir: 16/11 = 144/99\n\n21x + 12y = 144\n\nHer iki taraf 3'e bölünür:\n7x + 4y = 48\n\nx ve y sıfırdan farklı birer rakamdır. 48 çift ve 4y çift olduğundan 7x de **çift** olmalıdır, yani x çift rakamdır:\nx = 2 → 4y = 34 (tam sayı çıkmaz)\nx = 4 → 4y = 20 → y = **5** ✓\nx = 6 → 4y = 6 (tam sayı çıkmaz)\n\nx = 4, y = 5 → x + y = **9**\n\nNot: A şıkkındaki 5, yalnızca y değeridir. Ayrıca 0,xyxyxy… ifadesini x/9 + y/9 gibi düşünmek yaygın hatadır; iki basamağı birlikte devreden sayının paydası **99**'dur, 9 değil."
+    },
+    {
+      "id": "rasyonel-18",
+      "label": "Devirli ondalık sayılar",
+      "difficulty": 3,
+      "stem": "1/7 = 0,142857142857… olduğuna göre, virgülden sonraki 100. basamakta hangi rakam vardır?",
+      "asks": "virgülden sonraki 100. basamaktaki rakam",
+      "choices": ["2", "4", "6", "8", "10"],
+      "answer": 3,
+      "solution": "Devreden blok 6 basamaklıdır: 1 4 2 8 5 7\n\n100. basamağın blok içindeki yerini bulmak için 100 sayısı 6'ya bölünür:\n100 = 6·16 + **4**\n\nYani 16 tam blok geçilir, sonrasında bloğun **4. basamağında** durulur.\n\nBlok: 1(1.) 4(2.) 2(3.) **8**(4.) 5(5.) 7(6.)\n\nAranan rakam **8**'dir.\n\nNot: B şıkkındaki 4, bölme işleminden çıkan **kalandır**, aranan rakam değil. Kalan sana bloğun kaçıncı basamağında olduğunu söyler; cevap o basamaktaki rakamdır. Kalan 0 çıksaydı bloğun **son** basamağı alınacaktı."
+    },
+    {
+      "id": "rasyonel-19",
+      "difficulty": 3,
+      "stem": "1/(3·5) + 1/(5·7) + 1/(7·9) + … + 1/(21·23) toplamının sonucu kaçtır?",
+      "asks": "toplamın sonucu",
+      "choices": ["5/69", "10/69", "15/69", "20/69", "25/69"],
+      "answer": 1,
+      "solution": "Paydadaki çarpanlar arasındaki fark 2 olduğundan özdeşliğin **1/2 katsayısı** vardır:\n1/(n·(n+2)) = (1/2)·(1/n − 1/(n+2))\n\nToplam yazılır:\n(1/2)·[(1/3 − 1/5) + (1/5 − 1/7) + … + (1/21 − 1/23)]\n\nAradaki terimler götürülür:\n(1/2)·(1/3 − 1/23) = (1/2)·(23 − 3)/69 = (1/2)·(20/69) = **10/69**\n\nNot: D şıkkındaki 20/69, **1/2 ile çarpılmadan önceki** ara değerdir. Ardışık çarpanlar arasındaki fark 1 değilse özdeşliğin önüne 1/fark katsayısı gelir; bu katsayıyı unutmak bu kalıptaki bir numaralı hata."
+    },
+    {
+      "id": "rasyonel-20",
+      "label": "Rasyonel sayılar",
+      "difficulty": 3,
+      "stem": "(x + 1)/(x − 3) − (x − 2)/x = 6/(x² − 3x) denkleminin çözüm kümesi aşağıdakilerden hangisidir?",
+      "asks": "çözüm kümesi",
+      "choices": ["{2}", "{−2}", "{1}", "{3}", "∅"],
+      "answer": 0,
+      "solution": "Sağdaki payda çarpanlarına ayrılır: x² − 3x = x(x − 3)\n\n**Tanım kümesi önce yazılır:** payda sıfır olamayacağından x ≠ 0 ve x ≠ 3\n\nSol taraf x(x−3) paydasında birleştirilir:\n[x(x + 1) − (x − 2)(x − 3)] / [x(x − 3)] = 6 / [x(x − 3)]\n\nPaydalar eşit olduğundan paylar eşitlenir:\n(x² + x) − (x² − 5x + 6) = 6\nx² + x − x² + 5x − 6 = 6\n6x − 6 = 6\n6x = 12\nx = **2**\n\nx = 2 paydayı sıfır yapmaz, tanım kümesindedir. Çözüm kümesi **{2}**\n\nNot: D şıkkındaki {3}, tanım kümesi **dışındaki** bir değerdir. Paydalı denklemlerde bulunan kök, mutlaka tanım kümesine göre denetlenir; tanım dışına düşen kök çözüm değildir ve o durumda çözüm kümesi ∅ olur."
+    },
+    {
+      "id": "rasyonel-21",
+      "label": "Karmaşık kesirler",
+      "difficulty": 3,
+      "stem": "[(1 − 1/2)⁻² + (1 − 2/3)⁻¹] / (2 − 1/2)⁻¹ işleminin sonucu kaçtır?",
+      "asks": "işlemin sonucu",
+      "choices": ["7/2", "7", "21/2", "14", "35/2"],
+      "answer": 2,
+      "solution": "Negatif üs, kesrin **tersini alıp** üssü pozitif yapar.\n\nPayın birinci terimi:\n1 − 1/2 = 1/2 → (1/2)⁻² = 2² = 4\n\nPayın ikinci terimi:\n1 − 2/3 = 1/3 → (1/3)⁻¹ = 3\n\nPay: 4 + 3 = **7**\n\nPayda:\n2 − 1/2 = 3/2 → (3/2)⁻¹ = **2/3**\n\nSonuç:\n7 / (2/3) = 7 · 3/2 = **21/2**\n\nNot: B şıkkındaki 7, yalnızca **payın** değeridir. Ayrıca (1/2)⁻² işlemini −4 gibi düşünmek yaygın hatadır; negatif üs sayıyı negatif yapmaz, **tersini alır**."
+    },
+    {
+      "id": "rasyonel-22",
+      "label": "Karmaşık kesirler",
+      "difficulty": 3,
+      "stem": "a ve b sıfırdan ve birbirinden farklı gerçel sayılardır. [(a⁻¹ + b⁻¹) / (a⁻² − b⁻²)] ÷ [ab / (b − a)] ifadesinin en sade biçimi aşağıdakilerden hangisidir?",
+      "asks": "ifadenin en sade biçimi",
+      "choices": ["−1", "1", "a·b", "a/b", "a + b"],
+      "answer": 1,
+      "solution": "İlk kesrin payı:\na⁻¹ + b⁻¹ = 1/a + 1/b = (b + a)/(ab)\n\nİlk kesrin paydası:\na⁻² − b⁻² = 1/a² − 1/b² = (b² − a²)/(a²b²) = (b − a)(b + a)/(a²b²)\n\nİlk kesir düzenlenir (bölme, tersiyle çarpma):\n[(a + b)/(ab)] · [a²b² / ((b − a)(b + a))] = a²b² / (ab·(b − a)) = ab/(b − a)\n\nSon bölme yapılır:\n[ab/(b − a)] ÷ [ab/(b − a)] = **1**\n\nNot: Bu soruda hesap değil **model** ölçülüyor. a⁻² − b⁻² ifadesini (1/a − 1/b)² sanmak veya a⁻² = −a² yazmak sonucu tümüyle bozar. Negatif üste kesrin tersi alınır, işareti değişmez; iki kare farkı da paydaların çarpımı üzerinden kurulur."
+    },
+    {
+      "id": "rasyonel-23",
+      "label": "Rasyonel sayılar",
+      "difficulty": 3,
+      "stem": "Bir kesrin payının paydasına oranı 3/5'tir. Payına ve paydasına 4'er eklendiğinde kesrin değeri 5/7 oluyor. Buna göre, kesrin payı ile paydasının toplamı kaçtır?",
+      "asks": "kesrin payı ile paydasının toplamı",
+      "choices": ["10", "12", "14", "16", "18"],
+      "answer": 3,
+      "solution": "Oran verildiği için pay ve payda ortak bir k ile yazılır:\npay = 3k , payda = 5k\n\nKoşul kurulur:\n(3k + 4)/(5k + 4) = 5/7\n\nİçler dışlar çarpımı:\n7(3k + 4) = 5(5k + 4)\n21k + 28 = 25k + 20\n4k = 8\nk = **2**\n\npay = 3·2 = **6** , payda = 5·2 = **10**\n\nToplam: 6 + 10 = **16**\n\nNot: A şıkkındaki 10 paydanın kendisidir. Oran sorularında k bulunduktan sonra **iki** dönüş daha gerekir: önce pay ve payda ayrı ayrı, sonra sorulan toplam. Oranı birim sayıya çevirdikten sonra \"soru ne istiyor\" satırına geri dön."
+    },
+    {
+      "id": "rasyonel-24",
+      "difficulty": 3,
+      "stem": "x ve y pozitif tam sayılar olmak üzere, 1/x + 1/y = 1/2 olduğuna göre, x + y toplamının alabileceği **en büyük** değer kaçtır?",
+      "asks": "x + y toplamının alabileceği en büyük değer",
+      "choices": ["5", "6", "7", "8", "9"],
+      "answer": 4,
+      "solution": "Eşitlik paydalardan kurtarılır. Her iki taraf 2xy ile çarpılır:\n2y + 2x = xy\nxy − 2x − 2y = 0\n\nÇarpanlara ayırmak için her iki tarafa 4 eklenir:\nxy − 2x − 2y + 4 = 4\nx(y − 2) − 2(y − 2) = 4\n(x − 2)(y − 2) = **4**\n\nx, y pozitif tam sayı olduğundan (x−2) ve (y−2) çarpımı 4 olan tam sayılardır. Her ikisi de pozitif olmalıdır (negatif olsalardı x veya y ≤ 0 çıkardı):\n(x−2, y−2) = (1, 4) → x = 3, y = 6 → x + y = **9**\n(x−2, y−2) = (2, 2) → x = 4, y = 4 → x + y = 8\n(x−2, y−2) = (4, 1) → x = 6, y = 3 → x + y = **9**\n\nEn büyük değer **9**\n\nNot: D şıkkındaki 8, **simetrik** çözümden (x = y = 4) gelir. \"En büyük\" veya \"en küçük\" sorulduğunda ilk akla gelen simetrik çözüm çoğunlukla uç değeri vermez; tüm çarpan ikililerini yazmadan karar verme."
+    }
+  ]
+}

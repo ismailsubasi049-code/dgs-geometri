@@ -1,0 +1,248 @@
+{
+  "id": "koklu-genel",
+  "topicId": "koklu",
+  "topic": "Köklü Sayılar",
+  "subtopicId": "koklu-genel",
+  "subtopic": "Genel köklü sayı soruları",
+  "version": 1,
+  "blocks": [],
+  "questions": [
+    {
+      "id": "koklu-01",
+      "label": "Kök kuralları",
+      "difficulty": 1,
+      "stem": "√12 · √27 : √4 işleminin sonucu kaçtır?",
+      "asks": "işlemin sonucu",
+      "choices": ["9", "12", "15", "18", "21"],
+      "answer": 0,
+      "solution": "Kökler tek kök altında birleştirilir: √12 · √27 = √(12·27) = √324 = **18**\n√4 = 2\n18 : 2 = **9**\n\nNot: D şıkkındaki 18, bölme yapılmadan önceki ara değerdir. \"İşleminin sonucu\" sorulduğunda son işlemi yapmadan durma."
+    },
+    {
+      "id": "koklu-02",
+      "label": "Kök kavramı",
+      "difficulty": 1,
+      "stem": "√2 · √8 + ∛(−27) işleminin sonucu kaçtır?",
+      "asks": "işlemin sonucu",
+      "choices": ["9", "7", "5", "3", "1"],
+      "answer": 4,
+      "solution": "√2 · √8 = √16 = 4\nKök derecesi **tek** olduğu için kök içi negatif olabilir: ∛(−27) = −3\n4 + (−3) = **1**\n\nNot: B şıkkındaki 7, ∛(−27) yerine +3 alınırsa çıkar. Çift dereceli kökte iç negatif olamaz, **tek dereceli kökte olabilir** ve sonuç negatiftir."
+    },
+    {
+      "id": "koklu-03",
+      "label": "Kök kuralları",
+      "difficulty": 1,
+      "stem": "3√5 + √80 − √45 işleminin sonucu kaçtır?",
+      "asks": "işlemin sonucu",
+      "choices": ["√5", "2√5", "3√5", "4√5", "5√5"],
+      "answer": 3,
+      "solution": "Kök içindeki tam kare çarpanlar dışarı alınır:\n√80 = √(16·5) = 4√5\n√45 = √(9·5) = 3√5\n3√5 + 4√5 − 3√5 = **4√5**"
+    },
+    {
+      "id": "koklu-04",
+      "label": "İç içe kökler",
+      "difficulty": 2,
+      "stem": "√(12 + √(12 + √16)) ifadesinin değeri kaçtır?",
+      "asks": "ifadenin değeri",
+      "choices": ["3", "4", "5", "6", "7"],
+      "answer": 1,
+      "solution": "İç içe köklerde **en içteki** kökten başlanır:\n√16 = 4\n√(12 + 4) = √16 = 4\n√(12 + 4) = √16 = **4**"
+    },
+    {
+      "id": "koklu-05",
+      "label": "Eşlenik",
+      "difficulty": 2,
+      "stem": "1/(√1+√2) + 1/(√2+√3) + 1/(√3+√4) + … + 1/(√8+√9) işleminin sonucu kaçtır?",
+      "asks": "işlemin sonucu",
+      "choices": ["2", "3", "4", "5", "6"],
+      "answer": 0,
+      "solution": "Her terimin payı ve paydası paydanın **eşleniği** ile genişletilir:\n1/(√n+√(n+1)) = (√(n+1)−√n) / ((n+1)−n) = √(n+1) − √n\n\nToplam açılırsa ardışık terimler birbirini götürür:\n(√2−√1) + (√3−√2) + (√4−√3) + … + (√9−√8) = √9 − √1 = 3 − 1 = **2**\n\nNot: B şıkkındaki 3, √9 değeridir; zincirin sonunda kalan **iki** terimden yalnız birini yazmaktan gelir. Teleskopik toplamda baştaki terim de kalır."
+    },
+    {
+      "id": "koklu-06",
+      "label": "Köklü sayılarda sıralama",
+      "difficulty": 2,
+      "stem": "a = 2√3 , b = 3√2 , c = √17 olduğuna göre, aşağıdaki sıralamalardan hangisi doğrudur?",
+      "asks": "doğru sıralama",
+      "choices": ["a < b < c", "c < a < b", "b < a < c", "c < b < a", "a < c < b"],
+      "answer": 4,
+      "solution": "Karşılaştırma için katsayılar kök içine alınır:\na = 2√3 = √(4·3) = √12\nb = 3√2 = √(9·2) = √18\nc = √17\n\nKök dereceleri eşit olduğundan kök içleri sıralanır: 12 < 17 < 18\nBuradan **a < c < b**"
+    },
+    {
+      "id": "koklu-07",
+      "label": "Kök kavramı",
+      "difficulty": 2,
+      "stem": "1 < x < 3 olmak üzere, √(x² − 6x + 9) + √(x² − 2x + 1) ifadesinin değeri kaçtır?",
+      "asks": "ifadenin değeri",
+      "choices": ["1", "2", "3", "4", "5"],
+      "answer": 1,
+      "solution": "Kök içleri tam karedir ve çift dereceli kökün sonucu **mutlak değerdir**:\n√(x²−6x+9) = √((x−3)²) = |x−3|\n√(x²−2x+1) = √((x−1)²) = |x−1|\n\nVerilen aralıkta işaretler belirlenir:\n1 < x < 3 → x−3 < 0 → |x−3| = 3−x\n1 < x < 3 → x−1 > 0 → |x−1| = x−1\n\n(3−x) + (x−1) = **2**\n\nNot: √(a²) = a yazmak bu soruda yanlış sonuç verir; (x−3) + (x−1) = 2x−4 çıkar ve şıklarda yer almaz. Çift dereceli kökten çıkan ifade **her zaman** mutlak değerlidir."
+    },
+    {
+      "id": "koklu-08",
+      "difficulty": 2,
+      "stem": "a > 0, b > 0 olmak üzere, a + b = 10 ve a · b = 9 olduğuna göre, √a + √b toplamı kaçtır?",
+      "asks": "√a + √b toplamı",
+      "choices": ["4", "7", "10", "13", "16"],
+      "answer": 0,
+      "solution": "Doğrudan a ve b bulmak yerine istenen ifadenin karesi alınır:\n(√a + √b)² = a + 2√(ab) + b = (a+b) + 2√(ab)\n(√a + √b)² = 10 + 2√9 = 10 + 6 = **16**\n\na > 0, b > 0 olduğundan √a + √b > 0:\n√a + √b = √16 = **4**\n\nNot: E şıkkındaki 16, ifadenin **karesidir**, kendisi değil. Kare alıp kökünü almayı unutmak bu paketteki en sık tuzak."
+    },
+    {
+      "id": "koklu-09",
+      "label": "İç içe kökler",
+      "difficulty": 2,
+      "stem": "√(7 + 4√3) + √(7 − 4√3) ifadesinin değeri kaçtır?",
+      "asks": "ifadenin değeri",
+      "choices": ["1", "2", "3", "4", "5"],
+      "answer": 3,
+      "solution": "Kök içleri tam kareye çevrilir. 4√3 = 2·2·√3 olduğundan:\n7 + 4√3 = 4 + 4√3 + 3 = (2 + √3)²\n7 − 4√3 = 4 − 4√3 + 3 = (2 − √3)²\n\n√((2+√3)²) = |2+√3| = 2+√3\n√((2−√3)²) = |2−√3| ; √3 ≈ 1,73 < 2 olduğundan 2−√3 > 0, mutlak değer aynen çıkar: 2−√3\n\n(2+√3) + (2−√3) = **4**\n\nNot: İkinci kökü √3 − 2 yazmak yaygın bir hatadır; sonuç 2√3 ≈ 3,46 çıkar ve C şıkkına yakın düşer. Mutlak değerin işaretine **her zaman** sayısal büyüklüğe bakarak karar ver."
+    },
+    {
+      "id": "koklu-10",
+      "label": "Kök kuralları",
+      "difficulty": 2,
+      "stem": "√(2⁴⁰ + 2⁴⁰ + 2⁴⁰ + 2⁴⁰) ifadesinin eşiti aşağıdakilerden hangisidir?",
+      "asks": "ifadenin eşiti",
+      "choices": ["2²⁰", "2²¹", "2²²", "2²³", "2²⁴"],
+      "answer": 1,
+      "solution": "Kök içindeki dört eşit terim toplanır:\n2⁴⁰ + 2⁴⁰ + 2⁴⁰ + 2⁴⁰ = 4 · 2⁴⁰ = 2² · 2⁴⁰ = 2⁴²\n\n√(2⁴²) = 2⁴²ᐟ² = **2²¹**\n\nNot: A şıkkındaki 2²⁰, kök içindeki toplamı görmeden doğrudan √(2⁴⁰) almaktan gelir. Kök içinde **toplama** varsa önce toplam tek terime indirilir."
+    },
+    {
+      "id": "koklu-11",
+      "label": "Eşlenik",
+      "difficulty": 2,
+      "stem": "(x − 4) / (√x + 2) = 3 olduğuna göre, x kaçtır?",
+      "asks": "x değeri",
+      "choices": ["25", "20", "15", "10", "5"],
+      "answer": 0,
+      "solution": "x > 0 için payın iki kare farkı olduğu görülür:\nx − 4 = (√x)² − 2² = (√x − 2)(√x + 2)\n\nKesir sadeleşir:\n(√x − 2)(√x + 2) / (√x + 2) = √x − 2 = 3\n√x = **5**\nx = 5² = **25**\n\nNot: E şıkkındaki 5, √x değeridir; x değil. Soruda x isteniyorsa √x bulunduktan sonra **karesi** alınır."
+    },
+    {
+      "id": "koklu-12",
+      "label": "Kök kavramı",
+      "difficulty": 2,
+      "stem": "√(2x − 1) = x − 2 denklemini sağlayan x gerçel sayısı kaçtır?",
+      "asks": "x değeri",
+      "choices": ["1", "2", "3", "4", "5"],
+      "answer": 4,
+      "solution": "Çift dereceli kökün sonucu negatif olamayacağından önce koşul yazılır:\nx − 2 ≥ 0 → x ≥ 2\n\nHer iki tarafın karesi alınır:\n2x − 1 = x² − 4x + 4\nx² − 6x + 5 = 0\n(x − 1)(x − 5) = 0 → x = 1 veya x = 5\n\nKoşul denetlenir: x = 1 için x ≥ 2 sağlanmaz (√1 = 1 iken sağ taraf −1 olur). x = **5** için √9 = 3 ve 5−2 = 3, eşitlik sağlanır.\n\nNot: A şıkkındaki 1, kare alma sırasında ortaya çıkan **yabancı köktür**. Köklü denklemde kare alındıktan sonra bulunan her kök, orijinal denklemde denenmek zorundadır."
+    },
+    {
+      "id": "koklu-13",
+      "label": "Kök kuralları",
+      "difficulty": 2,
+      "stem": "√0,16 + √2,25 işleminin sonucu kaçtır?",
+      "asks": "işlemin sonucu",
+      "choices": ["1,5", "1,9", "2,3", "2,7", "3,1"],
+      "answer": 1,
+      "solution": "Ondalık sayı kesre çevrilir:\n√0,16 = √(16/100) = 4/10 = 0,4\n√2,25 = √(225/100) = 15/10 = 1,5\n\n0,4 + 1,5 = **1,9**\n\nNot: A şıkkındaki 1,5 yalnızca ikinci kökün değeridir. Ayrıca √0,16 = 0,04 yazmak sık görülen hatadır; kök alınırken **virgülden sonraki basamak sayısı yarıya iner**, iki katına çıkmaz."
+    },
+    {
+      "id": "koklu-14",
+      "label": "Paydayı rasyonel yapma",
+      "difficulty": 2,
+      "stem": "20/√5 + √45 − √20 işleminin sonucu kaçtır?",
+      "asks": "işlemin sonucu",
+      "choices": ["3√5", "4√5", "5√5", "6√5", "7√5"],
+      "answer": 2,
+      "solution": "Önce payda rasyonel yapılır:\n20/√5 = 20√5 / (√5·√5) = 20√5/5 = 4√5\n\nKök içleri sadeleştirilir:\n√45 = √(9·5) = 3√5\n√20 = √(4·5) = 2√5\n\n4√5 + 3√5 − 2√5 = **5√5**"
+    },
+    {
+      "id": "koklu-15",
+      "difficulty": 2,
+      "stem": "√(x+1) + 6/√(x+1) = 5 denklemini sağlayan x değerlerinin toplamı kaçtır?",
+      "asks": "x değerlerinin toplamı",
+      "choices": ["5", "8", "11", "14", "17"],
+      "answer": 2,
+      "solution": "√(x+1) = t (t > 0) değişken değiştirmesi yapılır:\nt + 6/t = 5\nt² − 5t + 6 = 0\n(t − 2)(t − 3) = 0 → t = 2 veya t = 3\n\nt değerleri x'e geri çevrilir:\nt = 2 → √(x+1) = 2 → x + 1 = 4 → x₁ = 3\nt = 3 → √(x+1) = 3 → x + 1 = 9 → x₂ = 8\n\nHer ikisi de t > 0 koşuluna uygundur. Toplam: 3 + 8 = **11**\n\nNot: A şıkkındaki 5, t değerlerinin toplamıdır (2+3), x değerlerinin değil. Değişken değiştirmede **geri dönmeden** durmak bu paketin en tekrar eden tuzağı."
+    },
+    {
+      "id": "koklu-16",
+      "label": "Kök kavramı",
+      "difficulty": 2,
+      "stem": "x ve y birer gerçel sayı olmak üzere, √(2x − 8) + √(8 − 2x) + 3x = y olduğuna göre, x + y toplamı kaçtır?",
+      "asks": "x + y toplamı",
+      "choices": ["4", "8", "12", "16", "20"],
+      "answer": 3,
+      "solution": "Çift dereceli köklerin içi negatif olamaz, iki koşul birlikte yazılır:\n2x − 8 ≥ 0 → x ≥ 4\n8 − 2x ≥ 0 → x ≤ 4\n\nİki koşulu aynı anda sağlayan tek değer x = **4**'tür.\n\nx = 4 yerine konur:\n√0 + √0 + 3·4 = y → y = **12**\n\nx + y = 4 + 12 = **16**\n\nNot: A şıkkındaki 4 (x değeri) ve C şıkkındaki 12 (y değeri) çözümün ortasındaki değerlerdir. Soru **toplamı** istiyor. Başlamadan önce \"soru ne istiyor\" satırını yaz."
+    },
+    {
+      "id": "koklu-17",
+      "label": "Kök kavramı",
+      "difficulty": 3,
+      "stem": "√(x − √(x − 2)) = 2 denklemini sağlayan x gerçel sayısı kaçtır?",
+      "asks": "x değeri",
+      "choices": ["2", "3", "4", "5", "6"],
+      "answer": 4,
+      "solution": "Dıştaki kökün karesi alınır:\nx − √(x−2) = 4\n√(x−2) = x − 4\n\nYeni bir koşul doğar: sağ taraf negatif olamaz → x − 4 ≥ 0 → x ≥ 4\n\nTekrar kare alınır:\nx − 2 = x² − 8x + 16\nx² − 9x + 18 = 0\n(x − 3)(x − 6) = 0 → x = 3 veya x = 6\n\nx ≥ 4 koşulu gereği x = 3 elenir. Çözüm x = **6**\n\nNot: B şıkkındaki 3, ikinci kare alma sonrası doğan **yabancı köktür**. İç içe kökte her kare alma işleminden sonra **yeni bir koşul** yazılır; tek bir koşulla yetinmek bu soruda yanlış cevaba götürür."
+    },
+    {
+      "id": "koklu-18",
+      "label": "İç içe kökler",
+      "difficulty": 3,
+      "stem": "x > 2 olmak üzere, √(x + 2√(x−1)) + √(x − 2√(x−1)) = 4 denklemini sağlayan x kaçtır?",
+      "asks": "x değeri",
+      "choices": ["2", "3", "4", "5", "6"],
+      "answer": 3,
+      "solution": "Kök içleri tam kare biçiminde yazılır. x = (x−1) + 1 olduğundan:\nx + 2√(x−1) = (x−1) + 2√(x−1) + 1 = (√(x−1) + 1)²\nx − 2√(x−1) = (x−1) − 2√(x−1) + 1 = (√(x−1) − 1)²\n\nKökler alınırken mutlak değer yazılır:\n√((√(x−1)+1)²) = √(x−1) + 1\n√((√(x−1)−1)²) = |√(x−1) − 1|\n\nx > 2 verildiğinden x − 1 > 1, dolayısıyla √(x−1) > 1 ve mutlak değer aynen çıkar:\n(√(x−1) + 1) + (√(x−1) − 1) = 4\n2√(x−1) = 4\n√(x−1) = 2\nx − 1 = **4**\nx = **5**\n\nNot: C şıkkındaki 4, x−1 değeridir. Denklemin son satırında bulunan sayı ile sorulan x karışırsa cevap bir eksik çıkar."
+    },
+    {
+      "id": "koklu-19",
+      "label": "Kök kavramı",
+      "difficulty": 3,
+      "stem": "√(x² − 4x + 4) + √(x² + 6x + 9) = 5 denklemini sağlayan kaç tane x tam sayısı vardır?",
+      "asks": "kaç tane x tam sayısı olduğu",
+      "choices": ["5", "6", "7", "8", "9"],
+      "answer": 1,
+      "solution": "Kök içleri tam karedir, çift dereceli kök mutlak değer verir:\n|x − 2| + |x + 3| = 5\n\nBu ifade, sayı doğrusunda x'in 2'ye ve −3'e olan uzaklıklarının toplamıdır. İki nokta arası uzaklık 2 − (−3) = 5 olduğundan, toplam **tam olarak** x bu iki nokta arasında (uçlar dahil) iken 5'e eşittir:\n−3 ≤ x ≤ 2\n\nAralıktaki tam sayılar: −3, −2, −1, 0, 1, 2 → **6** tane\n\nNot: A şıkkındaki 5, denklemin sağ tarafı ve aynı zamanda aralığın uzunluğudur; aralıktaki tam sayı **sayısı** değildir. Kapalı aralıkta tam sayı sayarken uçlar da sayılır, bu yüzden 5 değil 6 çıkar."
+    },
+    {
+      "id": "koklu-20",
+      "label": "Eşlenik",
+      "difficulty": 3,
+      "stem": "x > y > 0 olmak üzere, √x + √y = 7 ve x − y = 21 olduğuna göre, x kaçtır?",
+      "asks": "x değeri",
+      "choices": ["5", "15", "25", "35", "45"],
+      "answer": 2,
+      "solution": "x − y ifadesi iki kare farkı olarak yazılır:\nx − y = (√x)² − (√y)² = (√x − √y)(√x + √y)\n\nVerilenler yerine konur:\n21 = (√x − √y) · 7 → √x − √y = 3\n\nİki denklem taraf tarafa toplanır:\n(√x + √y) + (√x − √y) = 7 + 3\n2√x = 10 → √x = **5**\nx = **25**\n\nNot: A şıkkındaki 5, √x değeridir. İki bilinmeyenli köklü sistemlerde toplama–çıkarma sonucunda elde edilen şey **kökün kendisidir**, sayının kendisi değil."
+    },
+    {
+      "id": "koklu-21",
+      "label": "Kök kavramı",
+      "difficulty": 3,
+      "stem": "√(x − 1) · √(3 − x) ifadesinin gerçel sayılarda tanımlı olduğu x değerleri için, x² − 4x ifadesinin alabileceği **en küçük** değer kaçtır?",
+      "asks": "x² − 4x ifadesinin alabileceği en küçük değer",
+      "choices": ["−1", "−2", "−3", "−4", "−5"],
+      "answer": 3,
+      "solution": "Önce tanım aralığı bulunur. İki çift dereceli kökün de içi negatif olamaz:\nx − 1 ≥ 0 → x ≥ 1\n3 − x ≥ 0 → x ≤ 3\nTanım aralığı: 1 ≤ x ≤ 3\n\nf(x) = x² − 4x parabolünün tepe noktası:\nx = −b/2a = 4/2 = 2\n\nx = 2 değeri [1, 3] aralığının **içindedir**, dolayısıyla en küçük değer tepe noktasında alınır:\nf(2) = 4 − 8 = **−4**\n\nUç noktalar: f(1) = 1 − 4 = −3, f(3) = 9 − 12 = −3\n\nNot: C şıkkındaki −3, aralığın **uç noktalarındaki** değerdir. Kapalı aralıkta en küçük/en büyük değer aranırken tepe noktası aralığın içindeyse uçlara değil tepeye bakılır; tepe aralığın dışındaysa uçlara bakılır. Önce tepenin nerede olduğuna karar ver."
+    },
+    {
+      "id": "koklu-22",
+      "label": "Kök kavramı",
+      "difficulty": 3,
+      "stem": "√(x + 3) = x − 3 denklemini sağlayan x değerlerinin toplamı kaçtır?",
+      "asks": "x değerlerinin toplamı",
+      "choices": ["6", "7", "8", "9", "10"],
+      "answer": 0,
+      "solution": "Koşul yazılır: x − 3 ≥ 0 → x ≥ 3\n\nHer iki tarafın karesi alınır:\nx + 3 = x² − 6x + 9\nx² − 7x + 6 = 0\n(x − 1)(x − 6) = 0 → x = 1 veya x = 6\n\nKoşul denetlenir:\nx = 1 → sol taraf √4 = 2, sağ taraf −2. Eşitlik sağlanmaz, **yabancı kök**.\nx = 6 → sol taraf √9 = 3, sağ taraf 3. Sağlanır.\n\nDenklemi sağlayan tek değer 6 olduğundan toplam da **6**'dır.\n\nNot: B şıkkındaki 7, ikinci derece denklemin kökler toplamıdır (1 + 6). Soru \"denklemi sağlayan\" değerleri istiyor; kare alma sonrası çıkan denklemin köklerini değil. Bu iki küme köklü denklemlerde **her zaman** aynı değildir."
+    },
+    {
+      "id": "koklu-23",
+      "label": "Eşlenik",
+      "difficulty": 3,
+      "stem": "a = √5 + √3 ve b = √5 − √3 olduğuna göre, a² + b² toplamı kaçtır?",
+      "asks": "a² + b² toplamı",
+      "choices": ["12", "14", "16", "18", "20"],
+      "answer": 2,
+      "solution": "Kareleri tek tek açmak yerine özdeşlik kullanılır:\na + b = (√5 + √3) + (√5 − √3) = 2√5\na · b = (√5 + √3)(√5 − √3) = 5 − 3 = 2\n\na² + b² = (a + b)² − 2ab\na² + b² = (2√5)² − 2·2 = 20 − 4 = **16**\n\nNot: E şıkkındaki 20, (a+b)² değeridir. a² + b² ile (a+b)² arasındaki 2ab farkını düşürmek bu kalıptaki en sık hata."
+    },
+    {
+      "id": "koklu-24",
+      "difficulty": 3,
+      "stem": "√x − 2/√x = 1 olduğuna göre, x + √x toplamı kaçtır?",
+      "asks": "x + √x toplamı",
+      "choices": ["2", "4", "6", "8", "10"],
+      "answer": 2,
+      "solution": "√x = u (u > 0) denir:\nu − 2/u = 1\nu² − u − 2 = 0\n(u − 2)(u + 1) = 0 → u = 2 veya u = −1\n\nu > 0 koşulu gereği u = **2** alınır:\n√x = 2 → x = **4**\n\nİstenen: x + √x = 4 + 2 = **6**\n\nNot: A şıkkındaki 2 (√x değeri) ve B şıkkındaki 4 (x değeri) çözümün ortasındaki değerlerdir. Bu soruda **üç** sayı dolaşımda: √x, x ve x + √x. Başlamadan önce hangisinin sorulduğunu kâğıda yaz."
+    }
+  ]
+}

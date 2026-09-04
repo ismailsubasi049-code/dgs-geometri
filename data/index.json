@@ -55,6 +55,39 @@
       "version": 1
     },
     {
+      "id": "rasyonel-genel",
+      "topicId": "rasyonel",
+      "topic": "Rasyonel Sayılar",
+      "subtopicId": "rasyonel-genel",
+      "subtopic": "Genel rasyonel sayı soruları",
+      "title": "Genel rasyonel sayı soruları",
+      "file": "packs/rasyonel-genel.json",
+      "count": 24,
+      "version": 1
+    },
+    {
+      "id": "uslu-genel",
+      "topicId": "uslu",
+      "topic": "Üslü Sayılar",
+      "subtopicId": "uslu-genel",
+      "subtopic": "Genel üslü sayı soruları",
+      "title": "Genel üslü sayı soruları",
+      "file": "packs/uslu-genel.json",
+      "count": 24,
+      "version": 1
+    },
+    {
+      "id": "koklu-genel",
+      "topicId": "koklu",
+      "topic": "Köklü Sayılar",
+      "subtopicId": "koklu-genel",
+      "subtopic": "Genel köklü sayı soruları",
+      "title": "Genel köklü sayı soruları",
+      "file": "packs/koklu-genel.json",
+      "count": 24,
+      "version": 1
+    },
+    {
       "id": "mantik-blok-1",
       "topicId": "sayisal-mantik",
       "topic": "Sayısal Mantık",

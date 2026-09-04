@@ -6,11 +6,12 @@ her turda aşağıdaki günlüğe yazılıyor)
 
 ## Özet
 
-**499 soru · 18 alt konu · 20 paket.** 395'i geometri, 104'ü matematik
-(5 paket: `ozdeslik-genel`, `oran-oranti-genel`, `mantik-blok-1`,
-`mantik-blok-2`, `problem-genel`). Kalan **6**
+**571 soru · 21 alt konu · 23 paket.** 395'i geometri, 176'sı matematik
+(8 paket: `ozdeslik-genel`, `oran-oranti-genel`, `mantik-blok-1`,
+`mantik-blok-2`, `problem-genel`, `rasyonel-genel`, `uslu-genel`,
+`koklu-genel`). Kalan **3**
 matematik konusunun hâlâ yalnız formül kartı var, paketi yok: `sayilar`,
-`bolunebilme`, `ebob-ekok`, `rasyonel`, `uslu`, `koklu`. **Sayısal mantık ise
+`bolunebilme`, `ebob-ekok`. **Sayısal mantık ise
 tersi:** paketi var, formül kartı yok.
 
 ## Paketler
@@ -20,6 +21,9 @@ tersi:** paketi var, formül kartı yok.
 | Çarpanlara Ayırma ve Özdeşlikler | `ozdeslik-genel` | Genel özdeşlik soruları | 20 |
 | Oran ve Orantı | `oran-oranti-genel` | Genel oran-orantı soruları | 20 |
 | Problemler | `problem-genel` | Genel problem soruları | 20 |
+| Rasyonel Sayılar | `rasyonel-genel` | Genel rasyonel sayı soruları | 24 |
+| Üslü Sayılar | `uslu-genel` | Genel üslü sayı soruları | 24 |
+| Köklü Sayılar | `koklu-genel` | Genel köklü sayı soruları | 24 |
 | Sayısal Mantık | `mantik-blok-1` | Tanımlı sembol, kavram, senaryo ve oyun blokları | 24 |
 | Sayısal Mantık | `mantik-blok-2` | Tablo, grafik ve şekil blokları | 20 |
 | Açılar | `acilar-temel` | Temel açı kavramları | 24 |
@@ -37,12 +41,22 @@ tersi:** paketi var, formül kartı yok.
 | Üçgenler | `ucgen-karma` | Karma üçgen | 30 |
 | Dörtgenler | — | Dörtgenler | 10 |
 | Çember ve Daire | — | Çember ve Daire | 10 |
-| **Toplam** | | **20 paket** | **499** |
+| **Toplam** | | **23 paket** | **571** |
 
 ## Kalan işler
 
-- **Sonraki aşama kararı:** matematiğin kalan 6 konusuna paket mi (formül
+- **Sonraki aşama kararı:** matematiğin kalan 3 konusuna paket mi (formül
   kartları hazır), yoksa dörtgen/çember paketleri mi
+- **Üç `-genel` matematik paketi şemadan bilerek sapıyor.** `rasyonel-genel`,
+  `uslu-genel` ve `koklu-genel` saf transkripsiyonla yazıldı; kaynak md'ler
+  çözümü `_sema.md` §4'teki numaralı `(Sık yapılan hata N: …)` bloğuyla değil,
+  `richText()`'in sarı kutuya çevirdiği satır başı `Not:` etiketiyle bitiriyor.
+  Çözüm satırlarına dokunulmadığı için hata bloğu bu üç pakette **yok**.
+  Ayrıca 8 soruda `label` boş bırakıldı (`koklu-08/15/24`,
+  `rasyonel-14/19/24` gibi): konuları mevcut formül kartlarının hiçbir
+  alias'ına oturmuyor — yanlış kart açmaktansa kart açmamak seçildi.
+  Karşılığı olan kartlar: köklüde teleskopik/değişken değiştirmeli köklü
+  denklem, rasyonelde teleskopik toplam yok.
 - **Sayısal mantığın formül kartı yok** (`data/formuller/` altında
   `sayisal-mantik.json` yok, `formuller/index.json`'da kayıt yok). Yanlış
   cevapta kart açılmıyor: `js/formulas.js:106` önce `subtopicId`
