@@ -6,7 +6,7 @@ her turda aşağıdaki günlüğe yazılıyor)
 
 ## Özet
 
-**595 soru · 22 alt konu · 24 paket.** 395'i geometri, 200'ü matematik
+**610 soru · 23 alt konu · 25 paket.** 410'u geometri, 200'ü matematik
 (9 paket: `ozdeslik-genel`, `oran-oranti-genel`, `mantik-blok-1`,
 `mantik-blok-2`, `mantik-blok-3`, `problem-genel`, `rasyonel-genel`,
 `uslu-genel`, `koklu-genel`). Kalan **3**
@@ -41,8 +41,9 @@ tersi:** paketi var, formül kartı yok.
 | Üçgenler | `ucgen-yukseklik` | Yükseklik ve diklik merkezi | 20 |
 | Üçgenler | `ucgen-karma` | Karma üçgen | 30 |
 | Dörtgenler | — | Dörtgenler | 10 |
+| Dörtgenler | `dortgen-yamuk` | Yamuk | 15 |
 | Çember ve Daire | — | Çember ve Daire | 10 |
-| **Toplam** | | **24 paket** | **595** |
+| **Toplam** | | **25 paket** | **610** |
 
 ## Kalan işler
 
@@ -1563,6 +1564,95 @@ yok, DGS'nin büyük kategorilerinden biri. Ayrıca yedi blok dört ayrı beceri
 ikisi de deterministik düzenek simülasyonu. Blok 1 kalibrasyon dışı — tanımlı
 sembol kılığında bir sayılar teorisi (EBOB bölenleri) taraması; zor blokta
 bırakıldı.
+
+## Yamuk paketi
+
+**2026-09-06 (v52) · yeni `data/packs/geometri-yamuk.json` (15 soru).**
+`referans/geometri-yamuk.md`'den saf transkripsiyon; üretilen soru yok. Kod
+değişmedi — dosya + index kaydı + `sw.js` VERSION. Dörtgenler konusu 10 → 25
+soru. Zorluk kaynaktan: **kolay 3 · orta 8 · zor 4**. Cevap dağılımı A–E'de
+3'er. Soru 8 azalan şıklıdır, düzeltilmedi.
+
+**Alt konu kimliği mevcut kartın kimliğidir: `dortgen-yamuk`.** `problem-genel`
+ve `ucgen-karma`'daki *çakışmadan kaçınma* deseninin tersi bilerek seçildi:
+orada bir paket birden çok konuya yayıldığı için tek karta bağlanmak yanlış
+olurdu, burada 15 sorunun tamamı tek kartın kapsamında. `js/formulas.js:106`
+ilk adımda tutuyor, **15/15 soruda Yamuk kartı açılıyor** ve kart paketin
+tamamını karşılıyor (alan, orta taban, `Alan = orta taban · h`, köşegen
+üçgenlerinde yan üçgenlerin eşitliği, ikizkenar yamukta taban açıları ve eşit
+köşegenler). `data/formuller/` **hiç değişmedi**: yeni kart yok, yeni alias
+yok, `cardCount` aynı.
+
+Bunun bilinen ve kabul edilen yan etkisi: alt konu seti
+`geo-dortgenler`'in aynı `subtopicId`'yi taşıyan 2 yamuk sorusuyla birleşiyor;
+"Yamuk" başlığı altında **17** soru görünüyor (`js/screens/topics.js:115`,
+`js/scheduler.js:290`). Paket sayacı ise 15'te kalıyor.
+
+Birleşmenin görünür tek pürüzü: oturum başlığı **"Yamuk" değil "Yamukta alan"**
+yazıyor. `js/scheduler.js:291` seti `own[0].subtopic` ile adlandırıyor ve
+`geo-dortgenler`'in iki sorusu kendi `subtopic` alanını taşıdığı için
+(`js/packs.js:114` soru alanını paketinkinden öncelikli kılıyor) sıradaki ilk
+soru başlığı belirliyor. Soru içindeki konu rozeti doğru: `Dörtgenler · Yamuk`.
+Düzeltmenin yolu o iki sorunun `subtopic` alanını silmek; bu turda
+`geo-dortgenler.json`'a dokunulmadığı için **açık madde** olarak bırakıldı.
+
+`label` yalnız mevcut alias'lardan yazıldı, **yeni alias uydurulmadı**:
+`Yamukta alan` 6 soru (1, 2, 3, 8, 12, 14), `Yamukta orta taban` 2 soru (4, 5),
+kalan **7 soruda `label` yok** (açı, yükseklik, köşegen uzunluğu ve köşegen
+üçgeni oranı soruları — iki alias'ın hiçbirine oturmuyor). Kart zaten
+`subtopicId` üzerinden açıldığı için burada `label` kart anahtarı değil, yalnız
+başlık altı etiketidir.
+
+### Paylaşımlı şekil diye bir mekanizma yok
+
+Kaynak beş şekli (FIG-A … FIG-E) on soruya paylaştırıyor. Şemada şekil
+paylaşma yolu yok: `figure` soru nesnesinde satır içi SVG metnidir ve `blocks`
+boş olduğu için blok şekli de devrede değil. Ölçüldü: depodaki **375 şeklin
+hiçbiri** başka bir soruyla aynı değil, yani taklit edilecek bir referans
+deseni de yoktu. Sonuç: **5 ayrı SVG, 10 `figure` alanına birebir tekrar
+yazıldı** (FIG-A → 6, 9 · FIG-B → 7 · FIG-C → 8 · FIG-D → 10 · FIG-E → 11–15;
+1–5 şekilsiz). Bakım maliyeti buradan çıkar — FIG-E düzeltilecekse beş yerde
+düzeltilir.
+
+### SVG'ler ev stiline çevrildi
+
+Kaynak SVG'ler `viewBox="0 0 500 220"`, çift tırnak, `stroke-width="1.2"`,
+font-family yok ve **tek renk** (`currentColor`). Depo stili iki renkli
+(`_sema.md` §3). Uygulanan dönüşüm:
+
+- Şekil başına **düzgün (uniform) ölçek + öteleme** → `viewBox='0 0 320 200'`.
+  Ölçek düzgün olduğu için yamuk oranları ve açıları birebir korunur. Ölçek
+  şekil başına ayrı seçildi (FIG-A/D 0.95, FIG-B 0.87, FIG-C 1.05, FIG-E 0.82):
+  planda yazılan tek tip ×0.64, viewBox'ın *boş kenar payını* da ölçeklediği
+  için şekilleri tuvalin yarısına düşürüyordu.
+- Tek tırnak, `xmlns` yazılı, `width`/`height` yok; ana çokgen
+  `stroke-width='2'`, dik açı işaretleri `1.5`, vurgu `2.5`;
+  `font-family='system-ui, sans-serif'`, köşe harfleri 13, S₁–S₄ ve O 14 punto.
+- **`#0284c7` yalnız ana şeklin dışına eklenen yardımcı çizgilerde**
+  (kullanıcının verdiği kesin liste): FIG-B iki kesikli yükseklik, FIG-C kesikli
+  yükseklik, FIG-D DB köşegeni, FIG-E iki köşegen + O noktası. FIG-A'da vurgu
+  yok. Yamuğun kendi kenarları, köşe harfleri, S₁–S₄ ve dik açı işaretleri
+  `currentColor` kalır. **FIG-E beş soruda da aynıdır** — istenen büyüklüğe göre
+  vurgu değiştirilmedi, tersi paylaşımlı şekli beş ayrı şekle böler ve
+  şıkkı sızdırırdı.
+
+### Şemadan sapma ve doğrulama
+
+`_sema.md` §4'ün `(Sık yapılan hata N: …)` bloğu bu pakette **yok**; kaynak
+çözümleri satır başı `Not:` ile bitiyor ve saf transkripsiyon gereği
+dokunulmadı. `rasyonel-genel`, `uslu-genel`, `koklu-genel`, `problem-genel` ve
+mantık paketleriyle aynı durum. `Not:` kutusu **15/15** soruda var.
+
+`asks` kaynakta yok, şema zorunlu tutuyor (`js/packs.js:78`). Talimat gereği
+yalnız istenen büyüklüğü adlandırıyor — yöntem ve tuzak yazılmadı; ikisi de
+`asks` cevaptan önce okunduğu için soruyu bitirirdi.
+
+- **Kaynakla karakter karşılaştırması: 15 kök, 75 şık ve 15 çözüm birebir**
+  (boşluk normalizasyonu dışında sıfır fark, PowerShell ile ölçüldü).
+- `answer` indeksinin gösterdiği şık, kaynağın cevap anahtarı tablosuyla
+  **15/15** eşleşti; zorluk dağılımı 3/8/4 kaynakla birebir.
+- 10 `figure` alanının tamamı `viewBox='0 0 320 200'`; soruların hiçbirine
+  `subtopicId` yazılmadı.
 
 ## Çalışma kuralları
 

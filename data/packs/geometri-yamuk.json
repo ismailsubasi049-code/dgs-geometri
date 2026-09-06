@@ -1,0 +1,164 @@
+{
+  "id": "geometri-yamuk",
+  "topicId": "dortgenler",
+  "topic": "Dörtgenler",
+  "subtopicId": "dortgen-yamuk",
+  "subtopic": "Yamuk",
+  "version": 1,
+  "blocks": [],
+  "questions": [
+    {
+      "id": "yamuk-01",
+      "label": "Yamukta alan",
+      "difficulty": 1,
+      "stem": "Paralel kenarlarının uzunlukları 9 cm ve 15 cm, yüksekliği 8 cm olan bir yamuğun alanı kaç cm²'dir?",
+      "asks": "Yamuğun alanı isteniyor.",
+      "choices": ["96", "120", "144", "168", "192"],
+      "answer": 0,
+      "solution": "1. Yamuğun alanı, tabanların **ortalaması** ile yüksekliğin çarpımıdır:\nAlan = ((a + c) / 2) · h\n\n2. Orta taban hesaplanır:\n(9 + 15) / 2 = **12**\n\n3. Alan bulunur:\n12 · 8 = **96**\n\nNot: E şıkkındaki 192, tabanları toplayıp **ikiye bölmeden** yükseklikle çarpmaktan gelir: (9 + 15) · 8 = 192. Alan formülündeki 1/2 katsayısı, yamuğun köşegenle iki üçgene ayrılmasından çıkar; iki üçgenin de alanında ½ vardır."
+    },
+    {
+      "id": "yamuk-02",
+      "label": "Yamukta alan",
+      "difficulty": 1,
+      "stem": "Orta tabanının uzunluğu 14 cm, yüksekliği 6 cm olan bir yamuğun alanı kaç cm²'dir?",
+      "asks": "Yamuğun alanı isteniyor.",
+      "choices": ["60", "66", "72", "78", "84"],
+      "answer": 4,
+      "solution": "1. Orta taban zaten tabanların ortalamasıdır. Alan formülü doğrudan şu hâle gelir:\nAlan = orta taban × h\n\n2. Alan = 14 · 6 = **84**\n\nNot: Bu soruda tabanlar hiç verilmemiştir ve verilmesine gerek de yoktur. Yamuğun alanı yalnız orta tabana ve yüksekliğe bağlıdır; aynı orta tabana sahip sonsuz sayıda farklı yamuk aynı alana sahiptir."
+    },
+    {
+      "id": "yamuk-03",
+      "label": "Yamukta alan",
+      "difficulty": 2,
+      "stem": "Alanı 120 cm², paralel kenarları 11 cm ve 19 cm olan bir yamuğun yüksekliği kaç cm'dir?",
+      "asks": "Yamuğun yüksekliği isteniyor.",
+      "choices": ["4", "5", "6", "7", "8"],
+      "answer": 4,
+      "solution": "1. Orta taban hesaplanır:\n(11 + 19) / 2 = **15**\n\n2. Alan = orta taban × h bağıntısında yerine konur:\n120 = 15 · h\nh = **8**\n\nNot: A şıkkındaki 4, tabanları toplayıp ikiye bölmeden bölmekten gelir: 120 / 30 = 4. Alan formülünde tabanların **ortalaması** kullanılır, toplamı değil."
+    },
+    {
+      "id": "yamuk-04",
+      "label": "Yamukta orta taban",
+      "difficulty": 2,
+      "stem": "Bir yamuğun orta tabanı 16 cm'dir. Paralel kenarlarından biri diğerinin 3 katı olduğuna göre, **küçük** taban kaç cm'dir?",
+      "asks": "Küçük taban isteniyor.",
+      "choices": ["4", "8", "12", "16", "20"],
+      "answer": 1,
+      "solution": "1. Orta taban tabanların ortalaması olduğundan, tabanların toplamı orta tabanın iki katıdır:\na + c = 2 · 16 = **32**\n\n2. Küçük taban c ise büyük taban 3c'dir:\nc + 3c = 32\n4c = 32\nc = **8**\n\nNot: D şıkkındaki 16, orta tabanın kendisidir. Orta taban verildiğinde ilk hamle onu **ikiyle çarpıp** tabanların toplamına geçmektir; orta tabanı doğrudan bir taban sanmak bu tip soruların bir numaralı hatası."
+    },
+    {
+      "id": "yamuk-05",
+      "label": "Yamukta orta taban",
+      "difficulty": 2,
+      "stem": "Bir yamuğun alanı 90 cm², yüksekliği 9 cm'dir. Paralel kenarları arasındaki fark 6 cm olduğuna göre, **büyük** taban kaç cm'dir?",
+      "asks": "Büyük taban isteniyor.",
+      "choices": ["4", "7", "10", "13", "16"],
+      "answer": 3,
+      "solution": "1. Alandan orta taban çekilir:\n90 = orta taban · 9\norta taban = **10**\n\n2. Tabanların toplamı bulunur:\na + c = 2 · 10 = **20**\n\n3. Verilen farkla birlikte iki denklem kurulur:\na + c = 20\na − c = 6\n\n4. Taraf tarafa toplanır:\n2a = 26\na = **13**\n\nNot: C şıkkındaki 10 orta taban, B şıkkındaki 7 ise **küçük** tabandır (c = 20 − 13 = 7). Bu soruda üç ayrı sayı dolaşımda: orta taban, küçük taban, büyük taban. Başlamadan önce hangisinin sorulduğunu kenara yaz."
+    },
+    {
+      "id": "yamuk-06",
+      "difficulty": 1,
+      "stem": "Şekildeki ABCD ikizkenar yamuğunda AB ∥ DC'dir.\nC açısı 72° olduğuna göre, B açısı kaç derecedir?",
+      "asks": "B açısının ölçüsü isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='93.5,44.5 226.5,44.5 283.5,158.5 36.5,158.5'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='86' y='37' text-anchor='end'>A</text><text x='234' y='37'>B</text><text x='293' y='174'>C</text><text x='27' y='174' text-anchor='end'>D</text></g></svg>",
+      "choices": ["36", "54", "72", "90", "108"],
+      "answer": 4,
+      "solution": "1. B ve C açıları **aynı yan kenar** (BC) üzerindedir. AB ∥ DC olduğundan bu iki açı bütünlerdir:\nB + C = 180°\n\n2. B = 180° − 72° = **108°**\n\nNot: C şıkkındaki 72, B ile C'yi eşit sanmaktan gelir. İkizkenar yamukta iki ayrı kural vardır ve karıştırılmamalıdır: aynı **tabana** ait açılar eşittir (D = C ve A = B), aynı **yan kenara** ait açılar ise bütünlerdir (A + D = 180° ve B + C = 180°). Bu soruda sorulan çift, yan kenar çiftidir."
+    },
+    {
+      "id": "yamuk-07",
+      "difficulty": 2,
+      "stem": "Şekildeki ABCD ikizkenar yamuğunda AB ∥ DC'dir. DC = 22 cm, AB = 10 cm ve yan kenarların her biri 10 cm'dir.\nBuna göre, yamuğun yüksekliği kaç cm'dir?",
+      "asks": "Yamuğun yüksekliği isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='81.7,48.9 238.3,48.9 290.5,153.3 29.5,153.3'/></g><g stroke='#0284c7' stroke-width='2.5' fill='none' stroke-dasharray='5 4'><line x1='81.7' y1='48.9' x2='81.7' y2='153.3'/><line x1='238.3' y1='48.9' x2='238.3' y2='153.3'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='81.7,142.9 92.1,142.9 92.1,153.3'/><polyline points='238.3,142.9 227.9,142.9 227.9,153.3'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='74.7' y='41.9' text-anchor='end'>A</text><text x='245.3' y='41.9'>B</text><text x='299.2' y='167.2'>C</text><text x='20.8' y='167.2' text-anchor='end'>D</text></g></svg>",
+      "choices": ["6", "8", "10", "12", "14"],
+      "answer": 1,
+      "solution": "1. Üst tabanın uç noktalarından alt tabana dik inilir. Yamuk, ortada bir dikdörtgen ve kenarlarda iki **eş** dik üçgene ayrılır.\n\n2. Ortadaki dikdörtgenin genişliği üst taban kadardır, yani 10 cm. Alt tabandan geriye kalan kısım iki üçgene eşit paylaştırılır:\n(22 − 10) / 2 = **6**\n\n3. Her dik üçgende hipotenüs yan kenardır (10), bir dik kenar 6'dır. Pisagor uygulanır:\nh² = 10² − 6² = 100 − 36 = 64\nh = **8**\n\nNot: A şıkkındaki 6, dik üçgenin **yatay** dik kenarıdır; C şıkkındaki 10 ise yan kenarın kendisidir. Yan kenar yükseklik değildir — ancak dik yamukta biri diğerine eşit olur. Bu bir ikizkenar yamuktur, o durum geçerli değildir."
+    },
+    {
+      "id": "yamuk-08",
+      "label": "Yamukta alan",
+      "difficulty": 2,
+      "stem": "Şekildeki ABCD dik yamuğunda AB ∥ DC ve AD ⊥ DC'dir. DC = 20 cm, AB = 12 cm ve BC = 10 cm'dir.\nBuna göre, yamuğun alanı kaç cm²'dir?",
+      "asks": "Yamuğun alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='33,37.9 201,37.9 285,163.9 33,163.9'/></g><g stroke='#0284c7' stroke-width='2.5' fill='none' stroke-dasharray='5 4'><line x1='201' y1='37.9' x2='201' y2='163.9'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='33,50.5 45.6,50.5 45.6,37.9'/><polyline points='33,151.3 45.6,151.3 45.6,163.9'/><polyline points='201,151.3 188.4,151.3 188.4,163.9'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='24.6' y='29.5' text-anchor='end'>A</text><text x='209.4' y='29.5'>B</text><text x='295.5' y='180.7'>C</text><text x='24.6' y='180.7' text-anchor='end'>D</text></g></svg>",
+      "choices": ["96", "76", "56", "36", "16"],
+      "answer": 0,
+      "solution": "1. B noktasından alt tabana dik inilir. Dik yamukta sol kenar zaten dik olduğundan **tek** bir dik üçgen oluşur.\n\n2. Bu üçgenin yatay dik kenarı, tabanların farkı kadardır:\n20 − 12 = **8**\n\n3. Hipotenüs BC = 10'dur. Pisagor uygulanır:\nh² = 10² − 8² = 100 − 64 = 36\nh = **6**\n\n4. Orta taban ve alan hesaplanır:\norta taban = (20 + 12) / 2 = **16**\nAlan = 16 · 6 = **96**\n\nNot: E şıkkındaki 16 orta tabandır, alan değil. Bu soruda üç adım var — yatay parça, yükseklik, alan — ve her ara adımın sonucu bir şıkta yer alıyor. Ayrıca dik yamukta fark **ikiye bölünmez**; bölme yalnız ikizkenar yamukta, iki eş üçgen olduğu için yapılır. Şıklar bu soruda **azalan** sırada verilmiştir."
+    },
+    {
+      "id": "yamuk-09",
+      "difficulty": 2,
+      "stem": "Şekildeki ABCD ikizkenar yamuğunda AB ∥ DC'dir. A açısının ölçüsü, D açısının ölçüsünün 2 katıdır.\nBuna göre, D açısı kaç derecedir?",
+      "asks": "D açısının ölçüsü isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='93.5,44.5 226.5,44.5 283.5,158.5 36.5,158.5'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='86' y='37' text-anchor='end'>A</text><text x='234' y='37'>B</text><text x='293' y='174'>C</text><text x='27' y='174' text-anchor='end'>D</text></g></svg>",
+      "choices": ["60", "90", "120", "150", "180"],
+      "answer": 0,
+      "solution": "1. A ve D açıları **aynı yan kenar** (AD) üzerindedir, dolayısıyla bütünlerdir:\nA + D = 180°\n\n2. A = 2D verildiğinden yerine konur:\n2D + D = 180°\n3D = 180°\nD = **60°**\n\nNot: C şıkkındaki 120, A açısıdır (2 · 60). Soru D'yi istiyor. Denklemi kurarken bilinmeyeni hangi açıya verdiğini kâğıda yaz; iki açıdan hangisinin sorulduğu bu soruda tek belirleyici."
+    },
+    {
+      "id": "yamuk-10",
+      "difficulty": 3,
+      "stem": "Şekildeki ABCD ikizkenar yamuğunda AB ∥ DC'dir. DC = 16 cm, AB = 8 cm ve yamuğun yüksekliği 5 cm'dir.\nBuna göre, DB köşegeninin uzunluğu kaç cm'dir?",
+      "asks": "DB köşegeninin uzunluğu isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='93.5,44.5 226.5,44.5 283.5,158.5 36.5,158.5'/></g><g stroke='#0284c7' stroke-width='2.5' fill='none' stroke-linecap='round'><line x1='36.5' y1='158.5' x2='226.5' y2='44.5'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='86' y='37' text-anchor='end'>A</text><text x='234' y='37'>B</text><text x='293' y='174'>C</text><text x='27' y='174' text-anchor='end'>D</text></g></svg>",
+      "choices": ["10", "11", "12", "13", "14"],
+      "answer": 3,
+      "solution": "1. B noktasından alt tabana dik inilir, ayağı H olsun. DHB dik üçgeninde BH = h = 5'tir.\n\n2. DH uzunluğu bulunur. Yükseklikler indirildiğinde alt taban üç parçaya ayrılır: kenarlarda (16 − 8)/2 = 4'er, ortada 8. D noktasından H'ye kadar olan mesafe, soldaki parça ile ortadaki parçanın toplamıdır:\nDH = 4 + 8 = **12**\n\n3. Pisagor uygulanır:\nDB² = 12² + 5² = 144 + 25 = 169\nDB = **13**\n\nNot: C şıkkındaki 12, köşegenin **yatay izdüşümüdür**, köşegenin kendisi değil. Bu uzunluğun tam olarak orta tabana eşit çıkması tesadüf değildir: 4 + 8 = (16 + 8)/2 = 12. İkizkenar yamukta köşegen her zaman orta taban kadar yatay yol alır, yani köşegen = √(orta taban² + h²). Bu bağıntıyı ezberlemek yerine yükseklik indirip görmek daha güvenlidir."
+    },
+    {
+      "id": "yamuk-11",
+      "difficulty": 2,
+      "stem": "Şekildeki ABCD yamuğunda AB ∥ DC olup köşegenler O noktasında kesişmektedir. AB = 8 cm, DC = 12 cm'dir.\nAOB üçgeninin alanı 16 cm² olduğuna göre, COD üçgeninin alanı kaç cm²'dir?",
+      "asks": "COD üçgeninin alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='86.2,47.9 217.4,47.9 291.2,154.5 28.8,154.5'/></g><g stroke='#0284c7' stroke-width='2.5' fill='none' stroke-linecap='round'><line x1='86.2' y1='47.9' x2='291.2' y2='154.5'/><line x1='217.4' y1='47.9' x2='28.8' y2='154.5'/></g><circle cx='154.5' cy='83.4' r='3' fill='#0284c7'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='79.6' y='41.3' text-anchor='end'>A</text><text x='224' y='41.3'>B</text><text x='299.4' y='167.6'>C</text><text x='20.6' y='167.6' text-anchor='end'>D</text></g><g font-family='system-ui, sans-serif' font-size='14' fill='currentColor'><text x='161.6' y='79.9'>O</text><text x='152.6' y='62.7' text-anchor='middle'>S₁</text><text x='158.4' y='134' text-anchor='middle'>S₂</text><text x='89.5' y='98.7' text-anchor='middle'>S₃</text><text x='220.7' y='98.7' text-anchor='middle'>S₄</text></g></svg>",
+      "choices": ["12", "24", "36", "48", "60"],
+      "answer": 2,
+      "solution": "1. AOB ile COD üçgenleri benzerdir. O noktasındaki açılar ters açı, AB ∥ DC olduğundan diğer açılar da iç ters açıdır.\n\n2. Benzerlik oranı tabanların oranıdır:\nk = AB / DC = 8 / 12 = **2/3**\n\n3. Benzer şekillerde **alan oranı k²'dir**:\nS₁ / S₂ = (2/3)² = 4/9\n\n4. Yerine konur:\n16 / S₂ = 4/9\nS₂ = **36**\n\nNot: B şıkkındaki 24, alan oranı yerine **uzunluk oranı** kullanmaktan gelir: 16 · (3/2) = 24. Şekilde paralellik varsa alan oranında kare vardır. k'yı kendin hesapladığında üzerindeki \"uzunluk oranı\" etiketi düşmesin."
+    },
+    {
+      "id": "yamuk-12",
+      "label": "Yamukta alan",
+      "difficulty": 2,
+      "stem": "Şekildeki ABCD yamuğunda AB ∥ DC olup köşegenler O noktasında kesişmektedir. Tabanlar üzerindeki üçgenlerin alanları S₁ = 9 cm² ve S₂ = 16 cm²'dir.\nBuna göre, yamuğun alanı kaç cm²'dir?",
+      "asks": "Yamuğun alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='86.2,47.9 217.4,47.9 291.2,154.5 28.8,154.5'/></g><g stroke='#0284c7' stroke-width='2.5' fill='none' stroke-linecap='round'><line x1='86.2' y1='47.9' x2='291.2' y2='154.5'/><line x1='217.4' y1='47.9' x2='28.8' y2='154.5'/></g><circle cx='154.5' cy='83.4' r='3' fill='#0284c7'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='79.6' y='41.3' text-anchor='end'>A</text><text x='224' y='41.3'>B</text><text x='299.4' y='167.6'>C</text><text x='20.6' y='167.6' text-anchor='end'>D</text></g><g font-family='system-ui, sans-serif' font-size='14' fill='currentColor'><text x='161.6' y='79.9'>O</text><text x='152.6' y='62.7' text-anchor='middle'>S₁</text><text x='158.4' y='134' text-anchor='middle'>S₂</text><text x='89.5' y='98.7' text-anchor='middle'>S₃</text><text x='220.7' y='98.7' text-anchor='middle'>S₄</text></g></svg>",
+      "choices": ["25", "37", "49", "61", "73"],
+      "answer": 2,
+      "solution": "1. Yan üçgenler eşit alanlıdır ve tabandaki iki üçgenin **geometrik ortasıdır**:\nS₃ = S₄ = √(S₁ · S₂)\n\n2. Yerine konur:\nS₃ = S₄ = √(9 · 16) = √144 = **12**\n\n3. Yamuğun alanı dört üçgenin toplamıdır:\n9 + 16 + 12 + 12 = **49**\n\nNot: A şıkkındaki 25, yalnız S₁ + S₂ toplamıdır; yan üçgenler unutulmuştur. Köşegenler yamuğu **dört** üçgene ayırır, ikiye değil. Yan üçgenlerin eşitliği, ADC ile BDC üçgenlerinin ortak tabanlı ve eşit yükseklikli olmasından çıkar; ortak DOC parçası atılınca geriye kalanlar eşittir."
+    },
+    {
+      "id": "yamuk-13",
+      "difficulty": 3,
+      "stem": "Şekildeki ABCD yamuğunda AB ∥ DC olup köşegenler O noktasında kesişmektedir. AOB üçgeninin alanı 6 cm², AOD üçgeninin alanı 12 cm²'dir.\nBuna göre, COD üçgeninin alanı kaç cm²'dir?",
+      "asks": "COD üçgeninin alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='86.2,47.9 217.4,47.9 291.2,154.5 28.8,154.5'/></g><g stroke='#0284c7' stroke-width='2.5' fill='none' stroke-linecap='round'><line x1='86.2' y1='47.9' x2='291.2' y2='154.5'/><line x1='217.4' y1='47.9' x2='28.8' y2='154.5'/></g><circle cx='154.5' cy='83.4' r='3' fill='#0284c7'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='79.6' y='41.3' text-anchor='end'>A</text><text x='224' y='41.3'>B</text><text x='299.4' y='167.6'>C</text><text x='20.6' y='167.6' text-anchor='end'>D</text></g><g font-family='system-ui, sans-serif' font-size='14' fill='currentColor'><text x='161.6' y='79.9'>O</text><text x='152.6' y='62.7' text-anchor='middle'>S₁</text><text x='158.4' y='134' text-anchor='middle'>S₂</text><text x='89.5' y='98.7' text-anchor='middle'>S₃</text><text x='220.7' y='98.7' text-anchor='middle'>S₄</text></g></svg>",
+      "choices": ["12", "16", "20", "24", "28"],
+      "answer": 3,
+      "solution": "1. Yan üçgen, taban üçgenlerinin geometrik ortasıdır:\nS₃² = S₁ · S₂\n\n2. Bu bağıntı burada **ters yönde** kullanılır. Bilinmeyen karekökün içindedir:\n12² = 6 · S₂\n144 = 6 · S₂\nS₂ = **24**\n\nNot: A şıkkındaki 12, verilen S₃ değerinin kendisidir. Bağıntıyı yalnız \"karekök al\" biçiminde ezberleyenler bu soruda tıkanır; bağıntı bir eşitliktir ve hangi terim bilinmiyorsa o çekilir. Aynı sonuca S₃ = S₁/k ve S₃ = k·S₂ adımlarından da varılır: k = 6/12 = 1/2, S₂ = 12 / (1/2) = 24."
+    },
+    {
+      "id": "yamuk-14",
+      "label": "Yamukta alan",
+      "difficulty": 3,
+      "stem": "Şekildeki ABCD yamuğunda AB ∥ DC olup köşegenler O noktasında kesişmektedir. Köşegenlerin ayırdığı dört üçgenden **paralel kenarlar üzerinde bulunan** ikisinin alanları 18 cm² ve 8 cm²'dir.\nBuna göre, yamuğun alanı kaç cm²'dir?",
+      "asks": "Yamuğun alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='86.2,47.9 217.4,47.9 291.2,154.5 28.8,154.5'/></g><g stroke='#0284c7' stroke-width='2.5' fill='none' stroke-linecap='round'><line x1='86.2' y1='47.9' x2='291.2' y2='154.5'/><line x1='217.4' y1='47.9' x2='28.8' y2='154.5'/></g><circle cx='154.5' cy='83.4' r='3' fill='#0284c7'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='79.6' y='41.3' text-anchor='end'>A</text><text x='224' y='41.3'>B</text><text x='299.4' y='167.6'>C</text><text x='20.6' y='167.6' text-anchor='end'>D</text></g><g font-family='system-ui, sans-serif' font-size='14' fill='currentColor'><text x='161.6' y='79.9'>O</text><text x='152.6' y='62.7' text-anchor='middle'>S₁</text><text x='158.4' y='134' text-anchor='middle'>S₂</text><text x='89.5' y='98.7' text-anchor='middle'>S₃</text><text x='220.7' y='98.7' text-anchor='middle'>S₄</text></g></svg>",
+      "choices": ["26", "38", "50", "62", "74"],
+      "answer": 2,
+      "solution": "1. Paralel kenarlar üzerindeki üçgenler S₁ ve S₂'dir. Verilenler bunlardır.\n\n2. Yan üçgenlerin ortak alanı bulunur:\nS₃ = S₄ = √(18 · 8) = √144 = **12**\n\n3. Dört üçgen toplanır:\n18 + 8 + 12 + 12 = **50**\n\nNot: A şıkkındaki 26, yalnız verilen iki üçgenin toplamıdır. Bu soruda ek bir okuma adımı var: \"paralel kenarlar üzerinde bulunan\" ifadesi, verilen iki alanın **karşılıklı** üçgenlere ait olduğunu söyler. Verilenler yan üçgenlere ait olsaydı ikisi eşit olmak zorundaydı ve 18 ile 8 gibi farklı iki sayı verilemezdi."
+    },
+    {
+      "id": "yamuk-15",
+      "difficulty": 3,
+      "stem": "Şekildeki ABCD yamuğunda AB ∥ DC olup köşegenler O noktasında kesişmektedir. AB = 6 cm, DC = 10 cm ve yamuğun alanı 64 cm²'dir.\nBuna göre, AOB üçgeninin alanı kaç cm²'dir?",
+      "asks": "AOB üçgeninin alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='86.2,47.9 217.4,47.9 291.2,154.5 28.8,154.5'/></g><g stroke='#0284c7' stroke-width='2.5' fill='none' stroke-linecap='round'><line x1='86.2' y1='47.9' x2='291.2' y2='154.5'/><line x1='217.4' y1='47.9' x2='28.8' y2='154.5'/></g><circle cx='154.5' cy='83.4' r='3' fill='#0284c7'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='79.6' y='41.3' text-anchor='end'>A</text><text x='224' y='41.3'>B</text><text x='299.4' y='167.6'>C</text><text x='20.6' y='167.6' text-anchor='end'>D</text></g><g font-family='system-ui, sans-serif' font-size='14' fill='currentColor'><text x='161.6' y='79.9'>O</text><text x='152.6' y='62.7' text-anchor='middle'>S₁</text><text x='158.4' y='134' text-anchor='middle'>S₂</text><text x='89.5' y='98.7' text-anchor='middle'>S₃</text><text x='220.7' y='98.7' text-anchor='middle'>S₄</text></g></svg>",
+      "choices": ["6", "9", "12", "15", "18"],
+      "answer": 1,
+      "solution": "1. Benzerlik oranı k = 6/10 = 3/5'tir. Dört üçgenin alanları bu orandan tek bir t çarpanıyla yazılabilir.\n\n2. S₁ / S₂ = k² = 9/25 olduğundan S₁ = 9t ve S₂ = 25t alınır.\n\n3. Yan üçgenler geometrik ortadır:\nS₃ = S₄ = √(9t · 25t) = **15t**\n\n4. Dördü toplanır ve toplam alana eşitlenir:\n9t + 25t + 15t + 15t = 64t = 64\nt = **1**\n\n5. AOB üçgeninin alanı:\nS₁ = 9 · 1 = **9**\n\nNot: D şıkkındaki 15, yan üçgenlerden birinin alanıdır. Bu soruda kavranması gereken şey şu: taban oranı 3/5 ise dört üçgen 9 : 15 : 15 : 25 oranındadır ve bunların toplamı (3 + 5)² = 64 birimdir. Yamuğun toplam alanını doğrudan 6 : 10 oranında paylaştırmak yanlış modeldir; paylaşım alan oranına göre, yani karelere göre yapılır."
+    }
+  ]
+}

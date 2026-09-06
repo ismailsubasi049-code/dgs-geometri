@@ -273,6 +273,17 @@
       "version": 1
     },
     {
+      "id": "geometri-yamuk",
+      "topicId": "dortgenler",
+      "topic": "Dörtgenler",
+      "subtopicId": "dortgen-yamuk",
+      "subtopic": "Yamuk",
+      "title": "Yamuk",
+      "file": "packs/geometri-yamuk.json",
+      "count": 15,
+      "version": 1
+    },
+    {
       "id": "geo-cember",
       "topicId": "cember",
       "topic": "Çember ve Daire",
