@@ -54,14 +54,37 @@ soru ölçülerek çıkarıldı; uygulama bu dosyayı okumaz.
 
 ## 4. Çözüm biçimi
 
-`\n` ile ayrılmış üç parça: **adım adım işlem → net cevap satırı (birimiyle) →
-sonda parantez içinde numaralı hata bloğu.**
+`\n` ile ayrılmış gövde: **adım adım işlem → net cevap satırı (birimiyle).**
+Ardından çeldiricileri açıklayan bir kapanış gelir. Kapanışın **iki biçimi
+vardır ve en az biri zorunludur**; hangisinin kullanıldığı paketin nasıl
+yazıldığına bağlıdır.
+
+**A — sonda parantez içinde numaralı hata bloğu.**
 
 ```
 "solution": "h² = |AH| · |HB|\nh² = 16 · 9 = 144\nh = 12 cm\n(Sık yapılan hata 1: ara değer olan h² = 144'ü işaretlemek.\nSık yapılan hata 2: kökü yanlış tarafa uygulamak.)"
 ```
 
-Hata bloğu 395 sorunun 369'unda var, yeni sorularda **zorunlu**.
+**B — boş satırdan sonra satır başı `Not:` kutusu.** `richText()` `^Not:`
+gördüğü yerden sonrasını sarı `.solution-note` kutusuna alır (`js/ui.js:64`).
+
+```
+"solution": "Orta taban hesaplanır:\n(9 + 15) / 2 = **12**\n\nAlan bulunur:\n12 · 8 = **96**\n\nNot: E şıkkındaki 192, tabanları toplayıp **ikiye bölmeden** yükseklikle çarpmaktan gelir."
+```
+
+**`Not:` etiketi kalınlaştırılmaz.** Kalınlaştırma regex'i kutu aramasından
+**önce** çalıştığı için `**Not:**` yazılırsa `^Not:` hiç eşleşmez ve kutu
+açılmaz — çözüm düz metin olarak akar.
+
+**Hangisi seçilir:** sorular bu depoda üretiliyorsa **A**; hazır bir kaynak
+md'den aktarılıyorsa **kaynağın kendi biçimi** (aktarımda çözüm satırına
+dokunulmaz). Tek pakette ikisi birden bulunabilir — `oran-oranti-genel` böyle.
+
+Ölçülen dağılım (610 soru): **409'unda A, 165'inde B**, 52'sinde ikisi de yok.
+B'yi kullanan dokuz paket: `koklu-genel`, `mantik-blok-1`, `mantik-blok-2`,
+`mantik-blok-3`, `oran-oranti-genel`, `problem-genel`, `rasyonel-genel`,
+`uslu-genel`, `geometri-yamuk`. Kapanışsız 52 sorunun çoğu şema öncesi yazılan
+`geo-cember` ve `geo-dortgenler` soruları; yeni soru onlara bakarak yazılmaz.
 
 ## 5. Tam örnek soru
 

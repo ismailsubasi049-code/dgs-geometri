@@ -49,12 +49,7 @@ tersi:** paketi var, formül kartı yok.
 
 - **Sonraki aşama kararı:** matematiğin kalan 3 konusuna paket mi (formül
   kartları hazır), yoksa dörtgen/çember paketleri mi
-- **Üç `-genel` matematik paketi şemadan bilerek sapıyor.** `rasyonel-genel`,
-  `uslu-genel` ve `koklu-genel` saf transkripsiyonla yazıldı; kaynak md'ler
-  çözümü `_sema.md` §4'teki numaralı `(Sık yapılan hata N: …)` bloğuyla değil,
-  `richText()`'in sarı kutuya çevirdiği satır başı `Not:` etiketiyle bitiriyor.
-  Çözüm satırlarına dokunulmadığı için hata bloğu bu üç pakette **yok**.
-  Ayrıca 8 soruda `label` boş bırakıldı (`koklu-08/15/24`,
+- **8 soruda `label` boş** (`koklu-08/15/24`,
   `rasyonel-14/19/24` gibi): konuları mevcut formül kartlarının hiçbir
   alias'ına oturmuyor — yanlış kart açmaktansa kart açmamak seçildi.
   Karşılığı olan kartlar: köklüde teleskopik/değişken değiştirmeli köklü
@@ -1588,13 +1583,11 @@ Bunun bilinen ve kabul edilen yan etkisi: alt konu seti
 "Yamuk" başlığı altında **17** soru görünüyor (`js/screens/topics.js:115`,
 `js/scheduler.js:290`). Paket sayacı ise 15'te kalıyor.
 
-Birleşmenin görünür tek pürüzü: oturum başlığı **"Yamuk" değil "Yamukta alan"**
-yazıyor. `js/scheduler.js:291` seti `own[0].subtopic` ile adlandırıyor ve
-`geo-dortgenler`'in iki sorusu kendi `subtopic` alanını taşıdığı için
+Birleşmenin görünür tek pürüzü oturum başlığıydı: **"Yamuk" değil "Yamukta
+alan"** yazıyordu. `js/scheduler.js:291` seti `own[0].subtopic` ile adlandırıyor
+ve `geo-dortgenler`'in iki sorusu kendi `subtopic` alanını taşıdığı için
 (`js/packs.js:114` soru alanını paketinkinden öncelikli kılıyor) sıradaki ilk
-soru başlığı belirliyor. Soru içindeki konu rozeti doğru: `Dörtgenler · Yamuk`.
-Düzeltmenin yolu o iki sorunun `subtopic` alanını silmek; bu turda
-`geo-dortgenler.json`'a dokunulmadığı için **açık madde** olarak bırakıldı.
+soru başlığı belirliyordu. **v53'te kapatıldı** (aşağıya bak).
 
 `label` yalnız mevcut alias'lardan yazıldı, **yeni alias uydurulmadı**:
 `Yamukta alan` 6 soru (1, 2, 3, 8, 12, 14), `Yamukta orta taban` 2 soru (4, 5),
@@ -1636,12 +1629,14 @@ font-family yok ve **tek renk** (`currentColor`). Depo stili iki renkli
   vurgu değiştirilmedi, tersi paylaşımlı şekli beş ayrı şekle böler ve
   şıkkı sızdırırdı.
 
-### Şemadan sapma ve doğrulama
+### Çözüm kapanışı ve doğrulama
 
 `_sema.md` §4'ün `(Sık yapılan hata N: …)` bloğu bu pakette **yok**; kaynak
 çözümleri satır başı `Not:` ile bitiyor ve saf transkripsiyon gereği
 dokunulmadı. `rasyonel-genel`, `uslu-genel`, `koklu-genel`, `problem-genel` ve
-mantık paketleriyle aynı durum. `Not:` kutusu **15/15** soruda var.
+mantık paketleriyle aynı durum. `Not:` kutusu **15/15** soruda var. (Bu tur
+"şemadan sapma" diye kaydedilmişti; v53'te §4 iki biçimi birden tanıdığı için
+artık sapma değil, **B biçimi**.)
 
 `asks` kaynakta yok, şema zorunlu tutuyor (`js/packs.js:78`). Talimat gereği
 yalnız istenen büyüklüğü adlandırıyor — yöntem ve tuzak yazılmadı; ikisi de
@@ -1653,6 +1648,68 @@ yalnız istenen büyüklüğü adlandırıyor — yöntem ve tuzak yazılmadı; 
   **15/15** eşleşti; zorluk dağılımı 3/8/4 kaynakla birebir.
 - 10 `figure` alanının tamamı `viewBox='0 0 320 200'`; soruların hiçbirine
   `subtopicId` yazılmadı.
+
+## Yamuk alt konu adı ve şema §4
+
+**2026-09-06 (v53) · `geo-dortgenler.json` 2 satır + `_sema.md` §4.** İki küçük
+iş, kod değişmedi.
+
+### "Yamukta alan" başlığı "Yamuk" oldu
+
+İlk niyet `dortgen-006` ve `dortgen-007`'nin `subtopic` alanını **silmekti** —
+kart eşleşmesi `subtopicId` üzerinden yürüdüğü için güvenli görünüyordu. Ölçüm
+bunun **iki yerde birden bozduğunu** gösterdi:
+
+- `js/packs.js:114` zinciri `q.subtopic || entry.subtopic || null`. İkinci
+  halka da boş: `geo-dortgenler`'in index kaydında `subtopic` yok (karma paket,
+  7 alt konu taşıyor). `own[0].subtopic` → `null` ve
+  `js/screens/session.js:143` `label || 'Alt konu'` diyor — başlık "Yamuk"
+  değil **"Alt konu"** olurdu.
+- `js/screens/session.js:669` rozet satırını `question.subtopic` ile basıyor;
+  alan silinseydi bu iki soruda **"Yamuk" rozeti tamamen kaybolurdu**.
+
+Bu yüzden silmek yerine **değer "Yamuk" yapıldı**. `subtopicId` iki soruda da
+`dortgen-yamuk` olarak duruyor, `data/index.json`'a dokunulmadı. Kart
+eşleşmesi zaten `js/formulas.js:106`'nın ilk adımında (`cardsBySubtopic`)
+tuttuğu için `subtopic` değerinin kart üzerinde hiçbir etkisi yok.
+
+Reddedilen iki alternatif, gerekçeleriyle: **(a)** `geo-dortgenler`'in index
+kaydına `"subtopic": "Yamuk"` yazmak — 7 alt konulu karma bir pakete tek alt
+konu adı iliştirmek olurdu ve `subtopic` yazmayan her yeni dörtgen sorusunun
+sessiz yedeği hâline gelirdi (`subtopicId` de eklenirse konu ekranında ikinci
+bir "Yamuk" satırı belirir, `js/packs.js:209`). **(b)** `js/scheduler.js:291`'i
+ilk boş olmayan `subtopic`'i alacak biçimde düzeltmek — set adlandırmasını
+genel olarak sağlamlaştırırdı ama rozet sorununu çözmezdi ve bu turu kod
+değişikliğine çevirirdi.
+
+### §4 iki kapanış biçimini de tanıyor
+
+Şema numaralı `(Sık yapılan hata N: …)` bloğunu "yeni sorularda **zorunlu**"
+ilan ediyor ve dayanağı olarak "395 sorunun 369'u" diyordu. İkisi de eskimişti.
+Ölçülen güncel dağılım (**610 soru**):
+
+| kapanış | soru | paket |
+|---|---|---|
+| A — numaralı hata bloğu | 409 | 14 paket (tüm açı/üçgen paketleri, `ozdeslik-genel`, `oran-oranti-genel`) |
+| B — satır başı `Not:` kutusu | 165 | 9 paket |
+| kapanışsız | 52 | çoğu şema öncesi `geo-cember` / `geo-dortgenler` |
+
+B'yi kullanan dokuz paket: `koklu-genel` (20), `mantik-blok-1` (21),
+`mantik-blok-2` (16), `mantik-blok-3` (24), `oran-oranti-genel` (16),
+`problem-genel` (15), `rasyonel-genel` (17), `uslu-genel` (21),
+`geometri-yamuk` (15). **`oran-oranti-genel` ikisini birden taşıyor**
+(20 hata bloğu + 16 Not kutusu) — bu yüzden §4 "biri ya da öteki" değil
+**"en az biri"** diyor.
+
+Seçim kuralı da yazıldı: sorular burada üretiliyorsa A, hazır kaynaktan
+aktarılıyorsa kaynağın kendi biçimi (aktarımda çözüm satırına dokunulmaz).
+`**Not:**` tuzağı — kalınlaştırma regex'i kutu aramasından önce çalıştığı için
+etiket kalınlaştırılırsa kutu hiç açılmaz (`js/ui.js:64`) — v44 turundan beri
+yalnız bu dosyada duruyordu, şimdi şemaya taşındı.
+
+`Kalan işler`'deki "üç `-genel` paket şemadan bilerek sapıyor" maddesi bu
+nedenle **kapatıldı**; aynı maddenin ikinci yarısı (8 soruda `label` boş)
+hâlâ açık ve yerinde duruyor.
 
 ## Çalışma kuralları
 

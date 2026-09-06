@@ -67,7 +67,7 @@
     {
       "id": "dortgen-006",
       "subtopicId": "dortgen-yamuk",
-      "subtopic": "Yamukta alan",
+      "subtopic": "Yamuk",
       "difficulty": 1,
       "stem": "Paralel kenarlarının uzunlukları 8 cm ve 14 cm, yüksekliği 6 cm olan yamuğun alanı kaç cm²'dir?",
       "asks": "Alan isteniyor. Yamuk alanı, paralel kenarların toplamının yarısı ile yüksekliğin çarpımıdır — toplamı ikiye bölmeyi atlamamak gerekiyor.",
@@ -79,7 +79,7 @@
     {
       "id": "dortgen-007",
       "subtopicId": "dortgen-yamuk",
-      "subtopic": "Yamukta orta taban",
+      "subtopic": "Yamuk",
       "difficulty": 2,
       "stem": "Bir yamuğun orta tabanı 11 cm, kısa paralel kenarı 7 cm'dir. Buna göre uzun paralel kenarı kaç cm'dir?",
       "asks": "Uzun paralel kenar isteniyor. Orta taban, iki paralel kenarın aritmetik ortalamasıdır; denklemi kurup bilinmeyeni yalnız bırakman gerekiyor.",
