@@ -7,7 +7,7 @@
     {
       "id": "dortgen-001",
       "subtopicId": "dortgen-paralelkenar",
-      "subtopic": "Paralelkenarda açılar",
+      "subtopic": "Paralelkenar",
       "difficulty": 1,
       "stem": "ABCD paralelkenarında m(A) = 2x ve m(B) = 3x'tir. Buna göre x kaçtır?",
       "asks": "Açının ölçüsü değil, x'in değeri isteniyor. A ve B ardışık (aynı kenarın uçlarındaki) açılardır; paralelkenarda ardışık açılar bütünlerdir, yani toplamları 180°'dir.",
@@ -19,7 +19,7 @@
     {
       "id": "dortgen-002",
       "subtopicId": "dortgen-paralelkenar",
-      "subtopic": "Paralelkenarda kenarlar",
+      "subtopic": "Paralelkenar",
       "difficulty": 1,
       "stem": "ABCD paralelkenarında |AB| = 3x − 2 cm ve |CD| = x + 8 cm'dir. Buna göre |AB| kaç cm'dir?",
       "asks": "x değil, |AB| uzunluğu isteniyor — yani x'i bulduktan sonra bir adım daha atman gerekiyor. [AB] ile [CD] karşılıklı kenarlardır ve paralelkenarda karşılıklı kenarlar eşittir.",
@@ -103,7 +103,7 @@
     {
       "id": "dortgen-009",
       "subtopicId": "dortgen-paralelkenar",
-      "subtopic": "Paralelkenarda alan",
+      "subtopic": "Paralelkenar",
       "difficulty": 3,
       "stem": "Alanı 96 cm² olan ABCD paralelkenarında E, [BC] kenarının orta noktasıdır. Buna göre boyalı ABE üçgeninin alanı kaç cm²'dir?",
       "asks": "Boyalı üçgenin alanı isteniyor. İki adım var: önce [AB] tabanlı üçgenin paralelkenarın yarısı olduğunu değil, E'nin orta nokta olmasının tabanı yarıya indirdiğini görmen gerekiyor. ABC üçgeninden başlayıp E'yi kullanmak en kısa yol.",

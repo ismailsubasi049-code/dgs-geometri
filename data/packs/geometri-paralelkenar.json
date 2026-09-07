@@ -1,0 +1,268 @@
+{
+  "id": "geometri-paralelkenar",
+  "topicId": "dortgenler",
+  "topic": "Dörtgenler",
+  "subtopicId": "dortgen-paralelkenar",
+  "subtopic": "Paralelkenar",
+  "version": 1,
+  "blocks": [],
+  "questions": [
+    {
+      "id": "pkenar-01",
+      "label": "Paralelkenarda kenarlar",
+      "difficulty": 1,
+      "stem": "Bir paralelkenarın çevresi 54 cm, kenarlarından biri 15 cm'dir.\nBuna göre, bu kenara komşu olan kenar kaç cm'dir?",
+      "asks": "Verilen kenara komşu olan kenarın uzunluğu isteniyor.",
+      "choices": ["7", "12", "17", "22", "27"],
+      "answer": 1,
+      "solution": "1. Paralelkenarda karşı kenarlar eşittir. Dolayısıyla çevre, komşu iki kenarın toplamının iki katıdır:\nÇevre = 2 · (a + b)\n\n2. Yerine konur:\n54 = 2 · (15 + b)\n15 + b = **27**\n\n3. Komşu kenar bulunur:\nb = 27 − 15 = **12**\n\nNot: E şıkkındaki 27, komşu iki kenarın **toplamıdır**, tek bir kenar değil. Çevre bölü 2 işlemi seni yarı çevreye götürür; oradan aranan kenara bir çıkarma daha vardır."
+    },
+    {
+      "id": "pkenar-02",
+      "label": "Paralelkenarda açılar",
+      "difficulty": 1,
+      "stem": "Bir ABCD paralelkenarında A açısının ölçüsü 65°'dir.\nBuna göre, C açısının ölçüsü kaç derecedir?",
+      "asks": "C açısının ölçüsü isteniyor.",
+      "choices": ["65", "90", "115", "140", "165"],
+      "answer": 0,
+      "solution": "1. Paralelkenarda **karşı açılar eşittir**:\nA = C ve B = D\n\n2. A ile C karşı açı çiftidir:\nC = **65°**\n\nNot: C şıkkındaki 115, A'nın **komşu** açısıdır (180 − 65). Paralelkenarda iki ayrı kural birlikte çalışır: karşı açılar eşit, komşu açılar bütünler. Sorulan açının hangi çiftte olduğunu belirlemeden işlem yapma. ABCD sıralamasında A ile C ve B ile D karşılıklıdır; A ile B, B ile C komşudur."
+    },
+    {
+      "id": "pkenar-03",
+      "label": "Paralelkenarda açılar",
+      "difficulty": 2,
+      "stem": "Bir ABCD paralelkenarında A açısının ölçüsü, B açısının ölçüsünden 40° fazladır.\nBuna göre, A açısının ölçüsü kaç derecedir?",
+      "asks": "A açısının ölçüsü isteniyor.",
+      "choices": ["150", "130", "110", "90", "70"],
+      "answer": 2,
+      "solution": "1. A ile B komşu açılardır, bütünlerdir:\nA + B = 180°\n\n2. Verilen ilişki yazılır:\nA = B + 40°\n\n3. Yerine konur:\n(B + 40) + B = 180\n2B = 140\nB = **70°**\n\n4. A bulunur:\nA = 70 + 40 = **110°**\n\nNot: E şıkkındaki 70, **B** açısıdır. Denklemi B üzerinden kurduğunda son bir adım daha kalır; bulduğun ilk sayı sorulan açı değildir. Şıklar bu soruda **azalan** sırada verilmiştir."
+    },
+    {
+      "id": "pkenar-04",
+      "label": "Paralelkenarda kenarlar",
+      "difficulty": 2,
+      "stem": "Şekildeki ABCD paralelkenarında A açısının açıortayı BC kenarını E noktasında kesmektedir. AB = 9 cm ve BC = 14 cm'dir.\nBuna göre, EC kaç cm'dir?",
+      "asks": "EC uzunluğu isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='40.4,37 186.5,37 277.7,164.8 131.7,164.8'/></g><g stroke='#0284c7' stroke-width='2.5' fill='none' stroke-linecap='round'><line x1='40.4' y1='37' x2='250.4' y2='126.5'/></g><circle cx='250.4' cy='126.5' r='3' fill='#0284c7'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='33.1' y='29.7' text-anchor='end'>A</text><text x='193.8' y='29.7'>B</text><text x='286.9' y='179.4'>C</text><text x='124.4' y='179.4' text-anchor='end'>D</text></g><g font-family='system-ui, sans-serif' font-size='14' fill='currentColor'><text x='259.5' y='122.8'>E</text></g></svg>",
+      "choices": ["1", "3", "5", "7", "9"],
+      "answer": 2,
+      "solution": "1. AD ∥ BC olduğundan, açıortayın oluşturduğu açılarla iç ters açılar eşleşir:\n∠DAE = ∠AEB (iç ters açılar)\n∠DAE = ∠EAB (açıortay)\n\n2. Buradan ∠EAB = ∠AEB çıkar. ABE üçgeninde iki açı eşit olduğundan üçgen **ikizkenardır**:\nBE = AB = **9**\n\n3. EC bulunur:\nEC = BC − BE = 14 − 9 = **5**\n\nNot: E şıkkındaki 9, BE uzunluğudur; soru EC'yi istiyor. Bu kalıp DGS'de sık çıkar ve tek cümlede özetlenir: **paralelkenarda bir açının açıortayı, karşı kenardan komşu kenar kadar bir parça ayırır.** Bunu ezberlemek yerine iç ters açı adımını görmek daha güvenli."
+    },
+    {
+      "id": "pkenar-05",
+      "difficulty": 2,
+      "stem": "Şekildeki ABCD paralelkenarında köşegenler O noktasında kesişmektedir. AO = 3x − 4 ve OC = x + 6'dır.\nBuna göre, x kaçtır?",
+      "asks": "x değeri isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='40.4,37 186.5,37 277.7,164.8 131.7,164.8'/></g><g stroke='#0284c7' stroke-width='2.5' fill='none' stroke-linecap='round'><line x1='40.4' y1='37' x2='277.7' y2='164.8'/><line x1='186.5' y1='37' x2='131.7' y2='164.8'/></g><circle cx='159.1' cy='100.9' r='3' fill='#0284c7'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='33.1' y='29.7' text-anchor='end'>A</text><text x='193.8' y='29.7'>B</text><text x='286.9' y='179.4'>C</text><text x='124.4' y='179.4' text-anchor='end'>D</text></g><g font-family='system-ui, sans-serif' font-size='14' fill='currentColor'><text x='168.2' y='97.3'>O</text></g></svg>",
+      "choices": ["5", "7", "9", "11", "13"],
+      "answer": 0,
+      "solution": "1. Paralelkenarda köşegenler birbirini ortalar. Dolayısıyla O noktası AC köşegeninin orta noktasıdır:\nAO = OC\n\n2. Denklem kurulur:\n3x − 4 = x + 6\n2x = 10\nx = **5**\n\nNot: D şıkkındaki 11, x = 5 konulduğunda çıkan **AO uzunluğudur** (3·5 − 4 = 11). Soru x'i istiyor, uzunluğu değil. Bilinmeyeni bulduktan sonra \"soru ne istiyor\" satırına dön."
+    },
+    {
+      "id": "pkenar-06",
+      "label": "Paralelkenarda açılar",
+      "difficulty": 2,
+      "stem": "Bir ABCD paralelkenarında A açısının ölçüsü (3x + 10)°, C açısının ölçüsü (5x − 30)°'dir.\nBuna göre, B açısının ölçüsü kaç derecedir?",
+      "asks": "B açısının ölçüsü isteniyor.",
+      "choices": ["20", "50", "80", "110", "140"],
+      "answer": 3,
+      "solution": "1. A ile C **karşı açılardır**, eşittirler:\n3x + 10 = 5x − 30\n2x = 40\nx = **20**\n\n2. A açısı hesaplanır:\nA = 3 · 20 + 10 = **70°**\n\n3. B, A'nın komşusudur, bütünlerdir:\nB = 180 − 70 = **110°**\n\nNot: A şıkkındaki 20, x değeridir; açı değil. Bu soruda üç sayı arka arkaya çıkıyor — x, A açısı, B açısı — ve ilk ikisi de şıklarda yer alıyor (20 ve 70 yerine 80 var, dikkat: 70 şıklarda yok ama 20 var). Karşı açı eşitliğiyle x'i bulmak yalnızca birinci adımdır."
+    },
+    {
+      "id": "pkenar-07",
+      "label": "Paralelkenarda kenarlar",
+      "difficulty": 3,
+      "stem": "Şekildeki ABCD paralelkenarında A ve D açılarının açıortayları BC kenarını sırasıyla E ve F noktalarında kesmektedir. AB = 10 cm ve BC = 16 cm'dir.\nBuna göre, EF kaç cm'dir?",
+      "asks": "EF uzunluğu isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='40.4,37 186.5,37 277.7,164.8 131.7,164.8'/></g><g stroke='#0284c7' stroke-width='2.5' fill='none' stroke-linecap='round'><line x1='40.4' y1='37' x2='243.1' y2='117.3'/><line x1='131.7' y1='164.8' x2='220.2' y2='85.4'/></g><circle cx='243.1' cy='117.3' r='3' fill='#0284c7'/><circle cx='220.2' cy='85.4' r='3' fill='#0284c7'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='33.1' y='29.7' text-anchor='end'>A</text><text x='193.8' y='29.7'>B</text><text x='286.9' y='179.4'>C</text><text x='124.4' y='179.4' text-anchor='end'>D</text></g><g font-family='system-ui, sans-serif' font-size='14' fill='currentColor'><text x='252.2' y='115.5'>E</text><text x='229.4' y='79.9'>F</text></g></svg>",
+      "choices": ["2", "4", "6", "8", "10"],
+      "answer": 1,
+      "solution": "1. A açısının açıortayı için ABE üçgeni ikizkenardır (4. sorudaki gerekçe):\nBE = AB = **10**\n\n2. D açısının açıortayı için DCF üçgeni ikizkenardır. AD ∥ BC olduğundan ∠ADF = ∠DFC, açıortaydan ∠ADF = ∠FDC, buradan ∠FDC = ∠DFC:\nCF = CD = AB = **10**\n\n3. Noktaların B'ye olan uzaklıkları yazılır:\nE noktası: BE = 10\nF noktası: BF = BC − CF = 16 − 10 = **6**\n\n4. İki nokta da BC üzerinde ve aynı taraftadır:\nEF = 10 − 6 = **4**\n\nNot: C şıkkındaki 6 (BF) ve E şıkkındaki 10 (BE veya CF) ara değerlerdir. Bu sorunun asıl zorluğu şu: BE = 10 ve CF = 10 toplamı 20, oysa BC = 16. İki parça **üst üste biniyor**. Toplamı 16'yı aştığı için E ile F yer değiştirir; F, E'den önce gelir. Bunu görmeden çıkarma yapılırsa işaret hatası olur."
+    },
+    {
+      "id": "pkenar-08",
+      "difficulty": 3,
+      "stem": "Bir ABCD paralelkenarında AB = 9 cm ve BC = 5 cm'dir.\nAC köşegeninin uzunluğu tam sayı olduğuna göre, alabileceği **en büyük** değer kaç cm'dir?",
+      "asks": "AC köşegeninin alabileceği en büyük tam sayı değeri isteniyor.",
+      "choices": ["13", "14", "15", "16", "17"],
+      "answer": 0,
+      "solution": "1. AC köşegeni, ABC üçgeninin bir kenarıdır. Bu üçgende diğer iki kenar AB = 9 ve BC = 5'tir.\n\n2. Üçgen eşitsizliği uygulanır:\n9 − 5 < AC < 9 + 5\n4 < AC < 14\n\n3. Eşitsizlik **katıdır**, uç değerler dahil değildir. AC tam sayı olduğuna göre en büyük değer:\nAC = **13**\n\nNot: B şıkkındaki 14, eşitsizliğin **üst sınırıdır** ve dahil değildir. AC = 14 olsaydı 9 + 5 = 14 olur, üç nokta aynı doğru üzerine düşer ve üçgen oluşmazdı. Bu durumda paralelkenar da bozulurdu. Üçgen eşitsizliğinde sınır değerleri asla alınmaz."
+    },
+    {
+      "id": "pkenar-09",
+      "label": "Paralelkenarda alan",
+      "difficulty": 1,
+      "stem": "Bir paralelkenarın bir kenarı 14 cm, bu kenara ait yüksekliği 9 cm'dir.\nBuna göre, paralelkenarın alanı kaç cm²'dir?",
+      "asks": "Paralelkenarın alanı isteniyor.",
+      "choices": ["90", "99", "108", "117", "126"],
+      "answer": 4,
+      "solution": "1. Paralelkenarın alanı, bir taban ile **o tabana ait** yüksekliğin çarpımıdır:\nAlan = taban × yükseklik\n\n2. Alan = 14 · 9 = **126**"
+    },
+    {
+      "id": "pkenar-10",
+      "label": "Paralelkenarda alan",
+      "difficulty": 2,
+      "stem": "Bir paralelkenarın alanı 72 cm², kenarlarından biri 9 cm'dir.\nBuna göre, bu kenara ait yükseklik kaç cm'dir?",
+      "asks": "Verilen kenara ait yükseklik isteniyor.",
+      "choices": ["5", "6", "7", "8", "9"],
+      "answer": 3,
+      "solution": "1. Alan = taban × yükseklik bağıntısında yerine konur:\n72 = 9 · h\n\n2. h = 72 / 9 = **8**\n\nNot: E şıkkındaki 9, tabanın kendisidir. Aynı sayı hem verilende hem şıklarda geçtiğinde, hangisinin sorulduğunu işlem öncesi kâğıda yazmak en ucuz sigortadır."
+    },
+    {
+      "id": "pkenar-11",
+      "label": "Paralelkenarda alan",
+      "difficulty": 2,
+      "stem": "Bir paralelkenarın komşu kenarları 15 cm ve 10 cm'dir. Uzun kenara ait yükseklik 8 cm olduğuna göre, **kısa** kenara ait yükseklik kaç cm'dir?",
+      "asks": "Kısa kenara ait yükseklik isteniyor.",
+      "choices": ["4", "6", "8", "10", "12"],
+      "answer": 4,
+      "solution": "1. Paralelkenarda her kenar taban olabilir, ama her tabanın kendi yüksekliği vardır. İkisi de aynı alanı verir:\na · hₐ = b · h_b\n\n2. Önce alan uzun kenardan hesaplanır:\nAlan = 15 · 8 = **120**\n\n3. Aynı alan kısa kenardan yazılır:\n120 = 10 · h\nh = **12**\n\nNot: C şıkkındaki 8, **uzun** kenara ait yüksekliktir. Kontrol yolu şu: alan sabitken taban küçüldükçe yükseklik büyür. Kısa kenar 10 < 15 olduğuna göre ona ait yükseklik 8'den **büyük** çıkmalıdır. 8'den küçük bir sonuç bulduysan işlemi ters kurmuşsundur."
+    },
+    {
+      "id": "pkenar-12",
+      "label": "Paralelkenarda alan",
+      "difficulty": 2,
+      "stem": "Şekildeki ABCD paralelkenarında köşegenler O noktasında kesişmektedir. Paralelkenarın alanı 48 cm²'dir.\nBuna göre, AOB üçgeninin alanı kaç cm²'dir?",
+      "asks": "AOB üçgeninin alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='40.4,37 186.5,37 277.7,164.8 131.7,164.8'/></g><g stroke='#0284c7' stroke-width='2.5' fill='none' stroke-linecap='round'><line x1='40.4' y1='37' x2='277.7' y2='164.8'/><line x1='186.5' y1='37' x2='131.7' y2='164.8'/></g><circle cx='159.1' cy='100.9' r='3' fill='#0284c7'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='33.1' y='29.7' text-anchor='end'>A</text><text x='193.8' y='29.7'>B</text><text x='286.9' y='179.4'>C</text><text x='124.4' y='179.4' text-anchor='end'>D</text></g><g font-family='system-ui, sans-serif' font-size='14' fill='currentColor'><text x='168.2' y='97.3'>O</text></g></svg>",
+      "choices": ["12", "24", "36", "48", "60"],
+      "answer": 0,
+      "solution": "1. Köşegenler birbirini ortaladığından, oluşan dört üçgen **eş alanlıdır**:\nS(AOB) = S(BOC) = S(COD) = S(DOA)\n\n2. Paralelkenarın alanı dörde bölünür:\nS(AOB) = 48 / 4 = **12**\n\nNot: B şıkkındaki 24, alanın **yarısıdır** — bir köşegenin ayırdığı iki üçgenden birine karşılık gelir, dört üçgenden birine değil. D şıkkındaki 48 ise paralelkenarın kendi alanıdır. Bir köşegen ikiye böler, iki köşegen dörde. Kaç parçaya bölündüğünü şekilde say."
+    },
+    {
+      "id": "pkenar-13",
+      "label": "Paralelkenarda alan",
+      "difficulty": 2,
+      "stem": "Bir ABCD paralelkenarında AC köşegeni çizilmiştir. ABC üçgeninin alanı 27 cm²'dir.\nBuna göre, paralelkenarın alanı kaç cm²'dir?",
+      "asks": "Paralelkenarın alanı isteniyor.",
+      "choices": ["27", "54", "81", "108", "135"],
+      "answer": 1,
+      "solution": "1. Bir köşegen paralelkenarı **iki eş üçgene** ayırır. ABC ile ACD üçgenleri eştir (üç kenarı da karşılıklı eşit).\n\n2. Paralelkenarın alanı bu iki üçgenin toplamıdır:\nAlan = 2 · 27 = **54**\n\nNot: A şıkkındaki 27, verilen üçgenin alanıdır. Bu soruda yön önemli: üçgenden paralelkenara giderken **çarpılır**, paralelkenardan üçgene giderken bölünür. 12. soruyla karıştırma — orada dörde bölünüyordu çünkü iki köşegen vardı."
+    },
+    {
+      "id": "pkenar-14",
+      "label": "Paralelkenarda alan",
+      "difficulty": 2,
+      "stem": "Bir paralelkenarın alanı 84 cm², komşu kenarları 12 cm ve 14 cm'dir.\nBuna göre, **uzun** kenara ait yükseklik kaç cm'dir?",
+      "asks": "Uzun kenara ait yükseklik isteniyor.",
+      "choices": ["3", "4", "5", "6", "7"],
+      "answer": 3,
+      "solution": "1. Uzun kenar 14 cm'dir. Alan bu kenar üzerinden yazılır:\n84 = 14 · h\n\n2. h = 84 / 14 = **6**\n\nNot: E şıkkındaki 7, **kısa** kenara ait yüksekliktir (84 / 12). İki kenar da şıklara uyan bölme sonucu verdiği için, hangisinin uzun olduğunu belirlemeden işleme başlamak doğrudan yanlış şıkka götürür. Uzun kenar 14, kısa kenar 12."
+    },
+    {
+      "id": "pkenar-15",
+      "label": "Paralelkenarda alan",
+      "difficulty": 3,
+      "stem": "Şekildeki ABCD paralelkenarında E noktası BC kenarının orta noktasıdır. Paralelkenarın alanı 40 cm²'dir.\nBuna göre, AED üçgeninin alanı kaç cm²'dir?",
+      "asks": "AED üçgeninin alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='40.4,37 186.5,37 277.7,164.8 131.7,164.8'/></g><g stroke='#0284c7' stroke-width='2.5' fill='none' stroke-linecap='round'><line x1='40.4' y1='37' x2='232.1' y2='100.9'/><line x1='232.1' y1='100.9' x2='131.7' y2='164.8'/></g><circle cx='232.1' cy='100.9' r='3' fill='#0284c7'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='33.1' y='29.7' text-anchor='end'>A</text><text x='193.8' y='29.7'>B</text><text x='286.9' y='179.4'>C</text><text x='124.4' y='179.4' text-anchor='end'>D</text></g><g font-family='system-ui, sans-serif' font-size='14' fill='currentColor'><text x='241.2' y='97.3'>E</text></g></svg>",
+      "choices": ["10", "15", "20", "25", "30"],
+      "answer": 2,
+      "solution": "1. AED üçgeninin tabanı AD kenarıdır. AD, paralelkenarın bir kenarıdır ve buna ait yükseklik, E noktasının AD doğrusuna olan uzaklığıdır.\n\n2. BC ∥ AD olduğundan, BC üzerindeki **her** noktanın AD'ye uzaklığı aynıdır ve paralelkenarın AD kenarına ait yüksekliğine eşittir. E'nin orta nokta olması bu uzaklığı değiştirmez.\n\n3. Paralelkenarın alanı AD · h = 40'tır. AED üçgeninin alanı:\nS = ½ · AD · h = 40 / 2 = **20**\n\nNot: A şıkkındaki 10, alanın dörtte biridir; E'nin orta nokta olmasının alanı ikiye böldüğü sanılırsa çıkar. Buradaki asıl kavrayış şu: **E'nin BC üzerinde nerede olduğu hiç fark etmez.** Tepe noktası paralel doğru üzerinde kaydıkça üçgenin alanı değişmez, çünkü taban ve yükseklik sabit kalır. \"Orta nokta\" bilgisi bu soruda kullanılmayan bir veridir."
+    },
+    {
+      "id": "pkenar-16",
+      "label": "Paralelkenarda alan",
+      "difficulty": 3,
+      "stem": "Bir ABCD paralelkenarında AB = 12 cm, AD = 8 cm ve A açısının ölçüsü 30°'dir.\nBuna göre, paralelkenarın alanı kaç cm²'dir?",
+      "asks": "Paralelkenarın alanı isteniyor.",
+      "choices": ["24", "48", "72", "96", "120"],
+      "answer": 1,
+      "solution": "1. AB kenarı taban alınır. Buna ait yükseklik, D noktasından AB doğrusuna indirilen diktir.\n\n2. D'den AB'ye dik inildiğinde 30°-60°-90° üçgeni oluşur. Hipotenüs AD = 8, 30°'nin karşısındaki dik kenar hipotenüsün yarısıdır:\nh = 8 / 2 = **4**\n\n3. Alan hesaplanır:\nAlan = 12 · 4 = **48**\n\nNot: D şıkkındaki 96, iki kenarı doğrudan çarpmaktan gelir (12 · 8). Bu, ancak açı 90° olsaydı — yani dikdörtgende — doğru olurdu. Paralelkenarda komşu kenarların çarpımı alan **değildir**; kenarlardan biri taban, diğerinden türetilen dik uzunluk yüksekliktir."
+    },
+    {
+      "id": "pkenar-17",
+      "label": "Eşkenar dörtgen",
+      "subtopicId": "dortgen-eskenar",
+      "difficulty": 2,
+      "stem": "Şekildeki ABCD eşkenar dörtgeninin köşegenleri 18 cm ve 24 cm'dir.\nBuna göre, eşkenar dörtgenin alanı kaç cm²'dir?",
+      "asks": "Eşkenar dörtgenin alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 230' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='160,37.3 276.6,115 160,192.7 43.4,115'/></g><g stroke='#0284c7' stroke-width='2.5' fill='none' stroke-linecap='round'><line x1='160' y1='37.3' x2='160' y2='192.7'/><line x1='43.4' y1='115' x2='276.6' y2='115'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='160,101.4 173.6,101.4 173.6,115'/></g><circle cx='160' cy='115' r='3' fill='#0284c7'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='160' y='29.5' text-anchor='middle'>A</text><text x='286.3' y='119.9'>B</text><text x='160' y='210.2' text-anchor='middle'>C</text><text x='33.7' y='119.9' text-anchor='end'>D</text></g><g font-family='system-ui, sans-serif' font-size='14' fill='currentColor'><text x='169.7' y='130.5'>O</text></g></svg>",
+      "choices": ["216", "270", "324", "378", "432"],
+      "answer": 0,
+      "solution": "1. Eşkenar dörtgende köşegenler **birbirine diktir**. Bu yüzden alan, köşegenler cinsinden yazılabilir:\nAlan = (e · f) / 2\n\n2. Yerine konur:\nAlan = (18 · 24) / 2 = 432 / 2 = **216**\n\nNot: E şıkkındaki 432, köşegenlerin **çarpımıdır**; ikiye bölünmemiştir. Formülü ezberlemek yerine türet: dik köşegenler dörtgeni dört dik üçgene ayırır, her birinin dik kenarları e/2 ve f/2'dir. Dördünün toplamı 4 · ½ · (e/2) · (f/2) = (e·f)/2 eder."
+    },
+    {
+      "id": "pkenar-18",
+      "label": "Eşkenar dörtgen",
+      "subtopicId": "dortgen-eskenar",
+      "difficulty": 3,
+      "stem": "Şekildeki ABCD eşkenar dörtgeninin köşegenleri 12 cm ve 16 cm'dir.\nBuna göre, eşkenar dörtgenin çevresi kaç cm'dir?",
+      "asks": "Eşkenar dörtgenin çevresi isteniyor.",
+      "figure": "<svg viewBox='0 0 320 230' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='160,37.3 276.6,115 160,192.7 43.4,115'/></g><g stroke='#0284c7' stroke-width='2.5' fill='none' stroke-linecap='round'><line x1='160' y1='37.3' x2='160' y2='192.7'/><line x1='43.4' y1='115' x2='276.6' y2='115'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='160,101.4 173.6,101.4 173.6,115'/></g><circle cx='160' cy='115' r='3' fill='#0284c7'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='160' y='29.5' text-anchor='middle'>A</text><text x='286.3' y='119.9'>B</text><text x='160' y='210.2' text-anchor='middle'>C</text><text x='33.7' y='119.9' text-anchor='end'>D</text></g><g font-family='system-ui, sans-serif' font-size='14' fill='currentColor'><text x='169.7' y='130.5'>O</text></g></svg>",
+      "choices": ["10", "20", "30", "40", "50"],
+      "answer": 3,
+      "solution": "1. Köşegenler birbirini ortalar **ve** birbirine diktir. Merkezde oluşan dört dik üçgenin dik kenarları köşegenlerin yarılarıdır:\n12 / 2 = **6** ve 16 / 2 = **8**\n\n2. Eşkenar dörtgenin bir kenarı, bu dik üçgenin hipotenüsüdür:\nkenar² = 6² + 8² = 36 + 64 = 100\nkenar = **10**\n\n3. Dört kenar da eşit olduğundan:\nÇevre = 4 · 10 = **40**\n\nNot: A şıkkındaki 10, **bir kenarın** uzunluğudur; çevre değil. Bu soruda üç adım var — yarım köşegenler, kenar, çevre — ve ortadaki adımın sonucu şıklarda duruyor. Ayrıca köşegenleri ikiye bölmeyi atlayıp doğrudan 12 ve 16 ile Pisagor kurmak 20 verir, o da B şıkkındadır."
+    },
+    {
+      "id": "pkenar-19",
+      "label": "Eşkenar dörtgen",
+      "subtopicId": "dortgen-eskenar",
+      "difficulty": 2,
+      "stem": "Şekildeki ABCD eşkenar dörtgeninin alanı 120 cm², köşegenlerinden biri 20 cm'dir.\nBuna göre, diğer köşegen kaç cm'dir?",
+      "asks": "Diğer köşegenin uzunluğu isteniyor.",
+      "figure": "<svg viewBox='0 0 320 230' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='160,37.3 276.6,115 160,192.7 43.4,115'/></g><g stroke='#0284c7' stroke-width='2.5' fill='none' stroke-linecap='round'><line x1='160' y1='37.3' x2='160' y2='192.7'/><line x1='43.4' y1='115' x2='276.6' y2='115'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='160,101.4 173.6,101.4 173.6,115'/></g><circle cx='160' cy='115' r='3' fill='#0284c7'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='160' y='29.5' text-anchor='middle'>A</text><text x='286.3' y='119.9'>B</text><text x='160' y='210.2' text-anchor='middle'>C</text><text x='33.7' y='119.9' text-anchor='end'>D</text></g><g font-family='system-ui, sans-serif' font-size='14' fill='currentColor'><text x='169.7' y='130.5'>O</text></g></svg>",
+      "choices": ["6", "9", "12", "15", "18"],
+      "answer": 2,
+      "solution": "1. Alan formülü yazılır:\n(20 · f) / 2 = 120\n\n2. Sadeleştirilir:\n10 · f = 120\nf = **12**\n\nNot: A şıkkındaki 6, bulunan köşegenin **yarısıdır**. Bu tip sorularda formüldeki 2, köşegeni ikiye bölmek için değil, iki köşegenin çarpımını yarılamak içindir. Yarım köşegenler yalnız Pisagor kurarken devreye girer (18. soruda olduğu gibi)."
+    },
+    {
+      "id": "pkenar-20",
+      "label": "Dikdörtgende köşegen",
+      "subtopicId": "dortgen-dikdortgen",
+      "difficulty": 2,
+      "stem": "Bir dikdörtgenin kenarları 8 cm ve 15 cm'dir.\nBuna göre, köşegeninin uzunluğu kaç cm'dir?",
+      "asks": "Dikdörtgenin köşegen uzunluğu isteniyor.",
+      "choices": ["11", "14", "17", "20", "23"],
+      "answer": 2,
+      "solution": "1. Dikdörtgende açılar dik olduğundan, köşegen ile iki kenar bir dik üçgen oluşturur:\ne² = a² + b²\n\n2. Yerine konur:\ne² = 8² + 15² = 64 + 225 = 289\ne = **17**\n\nNot: E şıkkındaki 23, kenarların **toplamıdır** (8 + 15). Köşegen her zaman kenarlar toplamından küçük, en uzun kenardan büyüktür — üçgen eşitsizliğinin doğrudan sonucu. 17 bu aralıkta, 23 değil."
+    },
+    {
+      "id": "pkenar-21",
+      "label": "Dikdörtgende köşegen",
+      "subtopicId": "dortgen-dikdortgen",
+      "difficulty": 2,
+      "stem": "Şekildeki ABCD dikdörtgeninde köşegenler O noktasında kesişmektedir. AC = 26 cm'dir.\nBuna göre, OB kaç cm'dir?",
+      "asks": "OB uzunluğu isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='41.1,39.1 278.9,39.1 278.9,162.8 41.1,162.8'/></g><g stroke='#0284c7' stroke-width='2.5' fill='none' stroke-linecap='round'><line x1='41.1' y1='39.1' x2='278.9' y2='162.8'/><line x1='278.9' y1='39.1' x2='41.1' y2='162.8'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='41.1,52.5 54.4,52.5 54.4,39.1'/></g><circle cx='160' cy='101' r='3' fill='#0284c7'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='33.5' y='31.5' text-anchor='end'>A</text><text x='286.5' y='31.5'>B</text><text x='286.5' y='178'>C</text><text x='33.5' y='178' text-anchor='end'>D</text></g><g font-family='system-ui, sans-serif' font-size='14' fill='currentColor'><text x='169.5' y='97.2'>O</text></g></svg>",
+      "choices": ["9", "10", "11", "12", "13"],
+      "answer": 4,
+      "solution": "1. Dikdörtgen bir paralelkenardır, dolayısıyla köşegenler birbirini ortalar. Ayrıca dikdörtgende **köşegenler eşittir**:\nAC = BD = 26\n\n2. O, BD'nin de orta noktasıdır:\nOB = 26 / 2 = **13**\n\nNot: Bu soruda iki özellik üst üste kullanılıyor. Yalnız \"köşegenler birbirini ortalar\" bilinseydi OB bulunamazdı, çünkü BD verilmemiş. Yalnız \"köşegenler eşittir\" bilinseydi OB yine bulunamazdı. Verilen AC'den OB'ye geçmek için ikisi de gerekir. Ayrıca 26'yı doğrudan cevap sanmak yaygındır; şıklarda yok, ama sınavda olabilir."
+    },
+    {
+      "id": "pkenar-22",
+      "label": "Dikdörtgende köşegen",
+      "subtopicId": "dortgen-dikdortgen",
+      "difficulty": 3,
+      "stem": "Şekildeki ABCD dikdörtgeninde AB = 8 cm, BC = 6 cm ve köşegenler O noktasında kesişmektedir.\nBuna göre, AOB üçgeninin çevresi kaç cm'dir?",
+      "asks": "AOB üçgeninin çevresi isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='41.1,39.1 278.9,39.1 278.9,162.8 41.1,162.8'/></g><g stroke='#0284c7' stroke-width='2.5' fill='none' stroke-linecap='round'><line x1='41.1' y1='39.1' x2='278.9' y2='162.8'/><line x1='278.9' y1='39.1' x2='41.1' y2='162.8'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='41.1,52.5 54.4,52.5 54.4,39.1'/></g><circle cx='160' cy='101' r='3' fill='#0284c7'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='33.5' y='31.5' text-anchor='end'>A</text><text x='286.5' y='31.5'>B</text><text x='286.5' y='178'>C</text><text x='33.5' y='178' text-anchor='end'>D</text></g><g font-family='system-ui, sans-serif' font-size='14' fill='currentColor'><text x='169.5' y='97.2'>O</text></g></svg>",
+      "choices": ["12", "14", "16", "18", "20"],
+      "answer": 3,
+      "solution": "1. Köşegen hesaplanır:\nAC² = 8² + 6² = 64 + 36 = 100\nAC = **10**\n\n2. Köşegenler eşit ve birbirini ortaladığından, dört yarım köşegen de eşittir:\nOA = OB = 10 / 2 = **5**\n\n3. AOB üçgeninin üçüncü kenarı AB = 8'dir. Çevre:\n5 + 5 + 8 = **18**\n\nNot: C şıkkındaki 16, üçüncü kenar olarak yanlışlıkla BC = 6 alınırsa çıkar (5 + 5 + 6). AOB üçgeninin kenarları OA, OB ve **AB**'dir; şekle bakıp hangi kenarın üçgene dahil olduğunu doğrula. Dikdörtgende dört yarım köşegenin de eşit olması, bu üçgenin ikizkenar olmasını sağlar."
+    },
+    {
+      "id": "pkenar-23",
+      "label": "Karede köşegen ve alan",
+      "subtopicId": "dortgen-kare",
+      "difficulty": 3,
+      "stem": "Bir karenin köşegeni 12 cm'dir.\nBuna göre, karenin alanı kaç cm²'dir?",
+      "asks": "Karenin alanı isteniyor.",
+      "choices": ["36", "45", "54", "63", "72"],
+      "answer": 4,
+      "solution": "1. Kare hem eşkenar dörtgendir hem dikdörtgendir. Eşkenar dörtgen olduğu için köşegenleri diktir; dikdörtgen olduğu için köşegenleri eşittir. Dolayısıyla köşegen formülü çalışır ve iki köşegen de 12'dir:\nAlan = (e · f) / 2 = (12 · 12) / 2\n\n2. Alan = 144 / 2 = **72**\n\nNot: A şıkkındaki 36, köşegeni **kenar** sanmaktan gelir (6² veya köşegen yarısının karesi). Alternatif yol: kenar a ise köşegen a√2 = 12 → a = 6√2 → alan = 72. İki yol da aynı sonucu verir; köşegen formülü daha kısadır ve karenin iki özelliğini birden kullandığı için kavramsal olarak da daha öğreticidir."
+    },
+    {
+      "id": "pkenar-24",
+      "label": "Eşkenar dörtgen",
+      "subtopicId": "dortgen-eskenar",
+      "difficulty": 3,
+      "stem": "Şekildeki ABCD eşkenar dörtgeninin çevresi 40 cm, köşegenlerinden biri 16 cm'dir.\nBuna göre, diğer köşegen kaç cm'dir?",
+      "asks": "Diğer köşegenin uzunluğu isteniyor.",
+      "figure": "<svg viewBox='0 0 320 230' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='160,37.3 276.6,115 160,192.7 43.4,115'/></g><g stroke='#0284c7' stroke-width='2.5' fill='none' stroke-linecap='round'><line x1='160' y1='37.3' x2='160' y2='192.7'/><line x1='43.4' y1='115' x2='276.6' y2='115'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='160,101.4 173.6,101.4 173.6,115'/></g><circle cx='160' cy='115' r='3' fill='#0284c7'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='160' y='29.5' text-anchor='middle'>A</text><text x='286.3' y='119.9'>B</text><text x='160' y='210.2' text-anchor='middle'>C</text><text x='33.7' y='119.9' text-anchor='end'>D</text></g><g font-family='system-ui, sans-serif' font-size='14' fill='currentColor'><text x='169.7' y='130.5'>O</text></g></svg>",
+      "choices": ["6", "12", "18", "24", "30"],
+      "answer": 1,
+      "solution": "1. Dört kenar eşit olduğundan bir kenar bulunur:\nkenar = 40 / 4 = **10**\n\n2. Köşegenler dik ve birbirini ortaladığından, merkezde bir dik üçgen oluşur. Bu üçgenin hipotenüsü kenar (10), bir dik kenarı verilen köşegenin yarısıdır:\n16 / 2 = **8**\n\n3. Diğer dik kenar Pisagor'la bulunur:\nx² = 10² − 8² = 100 − 64 = 36\nx = **6**\n\n4. Bu, diğer köşegenin **yarısıdır**. Tamamı:\n2 · 6 = **12**\n\nNot: A şıkkındaki 6, diğer köşegenin yarısıdır. Bu soruda ikiye bölme ve ikiyle çarpma arka arkaya iki kez geçiyor: verilen köşegen ikiye bölünür, bulunan uzunluk ikiyle çarpılır. İkisinden birini atlamak doğrudan bir şıkka denk gelir."
+    }
+  ]
+}

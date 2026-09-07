@@ -6,7 +6,7 @@ her turda aşağıdaki günlüğe yazılıyor)
 
 ## Özet
 
-**610 soru · 23 alt konu · 25 paket.** 410'u geometri, 200'ü matematik
+**634 soru · 24 alt konu · 26 paket.** 434'ü geometri, 200'ü matematik
 (9 paket: `ozdeslik-genel`, `oran-oranti-genel`, `mantik-blok-1`,
 `mantik-blok-2`, `mantik-blok-3`, `problem-genel`, `rasyonel-genel`,
 `uslu-genel`, `koklu-genel`). Kalan **3**
@@ -42,8 +42,9 @@ tersi:** paketi var, formül kartı yok.
 | Üçgenler | `ucgen-karma` | Karma üçgen | 30 |
 | Dörtgenler | — | Dörtgenler | 10 |
 | Dörtgenler | `dortgen-yamuk` | Yamuk | 15 |
+| Dörtgenler | `dortgen-paralelkenar` | Paralelkenar | 24 |
 | Çember ve Daire | — | Çember ve Daire | 10 |
-| **Toplam** | | **25 paket** | **610** |
+| **Toplam** | | **26 paket** | **634** |
 
 ## Kalan işler
 
@@ -82,6 +83,24 @@ tersi:** paketi var, formül kartı yok.
   buna göre gözden geçirilmeli (`restoreSession` şu an "cevaplanmamış ilk soru"ya
   konumlanıyor, işaretli sorularla bu kural yeniden tanımlanacak). Ayrıntı:
   `## Görünür soru sayacı ve triyaj uyarısı` → "Açık madde".
+- **`geometri-paralelkenar`'ın 17–24 arası soruları `dortgen-eskenar` /
+  `dortgen-dikdortgen` / `dortgen-kare` alt konularına bağlı; bu alt konuların
+  kendi paketleri yazılana kadar konu ekranındaki alt konu satırlarında
+  görünmüyorlar.** Bilinçli seçim: doğru formül kartının açılması, alt konu
+  satırında listelenmekten önemli görüldü. "Paralelkenar" satırı bu yüzden 19
+  soru gösteriyor (16 yeni + `geo-dortgenler`'den 3), paket sayacı 24'te
+  kalıyor. Sorular kaybolmuyor — "Tüm konu", günlük rutin, mini test ve
+  Yanlışlarım akışlarında normal geliyor.
+- **`geo-dortgenler`'de üç sorunun `subtopic` değeri kart başlığı değil alias
+  adı** (`dortgen-003` → `Dikdörtgende köşegen`, `dortgen-004` → `Karede
+  köşegen ve alan`, `dortgen-010` → `Dörtgende açıortaylar`). Bugün görünür bir
+  etkisi yok, çünkü bu üç alt konunun alt konu satırı henüz yok
+  (`js/packs.js:209` satırı yalnız `subtopicId` yazan paket kaydından üretiyor).
+  Dikdörtgen / kare / dörtgende açılar paketi yazıldığı gün oturum başlığı yine
+  alias adını yazar (`js/scheduler.js:291` → `own[0].subtopic`) — v52'de
+  yamukta, v54'te paralelkenarda çıkan hatanın aynısı. Düzeltme o paketlerin
+  turuna bırakıldı. `dortgen-005` (`Eşkenar dörtgen`) ve `dortgen-008`
+  (`Deltoid`) sorunsuz.
 
 ## Öğrenme modu sıralaması
 
@@ -1710,6 +1729,119 @@ yalnız bu dosyada duruyordu, şimdi şemaya taşındı.
 `Kalan işler`'deki "üç `-genel` paket şemadan bilerek sapıyor" maddesi bu
 nedenle **kapatıldı**; aynı maddenin ikinci yarısı (8 soruda `label` boş)
 hâlâ açık ve yerinde duruyor.
+
+## Paralelkenar paketi
+
+**2026-09-07 (v54) · yeni `data/packs/geometri-paralelkenar.json` (24 soru) +
+`geo-dortgenler.json`'da 3 satır.** `referans/geometri-paralelkenar.md`'den saf
+transkripsiyon; üretilen soru yok, kod değişmedi. Dörtgenler konusu 25 → 49
+soru. Zorluk kaynaktan: **kolay 3 · orta 13 · zor 8**. Cevap dağılımı A–D'de
+5'er, E'de 4. Soru 3 azalan şıklıdır, düzeltilmedi.
+
+### Dört karta yayılan paket: `subtopicId` kararı
+
+Yamuk turunda 15 sorunun tamamı tek kartın kapsamındaydı, burada değil. Paket
+`data/formuller/dortgenler.json`'daki **dört kartı** kesiyor: 1–16
+paralelkenar, 17/18/19/24 eşkenar dörtgen, 20/21/22 dikdörtgen, 23 kare.
+Kullanıcı kararı: **paket kaydı `dortgen-paralelkenar`, sorular 17–24 kendi
+`subtopicId`'sini taşıyor** (`js/packs.js:111` zinciri `q.subtopicId ||
+entry.subtopicId` olduğu için soru alanı kazanıyor). Gerekçe: yanlış cevapta
+doğru kartın açılması, alt konu satırında listelenmekten önemli.
+
+Ölçülen sonuç — **24/24 soruda doğru kart**: 16 Paralelkenar, 4 Eşkenar
+dörtgen, 3 Dikdörtgen, 1 Kare. `data/formuller/` **hiç değişmedi**: yeni kart
+yok, yeni alias yok, `cardCount` aynı.
+
+Bilinen ve kabul edilen yan etkisi `Kalan işler`'e açık madde olarak yazıldı:
+konu ekranındaki "Paralelkenar" satırı **19** soru gösteriyor (16 yeni +
+`geo-dortgenler`'in aynı `subtopicId`'yi taşıyan 3 sorusu), 17–24 hiçbir alt
+konu satırında görünmüyor. Satır listesi yalnız `subtopicId` yazan paket
+kayıtlarından üretiliyor (`js/packs.js:209`) ve bu üç alt konunun paketi henüz
+yok; sayım ise soru bazlı (`js/screens/topics.js:115`). Paket sayacı 24'te
+kalıyor. Sorular kaybolmuyor — "Tüm konu", günlük rutin, mini test ve
+Yanlışlarım akışlarında normal geliyor; eşkenar dörtgen / dikdörtgen / kare
+paketleri yazıldığında o satırlar açılınca kendiliğinden yerine oturacaklar.
+
+Reddedilen alternatif: yalnız paket seviyesinde `dortgen-paralelkenar` verip
+soruya hiç yazmamak (yamuk deseninin birebir tekrarı). Satır 27 soru
+gösterirdi ama 17–24'te Paralelkenar kartı açılırdı — o kartta `(e · f) / 2`,
+`(e/2)² + (f/2)² = a²`, `Köşegen = √(a² + b²)` ve `Alan = köşegen² / 2`
+formüllerinin **hiçbiri yok**, yani öğrencinin tam o anda ihtiyaç duyduğu
+formül gösterilmezdi.
+
+### `geo-dortgenler` başlık düzeltmesi: v53'ün aynısı
+
+`js/scheduler.js:291` alt konu setini `own[0].subtopic` ile adlandırıyor,
+`loadAllQuestions` index sırasını koruyor ve `geo-dortgenler` index'te
+`geometri-paralelkenar`'dan önce geliyor. Düzeltilmeseydi "Paralelkenar"
+satırına girildiğinde başlık **"Paralelkenarda açılar"** yazardı — v53'te yamuk
+için kapatılan hatanın birebir aynısı. Çözüm de aynı: `dortgen-001`,
+`dortgen-002` ve `dortgen-009`'un `subtopic` değeri (`Paralelkenarda açılar` /
+`… kenarlar` / `… alan`) **`Paralelkenar`** yapıldı. `subtopicId` üçünde de
+`dortgen-paralelkenar` olarak duruyor, `data/index.json`'a dokunulmadı, kart
+eşleşmesi etkilenmiyor (`js/formulas.js:106` ilk adımda `subtopicId`'ye
+bakıyor). Alanı **silmek** yine seçilmedi: silinseydi `js/packs.js:114`
+zincirinin ikinci halkası da boş olduğu için başlık "Alt konu"ya düşer ve
+`js/screens/session.js:669` rozeti tamamen kaybolurdu.
+
+Aynı desenin `geo-dortgenler`'de kalan örnekleri arandı ve **düzeltilmedi**;
+üçü de latent, `Kalan işler`'e yazıldı: `dortgen-003` (`Dikdörtgende köşegen`),
+`dortgen-004` (`Karede köşegen ve alan`), `dortgen-010` (`Dörtgende
+açıortaylar`). Bu üç alt konunun alt konu satırı henüz olmadığı için bugün
+görünür etkileri yok. `dortgen-005` (`Eşkenar dörtgen`) ve `dortgen-008`
+(`Deltoid`) zaten kart başlığını taşıyor, sorunsuz.
+
+### Paylaşımlı şekiller yine kopyalandı
+
+Kaynak altı şekli (FIG-P1 … FIG-P6) on bir soruya paylaştırıyor. Şemada şekil
+paylaşma yolu yok (yamuk turunda ölçülmüştü): `figure` soru nesnesinde satır
+içi SVG metnidir, `blocks` boş. Sonuç: **6 ayrı SVG, 11 `figure` alanına
+birebir tekrar yazıldı** — FIG-P1 → 5, 12 · FIG-P2 → 4 · FIG-P3 → 7 · FIG-P4 →
+15 · FIG-P5 → 17, 18, 19, 24 · FIG-P6 → 21, 22; 13 soru şekilsiz. Aynı FIG
+kullanan sorularda şekil **birebir aynı**; istenen büyüklüğe göre vurgu
+değiştirilmedi, tersi paylaşımlı şekli ayrı şekillere böler ve şıkkı sızdırırdı.
+
+### SVG'ler ev stiline çevrildi
+
+Kaynak SVG'ler `viewBox="0 0 520 240"` (P5'te 260), çift tırnak,
+`stroke-width="1.2"`, font-family yok. Uygulanan dönüşüm yamuktakinin aynısı:
+
+- Şekil başına **düzgün (uniform) ölçek + öteleme**; genişlik hep 320. İçerik
+  kutusu (çokgen + metin genişlikleri) 24 px kenar payı bırakacak biçimde
+  ölçeklendi, sonra ortalandı: FIG-P1…P4 ×0,913 → `viewBox='0 0 320 200'` ·
+  FIG-P5 ×0,971 → `'0 0 320 230'` · FIG-P6 ×0,951 → `'0 0 320 200'`. P5'te
+  yükseklik artırıldı çünkü eşkenar dörtgen daha kare oranlı; 200'de kalsaydı
+  ölçek 0,82'ye düşer ve şekil tuvalin ortasında küçülürdü (`_sema.md` §3
+  "gerekirse sadece yükseklik artar").
+- Tek tırnak, `xmlns` yazılı, `width`/`height` yok; ana çokgen
+  `stroke-width='2'`, vurgu `2.5`, dik açı işaretleri `1.5`, noktalar `r='3'`;
+  `font-family='system-ui, sans-serif'`, köşe harfleri 13, O/E/F 14 punto.
+- **Renk kararı verilmedi.** Kaynakta `#0284c7` zaten doğru yerlerdeydi
+  (köşegenler, açıortaylar, O noktası, AED üçgeninin iki kenarı); ana şekil
+  kenarları, köşe harfleri ve dik açı işaretleri `currentColor` bırakıldı.
+
+### Çözüm kapanışı ve doğrulama
+
+Kaynak çözümleri satır başı `Not:` ile bitiyor; saf transkripsiyon gereği
+dokunulmadı — `_sema.md` §4'ün **B biçimi**. `Not:` kutusu **23/24** soruda
+var; tek istisna `pkenar-09` (kaynakta da kapanış yok, en kolay soru).
+`**Not:**` tuzağına düşülmedi, etiket kalınlaştırılmadı.
+
+`asks` kaynakta yok, şema zorunlu tutuyor (`js/packs.js:78`). Talimat gereği
+yalnız istenen büyüklüğü adlandırıyor.
+
+`label` yalnız mevcut alias'lardan yazıldı, **yeni alias uydurulmadı**:
+`Paralelkenarda alan` 8 soru (9–16), `Paralelkenarda açılar` 3 (2, 3, 6),
+`Paralelkenarda kenarlar` 3 (1, 4, 7), `Eşkenar dörtgen` 4 (17, 18, 19, 24),
+`Dikdörtgende köşegen` 3 (20, 21, 22), `Karede köşegen ve alan` 1 (23). Kalan
+**2 soruda `label` yok** (5 ve 8 — ikisi de paralelkenarın köşegeni üzerine;
+kartın üç alias'ından hiçbiri köşegeni adlandırmıyor).
+
+- **Kaynakla karakter karşılaştırması: 24 kök, 120 şık ve 24 çözüm birebir**
+  (boşluk normalizasyonu dışında sıfır fark, PowerShell ile ölçüldü).
+- `answer` indeksinin gösterdiği şık, kaynağın cevap anahtarı tablosuyla
+  **24/24** eşleşti; zorluk dağılımı 3/13/8 kaynakla birebir.
+- 11 `figure` alanının tamamı tek tırnaklı, `xmlns` var, `width`/`height` yok.
 
 ## Çalışma kuralları
 

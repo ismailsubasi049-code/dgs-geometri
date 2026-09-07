@@ -284,6 +284,17 @@
       "version": 1
     },
     {
+      "id": "geometri-paralelkenar",
+      "topicId": "dortgenler",
+      "topic": "Dörtgenler",
+      "subtopicId": "dortgen-paralelkenar",
+      "subtopic": "Paralelkenar",
+      "title": "Paralelkenar",
+      "file": "packs/geometri-paralelkenar.json",
+      "count": 24,
+      "version": 1
+    },
+    {
       "id": "geo-cember",
       "topicId": "cember",
       "topic": "Çember ve Daire",
