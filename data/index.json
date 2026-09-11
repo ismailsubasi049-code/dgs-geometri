@@ -295,6 +295,17 @@
       "version": 1
     },
     {
+      "id": "geometri-dortgen-karma",
+      "topicId": "dortgenler",
+      "topic": "Dörtgenler",
+      "subtopicId": "",
+      "subtopic": "",
+      "title": "Dörtgenler — karma",
+      "file": "packs/geometri-dortgen-karma.json",
+      "count": 20,
+      "version": 1
+    },
+    {
       "id": "geo-cember",
       "topicId": "cember",
       "topic": "Çember ve Daire",

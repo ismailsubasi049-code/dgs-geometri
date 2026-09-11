@@ -1,12 +1,12 @@
 # Durum
 
-**Son güncelleme:** 2026-09-04 · **sw.js VERSION:** güncel değer için `sw.js:4`
+**Son güncelleme:** 2026-09-11 · **sw.js VERSION:** güncel değer için `sw.js:4`
 (elle tutulan kopya iki tur geride kaldığı için buradan kaldırıldı; sürüm zaten
 her turda aşağıdaki günlüğe yazılıyor)
 
 ## Özet
 
-**634 soru · 24 alt konu · 26 paket.** 434'ü geometri, 200'ü matematik
+**654 soru · 24 alt konu · 27 paket.** 454'ü geometri, 200'ü matematik
 (9 paket: `ozdeslik-genel`, `oran-oranti-genel`, `mantik-blok-1`,
 `mantik-blok-2`, `mantik-blok-3`, `problem-genel`, `rasyonel-genel`,
 `uslu-genel`, `koklu-genel`). Kalan **3**
@@ -43,8 +43,9 @@ tersi:** paketi var, formül kartı yok.
 | Dörtgenler | — | Dörtgenler | 10 |
 | Dörtgenler | `dortgen-yamuk` | Yamuk | 15 |
 | Dörtgenler | `dortgen-paralelkenar` | Paralelkenar | 24 |
+| Dörtgenler | — | Dörtgenler — karma | 20 |
 | Çember ve Daire | — | Çember ve Daire | 10 |
-| **Toplam** | | **26 paket** | **634** |
+| **Toplam** | | **27 paket** | **654** |
 
 ## Kalan işler
 
@@ -101,6 +102,11 @@ tersi:** paketi var, formül kartı yok.
   yamukta, v54'te paralelkenarda çıkan hatanın aynısı. Düzeltme o paketlerin
   turuna bırakıldı. `dortgen-005` (`Eşkenar dörtgen`) ve `dortgen-008`
   (`Deltoid`) sorunsuz.
+- **`geometri-dortgen-karma`'da iki kaynak tutarsızlığı aktarıldı, düzeltilmedi**
+  (ikisi de cevabı etkilemiyor): `dkarma-08` Not'u "3. adımdaki türetmede"
+  diyor, türetme 2. adımda; `dkarma-06` Not'u "o cümle olmasaydı şekil
+  paralelkenar da olabilirdi" diyor, oysa AB = 7 ≠ DC = 13 iken şekil
+  paralelkenar olamaz.
 
 ## Öğrenme modu sıralaması
 
@@ -1842,6 +1848,96 @@ kartın üç alias'ından hiçbiri köşegeni adlandırmıyor).
 - `answer` indeksinin gösterdiği şık, kaynağın cevap anahtarı tablosuyla
   **24/24** eşleşti; zorluk dağılımı 3/13/8 kaynakla birebir.
 - 11 `figure` alanının tamamı tek tırnaklı, `xmlns` var, `width`/`height` yok.
+
+## Dörtgen karma paketi
+
+**2026-09-11 (v55) · yeni `data/packs/geometri-dortgen-karma.json` (20 soru).**
+`referans/geometri-dortgen-karma.md`'den transkripsiyon; kod değişmedi. Dörtgenler
+konusu 49 → 69 soru. Zorluk kaynaktan: **kolay 3 · orta 10 · zor 7**; cevap
+dağılımı A–E 4'er. Hiçbir soru dörtgenin adını söylemiyor — ölçülen şey şeklin
+**hangi dörtgen olduğunu bulmak** (şekilden tanıma 4, 5, 6, 14, 15 · özellikten
+tanıma 1, 2, 3, 11, 17–20 · çıkarım 7–10, 16).
+
+### `subtopicId` bilerek boş
+
+Paket kaydında (`data/index.json` ve dosyanın üst düzeyi) `subtopicId` ve
+`subtopic` `""`; sorularda alan hiç yazılmadı, `label` de yok. `js/packs.js:111-112`
+boş dizeyi `null`'a indiriyor. Gerekçe: rozet satırı (`js/screens/session.js:669`)
+"Dörtgenler · Paralelkenar · …" gösterseydi şekle bakmadan cevabı söylerdi, paket
+kendi kendini bozardı. Bedeli yanlış cevapta formül kartının açılmaması
+(`js/formulas.js:105-113` üç anahtar da boş) — kabul edildi: eksik olan formül
+değil, **hangi formülün seçileceği**, onu da çözüm metni yapıyor.
+
+Görünüm: soru ekranında rozet yalnız "Dörtgenler" çipi. Alt konu ekranında "Tüm
+konu" 69 soru; Yamuk (17) ve Paralelkenar (19) satırları değişmedi, **yeni satır
+yok** (`js/packs.js:210` satırı yalnız `subtopicId` dolu kayıttan üretiyor). Sorular
+Tüm konu, günlük rutin, mini test ve konu kapsamlı Yanlışlarım'da geliyor; alt konu
+satırlarında ve alt konu kapsamlı Yanlışlarım'da gelmiyor — beklenen davranış.
+Paketin `title`'ı ("Dörtgenler — karma") hiçbir ekranda okunmuyor.
+
+`_sema.md` §7'deki `ucgen-karma` kurallarından **bilerek ayrılıyor**: `Karma NN`
+label'ı yok, çözüm "Bu soru şu bilgiyi istiyor" satırıyla başlamıyor (saf
+transkripsiyon), kart label alias'ıyla da bağlanmıyor. `_sema.md` değişmedi.
+
+### Kaynaktan üç sapma (kullanıcı kararı)
+
+- **Çentik düzeltmesi — kaynak hatası.** Üç eşitlik çentiği kenarına dik değildi:
+  perp vektörü yanlış hesaplanmış, çentiğin iki ucunun y koordinatları yer
+  değiştirmişti. FIG-K2'de AB ve CD çentikleri kenara 22,6° açıyla duruyordu (kenar
+  boyunca uzanan kısa bir çizgi gibi), FIG-K5'te AB çentiği kenarla **0°** —
+  tamamen çakışık, görünmüyordu ve deltoidin "AB = AD" işareti kayboluyordu. Üçü de
+  aynı orta nokta ve uzunlukla kenara 90° çevrildi; başka koordinat değişmedi.
+- **`dkarma-10` D şıkkı** `İki simetri ekseni vardır` → `Dört simetri ekseni
+  vardır`. Eski hâlinde çözümün kendisi D'nin de "kesinlikle doğru" olduğunu
+  söylüyordu; soru iki doğru cevaplı okunuyordu. İlk önerilen metin ("Köşegenleri
+  karşılıklı açıları ortalar") C şıkkıyla ("Köşegenleri açıortaydır") aynı iddia
+  olduğu için kullanılmadı. Çözümün D satırı `D → dört simetri ekseni ancak karede
+  vardır, dikdörtgende iki tanedir` oldu, Not kutusu kullanıcının metniyle
+  tamamen değişti. Cevap E kalıyor.
+- **`dkarma-06` ve `dkarma-08` aynen aktarıldı**; tutarsızlıkları `Kalan işler`'de.
+
+**Tarama:** aynı çentik hatası `geometri-yamuk` (5 benzersiz şekil) ve
+`geometri-paralelkenar`'da (6) **yok** — ikisinde de, kaynak md'leri dâhil, hiç
+eşitlik çentiği bulunmuyor. Bütün `<line>`'lar ≥ 104 px (köşegen/yükseklik); 7
+`<polyline>`'ın hepsi dik açı işareti, eksene paralel ve dik kesişen kenar çiftinin
+köşesine doğru oturuyor.
+
+### SVG'ler ev stiline çevrildi
+
+Kaynak `viewBox="0 0 520 240"` (K2'de 260, K5'te 270), çift tırnak, `stroke-width`
+1–1,5, font-family yok. Dönüşüm yamuk/paralelkenardakinin aynısı: şekil başına
+düzgün ölçek + öteleme, genişlik 320, içerik kutusu 24 px kenar payıyla ortalı;
+ölçek genişlik sınırının %90'ının altına düşecekse yükseklik 10'luk adımla artar.
+Sonuç: K1 ×0,979 · K3 ×0,852 · K4 ×0,979 → `'0 0 320 200'`; K2 ×0,977 →
+`'0 0 320 250'`; K5 ×1,000 → `'0 0 320 260'` (deltoid dar, ölçeğin üst sınırı 1,0).
+Ana çokgen `2`; çentik, paralellik oku ve dik açı işaretleri `1.5` (`currentColor`);
+tek renkli öğe K2'deki çizili DB köşegeni (`#0284c7`, `2.5`). Köşe harfleri 13 punto
+`system-ui`. Şekillere metin eklenmedi, her birinde yalnız A–D var.
+
+### Çözüm kapanışı ve doğrulama
+
+Kaynak çözümleri satır başı `Not:` ile bitiyor — `_sema.md` §4 **B biçimi**; `Not:`
+kutusu **20/20**, etiket kalınlaştırılmadı. `asks` yalnız istenen büyüklüğü
+adlandırıyor, hiçbirinde şekil adı geçmiyor.
+
+Sorular md'den programla çıkarıldı (elle yeniden yazım yok); ayrı bir denetim
+betiği ölçtü:
+
+- **19 sorunun kök, şık ve çözümü md ile birebir**; `dkarma-10` tam 3 noktada farklı
+  (D şıkkı, çözümün D satırı, Not).
+- `answer` harfleri md'nin anahtar tablosuyla **20/20**; zorluk başlıklarla ve
+  talimatla birebir. `**` çiftleri dengeli, `**Not:**` yok, `dkarma-` id'leri başka
+  pakette yok.
+- 5 şeklin 5'i `js/svg.js` beyaz listesinden kayıpsız; tek tırnak, `xmlns` var,
+  `width`/`height` yok; viewBox'a en az 24 px pay. Çentiklerde dikten en büyük
+  sapma 0,54° (0,1 px yuvarlamasından), kenar çizgisine uzaklık ≤ 0,09 px; oklar
+  kendi kenarında simetrik, K4'ün dik açı işaretleri A ve D'de 90°; her harf kendi
+  köşesine en yakın.
+- Headless Chrome render'ı: K2'de dört çentiğin dördü görünüyor, K5'te AB/AD tek,
+  CB/CD çift çentik ayırt ediliyor.
+- Uygulamada (SW temizlendikten sonra `v55` yüklü): `loadQuestionsFromPacks` 20
+  soru, hepsinde `subtopicId`/`subtopic`/`label` `null`; konsolda "Soru atlandı"
+  uyarısı yok; alt konu ekranı yukarıdaki sayıları gösteriyor.
 
 ## Çalışma kuralları
 

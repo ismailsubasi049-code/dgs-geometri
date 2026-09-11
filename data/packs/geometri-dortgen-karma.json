@@ -1,0 +1,196 @@
+{
+  "id": "geometri-dortgen-karma",
+  "topicId": "dortgenler",
+  "topic": "Dörtgenler",
+  "subtopicId": "",
+  "subtopic": "",
+  "version": 1,
+  "blocks": [],
+  "questions": [
+    {
+      "id": "dkarma-01",
+      "difficulty": 1,
+      "stem": "Köşegenleri birbirini ortalayan ve birbirine **eşit** olan bir dörtgenin kenarları 9 cm ve 12 cm'dir.\nBuna göre, bu dörtgenin köşegen uzunluğu kaç cm'dir?",
+      "asks": "Köşegen uzunluğu isteniyor.",
+      "choices": ["9", "12", "15", "18", "21"],
+      "answer": 2,
+      "solution": "1. Verilen iki özellik şekli belirler:\nKöşegenler birbirini ortalıyor → **paralelkenar**\nKöşegenler birbirine eşit → **dikdörtgen**\n\n2. Dikdörtgende açılar dik olduğundan köşegen, kenarlarla dik üçgen kurar:\ne² = 9² + 12² = 81 + 144 = 225\ne = **15**\n\nNot: E şıkkındaki 21, kenarların toplamıdır. Köşegen daima en uzun kenardan büyük, kenarlar toplamından küçüktür. Ayrıca dikkat: yalnız \"köşegenler birbirini ortalar\" verilseydi paralelkenar çıkardı ve köşegen bulunamazdı; **eşitlik** bilgisi dik açıyı getirir."
+    },
+    {
+      "id": "dkarma-02",
+      "difficulty": 1,
+      "stem": "Köşegenleri birbirini ortalayan ve birbirine **dik** olan bir dörtgenin köşegenleri 10 cm ve 24 cm'dir.\nBuna göre, bu dörtgenin çevresi kaç cm'dir?",
+      "asks": "Dörtgenin çevresi isteniyor.",
+      "choices": ["13", "26", "39", "52", "65"],
+      "answer": 3,
+      "solution": "1. Verilenler şekli belirler:\nKöşegenler birbirini ortalıyor → paralelkenar\nKöşegenler birbirine dik → **eşkenar dörtgen**\n\n2. Köşegenler ortalandığından yarıları alınır:\n10 / 2 = **5** ve 24 / 2 = **12**\n\n3. Köşegenler dik olduğundan merkezde dik üçgen oluşur; kenar hipotenüstür:\nkenar² = 5² + 12² = 169\nkenar = **13**\n\n4. Dört kenar eşit:\nÇevre = 4 · 13 = **52**\n\nNot: A şıkkındaki 13, **bir kenarın** uzunluğudur. Bu soruda üç adım var — yarım köşegenler, kenar, çevre — ve ortadaki adımın sonucu şıklarda duruyor."
+    },
+    {
+      "id": "dkarma-03",
+      "difficulty": 1,
+      "stem": "Köşegenlerinden **yalnız biri** diğerini ortalayan ve köşegenleri birbirine dik olan bir dörtgenin köşegenleri 12 cm ve 9 cm'dir.\nBuna göre, bu dörtgenin alanı kaç cm²'dir?",
+      "asks": "Dörtgenin alanı isteniyor.",
+      "choices": ["54", "81", "108", "135", "162"],
+      "answer": 0,
+      "solution": "1. \"Yalnız biri diğerini ortalar\" ifadesi eşkenar dörtgeni eler — orada **ikisi birden** ortalar. Diklikle birlikte bu bir **deltoiddir**.\n\n2. Ama alan için şekli adlandırmaya gerek yok. Köşegenleri birbirine dik olan **her** dörtgende:\nAlan = (e · f) / 2\n\n3. Alan = (12 · 9) / 2 = 108 / 2 = **54**\n\nNot: C şıkkındaki 108, köşegenlerin çarpımıdır; ikiye bölünmemiştir. Bu formül eşkenar dörtgen, kare ve deltoid için ayrı ayrı ezberlenmez — **tek koşulu diklik**. Köşegenlerin birbirini ortalaması gerekmez."
+    },
+    {
+      "id": "dkarma-04",
+      "difficulty": 2,
+      "stem": "Şekildeki dörtgende aynı işareti taşıyan kenarlar eşit uzunluktadır. A açısının ölçüsü 110°'dir.\nBuna göre, B açısının ölçüsü kaç derecedir?",
+      "asks": "B açısının ölçüsü isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='51.3,41.8 208,41.8 266.7,159.3 110.1,159.3'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><line x1='129.6' y1='36' x2='129.6' y2='47.7'/><line x1='188.4' y1='153.5' x2='188.4' y2='165.2'/><line x1='77.6' y1='105.4' x2='86.4' y2='101.1'/><line x1='75' y1='100.1' x2='83.8' y2='95.8'/><line x1='234.2' y1='105.4' x2='243' y2='101.1'/><line x1='231.7' y1='100.1' x2='240.5' y2='95.8'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='43.5' y='34' text-anchor='end'>A</text><text x='215.8' y='34'>B</text><text x='276.5' y='175'>C</text><text x='102.2' y='175' text-anchor='end'>D</text></g></svg>",
+      "choices": ["50", "70", "90", "110", "130"],
+      "answer": 1,
+      "solution": "1. Şekilde karşılıklı kenarlar ikişer ikişer eşit işaretlenmiştir. Karşı kenarları eşit olan dörtgen **paralelkenardır**.\n\n2. Paralelkenarda komşu açılar bütünlerdir. A ile B komşudur:\nB = 180° − 110° = **70°**\n\nNot: D şıkkındaki 110, A açısının kendisidir — B ile A'yı **karşı** açı sanmaktan gelir. ABCD sıralamasında A ile C karşılıklıdır, A ile B komşudur. Şekilde köşe adlarını takip etmeden karar verme."
+    },
+    {
+      "id": "dkarma-05",
+      "difficulty": 2,
+      "stem": "Şekildeki dörtgenin dört kenarı da eşit uzunluktadır. Çizili olan köşegen 16 cm, bir kenarı 10 cm'dir.\nBuna göre, diğer köşegen kaç cm'dir?",
+      "asks": "Diğer köşegenin uzunluğu isteniyor.",
+      "figure": "<svg viewBox='0 0 320 250' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='160,46.5 277.2,124.6 160,202.8 42.8,124.6'/></g><g stroke='#0284c7' stroke-width='2.5' fill='none' stroke-linecap='round'><line x1='42.8' y1='124.6' x2='277.2' y2='124.6'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><line x1='215.9' y1='89.6' x2='221.4' y2='81.4'/><line x1='215.9' y1='159.6' x2='221.4' y2='167.8'/><line x1='98.6' y1='167.8' x2='104.1' y2='159.6'/><line x1='98.6' y1='81.4' x2='104.1' y2='89.6'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='160' y='38.6' text-anchor='middle'>A</text><text x='287' y='129.5'>B</text><text x='160' y='220.4' text-anchor='middle'>C</text><text x='33' y='129.5' text-anchor='end'>D</text></g></svg>",
+      "choices": ["3", "6", "9", "12", "15"],
+      "answer": 3,
+      "solution": "1. Dört kenarı eşit olan dörtgen **eşkenar dörtgendir**. Köşegenleri hem birbirini ortalar hem birbirine diktir.\n\n2. Çizili köşegenin yarısı alınır:\n16 / 2 = **8**\n\n3. Merkezdeki dik üçgende hipotenüs kenardır (10), bir dik kenar 8'dir:\nx² = 10² − 8² = 100 − 64 = 36\nx = **6**\n\n4. Bu, aranan köşegenin **yarısıdır**:\ndiğer köşegen = 2 · 6 = **12**\n\nNot: B şıkkındaki 6, yarım köşegendir. Bu soruda ikiye bölme ve ikiyle çarpma arka arkaya geçiyor: verilen köşegen bölünür, bulunan uzunluk çarpılır. Birini atlamak doğrudan bir şıkka denk gelir."
+    },
+    {
+      "id": "dkarma-06",
+      "difficulty": 2,
+      "stem": "Şekildeki dörtgende ok işareti taşıyan kenarlar birbirine paraleldir; diğer iki kenar paralel değildir. AB = 7 cm, DC = 13 cm ve bu iki kenar arasındaki uzaklık 8 cm'dir.\nBuna göre, dörtgenin alanı kaç cm²'dir?",
+      "asks": "Dörtgenin alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='99.5,49.9 218.8,49.9 278.5,152.2 39.8,152.2'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='154.9,44.8 160,49.9 154.9,55.1'/><polyline points='154.9,147.1 160,152.2 154.9,157.3'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='92.7' y='43.1' text-anchor='end'>A</text><text x='225.6' y='43.1'>B</text><text x='287' y='165.9'>C</text><text x='33' y='165.9' text-anchor='end'>D</text></g></svg>",
+      "choices": ["40", "80", "120", "160", "200"],
+      "answer": 1,
+      "solution": "1. Yalnız bir çift kenarı paralel olan dörtgen **yamuktur**. Paralel kenarlar arasındaki uzaklık yüksekliktir.\n\n2. Alan = ((a + c) / 2) · h\nAlan = ((13 + 7) / 2) · 8 = 10 · 8 = **80**\n\nNot: D şıkkındaki 160, tabanları toplayıp **ikiye bölmeden** yükseklikle çarpmaktan gelir. Ayrıca \"diğer iki kenar paralel değildir\" ifadesi süs değil: o cümle olmasaydı şekil paralelkenar da olabilirdi ve alan aynı formülle değil a·h ile hesaplanırdı."
+    },
+    {
+      "id": "dkarma-07",
+      "difficulty": 2,
+      "stem": "Köşegenleri birbirini ortalayan bir ABCD dörtgeni için aşağıdakilerden hangisi **kesinlikle** doğrudur?",
+      "asks": "Kesinlikle doğru olan ifade isteniyor.",
+      "choices": ["Köşegenleri birbirine diktir", "Karşı kenarları birbirine eşittir", "Köşegenleri birbirine eşittir", "Bütün kenarları eşittir", "Bütün açıları diktir"],
+      "answer": 1,
+      "solution": "1. Köşegenleri birbirini ortalayan dörtgen **paralelkenardır**. Bu, paralelkenarın tanımlayıcı özelliklerinden biridir.\n\n2. Paralelkenarın kesin özellikleri: karşı kenarlar eşit, karşı açılar eşit, komşu açılar bütünler.\n\n3. Diğer şıklar paralelkenarın **özel hâllerine** aittir:\nA ve D → eşkenar dörtgende doğru, her paralelkenarda değil\nC ve E → dikdörtgende doğru, her paralelkenarda değil\n\nNot: \"Kesinlikle doğrudur\" sorularında tek bir karşı örnek şıkkı düşürür. Eğik duran sıradan bir paralelkenar çiz: köşegenleri dik değil, kenarları eşit değil, köşegenleri eşit değil, açıları dik değil. Ama karşı kenarları eşit. Zihinde bu tek şekli tutmak dört şıkkı birden eler."
+    },
+    {
+      "id": "dkarma-08",
+      "difficulty": 2,
+      "stem": "Köşegenleri birbirine dik olan bir dörtgen için aşağıdakilerden hangisi **kesinlikle** doğrudur?",
+      "asks": "Kesinlikle doğru olan ifade isteniyor.",
+      "choices": ["Köşegenleri birbirini ortalar", "Bütün kenarları eşittir", "Karşı açıları eşittir", "Bir simetri ekseni vardır", "Alanı, köşegenleri uzunluklarının çarpımının yarısına eşittir"],
+      "answer": 4,
+      "solution": "1. Köşegenleri dik olan bir dörtgen; eşkenar dörtgen, kare, deltoid veya hiçbir özel adı olmayan düzensiz bir dörtgen olabilir.\n\n2. Alan formülü yalnız **dikliğe** dayanır. Bir köşegen dörtgeni iki üçgene ayırır, ikisinin de tabanı e'dir; diğer köşegenin parçaları bu üçgenlerin yükseklikleridir:\nAlan = ½·e·h₁ + ½·e·h₂ = ½·e·(h₁ + h₂) = **½·e·f**\n\n3. Diğer şıklar ek koşul ister:\nA, B, C → eşkenar dörtgen gerekir\nD → deltoid veya eşkenar dörtgen gerekir\n\nNot: 3. adımdaki türetmede h₁ ile h₂'nin **eşit olması gerekmiyor**, yalnız toplamlarının f etmesi yeterli. Formülün ortalamaya değil sadece dikliğe ihtiyaç duymasının sebebi budur."
+    },
+    {
+      "id": "dkarma-09",
+      "difficulty": 3,
+      "stem": "Bir ABCD dörtgeninde köşegenler birbirini ortalamakta ve birbirine dik kesişmektedir.\nBuna göre, bu dörtgen için aşağıdakilerden hangisi **kesinlikle yanlıştır**?",
+      "asks": "Kesinlikle yanlış olan ifade isteniyor.",
+      "choices": ["Dört kenarı eşittir", "Alanı, köşegenler çarpımının yarısına eşittir", "Köşegenleri birbirine eşit olabilir", "Karşı açıları birbirine eşittir", "Yalnız bir çift kenarı paraleldir"],
+      "answer": 4,
+      "solution": "1. Ortalama + diklik = **eşkenar dörtgen** (kare de bu ailenin içindedir).\n\n2. Şıklar denetlenir:\nA → eşkenar dörtgende dört kenar eşittir, **doğru**\nB → köşegenler dik olduğundan formül geçerli, **doğru**\nD → eşkenar dörtgen bir paralelkenardır, karşı açıları eşittir, **doğru**\nC → şekil kare ise köşegenler eşit olur. \"Olabilir\" dendiği için **doğru**\n\n3. E incelenir: eşkenar dörtgen bir paralelkenardır, yani **iki çift** kenarı paraleldir. \"Yalnız bir çift\" ifadesi yamuğun tanımıdır ve bu şekil yamuk olamaz. **Kesinlikle yanlış.**\n\nNot: C şıkkındaki \"olabilir\" kelimesi kritiktir. \"Köşegenleri birbirine eşittir\" deseydi yanlış olurdu, çünkü her eşkenar dörtgen kare değildir. \"Olabilir\" ifadesi, tek bir örnek bulunması hâlinde doğrudur — kare o örnektir. Kesinlik soran sorularda \"her zaman\", \"olabilir\", \"olamaz\" ayrımını kelime kelime oku."
+    },
+    {
+      "id": "dkarma-10",
+      "difficulty": 3,
+      "stem": "Köşegenleri birbirine **eşit** olan bir paralelkenar için aşağıdakilerden hangisi **kesinlikle** doğrudur?",
+      "asks": "Kesinlikle doğru olan ifade isteniyor.",
+      "choices": ["Köşegenleri birbirine diktir", "Bütün kenarları eşittir", "Köşegenleri açıortaydır", "Dört simetri ekseni vardır", "Bütün açıları diktir"],
+      "answer": 4,
+      "solution": "1. Köşegenleri eşit olan paralelkenar **dikdörtgendir**. Dikdörtgenin tanımlayıcı özelliği açılarının dik olmasıdır.\n\n2. Diğer şıklar **kare** gerektirir:\nA → dikdörtgende köşegenler dik değildir (kare hariç)\nB → dikdörtgenin kenarları eşit olmak zorunda değildir\nC → köşegen köşe açısını ancak karede ortalar\nD → dört simetri ekseni ancak karede vardır, dikdörtgende iki tanedir\n\n3. Kesin ve tanımlayıcı olan: **bütün açıları diktir.**\n\nNot: A, C ve D şıkları **kare** gerektirir; köşegen eşitliği tek başına kareyi getirmez. Dikdörtgende köşegenler eşittir ama dik değildir ve açıortay değildir. \"Eşit kenar → dik köşegen, dik açı → eşit köşegen\" ayrımını hatırla; buradaki veri ikinci taraftan geliyor, o yüzden sonuç dik açıdır."
+    },
+    {
+      "id": "dkarma-11",
+      "difficulty": 3,
+      "stem": "Bir dörtgende köşegenler birbirini ortalamakta, birbirine dik kesişmekte ve uzunlukları birbirine eşittir. Köşegen uzunluğu 12 cm'dir.\nBuna göre, bu dörtgenin alanı kaç cm²'dir?",
+      "asks": "Dörtgenin alanı isteniyor.",
+      "choices": ["36", "54", "72", "90", "108"],
+      "answer": 2,
+      "solution": "1. Üç özellik birlikte şekli tek bir şeye indirger:\nOrtalar → paralelkenar\nDik → eşkenar dörtgen\nEşit → dikdörtgen\nÜçü birden → **kare**\n\n2. Köşegenlerin eşit olduğu bilindiğinden, tek bir uzunluk verilmesi ikisini birden belirler: e = f = 12\n\n3. Alan = (12 · 12) / 2 = **72**\n\nNot: A şıkkındaki 36, köşegenin yarısının karesidir (6²) ya da köşegeni kenar sanmaktan gelir. Bu soruda \"köşegen uzunluğu 12 cm'dir\" cümlesinin **tekil** olması kritik: ancak köşegenlerin eşit olduğunu bildiğin için bu tek sayı ikisini de verir. Eşitlik bilgisi olmasa soru çözülemezdi."
+    },
+    {
+      "id": "dkarma-12",
+      "difficulty": 3,
+      "stem": "Bir ABCD dörtgeninde yalnız AB ile DC kenarları paraleldir ve köşegenler O noktasında kesişmektedir. AB = 4 cm, DC = 6 cm'dir.\nAOB üçgeninin alanı 8 cm² olduğuna göre, COD üçgeninin alanı kaç cm²'dir?",
+      "asks": "COD üçgeninin alanı isteniyor.",
+      "choices": ["6", "12", "18", "24", "30"],
+      "answer": 2,
+      "solution": "1. Yalnız bir çift kenar paralel olduğundan şekil bir **yamuktur**. AOB ile COD üçgenleri benzerdir; O'daki açılar ters açı, paralellikten iç ters açılar eşittir.\n\n2. Benzerlik oranı:\nk = AB / DC = 4 / 6 = **2/3** (uzunluk oranı)\n\n3. Benzer şekillerde **alan oranı k²'dir**:\nS(AOB) / S(COD) = (2/3)² = 4/9\n\n4. Yerine konur:\n8 / S = 4/9\nS = **18**\n\nNot: B şıkkındaki 12, alan oranı yerine uzunluk oranı kullanmaktan gelir: 8 · (3/2) = 12. k'yı kendin hesapladığında üzerindeki **uzunluk oranı** etiketi düşmesin; alana geçerken kare alınır. Şekilde paralellik varsa alan oranında kare vardır."
+    },
+    {
+      "id": "dkarma-13",
+      "difficulty": 3,
+      "stem": "Bir ABCD dörtgeninde yalnız AB ile DC kenarları paraleldir ve köşegenler O noktasında kesişmektedir. AB = 5 cm, DC = 8 cm ve dörtgenin alanı 169 cm²'dir.\nBuna göre, AOB üçgeninin alanı kaç cm²'dir?",
+      "asks": "AOB üçgeninin alanı isteniyor.",
+      "choices": ["25", "40", "55", "70", "85"],
+      "answer": 0,
+      "solution": "1. Şekil bir yamuktur. Benzerlik oranı k = 5/8'dir.\n\n2. Dört üçgenin alanları tek bir t çarpanıyla yazılır. Taban üçgenleri kareler oranındadır:\nS₁ = 25t, S₂ = 64t\n\n3. Yan üçgenler bu ikisinin geometrik ortasıdır:\nS₃ = S₄ = √(25t · 64t) = **40t**\n\n4. Dördü toplanıp alana eşitlenir:\n25t + 64t + 40t + 40t = 169t = 169\nt = **1**\n\n5. AOB üçgeninin alanı:\nS₁ = **25**\n\nNot: B şıkkındaki 40, yan üçgenlerden birinin alanıdır. Kavranması gereken şu: taban oranı 5/8 ise dört üçgen 25 : 40 : 40 : 64 oranındadır ve toplamları (5 + 8)² = 169 birim eder. Toplam alanı doğrudan 5 : 8 oranında paylaştırmak yanlış modeldir; paylaşım **karelere** göre yapılır."
+    },
+    {
+      "id": "dkarma-14",
+      "difficulty": 2,
+      "stem": "Şekildeki dörtgende ok işareti taşıyan kenarlar birbirine paraleldir ve iki köşede dik açı bulunmaktadır. DC = 15 cm, AB = 9 cm ve BC = 10 cm'dir.\nBuna göre, dörtgenin alanı kaç cm²'dir?",
+      "asks": "Dörtgenin alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='51.3,41.8 188.4,41.8 266.7,159.3 51.3,159.3'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='51.3,55.5 65,55.5 65,41.8'/><polyline points='51.3,145.6 65,145.6 65,159.3'/><polyline points='115,36 120.8,41.8 115,47.7'/><polyline points='154.1,153.5 160,159.3 154.1,165.2'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='43.5' y='34' text-anchor='end'>A</text><text x='196.2' y='34'>B</text><text x='276.5' y='175'>C</text><text x='43.5' y='175' text-anchor='end'>D</text></g></svg>",
+      "choices": ["48", "64", "80", "96", "112"],
+      "answer": 3,
+      "solution": "1. Bir çift kenarı paralel, sol kenarı bu kenarlara dik → **dik yamuk**. Sol kenar aynı zamanda yüksekliktir.\n\n2. B noktasından alt tabana dik inilir. Sol kenar zaten dik olduğundan **tek** bir dik üçgen oluşur ve yatay dik kenarı tabanların farkı kadardır:\n15 − 9 = **6**\n\n3. Pisagor uygulanır:\nh² = 10² − 6² = 100 − 36 = 64\nh = **8**\n\n4. Alan hesaplanır:\nAlan = ((15 + 9) / 2) · 8 = 12 · 8 = **96**\n\nNot: Dik yamukta tabanların farkı **ikiye bölünmez**. Bölme yalnız ikizkenar yamukta yapılır, çünkü orada iki eş üçgen vardır. Şekildeki dik açı işaretleri, kaç üçgen oluşacağını söyler; işaretleri saymadan bölme yapma."
+    },
+    {
+      "id": "dkarma-15",
+      "difficulty": 2,
+      "stem": "Şekildeki dörtgende aynı işareti taşıyan kenarlar eşit uzunluktadır. AC = 20 cm ve BD = 14 cm'dir.\nBuna göre, dörtgenin alanı kaç cm²'dir?",
+      "asks": "Dörtgenin alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 260' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='160,44.5 240,124.5 160,214.5 80,124.5'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><line x1='196.5' y1='88' x2='203.5' y2='81'/><line x1='116.5' y1='81' x2='123.5' y2='88'/><line x1='198.3' y1='164' x2='205.7' y2='170.6'/><line x1='194.3' y1='168.4' x2='201.7' y2='175'/><line x1='114.3' y1='170.6' x2='121.7' y2='164'/><line x1='118.3' y1='175' x2='125.7' y2='168.4'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='160' y='36.5' text-anchor='middle'>A</text><text x='250' y='129.5'>B</text><text x='160' y='232.5' text-anchor='middle'>C</text><text x='70' y='129.5' text-anchor='end'>D</text></g></svg>",
+      "choices": ["140", "175", "210", "245", "280"],
+      "answer": 0,
+      "solution": "1. Şekilde **komşu** kenarlar ikişer ikişer eşit işaretlenmiştir (AB = AD ve CB = CD). Bu bir **deltoiddir**.\n\n2. Deltoidde köşegenler birbirine diktir. Dolayısıyla:\nAlan = (e · f) / 2\n\n3. Alan = (20 · 14) / 2 = 280 / 2 = **140**\n\nNot: E şıkkındaki 280, köşegenlerin çarpımıdır. Ayrıca şekildeki işaretleri dikkatle oku: **karşı** kenarlar eşit olsaydı paralelkenar olurdu ve köşegenler dik olmazdı, formül çalışmazdı. Tek çizgi ile çift çizginin hangi kenarlarda olduğu bu soruda belirleyicidir."
+    },
+    {
+      "id": "dkarma-16",
+      "difficulty": 2,
+      "stem": "Bir dörtgende köşegenler birbirini ortalamaktadır. Köşegen uzunlukları 18 cm ve 24 cm, dörtgenin alanı ise 216 cm²'dir.\nBuna göre, bu dörtgen aşağıdakilerden hangisidir?",
+      "asks": "Dörtgenin adı isteniyor.",
+      "choices": ["Yamuk", "Eşkenar dörtgen", "Dikdörtgen", "Deltoid", "Kare"],
+      "answer": 1,
+      "solution": "1. Köşegenler birbirini ortaladığından şekil bir **paralelkenardır**. Bu, yamuk ve deltoidi eler (A ve D düşer).\n\n2. Alan bilgisi kullanılır. Köşegenleri dik olsaydı alan (e·f)/2 olurdu:\n(18 · 24) / 2 = 432 / 2 = **216**\n\nVerilen alan tam bu değer. Demek ki köşegenler **diktir**.\n\n3. Ortalama + diklik = **eşkenar dörtgen**\n\n4. Kare olamaz, çünkü karede köşegenler eşit olmalıydı; 18 ≠ 24 (E düşer). Dikdörtgen de olamaz, çünkü dikdörtgende köşegenler dik değildir (C düşer).\n\nNot: Bu soruda alan verisi bir **ölçüm** değil, bir **testtir**. (e·f)/2 formülü yalnız köşegenler dik olduğunda çalışır; verilen alanın bu formülle uyuşması dikliği kanıtlar. Uyuşmasaydı şekil sıradan bir paralelkenar olurdu ve şıklarda karşılığı bulunmazdı."
+    },
+    {
+      "id": "dkarma-17",
+      "difficulty": 2,
+      "stem": "Karşılıklı kenarları ikişer ikişer paralel olan bir dörtgende bir kenar 16 cm, bu kenara ait yükseklik 5 cm'dir. Bu kenara komşu olan kenar 10 cm'dir.\nBuna göre, 10 cm'lik kenara ait yükseklik kaç cm'dir?",
+      "asks": "10 cm'lik kenara ait yükseklik isteniyor.",
+      "choices": ["5", "6", "7", "8", "9"],
+      "answer": 3,
+      "solution": "1. Karşılıklı kenarları ikişer ikişer paralel olan dörtgen **paralelkenardır**. Alanı taban × yükseklik'tir ve her kenar taban olarak alınabilir.\n\n2. Önce alan bulunur:\nAlan = 16 · 5 = **80**\n\n3. Aynı alan diğer kenardan yazılır:\n80 = 10 · h\nh = **8**\n\nNot: A şıkkındaki 5, verilen **diğer** kenara ait yüksekliktir. Kontrol yolu: alan sabitken taban küçüldükçe yükseklik büyür. 10 < 16 olduğuna göre aranan yükseklik 5'ten **büyük** çıkmalıdır; küçük bir sonuç bulduysan işlemi ters kurmuşsundur."
+    },
+    {
+      "id": "dkarma-18",
+      "difficulty": 2,
+      "stem": "Bir ABCD dörtgeninde AB ∥ DC ve AD ∥ BC'dir. A açısının ölçüsü 3x, B açısının ölçüsü 2x'tir.\nBuna göre, x kaçtır?",
+      "asks": "x'in değeri isteniyor.",
+      "choices": ["36", "54", "72", "90", "108"],
+      "answer": 0,
+      "solution": "1. İki çift kenar da paralel olduğundan şekil **paralelkenardır**.\n\n2. Paralelkenarda komşu açılar bütünlerdir. A ile B komşudur:\n3x + 2x = 180\n5x = 180\nx = **36**\n\nNot: E şıkkındaki 108, A açısının ölçüsüdür (3 · 36). Soru x'i istiyor, açıyı değil. Ayrıca \"yalnız bir çift paralel\" deseydi şekil yamuk olurdu ve **aynı** bağıntı yine geçerli olurdu (yan kenar üzerindeki açılar bütünlerdir) — ama o durumda A ile B'nin aynı yan kenarda olup olmadığını denetlemek gerekirdi."
+    },
+    {
+      "id": "dkarma-19",
+      "difficulty": 3,
+      "stem": "Bir dörtgende karşılıklı kenarlar ikişer ikişer eşit uzunluktadır. Ayrıca köşegenleri birbirine dik kesişmekte olup uzunlukları 16 cm ve 12 cm'dir.\nBuna göre, bu dörtgenin bir kenarı kaç cm'dir?",
+      "asks": "Bir kenarın uzunluğu isteniyor.",
+      "choices": ["6", "7", "8", "9", "10"],
+      "answer": 4,
+      "solution": "1. İki özellik üst üste bindirilir:\nKarşı kenarlar eşit → **paralelkenar** → köşegenler birbirini ortalar\nKöşegenler dik → **eşkenar dörtgen**\n\n2. Köşegenler ortalandığından yarıları alınır:\n16 / 2 = **8** ve 12 / 2 = **6**\n\n3. Merkezdeki dik üçgende kenar hipotenüstür:\nkenar² = 8² + 6² = 64 + 36 = 100\nkenar = **10**\n\nNot: C şıkkındaki 8, yarım köşegendir. Bu soruda kritik adım şu: \"köşegenler dik\" bilgisi tek başına yeterli değildi, çünkü deltoidde de köşegenler diktir ama yalnız biri diğerini ortalar. Yarıları alabilmek için **karşı kenarların eşitliği** gerekiyordu. İki verinin de kullanıldığını fark etmeden çözüm kurulamaz."
+    },
+    {
+      "id": "dkarma-20",
+      "difficulty": 3,
+      "stem": "Bir ABCD dörtgeninde AB ∥ DC olup AB = DC = 6 cm'dir. Ayrıca AD = 8 cm ve BD köşegeni 10 cm'dir.\nBuna göre, bu dörtgenin alanı kaç cm²'dir?",
+      "asks": "Dörtgenin alanı isteniyor.",
+      "choices": ["24", "36", "48", "60", "72"],
+      "answer": 2,
+      "solution": "1. Bir çift kenar hem **paralel** hem **eşit** ise dörtgen paralelkenardır.\n\n2. ABD üçgeni incelenir. Kenarları AB = 6, AD = 8, BD = 10'dur:\n6² + 8² = 36 + 64 = 100 = 10²\n\nPisagor eşitliği sağlandığına göre bu üçgen diktir ve dik açı, 10'un karşısındaki **A köşesindedir**.\n\n3. Bir açısı dik olan paralelkenar **dikdörtgendir**. Dikdörtgende bütün açılar diktir, dolayısıyla komşu kenarlar birbirine diktir.\n\n4. Alan = 6 · 8 = **48**\n\nNot: A şıkkındaki 24, ABD **üçgeninin** alanıdır (6·8/2). Köşegen dörtgeni iki eş üçgene ayırır; üçgenin alanı dörtgenin yarısıdır. Bu soruda üç adım var — paralelkenar olduğunu görmek, Pisagor'la dik açıyı bulmak, dikdörtgene geçmek — ve ikinci adımda durup üçgen alanını yazmak doğrudan bir şıkka denk gelir."
+    }
+  ]
+}
