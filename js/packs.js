@@ -207,12 +207,18 @@ export async function listTopics() {
     entry.packIds.push(pack.id);
     entry.count += count;
 
-    if (pack.subtopicId) {
+    // Birden cok alt konuya yayilan paket index kaydinda subtopics[] listesi tasir;
+    // her ogesi bir satir acar. Satir sayimi sorulardan yapildigi icin count yok.
+    const rows = Array.isArray(pack.subtopics) && pack.subtopics.length > 0
+      ? pack.subtopics.map((item) => ({ ...item, count: null }))
+      : (pack.subtopicId ? [{ subtopicId: pack.subtopicId, subtopic: pack.subtopic, count }] : []);
+    for (const row of rows) {
+      if (!row.subtopicId || entry.subtopics.some((s) => s.subtopicId === row.subtopicId)) continue;
       entry.subtopics.push({
-        subtopicId: pack.subtopicId,
-        subtopic: pack.subtopic || pack.title,
+        subtopicId: row.subtopicId,
+        subtopic: row.subtopic || pack.title,
         packId: pack.id,
-        count,
+        count: row.count,
       });
     }
   }

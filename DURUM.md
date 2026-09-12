@@ -1,12 +1,12 @@
 # Durum
 
-**Son güncelleme:** 2026-09-11 · **sw.js VERSION:** güncel değer için `sw.js:4`
+**Son güncelleme:** 2026-09-12 · **sw.js VERSION:** güncel değer için `sw.js:4`
 (elle tutulan kopya iki tur geride kaldığı için buradan kaldırıldı; sürüm zaten
 her turda aşağıdaki günlüğe yazılıyor)
 
 ## Özet
 
-**654 soru · 24 alt konu · 27 paket.** 454'ü geometri, 200'ü matematik
+**678 soru · 28 alt konu · 28 paket.** 478'i geometri, 200'ü matematik
 (9 paket: `ozdeslik-genel`, `oran-oranti-genel`, `mantik-blok-1`,
 `mantik-blok-2`, `mantik-blok-3`, `problem-genel`, `rasyonel-genel`,
 `uslu-genel`, `koklu-genel`). Kalan **3**
@@ -44,8 +44,9 @@ tersi:** paketi var, formül kartı yok.
 | Dörtgenler | `dortgen-yamuk` | Yamuk | 15 |
 | Dörtgenler | `dortgen-paralelkenar` | Paralelkenar | 24 |
 | Dörtgenler | — | Dörtgenler — karma | 20 |
+| Dörtgenler | `dortgen-eskenar` · `dortgen-dikdortgen` · `dortgen-kare` · `dortgen-deltoid` (`subtopics[]`) | Özel dörtgenler | 24 |
 | Çember ve Daire | — | Çember ve Daire | 10 |
-| **Toplam** | | **27 paket** | **654** |
+| **Toplam** | | **28 paket** | **678** |
 
 ## Kalan işler
 
@@ -84,24 +85,19 @@ tersi:** paketi var, formül kartı yok.
   buna göre gözden geçirilmeli (`restoreSession` şu an "cevaplanmamış ilk soru"ya
   konumlanıyor, işaretli sorularla bu kural yeniden tanımlanacak). Ayrıntı:
   `## Görünür soru sayacı ve triyaj uyarısı` → "Açık madde".
-- **`geometri-paralelkenar`'ın 17–24 arası soruları `dortgen-eskenar` /
-  `dortgen-dikdortgen` / `dortgen-kare` alt konularına bağlı; bu alt konuların
-  kendi paketleri yazılana kadar konu ekranındaki alt konu satırlarında
-  görünmüyorlar.** Bilinçli seçim: doğru formül kartının açılması, alt konu
-  satırında listelenmekten önemli görüldü. "Paralelkenar" satırı bu yüzden 19
-  soru gösteriyor (16 yeni + `geo-dortgenler`'den 3), paket sayacı 24'te
-  kalıyor. Sorular kaybolmuyor — "Tüm konu", günlük rutin, mini test ve
-  Yanlışlarım akışlarında normal geliyor.
-- **`geo-dortgenler`'de üç sorunun `subtopic` değeri kart başlığı değil alias
-  adı** (`dortgen-003` → `Dikdörtgende köşegen`, `dortgen-004` → `Karede
-  köşegen ve alan`, `dortgen-010` → `Dörtgende açıortaylar`). Bugün görünür bir
-  etkisi yok, çünkü bu üç alt konunun alt konu satırı henüz yok
-  (`js/packs.js:209` satırı yalnız `subtopicId` yazan paket kaydından üretiyor).
-  Dikdörtgen / kare / dörtgende açılar paketi yazıldığı gün oturum başlığı yine
-  alias adını yazar (`js/scheduler.js:291` → `own[0].subtopic`) — v52'de
-  yamukta, v54'te paralelkenarda çıkan hatanın aynısı. Düzeltme o paketlerin
-  turuna bırakıldı. `dortgen-005` (`Eşkenar dörtgen`) ve `dortgen-008`
-  (`Deltoid`) sorunsuz.
+- **`geo-dortgenler`'de `dortgen-010`'un `subtopic` değeri kart başlığı değil
+  alias adı** (`Dörtgende açıortaylar`, kart başlığı `Dörtgende açılar ve
+  açıortaylar`). Bugün görünür bir etkisi yok, çünkü `dortgen-acilar` alt
+  konusunun satırı henüz yok (satırlar yalnız index kaydından üretiliyor,
+  `js/packs.js` → `listTopics`). Dörtgende açılar paketi yazıldığı gün oturum
+  başlığı alias adını yazar (`js/scheduler.js:291` → `own[0].subtopic`) — v52'de
+  yamukta, v54'te paralelkenarda, v56'da dikdörtgen/karede kapatılan hatanın
+  aynısı. Düzeltme o paketin turuna bırakıldı.
+- **`geometri-paralelkenar` FIG-P6'da (`pkenar-21`, `pkenar-22`) `O` harfi DB
+  köşegeninin üstüne biniyor** — v56'da `geometri-ozel-dortgenler` FIG-O3'te
+  düzeltilen kaynak koordinat hatasının aynısı (ölçülen harf–çizgi mesafesi 0,0
+  px). Kullanıcı talimatıyla yalnız raporlandı, düzeltilmedi. Ayrıntı:
+  `## Özel dörtgenler paketi` → "Harf–çizgi çakışma taraması".
 - **`geometri-dortgen-karma`'da iki kaynak tutarsızlığı aktarıldı, düzeltilmedi**
   (ikisi de cevabı etkilemiyor): `dkarma-08` Not'u "3. adımdaki türetmede"
   diyor, türetme 2. adımda; `dkarma-06` Not'u "o cümle olmasaydı şekil
@@ -1768,6 +1764,10 @@ kalıyor. Sorular kaybolmuyor — "Tüm konu", günlük rutin, mini test ve
 Yanlışlarım akışlarında normal geliyor; eşkenar dörtgen / dikdörtgen / kare
 paketleri yazıldığında o satırlar açılınca kendiliğinden yerine oturacaklar.
 
+> **Kapandı (2026-09-12, v56):** `geometri-ozel-dortgenler` index kaydındaki
+> `subtopics[]` listesiyle dört satır açıldı; 17–24 artık Eşkenar dörtgen (4),
+> Dikdörtgen (3) ve Kare (1) satırlarında. Bkz. `## Özel dörtgenler paketi`.
+
 Reddedilen alternatif: yalnız paket seviyesinde `dortgen-paralelkenar` verip
 soruya hiç yazmamak (yamuk deseninin birebir tekrarı). Satır 27 soru
 gösterirdi ama 17–24'te Paralelkenar kartı açılırdı — o kartta `(e · f) / 2`,
@@ -1938,6 +1938,138 @@ betiği ölçtü:
 - Uygulamada (SW temizlendikten sonra `v55` yüklü): `loadQuestionsFromPacks` 20
   soru, hepsinde `subtopicId`/`subtopic`/`label` `null`; konsolda "Soru atlandı"
   uyarısı yok; alt konu ekranı yukarıdaki sayıları gösteriyor.
+
+## Özel dörtgenler paketi
+
+**2026-09-12 (v56) · yeni `data/packs/geometri-ozel-dortgenler.json` (24 soru) +
+`js/packs.js`'te küçük kod eki + `geo-dortgenler.json`'da 2 satır.**
+`referans/geometri-ozel-dortgenler.md`'den transkripsiyon; tek sapma FIG-O3'teki `O`
+harfinin yeri (aşağıda). Dörtgenler konusu 69 → 93 soru. Zorluk kaynaktan: **kolay 3
+· orta 13 · zor 8**; cevap dağılımı A–D 5'er, E 4. Soru 18 azalan şıklı, düzeltilmedi.
+Dört alt konu: 1–7 eşkenar dörtgen, 8–14 dikdörtgen, 15–19 kare, 20–24 deltoid.
+
+### Tek kayıt, dört satır: index'te `subtopics[]`
+
+Alt konu satırları sorulardan değil index kayıtlarından üretiliyor ve kayıt tek
+`subtopicId` taşıyor. Paralelkenar desenini (kayıt tek alt konu, sorular kendi
+`subtopicId`'si) burada tekrarlamak dört satırdan hiçbirini açmazdı. Kullanıcı
+kararı: **isteğe bağlı `subtopics: [{subtopicId, subtopic}]` listesi.**
+
+- `js/packs.js` → `listTopics`: liste doluysa her öğe bir satır açar (`count: null`;
+  ekranlar satır sayısını zaten sorulardan hesaplıyor). Liste yoksa eski yol
+  birebir çalışıyor. Aynı `subtopicId` ikinci kez satır açmıyor; bugün index'te
+  tekrarlanan `subtopicId` yok, yani mevcut paketler için davranış aynı.
+- Kayıtta ve dosyanın üst düzeyinde `subtopicId`/`subtopic` `""`. Her soru kendi
+  `subtopicId`'sini ve kart başlığıyla aynı `subtopic`'ini taşıyor (`Eşkenar
+  dörtgen` / `Dikdörtgen` / `Kare` / `Deltoid`).
+- `_sema.md` → yeni **§6.1** ve §2'ye istisna atfı eklendi.
+- `data/formuller/` **değişmedi**: dört kart zaten vardı, yeni alias yok.
+
+**Paralelkenar turundan kalan açık madde kapandı.** `pkenar-17…24` artık satırlarda
+görünüyor, sorularda hiçbir değişiklik yapılmadı.
+
+### `geo-dortgenler` başlık düzeltmesi: üçüncü tekrar
+
+Satırlar açılınca `buildSubtopicSet` başlığı `own[0].subtopic`'ten geliyor ve
+ilk soru `geo-dortgenler`'den (index'te önde). Düzeltilmeseydi Dikdörtgen satırının
+başlığı `Dikdörtgende köşegen`, Kare satırınınki `Karede köşegen ve alan` olurdu.
+Kullanıcı kararıyla `dortgen-003` → `"Dikdörtgen"`, `dortgen-004` → `"Kare"`
+yapıldı. `subtopicId`'ler aynı, kart eşleşmesi etkilenmedi. `dortgen-010`
+(`Dörtgende açıortaylar`) latent kaldı, açılar satırı yok.
+
+### `label` ve `asks`
+
+`label` yalnız mevcut alias'lardan yazıldı, yeni alias uydurulmadı:
+- `Eşkenar dörtgen`: 7 soru (1–7)
+- `Dikdörtgende köşegen`: 6 soru (8–11, 13, 14)
+- `Karede köşegen ve alan`: 5 soru (15–19)
+- `Deltoid`: 5 soru (20–24)
+- **`ozeldort-12`'de label yok.** Soru iç noktadan köşelere uzaklıkla ilgili, alias ise
+  köşegeni adlandırıyor.
+
+Label subtopic'e eşit olduğunda gizleniyor. Eşkenar dörtgen ve deltoidde bu yüzden
+görünmüyor. `asks` "… isteniyor." kalıbında, yalnız istenen büyüklüğü adlandırıyor.
+
+### SVG'ler ev stiline çevrildi
+
+Kaynak `viewBox="0 0 520 …"`, çift tırnak, `stroke-width` 1,2–1,5, font-family yok.
+Dönüşüm karma turundakinin aynısı, programla yapıldı:
+- İçerik kutusu (çokgen + nokta + harf genişliği) 24 px payla ortalanıyor.
+- Ölçek genişlik sınırının %90'ının altına düşerse yükseklik 10'luk adımla artıyor.
+- Ölçeğin üst sınırı 1,0.
+
+Sonuçlar:
+- FIG-O1 ×0,984 → `'0 0 320 250'`
+- FIG-O2 ve FIG-O3 ×0,926 → `'0 0 320 200'`
+- FIG-O4 ×1,000 → `'0 0 320 290'`
+- FIG-O5 ×1,000 → `'0 0 320 280'`
+
+O4 ve O5 kare oranlı ve dar oldukları için uzun kaldı.
+
+Stil ayrıntıları:
+- Ana çokgen `2` `currentColor`.
+- Köşegenler, P'den çıkan dört parça ve iç kare `#0284c7` `2.5`.
+- O5'in dik açı işareti `1.5` `currentColor`.
+- Noktalar `r='3'` `#0284c7`.
+- Köşe harfleri 13, P/O 14 punto, `system-ui`, `currentColor`.
+- Renk ataması kaynaktakiyle aynı, öğe eklenmedi.
+
+### FIG-O3 düzeltmesi ve harf–çizgi çakışma taraması
+
+**Kaynak koordinat hatası (kullanıcı kararıyla düzeltildi):** FIG-O3'te `O` harfi
+DB köşegeninin üstüne biniyordu; çizgi harfin alt yarısından geçiyordu (kaynakta da
+aynı). Harf, sağdaki iki köşegen arasındaki kamaya taşındı:
+`(169.3, 96.3)` → `(176.5, 105.5)`. Başka koordinat değişmedi.
+
+**Tarama.** Ölçüm her `<text>` için tarayıcıda yapıldı: `getBBox` genişliği × (taban
+çizgisi − 0,72·punto … taban çizgisi) kutusunun çizgilere, çokgen kenarlarına ve
+noktalara en kısa mesafesi. Kullanıcı yalnız rapor istedi, düzeltme yok.
+
+| şekil | en yakın etiket | sonuç |
+|---|---|---|
+| FIG-O1…O4 | ≥ 5,9 px (O3'te `O` düzeltme sonrası 3,0) | temiz |
+| FIG-O5 | `O` 5,9 px | temiz |
+| FIG-K1…K5 (`geometri-dortgen-karma`) | ≥ 7,9 px; K2'deki köşegen üzerinde harf yok | temiz |
+| FIG-P1 (`pkenar-05`, `-12`) | `O` 3,0 px | temiz |
+| FIG-P2…P5 | ≥ 5,4 px | temiz |
+| **FIG-P6** (`pkenar-21`, `-22`) | **`O` 0,0 px** | **çakışıyor** — `Kalan işler`'e yazıldı |
+
+### Doğrulama
+
+Sorular md'den programla çıkarıldı (`·` başlıklı bloklar, şık satırı, `**Cevap**`,
+`**Çözüm**` → `---`). Ayrı bir denetim betiği ölçtü:
+
+- md bloğunun boşluk normalize edilmiş hâli, `stem + şıklar + cevap + çözüm`
+  yeniden kurulumuyla **24/24 birebir** (120 şık).
+- `answer` harfleri anahtar tablosuyla **24/24**. Zorluk talimatla 24/24 (3/13/8).
+- `**` çiftleri dengeli, `**Not:**` yok. Satır başı `Not:` kutusu **24/24**.
+- Şekil yerleri 3, 12, 14, 18, 22. 5 `figure` tek tırnaklı, `xmlns` var,
+  `width`/`height` yok. `js/svg.js` `parseFigure` sonrası öğe ve nitelik sayısı
+  kaynakla aynı (kayıpsız). `ozeldort-` id'leri başka pakette yok.
+
+Uygulamada (SW unregister + `caches.delete` + reload; yeni `js/packs.js`
+yüklendiği metinden teyit edildi):
+
+- **Kod eki regresyonu:** `listTopics()` çıktısı değişiklikten **önce** eski kodla
+  alındı ve sonra karşılaştırıldı. Tek fark Dörtgenler kaydı: konu sayısı 69 → 93 ve
+  sona eklenen 4 satır. Diğer 10 konunun 22 satırı (`subtopicId`, ad, `packId`,
+  `count`) birebir aynı; Çember hâlâ satırsız.
+- `loadQuestionsFromPacks` 24 soru döndürdü, konsolda "Soru atlandı" yok.
+- Alt konu ekranı "6 alt konu":
+  - Tüm konu 93
+  - Yamuk 17, Paralelkenar 19 (değişmedi)
+  - **Eşkenar dörtgen 12** = 7 + `pkenar-17, 18, 19, 24` + `dortgen-005`
+  - **Dikdörtgen 11** = 7 + `pkenar-20, 21, 22` + `dortgen-003`
+  - **Kare 7** = 5 + `pkenar-23` + `dortgen-004`
+  - **Deltoid 6** = 5 + `dortgen-008`
+- Oturum başlıkları (`buildSubtopicSet` ve ekrandaki başlık) dördünde de kart
+  başlığıyla aynı: Eşkenar dörtgen / Dikdörtgen / Kare / Deltoid.
+- Formül kartı (`getCardFor`):
+  - `dortgen-003` → Dikdörtgen, `dortgen-004` → Kare
+  - `pkenar-17`/`-24` → Eşkenar dörtgen, `pkenar-20` → Dikdörtgen, `pkenar-23` → Kare
+  - `ozeldort-01`/`-12`/`-16`/`-22` → kendi kartı
+- Doğrulama cevap vermeden, veri düzeyinde ve Browser pane'in kendi boş deposunda
+  yapıldı; ilerleme kaydı kirlenmedi.
 
 ## Çalışma kuralları
 

@@ -31,7 +31,7 @@
     {
       "id": "dortgen-003",
       "subtopicId": "dortgen-dikdortgen",
-      "subtopic": "Dikdörtgende köşegen",
+      "subtopic": "Dikdörtgen",
       "difficulty": 1,
       "stem": "Kenar uzunlukları 9 cm ve 12 cm olan bir dikdörtgenin köşegen uzunluğu kaç cm'dir?",
       "asks": "Köşegen isteniyor. Köşegen, dikdörtgeni iki dik üçgene ayırır ve bu üçgenlerin hipotenüsüdür; kenarları dik kenar kabul edip Pisagor uygulaman gerekiyor.",
@@ -43,7 +43,7 @@
     {
       "id": "dortgen-004",
       "subtopicId": "dortgen-kare",
-      "subtopic": "Karede köşegen ve alan",
+      "subtopic": "Kare",
       "difficulty": 2,
       "stem": "Köşegen uzunluğu 8√2 cm olan karenin alanı kaç cm²'dir?",
       "asks": "Doğrudan alan isteniyor ama elinde köşegen var. Önce köşegenden kenarı çıkarman gerekiyor: karede köşegen, kenarın √2 katıdır.",

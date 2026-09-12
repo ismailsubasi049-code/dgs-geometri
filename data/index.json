@@ -306,6 +306,23 @@
       "version": 1
     },
     {
+      "id": "geometri-ozel-dortgenler",
+      "topicId": "dortgenler",
+      "topic": "Dörtgenler",
+      "subtopicId": "",
+      "subtopic": "",
+      "subtopics": [
+        { "subtopicId": "dortgen-eskenar", "subtopic": "Eşkenar dörtgen" },
+        { "subtopicId": "dortgen-dikdortgen", "subtopic": "Dikdörtgen" },
+        { "subtopicId": "dortgen-kare", "subtopic": "Kare" },
+        { "subtopicId": "dortgen-deltoid", "subtopic": "Deltoid" }
+      ],
+      "title": "Özel dörtgenler",
+      "file": "packs/geometri-ozel-dortgenler.json",
+      "count": 24,
+      "version": 1
+    },
+    {
       "id": "geo-cember",
       "topicId": "cember",
       "topic": "Çember ve Daire",

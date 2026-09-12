@@ -35,7 +35,8 @@ soru ölçülerek çıkarıldı; uygulama bu dosyayı okumaz.
   (`js/packs.js:73-96`). `label`, `subtopic` ile aynıysa gösterilmez.
 - **`subtopicId` soruya yazılmaz** — index kaydından devralınır. Formül kartı
   eşleşmesinin birincil anahtarı odur (`js/formulas.js:106`); bulunamazsa
-  sırayla `subtopic`, `label` alias'ı denenir.
+  sırayla `subtopic`, `label` alias'ı denenir. İstisna: birden çok alt konuya
+  yayılan pakette soru kendi `subtopicId` + `subtopic`'ini taşır (§6.1).
 
 ## 3. SVG şekil biçimi
 
@@ -114,6 +115,24 @@ B'yi kullanan dokuz paket: `koklu-genel`, `mantik-blok-1`, `mantik-blok-2`,
    Konusu karışık paketlerde kart bağlamanın yolu için §7.
 4. `sw.js` → `VERSION` artır. **`APP_SHELL`'e paket eklenmez** — paket
    dosyaları `data/index.json`'dan türetilir.
+
+### 6.1 Birden çok alt konuya yayılan paket
+
+Konu ekranındaki alt konu satırları sorulardan değil **index kayıtlarından**
+üretilir (`js/packs.js` → `listTopics`). Tek `subtopicId` taşıyan bir kayıt tek
+satır açar. Paket birden çok alt konuya yayılıyorsa index kaydına isteğe bağlı
+**`subtopics: [{ subtopicId, subtopic }]`** listesi yazılır:
+
+- Listenin her öğesi bir satır açar, liste sırasıyla. Aynı `subtopicId` başka bir
+  kayıtta zaten satır açtıysa ikinci kez eklenmez.
+- Kayıtta `subtopicId` ve `subtopic` `""` olur; **her soru kendi `subtopicId` ve
+  `subtopic` alanını taşır** (§2'deki kuralın istisnası). Soru alanı kayıttan
+  önceliklidir (`js/packs.js:111-112`), kayıt boş olduğundan ikisi de gerekli.
+- `subtopic` kart başlığıyla aynı yazılır: alt konu oturumunun başlığı o alt
+  konudaki ilk sorunun `subtopic`'inden gelir (`js/scheduler.js` →
+  `buildSubtopicSet`), sayım yine sorulardan yapılır.
+- `subtopics` yazmayan kayıtlar eskisi gibi çalışır.
+- Örnek: `geometri-ozel-dortgenler` (eşkenar dörtgen / dikdörtgen / kare / deltoid).
 
 ## 7. `ucgen-karma` istisnası
 
