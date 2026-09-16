@@ -80,7 +80,7 @@
       "asks": "Kesinlikle doğru olan ifade isteniyor.",
       "choices": ["Köşegenleri birbirini ortalar", "Bütün kenarları eşittir", "Karşı açıları eşittir", "Bir simetri ekseni vardır", "Alanı, köşegenleri uzunluklarının çarpımının yarısına eşittir"],
       "answer": 4,
-      "solution": "1. Köşegenleri dik olan bir dörtgen; eşkenar dörtgen, kare, deltoid veya hiçbir özel adı olmayan düzensiz bir dörtgen olabilir.\n\n2. Alan formülü yalnız **dikliğe** dayanır. Bir köşegen dörtgeni iki üçgene ayırır, ikisinin de tabanı e'dir; diğer köşegenin parçaları bu üçgenlerin yükseklikleridir:\nAlan = ½·e·h₁ + ½·e·h₂ = ½·e·(h₁ + h₂) = **½·e·f**\n\n3. Diğer şıklar ek koşul ister:\nA, B, C → eşkenar dörtgen gerekir\nD → deltoid veya eşkenar dörtgen gerekir\n\nNot: 3. adımdaki türetmede h₁ ile h₂'nin **eşit olması gerekmiyor**, yalnız toplamlarının f etmesi yeterli. Formülün ortalamaya değil sadece dikliğe ihtiyaç duymasının sebebi budur."
+      "solution": "1. Köşegenleri dik olan bir dörtgen; eşkenar dörtgen, kare, deltoid veya hiçbir özel adı olmayan düzensiz bir dörtgen olabilir.\n\n2. Alan formülü yalnız **dikliğe** dayanır. Bir köşegen dörtgeni iki üçgene ayırır, ikisinin de tabanı e'dir; diğer köşegenin parçaları bu üçgenlerin yükseklikleridir:\nAlan = ½·e·h₁ + ½·e·h₂ = ½·e·(h₁ + h₂) = **½·e·f**\n\n3. Diğer şıklar ek koşul ister:\nA, B, C → eşkenar dörtgen gerekir\nD → deltoid veya eşkenar dörtgen gerekir\n\nNot: 2. adımdaki türetmede h₁ ile h₂'nin **eşit olması gerekmiyor**, yalnız toplamlarının f etmesi yeterli. Formülün ortalamaya değil sadece dikliğe ihtiyaç duymasının sebebi budur."
     },
     {
       "id": "dkarma-09",

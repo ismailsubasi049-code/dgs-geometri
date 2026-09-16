@@ -98,9 +98,6 @@ tersi:** paketi var, formül kartı yok.
   düzeltilen kaynak koordinat hatasının aynısı (ölçülen harf–çizgi mesafesi 0,0
   px). Kullanıcı talimatıyla yalnız raporlandı, düzeltilmedi. Ayrıntı:
   `## Özel dörtgenler paketi` → "Harf–çizgi çakışma taraması".
-- **`geometri-dortgen-karma`'da bir kaynak tutarsızlığı aktarıldı, düzeltilmedi**
-  (cevabı etkilemiyor): `dkarma-08` Not'u "3. adımdaki türetmede" diyor,
-  türetme 2. adımda. (`dkarma-06` Not'undaki ikinci tutarsızlık v57'de düzeltildi.)
 
 ## Öğrenme modu sıralaması
 
@@ -1938,6 +1935,8 @@ betiği ölçtü:
   uyarısı yok; alt konu ekranı yukarıdaki sayıları gösteriyor.
 
 **2026-09-16 (v57) · geometri-dortgen-karma** · FIG-K1 aynalandı (A açısı metinle uyumlu) · 6, 11, 16 çözüm metinleri düzeltildi · referans md uygulamayla senkronlandı.
+
+**2026-09-16 (v58) · geometri-dortgen-karma** · dkarma-08 Not'undaki adım atfı düzeltildi (3 → 2) · VERSION v58.
 
 ## Özel dörtgenler paketi
 
