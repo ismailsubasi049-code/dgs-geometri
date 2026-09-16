@@ -1,6 +1,6 @@
 # Durum
 
-**Son güncelleme:** 2026-09-12 · **sw.js VERSION:** güncel değer için `sw.js:4`
+**Son güncelleme:** 2026-09-16 · **sw.js VERSION:** güncel değer için `sw.js:4`
 (elle tutulan kopya iki tur geride kaldığı için buradan kaldırıldı; sürüm zaten
 her turda aşağıdaki günlüğe yazılıyor)
 
@@ -98,11 +98,9 @@ tersi:** paketi var, formül kartı yok.
   düzeltilen kaynak koordinat hatasının aynısı (ölçülen harf–çizgi mesafesi 0,0
   px). Kullanıcı talimatıyla yalnız raporlandı, düzeltilmedi. Ayrıntı:
   `## Özel dörtgenler paketi` → "Harf–çizgi çakışma taraması".
-- **`geometri-dortgen-karma`'da iki kaynak tutarsızlığı aktarıldı, düzeltilmedi**
-  (ikisi de cevabı etkilemiyor): `dkarma-08` Not'u "3. adımdaki türetmede"
-  diyor, türetme 2. adımda; `dkarma-06` Not'u "o cümle olmasaydı şekil
-  paralelkenar da olabilirdi" diyor, oysa AB = 7 ≠ DC = 13 iken şekil
-  paralelkenar olamaz.
+- **`geometri-dortgen-karma`'da bir kaynak tutarsızlığı aktarıldı, düzeltilmedi**
+  (cevabı etkilemiyor): `dkarma-08` Not'u "3. adımdaki türetmede" diyor,
+  türetme 2. adımda. (`dkarma-06` Not'undaki ikinci tutarsızlık v57'de düzeltildi.)
 
 ## Öğrenme modu sıralaması
 
@@ -1938,6 +1936,8 @@ betiği ölçtü:
 - Uygulamada (SW temizlendikten sonra `v55` yüklü): `loadQuestionsFromPacks` 20
   soru, hepsinde `subtopicId`/`subtopic`/`label` `null`; konsolda "Soru atlandı"
   uyarısı yok; alt konu ekranı yukarıdaki sayıları gösteriyor.
+
+**2026-09-16 (v57) · geometri-dortgen-karma** · FIG-K1 aynalandı (A açısı metinle uyumlu) · 6, 11, 16 çözüm metinleri düzeltildi · referans md uygulamayla senkronlandı.
 
 ## Özel dörtgenler paketi
 
