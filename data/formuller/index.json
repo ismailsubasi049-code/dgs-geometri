@@ -16,6 +16,7 @@
     { "topicId": "problemler", "branchId": "mat", "title": "Problemler", "file": "problemler.json", "cardCount": 6 },
     { "topicId": "acilar", "branchId": "geo", "title": "Açılar", "file": "acilar.json", "cardCount": 3 },
     { "topicId": "ucgenler", "branchId": "geo", "title": "Üçgenler", "file": "ucgenler.json", "cardCount": 9 },
+    { "topicId": "cokgenler", "branchId": "geo", "title": "Çokgenler", "file": "cokgenler.json", "cardCount": 1 },
     { "topicId": "dortgenler", "branchId": "geo", "title": "Dörtgenler", "file": "dortgenler.json", "cardCount": 8 },
     { "topicId": "cember", "branchId": "geo", "title": "Çember ve Daire", "file": "cember.json", "cardCount": 6 }
   ]

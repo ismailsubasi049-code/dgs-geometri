@@ -58,14 +58,6 @@ tersi:** paketi var, formül kartı yok.
   alias'ına oturmuyor — yanlış kart açmaktansa kart açmamak seçildi.
   Karşılığı olan kartlar: köklüde teleskopik/değişken değiştirmeli köklü
   denklem, rasyonelde teleskopik toplam yok.
-- **Çokgenler konusunun formül kartı yok** (`data/formuller/cokgenler.json` yok,
-  `formuller/index.json`'da kayıt yok). `duzgun-cokgen` alt konusunda yanlış
-  cevapta kart açılmıyor: `js/formulas.js:106` sırayla `subtopicId`, `subtopic`,
-  `label` arıyor, üçü de boşa düşüyor. Eksik, hata değil — paket bu hâliyle
-  çalışıyor. Kart yazılırsa kapsaması gerekenler: iç açılar toplamı
-  (n − 2) · 180, bir iç açı, dış açılar toplamı 360, köşegen sayısı n(n − 3)/2,
-  düzgün altıgende kısa köşegen a√3 / uzun köşegen 2a ve alan. Kart eklenince
-  `formuller/index.json` → yeni set kaydı + `cardCount`.
 - **Sayısal mantığın formül kartı yok** (`data/formuller/` altında
   `sayisal-mantik.json` yok, `formuller/index.json`'da kayıt yok). Yanlış
   cevapta kart açılmıyor: `js/formulas.js:106` önce `subtopicId`
@@ -485,6 +477,56 @@ sayıların **tersleriyle** dağıtıldığı açıkça yazılı. Sembol sözle�
 kartta aynı: orantı sabiti `k`, oranın terimleri `a`/`b`, orantı `a/b = c/d`,
 orantılanan sayı üçlüsü `x`, `y`, `z`, paylaştırılan toplam `T` (`a` ile
 çakışmasın diye büyük harf `A` kullanılmadı).
+
+**2026-09-17 · `data/formuller/cokgenler.json`** (yeni konu — 1 kart ·
+13 madde · 2 ipucu · 3 şekil · örnek yok) üretildi ve aynı turda denetlendi.
+Geometri branşı 4 → 5 konu, 26 → 27 formül kartı oldu; `sw.js` v59 → v60.
+Kartı önceki turda açılan `duzgun-cokgen` alt konusunun boşluğu istedi:
+"Kalan işler"deki madde bu turda kapandı.
+
+**Tek kart, çünkü bağlanma `subtopicId` üzerinden.** İçerik dört öbek
+(temel bağıntılar, yalnız düzgün çokgende, düzgün altıgen, ayrım) ama
+`js/formulas.js:105` bir `subtopicId`'yi tek karta bağlıyor; ayrı kartlara
+bölünse altıgen sorusunda "temel bağıntılar" kartı açılırdı. Bu yüzden
+`id = subtopicId = duzgun-cokgen`, 13 madde tek kartta. Grup başlığı alanı
+şemada yok, o yüzden koşul her maddenin `note`'una yazıldı ("Yalnız düzgün
+çokgende", "Kenarı a olan düzgün altıgende") — koşulsuz iddia bırakılmadı.
+Ayrım öbeği `tips[]` oldu: `formulaCard` ipuçlarını maddelerden sonra basıyor,
+yani "bu formülü burada kullanabilir miyim" sorusu en son okunuyor.
+
+Geometri konvansiyonu korundu: `acilar`, `ucgenler`, `dortgenler`, `cember`
+dosyalarındaki 26 kartın hiçbirinde `examples` yok, yenisinde de yok.
+
+Doğrulama — PowerShell tam sayı aritmetiğiyle ve tarayıcıda:
+
+- `n = 3…20` ızgarasında dört bağıntı iki taraflı sınandı: `(n−2)·180` ile
+  `n·180 − 360`; `n(n−3)/2` ile **kaba kuvvetle sayılan** köşegen (bütün köşe
+  çiftleri eksi kenarlar); düzgünde bir iç açı + bir dış açı = 180 (binde bir
+  ölçekli tam sayıyla, ondalık yok); merkez açı = dış açı. **18/18 doğru.**
+- Altıgen çevrel yarıçap `R = a` alınarak koordinatla ölçüldü: kenar = 1,
+  kısa köşegen² = 3 (yani `a√3`), uzun köşegen = 2. Alan iki yoldan:
+  `6 · (√3/4)a²` ile `(3√3/2)a²` özdeş (katsayı karşılaştırması `3·4 = 6·2`
+  tam sayı olarak da yapıldı).
+- Üç şekil parametrik olarak üretildi, sonra **dosyadan geri okunup ölçüldü**:
+  beşgenin 5 kenarı da 63.48, yarıçapları 54; altıgenlerin 6 kenarı da 52,
+  yarıçapları 52 (yuvarlama payı ±0.008). Çizgi sayıları: beşgende 2 köşegen,
+  ilk altıgende 9 köşegen (6 kısa + 3 uzun), ikincisinde 3 uzun köşegen +
+  2 vurgu. `parseFigure` üçünde de kaynak etiket sayısı = çizilen düğüm sayısı
+  (16/16, 23/23, 16/16); `viewBox` doğru, `width`/`height` yok.
+- İlk denemede üçüncü şekilde `a√3` etiketi altıgenin sağ kenarına biniyordu
+  (harf–çizgi çakışması). Üç ölçü etiketi de ait oldukları doğrunun **uzantısına
+  ya da dışına** taşındı: `a√3` kısa köşegenin üstüne, `2a` uzun köşegenin
+  soluna, `a` alt kenarın altına. Ekran görüntüsüyle doğrulandı.
+- Çakışma taraması: 14 dosya · 67 kart · 236 alias — kart `id`, `subtopicId` ve
+  alias çakışması yok; her kartta `subtopicId = card.id`; her sette `cardCount`
+  fiili kart sayısıyla eşit; `topicId`/`title`/`branchId` üç dosyada
+  (`data/index.json`, `formuller/index.json`, `cokgenler.json`) birebir aynı.
+- **`getCardFor` artık null dönmüyor:** paketin 25 sorusunun **25'i de**
+  `duzgun-cokgen` kartını açıyor, konsolda hata yok. `#/formuller/geo/cokgenler`
+  render oldu (1 kart, 13 madde, 3 şekil, 2 ipucu); ana ekran "Geometri
+  formülleri → 5 konu · 27 formül kartı" gösteriyor.
+- Doğrulama soru cevaplamadan, Browser pane'in kendi boş deposunda yapıldı;
+  bitişte `questions` 0 — ilerleme kaydı kirlenmedi.
 
 ## İlk matematik soru paketi
 
@@ -2110,6 +2152,9 @@ yapılmadı**: `cokgenler` / `Çokgenler` / `duzgun-cokgen` / `Düzgün çokgen`
 döndürdü, hata vermedi — `mantik-*` paketlerindeki durumun aynısı. Eksik, hata
 değil. `formuller/index.json` ve `cardCount` değerlerine dokunulmadı; kart turu
 "Kalan işler"e yazıldı.
+
+**Kapandı (v60):** kart bir sonraki turda yazıldı — `data/formuller/cokgenler.json`,
+tek kart, 25 sorunun 25'i açıyor. Ayrıntı: `## Yeni formül konusu` → 2026-09-17.
 
 ### Doğrulama (tarayıcıda, sayıyla)
 
