@@ -17,6 +17,7 @@
     { "id": "sayisal-mantik", "title": "Sayısal Mantık", "branchId": "mat" },
     { "id": "acilar", "title": "Açılar", "branchId": "geo" },
     { "id": "ucgenler", "title": "Üçgenler", "branchId": "geo" },
+    { "id": "cokgenler", "title": "Çokgenler", "branchId": "geo" },
     { "id": "dortgenler", "title": "Dörtgenler", "branchId": "geo" },
     { "id": "cember", "title": "Çember ve Daire", "branchId": "geo" }
   ],
@@ -261,6 +262,17 @@
       "title": "Karma üçgen",
       "file": "packs/ucgen-karma.json",
       "count": 30,
+      "version": 1
+    },
+    {
+      "id": "geometri-duzgun-cokgen",
+      "topicId": "cokgenler",
+      "topic": "Çokgenler",
+      "subtopicId": "duzgun-cokgen",
+      "subtopic": "Düzgün çokgen",
+      "title": "Düzgün çokgen",
+      "file": "packs/geometri-duzgun-cokgen.json",
+      "count": 25,
       "version": 1
     },
     {

@@ -1,12 +1,12 @@
 # Durum
 
-**Son güncelleme:** 2026-09-16 · **sw.js VERSION:** güncel değer için `sw.js:4`
+**Son güncelleme:** 2026-09-17 · **sw.js VERSION:** güncel değer için `sw.js:4`
 (elle tutulan kopya iki tur geride kaldığı için buradan kaldırıldı; sürüm zaten
 her turda aşağıdaki günlüğe yazılıyor)
 
 ## Özet
 
-**678 soru · 28 alt konu · 28 paket.** 478'i geometri, 200'ü matematik
+**703 soru · 29 alt konu · 29 paket.** 503'ü geometri, 200'ü matematik
 (9 paket: `ozdeslik-genel`, `oran-oranti-genel`, `mantik-blok-1`,
 `mantik-blok-2`, `mantik-blok-3`, `problem-genel`, `rasyonel-genel`,
 `uslu-genel`, `koklu-genel`). Kalan **3**
@@ -40,13 +40,14 @@ tersi:** paketi var, formül kartı yok.
 | Üçgenler | `ucgen-kenarortay` | Kenarortay ve ağırlık merkezi | 31 |
 | Üçgenler | `ucgen-yukseklik` | Yükseklik ve diklik merkezi | 20 |
 | Üçgenler | `ucgen-karma` | Karma üçgen | 30 |
+| Çokgenler | `duzgun-cokgen` | Düzgün çokgen | 25 |
 | Dörtgenler | — | Dörtgenler | 10 |
 | Dörtgenler | `dortgen-yamuk` | Yamuk | 15 |
 | Dörtgenler | `dortgen-paralelkenar` | Paralelkenar | 24 |
 | Dörtgenler | — | Dörtgenler — karma | 20 |
 | Dörtgenler | `dortgen-eskenar` · `dortgen-dikdortgen` · `dortgen-kare` · `dortgen-deltoid` (`subtopics[]`) | Özel dörtgenler | 24 |
 | Çember ve Daire | — | Çember ve Daire | 10 |
-| **Toplam** | | **28 paket** | **678** |
+| **Toplam** | | **29 paket** | **703** |
 
 ## Kalan işler
 
@@ -57,6 +58,14 @@ tersi:** paketi var, formül kartı yok.
   alias'ına oturmuyor — yanlış kart açmaktansa kart açmamak seçildi.
   Karşılığı olan kartlar: köklüde teleskopik/değişken değiştirmeli köklü
   denklem, rasyonelde teleskopik toplam yok.
+- **Çokgenler konusunun formül kartı yok** (`data/formuller/cokgenler.json` yok,
+  `formuller/index.json`'da kayıt yok). `duzgun-cokgen` alt konusunda yanlış
+  cevapta kart açılmıyor: `js/formulas.js:106` sırayla `subtopicId`, `subtopic`,
+  `label` arıyor, üçü de boşa düşüyor. Eksik, hata değil — paket bu hâliyle
+  çalışıyor. Kart yazılırsa kapsaması gerekenler: iç açılar toplamı
+  (n − 2) · 180, bir iç açı, dış açılar toplamı 360, köşegen sayısı n(n − 3)/2,
+  düzgün altıgende kısa köşegen a√3 / uzun köşegen 2a ve alan. Kart eklenince
+  `formuller/index.json` → yeni set kaydı + `cardCount`.
 - **Sayısal mantığın formül kartı yok** (`data/formuller/` altında
   `sayisal-mantik.json` yok, `formuller/index.json`'da kayıt yok). Yanlış
   cevapta kart açılmıyor: `js/formulas.js:106` önce `subtopicId`
@@ -2069,6 +2078,64 @@ yüklendiği metinden teyit edildi):
   - `ozeldort-01`/`-12`/`-16`/`-22` → kendi kartı
 - Doğrulama cevap vermeden, veri düzeyinde ve Browser pane'in kendi boş deposunda
   yapıldı; ilerleme kaydı kirlenmedi.
+
+## Düzgün çokgen paketi
+
+Dışarıda üretilip uygulama biçiminde gelen paket: `referans/` altına hazır JSON
+olarak konuldu, bu turda **transkripsiyon yapılmadı**. Dosya olduğu gibi
+`data/packs/geometri-duzgun-cokgen.json` adresine taşındı; soru metinlerine,
+şıklara, `answer` indekslerine, çözümlere ve SVG'lere dokunulmadı. 25 soru,
+id'ler `cokgen-01` … `cokgen-25` (§9: id paketten türetilir, eski sayaç
+sürdürülmez). `referans/` altında yalnız paketin `.md` dosyası kaldı; klasör
+zaten `.gitignore`'da, depoya JSON da md de girmiyor.
+
+### Yeni ana konu açıldı: Çokgenler
+
+Paketin `topicId`'si `cokgenler`; `data/index.json` → `topics[]` içinde böyle bir
+konu **yoktu** (Geometri tarafı `acilar`, `ucgenler`, `dortgenler`, `cember`).
+Kod bu durumda paketi yutmaz — `js/packs.js:194-203` bilinmeyen `topicId` için
+konu kaydını kendiliğinden uydurur ve `DEFAULT_BRANCH = 'geo'` verir — ama o
+kayıt `topics[]` sırasının dışında, listenin sonunda kalırdı ve diğer 14 konudan
+farklı davranırdı. Kullanıcı kararıyla kayıt elle açıldı ve **`ucgenler` ile
+`dortgenler` arasına** konuldu: çokgen genel, dörtgen onun özel hâli.
+`packs[]` kaydı da aynı sırayı izlesin diye `ucgen-karma` ile `geo-dortgenler`
+arasına yazıldı.
+
+Kimlik alanlarının dördü de gelen JSON'da zaten doğruydu, **düzeltme
+yapılmadı**: `cokgenler` / `Çokgenler` / `duzgun-cokgen` / `Düzgün çokgen`.
+
+### Formül kartı yok (bilinçli)
+
+`data/formuller/` altında `cokgenler.json` yok; `getCardFor` üç soruda da `null`
+döndürdü, hata vermedi — `mantik-*` paketlerindeki durumun aynısı. Eksik, hata
+değil. `formuller/index.json` ve `cardCount` değerlerine dokunulmadı; kart turu
+"Kalan işler"e yazıldı.
+
+### Doğrulama (tarayıcıda, sayıyla)
+
+Hiçbir soru cevaplanmadan, Browser pane'in kendi boş deposunda yapıldı; iş
+bitince depoda `questions` 0, `sessions` 0 — gerçek ilerleme kirlenmedi.
+
+- `loadAllQuestions()` **703** soru döndürdü, konsolda "Soru atlandı" **yok**;
+  paketin 25 sorusunun tamamı yüklendi (`cokgen-01` … `cokgen-25`).
+- Sorulara index kaydından devredilen alanlar doğru: `topicId: cokgenler`,
+  `topic: Çokgenler`, `subtopicId: duzgun-cokgen`, `subtopic: Düzgün çokgen`.
+  Sorularda kendi `subtopicId`/`subtopic` alanı yok (§2'ye uygun, paket tek alt
+  konuda).
+- `listTopics()` Geometri sırası: **Açılar (90) · Üçgenler (285) · Çokgenler
+  (25) · Dörtgenler (93) · Çember ve Daire (10)**; `cokgenler` kaydı tek alt
+  konu satırı açıyor (`duzgun-cokgen`, 25).
+- Ana ekran: "Geometri konuları" → **5 konu · 20 alt konu · 503 soru**
+  (Matematik 9 alt konu ile toplam 29).
+- Konu ekranı "1 alt konu": Tüm konu 25 · **Düzgün çokgen 25**.
+- `richText()`: 25 çözümün **25'inde** sarı `.solution-note` kutusu açıldı,
+  toplam **47** `<strong>` üretildi; hiçbir çıktıda işlenmemiş `**` kalmadı —
+  yani §4'teki `**Not:**` tuzağına düşen çözüm yok.
+- `js/svg.js` → `parseFigure`: 5 şeklin beşinde de kaynak etiket sayısı ile
+  çizilen düğüm sayısı birebir (13 / 11 / 11 / 12 / 10); beyaz liste hiçbir şey
+  düşürmedi, hepsi `viewBox='0 0 320 200'` ve `width`/`height` yazmıyor.
+  `cokgen-11/13/17/18/23` ekranda doğru çizildi.
+- `sw.js` VERSION **v58 → v59**.
 
 ## Çalışma kuralları
 
