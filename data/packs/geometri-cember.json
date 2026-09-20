@@ -4,14 +4,15 @@
   "topic": "Çember ve Daire",
   "subtopicId": "cember-daire",
   "subtopic": "Çember ve daire",
-  "version": 1,
+  "version": 2,
   "blocks": [],
   "questions": [
     {
       "id": "cemb-01",
       "difficulty": 1,
-      "stem": "Bir çemberde AB yayını gören merkez açının ölçüsü 110°'dir.\nBuna göre, AB yayını gören bir çevre açının ölçüsü kaç derecedir?",
-      "asks": "Çevre açının ölçüsü isteniyor.",
+      "stem": "Şekildeki O merkezli çemberde m(AOB) = 110°'dir.\nBuna göre, m(ACB) kaç derecedir?",
+      "asks": "m(ACB) isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='76'/><line x1='160' y1='100' x2='97.7' y2='143.6'/><line x1='160' y1='100' x2='222.3' y2='143.6'/><line x1='149.4' y1='24.7' x2='97.7' y2='143.6'/><line x1='149.4' y1='24.7' x2='222.3' y2='143.6'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 173.1 109.2 A 16 16 0 0 1 146.9 109.2'/><path d='M 159.9 41.8 A 20 20 0 0 1 141.4 43.1'/></g><circle cx='160' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='97.7' cy='143.6' r='2.5' fill='currentColor' stroke='none'/><circle cx='222.3' cy='143.6' r='2.5' fill='currentColor' stroke='none'/><circle cx='149.4' cy='24.7' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='87.9' y='155' text-anchor='end'>A</text><text x='232.1' y='155' text-anchor='start'>B</text><text x='147.8' y='17.4' text-anchor='middle'>C</text><text x='160' y='91' text-anchor='middle'>O</text><text x='160' y='134.5' text-anchor='middle'>110°</text><text x='151.8' y='63.2' text-anchor='middle'>?</text></g></svg>",
       "choices": [
         "35",
         "55",
@@ -25,8 +26,9 @@
     {
       "id": "cemb-02",
       "difficulty": 1,
-      "stem": "Bir çemberde AB yayını gören bir çevre açının ölçüsü 38°'dir.\nBuna göre, aynı yayı gören merkez açının ölçüsü kaç derecedir?",
-      "asks": "Merkez açının ölçüsü isteniyor.",
+      "stem": "Şekildeki O merkezli çemberde m(ACB) = 38°'dir.\nBuna göre, m(AOB) kaç derecedir?",
+      "asks": "m(AOB) isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='76'/><line x1='160' y1='100' x2='113.2' y2='159.9'/><line x1='160' y1='100' x2='206.8' y2='159.9'/><line x1='186' y1='28.6' x2='113.2' y2='159.9'/><line x1='186' y1='28.6' x2='206.8' y2='159.9'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 169.9 112.6 A 16 16 0 0 1 150.1 112.6'/><path d='M 190.1 54.3 A 26 26 0 0 1 173.4 51.3'/></g><circle cx='160' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='113.2' cy='159.9' r='2.5' fill='currentColor' stroke='none'/><circle cx='206.8' cy='159.9' r='2.5' fill='currentColor' stroke='none'/><circle cx='186' cy='28.6' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='105.8' y='173.8' text-anchor='end'>A</text><text x='214.2' y='173.8' text-anchor='start'>B</text><text x='190.1' y='21.8' text-anchor='middle'>C</text><text x='168' y='98' text-anchor='start'>O</text><text x='160' y='134.5' text-anchor='middle'>?</text><text x='179' y='72.5' text-anchor='middle'>38°</text></g></svg>",
       "choices": [
         "19",
         "38",
@@ -40,8 +42,9 @@
     {
       "id": "cemb-03",
       "difficulty": 1,
-      "stem": "[AB] bir çemberin çapıdır ve C noktası çemberin üzerindedir. m(CAB) = 28° olduğuna göre, m(CBA) kaç derecedir?",
+      "stem": "Şekilde [AB], O merkezli çemberin çapıdır ve m(CAB) = 28°'dir.\nBuna göre, m(CBA) kaç derecedir?",
       "asks": "m(CBA) isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='76'/><line x1='84' y1='100' x2='236' y2='100'/><line x1='84' y1='100' x2='202.5' y2='37'/><line x1='202.5' y1='37' x2='236' y2='100'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 107 87.8 A 26 26 0 0 1 110 100'/><path d='M 216 100 A 20 20 0 0 1 226.6 82.3'/><polyline points='194.6,41.2 198.8,49.2 206.7,44.9'/></g><circle cx='160' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='84' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='236' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='202.5' cy='37' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='72' y='104.5' text-anchor='end'>A</text><text x='248' y='104.5' text-anchor='start'>B</text><text x='209.2' y='31.5' text-anchor='start'>C</text><text x='160' y='117' text-anchor='middle'>O</text><text x='124.8' y='94.3' text-anchor='start'>28°</text><text x='208.6' y='88' text-anchor='end'>?</text></g></svg>",
       "choices": [
         "28",
         "56",
@@ -55,8 +58,9 @@
     {
       "id": "cemb-04",
       "difficulty": 2,
-      "stem": "Bir çemberde iki kiriş çemberin içindeki P noktasında kesişmektedir. P'deki açının ve onun ters açısının gördüğü yayların ölçüleri 70° ve 50°'dir.\nBuna göre, P'deki açının ölçüsü kaç derecedir?",
-      "asks": "P'deki açının ölçüsü isteniyor.",
+      "stem": "Şekilde [AC] ve [BD] kirişleri P noktasında kesişmektedir. AB yayının ölçüsü 70°, CD yayının ölçüsü 50°'dir.\nBuna göre, m(APB) kaç derecedir?",
+      "asks": "m(APB) isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='76'/><line x1='97.7' y1='56.4' x2='228.9' y2='132.1'/><line x1='97.7' y1='143.6' x2='228.9' y2='67.9'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 157.7 109 A 18 18 0 0 1 157.7 91'/></g><path d='M 97.7 143.6 A 76 76 0 0 1 97.7 56.4' fill='none' stroke='#0284c7' stroke-width='3.5'/><path d='M 228.9 67.9 A 76 76 0 0 1 228.9 132.1' fill='none' stroke='#0284c7' stroke-width='3.5'/><circle cx='97.7' cy='56.4' r='2.5' fill='currentColor' stroke='none'/><circle cx='97.7' cy='143.6' r='2.5' fill='currentColor' stroke='none'/><circle cx='228.9' cy='132.1' r='2.5' fill='currentColor' stroke='none'/><circle cx='228.9' cy='67.9' r='2.5' fill='currentColor' stroke='none'/><circle cx='173.2' cy='100' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='87.9' y='54' text-anchor='end'>A</text><text x='87.9' y='155' text-anchor='end'>B</text><text x='239.8' y='141.7' text-anchor='start'>C</text><text x='239.8' y='67.3' text-anchor='start'>D</text><text x='182.2' y='105' text-anchor='start'>P</text><text x='72' y='104.5' text-anchor='end'>70°</text><text x='248' y='104.5' text-anchor='start'>50°</text><text x='141.2' y='104.5' text-anchor='end'>?</text></g></svg>",
       "choices": [
         "10",
         "20",
@@ -70,8 +74,9 @@
     {
       "id": "cemb-05",
       "difficulty": 2,
-      "stem": "Çemberin dışındaki bir P noktasından çizilen iki kesen, çember üzerinde ölçüleri 130° ve 40° olan iki yay ayırmaktadır.\nBuna göre, P'deki açının ölçüsü kaç derecedir?",
-      "asks": "P'deki açının ölçüsü isteniyor.",
+      "stem": "Şekilde P noktasından çizilen iki kesen çemberi A, B ve C, D noktalarında kesmektedir. AC yayının ölçüsü 40°, BD yayının ölçüsü 130°'dir.\nBuna göre, m(BPD) kaç derecedir?",
+      "asks": "m(BPD) isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='157.1' cy='100' r='72'/><line x1='30' y1='100' x2='187.5' y2='34.7'/><line x1='30' y1='100' x2='187.5' y2='165.3'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 50.3 91.6 A 22 22 0 0 1 50.3 108.4'/></g><path d='M 89.5 124.6 A 72 72 0 0 1 89.5 75.4' fill='none' stroke='#0284c7' stroke-width='3.5'/><path d='M 187.5 34.7 A 72 72 0 0 1 187.5 165.3' fill='none' stroke='#0284c7' stroke-width='3.5'/><circle cx='30' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='89.5' cy='75.4' r='2.5' fill='currentColor' stroke='none'/><circle cx='187.5' cy='34.7' r='2.5' fill='currentColor' stroke='none'/><circle cx='89.5' cy='124.6' r='2.5' fill='currentColor' stroke='none'/><circle cx='187.5' cy='165.3' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='22' y='105' text-anchor='end'>P</text><text x='87.5' y='66.4' text-anchor='end'>A</text><text x='192.6' y='28.4' text-anchor='start'>B</text><text x='87.5' y='142.6' text-anchor='end'>C</text><text x='192.6' y='180.6' text-anchor='start'>D</text><text x='93.1' y='105' text-anchor='start'>40°</text><text x='241.1' y='104.5' text-anchor='start'>130°</text><text x='64' y='104.5' text-anchor='start'>?</text></g></svg>",
       "choices": [
         "45",
         "40",
@@ -85,8 +90,9 @@
     {
       "id": "cemb-06",
       "difficulty": 2,
-      "stem": "Bir çemberde teğet ile kiriş arasındaki açının gördüğü yayın ölçüsü 136°'dir.\nBuna göre, bu açının ölçüsü kaç derecedir?",
-      "asks": "Teğet-kiriş açısının ölçüsü isteniyor.",
+      "stem": "Şekilde d doğrusu çembere A noktasında teğettir. AB yayının ölçüsü 136°'dir.\nBuna göre, d doğrusu ile [AB] kirişi arasındaki x açısı kaç derecedir?",
+      "asks": "x açısı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='76'/><line x1='50' y1='176' x2='270' y2='176'/><line x1='160' y1='176' x2='212.8' y2='45.3'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 169 153.7 A 24 24 0 0 1 184 176'/></g><path d='M 212.8 45.3 A 76 76 0 0 1 160 176' fill='none' stroke='#0284c7' stroke-width='3.5'/><circle cx='160' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='160' cy='176' r='2.5' fill='currentColor' stroke='none'/><circle cx='212.8' cy='45.3' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='160' y='194' text-anchor='middle'>A</text><text x='221.1' y='41.2' text-anchor='start'>B</text><text x='160' y='92' text-anchor='middle'>O</text><text x='243.4' y='138.2' text-anchor='start'>136°</text><text x='189.8' y='160.4' text-anchor='start'>x</text><text x='268' y='169' text-anchor='end'>d</text></g></svg>",
       "choices": [
         "34",
         "44",
@@ -100,8 +106,9 @@
     {
       "id": "cemb-07",
       "difficulty": 2,
-      "stem": "Çemberin dışındaki bir P noktasından çembere iki teğet çiziliyor. Değme noktaları arasındaki küçük yayın ölçüsü 110°'dir.\nBuna göre, iki teğet arasındaki açının ölçüsü kaç derecedir?",
-      "asks": "İki teğet arasındaki açının ölçüsü isteniyor.",
+      "stem": "Şekilde [PT] ve [PS], O merkezli çembere T ve S noktalarında teğettir. TS yayının (küçük yay) ölçüsü 110°'dir.\nBuna göre, m(TPS) kaç derecedir?",
+      "asks": "m(TPS) isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='210' cy='100' r='64'/><line x1='98.4' y1='100' x2='173.3' y2='47.6'/><line x1='98.4' y1='100' x2='173.3' y2='152.4'/><line x1='210' y1='100' x2='173.3' y2='47.6'/><line x1='210' y1='100' x2='173.3' y2='152.4'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 116.4 87.4 A 22 22 0 0 1 116.4 112.6'/><polyline points='178.5,54.9 171.1,60.1 165.9,52.7'/><polyline points='178.5,145.1 171.1,139.9 165.9,147.3'/></g><path d='M 173.3 152.4 A 64 64 0 0 1 173.3 47.6' fill='none' stroke='#0284c7' stroke-width='3.5'/><circle cx='98.4' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='173.3' cy='47.6' r='2.5' fill='currentColor' stroke='none'/><circle cx='173.3' cy='152.4' r='2.5' fill='currentColor' stroke='none'/><circle cx='210' cy='100' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='90.4' y='105' text-anchor='end'>P</text><text x='166.4' y='42.2' text-anchor='end'>T</text><text x='166.4' y='166.8' text-anchor='end'>S</text><text x='218' y='105' text-anchor='start'>O</text><text x='134.4' y='104.5' text-anchor='start'>?</text><text x='164' y='104.5' text-anchor='start'>110°</text></g></svg>",
       "choices": [
         "55",
         "70",
@@ -115,9 +122,9 @@
     {
       "id": "cemb-08",
       "difficulty": 2,
-      "stem": "Şekilde O merkezli çemberde m(AOB) = 3x ve m(ACB) = x + 20'dir.\nBuna göre, m(ACB) kaç derecedir?",
+      "stem": "Şekildeki O merkezli çemberde m(AOB) = 3x ve m(ACB) = x + 20'dir.\nBuna göre, m(ACB) kaç derecedir?",
       "asks": "m(ACB) isteniyor.",
-      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='102' r='78'/><line x1='160' y1='102' x2='92.5' y2='141'/><line x1='160' y1='102' x2='227.5' y2='141'/><line x1='193' y1='31.3' x2='92.5' y2='141'/><line x1='193' y1='31.3' x2='227.5' y2='141'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 173.9 110 A 16 16 0 0 1 146.1 110'/><path d='M 199 50.4 A 20 20 0 0 1 179.5 46.1'/></g><circle cx='160' cy='102' r='2.5' fill='currentColor' stroke='none'/><circle cx='92.5' cy='141' r='2.5' fill='currentColor' stroke='none'/><circle cx='227.5' cy='141' r='2.5' fill='currentColor' stroke='none'/><circle cx='193' cy='31.3' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='81.2' y='152' text-anchor='end'>A</text><text x='238.8' y='152' text-anchor='start'>B</text><text x='198.5' y='24' text-anchor='start'>C</text><text x='160' y='93' text-anchor='middle'>O</text></g></svg>",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='76'/><line x1='160' y1='100' x2='94.2' y2='138'/><line x1='160' y1='100' x2='225.8' y2='138'/><line x1='192.1' y1='31.1' x2='94.2' y2='138'/><line x1='192.1' y1='31.1' x2='225.8' y2='138'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 173.9 108 A 16 16 0 0 1 146.1 108'/><path d='M 198.1 50.2 A 20 20 0 0 1 178.6 45.9'/></g><circle cx='160' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='94.2' cy='138' r='2.5' fill='currentColor' stroke='none'/><circle cx='225.8' cy='138' r='2.5' fill='currentColor' stroke='none'/><circle cx='192.1' cy='31.1' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='83.8' y='148.5' text-anchor='end'>A</text><text x='236.2' y='148.5' text-anchor='start'>B</text><text x='197.2' y='24.7' text-anchor='start'>C</text><text x='153' y='94' text-anchor='end'>O</text><text x='160' y='134.5' text-anchor='middle'>3x</text><text x='181.3' y='84.4' text-anchor='middle'>x + 20</text></g></svg>",
       "choices": [
         "20",
         "40",
@@ -131,8 +138,9 @@
     {
       "id": "cemb-09",
       "difficulty": 2,
-      "stem": "Bir çemberde iki kiriş içeride kesişmektedir. Kesişme noktasındaki açının ölçüsü 75°, bu açının gördüğü yaylardan birinin ölçüsü 100°'dir.\nBuna göre, diğer yayın ölçüsü kaç derecedir?",
-      "asks": "Diğer yayın ölçüsü isteniyor.",
+      "stem": "Şekilde [AC] ve [BD] kirişleri P noktasında kesişmektedir. m(APB) = 75° ve AB yayının ölçüsü 100°'dir.\nBuna göre, CD yayının ölçüsü kaç derecedir?",
+      "asks": "CD yayının ölçüsü isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='76'/><line x1='111.1' y1='41.8' x2='228.9' y2='132.1'/><line x1='111.1' y1='158.2' x2='228.9' y2='67.9'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 172.7 111 A 18 18 0 0 1 172.7 89'/></g><path d='M 111.1 158.2 A 76 76 0 0 1 111.1 41.8' fill='none' stroke='#0284c7' stroke-width='3.5'/><path d='M 228.9 67.9 A 76 76 0 0 1 228.9 132.1' fill='none' stroke='#0284c7' stroke-width='3.5'/><circle cx='111.1' cy='41.8' r='2.5' fill='currentColor' stroke='none'/><circle cx='111.1' cy='158.2' r='2.5' fill='currentColor' stroke='none'/><circle cx='228.9' cy='132.1' r='2.5' fill='currentColor' stroke='none'/><circle cx='228.9' cy='67.9' r='2.5' fill='currentColor' stroke='none'/><circle cx='187' cy='100' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='103.4' y='37.1' text-anchor='end'>A</text><text x='103.4' y='171.9' text-anchor='end'>B</text><text x='239.8' y='141.7' text-anchor='start'>C</text><text x='239.8' y='67.3' text-anchor='start'>D</text><text x='196' y='105' text-anchor='start'>P</text><text x='72' y='104.5' text-anchor='end'>100°</text><text x='248' y='104.5' text-anchor='start'>?</text><text x='155' y='104.5' text-anchor='end'>75°</text></g></svg>",
       "choices": [
         "50",
         "75",
@@ -146,8 +154,9 @@
     {
       "id": "cemb-10",
       "difficulty": 2,
-      "stem": "Çemberin dışındaki P noktasından çizilen iki kesen arasındaki açının ölçüsü 30°'dir. Bu açının gördüğü uzak yayın ölçüsü 140°'dir.\nBuna göre, yakın yayın ölçüsü kaç derecedir?",
-      "asks": "Yakın yayın ölçüsü isteniyor.",
+      "stem": "Şekilde P noktasından çizilen iki kesen çemberi A, B ve C, D noktalarında kesmektedir. m(BPD) = 30° ve BD yayının ölçüsü 140°'dir.\nBuna göre, AC yayının ölçüsü kaç derecedir?",
+      "asks": "AC yayının ölçüsü isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='216.2' cy='100' r='58.8'/><line x1='30' y1='100' x2='236.3' y2='44.7'/><line x1='30' y1='100' x2='236.3' y2='155.3'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 51.3 94.3 A 22 22 0 0 1 51.3 105.7'/></g><path d='M 171.1 137.8 A 58.8 58.8 0 0 1 171.1 62.2' fill='none' stroke='#0284c7' stroke-width='3.5'/><path d='M 236.3 44.7 A 58.8 58.8 0 0 1 236.3 155.3' fill='none' stroke='#0284c7' stroke-width='3.5'/><circle cx='30' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='171.1' cy='62.2' r='2.5' fill='currentColor' stroke='none'/><circle cx='236.3' cy='44.7' r='2.5' fill='currentColor' stroke='none'/><circle cx='171.1' cy='137.8' r='2.5' fill='currentColor' stroke='none'/><circle cx='236.3' cy='155.3' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='22' y='105' text-anchor='end'>P</text><text x='169.1' y='53.2' text-anchor='end'>A</text><text x='240.4' y='37.9' text-anchor='middle'>B</text><text x='169.1' y='155.8' text-anchor='end'>C</text><text x='240.4' y='171.1' text-anchor='middle'>D</text><text x='165.4' y='105' text-anchor='start'>?</text><text x='287' y='104.5' text-anchor='start'>140°</text><text x='64' y='104.5' text-anchor='start'>30°</text></g></svg>",
       "choices": [
         "170",
         "140",
@@ -161,8 +170,9 @@
     {
       "id": "cemb-11",
       "difficulty": 3,
-      "stem": "A, B, C, D noktaları bir çemberin üzerinde bu sırayla yer almaktadır. AB, BC ve CD yaylarının ölçüleri sırasıyla 60°, 100° ve 90°'dir.\nBuna göre, m(ABC) kaç derecedir?",
+      "stem": "Şekildeki çemberde AB, BC ve CD yaylarının ölçüleri sırasıyla 60°, 100° ve 90°'dir.\nBuna göre, m(ABC) kaç derecedir?",
       "asks": "m(ABC) isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='76'/><line x1='146.8' y1='25.2' x2='88.6' y2='74'/><line x1='146.8' y1='25.2' x2='236' y2='100'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 160.6 36.7 A 18 18 0 0 1 133 36.7'/></g><circle cx='88.6' cy='74' r='2.5' fill='currentColor' stroke='none'/><circle cx='146.8' cy='25.2' r='2.5' fill='currentColor' stroke='none'/><circle cx='236' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='160' cy='176' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='77.3' y='74.4' text-anchor='end'>A</text><text x='144.7' y='17.8' text-anchor='middle'>B</text><text x='248' y='104.5' text-anchor='start'>C</text><text x='160' y='192.5' text-anchor='middle'>D</text><text x='102.1' y='35.6' text-anchor='end'>60°</text><text x='217.9' y='35.6' text-anchor='start'>100°</text><text x='223.6' y='168.1' text-anchor='start'>90°</text><text x='146.8' y='59.7' text-anchor='middle'>?</text></g></svg>",
       "choices": [
         "50",
         "55",
@@ -176,8 +186,9 @@
     {
       "id": "cemb-12",
       "difficulty": 3,
-      "stem": "Bir çemberde AB kirişinin uzunluğu çemberin yarıçapına eşittir. C noktası çemberin büyük yayı üzerindedir.\nBuna göre, m(ACB) kaç derecedir?",
+      "stem": "Şekildeki O merkezli çemberde [AB] kirişinin uzunluğu çemberin yarıçapına eşittir. C noktası çemberin büyük yayı üzerindedir.\nBuna göre, m(ACB) kaç derecedir?",
       "asks": "m(ACB) isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='76'/><line x1='122' y1='165.8' x2='198' y2='165.8'/><line x1='134' y1='28.6' x2='122' y2='165.8'/><line x1='134' y1='28.6' x2='198' y2='165.8'/><line x1='160' y1='100' x2='122' y2='165.8'/><line x1='160' y1='100' x2='198' y2='165.8'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 145 52.1 A 26 26 0 0 1 131.7 54.5'/></g><circle cx='160' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='122' cy='165.8' r='2.5' fill='currentColor' stroke='none'/><circle cx='198' cy='165.8' r='2.5' fill='currentColor' stroke='none'/><circle cx='134' cy='28.6' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='116' y='180.7' text-anchor='end'>A</text><text x='204' y='180.7' text-anchor='start'>B</text><text x='129.9' y='21.8' text-anchor='middle'>C</text><text x='152' y='96' text-anchor='end'>O</text><text x='160' y='179.3' text-anchor='middle'>r</text><text x='133.2' y='132.9' text-anchor='end'>r</text><text x='186.8' y='132.9' text-anchor='start'>r</text><text x='141.3' y='74.4' text-anchor='middle'>?</text></g></svg>",
       "choices": [
         "15",
         "30",
@@ -191,8 +202,9 @@
     {
       "id": "cemb-13",
       "difficulty": 1,
-      "stem": "Bir çemberde iki kiriş P noktasında kesişmektedir. Kirişlerden birinin parçaları 3 cm ve 8 cm, diğerinin parçalarından biri 4 cm'dir.\nBuna göre, diğer parça kaç cm'dir?",
-      "asks": "Diğer parçanın uzunluğu isteniyor.",
+      "stem": "Şekilde [AB] ve [CD] kirişleri P noktasında kesişmektedir. |PA| = 3 cm, |PB| = 8 cm ve |PC| = 4 cm'dir.\nBuna göre, |PD| kaç cm'dir?",
+      "asks": "|PD| isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='72'/><line x1='88' y1='100.3' x2='208.8' y2='47'/><line x1='123.6' y1='37.9' x2='116.9' y2='157.7'/></g><circle cx='88' cy='100.3' r='2.5' fill='currentColor' stroke='none'/><circle cx='208.8' cy='47' r='2.5' fill='currentColor' stroke='none'/><circle cx='123.6' cy='37.9' r='2.5' fill='currentColor' stroke='none'/><circle cx='116.9' cy='157.7' r='2.5' fill='currentColor' stroke='none'/><circle cx='120.9' cy='85.8' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='76' y='104.9' text-anchor='end'>A</text><text x='216.9' y='42.7' text-anchor='start'>B</text><text x='117.6' y='32' text-anchor='end'>C</text><text x='109.7' y='171.8' text-anchor='end'>D</text><text x='100.4' y='88.4' text-anchor='end'>3</text><text x='168.9' y='80.1' text-anchor='start'>8</text><text x='112.3' y='65.8' text-anchor='end'>4</text><text x='128.9' y='126.8' text-anchor='start'>?</text><text x='130.8' y='97.1' text-anchor='start'>P</text></g></svg>",
       "choices": [
         "6",
         "7",
@@ -206,8 +218,9 @@
     {
       "id": "cemb-14",
       "difficulty": 3,
-      "stem": "Bir çemberde AB ve CD kirişleri P noktasında kesişmektedir. PA = 4 cm, PB = 6 cm, PC = x cm ve PD = (x + 5) cm'dir.\nBuna göre, CD kirişinin uzunluğu kaç cm'dir?",
+      "stem": "Şekilde [AB] ve [CD] kirişleri P noktasında kesişmektedir. |PA| = 4 cm, |PB| = 6 cm, |PC| = x cm ve |PD| = (x + 5) cm'dir.\nBuna göre, |CD| kaç cm'dir?",
       "asks": "CD kirişinin uzunluğu isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='72'/><line x1='92.2' y1='124.2' x2='164' y2='28.1'/><line x1='105' y1='53.5' x2='163.3' y2='171.9'/></g><circle cx='92.2' cy='124.2' r='2.5' fill='currentColor' stroke='none'/><circle cx='164' cy='28.1' r='2.5' fill='currentColor' stroke='none'/><circle cx='105' cy='53.5' r='2.5' fill='currentColor' stroke='none'/><circle cx='163.3' cy='171.9' r='2.5' fill='currentColor' stroke='none'/><circle cx='120.9' cy='85.8' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='80.9' y='132.8' text-anchor='end'>A</text><text x='164.7' y='20.6' text-anchor='middle'>B</text><text x='95.9' y='50.2' text-anchor='end'>C</text><text x='163.9' y='188.4' text-anchor='middle'>D</text><text x='98.6' y='103.5' text-anchor='end'>4</text><text x='150.5' y='67.4' text-anchor='start'>6</text><text x='104' y='78.5' text-anchor='end'>x</text><text x='151.1' y='128.9' text-anchor='start'>x + 5</text><text x='132.9' y='91.4' text-anchor='start'>P</text></g></svg>",
       "choices": [
         "3",
         "5",
@@ -221,9 +234,9 @@
     {
       "id": "cemb-15",
       "difficulty": 2,
-      "stem": "Şekilde P noktasından çembere çizilen PT teğeti ile PB keseni verilmiştir. PA = 4 cm ve AB = 12 cm'dir.\nBuna göre, PT kaç cm'dir?",
+      "stem": "Şekilde [PT], çembere T noktasında teğettir; P, A, B noktaları doğrusaldır. |PA| = 4 cm ve |AB| = 12 cm'dir.\nBuna göre, |PT| kaç cm'dir?",
       "asks": "PT teğetinin uzunluğu isteniyor.",
-      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='215' cy='92' r='59.5'/><line x1='131.2' y1='125.8' x2='195.4' y2='148.2'/><line x1='131.2' y1='125.8' x2='267.1' y2='120.7'/></g><circle cx='131.2' cy='125.8' r='2.5' fill='currentColor' stroke='none'/><circle cx='195.4' cy='148.2' r='2.5' fill='currentColor' stroke='none'/><circle cx='165.2' cy='124.6' r='2.5' fill='currentColor' stroke='none'/><circle cx='267.1' cy='120.7' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='122.2' y='130.8' text-anchor='end'>P</text><text x='191.2' y='165' text-anchor='end'>T</text><text x='159.2' y='116.6' text-anchor='end'>A</text><text x='278.5' y='131.5' text-anchor='start'>B</text></g></svg>",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='215' cy='92' r='59.5'/><line x1='131.2' y1='125.8' x2='195.4' y2='148.2'/><line x1='131.2' y1='125.8' x2='232.6' y2='35.2'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><polyline points='198.4,139.7 189.9,136.7 186.9,145.2'/></g><circle cx='131.2' cy='125.8' r='2.5' fill='currentColor' stroke='none'/><circle cx='195.4' cy='148.2' r='2.5' fill='currentColor' stroke='none'/><circle cx='156.6' cy='103.2' r='2.5' fill='currentColor' stroke='none'/><circle cx='232.6' cy='35.2' r='2.5' fill='currentColor' stroke='none'/><circle cx='215' cy='92' r='2.5' fill='currentColor' stroke='none'/><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round' stroke-dasharray='4 3'><line x1='215' y1='92' x2='195.4' y2='148.2'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='123.2' y='130.8' text-anchor='end'>P</text><text x='191.5' y='164' text-anchor='middle'>T</text><text x='137.2' y='111.6' text-anchor='end'>4</text><text x='236.1' y='28.2' text-anchor='middle'>B</text><text x='152.6' y='120.2' text-anchor='end'>A</text><text x='187.9' y='66.2' text-anchor='end'>12</text><text x='160' y='151' text-anchor='middle'>?</text></g></svg>",
       "choices": [
         "6",
         "4√3",
@@ -237,8 +250,9 @@
     {
       "id": "cemb-16",
       "difficulty": 2,
-      "stem": "Çemberin dışındaki P noktasından çizilen PT teğetinin uzunluğu 6 cm'dir. Aynı noktadan çizilen bir kesen çemberi önce A, sonra B noktasında kesmektedir ve PA = 3 cm'dir.\nBuna göre, AB kaç cm'dir?",
-      "asks": "AB uzunluğu isteniyor.",
+      "stem": "Şekilde [PT], çembere T noktasında teğettir; P, A, B noktaları doğrusaldır. |PT| = 6 cm ve |PA| = 3 cm'dir.\nBuna göre, |AB| kaç cm'dir?",
+      "asks": "|AB| isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='215' cy='100' r='55'/><line x1='129.1' y1='100' x2='179.8' y2='142.3'/><line x1='129.1' y1='100' x2='255.8' y2='63.2'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><polyline points='185.6,135.3 178.6,129.6 172.9,136.5'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round' stroke-dasharray='4 3'><line x1='215' y1='100' x2='179.8' y2='142.3'/></g><circle cx='129.1' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='179.8' cy='142.3' r='2.5' fill='currentColor' stroke='none'/><circle cx='160.8' cy='90.8' r='2.5' fill='currentColor' stroke='none'/><circle cx='255.8' cy='63.2' r='2.5' fill='currentColor' stroke='none'/><circle cx='215' cy='100' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='121.1' y='105' text-anchor='end'>P</text><text x='172.1' y='156' text-anchor='end'>T</text><text x='264.8' y='59.6' text-anchor='start'>B</text><text x='156.8' y='107.8' text-anchor='end'>A</text><text x='148' y='133.3' text-anchor='end'>6</text><text x='142.1' y='90.3' text-anchor='middle'>3</text><text x='205.5' y='71.9' text-anchor='middle'>?</text></g></svg>",
       "choices": [
         "9",
         "12",
@@ -252,8 +266,9 @@
     {
       "id": "cemb-17",
       "difficulty": 2,
-      "stem": "Çemberin dışındaki P noktasından çizilen iki kesenden biri çemberi A ve B, diğeri C ve D noktalarında kesmektedir. PA = 5 cm, AB = 7 cm ve PC = 3 cm'dir.\nBuna göre, CD kaç cm'dir?",
+      "stem": "Şekilde P noktasından çizilen iki kesen çemberi A, B ve C, D noktalarında kesmektedir. |PA| = 5 cm, |AB| = 7 cm ve |PC| = 3 cm'dir.\nBuna göre, |CD| kaç cm'dir?",
       "asks": "CD uzunluğu isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='137.8' cy='100' r='85.5'/><line x1='25' y1='100' x2='106.6' y2='20.4'/><line x1='25' y1='100' x2='209' y2='147.3'/></g><circle cx='25' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='59' cy='66.8' r='2.5' fill='currentColor' stroke='none'/><circle cx='106.6' cy='20.4' r='2.5' fill='currentColor' stroke='none'/><circle cx='52.6' cy='107.1' r='2.5' fill='currentColor' stroke='none'/><circle cx='209' cy='147.3' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='17' y='105' text-anchor='end'>P</text><text x='47.9' y='66.7' text-anchor='end'>A</text><text x='102.2' y='13.7' text-anchor='end'>B</text><text x='54.6' y='124.1' text-anchor='start'>C</text><text x='219' y='158.5' text-anchor='start'>D</text><text x='35.7' y='81.5' text-anchor='end'>5</text><text x='76.5' y='41.7' text-anchor='end'>7</text><text x='36.6' y='116.8' text-anchor='middle'>3</text><text x='128.6' y='140.4' text-anchor='middle'>?</text></g></svg>",
       "choices": [
         "3",
         "7",
@@ -267,9 +282,9 @@
     {
       "id": "cemb-18",
       "difficulty": 3,
-      "stem": "Şekilde [AB] çemberin çapı, [CD] bir kiriştir ve bu kiriş çapı P noktasında dik kesmektedir. AB = 13 cm ve AP = 4 cm'dir.\nBuna göre, CD kaç cm'dir?",
+      "stem": "Şekilde [AB], O merkezli çemberin çapı; [CD], çapı P noktasında dik kesen bir kiriştir. |AB| = 13 cm ve |AP| = 4 cm'dir.\nBuna göre, |CD| kaç cm'dir?",
       "asks": "CD kirişinin uzunluğu isteniyor.",
-      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='78'/><line x1='82' y1='100' x2='238' y2='100'/><line x1='130' y1='28' x2='130' y2='172'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='139,100 139,91 130,91'/></g><circle cx='82' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='238' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='130' cy='28' r='2.5' fill='currentColor' stroke='none'/><circle cx='130' cy='172' r='2.5' fill='currentColor' stroke='none'/><circle cx='130' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='160' cy='100' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='74' y='105' text-anchor='end'>A</text><text x='246' y='105' text-anchor='start'>B</text><text x='130' y='20' text-anchor='middle'>C</text><text x='130' y='190' text-anchor='middle'>D</text><text x='123' y='117' text-anchor='end'>P</text><text x='160' y='117' text-anchor='middle'>O</text></g></svg>",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='78'/><line x1='82' y1='100' x2='238' y2='100'/><line x1='130' y1='28' x2='130' y2='172'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><polyline points='139,100 139,91 130,91'/></g><circle cx='82' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='238' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='130' cy='28' r='2.5' fill='currentColor' stroke='none'/><circle cx='130' cy='172' r='2.5' fill='currentColor' stroke='none'/><circle cx='130' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='160' cy='100' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='74' y='105' text-anchor='end'>A</text><text x='246' y='105' text-anchor='start'>B</text><text x='130' y='20' text-anchor='middle'>C</text><text x='130' y='190' text-anchor='middle'>D</text><text x='124' y='117' text-anchor='end'>P</text><text x='160' y='117' text-anchor='middle'>O</text><text x='106' y='93' text-anchor='middle'>4</text><text x='137' y='68' text-anchor='start'>?</text></g></svg>",
       "choices": [
         "6",
         "12",
@@ -283,8 +298,9 @@
     {
       "id": "cemb-19",
       "difficulty": 1,
-      "stem": "Yarıçapı 7 cm olan bir çemberin merkezine uzaklığı 25 cm olan P noktasından çembere bir teğet çiziliyor.\nBuna göre, teğet parçasının uzunluğu kaç cm'dir?",
-      "asks": "Teğet parçasının uzunluğu isteniyor.",
+      "stem": "Şekilde [PT], O merkezli çembere T noktasında teğettir. |OT| = 7 cm ve |OP| = 25 cm'dir.\nBuna göre, |PT| kaç cm'dir?",
+      "asks": "|PT| isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='262' cy='100' r='56'/><line x1='62' y1='100' x2='246.3' y2='46.2'/><line x1='262' y1='100' x2='246.3' y2='46.2'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round' stroke-dasharray='4 3'><line x1='62' y1='100' x2='262' y2='100'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><polyline points='248.8,54.9 240.2,57.4 237.7,48.8'/></g><circle cx='62' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='262' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='246.3' cy='46.2' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='56' y='105' text-anchor='end'>P</text><text x='243' y='39.2' text-anchor='middle'>T</text><text x='268' y='117' text-anchor='start'>O</text><text x='262.8' y='75.1' text-anchor='start'>7</text><text x='162' y='115.5' text-anchor='middle'>25</text><text x='151.4' y='68' text-anchor='middle'>?</text></g></svg>",
       "choices": [
         "32",
         "26",
@@ -298,8 +314,9 @@
     {
       "id": "cemb-20",
       "difficulty": 2,
-      "stem": "Çemberin dışındaki P noktasından çizilen PT ve PS teğetlerinin uzunlukları 12 cm'dir ve m(TPS) = 60°'dir.\nBuna göre, TS kaç cm'dir?",
-      "asks": "TS uzunluğu isteniyor.",
+      "stem": "Şekilde [PT] ve [PS] çembere T ve S noktalarında teğettir. |PT| = 12 cm ve m(TPS) = 60°'dir.\nBuna göre, |TS| kaç cm'dir?",
+      "asks": "|TS| isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='225' cy='100' r='58.9'/><line x1='107.2' y1='100' x2='195.6' y2='49'/><line x1='107.2' y1='100' x2='195.6' y2='151'/><line x1='195.6' y1='49' x2='195.6' y2='151'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 126.3 89 A 22 22 0 0 1 126.3 111'/></g><circle cx='107.2' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='195.6' cy='49' r='2.5' fill='currentColor' stroke='none'/><circle cx='195.6' cy='151' r='2.5' fill='currentColor' stroke='none'/><circle cx='225' cy='100' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='99.2' y='105' text-anchor='end'>P</text><text x='189.6' y='43.1' text-anchor='end'>T</text><text x='189.6' y='165.9' text-anchor='end'>S</text><text x='233' y='105' text-anchor='start'>O</text><text x='146.4' y='70.3' text-anchor='end'>12</text><text x='133.2' y='105' text-anchor='start'>60°</text><text x='187.6' y='105' text-anchor='end'>?</text></g></svg>",
       "choices": [
         "12",
         "12√2",
@@ -313,8 +330,9 @@
     {
       "id": "cemb-21",
       "difficulty": 1,
-      "stem": "Yarıçapı 17 cm olan bir çemberde uzunluğu 30 cm olan bir kiriş vardır.\nBuna göre, bu kirişin merkeze uzaklığı kaç cm'dir?",
-      "asks": "Kirişin merkeze uzaklığı isteniyor.",
+      "stem": "Şekildeki O merkezli çemberin yarıçapı 17 cm, [AB] kirişinin uzunluğu 30 cm'dir ve [OH] ⊥ [AB]'dir.\nBuna göre, |OH| kaç cm'dir?",
+      "asks": "|OH| isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='76'/><line x1='92.9' y1='135.8' x2='227.1' y2='135.8'/><line x1='160' y1='100' x2='227.1' y2='135.8'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round' stroke-dasharray='4 3'><line x1='160' y1='100' x2='160' y2='135.8'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><polyline points='168,135.8 168,127.8 160,127.8'/></g><circle cx='160' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='92.9' cy='135.8' r='2.5' fill='currentColor' stroke='none'/><circle cx='227.1' cy='135.8' r='2.5' fill='currentColor' stroke='none'/><circle cx='160' cy='135.8' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='85.9' y='140.8' text-anchor='end'>A</text><text x='234.1' y='140.8' text-anchor='start'>B</text><text x='154' y='129.8' text-anchor='end'>H</text><text x='153' y='95' text-anchor='end'>O</text><text x='197.8' y='114.4' text-anchor='start'>17</text><text x='166' y='120.9' text-anchor='start'>?</text><text x='160' y='152.8' text-anchor='middle'>30</text></g></svg>",
       "choices": [
         "17",
         "16",
@@ -328,8 +346,9 @@
     {
       "id": "cemb-22",
       "difficulty": 2,
-      "stem": "Yarıçapı 13 cm olan bir çemberde bir kiriş merkezden 5 cm uzaklıktadır.\nBuna göre, bu kirişin uzunluğu kaç cm'dir?",
-      "asks": "Kirişin uzunluğu isteniyor.",
+      "stem": "Şekildeki O merkezli çemberin yarıçapı 13 cm'dir. [OH] ⊥ [AB] ve |OH| = 5 cm'dir.\nBuna göre, |AB| kaç cm'dir?",
+      "asks": "|AB| isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='76'/><line x1='89.8' y1='129.2' x2='230.2' y2='129.2'/><line x1='160' y1='100' x2='230.2' y2='129.2'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round' stroke-dasharray='4 3'><line x1='160' y1='100' x2='160' y2='129.2'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><polyline points='168,129.2 168,121.2 160,121.2'/></g><circle cx='160' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='89.8' cy='129.2' r='2.5' fill='currentColor' stroke='none'/><circle cx='230.2' cy='129.2' r='2.5' fill='currentColor' stroke='none'/><circle cx='160' cy='129.2' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='82.8' y='134.2' text-anchor='end'>A</text><text x='237.2' y='134.2' text-anchor='start'>B</text><text x='154' y='123.2' text-anchor='end'>H</text><text x='153' y='95' text-anchor='end'>O</text><text x='198.5' y='110.8' text-anchor='start'>13</text><text x='166' y='117.6' text-anchor='start'>5</text><text x='160' y='146.2' text-anchor='middle'>?</text></g></svg>",
       "choices": [
         "5",
         "10",
@@ -343,8 +362,9 @@
     {
       "id": "cemb-23",
       "difficulty": 2,
-      "stem": "Bir çemberde uzunluğu 16 cm olan bir kiriş merkezden 6 cm uzaklıktadır.\nBuna göre, çemberin çapı kaç cm'dir?",
+      "stem": "Şekildeki O merkezli çemberde |AB| = 16 cm, [OH] ⊥ [AB] ve |OH| = 6 cm'dir.\nBuna göre, çemberin çapı kaç cm'dir?",
       "asks": "Çemberin çapı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='76'/><line x1='99.2' y1='145.6' x2='220.8' y2='145.6'/><line x1='160' y1='100' x2='220.8' y2='145.6'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round' stroke-dasharray='4 3'><line x1='160' y1='100' x2='160' y2='145.6'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round' stroke-dasharray='5 4'><line x1='88.6' y1='74' x2='231.4' y2='126'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><polyline points='168,145.6 168,137.6 160,137.6'/></g><circle cx='160' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='99.2' cy='145.6' r='2.5' fill='currentColor' stroke='none'/><circle cx='220.8' cy='145.6' r='2.5' fill='currentColor' stroke='none'/><circle cx='160' cy='145.6' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='92.2' y='150.6' text-anchor='end'>A</text><text x='227.8' y='150.6' text-anchor='start'>B</text><text x='154' y='139.6' text-anchor='end'>H</text><text x='153' y='114' text-anchor='end'>O</text><text x='166' y='125.8' text-anchor='start'>6</text><text x='160' y='162.6' text-anchor='middle'>16</text><text x='77.3' y='74.4' text-anchor='end'>?</text></g></svg>",
       "choices": [
         "10",
         "20",
@@ -360,7 +380,7 @@
       "difficulty": 3,
       "stem": "Şekildeki O merkezli çemberin yarıçapı 13 cm'dir. Merkezin aynı tarafında bulunan iki paralel kirişin uzunlukları 24 cm ve 10 cm'dir.\nBuna göre, bu iki kiriş arasındaki uzaklık kaç cm'dir?",
       "asks": "İki kiriş arasındaki uzaklık isteniyor.",
-      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='106' r='84.5'/><line x1='82' y1='73.5' x2='238' y2='73.5'/><line x1='127.5' y1='28' x2='192.5' y2='28'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-dasharray='4 3'><line x1='160' y1='106' x2='160' y2='28'/></g><circle cx='160' cy='106' r='2.5' fill='currentColor' stroke='none'/><circle cx='82' cy='73.5' r='2.5' fill='currentColor' stroke='none'/><circle cx='238' cy='73.5' r='2.5' fill='currentColor' stroke='none'/><circle cx='127.5' cy='28' r='2.5' fill='currentColor' stroke='none'/><circle cx='192.5' cy='28' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='167' y='122' text-anchor='start'>O</text></g></svg>",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='106' r='84.5'/><line x1='82' y1='73.5' x2='238' y2='73.5'/><line x1='127.5' y1='28' x2='192.5' y2='28'/><line x1='160' y1='106' x2='238' y2='73.5'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round' stroke-dasharray='4 3'><line x1='160' y1='106' x2='160' y2='28'/></g><circle cx='160' cy='106' r='2.5' fill='currentColor' stroke='none'/><circle cx='82' cy='73.5' r='2.5' fill='currentColor' stroke='none'/><circle cx='238' cy='73.5' r='2.5' fill='currentColor' stroke='none'/><circle cx='127.5' cy='28' r='2.5' fill='currentColor' stroke='none'/><circle cx='192.5' cy='28' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='153' y='122' text-anchor='end'>O</text><text x='111' y='67.5' text-anchor='middle'>24</text><text x='119.5' y='33' text-anchor='end'>10</text><text x='202.5' y='102.6' text-anchor='start'>13</text><text x='166' y='55.8' text-anchor='start'>?</text></g></svg>",
       "choices": [
         "7",
         "12",
@@ -374,8 +394,9 @@
     {
       "id": "cemb-25",
       "difficulty": 3,
-      "stem": "Çemberin dışındaki P noktasından çembere çizilen teğet parçasının uzunluğu 20 cm'dir. P noktasının çembere en yakın uzaklığı 10 cm'dir.\nBuna göre, çemberin yarıçapı kaç cm'dir?",
+      "stem": "Şekilde [PT], O merkezli çembere T noktasında teğettir. C noktası hem [OP] üzerinde hem çemberin üzerindedir. |PT| = 20 cm ve |PC| = 10 cm'dir.\nBuna göre, çemberin yarıçapı kaç cm'dir?",
       "asks": "Yarıçap isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='222' cy='100' r='82.5'/><line x1='84.5' y1='100' x2='172.5' y2='34'/><line x1='84.5' y1='100' x2='222' y2='100'/><line x1='222' y1='100' x2='172.5' y2='34'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><polyline points='177.9,41.2 170.7,46.6 165.3,39.4'/></g><circle cx='84.5' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='139.5' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='222' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='172.5' cy='34' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='78.5' y='105' text-anchor='end'>P</text><text x='165.3' y='28.9' text-anchor='end'>T</text><text x='143.5' y='117' text-anchor='start'>C</text><text x='228' y='117' text-anchor='start'>O</text><text x='122.5' y='63.5' text-anchor='end'>20</text><text x='112' y='117' text-anchor='middle'>10</text><text x='204.4' y='66.1' text-anchor='start'>?</text></g></svg>",
       "choices": [
         "15",
         "20",
@@ -389,8 +410,9 @@
     {
       "id": "cemb-26",
       "difficulty": 2,
-      "stem": "Çemberin dışındaki P noktasından çizilen iki teğet arasındaki açının ölçüsü 64°'dir. Değme noktaları T ve S, çemberin merkezi O'dur.\nBuna göre, m(TOS) kaç derecedir?",
+      "stem": "Şekilde [PT] ve [PS], O merkezli çembere T ve S noktalarında teğettir. m(TPS) = 64°'dir.\nBuna göre, m(TOS) kaç derecedir?",
       "asks": "m(TOS) isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='210' cy='100' r='64'/><line x1='89.2' y1='100' x2='176.1' y2='45.7'/><line x1='89.2' y1='100' x2='176.1' y2='154.3'/><line x1='210' y1='100' x2='176.1' y2='45.7'/><line x1='210' y1='100' x2='176.1' y2='154.3'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 107.9 88.3 A 22 22 0 0 1 107.9 111.7'/><polyline points='180.9,53.4 173.2,58.1 168.5,50.5'/><polyline points='180.9,146.6 173.2,141.9 168.5,149.5'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 201.5 113.6 A 16 16 0 0 1 201.5 86.4'/></g><circle cx='89.2' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='176.1' cy='45.7' r='2.5' fill='currentColor' stroke='none'/><circle cx='176.1' cy='154.3' r='2.5' fill='currentColor' stroke='none'/><circle cx='210' cy='100' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='81.2' y='105' text-anchor='end'>P</text><text x='169.7' y='40' text-anchor='end'>T</text><text x='169.7' y='169' text-anchor='end'>S</text><text x='218' y='105' text-anchor='start'>O</text><text x='119.2' y='104.5' text-anchor='start'>64°</text><text x='180' y='104.5' text-anchor='end'>?</text></g></svg>",
       "choices": [
         "148",
         "128",
@@ -404,8 +426,9 @@
     {
       "id": "cemb-27",
       "difficulty": 3,
-      "stem": "Yarıçapı 6 cm olan bir çemberde, gördüğü merkez açının ölçüsü 120° olan kirişin uzunluğu kaç cm'dir?",
-      "asks": "Kirişin uzunluğu isteniyor.",
+      "stem": "Şekildeki O merkezli çemberin yarıçapı 6 cm ve m(AOB) = 120°'dir.\nBuna göre, |AB| kaç cm'dir?",
+      "asks": "|AB| isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='72'/><line x1='160' y1='100' x2='97.6' y2='136'/><line x1='160' y1='100' x2='222.4' y2='136'/><line x1='97.6' y1='136' x2='222.4' y2='136'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 173.9 108 A 16 16 0 0 1 146.1 108'/></g><circle cx='160' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='97.6' cy='136' r='2.5' fill='currentColor' stroke='none'/><circle cx='222.4' cy='136' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='87.3' y='146.5' text-anchor='end'>A</text><text x='232.7' y='146.5' text-anchor='start'>B</text><text x='160' y='91' text-anchor='middle'>O</text><text x='124.3' y='114.7' text-anchor='end'>6</text><text x='160' y='129.5' text-anchor='middle'>120°</text><text x='160' y='153' text-anchor='middle'>?</text></g></svg>",
       "choices": [
         "3",
         "3√3",
@@ -419,8 +442,9 @@
     {
       "id": "cemb-28",
       "difficulty": 2,
-      "stem": "ABCD dörtgeninin köşeleri bir çemberin üzerindedir. m(A) = 3x ve m(C) = x + 40 olduğuna göre, m(A) kaç derecedir?",
+      "stem": "Şekildeki ABCD dörtgeninin köşeleri çemberin üzerindedir. m(A) = 3x ve m(C) = x + 40'tır.\nBuna göre, m(A) kaç derecedir?",
       "asks": "m(A) isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='76'/><polygon points='88.6,74 160,24 231.4,126 122,165.8'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 105 62.5 A 20 20 0 0 1 95.4 92.8'/><path d='M 212.6 132.8 A 20 20 0 0 1 219.9 109.6'/></g><circle cx='88.6' cy='74' r='2.5' fill='currentColor' stroke='none'/><circle cx='160' cy='24' r='2.5' fill='currentColor' stroke='none'/><circle cx='231.4' cy='126' r='2.5' fill='currentColor' stroke='none'/><circle cx='122' cy='165.8' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='77.3' y='74.4' text-anchor='end'>A</text><text x='160' y='16.5' text-anchor='middle'>B</text><text x='242.7' y='134.6' text-anchor='start'>C</text><text x='116' y='180.7' text-anchor='end'>D</text><text x='122.9' y='89.3' text-anchor='start'>3x</text><text x='199' y='120.3' text-anchor='end'>x + 40</text></g></svg>",
       "choices": [
         "35",
         "75",
@@ -434,8 +458,9 @@
     {
       "id": "cemb-29",
       "difficulty": 2,
-      "stem": "ABCD dörtgeninin köşeleri bir çemberin üzerindedir. B köşesindeki dış açının ölçüsü 72°'dir.\nBuna göre, m(D) kaç derecedir?",
+      "stem": "Şekildeki ABCD dörtgeninin köşeleri çemberin üzerindedir. [AB] kenarı B yönünde uzatılmıştır ve B köşesinde oluşan dış açı 72°'dir.\nBuna göre, m(D) kaç derecedir?",
       "asks": "m(D) isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='76'/><polygon points='88.6,126 113.2,40.1 202.5,37 160,176'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round' stroke-dasharray='4 3'><line x1='113.2' y1='40.1' x2='125.9' y2='-4.1'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 117.6 24.7 A 16 16 0 0 1 129.2 39.6'/><path d='M 143.6 164.5 A 20 20 0 0 1 165.8 156.9'/></g><circle cx='88.6' cy='126' r='2.5' fill='currentColor' stroke='none'/><circle cx='113.2' cy='40.1' r='2.5' fill='currentColor' stroke='none'/><circle cx='202.5' cy='37' r='2.5' fill='currentColor' stroke='none'/><circle cx='160' cy='176' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='77.3' y='134.6' text-anchor='end'>A</text><text x='101.2' y='42.1' text-anchor='end'>B</text><text x='209.2' y='31.5' text-anchor='start'>C</text><text x='160' y='192.5' text-anchor='middle'>D</text><text x='135.3' y='27.4' text-anchor='start'>72°</text><text x='149.6' y='150.2' text-anchor='middle'>?</text></g></svg>",
       "choices": [
         "72",
         "90",
@@ -449,8 +474,9 @@
     {
       "id": "cemb-30",
       "difficulty": 2,
-      "stem": "ABCD dörtgeninin dört kenarı bir çembere teğettir. AB = 10 cm, BC = (x + 3) cm, CD = 14 cm ve DA = 2x cm'dir.\nBuna göre, DA kaç cm'dir?",
-      "asks": "DA uzunluğu isteniyor.",
+      "stem": "Şekildeki ABCD dörtgeninin dört kenarı çembere teğettir. |AB| = 9 cm, |BC| = (x + 3) cm, |CD| = 15 cm ve |DA| = 2x cm'dir.\nBuna göre, |DA| kaç cm'dir?",
+      "asks": "|DA| isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='45.8'/><polygon points='170.4,44.6 221.5,97.8 169,160.8 66.3,93.1'/></g><circle cx='170.4' cy='44.6' r='2.5' fill='currentColor' stroke='none'/><circle cx='221.5' cy='97.8' r='2.5' fill='currentColor' stroke='none'/><circle cx='169' cy='160.8' r='2.5' fill='currentColor' stroke='none'/><circle cx='66.3' cy='93.1' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='172.6' y='37.3' text-anchor='middle'>A</text><text x='233.5' y='101.9' text-anchor='start'>B</text><text x='170.7' y='177.2' text-anchor='middle'>C</text><text x='54.3' y='96.7' text-anchor='end'>D</text><text x='203.1' y='68.8' text-anchor='start'>9</text><text x='202.9' y='140.2' text-anchor='start'>x + 3</text><text x='112.1' y='139.8' text-anchor='end'>15</text><text x='114.1' y='64.3' text-anchor='end'>2x</text></g></svg>",
       "choices": [
         "3",
         "7",
@@ -459,13 +485,14 @@
         "14"
       ],
       "answer": 4,
-      "solution": "1. Teğetler dörtgeninde karşı kenarların toplamları eşittir:\nAB + CD = BC + DA\n10 + 14 = (x + 3) + 2x → 24 = 3x + 3 → x = 7\n\n2. DA = 2 · 7 = **14**\n\nNot: B şıkkındaki 7, x'in değeridir; C şıkkındaki 10 ise BC'dir (7 + 3). D şıkkındaki 12, 24'ü iki kenara eşit paylaştırmaktır. Karşı kenarları doğru eşleştir: AB'nin karşısı CD, BC'nin karşısı DA."
+      "solution": "1. Teğetler dörtgeninde karşı kenarların toplamları eşittir:\nAB + CD = BC + DA\n9 + 15 = (x + 3) + 2x → 24 = 3x + 3 → x = 7\n\n2. DA = 2 · 7 = **14**\n\nNot: B şıkkındaki 7, x'in değeridir; C şıkkındaki 10 ise BC'dir (7 + 3). D şıkkındaki 12, 24'ü iki kenara eşit paylaştırmaktır. Karşı kenarları doğru eşleştir: AB'nin karşısı CD, BC'nin karşısı DA."
     },
     {
       "id": "cemb-31",
       "difficulty": 2,
-      "stem": "Dört kenarı bir çembere teğet olan ABCD dörtgeninde AB + CD = 22 cm'dir.\nBuna göre, ABCD dörtgeninin çevresi kaç cm'dir?",
+      "stem": "Şekildeki ABCD dörtgeninin dört kenarı çembere teğettir ve |AB| + |CD| = 22 cm'dir.\nBuna göre, ABCD dörtgeninin çevresi kaç cm'dir?",
       "asks": "Dörtgenin çevresi isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='38.3'/><polygon points='168.3,56.2 208.1,91.5 171.9,158.3 82.6,87.4'/></g><circle cx='168.3' cy='56.2' r='2.5' fill='currentColor' stroke='none'/><circle cx='208.1' cy='91.5' r='2.5' fill='currentColor' stroke='none'/><circle cx='171.9' cy='158.3' r='2.5' fill='currentColor' stroke='none'/><circle cx='82.6' cy='87.4' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='170.6' y='48.9' text-anchor='middle'>A</text><text x='220' y='94' text-anchor='start'>B</text><text x='174.3' y='174.6' text-anchor='middle'>C</text><text x='70.8' y='90' text-anchor='end'>D</text></g></svg>",
       "choices": [
         "22",
         "44",
@@ -479,9 +506,9 @@
     {
       "id": "cemb-32",
       "difficulty": 3,
-      "stem": "Şekildeki ikizkenar yamuğun dört kenarı çembere teğettir. Yamuğun paralel kenarları 8 cm ve 18 cm'dir.\nBuna göre, yamuğun yüksekliği kaç cm'dir?",
+      "stem": "Şekildeki ABCD ikizkenar yamuğunun dört kenarı çembere teğettir. [AB] ∥ [DC], |AB| = 8 cm ve |DC| = 18 cm'dir.\nBuna göre, yamuğun yüksekliği kaç cm'dir?",
       "asks": "Yamuğun yüksekliği isteniyor.",
-      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='72'/><polygon points='112,28 208,28 268,172 52,172'/></g><circle cx='160' cy='100' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='106' y='23' text-anchor='end'>A</text><text x='214' y='23' text-anchor='start'>B</text><text x='274' y='177' text-anchor='start'>C</text><text x='46' y='177' text-anchor='end'>D</text></g></svg>",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='72'/><polygon points='112,28 208,28 268,172 52,172'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round' stroke-dasharray='4 3'><line x1='112' y1='28' x2='112' y2='172'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><polyline points='104,172 104,164 112,164'/></g><circle cx='160' cy='100' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='106' y='23' text-anchor='end'>A</text><text x='214' y='23' text-anchor='start'>B</text><text x='274' y='177' text-anchor='start'>C</text><text x='46' y='177' text-anchor='end'>D</text><text x='160' y='22' text-anchor='middle'>8</text><text x='190' y='188' text-anchor='middle'>18</text><text x='105' y='120' text-anchor='end'>?</text></g></svg>",
       "choices": [
         "5",
         "10",
@@ -495,8 +522,9 @@
     {
       "id": "cemb-33",
       "difficulty": 2,
-      "stem": "Kenar uzunlukları 6 cm ve 8 cm olan bir dikdörtgenin dört köşesi bir çemberin üzerindedir.\nBuna göre, bu çemberin yarıçapı kaç cm'dir?",
-      "asks": "Çemberin yarıçapı isteniyor.",
+      "stem": "Şekildeki ABCD dikdörtgeninin köşeleri O merkezli çemberin üzerindedir. |AB| = 8 cm ve |BC| = 6 cm'dir.\nBuna göre, çemberin yarıçapı kaç cm'dir?",
+      "asks": "Yarıçap isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='75'/><polygon points='100,55 220,55 220,145 100,145'/><line x1='160' y1='100' x2='220' y2='145'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><polyline points='212,55 212,63 220,63'/></g><circle cx='160' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='100' cy='55' r='2.5' fill='currentColor' stroke='none'/><circle cx='220' cy='55' r='2.5' fill='currentColor' stroke='none'/><circle cx='220' cy='145' r='2.5' fill='currentColor' stroke='none'/><circle cx='100' cy='145' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='90.4' y='52.3' text-anchor='end'>A</text><text x='229.6' y='52.3' text-anchor='start'>B</text><text x='229.6' y='156.7' text-anchor='start'>C</text><text x='90.4' y='156.7' text-anchor='end'>D</text><text x='152' y='95' text-anchor='end'>O</text><text x='160' y='49' text-anchor='middle'>8</text><text x='213' y='105' text-anchor='end'>6</text><text x='184.6' y='134.2' text-anchor='end'>?</text></g></svg>",
       "choices": [
         "14",
         "10",
@@ -510,8 +538,9 @@
     {
       "id": "cemb-34",
       "difficulty": 1,
-      "stem": "Yarıçapı 5 cm olan bir dairenin alanı kaç cm²'dir?",
+      "stem": "Şekildeki O merkezli dairenin yarıçapı 5 cm'dir.\nBuna göre, dairenin alanı kaç cm²'dir?",
       "asks": "Dairenin alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><path d='M 88 100 A 72 72 0 1 0 232 100 A 72 72 0 1 0 88 100 Z' fill='#0284c7' fill-opacity='0.2' stroke='none'/><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='72'/><line x1='160' y1='100' x2='222.4' y2='64'/></g><circle cx='160' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='222.4' cy='64' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='153' y='116' text-anchor='end'>O</text><text x='186.7' y='78.7' text-anchor='end'>5</text></g></svg>",
       "choices": [
         "5π",
         "10π",
@@ -525,8 +554,9 @@
     {
       "id": "cemb-35",
       "difficulty": 1,
-      "stem": "Çevresi 18π cm olan bir dairenin alanı kaç cm²'dir?",
+      "stem": "Şekildeki O merkezli dairenin çevresi 18π cm'dir.\nBuna göre, dairenin alanı kaç cm²'dir?",
       "asks": "Dairenin alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><path d='M 90 100 A 70 70 0 1 0 230 100 A 70 70 0 1 0 90 100 Z' fill='#0284c7' fill-opacity='0.2' stroke='none'/><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='70'/><line x1='160' y1='100' x2='220.6' y2='65'/></g><circle cx='160' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='220.6' cy='65' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='153' y='116' text-anchor='end'>O</text><text x='185.8' y='79.2' text-anchor='end'>r</text><text x='160' y='192' text-anchor='middle'>Çevre = 18π</text></g></svg>",
       "choices": [
         "9π",
         "18π",
@@ -540,8 +570,9 @@
     {
       "id": "cemb-36",
       "difficulty": 2,
-      "stem": "Yarıçapı 9 cm olan bir dairede merkez açısının ölçüsü 40° olan daire diliminin alanı kaç cm²'dir?",
+      "stem": "Şekildeki O merkezli dairenin yarıçapı 9 cm ve m(AOB) = 40°'dir.\nBuna göre, boyalı AOB daire diliminin alanı kaç cm²'dir?",
       "asks": "Daire diliminin alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><path d='M 160 100 L 133.8 28.1 A 76.5 76.5 0 0 1 186.2 28.1 Z' fill='#0284c7' fill-opacity='0.2' stroke='none'/><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='76.5'/><line x1='160' y1='100' x2='133.8' y2='28.1'/><line x1='160' y1='100' x2='186.2' y2='28.1'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 154.5 85 A 16 16 0 0 1 165.5 85'/></g><circle cx='160' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='133.8' cy='28.1' r='2.5' fill='currentColor' stroke='none'/><circle cx='186.2' cy='28.1' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='129.7' y='21.3' text-anchor='middle'>A</text><text x='190.3' y='21.3' text-anchor='middle'>B</text><text x='160' y='117' text-anchor='middle'>O</text><text x='138.5' y='71.6' text-anchor='end'>9</text><text x='160' y='54.5' text-anchor='middle'>40°</text></g></svg>",
       "choices": [
         "2π",
         "4π",
@@ -555,8 +586,9 @@
     {
       "id": "cemb-37",
       "difficulty": 2,
-      "stem": "Yarıçapı 10 cm olan bir dairede merkez açısının ölçüsü 72° olan yayın uzunluğu kaç cm'dir?",
+      "stem": "Şekildeki O merkezli çemberin yarıçapı 10 cm ve m(AOB) = 72°'dir.\nBuna göre, koyu çizilen AB yayının uzunluğu kaç cm'dir?",
       "asks": "Yay uzunluğu isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='76'/><line x1='160' y1='100' x2='115.3' y2='38.5'/><line x1='160' y1='100' x2='204.7' y2='38.5'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 150.6 87.1 A 16 16 0 0 1 169.4 87.1'/></g><path d='M 115.3 38.5 A 76 76 0 0 1 204.7 38.5' fill='none' stroke='#0284c7' stroke-width='3.5'/><circle cx='160' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='115.3' cy='38.5' r='2.5' fill='currentColor' stroke='none'/><circle cx='204.7' cy='38.5' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='108.3' y='33.3' text-anchor='end'>A</text><text x='211.7' y='33.3' text-anchor='start'>B</text><text x='160' y='117' text-anchor='middle'>O</text><text x='130.4' y='79' text-anchor='end'>10</text><text x='160' y='76.5' text-anchor='middle'>72°</text><text x='160' y='15.5' text-anchor='middle'>?</text></g></svg>",
       "choices": [
         "2π",
         "4π",
@@ -570,8 +602,9 @@
     {
       "id": "cemb-38",
       "difficulty": 2,
-      "stem": "Aynı merkezli iki çemberin yarıçapları 7 cm ve 3 cm'dir.\nBuna göre, bu iki çember arasında kalan halkanın alanı kaç cm²'dir?",
+      "stem": "Şekildeki aynı merkezli iki çemberin yarıçapları 7 cm ve 3 cm'dir.\nBuna göre, boyalı halkanın alanı kaç cm²'dir?",
       "asks": "Halkanın alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><path d='M 83 100 A 77 77 0 1 0 237 100 A 77 77 0 1 0 83 100 Z M 127 100 A 33 33 0 1 1 193 100 A 33 33 0 1 1 127 100 Z' fill='#0284c7' fill-opacity='0.2' fill-rule='evenodd' stroke='none'/><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='77'/><circle cx='160' cy='100' r='33'/><line x1='160' y1='100' x2='198.5' y2='33.3'/><line x1='160' y1='100' x2='188.6' y2='116.5'/></g><circle cx='160' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='198.5' cy='33.3' r='2.5' fill='currentColor' stroke='none'/><circle cx='188.6' cy='116.5' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='153' y='105' text-anchor='end'>O</text><text x='181.7' y='48.9' text-anchor='end'>7</text><text x='169.8' y='120.5' text-anchor='end'>3</text></g></svg>",
       "choices": [
         "58π",
         "49π",
@@ -585,9 +618,9 @@
     {
       "id": "cemb-39",
       "difficulty": 3,
-      "stem": "Şekildeki O merkezli dairenin yarıçapı 4 cm, m(AOB) = 90°'dir.\nBuna göre, [AB] kirişi ile AB yayı arasında kalan boyalı bölgenin alanı kaç cm²'dir?",
+      "stem": "Şekildeki O merkezli dairenin yarıçapı 4 cm ve m(AOB) = 90°'dir.\nBuna göre, [AB] kirişi ile AB yayı arasında kalan boyalı bölgenin alanı kaç cm²'dir?",
       "asks": "Boyalı bölgenin alanı isteniyor.",
-      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><path d='M 103.4 61.4 A 80 80 0 0 1 216.6 61.4 Z' fill='#0284c7' fill-opacity='0.2' stroke='none'/><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='118' r='80'/><line x1='103.4' y1='61.4' x2='216.6' y2='61.4'/><line x1='160' y1='118' x2='103.4' y2='61.4'/><line x1='160' y1='118' x2='216.6' y2='61.4'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='152.9,110.9 160,103.9 167.1,110.9'/></g><circle cx='160' cy='118' r='2.5' fill='currentColor' stroke='none'/><circle cx='103.4' cy='61.4' r='2.5' fill='currentColor' stroke='none'/><circle cx='216.6' cy='61.4' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='94.2' y='56.7' text-anchor='end'>A</text><text x='225.8' y='56.7' text-anchor='start'>B</text><text x='160' y='136' text-anchor='middle'>O</text></g></svg>",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><path d='M 103.4 61.4 A 80 80 0 0 1 216.6 61.4 Z' fill='#0284c7' fill-opacity='0.2' stroke='none'/><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='118' r='80'/><line x1='103.4' y1='61.4' x2='216.6' y2='61.4'/><line x1='160' y1='118' x2='103.4' y2='61.4'/><line x1='160' y1='118' x2='216.6' y2='61.4'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><polyline points='152.9,110.9 160,103.9 167.1,110.9'/></g><circle cx='160' cy='118' r='2.5' fill='currentColor' stroke='none'/><circle cx='103.4' cy='61.4' r='2.5' fill='currentColor' stroke='none'/><circle cx='216.6' cy='61.4' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='94.9' y='57.4' text-anchor='end'>A</text><text x='225.1' y='57.4' text-anchor='start'>B</text><text x='160' y='136' text-anchor='middle'>O</text><text x='125.4' y='100.6' text-anchor='end'>4</text></g></svg>",
       "choices": [
         "2π − 4",
         "4π − 8",
@@ -601,8 +634,9 @@
     {
       "id": "cemb-40",
       "difficulty": 3,
-      "stem": "Yarıçapı 6 cm olan bir dairede bir daire diliminin alanı 12π cm²'dir.\nBuna göre, bu dilimin merkez açısı kaç derecedir?",
+      "stem": "Şekildeki O merkezli dairenin yarıçapı 6 cm'dir. Boyalı AOB daire diliminin alanı 12π cm²'dir.\nBuna göre, m(AOB) kaç derecedir?",
       "asks": "Dilimin merkez açısı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><path d='M 160 100 L 95 62.5 A 75 75 0 0 1 225 62.5 Z' fill='#0284c7' fill-opacity='0.2' stroke='none'/><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='75'/><line x1='160' y1='100' x2='95' y2='62.5'/><line x1='160' y1='100' x2='225' y2='62.5'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 146.1 92 A 16 16 0 0 1 173.9 92'/></g><circle cx='160' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='95' cy='62.5' r='2.5' fill='currentColor' stroke='none'/><circle cx='225' cy='62.5' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='84.7' y='61' text-anchor='end'>A</text><text x='235.3' y='61' text-anchor='start'>B</text><text x='160' y='117' text-anchor='middle'>O</text><text x='123' y='93.5' text-anchor='end'>6</text><text x='160' y='76.5' text-anchor='middle'>?</text><text x='160' y='64' text-anchor='middle'>12π</text></g></svg>",
       "choices": [
         "30",
         "40",

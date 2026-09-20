@@ -2236,6 +2236,88 @@ kart bulguları da hâlâ uygulanmamış durumda.)
 - `referans/` altında yalnız `geometri-cember.md` bırakıldı, json silindi.
 - `sw.js` VERSION **v60 → v61**.
 
+## Çember paketi v2: 6 şekilden 40 şekle
+
+`referans/geometri-cember.json` aynı paketin ikinci sürümünü getirdi: v1'de yalnız
+6 soruda şekil vardı, kalan 34'ü metinden anlatıyordu. v2'de **40 sorunun 40'ında
+şekil var**, soru kökleri de şekle atıf yapacak biçimde yeniden yazılmış. Dosya yine
+uygulama biçiminde geldi, transkripsiyon yapılmadı.
+
+### Fark, yazmadan önce alan alan doğrulandı
+
+Kritik olan şuydu: id'ler, şıklar ve cevaplar değişmemeli — değişirse kayıtlı ilerleme
+yanlış soruya bağlanır. Değişmemişler.
+
+| alan | değişen soru |
+|---|---|
+| `figure` eklendi | 34 (v1'de şekilsiz olanların hepsi) |
+| `figure` değişti | 6 — `cemb-08/15/18/24/32/39` |
+| `stem` değişti | 39 |
+| `asks` değişti | 17 |
+| `solution` değişti | 1 — `cemb-30` |
+| `id` / `choices` / `answer` / `difficulty` | **0 fark** |
+
+Anahtar kümesi 40 soruda da aynı: `id, difficulty, stem, asks, figure, choices,
+answer, solution`. Alan silinmedi. `stem` 40 değil 39: `cemb-24` v1'de zaten şekilli
+olduğu için kökü aynen korunmuş. `asks` v1'de de 40 sorunun 40'ında vardı, 23'ünde
+metin aynı kaldı.
+
+Git diff sayıları aritmetikle kapanıyor: **100 ekleme** = 40 yeni `figure` + 39 `stem`
++ 17 `asks` + 1 `solution` + `topic` + `version`; **66 silme** = aynısı eksi 34 yeni
+şekil satırı.
+
+### Kimlik: v1'deki tek düzeltme tekrarlandı
+
+v2 yine `topic: "Çember"` diyordu; `936bc65`'te olduğu gibi `Çember ve Daire` yapıldı
+(depodaki konu başlığı üç yerde birden böyle). `id`, `topicId`, `subtopicId`,
+`subtopic` v2'de zaten doğruydu, elle sürülmedi. Kopyalama satır bazlı yapıldı: v2
+dosyasının 4. satırı v1'inkiyle değiştirildi, geri kalan 646 satır bayt bayt aynı —
+`diff` tek satır fark gösteriyor.
+
+`data/index.json` → `geometri-cember` kaydının `version` alanı da 1 → 2. Depo kuralı:
+index'teki sürüm paketinkini yansıtıyor (`ucgen-alan` 3/3, `acilar-temel` 2/2).
+`count: 40`, `topic` ve dosya yolu aynı kaldı.
+
+### İlerleme neden korunuyor
+
+`store.js` ilerlemeyi `localStorage` → `dgs.progress.v1` içinde **soru id'siyle**
+tutuyor (`recordAnswer(id, …)`). Paket dosyasına da `version` alanına da bakmıyor —
+`version`, `js/` altında hiçbir yerde okunmuyor; yalnız insan için bir etiket. id'ler
+`cemb-01…40` aynı kaldığı için daha önce çözülmüş sorular olduğu gibi kalır. Yarım
+kalan bir oturum varsa `restoreSession` onu id üzerinden yeniden bağlar, kaybolan soru
+olmadığı için kalınan yer de kaymaz.
+
+### Doğrulama (tarayıcıda, sayıyla)
+
+- `js/svg.js` → `parseFigure`: 40 şeklin **40'ı** düğüm döndürdü, `null` ya da
+  `parsererror` yok. **Kaynak etiket sayısı = çizilen düğüm sayısı, 40/40 birebir**
+  (toplam 782 düğüm, en sade `cemb-34` 10, en yoğun `cemb-26` 24). Beyaz liste hiçbir
+  etiketi/niteliği düşürmedi. 40 şeklin hepsi `viewBox='0 0 320 200'`,
+  `width`/`height` yazmıyor.
+- Paket yüklemesi: toplam soru **743**, paket **30** (değişmedi, soru sayısı aynı);
+  `loadAllQuestions()` sırasında tek `console.warn` yok. Çemberin 40 sorusunun 40'ında
+  `figure` alanı dolu, `topic` "Çember ve Daire" olarak çözülüyor.
+- `richText()`: 40 çözümün **40'ında** `.solution-note` kutusu açıldı, toplam **78**
+  `<strong>`; işlenmemiş `**` kalmadı. `cemb-30`'un değişen çözümü de temiz basıldı.
+- Ekran görüntüsü alınan beş soru — `cemb-05` (iki kesen, 40°/130° yayları mavi),
+  `cemb-15` (teğet-kesen, T'de dik açı işareti + kesikli yarıçap), `cemb-17` (iki
+  kesen, 5/7/3 ve ?), `cemb-30` (teğetler dörtgeni, içteki çember + 9/x+3/15/2x),
+  `cemb-38` (eş merkezli iki çember, halka boyalı, 7 ve 3) — beşinde de şekil, kök ve
+  şıklar birbirini tutuyor.
+- Doğrulama sırasında **hiçbir soru cevaplanmadı**: hedef soruya `saveSession` ile
+  tek soruluk bir oturum kurulup sayfa yenilenerek gidildi. Sonunda ana ekranda
+  `clearSession` + reload; `stats`, `timings`, `daily` ve `sessions` hepsi boş kaldı.
+- `referans/` altında yalnız `geometri-cember.md` bırakıldı, json silindi.
+- `sw.js` VERSION **v61 → v62**.
+
+### Not: service worker eski paketi servis ediyordu
+
+İlk `parseFigure` taraması `version: 1` ve 6 şekil döndürdü — dosya diskte
+değişmişti ama sayfa hâlâ `dgs-v61` cache'inden okuyordu; `fetch(..., {cache:'no-store'})`
+service worker'ı atlatmıyor. Kayıt kaldırılıp cache silindikten ve sayfa yenilendikten
+sonra doğru sayılar geldi. Doğrulamaya paket dosyası değiştiren her turda geçerli:
+**önce SW cache'ini düşür, sonra say.**
+
 ## Çalışma kuralları
 
 - Plan modunda başla.
