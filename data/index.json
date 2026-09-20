@@ -342,6 +342,17 @@
       "file": "packs/geo-cember.json",
       "count": 10,
       "version": 1
+    },
+    {
+      "id": "geometri-cember",
+      "topicId": "cember",
+      "topic": "Çember ve Daire",
+      "subtopicId": "cember-daire",
+      "subtopic": "Çember ve daire",
+      "title": "Çember ve daire",
+      "file": "packs/geometri-cember.json",
+      "count": 40,
+      "version": 1
     }
   ]
 }

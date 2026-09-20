@@ -1,0 +1,617 @@
+{
+  "id": "geometri-cember",
+  "topicId": "cember",
+  "topic": "Çember ve Daire",
+  "subtopicId": "cember-daire",
+  "subtopic": "Çember ve daire",
+  "version": 1,
+  "blocks": [],
+  "questions": [
+    {
+      "id": "cemb-01",
+      "difficulty": 1,
+      "stem": "Bir çemberde AB yayını gören merkez açının ölçüsü 110°'dir.\nBuna göre, AB yayını gören bir çevre açının ölçüsü kaç derecedir?",
+      "asks": "Çevre açının ölçüsü isteniyor.",
+      "choices": [
+        "35",
+        "55",
+        "70",
+        "110",
+        "220"
+      ],
+      "answer": 1,
+      "solution": "1. Çevre açı, aynı yayı gören merkez açının **yarısıdır**.\n\n2. 110 / 2 = **55**\n\nNot: D şıkkındaki 110 merkez açının kendisi, E şıkkındaki 220 ise ters yönde işlem yapmaktır (ikiyle çarpmak). Tepe noktası çemberin **üzerindeyse** yarıya bölünür."
+    },
+    {
+      "id": "cemb-02",
+      "difficulty": 1,
+      "stem": "Bir çemberde AB yayını gören bir çevre açının ölçüsü 38°'dir.\nBuna göre, aynı yayı gören merkez açının ölçüsü kaç derecedir?",
+      "asks": "Merkez açının ölçüsü isteniyor.",
+      "choices": [
+        "19",
+        "38",
+        "57",
+        "76",
+        "152"
+      ],
+      "answer": 3,
+      "solution": "1. Merkez açı, aynı yayı gören çevre açının **iki katıdır**.\n\n2. 2 · 38 = **76**\n\nNot: A şıkkındaki 19, yönü karıştırıp ikiye bölmektir. Hangisinin büyük olduğunu şekille sına: merkez açının tepesi yaya daha yakındır ve açısı her zaman daha **geniştir**."
+    },
+    {
+      "id": "cemb-03",
+      "difficulty": 1,
+      "stem": "[AB] bir çemberin çapıdır ve C noktası çemberin üzerindedir. m(CAB) = 28° olduğuna göre, m(CBA) kaç derecedir?",
+      "asks": "m(CBA) isteniyor.",
+      "choices": [
+        "28",
+        "56",
+        "62",
+        "90",
+        "118"
+      ],
+      "answer": 2,
+      "solution": "1. Çapı gören çevre açı 90°'dir: m(ACB) = 90°\n\n2. ABC üçgeninde:\nm(CBA) = 180 − 90 − 28 = **62**\n\nNot: D şıkkındaki 90, C'deki açıdır — hesabın ilk adımında bulunan sayı. Soru B'deki açıyı istiyor."
+    },
+    {
+      "id": "cemb-04",
+      "difficulty": 2,
+      "stem": "Bir çemberde iki kiriş çemberin içindeki P noktasında kesişmektedir. P'deki açının ve onun ters açısının gördüğü yayların ölçüleri 70° ve 50°'dir.\nBuna göre, P'deki açının ölçüsü kaç derecedir?",
+      "asks": "P'deki açının ölçüsü isteniyor.",
+      "choices": [
+        "10",
+        "20",
+        "35",
+        "50",
+        "60"
+      ],
+      "answer": 4,
+      "solution": "1. Tepe noktası çemberin **içinde** olan açı, gördüğü iki yayın **toplamının yarısıdır**.\n\n2. (70 + 50) / 2 = **60**\n\nNot: A şıkkındaki 10, farkın yarısıdır — o formül tepe **dışarıdayken** geçerlidir. C şıkkındaki 35 ise tek bir yayın yarısını almaktır, yani açıyı çevre açı sanmaktır."
+    },
+    {
+      "id": "cemb-05",
+      "difficulty": 2,
+      "stem": "Çemberin dışındaki bir P noktasından çizilen iki kesen, çember üzerinde ölçüleri 130° ve 40° olan iki yay ayırmaktadır.\nBuna göre, P'deki açının ölçüsü kaç derecedir?",
+      "asks": "P'deki açının ölçüsü isteniyor.",
+      "choices": [
+        "45",
+        "40",
+        "35",
+        "25",
+        "20"
+      ],
+      "answer": 0,
+      "solution": "1. Tepe noktası çemberin **dışında** olan açı, iki yayın **farkının yarısıdır**.\n\n2. (130 − 40) / 2 = 90 / 2 = **45**\n\nNot: Şıklar büyükten küçüğe sıralıdır. Toplamın yarısı (85) şıklarda yok; onu bulduysan formülü içerideki açıyla karıştırmışsındır. B şıkkındaki 40 ise yakın yayın kendisidir."
+    },
+    {
+      "id": "cemb-06",
+      "difficulty": 2,
+      "stem": "Bir çemberde teğet ile kiriş arasındaki açının gördüğü yayın ölçüsü 136°'dir.\nBuna göre, bu açının ölçüsü kaç derecedir?",
+      "asks": "Teğet-kiriş açısının ölçüsü isteniyor.",
+      "choices": [
+        "34",
+        "44",
+        "68",
+        "112",
+        "136"
+      ],
+      "answer": 2,
+      "solution": "1. Teğet-kiriş açısı, çevre açının sınır hâlidir; gördüğü yayın **yarısıdır**.\n\n2. 136 / 2 = **68**\n\nNot: E şıkkındaki 136, teğet-kiriş açısını merkez açı gibi yaya eşit saymaktır. Teğet kiriş gibi görünmese de açının tepesi çemberin üzerindedir."
+    },
+    {
+      "id": "cemb-07",
+      "difficulty": 2,
+      "stem": "Çemberin dışındaki bir P noktasından çembere iki teğet çiziliyor. Değme noktaları arasındaki küçük yayın ölçüsü 110°'dir.\nBuna göre, iki teğet arasındaki açının ölçüsü kaç derecedir?",
+      "asks": "İki teğet arasındaki açının ölçüsü isteniyor.",
+      "choices": [
+        "55",
+        "70",
+        "110",
+        "125",
+        "140"
+      ],
+      "answer": 1,
+      "solution": "1. Küçük yay 110° ise büyük yay 360 − 110 = 250°'dir.\n\n2. P dışarıda olduğundan açı, yayların farkının yarısıdır:\n(250 − 110) / 2 = **70**\n\nNot: Aynı sonuç dörtgenden de gelir: teğetler yarıçaplara dik olduğu için PTOS dörtgeninde iki açı 90°'dir, merkez açı 110° olduğundan P = 360 − 90 − 90 − 110 = 70. E şıkkındaki 140, farkı ikiye bölmeyi unutmaktır."
+    },
+    {
+      "id": "cemb-08",
+      "difficulty": 2,
+      "stem": "Şekilde O merkezli çemberde m(AOB) = 3x ve m(ACB) = x + 20'dir.\nBuna göre, m(ACB) kaç derecedir?",
+      "asks": "m(ACB) isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='102' r='78'/><line x1='160' y1='102' x2='92.5' y2='141'/><line x1='160' y1='102' x2='227.5' y2='141'/><line x1='193' y1='31.3' x2='92.5' y2='141'/><line x1='193' y1='31.3' x2='227.5' y2='141'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 173.9 110 A 16 16 0 0 1 146.1 110'/><path d='M 199 50.4 A 20 20 0 0 1 179.5 46.1'/></g><circle cx='160' cy='102' r='2.5' fill='currentColor' stroke='none'/><circle cx='92.5' cy='141' r='2.5' fill='currentColor' stroke='none'/><circle cx='227.5' cy='141' r='2.5' fill='currentColor' stroke='none'/><circle cx='193' cy='31.3' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='81.2' y='152' text-anchor='end'>A</text><text x='238.8' y='152' text-anchor='start'>B</text><text x='198.5' y='24' text-anchor='start'>C</text><text x='160' y='93' text-anchor='middle'>O</text></g></svg>",
+      "choices": [
+        "20",
+        "40",
+        "50",
+        "60",
+        "120"
+      ],
+      "answer": 3,
+      "solution": "1. AOB merkez açı, ACB aynı yayı gören çevre açıdır:\n3x = 2 · (x + 20) → 3x = 2x + 40 → x = 40\n\n2. m(ACB) = 40 + 20 = **60**\n\nNot: B şıkkındaki 40, x'in değeridir; soru açının kendisini istiyor. E şıkkındaki 120 ise merkez açıdır (3 · 40)."
+    },
+    {
+      "id": "cemb-09",
+      "difficulty": 2,
+      "stem": "Bir çemberde iki kiriş içeride kesişmektedir. Kesişme noktasındaki açının ölçüsü 75°, bu açının gördüğü yaylardan birinin ölçüsü 100°'dir.\nBuna göre, diğer yayın ölçüsü kaç derecedir?",
+      "asks": "Diğer yayın ölçüsü isteniyor.",
+      "choices": [
+        "50",
+        "75",
+        "100",
+        "125",
+        "150"
+      ],
+      "answer": 0,
+      "solution": "1. İçerideki açı iki yayın toplamının yarısıdır:\n75 = (100 + x) / 2\n\n2. 100 + x = 150 → x = **50**\n\nNot: E şıkkındaki 150, iki yayın **toplamıdır**, yani ters işlemin ilk adımı. Bir yayı çıkarmayı unutma."
+    },
+    {
+      "id": "cemb-10",
+      "difficulty": 2,
+      "stem": "Çemberin dışındaki P noktasından çizilen iki kesen arasındaki açının ölçüsü 30°'dir. Bu açının gördüğü uzak yayın ölçüsü 140°'dir.\nBuna göre, yakın yayın ölçüsü kaç derecedir?",
+      "asks": "Yakın yayın ölçüsü isteniyor.",
+      "choices": [
+        "170",
+        "140",
+        "110",
+        "100",
+        "80"
+      ],
+      "answer": 4,
+      "solution": "1. Dıştaki açı iki yayın farkının yarısıdır:\n30 = (140 − x) / 2\n\n2. 140 − x = 60 → x = **80**\n\nNot: Şıklar büyükten küçüğe sıralıdır. C şıkkındaki 110, 140'tan açıyı ikiye bölmeden çıkarmaktır (140 − 30); açı yayların farkının **yarısı** olduğundan önce 2 ile çarpılır."
+    },
+    {
+      "id": "cemb-11",
+      "difficulty": 3,
+      "stem": "A, B, C, D noktaları bir çemberin üzerinde bu sırayla yer almaktadır. AB, BC ve CD yaylarının ölçüleri sırasıyla 60°, 100° ve 90°'dir.\nBuna göre, m(ABC) kaç derecedir?",
+      "asks": "m(ABC) isteniyor.",
+      "choices": [
+        "50",
+        "55",
+        "80",
+        "100",
+        "110"
+      ],
+      "answer": 3,
+      "solution": "1. Dördüncü yay: DA = 360 − (60 + 100 + 90) = 110°\n\n2. ABC açısının tepesi B'dedir; B'yi **içermeyen** AC yayını görür. Bu yay A'dan D'ye, D'den C'ye gider:\nAD + DC = 110 + 90 = 200°\n\n3. m(ABC) = 200 / 2 = **100**\n\nNot: C şıkkındaki 80, açının kendi kollarının arasındaki yayı (AB + BC = 160) almaktır. Çevre açı, tepesinin **karşısındaki** yayı görür. E şıkkındaki 110 ise DA yayının kendisidir, yani hesabın ilk adımı."
+    },
+    {
+      "id": "cemb-12",
+      "difficulty": 3,
+      "stem": "Bir çemberde AB kirişinin uzunluğu çemberin yarıçapına eşittir. C noktası çemberin büyük yayı üzerindedir.\nBuna göre, m(ACB) kaç derecedir?",
+      "asks": "m(ACB) isteniyor.",
+      "choices": [
+        "15",
+        "30",
+        "60",
+        "120",
+        "150"
+      ],
+      "answer": 1,
+      "solution": "1. O merkez olmak üzere OA = OB = AB = r olduğundan OAB **eşkenar** üçgendir: m(AOB) = 60°\n\n2. C büyük yay üzerinde olduğundan ACB, 60°'lik küçük yayı görür:\nm(ACB) = 60 / 2 = **30**\n\nNot: C şıkkındaki 60 merkez açıdır. E şıkkındaki 150 ise C küçük yayın üzerinde olsaydı geçerli olurdu (300 / 2). \"Büyük yay\" ifadesi hangi yayın görüldüğünü belirler."
+    },
+    {
+      "id": "cemb-13",
+      "difficulty": 1,
+      "stem": "Bir çemberde iki kiriş P noktasında kesişmektedir. Kirişlerden birinin parçaları 3 cm ve 8 cm, diğerinin parçalarından biri 4 cm'dir.\nBuna göre, diğer parça kaç cm'dir?",
+      "asks": "Diğer parçanın uzunluğu isteniyor.",
+      "choices": [
+        "6",
+        "7",
+        "8",
+        "12",
+        "24"
+      ],
+      "answer": 0,
+      "solution": "1. Kesişen kirişlerde bir kirişin parçalarının çarpımı diğerininkine eşittir:\n3 · 8 = 4 · x\n\n2. 24 = 4x → x = **6**\n\nNot: B şıkkındaki 7, çarpım yerine toplam eşitliği kurmaktır (3 + 8 = 4 + x). Bu bağıntı benzerlikten doğar ve orantının içler-dışlar çarpımı her zaman **çarpmadır**. E şıkkındaki 24 ise çarpımın kendisidir."
+    },
+    {
+      "id": "cemb-14",
+      "difficulty": 3,
+      "stem": "Bir çemberde AB ve CD kirişleri P noktasında kesişmektedir. PA = 4 cm, PB = 6 cm, PC = x cm ve PD = (x + 5) cm'dir.\nBuna göre, CD kirişinin uzunluğu kaç cm'dir?",
+      "asks": "CD kirişinin uzunluğu isteniyor.",
+      "choices": [
+        "3",
+        "5",
+        "8",
+        "10",
+        "11"
+      ],
+      "answer": 4,
+      "solution": "1. PA · PB = PC · PD\n4 · 6 = x · (x + 5)\nx² + 5x − 24 = 0 → (x + 8)(x − 3) = 0 → x = 3\n\n2. PC = 3, PD = 3 + 5 = 8\n\n3. CD = 3 + 8 = **11**\n\nNot: A şıkkındaki 3 x'in değeri, C şıkkındaki 8 ise PD'dir. D şıkkındaki 10, AB kirişinin uzunluğudur. Soru CD'nin **tamamını** istiyor; iki parçayı toplamayı unutma."
+    },
+    {
+      "id": "cemb-15",
+      "difficulty": 2,
+      "stem": "Şekilde P noktasından çembere çizilen PT teğeti ile PB keseni verilmiştir. PA = 4 cm ve AB = 12 cm'dir.\nBuna göre, PT kaç cm'dir?",
+      "asks": "PT teğetinin uzunluğu isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='215' cy='92' r='59.5'/><line x1='131.2' y1='125.8' x2='195.4' y2='148.2'/><line x1='131.2' y1='125.8' x2='267.1' y2='120.7'/></g><circle cx='131.2' cy='125.8' r='2.5' fill='currentColor' stroke='none'/><circle cx='195.4' cy='148.2' r='2.5' fill='currentColor' stroke='none'/><circle cx='165.2' cy='124.6' r='2.5' fill='currentColor' stroke='none'/><circle cx='267.1' cy='120.7' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='122.2' y='130.8' text-anchor='end'>P</text><text x='191.2' y='165' text-anchor='end'>T</text><text x='159.2' y='116.6' text-anchor='end'>A</text><text x='278.5' y='131.5' text-anchor='start'>B</text></g></svg>",
+      "choices": [
+        "6",
+        "4√3",
+        "8",
+        "12",
+        "16"
+      ],
+      "answer": 2,
+      "solution": "1. Teğet-kesen bağıntısı: PT² = PA · PB. Burada PB, **kesenin tamamıdır**:\nPB = PA + AB = 4 + 12 = 16\n\n2. PT² = 4 · 16 = 64\n\n3. PT = **8**\n\nNot: B şıkkındaki 4√3, PB yerine iç parça AB'yi almaktan gelir (4 · 12 = 48). En sık yapılan hata budur: çarpılan, P'ye yakın parça ile **P'den uzak noktaya kadar** olan uzunluktur."
+    },
+    {
+      "id": "cemb-16",
+      "difficulty": 2,
+      "stem": "Çemberin dışındaki P noktasından çizilen PT teğetinin uzunluğu 6 cm'dir. Aynı noktadan çizilen bir kesen çemberi önce A, sonra B noktasında kesmektedir ve PA = 3 cm'dir.\nBuna göre, AB kaç cm'dir?",
+      "asks": "AB uzunluğu isteniyor.",
+      "choices": [
+        "9",
+        "12",
+        "15",
+        "18",
+        "36"
+      ],
+      "answer": 0,
+      "solution": "1. PT² = PA · PB\n36 = 3 · PB → PB = 12\n\n2. AB = PB − PA = 12 − 3 = **9**\n\nNot: B şıkkındaki 12, PB'dir — kesenin tamamı. Soru çemberin **içinde kalan** parçayı istiyor. E şıkkındaki 36 ise PT²'dir."
+    },
+    {
+      "id": "cemb-17",
+      "difficulty": 2,
+      "stem": "Çemberin dışındaki P noktasından çizilen iki kesenden biri çemberi A ve B, diğeri C ve D noktalarında kesmektedir. PA = 5 cm, AB = 7 cm ve PC = 3 cm'dir.\nBuna göre, CD kaç cm'dir?",
+      "asks": "CD uzunluğu isteniyor.",
+      "choices": [
+        "3",
+        "7",
+        "12",
+        "17",
+        "20"
+      ],
+      "answer": 3,
+      "solution": "1. PA · PB = PC · PD. Önce kesenin tamamı: PB = 5 + 7 = 12\n\n2. 5 · 12 = 3 · PD → PD = 20\n\n3. CD = PD − PC = 20 − 3 = **17**\n\nNot: E şıkkındaki 20, PD'dir; son adımda PC'yi çıkarmayı atlamaktır. C şıkkındaki 12 ise PB'dir, yani diğer kesenin tamamı."
+    },
+    {
+      "id": "cemb-18",
+      "difficulty": 3,
+      "stem": "Şekilde [AB] çemberin çapı, [CD] bir kiriştir ve bu kiriş çapı P noktasında dik kesmektedir. AB = 13 cm ve AP = 4 cm'dir.\nBuna göre, CD kaç cm'dir?",
+      "asks": "CD kirişinin uzunluğu isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='78'/><line x1='82' y1='100' x2='238' y2='100'/><line x1='130' y1='28' x2='130' y2='172'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='139,100 139,91 130,91'/></g><circle cx='82' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='238' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='130' cy='28' r='2.5' fill='currentColor' stroke='none'/><circle cx='130' cy='172' r='2.5' fill='currentColor' stroke='none'/><circle cx='130' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='160' cy='100' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='74' y='105' text-anchor='end'>A</text><text x='246' y='105' text-anchor='start'>B</text><text x='130' y='20' text-anchor='middle'>C</text><text x='130' y='190' text-anchor='middle'>D</text><text x='123' y='117' text-anchor='end'>P</text><text x='160' y='117' text-anchor='middle'>O</text></g></svg>",
+      "choices": [
+        "6",
+        "12",
+        "13",
+        "18",
+        "36"
+      ],
+      "answer": 1,
+      "solution": "1. PB = 13 − 4 = 9\n\n2. Kesişen kirişler: PC · PD = PA · PB = 4 · 9 = 36\n\n3. Çap kirişe dik olduğundan kirişi ortalar: PC = PD\nPC² = 36 → PC = 6\n\n4. CD = 2 · 6 = **12**\n\nNot: A şıkkındaki 6, kirişin **yarısıdır**. E şıkkındaki 36 ise PC · PD çarpımıdır. Diklik bilgisi burada süs değil: iki parçanın eşit olduğunu söyleyen odur."
+    },
+    {
+      "id": "cemb-19",
+      "difficulty": 1,
+      "stem": "Yarıçapı 7 cm olan bir çemberin merkezine uzaklığı 25 cm olan P noktasından çembere bir teğet çiziliyor.\nBuna göre, teğet parçasının uzunluğu kaç cm'dir?",
+      "asks": "Teğet parçasının uzunluğu isteniyor.",
+      "choices": [
+        "32",
+        "26",
+        "25",
+        "24",
+        "18"
+      ],
+      "answer": 3,
+      "solution": "1. Teğet, değme noktasındaki yarıçapa diktir; merkez, P ve değme noktası bir dik üçgen kurar. Hipotenüs OP'dir.\n\n2. t² = 25² − 7² = 625 − 49 = 576\n\n3. t = **24**\n\nNot: Şıklar büyükten küçüğe sıralıdır. C şıkkındaki 25, OP'nin kendisidir; E şıkkındaki 18 ise uzunlukları doğrudan çıkarmaktır (25 − 7). Pisagor'da kareler çıkarılır, kenarlar değil."
+    },
+    {
+      "id": "cemb-20",
+      "difficulty": 2,
+      "stem": "Çemberin dışındaki P noktasından çizilen PT ve PS teğetlerinin uzunlukları 12 cm'dir ve m(TPS) = 60°'dir.\nBuna göre, TS kaç cm'dir?",
+      "asks": "TS uzunluğu isteniyor.",
+      "choices": [
+        "12",
+        "12√2",
+        "18",
+        "12√3",
+        "24"
+      ],
+      "answer": 0,
+      "solution": "1. Dış noktadan çizilen iki teğet eşittir: PT = PS = 12. TPS üçgeni ikizkenardır.\n\n2. Tepe açısı 60° olan ikizkenar üçgen **eşkenardır**. Taban açılarının her biri (180 − 60) / 2 = 60°.\n\n3. TS = **12**\n\nNot: D şıkkındaki 12√3, tepe açısını 120° sanmaktır. Bu soruda √3 çıkması için 60° olmayan bir açı gerekirdi; tepe açısı 60° ise üç kenar eşittir."
+    },
+    {
+      "id": "cemb-21",
+      "difficulty": 1,
+      "stem": "Yarıçapı 17 cm olan bir çemberde uzunluğu 30 cm olan bir kiriş vardır.\nBuna göre, bu kirişin merkeze uzaklığı kaç cm'dir?",
+      "asks": "Kirişin merkeze uzaklığı isteniyor.",
+      "choices": [
+        "17",
+        "16",
+        "15",
+        "12",
+        "8"
+      ],
+      "answer": 4,
+      "solution": "1. Merkezden kirişe inen dik kirişi ortalar. Dik üçgenin kenarları: yarıçap 17 (hipotenüs), kirişin yarısı 15 ve aranan uzaklık d.\n\n2. d² = 17² − 15² = 289 − 225 = 64\n\n3. d = **8**\n\nNot: Şıklar büyükten küçüğe sıralıdır. C şıkkındaki 15 kirişin yarısı, A şıkkındaki 17 ise yarıçaptır. Kirişin tamamını (30) Pisagor'a koymak negatif bir sayı verir; dik üçgenin kenarı **yarım kiriştir**."
+    },
+    {
+      "id": "cemb-22",
+      "difficulty": 2,
+      "stem": "Yarıçapı 13 cm olan bir çemberde bir kiriş merkezden 5 cm uzaklıktadır.\nBuna göre, bu kirişin uzunluğu kaç cm'dir?",
+      "asks": "Kirişin uzunluğu isteniyor.",
+      "choices": [
+        "5",
+        "10",
+        "12",
+        "13",
+        "24"
+      ],
+      "answer": 4,
+      "solution": "1. Merkezden kirişe inen dik kirişi ortalar:\nk² = 13² − 5² = 169 − 25 = 144 → k = 12\n\n2. k kirişin **yarısıdır**:\nKiriş = 2 · 12 = **24**\n\nNot: C şıkkındaki 12, yarım kiriştir — hesabın doğru yapıldığı ama son adımın atlandığı yer. Dik üçgeni çizerken yarım kirişi \"k = kirişin yarısı\" diye etiketle."
+    },
+    {
+      "id": "cemb-23",
+      "difficulty": 2,
+      "stem": "Bir çemberde uzunluğu 16 cm olan bir kiriş merkezden 6 cm uzaklıktadır.\nBuna göre, çemberin çapı kaç cm'dir?",
+      "asks": "Çemberin çapı isteniyor.",
+      "choices": [
+        "10",
+        "20",
+        "22",
+        "28",
+        "32"
+      ],
+      "answer": 1,
+      "solution": "1. Yarım kiriş 8, merkeze uzaklık 6:\nr² = 8² + 6² = 64 + 36 = 100 → r = 10\n\n2. Çap = 2 · 10 = **20**\n\nNot: A şıkkındaki 10, yarıçaptır. Bu soruda iki tane \"yarı\" var: kirişin yarısı (8) girişte kullanılır, yarıçap (10) çıkışta ikiyle çarpılır."
+    },
+    {
+      "id": "cemb-24",
+      "difficulty": 3,
+      "stem": "Şekildeki O merkezli çemberin yarıçapı 13 cm'dir. Merkezin aynı tarafında bulunan iki paralel kirişin uzunlukları 24 cm ve 10 cm'dir.\nBuna göre, bu iki kiriş arasındaki uzaklık kaç cm'dir?",
+      "asks": "İki kiriş arasındaki uzaklık isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='106' r='84.5'/><line x1='82' y1='73.5' x2='238' y2='73.5'/><line x1='127.5' y1='28' x2='192.5' y2='28'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-dasharray='4 3'><line x1='160' y1='106' x2='160' y2='28'/></g><circle cx='160' cy='106' r='2.5' fill='currentColor' stroke='none'/><circle cx='82' cy='73.5' r='2.5' fill='currentColor' stroke='none'/><circle cx='238' cy='73.5' r='2.5' fill='currentColor' stroke='none'/><circle cx='127.5' cy='28' r='2.5' fill='currentColor' stroke='none'/><circle cx='192.5' cy='28' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='167' y='122' text-anchor='start'>O</text></g></svg>",
+      "choices": [
+        "7",
+        "12",
+        "14",
+        "17",
+        "34"
+      ],
+      "answer": 0,
+      "solution": "1. 24 cm'lik kiriş: yarısı 12 → d₁² = 169 − 144 = 25 → d₁ = 5\n\n2. 10 cm'lik kiriş: yarısı 5 → d₂² = 169 − 25 = 144 → d₂ = 12\n\n3. Kirişler merkezin **aynı** tarafında olduğundan aradaki uzaklık farktır:\n12 − 5 = **7**\n\nNot: D şıkkındaki 17, kirişler merkezin **iki yanında** olsaydı doğru olurdu (5 + 12). Şekil ve \"aynı tarafında\" ifadesi toplamı değil farkı söyler."
+    },
+    {
+      "id": "cemb-25",
+      "difficulty": 3,
+      "stem": "Çemberin dışındaki P noktasından çembere çizilen teğet parçasının uzunluğu 20 cm'dir. P noktasının çembere en yakın uzaklığı 10 cm'dir.\nBuna göre, çemberin yarıçapı kaç cm'dir?",
+      "asks": "Yarıçap isteniyor.",
+      "choices": [
+        "15",
+        "20",
+        "25",
+        "30",
+        "40"
+      ],
+      "answer": 0,
+      "solution": "1. P'nin çembere en yakın noktası, OP doğrusu üzerindedir. Bu yüzden OP = r + 10.\n\n2. Teğet yarıçapa dik olduğundan:\n(r + 10)² = r² + 20²\nr² + 20r + 100 = r² + 400 → 20r = 300 → r = **15**\n\nNot: C şıkkındaki 25, OP'dir (15 + 10). Sağlama: 15, 20, 25 bir Pisagor üçlüsüdür (3-4-5'in 5 katı)."
+    },
+    {
+      "id": "cemb-26",
+      "difficulty": 2,
+      "stem": "Çemberin dışındaki P noktasından çizilen iki teğet arasındaki açının ölçüsü 64°'dir. Değme noktaları T ve S, çemberin merkezi O'dur.\nBuna göre, m(TOS) kaç derecedir?",
+      "asks": "m(TOS) isteniyor.",
+      "choices": [
+        "148",
+        "128",
+        "116",
+        "64",
+        "32"
+      ],
+      "answer": 2,
+      "solution": "1. Teğetler yarıçaplara diktir: m(PTO) = m(PSO) = 90°\n\n2. PTOS dörtgeninin açıları toplamı 360°:\nm(TOS) = 360 − 90 − 90 − 64 = **116**\n\nNot: Şıklar büyükten küçüğe sıralıdır. B şıkkındaki 128, P'deki açıyı ikiyle çarpmaktır; bu dörtgende merkez ile P'deki açı **bütünlerdir**, biri diğerinin iki katı değildir."
+    },
+    {
+      "id": "cemb-27",
+      "difficulty": 3,
+      "stem": "Yarıçapı 6 cm olan bir çemberde, gördüğü merkez açının ölçüsü 120° olan kirişin uzunluğu kaç cm'dir?",
+      "asks": "Kirişin uzunluğu isteniyor.",
+      "choices": [
+        "3",
+        "3√3",
+        "6",
+        "6√3",
+        "12"
+      ],
+      "answer": 3,
+      "solution": "1. Merkezden kirişe inen dik hem kirişi hem de 120°'lik merkez açıyı ortalar. Oluşan dik üçgende merkezdeki açı 60°, hipotenüs r = 6.\n\n2. Bu bir 30-60-90 üçgenidir. 60°'nin karşısındaki kenar yarım kiriştir:\nyarım kiriş = 6 · √3 / 2 = 3√3\n\n3. Kiriş = 2 · 3√3 = **6√3**\n\nNot: B şıkkındaki 3√3, yarım kiriştir. A şıkkındaki 3 ise merkezin kirişe uzaklığıdır (30°'nin karşısı, hipotenüsün yarısı)."
+    },
+    {
+      "id": "cemb-28",
+      "difficulty": 2,
+      "stem": "ABCD dörtgeninin köşeleri bir çemberin üzerindedir. m(A) = 3x ve m(C) = x + 40 olduğuna göre, m(A) kaç derecedir?",
+      "asks": "m(A) isteniyor.",
+      "choices": [
+        "35",
+        "75",
+        "105",
+        "120",
+        "140"
+      ],
+      "answer": 2,
+      "solution": "1. Kirişler dörtgeninde karşı açılar bütünlerdir:\n3x + x + 40 = 180 → 4x = 140 → x = 35\n\n2. m(A) = 3 · 35 = **105**\n\nNot: A şıkkındaki 35 x'in değeri, B şıkkındaki 75 ise C açısıdır. İstenen A açısı."
+    },
+    {
+      "id": "cemb-29",
+      "difficulty": 2,
+      "stem": "ABCD dörtgeninin köşeleri bir çemberin üzerindedir. B köşesindeki dış açının ölçüsü 72°'dir.\nBuna göre, m(D) kaç derecedir?",
+      "asks": "m(D) isteniyor.",
+      "choices": [
+        "72",
+        "90",
+        "108",
+        "144",
+        "162"
+      ],
+      "answer": 0,
+      "solution": "1. B'deki iç açı: 180 − 72 = 108°\n\n2. Kirişler dörtgeninde karşı açılar bütünlerdir:\nm(D) = 180 − 108 = **72**\n\nNot: C şıkkındaki 108, B'nin iç açısıdır — iki kez \"180'den çıkar\" adımının ilkinde durmak. Kısa yol: kirişler dörtgeninde **bir köşedeki dış açı, karşı köşenin iç açısına eşittir.** Bu kural ara değer üretmez."
+    },
+    {
+      "id": "cemb-30",
+      "difficulty": 2,
+      "stem": "ABCD dörtgeninin dört kenarı bir çembere teğettir. AB = 10 cm, BC = (x + 3) cm, CD = 14 cm ve DA = 2x cm'dir.\nBuna göre, DA kaç cm'dir?",
+      "asks": "DA uzunluğu isteniyor.",
+      "choices": [
+        "3",
+        "7",
+        "10",
+        "12",
+        "14"
+      ],
+      "answer": 4,
+      "solution": "1. Teğetler dörtgeninde karşı kenarların toplamları eşittir:\nAB + CD = BC + DA\n10 + 14 = (x + 3) + 2x → 24 = 3x + 3 → x = 7\n\n2. DA = 2 · 7 = **14**\n\nNot: B şıkkındaki 7, x'in değeridir; C şıkkındaki 10 ise BC'dir (7 + 3). D şıkkındaki 12, 24'ü iki kenara eşit paylaştırmaktır. Karşı kenarları doğru eşleştir: AB'nin karşısı CD, BC'nin karşısı DA."
+    },
+    {
+      "id": "cemb-31",
+      "difficulty": 2,
+      "stem": "Dört kenarı bir çembere teğet olan ABCD dörtgeninde AB + CD = 22 cm'dir.\nBuna göre, ABCD dörtgeninin çevresi kaç cm'dir?",
+      "asks": "Dörtgenin çevresi isteniyor.",
+      "choices": [
+        "22",
+        "44",
+        "48",
+        "66",
+        "88"
+      ],
+      "answer": 1,
+      "solution": "1. Teğetler dörtgeninde karşı kenar toplamları eşittir: BC + DA = AB + CD = 22\n\n2. Çevre = (AB + CD) + (BC + DA) = 22 + 22 = **44**\n\nNot: A şıkkındaki 22, yalnız bir çift karşı kenarın toplamıdır — hesabın ilk yarısı."
+    },
+    {
+      "id": "cemb-32",
+      "difficulty": 3,
+      "stem": "Şekildeki ikizkenar yamuğun dört kenarı çembere teğettir. Yamuğun paralel kenarları 8 cm ve 18 cm'dir.\nBuna göre, yamuğun yüksekliği kaç cm'dir?",
+      "asks": "Yamuğun yüksekliği isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='72'/><polygon points='112,28 208,28 268,172 52,172'/></g><circle cx='160' cy='100' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='106' y='23' text-anchor='end'>A</text><text x='214' y='23' text-anchor='start'>B</text><text x='274' y='177' text-anchor='start'>C</text><text x='46' y='177' text-anchor='end'>D</text></g></svg>",
+      "choices": [
+        "5",
+        "10",
+        "12",
+        "13",
+        "26"
+      ],
+      "answer": 2,
+      "solution": "1. Teğetler dörtgeninde karşı kenar toplamları eşittir. İki yan kenar eşit olduğundan:\n2 · yan = 8 + 18 = 26 → yan = 13\n\n2. Üst tabanın uçlarından alt tabana dik inilir. İkizkenar yamukta iki eş dik üçgen oluşur, yatay kenarları (18 − 8) / 2 = 5\n\n3. h² = 13² − 5² = 169 − 25 = 144 → h = **12**\n\nNot: D şıkkındaki 13, yan kenardır. Yükseklik aynı zamanda çemberin **çapıdır** (iki paralel teğet arasındaki uzaklık), yani yarıçap 6'dır."
+    },
+    {
+      "id": "cemb-33",
+      "difficulty": 2,
+      "stem": "Kenar uzunlukları 6 cm ve 8 cm olan bir dikdörtgenin dört köşesi bir çemberin üzerindedir.\nBuna göre, bu çemberin yarıçapı kaç cm'dir?",
+      "asks": "Çemberin yarıçapı isteniyor.",
+      "choices": [
+        "14",
+        "10",
+        "7",
+        "5",
+        "4"
+      ],
+      "answer": 3,
+      "solution": "1. Dikdörtgenin açıları 90°'dir. Çevre açısı 90° olan her açı bir **çapı** görür, yani dikdörtgenin köşegeni çemberin çapıdır.\n\n2. Köşegen² = 6² + 8² = 100 → köşegen = 10\n\n3. r = 10 / 2 = **5**\n\nNot: Şıklar büyükten küçüğe sıralıdır. B şıkkındaki 10, çaptır; soru yarıçapı istiyor. C şıkkındaki 7 ise kenarların ortalamasıdır."
+    },
+    {
+      "id": "cemb-34",
+      "difficulty": 1,
+      "stem": "Yarıçapı 5 cm olan bir dairenin alanı kaç cm²'dir?",
+      "asks": "Dairenin alanı isteniyor.",
+      "choices": [
+        "5π",
+        "10π",
+        "20π",
+        "25π",
+        "100π"
+      ],
+      "answer": 3,
+      "solution": "1. Alan = πr² = π · 5² = **25π**\n\nNot: B şıkkındaki 10π, dairenin **çevresidir** (2πr). E şıkkındaki 100π ise yarıçap yerine çapın karesini almaktır (π · 10²)."
+    },
+    {
+      "id": "cemb-35",
+      "difficulty": 1,
+      "stem": "Çevresi 18π cm olan bir dairenin alanı kaç cm²'dir?",
+      "asks": "Dairenin alanı isteniyor.",
+      "choices": [
+        "9π",
+        "18π",
+        "36π",
+        "54π",
+        "81π"
+      ],
+      "answer": 4,
+      "solution": "1. Çevre = 2πr = 18π → r = 9\n\n2. Alan = πr² = π · 81 = **81π**\n\nNot: A şıkkındaki 9π, yarıçapın yanına π yazmaktır — hesabın ara değeri. B şıkkındaki 18π ise verilen çevrenin kendisidir."
+    },
+    {
+      "id": "cemb-36",
+      "difficulty": 2,
+      "stem": "Yarıçapı 9 cm olan bir dairede merkez açısının ölçüsü 40° olan daire diliminin alanı kaç cm²'dir?",
+      "asks": "Daire diliminin alanı isteniyor.",
+      "choices": [
+        "2π",
+        "4π",
+        "9π",
+        "18π",
+        "81π"
+      ],
+      "answer": 2,
+      "solution": "1. Dilim, dairenin 40 / 360 = **1/9**'udur.\n\n2. Dairenin alanı π · 81 = 81π\n\n3. Dilimin alanı = 81π / 9 = **9π**\n\nNot: A şıkkındaki 2π, aynı oranı çevreye uygulamaktır (18π / 9), yani **yay uzunluğu**dur. Önce \"dairenin kaçta kaçı?\" sorusunu sor, sonra alanı mı yayı mı istediğine bak."
+    },
+    {
+      "id": "cemb-37",
+      "difficulty": 2,
+      "stem": "Yarıçapı 10 cm olan bir dairede merkez açısının ölçüsü 72° olan yayın uzunluğu kaç cm'dir?",
+      "asks": "Yay uzunluğu isteniyor.",
+      "choices": [
+        "2π",
+        "4π",
+        "10π",
+        "20π",
+        "100π"
+      ],
+      "answer": 1,
+      "solution": "1. Yay, çevrenin 72 / 360 = **1/5**'idir.\n\n2. Çevre = 2π · 10 = 20π\n\n3. Yay = 20π / 5 = **4π**\n\nNot: D şıkkındaki 20π, dilimin **alanıdır** (100π / 5) ve aynı zamanda çevrenin tamamıdır. İki farklı hatanın aynı şıkka düşmesi bu çeldiriciyi güçlü kılar."
+    },
+    {
+      "id": "cemb-38",
+      "difficulty": 2,
+      "stem": "Aynı merkezli iki çemberin yarıçapları 7 cm ve 3 cm'dir.\nBuna göre, bu iki çember arasında kalan halkanın alanı kaç cm²'dir?",
+      "asks": "Halkanın alanı isteniyor.",
+      "choices": [
+        "58π",
+        "49π",
+        "40π",
+        "16π",
+        "4π"
+      ],
+      "answer": 2,
+      "solution": "1. Halka = büyük daire − küçük daire\n\n2. π · 7² − π · 3² = 49π − 9π = **40π**\n\nNot: Şıklar büyükten küçüğe sıralıdır. D şıkkındaki 16π, önce yarıçapları çıkarıp sonra kare almaktır: π(7 − 3)². Önce kareler, sonra fark. A şıkkındaki 58π ise alanları toplamaktır."
+    },
+    {
+      "id": "cemb-39",
+      "difficulty": 3,
+      "stem": "Şekildeki O merkezli dairenin yarıçapı 4 cm, m(AOB) = 90°'dir.\nBuna göre, [AB] kirişi ile AB yayı arasında kalan boyalı bölgenin alanı kaç cm²'dir?",
+      "asks": "Boyalı bölgenin alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><path d='M 103.4 61.4 A 80 80 0 0 1 216.6 61.4 Z' fill='#0284c7' fill-opacity='0.2' stroke='none'/><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='118' r='80'/><line x1='103.4' y1='61.4' x2='216.6' y2='61.4'/><line x1='160' y1='118' x2='103.4' y2='61.4'/><line x1='160' y1='118' x2='216.6' y2='61.4'/></g><g stroke='currentColor' stroke-width='1.5' fill='none'><polyline points='152.9,110.9 160,103.9 167.1,110.9'/></g><circle cx='160' cy='118' r='2.5' fill='currentColor' stroke='none'/><circle cx='103.4' cy='61.4' r='2.5' fill='currentColor' stroke='none'/><circle cx='216.6' cy='61.4' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='94.2' y='56.7' text-anchor='end'>A</text><text x='225.8' y='56.7' text-anchor='start'>B</text><text x='160' y='136' text-anchor='middle'>O</text></g></svg>",
+      "choices": [
+        "2π − 4",
+        "4π − 8",
+        "8π − 8",
+        "4π + 8",
+        "16π − 8"
+      ],
+      "answer": 1,
+      "solution": "1. Daire parçası = dilim − üçgen\n\n2. Dilim, dairenin çeyreğidir: 16π / 4 = 4π\n\n3. AOB üçgeni dik ikizkenardır (OA = OB = 4):\nAlan = 4 · 4 / 2 = 8\n\n4. Boyalı alan = **4π − 8**\n\nNot: D şıkkındaki 4π + 8, üçgeni çıkarmak yerine eklemektir; E şıkkındaki 16π − 8 ise dilim yerine dairenin tamamını almaktır. Sağlama: 4π ≈ 12,6, bundan 8 çıkınca ≈ 4,6 kalır — dilimin yarısından az, şekille uyumlu."
+    },
+    {
+      "id": "cemb-40",
+      "difficulty": 3,
+      "stem": "Yarıçapı 6 cm olan bir dairede bir daire diliminin alanı 12π cm²'dir.\nBuna göre, bu dilimin merkez açısı kaç derecedir?",
+      "asks": "Dilimin merkez açısı isteniyor.",
+      "choices": [
+        "30",
+        "40",
+        "60",
+        "90",
+        "120"
+      ],
+      "answer": 4,
+      "solution": "1. Dairenin alanı π · 36 = 36π\n\n2. Dilim, dairenin 12π / 36π = **1/3**'üdür.\n\n3. Merkez açı = 360 / 3 = **120**\n\nNot: Ters yönlü sorularda güvenli yol önce **oranı** bulmaktır (1/3), sonra 360'ı o oranla çarpmak. Dikkat: 12π, bu dairenin **çevresine** de eşittir (2π · 6). Verilen sayının alan mı çevre mi olduğunu soru metninden oku; burada \"alanı\" deniyor."
+    }
+  ]
+}

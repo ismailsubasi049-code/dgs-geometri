@@ -1,12 +1,12 @@
 # Durum
 
-**Son güncelleme:** 2026-09-17 · **sw.js VERSION:** güncel değer için `sw.js:4`
+**Son güncelleme:** 2026-09-20 · **sw.js VERSION:** güncel değer için `sw.js:4`
 (elle tutulan kopya iki tur geride kaldığı için buradan kaldırıldı; sürüm zaten
 her turda aşağıdaki günlüğe yazılıyor)
 
 ## Özet
 
-**703 soru · 29 alt konu · 29 paket.** 503'ü geometri, 200'ü matematik
+**743 soru · 30 alt konu · 30 paket.** 543'ü geometri, 200'ü matematik
 (9 paket: `ozdeslik-genel`, `oran-oranti-genel`, `mantik-blok-1`,
 `mantik-blok-2`, `mantik-blok-3`, `problem-genel`, `rasyonel-genel`,
 `uslu-genel`, `koklu-genel`). Kalan **3**
@@ -47,7 +47,8 @@ tersi:** paketi var, formül kartı yok.
 | Dörtgenler | — | Dörtgenler — karma | 20 |
 | Dörtgenler | `dortgen-eskenar` · `dortgen-dikdortgen` · `dortgen-kare` · `dortgen-deltoid` (`subtopics[]`) | Özel dörtgenler | 24 |
 | Çember ve Daire | — | Çember ve Daire | 10 |
-| **Toplam** | | **29 paket** | **703** |
+| Çember ve Daire | `cember-daire` | Çember ve daire | 40 |
+| **Toplam** | | **30 paket** | **743** |
 
 ## Kalan işler
 
@@ -2181,6 +2182,59 @@ bitince depoda `questions` 0, `sessions` 0 — gerçek ilerleme kirlenmedi.
   düşürmedi, hepsi `viewBox='0 0 320 200'` ve `width`/`height` yazmıyor.
   `cokgen-11/13/17/18/23` ekranda doğru çizildi.
 - `sw.js` VERSION **v58 → v59**.
+
+## Çember paketi
+
+`referans/geometri-cember.json` uygulama biçiminde hazır geldi; transkripsiyon
+yapılmadı. `data/packs/geometri-cember.json` kaynağın birebir kopyası — tek fark
+üst düzey `topic` alanı (aşağıda). Şema öncesi yazılan 10 soruluk `geo-cember`
+paketine dokunulmadı.
+
+### Kimlik: dört alandan biri düzeltildi
+
+Gelen kayıt `topic: "Çember"` diyordu; depodaki konu başlığı üç yerde birden
+`Çember ve Daire` (`data/index.json` → `topics[]`, `data/formuller/index.json` →
+`sets[]`, mevcut `geo-cember` kaydı). Paketin ve index kaydının `topic` alanı
+`Çember ve Daire` yapıldı. `topicId` (`cember`), `subtopicId` (`cember-daire`) ve
+`subtopic` (`Çember ve daire`) aynen kaldı; `cember-daire` depoda yeni, çakışması
+yok. Soru id'leri `cemb-01…40`, eski paketin `cember-001…010`'u ile kesişmiyor
+(703 mevcut id tarandı).
+
+### Konu ekranı: alt konusuz konu alt konulu oldu
+
+Çember bugüne kadar alt konusuz açılıyordu (doğrudan oturuma). Yeni kayıt
+`subtopicId` taşıdığı için konu artık ara listeye açılıyor: **Tüm konu 50** +
+**Çember ve daire 40**. Eski 10 soru kendi `subtopicId`'lerini (`cember-acilar`,
+`cember-teget`, …) taşıyor ama index kaydı satır açmadığından ayrı satır olarak
+görünmüyor; yalnız "Tüm konu" içinden geliyor. Dörtgenler'deki `geo-dortgenler`
+ve `geometri-dortgen-karma` ile aynı yerleşik davranış.
+
+### Formül kartı bağlanmıyor (bilinçli, bu turda yazılmadı)
+
+`data/formuller/cember.json` var: 6 kart, hepsi eski paketin alt konularına bağlı
+(`cember-acilar`, `cember-teget`, `cember-kiris`, `cember-yay`, `cember-alan`,
+`cember-kirisler-dortgeni`). Hiçbirinin `subtopicId`'si ya da `aliases` listesi
+`cember-daire` / `Çember ve daire` ile eşleşmiyor, sorularda `label` da yok — yani
+`js/formulas.js` → `getCardFor` üç adımda da boş dönüyor ve bu 40 soruda yanlış
+cevapta kart açılmıyor. İleride yolu: kartlara `Çember ve daire` alias'ı eklemek
+ya da paketi kart başına alt konulara bölmek. (`cember-denetim-raporu.md`'deki
+kart bulguları da hâlâ uygulanmamış durumda.)
+
+### Doğrulama (tarayıcıda, sayıyla)
+
+- 40 sorunun **40'ı** yüklendi, konsolda tek `Soru atlandı` uyarısı yok; toplam
+  soru 703 → **743**, paket 29 → **30**.
+- Ana ekran: "Geometri konuları" → **5 konu · 21 alt konu · 543 soru**.
+- Konu ekranı "1 alt konu": Tüm konu 50 · **Çember ve daire 40**.
+- `richText()`: 40 çözümün **40'ında** sarı `.solution-note` kutusu açıldı,
+  toplam **78** `<strong>` üretildi; işlenmemiş `**` kalmadı — §4'teki `**Not:**`
+  tuzağına düşen çözüm yok.
+- `js/svg.js` → `parseFigure`: 6 şeklin altısında da kaynak etiket sayısı ile
+  çizilen düğüm sayısı birebir (18 / 13 / 19 / 13 / 9 / 15); beyaz liste hiçbir
+  şey düşürmedi, hepsi `viewBox='0 0 320 200'`, `width`/`height` yazmıyor.
+  `cemb-08/15/18/24/32/39` DOM'da 254 × 159 px ölçüldü (hepsi çizildi).
+- `referans/` altında yalnız `geometri-cember.md` bırakıldı, json silindi.
+- `sw.js` VERSION **v60 → v61**.
 
 ## Çalışma kuralları
 
