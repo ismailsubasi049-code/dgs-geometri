@@ -42,6 +42,9 @@ const BACKUP_SNOOZE_DAYS = 3;
  */
 const MAX_TIMINGS = 3000;
 
+/** Saklanan deneme sonucu ust siniri; en eskiler duser. Bir kayit ~5 KB. */
+const MAX_EXAMS = 200;
+
 function defaultState() {
   return {
     schema: 1,
@@ -62,6 +65,11 @@ function defaultState() {
      * (dogrulamada 6 yerine 11 yazdi). Bu sayac yalnizca artar, tekrar sayilmaz.
      */
     timingsSeen: 0,
+    /**
+     * Biten denemelerin kalici sonuclari (js/exam.js -> finish). Ogrenme ilerlemesinden
+     * ayri: deneme cevaplari questions/timings/daily alanlarina hic yazilmaz.
+     */
+    exams: [],
     streak: { current: 0, best: 0, lastDay: null },
     settings: {
       dailyCount: 10,
@@ -136,6 +144,8 @@ function normalize(parsed) {
     // Sure olcumunden onceki yedekler bu alani tasimaz; bos liste ile acilir.
     timings: Array.isArray(parsed.timings) ? parsed.timings : [],
     timingsSeen: Number(parsed.timingsSeen) || (Array.isArray(parsed.timings) ? parsed.timings.length : 0),
+    // Deneme modundan onceki yedekler bu alani tasimaz.
+    exams: Array.isArray(parsed.exams) ? parsed.exams : [],
   };
 }
 
@@ -222,6 +232,19 @@ function mergeTimings(mine, disk) {
 }
 
 /**
+ * Deneme sonuclari da ekleme-tabanli: iki tarafin birlesimi, id ile tekillestirilir,
+ * baslangic zamanina gore sirali.
+ */
+function mergeExams(mine, disk) {
+  const byId = new Map();
+  for (const record of [...(disk || []), ...(mine || [])]) {
+    if (record && record.id && !byId.has(record.id)) byId.set(record.id, record);
+  }
+  const out = [...byId.values()].sort((a, b) => (a.startedAt || 0) - (b.startedAt || 0));
+  return out.length <= MAX_EXAMS ? out : out.slice(out.length - MAX_EXAMS);
+}
+
+/**
  * Bellekteki kopya ile diskteki kopyayi birlestirir; catisan her alanda "daha ileri"
  * olan kazanir. Boylece eski kalmis bir sekmenin yazmasi bile ilerlemeyi geri alamaz.
  *
@@ -262,6 +285,7 @@ function mergeStates(mine, disk) {
     daily,
     sessions,
     timings,
+    exams: mergeExams(mine.exams, disk.exams),
     // Yalnizca artan bir sayac: iki kopya bagimsiz eklemis olabilir, ama ayni dusme
     // tekrar tekrar sayilmasin diye toplanmaz - en buyugu (ve en az liste kadari) alinir.
     timingsSeen: Math.max(mine.timingsSeen || 0, disk.timingsSeen || 0, timings.length),
@@ -557,6 +581,25 @@ export function timingsInfo() {
 /** Rapor ekrani gelene kadar disariya acik tek okuma yolu; kopya doner. */
 export function allTimings() {
   return (load().timings || []).slice();
+}
+
+// ---------- deneme sonuclari ----------
+
+/** Biten denemenin sonucunu ekler. Ayni id ikinci kez yazilmaz. */
+export function addExamResult(record) {
+  if (!record || !record.id) return;
+  mutate((store) => {
+    store.exams = mergeExams([record], store.exams);
+  });
+}
+
+/** Tum deneme sonuclari, en yenisi basta; kopya doner. */
+export function listExamResults() {
+  return (load().exams || []).slice().reverse();
+}
+
+export function getExamResult(id) {
+  return (load().exams || []).find((record) => record.id === id) || null;
 }
 
 export function getStreak() {

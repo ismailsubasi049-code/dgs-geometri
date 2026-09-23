@@ -19,7 +19,7 @@ function verdictOf(record) {
  * acildigi yer dogru bilinen soru degil, donup bakilacak soru olur. Blogun hic
  * yanlisi yoksa kok hicbirinde acilmaz; liste kisa kalir, isteyen basligindan acar.
  */
-function openRootIndexes(questions, answers) {
+export function openRootIndexes(questions, answers) {
   const opened = new Set(); // kokun zaten acildigi blok kimlikleri
   const at = new Set();     // soru indeksi
 
@@ -33,12 +33,22 @@ function openRootIndexes(questions, answers) {
   return at;
 }
 
-function reviewItem(question, record, index, openRoot) {
+/**
+ * Gozden gecirme listesinin tek satiri. Deneme sonucu da bunu kullanir:
+ * title satir basligini (varsayilan: alt konu / konu), extra verdict'in onundeki kucuk
+ * notu (denemede soruya harcanan sure) degistirir. open verilmezse yanlis/bos acik gelir;
+ * 50 soruluk denemede liste sismesin diye hepsi kapali istenir.
+ */
+export function reviewItem(
+  question, record, index, openRoot, { title = null, extra = null, open = null } = {}
+) {
   const kind = verdictOf(record);
   const label = { ok: '✓ Doğru', bad: '✗ Yanlış', skip: '— Boş' }[kind];
 
   const summary = el('summary', { class: 'review-summary' },
-    el('span', { class: 'grow' }, `${index + 1}. ${question.subtopic || question.topic || 'Soru'}`),
+    el('span', { class: 'grow' },
+      `${index + 1}. ${title || question.subtopic || question.topic || 'Soru'}`),
+    extra ? el('span', { class: 'muted small' }, extra) : null,
     el('span', { class: `verdict ${kind === 'skip' ? '' : kind}` }, label)
   );
 
@@ -87,7 +97,7 @@ function reviewItem(question, record, index, openRoot) {
     if (card) detailStack.append(card);
   }
 
-  return el('details', { class: `review-item ${kind}`, open: kind !== 'ok' },
+  return el('details', { class: `review-item ${kind}`, open: open === null ? kind !== 'ok' : open },
     summary, detailStack);
 }
 

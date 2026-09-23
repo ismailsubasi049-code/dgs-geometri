@@ -2,11 +2,12 @@
 //
 // Ders (Matematik / Geometri) ayrimi veriden gelir: uc ders eklenirse bu dosya degismez.
 
-import { el } from '../ui.js';
+import { el, fmtNet } from '../ui.js';
 import { overview } from '../scheduler.js';
-import { listBranches } from '../packs.js';
+import { listBranches, listExams } from '../packs.js';
 import { listFormulaBranches, listFormulaSets } from '../formulas.js';
-import { isPersistent } from '../store.js';
+import { isPersistent, listExamResults } from '../store.js';
+import { scoreOf } from '../exam.js';
 import { backupReminder } from '../backup.js';
 
 function modeCard({ emoji, title, sub, badge, badgeQuiet, disabled, onClick }) {
@@ -41,11 +42,13 @@ export async function render(ctx) {
 
   const data = await overview();
   // Formuller bolumu soru paketlerinden bagimsiz; okunamazsa ana ekran yine acilir.
-  const [packBranches, formulaSets, formulaBranches] = await Promise.all([
+  const [packBranches, formulaSets, formulaBranches, exams] = await Promise.all([
     listBranches().catch(() => []),
     listFormulaSets().catch(() => []),
     listFormulaBranches().catch(() => []),
+    listExams().catch(() => []),
   ]);
+  const examResults = listExamResults();
   const branches = mergeBranches(packBranches, formulaBranches);
 
   const root = el('div', { class: 'stack' });
@@ -132,9 +135,11 @@ export async function render(ctx) {
   for (const branch of branches) {
     const topics = data.topics.filter((topic) => topic.branchId === branch.id);
     const sets = formulaSets.filter((set) => set.branchId === branch.id);
+    // Denemeler listTopics'e girmez (ogrenme havuzu disi); dalin altinda kendi karti var.
+    const branchExams = exams.filter((exam) => exam.branchId === branch.id);
 
-    // Ne sorusu ne formulu olan ders hic gorunmesin.
-    if (topics.length === 0 && sets.length === 0) continue;
+    // Ne sorusu ne formulu ne denemesi olan ders hic gorunmesin.
+    if (topics.length === 0 && sets.length === 0 && branchExams.length === 0) continue;
 
     const subtopicCount = topics.reduce((sum, topic) => sum + topic.subtopics.length, 0);
     const questionCount = topics.reduce((sum, topic) => sum + topic.count, 0);
@@ -142,35 +147,58 @@ export async function render(ctx) {
 
     root.append(el('div', { class: 'section-title' }, `${branch.emoji || '📘'} ${branch.title}`));
 
-    root.append(
-      modeCard({
-        emoji: '📚',
-        title: `${branch.title} konuları`,
-        sub: topics.length > 0
-          ? [
-              `${topics.length} konu`,
-              subtopicCount > 0 ? `${subtopicCount} alt konu` : null,
-              `${questionCount} soru`,
-            ].filter(Boolean).join(' · ')
-          : 'Soru paketleri henüz eklenmedi',
-        badge: null,
-        disabled: topics.length === 0,
-        onClick: () => ctx.navigate(`#/konular/${encodeURIComponent(branch.id)}`),
-      })
-    );
+    if (branchExams.length > 0) {
+      const ids = new Set(branchExams.map((exam) => exam.id));
+      const own = examResults.filter((record) => ids.has(record.packId));
+      const last = own[0] ? scoreOf(own[0]) : null;
+      root.append(
+        modeCard({
+          emoji: '📝',
+          title: 'Deneme sınavları',
+          sub: [
+            `${branchExams.length} deneme`,
+            own.length > 0 ? `${own.length} sonuç` : 'henüz çözülmedi',
+            last ? `son net ${fmtNet(last.net)}` : null,
+          ].filter(Boolean).join(' · '),
+          badge: null,
+          onClick: () => ctx.navigate('#/denemeler'),
+        })
+      );
+    }
 
-    root.append(
-      modeCard({
-        emoji: '📐',
-        title: `${branch.title} formülleri`,
-        sub: cardCount > 0
-          ? `${sets.length} konu · ${cardCount} formül kartı`
-          : 'Formül kartı yok',
-        badge: null,
-        disabled: sets.length === 0,
-        onClick: () => ctx.navigate(`#/formuller/${encodeURIComponent(branch.id)}`),
-      })
-    );
+    // Yalniz formul kartlari olan ders (soru paketi gelmemis) yine konular kartini
+    // pasif gosterir; yalniz denemesi olan ders gostermez.
+    if (topics.length > 0 || sets.length > 0) {
+      root.append(
+        modeCard({
+          emoji: '📚',
+          title: `${branch.title} konuları`,
+          sub: topics.length > 0
+            ? [
+                `${topics.length} konu`,
+                subtopicCount > 0 ? `${subtopicCount} alt konu` : null,
+                `${questionCount} soru`,
+              ].filter(Boolean).join(' · ')
+            : 'Soru paketleri henüz eklenmedi',
+          badge: null,
+          disabled: topics.length === 0,
+          onClick: () => ctx.navigate(`#/konular/${encodeURIComponent(branch.id)}`),
+        })
+      );
+    }
+
+    // Formul seti olmayan dalda kart gizlenir; bos bir sayfaya acilmasin.
+    if (sets.length > 0) {
+      root.append(
+        modeCard({
+          emoji: '📐',
+          title: `${branch.title} formülleri`,
+          sub: `${sets.length} konu · ${cardCount} formül kartı`,
+          badge: null,
+          onClick: () => ctx.navigate(`#/formuller/${encodeURIComponent(branch.id)}`),
+        })
+      );
+    }
   }
 
   // ---------- alt satir ----------

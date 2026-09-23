@@ -2,7 +2,8 @@
   "schemaVersion": 3,
   "branches": [
     { "id": "mat", "title": "Matematik", "emoji": "🔢" },
-    { "id": "geo", "title": "Geometri", "emoji": "📐" }
+    { "id": "geo", "title": "Geometri", "emoji": "📐" },
+    { "id": "deneme", "title": "Denemeler", "emoji": "📝" }
   ],
   "topics": [
     { "id": "sayilar", "title": "Sayılar", "branchId": "mat" },
@@ -19,7 +20,8 @@
     { "id": "ucgenler", "title": "Üçgenler", "branchId": "geo" },
     { "id": "cokgenler", "title": "Çokgenler", "branchId": "geo" },
     { "id": "dortgenler", "title": "Dörtgenler", "branchId": "geo" },
-    { "id": "cember", "title": "Çember ve Daire", "branchId": "geo" }
+    { "id": "cember", "title": "Çember ve Daire", "branchId": "geo" },
+    { "id": "deneme", "title": "Denemeler", "branchId": "deneme" }
   ],
   "packs": [
     {
@@ -353,6 +355,17 @@
       "file": "packs/geometri-cember.json",
       "count": 40,
       "version": 2
+    },
+    {
+      "id": "deneme-sayisal-01",
+      "topicId": "deneme",
+      "topic": "Denemeler",
+      "title": "DGS Deneme 1 — Sayısal (50 soru)",
+      "file": "packs/deneme-sayisal-01.json",
+      "count": 50,
+      "version": 1,
+      "mode": "deneme",
+      "durationMin": 75
     }
   ]
 }

@@ -12,6 +12,11 @@
 //
 // Konularin ustunde bir ders (brans) duzeyi var: index.json'daki branches dizisi. Her konu
 // bir branchId tasir; yazmayan konu geometri sayilir, boylece eski veri kirilmaz.
+//
+// Deneme paketi (index kaydinda mode: "deneme") ogrenme havuzunun DISINDADIR:
+// loadAllQuestions ve listTopics onu atlar, boylece gunluk rutin, mini test, Yanlislarim,
+// konu listeleri ve istatistik deneme sorularini hic gormez. Deneme yalnizca loadExam ile
+// yuklenir ve kaynak sirasiyla cozulur (js/exam.js).
 
 const INDEX_URL = './data/index.json';
 const DATA_ROOT = './data/';
@@ -22,6 +27,13 @@ const DEFAULT_BRANCH = 'geo';
 let indexPromise = null;
 const packPromises = new Map();
 const questionsById = new Map();
+/** Paket duzeyindeki soru disi alanlar (deneme bolumleri): packId -> { sections, durationMin } */
+const packMeta = new Map();
+
+/** Deneme paketi mi? Karar index kaydindan verilir; paket dosyasindaki mode dekoratif. */
+export function isExam(entry) {
+  return Boolean(entry) && entry.mode === 'deneme';
+}
 
 async function fetchJson(url) {
   const response = await fetch(url, { cache: 'no-cache' });
@@ -115,6 +127,10 @@ export function loadPack(entry) {
         block: q.blockId ? blocks.get(q.blockId) : null,
       }));
       for (const question of questions) questionsById.set(question.id, question);
+      packMeta.set(id, {
+        sections: Array.isArray(data.sections) ? data.sections : [],
+        durationMin: Number(data.durationMin) || null,
+      });
       return questions;
     }).catch((error) => {
       packPromises.delete(id);
@@ -125,9 +141,12 @@ export function loadPack(entry) {
   return packPromises.get(id);
 }
 
-/** Tum paketleri yukler. Bir paket bozuksa digerleri yine calisir. */
+/**
+ * Ogrenme havuzundaki tum paketleri yukler (deneme paketleri haric - bkz. dosya basi).
+ * Bir paket bozuksa digerleri yine calisir.
+ */
 export async function loadAllQuestions() {
-  const { packs } = await loadIndex();
+  const packs = (await loadIndex()).packs.filter((pack) => !isExam(pack));
   const results = await Promise.allSettled(packs.map(loadPack));
 
   const questions = [];
@@ -188,6 +207,8 @@ export async function listTopics() {
   }
 
   for (const pack of packs) {
+    // Deneme konu listesine girmez; ana ekranda kendi kartiyla acilir.
+    if (isExam(pack)) continue;
     const title = pack.topic || pack.title;
     // topicId yoksa (eski sema) gorunen ad kimlik yerine gecer.
     const id = pack.topicId || title;
@@ -225,6 +246,43 @@ export async function listTopics() {
 
   // topics'te yazili ama paketi olmayan konu listede gorunmesin.
   return [...byId.values()].filter((entry) => entry.packIds.length > 0);
+}
+
+/**
+ * Deneme paketlerinin index kayitlari, index sirasiyla. Konunun dali da eklenir
+ * (ana ekran denemeyi kendi dalinin altinda gosterir).
+ * Donen her kayit: index kaydi + { branchId, durationMin }
+ */
+export async function listExams() {
+  const { topics, packs } = await loadIndex();
+  return packs.filter(isExam).map((pack) => {
+    const topic = topics.find((t) => t.id === pack.topicId);
+    return {
+      ...pack,
+      branchId: (topic && topic.branchId) || pack.branchId || DEFAULT_BRANCH,
+      durationMin: Number(pack.durationMin) || null,
+    };
+  });
+}
+
+/**
+ * Tek bir denemeyi cozulmeye hazir yukler. Sorular dosyadaki sirayla gelir - deneme
+ * sirasi sabittir, karistirilmaz. Sure index kaydindan, yoksa paket dosyasindan.
+ * Paket bulunamazsa null.
+ */
+export async function loadExam(packId) {
+  const exams = await listExams();
+  const entry = exams.find((pack) => pack.id === packId);
+  if (!entry) return null;
+
+  const questions = await loadPack(entry);
+  const meta = packMeta.get(packId) || { sections: [], durationMin: null };
+  return {
+    entry,
+    questions,
+    sections: meta.sections,
+    durationMin: entry.durationMin || meta.durationMin || questions.length * 1.5,
+  };
 }
 
 /** Yuklenmis sorulardan id ile arama. Once ilgili paketin yuklenmis olmasi gerekir. */

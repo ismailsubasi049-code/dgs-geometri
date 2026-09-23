@@ -20,7 +20,16 @@ const SCREENS = {
   topics: () => import('./screens/topics.js'),
   formulas: () => import('./screens/formulas.js'),
   stats: () => import('./screens/stats.js'),
+  exam: () => import('./screens/exam.js'),
+  exams: () => import('./screens/exams.js'),
 };
+
+/**
+ * Ekranin koydugu cikis korumasi: bir mesaj donerse ust bardaki geri dugmesi once onay
+ * ister. Deneme ekrani kullanir - yarida birakilan deneme kaydedilmez. Her render'da
+ * sifirlanir. Donanim geri tusu burada durdurulamaz (hashchange olmus olur).
+ */
+let leaveGuard = null;
 
 /** Bir onceki ekranin birakmasi gereken kaynaklar (zamanlayici vb.). Hepsi calistirilir. */
 let leaveHooks = [];
@@ -47,6 +56,8 @@ function resolve(parts) {
     case 'konular':      return { name: 'topics', params: rest };
     case 'formuller':    return { name: 'formulas', params: rest };
     case 'istatistik':   return { name: 'stats', params: rest };
+    case 'deneme':       return { name: 'exam', params: rest };
+    case 'denemeler':    return { name: 'exams', params: rest };
     default:             return { name: 'home', params: [] };
   }
 }
@@ -57,6 +68,10 @@ function resolve(parts) {
  * ekrandan dogrudan girildigi icin tek parcali rotadan geri ana ekrandir.
  */
 function backTargetFor(route) {
+  // Deneme ve deneme sonucu, derin baglantiyla acilsa da deneme listesine doner.
+  if (route.name === 'exam' || (route.name === 'exams' && route.params.length > 0)) {
+    return '#/denemeler';
+  }
   if (route.params.length < 2) return '#/';
   const branchId = encodeURIComponent(route.params[0]);
   if (route.name === 'topics') return `#/konular/${branchId}`;
@@ -117,6 +132,10 @@ function makeContext(params) {
     onLeave(fn) {
       leaveHooks.push(fn);
     },
+    /** fn: () => onay mesaji ya da null. Bkz. leaveGuard. */
+    guardLeave(fn) {
+      leaveGuard = fn;
+    },
   };
 }
 
@@ -130,6 +149,7 @@ async function render() {
 
   const hooks = leaveHooks;
   leaveHooks = [];
+  leaveGuard = null;
   for (const hook of hooks) {
     try { hook(); } catch { /* temizlik hatasi gezinmeyi engellemesin */ }
   }
@@ -176,10 +196,11 @@ async function render() {
 
 // Uygulama ayni anda iki yerde acik olabilir: ana ekrana eklenmis PWA ve tarayici sekmesi
 // ayni depoyu paylasir. Diger kopya ilerlemeyi degistirdiginde ekrandaki sayilar
-// eskimesin diye yeniden cizilir. Oturum ekrani bunun disinda: cozulmekte olan soru
-// yeniden cizilirse kullanici yerini ve isaretledigi sikki kaybeder.
+// eskimesin diye yeniden cizilir. Oturum ve deneme ekrani bunun disinda: cozulmekte olan
+// soru yeniden cizilirse kullanici yerini ve isaretledigi sikki kaybeder; denemede butun
+// deneme giderdi.
 onExternalChange(() => {
-  if (currentRouteName === 'session') return;
+  if (currentRouteName === 'session' || currentRouteName === 'exam') return;
   render();
 });
 
@@ -194,6 +215,8 @@ document.getElementById('storage-dismiss').addEventListener('click', () => {
 });
 
 backBtn.addEventListener('click', () => {
+  const message = leaveGuard ? leaveGuard() : null;
+  if (message && !window.confirm(message)) return;
   // Geri gitmek kayit tuketir; boylece yigin buyumez ve donanim geri tusu ayni sirayi izler.
   // Derin baglantiyla acilis disinda depth her zaman > 0'dir.
   if (depth > 0) history.back();

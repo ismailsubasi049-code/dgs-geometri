@@ -1,7 +1,9 @@
 // Soru ekrani. Dort modun da kullandigi tek ekran; farki mod yapilandirmasi belirler.
 
-import { el, clear, richText, fmtTime, fmtDay, emptyState, formulaCard, sharedStem, CHOICE_LETTERS }
-  from '../ui.js';
+import {
+  el, clear, richText, fmtTime, fmtDay, emptyState, formulaCard, sharedStem, createTriageToast,
+  CHOICE_LETTERS,
+} from '../ui.js';
 import { parseFigure } from '../svg.js';
 import { createSession, MODES } from '../quiz.js';
 import {
@@ -482,50 +484,11 @@ export async function render(ctx) {
 
   /** Soru basina BIR KEZ; showQuestion her soruda sifirlar. */
   let triageShown = false;
-  let triageToast = null;
-  let triageToastTimer = null;
 
-  /** Kendiliginden kaybolma suresi: iki cumleyi okumaya yeter, ekranda oyalanmaz. */
-  const TOAST_MS = 12000;
-
-  function dismissTriageToast() {
-    if (triageToastTimer !== null) {
-      clearTimeout(triageToastTimer);
-      triageToastTimer = null;
-    }
-    if (triageToast) {
-      triageToast.remove();
-      triageToast = null;
-    }
-  }
-
-  /**
-   * Sade bir serit: renk baskisi, animasyon, ses, titresim yok. Metin "hizlan"
-   * demez - bir soruya ne kadar daha verilecegine karar verdirmeye calisir.
-   *
-   * document.body'ye eklenir: sabit konumlu oldugu icin kaydirma nerede olursa olsun
-   * gorunur, clear(body) ile silinmez ve hicbir kapsayici tarafindan kirpilmaz.
-   * Pencere duzeyinde olay dinleyicisi EKLEMEZ - karalama alaninin pointer
-   * ciftiyle (tuvalde pointerdown, pencerede pointerup) cakismaz.
-   */
-  function showTriageToast() {
-    dismissTriageToast();
-
-    triageToast = el('button', {
-      class: 'triage-toast',
-      type: 'button',
-      on: { click: dismissTriageToast },
-    },
-      el('span', { class: 'grow' },
-        el('strong', null, `${triageMinutes} dakikayı geçtin.`),
-        ' Bu soruya ne kadar daha vereceğine şimdi karar ver.'
-        + ' Emin değilsen boş bırakmak, tahmin etmekten iyidir.'),
-      el('span', { class: 'x' }, '×')
-    );
-
-    document.body.append(triageToast);
-    triageToastTimer = setTimeout(dismissTriageToast, TOAST_MS);
-  }
+  /** Serit js/ui.js'te; deneme ekrani da ayni seridi kullanir. */
+  const triageToast = createTriageToast(triageMinutes);
+  const showTriageToast = triageToast.show;
+  const dismissTriageToast = triageToast.dismiss;
 
   ctx.onLeave(dismissTriageToast);
 

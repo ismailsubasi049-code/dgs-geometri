@@ -1,6 +1,6 @@
 # Durum
 
-**Son güncelleme:** 2026-09-20 · **sw.js VERSION:** güncel değer için `sw.js:4`
+**Son güncelleme:** 2026-09-23 · **sw.js VERSION:** güncel değer için `sw.js:4`
 (elle tutulan kopya iki tur geride kaldığı için buradan kaldırıldı; sürüm zaten
 her turda aşağıdaki günlüğe yazılıyor)
 
@@ -50,6 +50,10 @@ tersi:** paketi var, formül kartı yok.
 | Çember ve Daire | `cember-daire` | Çember ve daire | 40 |
 | **Toplam** | | **30 paket** | **743** |
 
+Bu tablo öğrenme havuzudur. Ayrıca **1 deneme paketi** var — `deneme-sayisal-01`
+(50 soru, Denemeler dalı). Deneme paketleri havuzun dışındadır ve 743'e sayılmaz
+(`## Deneme modu`).
+
 ## Kalan işler
 
 - **Sonraki aşama kararı:** matematiğin kalan 3 konusuna paket mi (formül
@@ -78,7 +82,9 @@ tersi:** paketi var, formül kartı yok.
   (tablo + grafik, 14 şekil). `blocks[].figure` yolu bu ikinci paketle **ilk kez
   gerçek veriyle sınandı ve çalışıyor** — kod yine değişmedi. Üçüncü paket
   (saf grafik yorumlama / algoritma akışı) hâlâ yok.
-- **"İşaretle ve geç" turu (sıradaki).** Triyaj uyarısı v48'de eklendi ama
+- **"İşaretle ve geç" turu (sıradaki).** *v63 notu: deneme modunda bu akış var
+  (işaretle, soru haritası, geri dönüp cevap değiştirme — `js/screens/exam.js`);
+  aşağıdaki madde öğrenme modları için hâlâ açık.* Triyaj uyarısı v48'de eklendi ama
   yönlendirdiği eylem uygulamada yok: hiçbir modda soruyu atlama yolu yok, geri
   gezinme de yok. Gereken üç dokunuş: `js/quiz.js` cevap kaydına `flagged` alanı
   ve şık işaretlemeden ilerleyebilen bir yol; `js/screens/session.js`'e
@@ -2317,6 +2323,89 @@ değişmişti ama sayfa hâlâ `dgs-v61` cache'inden okuyordu; `fetch(..., {cach
 service worker'ı atlatmıyor. Kayıt kaldırılıp cache silindikten ve sayfa yenilendikten
 sonra doğru sayılar geldi. Doğrulamaya paket dosyası değiştiren her turda geçerli:
 **önce SW cache'ini düşür, sonra say.**
+
+## Deneme modu
+
+**2026-09-23 (v63).** İlk tam deneme `deneme-sayisal-01` (50 soru, 75 dk, 4 ortak kök
+bloğu, 17 şekil) `referans/`'tan geldi. Uygulamada deneme modu yoktu: mini test rastgele
+10 soruyu karıştırıyordu, net hesabı, boş geçme ve geri dönme de yoktu. Paketi normal
+paket olarak eklemek 1–50 sırasını bozardı, çünkü konu modu zorluk kovalarında
+karıştırıyor. Bu yüzden ayrı bir mod yazıldı.
+
+### Veri: yalnız yapı alanları çevrildi, soru içeriğine dokunulmadı
+
+- Bloklar `{ id, title, text }` → şemanın `{ id, label, stem }` biçimine çevrildi.
+  `stem` = `title` + boş satır + `text`: "**26 – 29.** soruları…" satırı kökün ilk
+  satırı oldu, `richText` ile kalın basılıyor. `label` = `Soru 26 – 29`. Kutu başlığı
+  düz metin olduğu için `**` orada ham görünürdü.
+- Paket üstüne `sections` eklendi (md'deki "Yapı" tablosu): 1–5 Temel işlem, 6–12
+  Sayılar ve cebir, 13–20 Problemler, 21–25 Bağımsız sayısal mantık, 26–42 Ortak köklü
+  sorular, 43–50 Geometri. Aralıklar sorunun `no` alanına göre.
+- `mode`, `durationMin`, `title`, `no`, `blockId` ve 50 sorunun tüm alanları aynen kaldı.
+- `data/index.json`: yeni dal `deneme` (📝 Denemeler), yeni konu `deneme`, paket kaydı
+  `mode: "deneme"`, `durationMin: 75`, `count: 50`. Denemeyi tanıyan karar index
+  kaydından verilir (`js/packs.js` → `isExam`).
+- JSON `data/packs/`'e taşındı; `referans/`'ta yalnız md kaldı.
+
+### Deneme öğrenme havuzunun dışında
+
+`loadAllQuestions()` ve `listTopics()` deneme kayıtlarını atlar. Bu yüzden günlük
+rutin, mini test, Yanlışlarım, konu listeleri ve İstatistik deneme sorusu görmez.
+Deneme cevapları Leitner'e (`questions`), günlük sayaca ve global `timings`'e
+**yazılmaz**. Tek kayıt `store.exams` (en fazla 200). Sonuç bitişte yazılır,
+`correct` kaydın içindedir; paket sonradan değişse de sonuç bozulmaz. `mergeStates`
+id'ye göre birleşim yapar. Yedek, geri yükleme ve sıfırlama bu alanı kendiliğinden
+kapsar.
+
+### Ekranlar
+
+- `#/deneme/<packId>` (`js/screens/exam.js` + motor `js/exam.js`):
+  - Sabit sıra, üst barda `kalan` sayacı; son 5 dakikada sarıya döner, süre dolunca
+    kendiliğinden biter.
+  - "Soru ne istiyor?" kapısı yok, şıklar hep açık. Seçim yalnız vurgulanır; aynı
+    şıkka ikinci dokunuş cevabı siler.
+  - İşaretle düğmesi. Soru haritası 10 sütunlu: cevaplı dolu, boş çerçeve, işaretli
+    sarı kenar, şu anki halka.
+  - Önceki / Sonraki / Denemeyi bitir. Bitirmeden önce boş ve işaretli sayısıyla onay.
+  - Çözüm, renk ve formül kartı yok.
+  - Soru süresi o soruda geçen tüm ziyaretlerin toplamıdır (duraklamalı sayaç aynı).
+    Triyaj uyarısı bu birikmiş süreye göre soru başına bir kez çıkar.
+  - Yarıda bırakılan deneme kaydedilmez. Üst bardaki geri ve sayfa kapatma onay ister
+    (`ctx.guardLeave`, `beforeunload`); donanım geri tuşu durdurulamaz. Dışarıdan
+    depo değişince ekran yeniden çizilmez (`app.js` `onExternalChange`).
+- `#/denemeler`: deneme listesi + geçmiş sonuçlar.
+- `#/denemeler/<sonucId>`: kalıcı sonuç ekranı. İçeriği:
+  - Net (D − Y/4), D/Y/B, süre.
+  - Bölüm tablosu (her bölüm için D/Y/B/net).
+  - Süre kartı: toplam / 75:00, ortalama, eşiği aşan sorular.
+  - 1–50 gözden geçirme listesi: kapalı gelir, her satırda bölüm + süre + işaret;
+    `result.js` → `reviewItem` kullanılıyor.
+- Ana ekran:
+  - Denemeler dalında yalnız "Deneme sınavları" kartı var.
+  - Formüller kartı artık formül seti olmayan dalda gizli (önceden pasif çiziliyordu).
+- Triyaj şeridi `js/ui.js` → `createTriageToast`'a taşındı; `session.js` aynı davranışla
+  onu kullanıyor.
+
+### Doğrulama (tarayıcıda, 375 px)
+
+- `loadExam`: 50 soru, `no` 1..50 sırasıyla. 17 blok sorusunun 17'sinde kök yapışık.
+  17 şeklin **17'si** `parseFigure`'dan düğüm döndürdü (en sade 5 düğüm). Konsolda
+  uyarı yok.
+- Havuz: `loadAllQuestions()` 743 (index toplamıyla aynı), `dns01-` yok. 30 `buildTest`
+  + `buildDaily` içinde de 0 deneme sorusu.
+- Ekran görüntüleri: dns01-01 (kesir şekli), 25 (desen adımları), 26 (kök kutusu,
+  kalın başlık), 30 (kök + tablo şekli), 46 (paralelkenar) — hepsi doğru.
+- Akış: 4 soru cevaplandı, 1 işaretlendi, 1. soruya dönüp cevap değiştirildi, silme
+  denendi. Saat 130 sn ileri alınınca triyaj uyarısı çıktı.
+- Sonuç: D 3 · Y 1 · B 46 · **net 2,75**. Bölüm toplamları 50. Eşiği aşan 46. soru
+  listelendi. Sayfa yenilendikten sonra listeden yeniden açıldı; `questions`,
+  `timings`, `daily` boş kaldı.
+- Süre dolma yolu: saat 76 dk ileri alınınca deneme kendiliğinden bitti, "Süre doldu"
+  notu çıktı.
+- Konu oturumunda triyaj şeridi taşındıktan sonra da çıkıyor, ekrandan çıkınca kalkıyor.
+- Test kayıtları ana ekranda temizlendi + reload.
+- `sw.js` VERSION **v62 → v63**. `APP_SHELL`'e `js/exam.js`, `js/screens/exam.js`,
+  `js/screens/exams.js` eklendi.
 
 ## Çalışma kuralları
 

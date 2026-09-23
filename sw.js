@@ -1,7 +1,7 @@
 // Service worker: uygulamayi ve soru paketlerini cache'e alir, internetsiz calismayi saglar.
 //
 // Guncelleme: bu sabiti artir. Eski cache silinir, sayfada "Yeni sürüm hazır" bandi cikar.
-const VERSION = 'v62';
+const VERSION = 'v63';
 const CACHE = `dgs-${VERSION}`;
 
 // Uygulama kabugu. Paketler ve formul setleri burada yok - onlar kendi index.json'larindan
@@ -22,12 +22,15 @@ const APP_SHELL = [
   './js/timing.js',
   './js/svg.js',
   './js/scratchpad.js',
+  './js/exam.js',
   './js/screens/home.js',
   './js/screens/session.js',
   './js/screens/result.js',
   './js/screens/topics.js',
   './js/screens/formulas.js',
   './js/screens/stats.js',
+  './js/screens/exam.js',
+  './js/screens/exams.js',
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/maskable-512.png',

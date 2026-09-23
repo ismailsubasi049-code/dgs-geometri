@@ -1,0 +1,877 @@
+{
+  "id": "deneme-sayisal-01",
+  "topicId": "deneme",
+  "topic": "Denemeler",
+  "subtopicId": "",
+  "subtopic": "",
+  "title": "DGS Deneme 1 — Sayısal (50 soru)",
+  "version": 1,
+  "mode": "deneme",
+  "durationMin": 75,
+  "sections": [
+    { "from": 1, "to": 5, "title": "Temel işlem" },
+    { "from": 6, "to": 12, "title": "Sayılar ve cebir" },
+    { "from": 13, "to": 20, "title": "Problemler" },
+    { "from": 21, "to": 25, "title": "Bağımsız sayısal mantık" },
+    { "from": 26, "to": 42, "title": "Ortak köklü sorular" },
+    { "from": 43, "to": 50, "title": "Geometri" }
+  ],
+  "blocks": [
+    {
+      "id": "dns01-b1",
+      "label": "Soru 26 – 29",
+      "stem": "**26 – 29.** soruları aşağıdaki bilgilere göre cevaplayınız.\n\nBir turnuvaya 8 takım katılmıştır. Turnuvada her takım diğer takımların her biriyle birer kez karşılaşmaktadır. Oynanan her maçta kazanan takıma 3, berabere kalan takımların her birine 1, kaybeden takıma 0 puan verilmektedir."
+    },
+    {
+      "id": "dns01-b2",
+      "label": "Soru 30 – 33",
+      "stem": "**30 – 33.** soruları aşağıdaki bilgilere göre cevaplayınız.\n\n6 hücreden oluşan bir tablonun her hücresine, her biri yalnız bir kez kullanılmak üzere 1'den 6'ya kadar olan rakamlar yazılmaktadır. Her satırın sağına o satırdaki rakamların çarpımı, her sütunun altına o sütundaki rakamların toplamı yazılmaktadır."
+    },
+    {
+      "id": "dns01-b3",
+      "label": "Soru 34 – 37",
+      "stem": "**34 – 37.** soruları aşağıdaki bilgilere göre cevaplayınız.\n\nBir torbada üzerinde 1'den 12'ye kadar sayılar yazılı 12 top bulunmaktadır. Her adımda torbadaki en küçük iki sayılı top torbadan çıkarılmakta ve üzerinde bu iki sayının toplamı yazılı yeni bir top torbaya konulmaktadır. Torbada tek bir top kalıncaya kadar bu işlem sürdürülmektedir."
+    },
+    {
+      "id": "dns01-b4",
+      "label": "Soru 38 – 42",
+      "stem": "**38 – 42.** soruları aşağıdaki bilgilere göre cevaplayınız.\n\na ve b tam sayıları için ⊕ işlemi\n   a ⊕ b = a · b − a − b\nbiçiminde tanımlanmaktadır."
+    }
+  ],
+  "questions": [
+    {
+      "id": "dns01-01",
+      "no": 1,
+      "difficulty": 1,
+      "stem": "Yukarıdaki işlemin sonucu kaçtır?",
+      "asks": "İşlemin sonucu isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-linejoin='round'><line x1='140' y1='72' x2='164' y2='72'/><line x1='190' y1='72' x2='214' y2='72'/><line x1='166' y1='150' x2='200' y2='150'/></g><g stroke='currentColor' stroke-width='1.8' fill='none' stroke-linejoin='round'><line x1='110' y1='104' x2='240' y2='104'/></g><g font-family='system-ui, sans-serif' font-size='20' fill='currentColor'><text x='152' y='64' text-anchor='middle'>2</text><text x='152' y='94' text-anchor='middle'>3</text><text x='177' y='84' text-anchor='middle'>+</text><text x='202' y='64' text-anchor='middle'>1</text><text x='202' y='94' text-anchor='middle'>6</text><text x='183' y='142' text-anchor='middle'>5</text><text x='183' y='172' text-anchor='middle'>12</text></g></svg>",
+      "choices": [
+        "1",
+        "1,5",
+        "2",
+        "2,5",
+        "3"
+      ],
+      "answer": 2,
+      "solution": "1. Pay sadeleştirilir: 2/3 + 1/6 = 4/6 + 1/6 = 5/6\n\n2. Bölme, ters çevirip çarpmadır: (5/6) · (12/5) = 60/30 = **2**\n\nNot: Kesirli bölmede payı paydaya bölmek yerine ters çevirip çarp; 5/6 ile 5/12 sadeleşince 12/6 = 2 kalır."
+    },
+    {
+      "id": "dns01-02",
+      "no": 2,
+      "difficulty": 1,
+      "stem": "Yukarıdaki işlemin sonucu kaçtır?",
+      "asks": "İşlemin sonucu isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.8' fill='none' stroke-linejoin='round'><line x1='85' y1='104' x2='245' y2='104'/></g><g font-family='system-ui, sans-serif' font-size='20' fill='currentColor'><text x='165' y='90' text-anchor='middle'>0,25 + 0,75 · 0,4</text><text x='165' y='132' text-anchor='middle'>0,11</text></g></svg>",
+      "choices": [
+        "0,5",
+        "2",
+        "5",
+        "11",
+        "50"
+      ],
+      "answer": 2,
+      "solution": "1. Önce çarpma: 0,75 · 0,4 = 0,3\n\n2. Pay: 0,25 + 0,3 = 0,55\n\n3. 0,55 / 0,11 = **5**\n\nNot: İşlem önceliği burada belirleyici; 0,25 + 0,75 = 1 alıp 0,4 ile çarpmak yanlış sonuca götürür."
+    },
+    {
+      "id": "dns01-03",
+      "no": 3,
+      "difficulty": 1,
+      "stem": "Yukarıdaki işlemin sonucu kaçtır?",
+      "asks": "İşlemin sonucu isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.8' fill='none' stroke-linejoin='round'><line x1='115' y1='104' x2='215' y2='104'/></g><g font-family='system-ui, sans-serif' font-size='22' fill='currentColor'><text x='165' y='90' text-anchor='middle'>2⁻³ · 4²</text><text x='165' y='134' text-anchor='middle'>8⁻¹</text></g></svg>",
+      "choices": [
+        "2",
+        "4",
+        "8",
+        "16",
+        "32"
+      ],
+      "answer": 3,
+      "solution": "1. Tabanlar 2 yapılır: 4² = 2⁴, 8⁻¹ = 2⁻³\n\n2. Pay: 2⁻³ · 2⁴ = 2¹\n\n3. Bölme: 2¹ / 2⁻³ = 2¹⁺³ = 2⁴ = **16**\n\nNot: Paydadaki negatif üs paya geçerken işaret değiştirir; 2¹ ⁄ 2⁻³ = 2⁴."
+    },
+    {
+      "id": "dns01-04",
+      "no": 4,
+      "difficulty": 1,
+      "stem": "Yukarıdaki işlemin sonucu kaçtır?",
+      "asks": "İşlemin sonucu isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.4' fill='none' stroke-linejoin='round'><polyline points='92,80 96,78 101,90 107,69 134,69'/></g><g stroke='currentColor' stroke-width='1.4' fill='none' stroke-linejoin='round'><polyline points='170,80 174,78 179,90 185,69 212,69'/></g><g stroke='currentColor' stroke-width='1.4' fill='none' stroke-linejoin='round'><polyline points='150,128 154,126 159,138 165,117 180,117'/></g><g stroke='currentColor' stroke-width='1.8' fill='none' stroke-linejoin='round'><line x1='85' y1='104' x2='245' y2='104'/></g><g font-family='system-ui, sans-serif' font-size='22' fill='currentColor'><text x='109' y='88' text-anchor='start'>48</text><text x='153' y='88' text-anchor='middle'>−</text><text x='187' y='88' text-anchor='start'>12</text><text x='167' y='136' text-anchor='start'>3</text></g></svg>",
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "6"
+      ],
+      "answer": 1,
+      "solution": "1. Kökler sadeleştirilir: √48 = 4√3, √12 = 2√3\n\n2. Pay: 4√3 − 2√3 = 2√3\n\n3. 2√3 / √3 = **2**\n\nNot: √48 − √12 ≠ √36; kökler ancak kök içleri aynı olduğunda toplanıp çıkarılır."
+    },
+    {
+      "id": "dns01-05",
+      "no": 5,
+      "difficulty": 1,
+      "stem": "|−7| − |3 − 8| + 3 · |−2|\nişleminin sonucu kaçtır?",
+      "asks": "İşlemin sonucu isteniyor.",
+      "choices": [
+        "6",
+        "8",
+        "10",
+        "12",
+        "14"
+      ],
+      "answer": 1,
+      "solution": "1. |−7| = 7, |3 − 8| = |−5| = 5, |−2| = 2\n\n2. 7 − 5 + 3 · 2 = 7 − 5 + 6 = **8**\n\nNot: Mutlak değer önce hesaplanır; 3 · |−2| ifadesinde çarpma mutlak değerden sonra gelir."
+    },
+    {
+      "id": "dns01-06",
+      "no": 6,
+      "difficulty": 2,
+      "stem": "İki basamaklı AB ve BA doğal sayıları için\n   AB + BA = 110\n   AB − BA = 36\neşitlikleri sağlanmaktadır.\nBuna göre, A · B çarpımı kaçtır?",
+      "asks": "A · B çarpımı isteniyor.",
+      "choices": [
+        "12",
+        "18",
+        "21",
+        "24",
+        "28"
+      ],
+      "answer": 2,
+      "solution": "1. AB = 10A + B, BA = 10B + A\n\n2. Toplam: 11(A + B) = 110 → A + B = 10\n\n3. Fark: 9(A − B) = 36 → A − B = 4\n\n4. A = 7, B = 3 → A · B = **21**\n\nNot: A + B = 10 ara değeri şıklarda yok, ama A = 7 ile yetinip 7 demek yaygın hatadır; soru çarpımı istiyor."
+    },
+    {
+      "id": "dns01-07",
+      "no": 7,
+      "difficulty": 3,
+      "stem": "Dört basamaklı 3A5B doğal sayısı 45 ile tam bölünebilmektedir.\nBuna göre, A + B toplamı en çok kaçtır?",
+      "asks": "A + B toplamının en büyük değeri isteniyor.",
+      "choices": [
+        "1",
+        "5",
+        "9",
+        "10",
+        "14"
+      ],
+      "answer": 3,
+      "solution": "1. 45 = 9 · 5 olduğundan sayı hem 9 hem 5 ile bölünmelidir.\n\n2. 5 ile bölünme: B = 0 veya B = 5\n\n3. 9 ile bölünme: rakamlar toplamı 3 + A + 5 + B 9'un katı olmalı.\nB = 0 → 8 + A = 9 → A = 1 (toplam 1)\nB = 5 → 13 + A = 18 → A = 5 (toplam 10)\n\n4. En çok: **10**\n\nNot: İki durum da geçerli; soru \"en çok\" dediği için büyük olan seçilir. A = 1, B = 0 durumunda toplam 1'dir ve A şıkkında durur."
+    },
+    {
+      "id": "dns01-08",
+      "no": 8,
+      "difficulty": 2,
+      "stem": "a ve b pozitif tam sayıları için EBOB(a, b) = 6 ve EKOK(a, b) = 180'dir.\na = 36 olduğuna göre, b kaçtır?",
+      "asks": "b değeri isteniyor.",
+      "choices": [
+        "24",
+        "30",
+        "36",
+        "45",
+        "60"
+      ],
+      "answer": 1,
+      "solution": "1. İki sayının çarpımı EBOB ile EKOK'un çarpımına eşittir:\na · b = EBOB · EKOK = 6 · 180 = 1080\n\n2. 36 · b = 1080 → b = **30**\n\nNot: Sağlama: EBOB(36, 30) = 6 ✓ ve EKOK(36, 30) = 180 ✓."
+    },
+    {
+      "id": "dns01-09",
+      "no": 9,
+      "difficulty": 2,
+      "stem": "A ve B kümeleri için\n   s(A) = 18,   s(B) = 14,   s(A ∪ B) = 25\nolduğu biliniyor.\nBuna göre, yalnız A kümesinde bulunan eleman sayısı kaçtır?",
+      "asks": "Yalnız A'daki eleman sayısı isteniyor.",
+      "choices": [
+        "11",
+        "14",
+        "18",
+        "25",
+        "32"
+      ],
+      "answer": 0,
+      "solution": "1. s(A ∪ B) = s(A) + s(B) − s(A ∩ B)\n25 = 18 + 14 − s(A ∩ B) → s(A ∩ B) = 7\n\n2. Yalnız A: s(A) − s(A ∩ B) = 18 − 7 = **11**\n\nNot: C şıkkındaki 18, s(A)'nın tamamıdır; kesişimi çıkarmayı atlamaktır. B şıkkındaki 14 ise s(B)'dir."
+    },
+    {
+      "id": "dns01-10",
+      "no": 10,
+      "difficulty": 2,
+      "stem": "Gerçel sayılar kümesinde tanımlı f fonksiyonu f(x) = 3x − 4 biçiminde veriliyor.\nf(a) = 11 olduğuna göre, f(2a) kaçtır?",
+      "asks": "f(2a) değeri isteniyor.",
+      "choices": [
+        "14",
+        "18",
+        "20",
+        "22",
+        "26"
+      ],
+      "answer": 4,
+      "solution": "1. f(a) = 3a − 4 = 11 → 3a = 15 → a = 5\n\n2. f(2a) = f(10) = 3 · 10 − 4 = **26**\n\nNot: f(2a) = 2 · f(a) = 22 değildir; sabit terim nedeniyle fonksiyon doğrusal ama orantısal değildir. D şıkkı bu hatayı yakalar."
+    },
+    {
+      "id": "dns01-11",
+      "no": 11,
+      "difficulty": 3,
+      "stem": "x ve y gerçel sayıları için\n   −3 < x < 5\n   2 < y < 6\neşitsizlikleri veriliyor.\nBuna göre, x − y farkının alabileceği en büyük tam sayı değeri kaçtır?",
+      "asks": "x − y'nin en büyük tam sayı değeri isteniyor.",
+      "choices": [
+        "−1",
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "answer": 3,
+      "solution": "1. Fark için x en büyük, y en küçük alınır: x < 5 ve y > 2\n\n2. x − y < 5 − 2 = 3 (eşitlik olamaz, çünkü uçlar dâhil değil)\n\n3. Farkın alabileceği en büyük tam sayı **2**'dir.\n\nNot: 3 sınır değerdir ve eşitsizlik katı olduğu için ulaşılamaz; E şıkkı bu ayrımı ölçer."
+    },
+    {
+      "id": "dns01-12",
+      "no": 12,
+      "difficulty": 2,
+      "stem": "a ve b tam sayıları için |a − 2| = 5 ve |b + 1| = 3'tür.\nBuna göre, a + b toplamı en çok kaçtır?",
+      "asks": "a + b'nin en büyük değeri isteniyor.",
+      "choices": [
+        "4",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "answer": 1,
+      "solution": "1. |a − 2| = 5 → a = 7 veya a = −3\n\n2. |b + 1| = 3 → b = 2 veya b = −4\n\n3. Toplam en çok: 7 + 2 = **9**\n\nNot: Mutlak değerli denklem iki durum üretir; yalnız birini yazmak (a = 7, b = 2 yerine a = 7, b = −4) küçük sonuçlara götürür."
+    },
+    {
+      "id": "dns01-13",
+      "no": 13,
+      "difficulty": 2,
+      "stem": "Bir ürünün fiyatı önce %20 artırılmış, yeni fiyat daha sonra %25 indirilmiştir.\nBuna göre, ürünün son fiyatı ilk fiyatına göre yüzde kaç azalmıştır?",
+      "asks": "Azalma yüzdesi isteniyor.",
+      "choices": [
+        "4",
+        "5",
+        "10",
+        "15",
+        "20"
+      ],
+      "answer": 2,
+      "solution": "1. İlk fiyat 100 alınır.\n\n2. %20 artış: 100 · 1,20 = 120\n\n3. %25 indirim: 120 · 0,75 = 90\n\n4. 100 → 90, yani **%10** azalma.\n\nNot: Yüzdeler doğrudan toplanmaz; %20 artıp %25 inmek %5 azalma değildir, çünkü indirim artmış fiyat üzerinden yapılır."
+    },
+    {
+      "id": "dns01-14",
+      "no": 14,
+      "difficulty": 2,
+      "stem": "Bir ürün %25 kârla 500 TL'ye satılmıştır.\nBuna göre, ürünün maliyeti kaç TL'dir?",
+      "asks": "Maliyet isteniyor.",
+      "choices": [
+        "375",
+        "400",
+        "425",
+        "450",
+        "475"
+      ],
+      "answer": 1,
+      "solution": "1. Kâr maliyet üzerinden hesaplanır: satış = maliyet · 1,25\n\n2. 500 = M · 1,25 → M = **400**\n\nNot: A şıkkındaki 375, indirimi satış fiyatı üzerinden almaktır (500 · 0,75). Kâr ve zarar oranı daima maliyete göre kurulur."
+    },
+    {
+      "id": "dns01-15",
+      "no": 15,
+      "difficulty": 2,
+      "stem": "Bugün annenin yaşı çocuğunun yaşının 4 katıdır. 6 yıl sonra annenin yaşı çocuğunun yaşının 2,5 katı olacaktır.\nBuna göre, annenin bugünkü yaşı kaçtır?",
+      "asks": "Annenin bugünkü yaşı isteniyor.",
+      "choices": [
+        "18",
+        "20",
+        "24",
+        "28",
+        "30"
+      ],
+      "answer": 2,
+      "solution": "1. Çocuk c ise anne 4c\n\n2. 6 yıl sonra: 4c + 6 = 2,5 · (c + 6)\n\n3. 4c + 6 = 2,5c + 15 → 1,5c = 9 → c = 6\n\n4. Anne = 4 · 6 = **24**\n\nNot: c = 6 ara değerdir ve soru anneyi istiyor. Sağlama: 6 yıl sonra 30 ve 12; 30 = 2,5 · 12 ✓."
+    },
+    {
+      "id": "dns01-16",
+      "no": 16,
+      "difficulty": 2,
+      "stem": "Bir işi A işçisi tek başına 12 günde, B işçisi tek başına 18 günde bitirmektedir.\nBuna göre, iki işçi birlikte çalışırsa iş kaç günde biter?",
+      "asks": "Birlikte çalışma süresi isteniyor.",
+      "choices": [
+        "6",
+        "7,2",
+        "7,5",
+        "8",
+        "9"
+      ],
+      "answer": 1,
+      "solution": "1. Günlük hızlar: A → 1/12, B → 1/18\n\n2. Birlikte: 1/12 + 1/18 = 3/36 + 2/36 = 5/36\n\n3. Süre, hızın tersidir: 36/5 = **7,2** gün\n\nNot: Süreler ortalanmaz; (12 + 18)/2 = 15 ya da 12 + 18 = 30 gibi işlemler yanlıştır. Birlikte süre, her ikisinin de tek başına süresinden küçük olmalıdır."
+    },
+    {
+      "id": "dns01-17",
+      "no": 17,
+      "difficulty": 2,
+      "stem": "Bir araç A kentinden B kentine 120 km/sa hızla gitmiş, aynı yoldan 60 km/sa hızla dönmüştür.\nBuna göre, aracın gidiş-dönüş ortalama hızı kaç km/sa'tir?",
+      "asks": "Ortalama hız isteniyor.",
+      "choices": [
+        "60",
+        "70",
+        "80",
+        "90",
+        "100"
+      ],
+      "answer": 2,
+      "solution": "1. Ortalama hız = toplam yol / toplam zaman\n\n2. Yol tek yön için x alınır: zaman = x/120 + x/60 = x/120 + 2x/120 = 3x/120\n\n3. Ortalama hız = 2x / (3x/120) = 240/3 = **80**\n\nNot: D şıkkındaki 90, hızların aritmetik ortalamasıdır ve yanlıştır; aynı yol iki farklı hızla alındığında ortalama hız harmonik ortalamadır."
+    },
+    {
+      "id": "dns01-18",
+      "no": 18,
+      "difficulty": 2,
+      "stem": "%40'lık 30 litre tuzlu su çözeltisine saf su eklenerek çözelti %25'lik yapılmak isteniyor.\nBuna göre, kaç litre su eklenmelidir?",
+      "asks": "Eklenecek su miktarı isteniyor.",
+      "choices": [
+        "18",
+        "20",
+        "24",
+        "30",
+        "48"
+      ],
+      "answer": 0,
+      "solution": "1. Tuz miktarı değişmez: 30 · 0,40 = 12 litre\n\n2. Yeni çözelti (30 + x) litre ve %25'lik:\n12 = 0,25 · (30 + x)\n\n3. 48 = 30 + x → x = **18**\n\nNot: E şıkkındaki 48, çözeltinin son hacmidir (30 + 18); soru eklenen suyu istiyor. Su eklenince çözünen sabit kalır, yalnız toplam hacim büyür."
+    },
+    {
+      "id": "dns01-19",
+      "no": 19,
+      "difficulty": 3,
+      "stem": "A, B ve C sayıları için\n   A / B = 3 / 5    ve    B / C = 2 / 3\noranları veriliyor. A + B + C = 124 olduğuna göre, C kaçtır?",
+      "asks": "C değeri isteniyor.",
+      "choices": [
+        "24",
+        "36",
+        "40",
+        "48",
+        "60"
+      ],
+      "answer": 4,
+      "solution": "1. B ortak terimdir; ilk oranda 5, ikincide 2. B'yi 10 yapacak şekilde genişletilir:\nA : B = 6 : 10 ve B : C = 10 : 15\n\n2. A : B : C = 6 : 10 : 15 → toplam 31 birim\n\n3. 124 / 31 = 4 → C = 15 · 4 = **60**\n\nNot: Birime bölme yöntemi ara değer üretmez. A = 24 ve B = 40 şıklarda durur; soru C'yi istiyor."
+    },
+    {
+      "id": "dns01-20",
+      "no": 20,
+      "difficulty": 2,
+      "stem": "Ardışık üç çift doğal sayının toplamı 96'dır.\nBuna göre, bu sayıların en büyüğü kaçtır?",
+      "asks": "En büyük sayı isteniyor.",
+      "choices": [
+        "26",
+        "28",
+        "30",
+        "32",
+        "34"
+      ],
+      "answer": 4,
+      "solution": "1. Sayılar x − 2, x, x + 2 alınır.\n\n2. Toplam 3x = 96 → x = 32\n\n3. En büyüğü x + 2 = **34**\n\nNot: D şıkkındaki 32 ortadaki sayıdır. Ortadaki sayıyı bulup durmak bu soru ailesinin en sık hatasıdır."
+    },
+    {
+      "id": "dns01-21",
+      "no": 21,
+      "difficulty": 2,
+      "stem": "A, B, C, D ve E kişilerinin boylarıyla ilgili şunlar biliniyor:\n• A, B'den uzundur.\n• B, C'den uzundur.\n• D, A'dan uzundur.\n• C, E'den uzundur.\nBuna göre, boy sıralamasında ortada bulunan kişi kimdir?",
+      "asks": "Ortadaki kişi isteniyor.",
+      "choices": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "answer": 1,
+      "solution": "1. Veriler zincirlenir: D > A > B > C > E\n\n2. Beş kişilik sıralamada ortadaki üçüncüdür: **B**\n\nNot: Zincir tek parça olduğu için sıralama kesindir. Bu tip sorularda ipuçlarını tek bir zincire bağlamak, tablo kurmaktan hızlıdır."
+    },
+    {
+      "id": "dns01-22",
+      "no": 22,
+      "difficulty": 2,
+      "stem": "Bir sayı dizisi aşağıdaki gibi oluşturulmaktadır:\n   3,  7,  15,  31,  63,  …\nBuna göre, dizinin altıncı terimi kaçtır?",
+      "asks": "Altıncı terim isteniyor.",
+      "choices": [
+        "95",
+        "101",
+        "119",
+        "127",
+        "135"
+      ],
+      "answer": 3,
+      "solution": "1. Her terim bir öncekinin 2 katının 1 fazlasıdır: 3 → 7 → 15 → 31 → 63\n\n2. Altıncı terim: 2 · 63 + 1 = **127**\n\nNot: Farklar 4, 8, 16, 32 biçiminde ikişer katlanır; bu yoldan da 63 + 64 = 127 bulunur. İki yöntem birbirini doğrular."
+    },
+    {
+      "id": "dns01-23",
+      "no": 23,
+      "difficulty": 2,
+      "stem": "Ali, Berk ve Can adlı üç kişi İzmir, Konya ve Sivas kentlerinden birine gitmiştir. Her kişi farklı bir kente gitmiştir.\n• Ali, Konya'ya gitmemiştir.\n• Berk, İzmir'e gitmiştir.\nBuna göre, aşağıdakilerden hangisi kesinlikle doğrudur?",
+      "asks": "Kesinlikle doğru olan ifade isteniyor.",
+      "choices": [
+        "Ali İzmir'e gitmiştir.",
+        "Ali Konya'ya gitmiştir.",
+        "Can Konya'ya gitmiştir.",
+        "Can İzmir'e gitmiştir.",
+        "Berk Sivas'a gitmiştir."
+      ],
+      "answer": 2,
+      "solution": "1. Berk İzmir'e gittiğinden Ali ve Can için Konya ile Sivas kalır.\n\n2. Ali Konya'ya gitmediğine göre Ali Sivas'a gitmiştir.\n\n3. Geriye kalan tek seçenek: **Can Konya'ya gitmiştir.**\n\nNot: Üç kişilik eşleştirmede bir kişi kesinleşince kalanlar iki seçeneğe iner; ikinci ipucu da bunlardan birini eleyince sonuç tek kalır."
+    },
+    {
+      "id": "dns01-24",
+      "no": 24,
+      "difficulty": 3,
+      "stem": "a ve b gerçel sayıları için\n   a · b < 0    ve    a + b > 0\nolduğu biliniyor.\nBuna göre,\nI. |a| ≠ |b|\nII. a − b > 0\nIII. a² + b² > 0\nifadelerinden hangileri **her zaman** doğrudur?",
+      "asks": "Her zaman doğru olan ifadeler isteniyor.",
+      "choices": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "I ve III",
+        "I, II ve III"
+      ],
+      "answer": 3,
+      "solution": "1. a · b < 0 → a ile b zıt işaretlidir.\n\n2. a + b > 0 → mutlak değeri büyük olan pozitiftir. Bu yüzden |a| ≠ |b|, yani I doğrudur.\n\n3. II için karşı örnek: a = −2, b = 5 → a · b < 0 ✓, a + b > 0 ✓, ama a − b = −7 < 0. II yanlıştır.\n\n4. İkisi de sıfırdan farklı olduğundan a² + b² > 0; III doğrudur.\n\nNot: \"Her zaman\" soran maddelerde tek bir karşı örnek maddeyi düşürür. II için pozitif olanı b seçmek yeterlidir."
+    },
+    {
+      "id": "dns01-25",
+      "no": 25,
+      "difficulty": 2,
+      "stem": "Yukarıda bir desenin ilk üç adımı verilmiştir. Desen her adımda aynı kurala göre büyümektedir.\nBuna göre, desenin beşinci adımındaki toplam kare sayısı kaçtır?",
+      "asks": "Beşinci adımdaki kare sayısı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><rect x='49' y='86' width='12' height='12'/><rect x='144' y='74' width='12' height='12'/><rect x='132' y='86' width='12' height='12'/><rect x='144' y='86' width='12' height='12'/><rect x='156' y='86' width='12' height='12'/><rect x='144' y='98' width='12' height='12'/><rect x='254' y='62' width='12' height='12'/><rect x='242' y='74' width='12' height='12'/><rect x='254' y='74' width='12' height='12'/><rect x='266' y='74' width='12' height='12'/><rect x='230' y='86' width='12' height='12'/><rect x='242' y='86' width='12' height='12'/><rect x='254' y='86' width='12' height='12'/><rect x='266' y='86' width='12' height='12'/><rect x='278' y='86' width='12' height='12'/><rect x='242' y='98' width='12' height='12'/><rect x='254' y='98' width='12' height='12'/><rect x='266' y='98' width='12' height='12'/><rect x='254' y='110' width='12' height='12'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='55' y='172' text-anchor='middle'>1. adım</text><text x='150' y='172' text-anchor='middle'>2. adım</text><text x='260' y='172' text-anchor='middle'>3. adım</text></g></svg>",
+      "choices": [
+        "33",
+        "37",
+        "41",
+        "45",
+        "49"
+      ],
+      "answer": 2,
+      "solution": "1. Adımlardaki kare sayıları: 1, 5, 13, …\n\n2. Artışlar 4, 8, 12 biçiminde 4'er büyür: dördüncü adım 13 + 12 = 25, beşinci adım 25 + 16 = **41**\n\nNot: Artışın kendisi de bir dizidir; sabit fark aramak (her adımda +4 gibi) yanlış sonuç verir. D şıkkındaki 45, son artışı 20 almaktan gelir."
+    },
+    {
+      "id": "dns01-26",
+      "no": 26,
+      "difficulty": 1,
+      "stem": "Turnuvada toplam kaç maç oynanmıştır?",
+      "asks": "Toplam maç sayısı isteniyor.",
+      "blockId": "dns01-b1",
+      "choices": [
+        "28",
+        "32",
+        "36",
+        "48",
+        "56"
+      ],
+      "answer": 0,
+      "solution": "1. Her maç iki takımın birleşimidir: 8 takımdan 2'li seçim.\n\n2. 8 · 7 / 2 = **28**\n\nNot: E şıkkındaki 56, ikiye bölmeyi unutmaktır (8 · 7); her maç iki takımın listesinde bir kez sayılır."
+    },
+    {
+      "id": "dns01-27",
+      "no": 27,
+      "difficulty": 1,
+      "stem": "Turnuvadaki bütün maçlar berabere bitmiştir.\nBuna göre, turnuvada dağıtılan toplam puan kaçtır?",
+      "asks": "Dağıtılan toplam puan isteniyor.",
+      "blockId": "dns01-b1",
+      "choices": [
+        "24",
+        "28",
+        "42",
+        "48",
+        "56"
+      ],
+      "answer": 4,
+      "solution": "1. Berabere biten her maçta 1 + 1 = 2 puan dağıtılır.\n\n2. 28 maç · 2 = **56**\n\nNot: B şıkkındaki 28 maç sayısıdır. Beraberlikte maç başına dağıtılan puan 2'dir, 1 değil."
+    },
+    {
+      "id": "dns01-28",
+      "no": 28,
+      "difficulty": 1,
+      "stem": "Bir takım oynadığı bütün maçları kazanırsa turnuva sonunda kaç puana ulaşır?",
+      "asks": "Takımın puanı isteniyor.",
+      "blockId": "dns01-b1",
+      "choices": [
+        "21",
+        "24",
+        "28",
+        "32",
+        "36"
+      ],
+      "answer": 0,
+      "solution": "1. Her takım 7 maç oynar.\n\n2. Hepsini kazanırsa: 7 · 3 = **21**\n\nNot: B şıkkındaki 24, maç sayısını 8 almaktır (8 · 3). Takım sayısı 8 olsa da her takımın maç sayısı 7'dir; kendisiyle oynamaz."
+    },
+    {
+      "id": "dns01-29",
+      "no": 29,
+      "difficulty": 3,
+      "stem": "Turnuvada dağıtılan toplam puan en çok kaç olabilir?",
+      "asks": "Toplam puanın en büyük değeri isteniyor.",
+      "blockId": "dns01-b1",
+      "choices": [
+        "56",
+        "70",
+        "78",
+        "84",
+        "90"
+      ],
+      "answer": 3,
+      "solution": "1. Bir maçta dağıtılan puan: galibiyetle 3, beraberlikle 2.\n\n2. Toplam en çok, bütün maçlar kazananla bitince olur: 28 · 3 = **84**\n\nNot: A şıkkındaki 56, bütün maçların berabere bitmesi hâlidir ve toplamın en küçük değeridir."
+    },
+    {
+      "id": "dns01-30",
+      "no": 30,
+      "difficulty": 2,
+      "stem": "Yukarıdaki tabloya göre x kaçtır?",
+      "asks": "x değeri isteniyor.",
+      "blockId": "dns01-b2",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><rect x='109' y='50' width='34' height='34'/><rect x='143' y='50' width='34' height='34'/><rect x='177' y='50' width='34' height='34'/><rect x='109' y='84' width='34' height='34'/><rect x='143' y='84' width='34' height='34'/><rect x='177' y='84' width='34' height='34'/></g><g font-family='system-ui, sans-serif' font-size='15' fill='currentColor'><text x='220' y='72' text-anchor='start'>20</text><text x='126' y='138' text-anchor='middle'>3</text><text x='126' y='106' text-anchor='middle'>x</text></g></svg>",
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "6"
+      ],
+      "answer": 1,
+      "solution": "1. Birinci satırın çarpımı 20'dir. 1'den 6'ya rakamlarla 20 = 1 · 4 · 5 biçiminde yazılır (2 · 2 · 5 olamaz, rakamlar farklı).\n\n2. Demek ki birinci satır {1, 4, 5}, ikinci satır {2, 3, 6} rakamlarından oluşur.\n\n3. Birinci sütunun toplamı 3'tür. Üstteki 1, alttaki x ise 1 + x = 3 → x = **2**\n\nNot: Üstteki hücrenin 1 olması zorunludur, çünkü 3 toplamını veren başka ikili ({1,2}) dışında seçenek yoktur ve 2 alt satırdadır."
+    },
+    {
+      "id": "dns01-31",
+      "no": 31,
+      "difficulty": 2,
+      "stem": "Yukarıdaki tabloya göre x kaçtır?",
+      "asks": "x değeri isteniyor.",
+      "blockId": "dns01-b2",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><rect x='109' y='50' width='34' height='34'/><rect x='143' y='50' width='34' height='34'/><rect x='177' y='50' width='34' height='34'/><rect x='109' y='84' width='34' height='34'/><rect x='143' y='84' width='34' height='34'/><rect x='177' y='84' width='34' height='34'/></g><g font-family='system-ui, sans-serif' font-size='15' fill='currentColor'><text x='220' y='72' text-anchor='start'>8</text><text x='194' y='138' text-anchor='middle'>9</text><text x='194' y='72' text-anchor='middle'>x</text></g></svg>",
+      "choices": [
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "answer": 2,
+      "solution": "1. Birinci satırın çarpımı 8'dir: 8 = 1 · 2 · 4 (farklı rakamlarla tek yol).\n\n2. Üçüncü sütunun toplamı 9'dur. Üstteki hücre {1, 2, 4} kümesinden, alttaki {3, 5, 6} kümesindendir.\n\n3. Toplamı 9 yapan tek ikili: 4 + 5 → x = **4**\n\nNot: 1 + 8 ya da 2 + 7 gibi ikililer kurulamaz, çünkü 7 ve 8 rakamları tabloda yoktur."
+    },
+    {
+      "id": "dns01-32",
+      "no": 32,
+      "difficulty": 2,
+      "stem": "Yukarıdaki tabloya göre x kaçtır?",
+      "asks": "x değeri isteniyor.",
+      "blockId": "dns01-b2",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><rect x='109' y='50' width='34' height='34'/><rect x='143' y='50' width='34' height='34'/><rect x='177' y='50' width='34' height='34'/><rect x='109' y='84' width='34' height='34'/><rect x='143' y='84' width='34' height='34'/><rect x='177' y='84' width='34' height='34'/></g><g font-family='system-ui, sans-serif' font-size='15' fill='currentColor'><text x='220' y='106' text-anchor='start'>90</text><text x='126' y='138' text-anchor='middle'>6</text><text x='126' y='106' text-anchor='middle'>x</text></g></svg>",
+      "choices": [
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "answer": 3,
+      "solution": "1. İkinci satırın çarpımı 90'dır: 90 = 3 · 5 · 6 (farklı rakamlarla tek yol).\n\n2. Böylece birinci satır {1, 2, 4} rakamlarından oluşur.\n\n3. Birinci sütunun toplamı 6'dır. Üstteki {1, 2, 4}'ten, alttaki {3, 5, 6}'dan olacak biçimde 6 toplamı: 1 + 5\n\n4. Alttaki hücre x = **5**\n\nNot: 2 + 4 = 6 ikilisi de 6 verir ama ikisi de birinci satırın rakamlarıdır; sütun bir üst bir alt hücreden oluşur."
+    },
+    {
+      "id": "dns01-33",
+      "no": 33,
+      "difficulty": 3,
+      "stem": "Yukarıdaki tabloya göre x + y toplamı kaçtır?",
+      "asks": "x + y toplamı isteniyor.",
+      "blockId": "dns01-b2",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><rect x='109' y='50' width='34' height='34'/><rect x='143' y='50' width='34' height='34'/><rect x='177' y='50' width='34' height='34'/><rect x='109' y='84' width='34' height='34'/><rect x='143' y='84' width='34' height='34'/><rect x='177' y='84' width='34' height='34'/></g><g font-family='system-ui, sans-serif' font-size='15' fill='currentColor'><text x='220' y='72' text-anchor='start'>10</text><text x='220' y='106' text-anchor='start'>72</text><text x='160' y='138' text-anchor='middle'>6</text><text x='160' y='72' text-anchor='middle'>x</text><text x='160' y='106' text-anchor='middle'>y</text></g></svg>",
+      "choices": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "answer": 1,
+      "solution": "1. Birinci satırın çarpımı 10 = 1 · 2 · 5, ikinci satırın çarpımı 72 = 3 · 4 · 6'dır.\n\n2. İkinci sütunun toplamı 6'dır: üstteki {1, 2, 5}'ten, alttaki {3, 4, 6}'dan → 2 + 4 = 6\n\n3. x = 2 ve y = 4 → x + y = **6**\n\nNot: Sütun toplamı 6 için 1 + 5 ikilisi de akla gelir, ama 5 birinci satırın rakamıdır; alt hücreye yazılamaz."
+    },
+    {
+      "id": "dns01-34",
+      "no": 34,
+      "difficulty": 2,
+      "stem": "Torbada tek bir top kalıncaya kadar kaç adım uygulanır?",
+      "asks": "Adım sayısı isteniyor.",
+      "blockId": "dns01-b3",
+      "choices": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "answer": 4,
+      "solution": "1. Her adımda iki top çıkıp bir top girdiği için toplam top sayısı birer azalır.\n\n2. 12 toptan 1 topa inmek için 12 − 1 = **11** adım gerekir.\n\nNot: Adım sayısını tek tek saymaya gerek yok; her adımın top sayısını 1 azalttığını görmek yeterlidir."
+    },
+    {
+      "id": "dns01-35",
+      "no": 35,
+      "difficulty": 2,
+      "stem": "Torbada kalan son topun üzerindeki sayı kaçtır?",
+      "asks": "Son topun sayısı isteniyor.",
+      "blockId": "dns01-b3",
+      "choices": [
+        "78",
+        "80",
+        "84",
+        "90",
+        "156"
+      ],
+      "answer": 0,
+      "solution": "1. Her adımda çıkan iki topun toplamı yeni topa yazıldığı için toplam değer değişmez.\n\n2. Başlangıç toplamı: 1 + 2 + … + 12 = 12 · 13 / 2 = **78**\n\nNot: E şıkkındaki 156, toplam formülünde ikiye bölmeyi unutmaktır (12 · 13). İşlemi adım adım izlemeye gerek yoktur; korunan büyüklüğü (toplam) görmek soruyu tek satıra indirir."
+    },
+    {
+      "id": "dns01-36",
+      "no": 36,
+      "difficulty": 2,
+      "stem": "Üçüncü adım tamamlandığında torbada bulunan topların üzerindeki en küçük sayı kaçtır?",
+      "asks": "En küçük sayı isteniyor.",
+      "blockId": "dns01-b3",
+      "choices": [
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "answer": 4,
+      "solution": "1. Adım 1: 1 ve 2 çıkar, 3 girer → torbada 3, 3, 4, 5, 6, …, 12\n\n2. Adım 2: 3 ve 3 çıkar, 6 girer → torbada 4, 5, 6, 6, 7, …, 12\n\n3. Adım 3: 4 ve 5 çıkar, 9 girer → torbada 6, 6, 7, 8, 9, 9, 10, 11, 12\n\n4. En küçük sayı **6**'dır.\n\nNot: C şıkkındaki 4, üçüncü adımda çıkarılan topu hâlâ torbada saymaktır. Yeni eklenen top da sıraya girer; adım 2'de çıkan iki topun biri ilk adımda üretilen toptur."
+    },
+    {
+      "id": "dns01-37",
+      "no": 37,
+      "difficulty": 3,
+      "stem": "Üzerinde 20'den büyük bir sayı yazılı top ilk kez kaçıncı adımda oluşur?",
+      "asks": "Adım numarası isteniyor.",
+      "blockId": "dns01-b3",
+      "choices": [
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "answer": 0,
+      "solution": "1. Adımlarda üretilen sayılar sırasıyla: 3, 6, 9, 12, 15, 18, 21\n(1+2, 3+3, 4+5, 6+6, 7+8, 9+9, 10+11)\n\n2. 20'yi ilk kez aşan sayı 21'dir ve **7.** adımda oluşur.\n\nNot: B şıkkındaki 8, 24'ün oluştuğu adımdır; 21 ondan önce oluşur. Üretilen sayılar artan sırada ilerlediği için ilk aşan adımı bulmak yeterlidir; sonraki adımlara bakmaya gerek yoktur."
+    },
+    {
+      "id": "dns01-38",
+      "no": 38,
+      "difficulty": 2,
+      "stem": "5 ⊕ 3 işleminin sonucu kaçtır?",
+      "asks": "İşlemin sonucu isteniyor.",
+      "blockId": "dns01-b4",
+      "choices": [
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "answer": 4,
+      "solution": "1. Tanım uygulanır: 5 ⊕ 3 = 5 · 3 − 5 − 3\n\n2. = 15 − 8 = **7**\n\nNot: Tanımda çıkarılan, iki sayının çarpımı değil toplamıdır; 15 − 15 gibi bir işlem kurulmamalıdır."
+    },
+    {
+      "id": "dns01-39",
+      "no": 39,
+      "difficulty": 2,
+      "stem": "4 ⊕ x = 14 olduğuna göre, x kaçtır?",
+      "asks": "x değeri isteniyor.",
+      "blockId": "dns01-b4",
+      "choices": [
+        "6",
+        "8",
+        "10",
+        "12",
+        "14"
+      ],
+      "answer": 0,
+      "solution": "1. 4 ⊕ x = 4x − 4 − x = 3x − 4\n\n2. 3x − 4 = 14 → 3x = 18 → x = **6**\n\nNot: İşlemi açarken her iki terimi de çıkarmayı unutma; 4x − 4 = 14 kurulursa sonuç 4,5 çıkar ve şıklarda yer almaz."
+    },
+    {
+      "id": "dns01-40",
+      "no": 40,
+      "difficulty": 2,
+      "stem": "a ⊕ a = 24 olduğuna göre, pozitif a değeri kaçtır?",
+      "asks": "a değeri isteniyor.",
+      "blockId": "dns01-b4",
+      "choices": [
+        "3",
+        "4",
+        "5",
+        "6",
+        "8"
+      ],
+      "answer": 3,
+      "solution": "1. a ⊕ a = a · a − a − a = a² − 2a\n\n2. a² − 2a = 24 → a² − 2a − 24 = 0 → (a − 6)(a + 4) = 0\n\n3. Pozitif kök: a = **6**\n\nNot: Denklemin diğer kökü −4'tür; soru pozitif değeri istediği için elenir."
+    },
+    {
+      "id": "dns01-41",
+      "no": 41,
+      "difficulty": 2,
+      "stem": "2 ⊕ (3 ⊕ 4) işleminin sonucu kaçtır?",
+      "asks": "İşlemin sonucu isteniyor.",
+      "blockId": "dns01-b4",
+      "choices": [
+        "3",
+        "5",
+        "7",
+        "9",
+        "11"
+      ],
+      "answer": 0,
+      "solution": "1. Önce parantez: 3 ⊕ 4 = 12 − 3 − 4 = 5\n\n2. Sonra dış işlem: 2 ⊕ 5 = 10 − 2 − 5 = **3**\n\nNot: B şıkkındaki 5, parantezin sonucudur; dış işlem henüz yapılmamıştır. Parantez önce çözülür; (2 ⊕ 3) ⊕ 4 sırası farklı sonuç verir, çünkü bu işlemin birleşme özelliği yoktur."
+    },
+    {
+      "id": "dns01-42",
+      "no": 42,
+      "difficulty": 3,
+      "stem": "Bu işlemle ilgili,\nI. Her a, b için a ⊕ b = b ⊕ a'dır.\nII. Her a için a ⊕ 1 = −1'dir.\nIII. Her a, b, c için (a ⊕ b) ⊕ c = a ⊕ (b ⊕ c)'dir.\nifadelerinden hangileri doğrudur?",
+      "asks": "Doğru olan ifadeler isteniyor.",
+      "blockId": "dns01-b4",
+      "choices": [
+        "Yalnız I",
+        "Yalnız II",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "answer": 2,
+      "solution": "1. I: a · b − a − b ifadesinde a ile b yer değiştirince ifade değişmez; işlem değişmelidir. **Doğru**\n\n2. II: a ⊕ 1 = a · 1 − a − 1 = −1. **Doğru**\n\n3. III için sayı denenir: (1 ⊕ 2) ⊕ 3 = (2 − 3) ⊕ 3 = −1 ⊕ 3 = −3 + 1 − 3 = −5\n1 ⊕ (2 ⊕ 3) = 1 ⊕ 1 = 1 − 1 − 1 = −1 → eşit değil. **Yanlış**\n\nNot: Değişme özelliği ile birleşme özelliği ayrı şeylerdir; biri sağlanırken diğeri sağlanmayabilir."
+    },
+    {
+      "id": "dns01-43",
+      "no": 43,
+      "difficulty": 2,
+      "stem": "Şekilde ABC üçgeninde m(A) = 70°, [BI] ve [CI] sırasıyla B ve C açılarının açıortaylarıdır.\nBuna göre, m(BIC) kaç derecedir?",
+      "asks": "m(BIC) isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='139.7,16.7 50,172 270,172'/><line x1='50' y1='172' x2='148.3' y2='115.2'/><line x1='270' y1='172' x2='148.3' y2='115.2'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 152.5 32 A 20 20 0 0 1 129.7 34'/><path d='M 161 121.2 A 14 14 0 0 1 136.2 122.2'/></g><circle cx='139.7' cy='16.7' r='2.5' fill='currentColor' stroke='none'/><circle cx='50' cy='172' r='2.5' fill='currentColor' stroke='none'/><circle cx='270' cy='172' r='2.5' fill='currentColor' stroke='none'/><circle cx='148.3' cy='115.2' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='139.7' y='8.7' text-anchor='middle'>A</text><text x='42' y='177' text-anchor='end'>B</text><text x='278' y='177' text-anchor='start'>C</text><text x='148.3' y='106.2' text-anchor='middle'>I</text><text x='142.6' y='55.1' text-anchor='middle'>70°</text><text x='149.4' y='145.7' text-anchor='middle'>?</text></g></svg>",
+      "choices": [
+        "110",
+        "115",
+        "120",
+        "125",
+        "130"
+      ],
+      "answer": 3,
+      "solution": "1. Üçgende B + C = 180 − 70 = 110°\n\n2. Açıortaylar yarıya böler: B/2 + C/2 = 55°\n\n3. BIC üçgeninde: m(BIC) = 180 − 55 = **125°**\n\nNot: Kısa yol: m(BIC) = 90 + A/2 = 90 + 35 = 125. A şıkkındaki 110, B + C toplamıdır, yani hesabın ilk adımı."
+    },
+    {
+      "id": "dns01-44",
+      "no": 44,
+      "difficulty": 2,
+      "stem": "Şekilde ABC dik üçgeninde m(A) = 90°, [AH] ⊥ [BC] ve |BH| = 4 cm, |HC| = 9 cm'dir.\nBuna göre, |AH| kaç cm'dir?",
+      "asks": "|AH| isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='120,68 56,164 264,164'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round' stroke-dasharray='4 3'><line x1='120' y1='68' x2='120' y2='164'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><polyline points='128,164 128,156 120,156'/><polyline points='114.5,76.3 122.8,81.9 128.3,73.5'/></g><circle cx='120' cy='68' r='2.5' fill='currentColor' stroke='none'/><circle cx='56' cy='164' r='2.5' fill='currentColor' stroke='none'/><circle cx='264' cy='164' r='2.5' fill='currentColor' stroke='none'/><circle cx='120' cy='164' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='120' y='60' text-anchor='middle'>A</text><text x='48' y='169' text-anchor='end'>B</text><text x='272' y='169' text-anchor='start'>C</text><text x='120' y='182' text-anchor='middle'>H</text><text x='88' y='182' text-anchor='middle'>4</text><text x='192' y='182' text-anchor='middle'>9</text><text x='127' y='128' text-anchor='start'>?</text></g></svg>",
+      "choices": [
+        "5",
+        "6",
+        "6,5",
+        "7,2",
+        "13"
+      ],
+      "answer": 1,
+      "solution": "1. Öklid bağıntısı: yükseklik için iki parça çarpılır.\n|AH|² = |BH| · |HC| = 4 · 9 = 36\n\n2. |AH| = **6**\n\nNot: E şıkkındaki 13, hipotenüsün uzunluğudur (4 + 9). Yükseklik için parçalar çarpılır, hipotenüs için toplanır."
+    },
+    {
+      "id": "dns01-45",
+      "no": 45,
+      "difficulty": 3,
+      "stem": "Şekilde [DE] ∥ [BC], |AD| = 2 cm ve |DB| = 3 cm'dir. ABC üçgeninin alanı 100 cm²'dir.\nBuna göre, ADE üçgeninin alanı kaç cm²'dir?",
+      "asks": "ADE üçgeninin alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='140,26 50,176 272,176'/><line x1='104' y1='86' x2='192.8' y2='86'/></g><circle cx='140' cy='26' r='2.5' fill='currentColor' stroke='none'/><circle cx='50' cy='176' r='2.5' fill='currentColor' stroke='none'/><circle cx='272' cy='176' r='2.5' fill='currentColor' stroke='none'/><circle cx='104' cy='86' r='2.5' fill='currentColor' stroke='none'/><circle cx='192.8' cy='86' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='140' y='18' text-anchor='middle'>A</text><text x='42' y='181' text-anchor='end'>B</text><text x='280' y='181' text-anchor='start'>C</text><text x='96' y='90' text-anchor='end'>D</text><text x='200.8' y='90' text-anchor='start'>E</text><text x='113.4' y='55.4' text-anchor='end'>2</text><text x='68.4' y='130.4' text-anchor='end'>3</text></g></svg>",
+      "choices": [
+        "16",
+        "20",
+        "24",
+        "36",
+        "40"
+      ],
+      "answer": 0,
+      "solution": "1. DE ∥ BC olduğundan ADE ~ ABC'dir.\n\n2. Benzerlik oranı kenarlardan gelir: k = AD/AB = 2/5\n\n3. Alan oranı k²'dir: (2/5)² = 4/25\n\n4. A(ADE) = 100 · 4/25 = **16**\n\nNot: E şıkkındaki 40, oranı kare almadan uygulamaktan gelir (100 · 2/5). Şekilde paralellik varsa alan oranında kare vardır."
+    },
+    {
+      "id": "dns01-46",
+      "no": 46,
+      "difficulty": 3,
+      "stem": "Şekildeki ABCD paralelkenarında |DC| = 15 cm, bu kenara ait yükseklik 8 cm ve |BC| = 10 cm'dir. [AK] ⊥ [BC]'dir.\nBuna göre, |AK| kaç cm'dir?",
+      "asks": "|AK| isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='102,74 282,74 210,170 30,170'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round' stroke-dasharray='4 3'><line x1='102' y1='74' x2='102' y2='170'/><line x1='102' y1='74' x2='217.2' y2='160.4'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><polyline points='110,170 110,162 102,162'/><polyline points='212.4,166.8 206,162 210.8,155.6'/></g><circle cx='102' cy='74' r='2.5' fill='currentColor' stroke='none'/><circle cx='282' cy='74' r='2.5' fill='currentColor' stroke='none'/><circle cx='210' cy='170' r='2.5' fill='currentColor' stroke='none'/><circle cx='30' cy='170' r='2.5' fill='currentColor' stroke='none'/><circle cx='217.2' cy='160.4' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='98' y='66' text-anchor='end'>A</text><text x='286' y='66' text-anchor='start'>B</text><text x='212' y='187' text-anchor='start'>C</text><text x='23' y='175' text-anchor='end'>D</text><text x='226.2' y='159.4' text-anchor='start'>K</text><text x='120' y='188' text-anchor='middle'>15</text><text x='96' y='127' text-anchor='end'>8</text><text x='254.8' y='133.1' text-anchor='start'>10</text><text x='165' y='114.5' text-anchor='start'>?</text></g></svg>",
+      "choices": [
+        "6",
+        "8",
+        "9",
+        "10",
+        "12"
+      ],
+      "answer": 4,
+      "solution": "1. Paralelkenarın alanı bir kez hesaplanır: A = 15 · 8 = 120 cm²\n\n2. Aynı alan [BC] kenarından yazılır: 120 = 10 · |AK|\n\n3. |AK| = **12**\n\nNot: B şıkkındaki 8 verilen diğer yüksekliktir, D şıkkındaki 10 ise [BC]'nin kendisidir. Alan sabitken taban küçüldükçe yükseklik büyür; 10 < 15 olduğuna göre sonuç 8'den büyük çıkmalıdır."
+    },
+    {
+      "id": "dns01-47",
+      "no": 47,
+      "difficulty": 2,
+      "stem": "Şekildeki ABCDEF düzgün altıgeninin bir kenarının uzunluğu 6 cm'dir.\nBuna göre, altıgenin alanı kaç cm²'dir?",
+      "asks": "Altıgenin alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='82,100 121,32.5 199,32.5 238,100 199,167.5 121,167.5'/></g><circle cx='82' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='121' cy='32.5' r='2.5' fill='currentColor' stroke='none'/><circle cx='199' cy='32.5' r='2.5' fill='currentColor' stroke='none'/><circle cx='238' cy='100' r='2.5' fill='currentColor' stroke='none'/><circle cx='199' cy='167.5' r='2.5' fill='currentColor' stroke='none'/><circle cx='121' cy='167.5' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='70' y='104.5' text-anchor='end'>A</text><text x='115' y='26.6' text-anchor='end'>B</text><text x='205' y='26.6' text-anchor='start'>C</text><text x='250' y='104.5' text-anchor='start'>D</text><text x='205' y='182.4' text-anchor='start'>E</text><text x='115' y='182.4' text-anchor='end'>F</text><text x='228' y='143.8' text-anchor='start'>6</text></g></svg>",
+      "choices": [
+        "18√3",
+        "27√3",
+        "36√3",
+        "54√3",
+        "72√3"
+      ],
+      "answer": 3,
+      "solution": "1. Düzgün altıgen, kenarı altıgenin kenarına eşit altı eşkenar üçgene ayrılır.\n\n2. Bir eşkenar üçgenin alanı: a²√3 / 4 = 36√3 / 4 = 9√3\n\n3. Altıgenin alanı: 6 · 9√3 = **54√3**\n\nNot: E şıkkındaki 72√3 sekiz üçgen saymaktan, B şıkkındaki 27√3 üç üçgenin, yani altıgenin yarısının alanıdır. Kaç üçgen sayıldığını kontrol et."
+    },
+    {
+      "id": "dns01-48",
+      "no": 48,
+      "difficulty": 2,
+      "stem": "Şekilde d doğrusu çembere A noktasında teğettir ve teğet ile [AB] kirişi arasındaki açı 55°'dir.\nBuna göre, AB yayının ölçüsü kaç derecedir?",
+      "asks": "AB yayının ölçüsü isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='88' r='72'/><line x1='42' y1='160' x2='278' y2='160'/><line x1='160' y1='160' x2='227.7' y2='63.4'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 171.5 143.6 A 20 20 0 0 1 180 160'/></g><path d='M 227.7 63.4 A 72 72 0 0 1 160 160' fill='none' stroke='#0284c7' stroke-width='3.5'/><circle cx='160' cy='88' r='2.5' fill='currentColor' stroke='none'/><circle cx='160' cy='160' r='2.5' fill='currentColor' stroke='none'/><circle cx='227.7' cy='63.4' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='160' y='178' text-anchor='middle'>A</text><text x='238.9' y='63.8' text-anchor='start'>B</text><text x='160' y='80' text-anchor='middle'>O</text><text x='186.6' y='150.6' text-anchor='start'>55°</text><text x='230.4' y='141.8' text-anchor='start'>?</text><text x='276' y='153' text-anchor='end'>d</text></g></svg>",
+      "choices": [
+        "27,5",
+        "55",
+        "70",
+        "90",
+        "110"
+      ],
+      "answer": 4,
+      "solution": "1. Teğet-kiriş açısı, gördüğü yayın yarısına eşittir.\n\n2. Yay = 2 · 55 = **110°**\n\nNot: B şıkkındaki 55 açının kendisidir. Burada ters yönde işlem yapılır: açıdan yaya geçerken ikiyle çarpılır."
+    },
+    {
+      "id": "dns01-49",
+      "no": 49,
+      "difficulty": 2,
+      "stem": "Şekildeki O merkezli dairenin yarıçapı 12 cm ve m(AOB) = 60°'dir.\nBuna göre, boyalı AOB daire diliminin alanı kaç cm²'dir?",
+      "asks": "Dilimin alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><path d='M 160 150 L 101 47.8 A 118 118 0 0 1 219 47.8 Z' fill='#0284c7' fill-opacity='0.2' stroke='none'/><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 101 47.8 L 160 150  L 219 47.8'/><path d='M 101 47.8 A 118 118 0 0 1 219 47.8'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><path d='M 149 130.9 A 22 22 0 0 1 171 130.9'/></g><circle cx='160' cy='150' r='2.5' fill='currentColor' stroke='none'/><circle cx='101' cy='47.8' r='2.5' fill='currentColor' stroke='none'/><circle cx='219' cy='47.8' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='95' y='41.9' text-anchor='end'>A</text><text x='225' y='41.9' text-anchor='start'>B</text><text x='160' y='168' text-anchor='middle'>O</text><text x='121.8' y='108.4' text-anchor='end'>12</text><text x='160' y='116.5' text-anchor='middle'>60°</text></g></svg>",
+      "choices": [
+        "24π",
+        "36π",
+        "48π",
+        "72π",
+        "144π"
+      ],
+      "answer": 0,
+      "solution": "1. Dilim, dairenin 60/360 = 1/6'sıdır.\n\n2. Dairenin alanı: π · 12² = 144π\n\n3. Dilim: 144π / 6 = **24π**\n\nNot: E şıkkındaki 144π, dairenin tamamının alanıdır; C şıkkındaki 48π ise oranı 1/3 almaktan gelir. Dilimin dairenin kaçta kaçı olduğunu önce belirle: 60/360 = 1/6."
+    },
+    {
+      "id": "dns01-50",
+      "no": 50,
+      "difficulty": 2,
+      "stem": "Şekildeki ABCD yamuğunda [AB] ∥ [DC], |AB| = 8 cm, |DC| = 14 cm ve yamuğun yüksekliği 6 cm'dir.\nBuna göre, yamuğun alanı kaç cm²'dir?",
+      "asks": "Yamuğun alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><polygon points='85,75 205,75 265,165 55,165'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round' stroke-dasharray='4 3'><line x1='85' y1='75' x2='85' y2='165'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-linejoin='round'><polyline points='93,165 93,157 85,157'/></g><circle cx='85' cy='75' r='2.5' fill='currentColor' stroke='none'/><circle cx='205' cy='75' r='2.5' fill='currentColor' stroke='none'/><circle cx='265' cy='165' r='2.5' fill='currentColor' stroke='none'/><circle cx='55' cy='165' r='2.5' fill='currentColor' stroke='none'/><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='79' y='69' text-anchor='end'>A</text><text x='211' y='69' text-anchor='start'>B</text><text x='273' y='170' text-anchor='start'>C</text><text x='47' y='170' text-anchor='end'>D</text><text x='145' y='67' text-anchor='middle'>8</text><text x='160' y='184' text-anchor='middle'>14</text><text x='91' y='125' text-anchor='start'>6</text></g></svg>",
+      "choices": [
+        "33",
+        "42",
+        "48",
+        "60",
+        "66"
+      ],
+      "answer": 4,
+      "solution": "1. Yamuğun alanı: ((a + c) / 2) · h\n\n2. ((14 + 8) / 2) · 6 = 11 · 6 = **66**\n\nNot: C şıkkındaki 48, yalnız kısa tabanı yükseklikle çarpmaktır (8 · 6); A şıkkındaki 33 ise sonucu bir kez daha ikiye bölmektir. Yamukta taban olarak iki tabanın ortalaması alınır."
+    }
+  ]
+}

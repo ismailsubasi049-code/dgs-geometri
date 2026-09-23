@@ -244,6 +244,61 @@ export function sharedStem(block, { open = true } = {}) {
   );
 }
 
+/**
+ * Triyaj uyarisi seridi. Oturum ve deneme ekrani ayni seridi kullanir.
+ *
+ * Sade bir serit: renk baskisi, animasyon, ses, titresim yok. Metin "hizlan"
+ * demez - bir soruya ne kadar daha verilecegine karar verdirmeye calisir.
+ *
+ * document.body'ye eklenir: sabit konumlu oldugu icin kaydirma nerede olursa olsun
+ * gorunur, ekranin clear(body)'si ile silinmez ve hicbir kapsayici tarafindan kirpilmaz.
+ * Pencere duzeyinde olay dinleyicisi EKLEMEZ - karalama alaninin pointer
+ * ciftiyle (tuvalde pointerdown, pencerede pointerup) cakismaz.
+ */
+export function createTriageToast(minutes) {
+  /** Kendiliginden kaybolma suresi: iki cumleyi okumaya yeter, ekranda oyalanmaz. */
+  const TOAST_MS = 12000;
+  let toast = null;
+  let toastTimer = null;
+
+  function dismiss() {
+    if (toastTimer !== null) {
+      clearTimeout(toastTimer);
+      toastTimer = null;
+    }
+    if (toast) {
+      toast.remove();
+      toast = null;
+    }
+  }
+
+  function show() {
+    dismiss();
+
+    toast = el('button', {
+      class: 'triage-toast',
+      type: 'button',
+      on: { click: dismiss },
+    },
+      el('span', { class: 'grow' },
+        el('strong', null, `${minutes} dakikayı geçtin.`),
+        ' Bu soruya ne kadar daha vereceğine şimdi karar ver.'
+        + ' Emin değilsen boş bırakmak, tahmin etmekten iyidir.'),
+      el('span', { class: 'x' }, '×')
+    );
+
+    document.body.append(toast);
+    toastTimer = setTimeout(dismiss, TOAST_MS);
+  }
+
+  return { show, dismiss };
+}
+
+/** Deneme neti: tr-TR ondalik virgulu, en cok iki basamak (32,75 · 40 · -1,25). */
+export function fmtNet(value) {
+  return Number(value || 0).toLocaleString('tr-TR', { maximumFractionDigits: 2 });
+}
+
 /** Bos durum kutusu. */
 
 export function emptyState(emoji, title, detail) {

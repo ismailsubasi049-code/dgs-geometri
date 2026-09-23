@@ -285,3 +285,25 @@ Bu beklenen davranıştır — ardışıklık yalnız ilk çözüm içindir.
   düzeniyle 4. soruyu yazma; verilen sayıları değil kurguyu değiştir.
 - **Çeldiriciler ara işlem değerlerinden** üretilir (örnekte `h² = 144`,
   alan `54`). Rastgele sayı çeldirici olmaz.
+
+## 10. Deneme paketleri
+
+Tam deneme (ör. `deneme-sayisal-01`) ayrı bir moddur: sabit sıra, toplam süre, cevap
+sonda değerlendirilir. Paket biçimi normal paketle aynıdır. Farkları:
+
+- **Index kaydı** `"mode": "deneme"` ve `"durationMin"` taşır. Denemeyi tanıyan karar
+  buradan verilir (`js/packs.js` → `isExam`); paket dosyasındaki `mode` dekoratiftir.
+  Konu `topics[]`'ta kendi dalına bağlanır (`deneme` → 📝 Denemeler). `subtopicId` yazılmaz.
+- **Öğrenme havuzunun dışındadır.** `loadAllQuestions` ve `listTopics` atlar: günlük
+  rutin, mini test, Yanlışlarım, konu listeleri ve istatistik deneme sorusu görmez.
+  Cevaplar Leitner'e yazılmaz; sonuç `store.exams`'e gider. `count` havuz toplamına
+  katılmaz.
+- **Sıra `questions` dizisinin sırasıdır**, karıştırılmaz. Her soru `no` (1..N) taşır.
+  Sonuç ekranındaki soru numarası ve bölüm aralıkları buna göre.
+- Paket üstünde **`sections: [{ from, to, title }]`**: bölüm kırılımı. Aralıklar `no`
+  değerleriyle, uçlar dahil. Soru çipinde ve sonuç tablosunda `title` görünür.
+- **Bloklar §8'in biçimindedir** (`id, label, stem, figure?`). Kaynakta "**26 – 29.**
+  soruları aşağıdaki bilgilere göre cevaplayınız." gibi bir başlık satırı varsa `stem`'in
+  ilk satırı yapılır, boş satırla ayrılır. `label` kısa ve işaretsiz yazılır
+  (`Soru 26 – 29`), çünkü kutu başlığı düz metindir.
+- `asks` yine zorunludur (§2). Deneme sırasında gösterilmez, sonuç ekranında görünür.

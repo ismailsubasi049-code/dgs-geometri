@@ -1007,6 +1007,114 @@ details[open] > .review-summary::after { transform: rotate(180deg); }
   padding: 12px 14px;
 }
 
+/* ---------- deneme ---------- */
+
+.exam-mark {
+  min-height: 36px;
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.exam-mark[aria-pressed='true'] {
+  border-color: var(--warn);
+  color: var(--warn);
+  background: rgba(251, 191, 36, 0.12);
+}
+
+.exam-map {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 10px 12px;
+}
+
+.exam-map > summary {
+  display: flex;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.exam-map[open] > summary { margin-bottom: 10px; }
+
+.exam-grid {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 6px;
+}
+
+/* Hucre: bos = cerceve, cevapli = dolu, isaretli = sari kenar (cevapliyla birlesebilir). */
+.exam-cell {
+  position: relative;
+  min-height: 34px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+
+.exam-cell.answered {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+}
+
+.exam-cell.marked { border: 2px solid var(--warn); }
+
+.exam-cell.marked::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--warn);
+}
+
+.exam-cell.current { outline: 2px solid var(--text); outline-offset: 2px; }
+
+.exam-legend { display: flex; gap: 14px; margin-top: 10px; flex-wrap: wrap; }
+.exam-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.exam-legend .exam-cell {
+  display: inline-block;
+  width: 14px;
+  min-height: 14px;
+  height: 14px;
+  border-radius: 4px;
+  cursor: default;
+}
+.exam-legend .exam-cell.marked::after { display: none; }
+
+.exam-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.exam-table th {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-align: right;
+  padding: 0 0 6px 8px;
+}
+.exam-table th:first-child,
+.exam-table td:first-child { text-align: left; padding-left: 0; }
+.exam-table td {
+  text-align: right;
+  padding: 7px 0 7px 8px;
+  border-top: 1px solid var(--border);
+  vertical-align: top;
+}
+.exam-table td.net { font-weight: 700; }
+
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }

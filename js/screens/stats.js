@@ -177,7 +177,7 @@ function backupSection(rerender) {
     on: {
       click: () => {
         const ok = window.confirm(
-          'Tüm ilerleme silinecek: çözüm geçmişi, seri, tekrar takvimi ve süre kayıtları. '
+          'Tüm ilerleme silinecek: çözüm geçmişi, seri, tekrar takvimi, süre kayıtları ve deneme sonuçları. '
           + 'Bu geri alınamaz. Emin misin?'
         );
         if (!ok) return;
