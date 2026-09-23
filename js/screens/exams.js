@@ -7,7 +7,7 @@
 import { el, emptyState, fmtTime, fmtNet } from '../ui.js';
 import { listExams, loadExam } from '../packs.js';
 import { scoreOf } from '../exam.js';
-import { listExamResults, getExamResult } from '../store.js';
+import { listExamResults, getExamResult, addExamWrongs } from '../store.js';
 import { reviewItem, openRootIndexes } from './result.js';
 
 const ROW = 'display:flex;justify-content:space-between;gap:10px';
@@ -103,6 +103,48 @@ async function renderList(ctx) {
 }
 
 // ---------- sonuc ----------
+
+/**
+ * "Yanlislari Yanlislarim'a ekle": deneme yanlislari kendiliginden dusmez, kullanici
+ * karar verir. Yalnizca yanlislar eklenir (boslar degil) ve her sonuc icin bir kez;
+ * eklendikten sonra dugme yerini kalici bir bilgi satirina birakir.
+ */
+function wrongsBox(ctx, record, wrongCount) {
+  const box = el('div', { class: 'stack' });
+
+  function paintAdded(count, at) {
+    box.replaceChildren(
+      el('div', { class: 'small muted' },
+        `✓ ${count} yanlış Yanlışlarım'a eklendi · ${fmtDate(at)}`),
+      count > 0
+        ? el('button', { class: 'btn', on: { click: () => ctx.navigate('#/oturum/yanlis') } },
+            'Yanlışlarımı çalış')
+        : null
+    );
+  }
+
+  if (record.wrongsAddedAt) {
+    paintAdded(record.wrongsAdded || 0, record.wrongsAddedAt);
+    return box;
+  }
+  if (wrongCount === 0) return null;
+
+  box.append(
+    el('button', {
+      class: 'btn primary',
+      type: 'button',
+      on: {
+        click: () => {
+          addExamWrongs(record.id);
+          const saved = getExamResult(record.id) || record;
+          paintAdded(saved.wrongsAdded || 0, saved.wrongsAddedAt || Date.now());
+        },
+      },
+    }, `Yanlışları Yanlışlarım'a ekle (${wrongCount} soru)`),
+    el('div', { class: 'small muted' }, 'Boş bıraktığın sorular eklenmez.')
+  );
+  return box;
+}
 
 function sectionTable(sections) {
   if (sections.length === 0) return null;
@@ -202,6 +244,9 @@ async function renderResult(ctx, resultId) {
       statBox('Boş', score.blank),
       statBox('Süre', fmtTime(score.spentMs / 1000)))
   );
+
+  const wrongs = wrongsBox(ctx, record, score.wrong);
+  if (wrongs) root.append(wrongs);
 
   const table = sectionTable(score.sections);
   if (table) root.append(table);

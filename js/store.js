@@ -238,7 +238,10 @@ function mergeTimings(mine, disk) {
 function mergeExams(mine, disk) {
   const byId = new Map();
   for (const record of [...(disk || []), ...(mine || [])]) {
-    if (record && record.id && !byId.has(record.id)) byId.set(record.id, record);
+    if (!record || !record.id) continue;
+    const known = byId.get(record.id);
+    // Ayni sonucun iki kopyasi: yanlislari eklenmis olan kazanir, eski kopya bayragi silemez.
+    if (!known || (!known.wrongsAddedAt && record.wrongsAddedAt)) byId.set(record.id, record);
   }
   const out = [...byId.values()].sort((a, b) => (a.startedAt || 0) - (b.startedAt || 0));
   return out.length <= MAX_EXAMS ? out : out.slice(out.length - MAX_EXAMS);
@@ -602,6 +605,39 @@ export function getExamResult(id) {
   return (load().exams || []).find((record) => record.id === id) || null;
 }
 
+/**
+ * Bir denemenin YANLIS cevaplanan sorularini Yanlislarim'a ekler - yalnizca kullanici
+ * isteyince (sonuc ekranindaki dugme). Bos birakilanlar eklenmez.
+ *
+ * Soru kaydinda yalnizca lastWrong acilir: seen/correct/wrong sayaclari artmaz, cunku bu
+ * bir cozum girisimi degil, zaten deneme sonucunda sayildi. Yanlislarim'da cozuldukce
+ * normal Leitner kurallari isler (ust uste 2 dogruyla listeden duser).
+ *
+ * Ayni sonuc icin bir kez calisir: kayda wrongsAddedAt yazilir, ikinci cagri hicbir sey
+ * eklemez. Donen: { added, already }
+ */
+export function addExamWrongs(examId) {
+  return mutate((store) => {
+    const record = (store.exams || []).find((r) => r.id === examId);
+    if (!record) return { added: 0, already: false };
+    if (record.wrongsAddedAt) return { added: 0, already: true };
+
+    const today = dayKey();
+    const ids = (record.rows || []).filter((row) => row.correct === false).map((row) => row.id);
+    for (const id of ids) {
+      const stat = { ...defaultStat(), ...(store.questions[id] || {}) };
+      stat.lastWrong = true;
+      stat.streakCorrect = 0;
+      stat.lastSeen = today;
+      store.questions[id] = stat;
+    }
+
+    record.wrongsAddedAt = Date.now();
+    record.wrongsAdded = ids.length;
+    return { added: ids.length, already: false };
+  });
+}
+
 export function getStreak() {
   const streak = { ...load().streak };
   // Dun de bugun de calisilmadiysa seri fiilen kirilmistir; gosterirken bunu yansit.
@@ -614,8 +650,16 @@ export function getStreak() {
 
 // ---------- toplu islemler ----------
 
-export function summary() {
-  const stats = Object.values(load().questions);
+/**
+ * ids verilirse yalnizca o sorularin kayitlari sayilir. Ana ekran ve Istatistik ogrenme
+ * sorularinin id'lerini verir: Yanlislarim'a eklenip orada cozulen deneme sorulari
+ * istatistige karismaz.
+ */
+export function summary(ids = null) {
+  const all = load().questions;
+  const stats = ids
+    ? Object.entries(all).filter(([id]) => ids.has(id)).map(([, stat]) => stat)
+    : Object.values(all);
   const seen = stats.length;
   const correct = stats.reduce((sum, s) => sum + s.correct, 0);
   const wrong = stats.reduce((sum, s) => sum + s.wrong, 0);

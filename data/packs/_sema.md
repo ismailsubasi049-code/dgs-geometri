@@ -295,9 +295,11 @@ sonda değerlendirilir. Paket biçimi normal paketle aynıdır. Farkları:
   buradan verilir (`js/packs.js` → `isExam`); paket dosyasındaki `mode` dekoratiftir.
   Konu `topics[]`'ta kendi dalına bağlanır (`deneme` → 📝 Denemeler). `subtopicId` yazılmaz.
 - **Öğrenme havuzunun dışındadır.** `loadAllQuestions` ve `listTopics` atlar: günlük
-  rutin, mini test, Yanlışlarım, konu listeleri ve istatistik deneme sorusu görmez.
-  Cevaplar Leitner'e yazılmaz; sonuç `store.exams`'e gider. `count` havuz toplamına
-  katılmaz.
+  rutin, mini test, konu listeleri ve istatistik deneme sorusu görmez. Cevaplar
+  Leitner'e yazılmaz; sonuç `store.exams`'e gider. `count` havuz toplamına katılmaz.
+  Tek istisna elle yapılır: sonuç ekranındaki "Yanlışları Yanlışlarım'a ekle" yalnız o
+  denemenin yanlışlarını (boşları değil) bir kez Yanlışlarım'a ekler
+  (`store.addExamWrongs`).
 - **Sıra `questions` dizisinin sırasıdır**, karıştırılmaz. Her soru `no` (1..N) taşır.
   Sonuç ekranındaki soru numarası ve bölüm aralıkları buna göre.
 - Paket üstünde **`sections: [{ from, to, title }]`**: bölüm kırılımı. Aralıklar `no`

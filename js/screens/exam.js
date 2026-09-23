@@ -7,8 +7,13 @@
 // Iki turlu tarama icin: her soruya donulur, cevap degistirilir, soru isaretlenir.
 // Soru haritasi cevapli / bos / isaretli sorulari ayri gosterir.
 //
-// Yarida birakilan deneme kaydedilmez (surdurme kapsam disi). Ust bardaki geri dugmesi
-// ve sayfa kapatma bunun icin onay ister.
+// Yarida birakilan deneme kaydedilmez (surdurme kapsam disi). Bu yuzden cikis korunur:
+//   - Geri (telefonun geri tusu da, ust bardaki geri dugmesi de): deneme basinda gecmise
+//     ayni URL'li bir koruma kaydi eklenir. Geri basilinca once o kayit duser, popstate
+//     gelir ve onay sorulur. Iptal: kayit yeniden eklenir, deneme oldugu gibi surer.
+//     Onay: bir kez daha geri gidilir. URL degismedigi icin router (hashchange) hic
+//     tetiklenmez, ekran yeniden cizilmez.
+//   - Sayfa kapatma / yenileme: beforeunload.
 
 import { el, clear, richText, fmtTime, emptyState, sharedStem, createTriageToast, CHOICE_LETTERS }
   from '../ui.js';
@@ -114,9 +119,58 @@ export async function render(ctx) {
   window.addEventListener('beforeunload', onBeforeUnload);
   ctx.onLeave(() => window.removeEventListener('beforeunload', onBeforeUnload));
 
-  ctx.guardLeave(() => (exam.finished
-    ? null
-    : 'Deneme bitmedi. Çıkarsan bu deneme kaydedilmez. Yine de çıkılsın mı?'));
+  const LEAVE_MESSAGE = 'Deneme bitmedi. Çıkarsan bu deneme kaydedilmez. Yine de çıkılsın mı?';
+
+  const examHash = location.hash;
+  /** Koruma kaydi su an gecmisin tepesinde mi? */
+  let guardArmed = false;
+  /** Bitis sonrasi sonuca gecis bekleniyor: koruma kaydi dusunce sonuc acilir. */
+  let resultHash = null;
+  /** Cikis onaylandi: URL degisene kadar geri gidilir. */
+  let leaving = false;
+
+  function armGuard() {
+    const state = history.state || {};
+    // Sayfa yenilendiyse zaten koruma kaydinin ustundeyiz; ikinci kayit eklenmez.
+    if (!state.dgsExamGuard) {
+      // Derinlik ayni kalir: app.js'in dgsDepth sayaci koruma kaydini ayri ekran saymaz.
+      history.pushState({ dgsDepth: state.dgsDepth, dgsExamGuard: true }, '', location.href);
+    }
+    guardArmed = true;
+  }
+
+  function onPopState() {
+    guardArmed = false;
+
+    if (leaving) {
+      // Yenilemeden kalma ikinci ayni-URL kaydi varsa onu da gec; URL degisince
+      // hashchange ekrani degistirir, onLeave bu dinleyiciyi kaldirir.
+      if (location.hash === examHash) history.back();
+      return;
+    }
+
+    if (resultHash) {
+      // Koruma kaydi dustu; sonuc deneme kaydinin yerine gecer. Sonuctan geri listeye iner.
+      const target = resultHash;
+      resultHash = null;
+      window.removeEventListener('popstate', onPopState);
+      ctx.navigate(target, { replace: true });
+      return;
+    }
+
+    if (exam.finished) return;
+
+    if (window.confirm(LEAVE_MESSAGE)) {
+      leaving = true;
+      if (location.hash === examHash) history.back(); // deneme kaydindan da cik
+    } else {
+      armGuard();
+    }
+  }
+
+  window.addEventListener('popstate', onPopState);
+  ctx.onLeave(() => window.removeEventListener('popstate', onPopState));
+  armGuard();
 
   function finishExam({ timedOut = false } = {}) {
     if (exam.finished) return;
@@ -125,8 +179,17 @@ export async function render(ctx) {
     toast.dismiss();
     scratch.setFullscreen(false);
     const record = exam.finish({ timedOut });
+    const target = `#/denemeler/${encodeURIComponent(record.id)}`;
+
     // Biten deneme gecmiste kalmasin: sonuctan geri, denemeye degil listeye insin.
-    ctx.navigate(`#/denemeler/${encodeURIComponent(record.id)}`, { replace: true });
+    // Once koruma kaydi dusurulur, sonuc popstate'te deneme kaydinin yerine yazilir.
+    if (guardArmed) {
+      resultHash = target;
+      history.back();
+    } else {
+      window.removeEventListener('popstate', onPopState);
+      ctx.navigate(target, { replace: true });
+    }
   }
 
   function confirmFinish() {

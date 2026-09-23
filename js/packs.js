@@ -285,6 +285,16 @@ export async function loadExam(packId) {
   };
 }
 
+/**
+ * Tum deneme paketlerinin sorulari. Yalnizca Yanlislarim kullanir: sonuc ekranindan
+ * elle eklenen deneme yanlislari orada cozulur. Bozuk paket digerlerini engellemez.
+ */
+export async function loadExamQuestions() {
+  const exams = await listExams();
+  const results = await Promise.allSettled(exams.map(loadPack));
+  return results.flatMap((result) => (result.status === 'fulfilled' ? result.value : []));
+}
+
 /** Yuklenmis sorulardan id ile arama. Once ilgili paketin yuklenmis olmasi gerekir. */
 export function getLoadedQuestion(id) {
   return questionsById.get(id) || null;

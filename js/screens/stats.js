@@ -205,7 +205,8 @@ export async function render(ctx) {
   ctx.setTitle('İstatistik ve ayarlar');
 
   const all = await loadAllQuestions();
-  const summary = store.summary();
+  // Yalniz ogrenme sorulari: Yanlislarim'a eklenip cozulen deneme sorulari sayilmaz.
+  const summary = store.summary(new Set(all.map((q) => q.id)));
   const streak = store.getStreak();
   const today = dayKey();
 

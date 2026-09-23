@@ -2371,8 +2371,9 @@ kapsar.
   - Soru süresi o soruda geçen tüm ziyaretlerin toplamıdır (duraklamalı sayaç aynı).
     Triyaj uyarısı bu birikmiş süreye göre soru başına bir kez çıkar.
   - Yarıda bırakılan deneme kaydedilmez. Üst bardaki geri ve sayfa kapatma onay ister
-    (`ctx.guardLeave`, `beforeunload`); donanım geri tuşu durdurulamaz. Dışarıdan
-    depo değişince ekran yeniden çizilmez (`app.js` `onExternalChange`).
+    (v63'te `ctx.guardLeave`; **v64'te popstate korumasıyla değişti**, telefonun geri
+    tuşu da artık korunuyor — aşağıda). Dışarıdan depo değişince ekran yeniden
+    çizilmez (`app.js` `onExternalChange`).
 - `#/denemeler`: deneme listesi + geçmiş sonuçlar.
 - `#/denemeler/<sonucId>`: kalıcı sonuç ekranı. İçeriği:
   - Net (D − Y/4), D/Y/B, süre.
@@ -2406,6 +2407,77 @@ kapsar.
 - Test kayıtları ana ekranda temizlendi + reload.
 - `sw.js` VERSION **v62 → v63**. `APP_SHELL`'e `js/exam.js`, `js/screens/exam.js`,
   `js/screens/exams.js` eklendi.
+
+### v64: geri tuşu koruması, yanlışları ekleme, veri farkı teyidi
+
+**Telefonun geri tuşu** (`js/screens/exam.js`). Deneme başlarken geçmişe aynı URL'li bir
+koruma kaydı eklenir (`pushState`, `dgsExamGuard: true`, `dgsDepth` aynı). Geri basılınca
+(donanım tuşu da üst bardaki düğme de) önce bu kayıt düşer ve `popstate` gelir. URL
+değişmediği için router tetiklenmez, ekran yerinde kalır. Ardından onay sorulur:
+- **İptal:** koruma kaydı yeniden eklenir, deneme hiç kesilmeden sürer.
+- **Onay:** URL değişene kadar geri gidilir, liste açılır ve deneme kaydedilmez.
+
+Diğer ayrıntılar:
+- **Bitiş:** önce koruma kaydı düşürülür, sonuç deneme kaydının yerine `replace` ile
+  yazılır. Sonuçtan geri yine listeye iner.
+- **Sayfa yenileme:** koruma kaydının üstünde yenilenirse ikinci kayıt eklenmez.
+- **Kaldırılan kod:** v63'teki `ctx.guardLeave` / `leaveGuard` kaldırıldı. Üst bar
+  düğmesi `history.back()` ile aynı yoldan geçtiği için onay tek yerde soruluyor.
+- **Sınır:** Chrome, kullanıcı etkileşimi olmadan eklenen geçmiş kaydını geri tuşunda
+  atlayabiliyor. Koruma "Başla" dokunuşunun ardından kuruluyor ve her şık dokunuşu da
+  etkileşim sayılıyor. Yine de gerçek Android geri tuşu tarayıcı panelinde taklit
+  edilemedi; `history.back()` ile sınandı.
+
+**"Yanlışları Yanlışlarım'a ekle"** (sonuç ekranı). Deneme yanlışları kendiliğinden
+düşmez. Düğmeye basılınca yalnız `correct === false` satırlar eklenir; boşlar eklenmez
+(`store.addExamWrongs`).
+- **Eklenen:** soru kaydında yalnız `lastWrong` açılır. `seen/correct/wrong` artmaz.
+- **Tekrar basma:** kayda `wrongsAddedAt` yazılır, ikinci çağrı hiçbir şey eklemez.
+  Düğme yerini "✓ N yanlış Yanlışlarım'a eklendi · tarih" satırına ve "Yanlışlarımı
+  çalış" düğmesine bırakır. `mergeExams` bayrak taşıyan kopyayı tercih eder.
+- **Yanlışlarım listesi:** kapsamsız Yanlışlarım (`buildWrongQueue`) ve ana ekran rozeti
+  deneme sorularını da tarar (`loadExamQuestions`).
+- **İstatistik:** `store.summary(ids)` artık id kümesi alıyor. Ana ekran ve İstatistik
+  yalnız öğrenme sorularını sayıyor, Yanlışlarım'da çözülen deneme soruları
+  istatistiğe karışmıyor.
+- **Bilinen fark:** İstatistik'teki "Tekrar bekleyen" deneme yanlışlarını saymaz,
+  Yanlışlarım rozeti sayar.
+
+**Veri farkı teyidi.** Özgün JSON'un kopyası yoktu: `referans/` gitignore'da, dosya
+`mv` ile taşınmıştı ve diskte başka kopya bulunmadı. Üç bağımsız kanıt kullanıldı:
+- **Geri kurma:** oturumdaki 5 düzenleme tersine uygulandı (`sections` sil, 4 blokta
+  `label/stem` → `title/text`). Sonuç **52 625 bayt** çıktı; özgün dosya oturum
+  başında `wc -c` ile tam bu boyutta ölçülmüştü. `git diff --no-index` farkı yalnız
+  10–39. satırlarda: +16 / −8, yalnız `sections` ve `blocks`.
+- **Alan alan:** 50 soru × 10 alan (`id, no, blockId, difficulty, stem, asks,
+  choices, answer, solution, figure`) = 500 alanda **0 fark**. Anahtar kümeleri aynı.
+  Paket kimlik/mod alanlarında (`id, topicId, topic, subtopicId, subtopic, title,
+  version, mode, durationMin`) 0 fark. 4 blokta `stem = title + "\n\n" + text`
+  birebir.
+- **md ile bağımsız karşılaştırma:**
+  - `figure` 17/17 birebir.
+  - `answer` 50/50 hem "Cevap:" satırıyla hem cevap anahtarı tablosuyla.
+  - `choices` 50/50; `stem` 50/50 (boşluk normalize).
+  - `solution` 50/50: ilk turda 25, 29, 33, 37 uymadı. Sebep md'de sonraki bloğun
+    alıntısının bu çözümlerin ardından gelmesiydi; JSON çözümü md'nin başıyla birebir.
+- İçerik farkı olmadığı için geri alınacak bir şey çıkmadı.
+
+**Doğrulama (tarayıcı, 375 px):**
+- **Geri + iptal:** `history.back()` ve üst bar düğmesi, onay birer kez soruldu.
+  Deneme `#/deneme/...`'de kaldı, cevaplı sayısı ve koruma kaydı yerinde.
+- **Geri + onay:** `#/denemeler`'e dönüldü, `exams` değişmedi.
+- **Yenileme:** aynı ekran koruma kaydı üstünde yeniden kuruldu. `history.length`
+  artmadı, tek onayla çıkıldı.
+- **Bitiş ve süre dolması:** ikisi de sonuca gitti, sonuçtan geri listeye indi.
+- **Yanlışları ekle:** 1 D + 2 Y + 47 B sonucunda düğme "(2 soru)" yazdı. Basınca
+  `questions`'ta yalnız `dns01-02`, `dns01-03` açıldı (`lastWrong`, `seen 0`).
+  İkinci çağrı `{added:0, already:true}` döndü. Yenilemeden sonra eklendi hâli
+  duruyor.
+- **Ana ekran, İstatistik, Yanlışlarım:** rozet 2. İstatistik "Denenen soru 0 / 743",
+  "0 soru denendi". Yanlışlarım oturumu "Soru 1 / 2", şekilli deneme sorusu geldi.
+- **Konsol:** hata yok.
+- **Temizlik:** test kaydı ana ekranda silindi + reload.
+- `sw.js` VERSION **v63 → v64**.
 
 ## Çalışma kuralları
 

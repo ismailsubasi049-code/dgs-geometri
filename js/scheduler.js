@@ -6,7 +6,7 @@
 // Dogru cozulmus sorular Leitner vadesi gelene kadar havuza girmez.
 // Sureli mini test bunun disindadir, orada sorular karisik gelir.
 
-import { loadAllQuestions, listTopics } from './packs.js';
+import { loadAllQuestions, loadExamQuestions, listTopics } from './packs.js';
 import * as store from './store.js';
 import { dayKey, daysBetween, seededRandom, hashSeed, shuffle } from './ui.js';
 
@@ -210,11 +210,14 @@ export async function buildDaily() {
  *
  * label, kapsam suzgecinden SONRA ama lastWrong suzgecinden ONCE alinir; boylece
  * listede hic yanlis kalmasa da ekran dogru baslikla acilir.
+ *
+ * Kapsamsiz liste deneme sorularini da tarar: deneme yanlislari yalnizca sonuc
+ * ekranindan elle eklendiginde lastWrong tasir (store.addExamWrongs).
  */
 export async function buildWrongQueue({ topic = null, subtopicId = null } = {}) {
   const all = await loadAllQuestions();
 
-  let own = all;
+  let own = subtopicId || topic ? all : [...all, ...(await loadExamQuestions())];
   let label = null;
   if (subtopicId) {
     own = all.filter((q) => q.subtopicId === subtopicId);
@@ -298,7 +301,10 @@ export async function overview() {
   const settings = store.getSettings();
   const record = store.getDaily(today);
 
-  const wrongCount = all.filter((q) => store.getStat(q.id).lastWrong).length;
+  // Rozet "Sadece yanlislarim" listesiyle ayni sayiyi versin: elle eklenen deneme
+  // yanlislari da sayilir. Istatistik ozeti ise yalnizca ogrenme sorularindan.
+  const examQuestions = await loadExamQuestions();
+  const wrongCount = [...all, ...examQuestions].filter((q) => store.getStat(q.id).lastWrong).length;
   const dueCount = all.filter((q) => store.isDue(q.id, today)).length;
   const dailyTotal = Math.min(settings.dailyCount, all.length);
 
@@ -312,6 +318,6 @@ export async function overview() {
     dailyTotal,
     streak: store.getStreak(),
     settings,
-    summary: store.summary(),
+    summary: store.summary(new Set(all.map((q) => q.id))),
   };
 }

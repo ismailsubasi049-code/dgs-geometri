@@ -24,13 +24,6 @@ const SCREENS = {
   exams: () => import('./screens/exams.js'),
 };
 
-/**
- * Ekranin koydugu cikis korumasi: bir mesaj donerse ust bardaki geri dugmesi once onay
- * ister. Deneme ekrani kullanir - yarida birakilan deneme kaydedilmez. Her render'da
- * sifirlanir. Donanim geri tusu burada durdurulamaz (hashchange olmus olur).
- */
-let leaveGuard = null;
-
 /** Bir onceki ekranin birakmasi gereken kaynaklar (zamanlayici vb.). Hepsi calistirilir. */
 let leaveHooks = [];
 
@@ -132,10 +125,6 @@ function makeContext(params) {
     onLeave(fn) {
       leaveHooks.push(fn);
     },
-    /** fn: () => onay mesaji ya da null. Bkz. leaveGuard. */
-    guardLeave(fn) {
-      leaveGuard = fn;
-    },
   };
 }
 
@@ -149,7 +138,6 @@ async function render() {
 
   const hooks = leaveHooks;
   leaveHooks = [];
-  leaveGuard = null;
   for (const hook of hooks) {
     try { hook(); } catch { /* temizlik hatasi gezinmeyi engellemesin */ }
   }
@@ -215,8 +203,8 @@ document.getElementById('storage-dismiss').addEventListener('click', () => {
 });
 
 backBtn.addEventListener('click', () => {
-  const message = leaveGuard ? leaveGuard() : null;
-  if (message && !window.confirm(message)) return;
+  // Deneme ekrani geri korumasini popstate ile kurar (js/screens/exam.js); bu dugme de
+  // history.back() ile ayni yoldan gecer, onay tek yerde sorulur.
   // Geri gitmek kayit tuketir; boylece yigin buyumez ve donanim geri tusu ayni sirayi izler.
   // Derin baglantiyla acilis disinda depth her zaman > 0'dir.
   if (depth > 0) history.back();
