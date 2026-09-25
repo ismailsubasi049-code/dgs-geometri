@@ -156,6 +156,7 @@ tutuluyordu (yeniden boyutlandırmada `redraw()` için). Artık her stroke
 - **Geri tuşu:** tam ekrana girerken `history.pushState({...state, dgsScratch:true})`.
   Hash değişmediği için `hashchange` tetiklenmez, router'ın `dgsDepth` muhasebesi
   bozulmaz; `popstate` gelince önce karalama kapanır, soru terk edilmez.
+  **v65'te `js/backstack.js`'e taşındı** (`dgsScratch` yerine `dgsLayer`; aşağıda v65).
   `session.js` `showQuestion()` başında `scratch.setFullscreen(false)` çağırır —
   `clear(body)` node'u sökeceği için tam ekran soru değişimine taşınamaz.
 
@@ -2478,6 +2479,59 @@ düşmez. Düğmeye basılınca yalnız `correct === false` satırlar eklenir; b
 - **Konsol:** hata yok.
 - **Temizlik:** test kaydı ana ekranda silindi + reload.
 - `sw.js` VERSION **v63 → v64**.
+
+### v65: geri hareketi tek yerde (`js/backstack.js`)
+
+**Hata.** Denemede karalama büyütülüp "Küçült"e basılınca çıkış onayı çıkıyordu.
+Tarayıcıda yeniden üretildi, neden doğrulandı:
+- Büyüt `pushState({...state, dgsScratch:true})` ekliyordu. Küçült görünümü kapatıp
+  `history.back()` çağırıyordu.
+- Oluşan `popstate`'i iki dinleyici birden alıyordu. Karalamanınki dönüyordu, denemeninki
+  (`exam.js` `onPopState`) koruma kaydı düştü sanıp onay soruyordu. Oysa varılan kayıt
+  koruma kaydının kendisiydi (`dgsExamGuard:true` hâlâ tepede).
+- Ölçüm: Küçült → confirm 1. Büyüt + `history.back()` → karalama kapandı **ve** confirm 1.
+- Aynı kökten üçüncü sorun: süre karalama büyükken dolarsa `finishExam` art arda iki
+  `history.back()` çağırıyordu.
+
+**Kural.** `popstate`'i artık yalnız `js/backstack.js` dinliyor.
+- Katman (bugün yalnız karalama tam ekranı) `openLayer(closeView)` ile açılır. Geçmişe
+  `{...state, dgsLayer: n}` kaydı eklenir; `dgsDepth` ve `dgsExamGuard` taşınır.
+- Varılan kaydın düzeyi `L` açık katman sayısından küçükse üstteki katmanlar kapanır ve
+  olay korumaya **gitmez**. Eşitse korumaya iletilir (`setBackGuard`). Büyükse (ileri tuşu,
+  bayat kayıt) yok sayılır.
+- Katmanın kendi kapatma düğmesi (`close()`) önce katmanı yığından çıkarır, sonra
+  kaydını `history.go(-k)` ile tüketir.
+- Deneme koruması (`onBack`) çift emniyetli: varılan kayıt hâlâ `dgsExamGuard` ise onay
+  sormaz.
+- Bitiş: `dropLayers()` katman görünümlerini geçmişe dokunmadan kapatır. Katman kayıtları
+  + koruma kaydı tek `history.go(-(k+1))` ile düşer.
+- Ekrandan ayrılırken `forget()` geçmişe dokunmaz (eski `destroy` kuralı).
+
+**Kapsam kararı.** Formül kartı, ortak kök, soru haritası, gözden geçirme listesi sayfa
+içi `<details>`/kart; ekranı örtmüyorlar, denemede formül kartı hiç yok. Bunlar katman
+yapılmadı: normal oturumun davranışı değişirdi. İleride tam ekran bir panel eklenirse
+`openLayer` ile kaydolur. `backup.js` yedek kapısı geçmiş kullanmıyor, dokunulmadı.
+
+**Doğrulama (tarayıcı, `history.back()` = telefon geri tuşu, `window.confirm` sayıldı):**
+- **Küçült:** confirm 0. Hash aynı, state koruma kaydı. Cevaplar ve `kalan` sayacı sürdü.
+- **Büyükken geri:** yalnız karalama kapandı, confirm 0.
+- **Kapalıyken geri + vazgeç:** confirm 1. Deneme aynı soruda, koruma yeniden kuruldu.
+- **3 tur tekrar:** her turda aynı sayılar. `history.length` 4 ↔ 5 arasında, birikmedi.
+- **Üst bar düğmesi:** büyükken (JS ile; tam ekran üst barı örtüyor) yalnız karalama
+  kapandı; kapalıyken confirm 1. "Tamam" →
+  `#/denemeler`, `exams` değişmedi.
+- **Süre dolması karalama büyükken** (`Date.now` +76 dk): sonuç açıldı, confirm 0.
+  Sonuçtan geri listeye indi.
+- **Denemeyi bitir** (normal yol): sonuç, sonuçtan geri liste.
+- **Deneme dışı** (Günlük 10 soru, 3 tur): Büyüt → Küçült ve Büyüt → geri eskisi gibi.
+  Soru yerinde, `history.length` 2 ↔ 3.
+- **Konsol:** hata yok.
+- **Temizlik:** 2 test deneme kaydı; `localStorage` başlangıçtaki boş hâline döndürüldü
+  + reload.
+- **Sınır:** gerçek Android geri tuşu panelde taklit edilemedi (v64'teki gibi
+  `history.back()` ile sınandı). Karalama büyükken sayfa yenilenirse bayat katman kaydı
+  kalır ve ilk geri basışı boşa gider; onay çıkmaz. v64'te de böyleydi.
+- `sw.js` VERSION **v64 → v65**. `APP_SHELL`'e `js/backstack.js` eklendi.
 
 ## Çalışma kuralları
 

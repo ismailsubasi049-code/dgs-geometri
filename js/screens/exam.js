@@ -9,10 +9,13 @@
 //
 // Yarida birakilan deneme kaydedilmez (surdurme kapsam disi). Bu yuzden cikis korunur:
 //   - Geri (telefonun geri tusu da, ust bardaki geri dugmesi de): deneme basinda gecmise
-//     ayni URL'li bir koruma kaydi eklenir. Geri basilinca once o kayit duser, popstate
-//     gelir ve onay sorulur. Iptal: kayit yeniden eklenir, deneme oldugu gibi surer.
-//     Onay: bir kez daha geri gidilir. URL degismedigi icin router (hashchange) hic
-//     tetiklenmez, ekran yeniden cizilmez.
+//     ayni URL'li bir koruma kaydi eklenir. Geri basilinca once o kayit duser ve onay
+//     sorulur. Iptal: kayit yeniden eklenir, deneme oldugu gibi surer. Onay: bir kez daha
+//     geri gidilir. URL degismedigi icin router (hashchange) hic tetiklenmez, ekran
+//     yeniden cizilmez.
+//   - Geri hareketini js/backstack.js yonetir: acik bir katman (karalama tam ekrani) varsa
+//     geri once onu kapatir, bu korumaya hic ulasmaz. Katmanin kendi kapatma dugmesi
+//     (Kucult) de onay sormaz: koruma kaydi hala tepede kalir.
 //   - Sayfa kapatma / yenileme: beforeunload.
 
 import { el, clear, richText, fmtTime, emptyState, sharedStem, createTriageToast, CHOICE_LETTERS }
@@ -21,6 +24,7 @@ import { parseFigure } from '../svg.js';
 import { loadExam } from '../packs.js';
 import { createExam } from '../exam.js';
 import { createScratchpad } from '../scratchpad.js';
+import { setBackGuard, dropLayers } from '../backstack.js';
 import { createQuestionTimer } from '../timing.js';
 import { getSettings } from '../store.js';
 
@@ -139,12 +143,13 @@ export async function render(ctx) {
     guardArmed = true;
   }
 
-  function onPopState() {
+  /** Katman acik degilken gelen geri hareketi (js/backstack.js iletir). */
+  function onBack() {
     guardArmed = false;
 
     if (leaving) {
       // Yenilemeden kalma ikinci ayni-URL kaydi varsa onu da gec; URL degisince
-      // hashchange ekrani degistirir, onLeave bu dinleyiciyi kaldirir.
+      // hashchange ekrani degistirir, onLeave korumayi kaldirir.
       if (location.hash === examHash) history.back();
       return;
     }
@@ -153,12 +158,19 @@ export async function render(ctx) {
       // Koruma kaydi dustu; sonuc deneme kaydinin yerine gecer. Sonuctan geri listeye iner.
       const target = resultHash;
       resultHash = null;
-      window.removeEventListener('popstate', onPopState);
+      releaseGuard();
       ctx.navigate(target, { replace: true });
       return;
     }
 
     if (exam.finished) return;
+
+    // Koruma kaydi hala tepede: geri hareketi bir katman kaydini tuketti (Kucult ya da
+    // yenilemeden kalma bayat katman kaydi), denemeden cikilmiyor.
+    if (history.state && history.state.dgsExamGuard) {
+      guardArmed = true;
+      return;
+    }
 
     if (window.confirm(LEAVE_MESSAGE)) {
       leaving = true;
@@ -168,8 +180,8 @@ export async function render(ctx) {
     }
   }
 
-  window.addEventListener('popstate', onPopState);
-  ctx.onLeave(() => window.removeEventListener('popstate', onPopState));
+  const releaseGuard = setBackGuard(onBack);
+  ctx.onLeave(releaseGuard);
   armGuard();
 
   function finishExam({ timedOut = false } = {}) {
@@ -177,17 +189,19 @@ export async function render(ctx) {
     stopCountdown();
     leaveQuestion();
     toast.dismiss();
-    scratch.setFullscreen(false);
+    // Karalama tam ekransa gorunumu kapanir; kaydi asagidaki tek geri hareketiyle gider.
+    const layerEntries = dropLayers();
     const record = exam.finish({ timedOut });
     const target = `#/denemeler/${encodeURIComponent(record.id)}`;
 
     // Biten deneme gecmiste kalmasin: sonuctan geri, denemeye degil listeye insin.
-    // Once koruma kaydi dusurulur, sonuc popstate'te deneme kaydinin yerine yazilir.
+    // Once koruma kaydi (ve ustundeki katman kayitlari) dusurulur, sonuc geri hareketi
+    // geldiginde deneme kaydinin yerine yazilir.
     if (guardArmed) {
       resultHash = target;
-      history.back();
+      history.go(-(layerEntries + 1));
     } else {
-      window.removeEventListener('popstate', onPopState);
+      releaseGuard();
       ctx.navigate(target, { replace: true });
     }
   }

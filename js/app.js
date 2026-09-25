@@ -203,8 +203,8 @@ document.getElementById('storage-dismiss').addEventListener('click', () => {
 });
 
 backBtn.addEventListener('click', () => {
-  // Deneme ekrani geri korumasini popstate ile kurar (js/screens/exam.js); bu dugme de
-  // history.back() ile ayni yoldan gecer, onay tek yerde sorulur.
+  // Geri hareketini js/backstack.js yonetir (acik katman once kapanir, sonra deneme
+  // korumasi); bu dugme de history.back() ile ayni yoldan gecer, onay tek yerde sorulur.
   // Geri gitmek kayit tuketir; boylece yigin buyumez ve donanim geri tusu ayni sirayi izler.
   // Derin baglantiyla acilis disinda depth her zaman > 0'dir.
   if (depth > 0) history.back();

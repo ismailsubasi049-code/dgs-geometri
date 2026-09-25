@@ -5,6 +5,7 @@
 // kaybolmaz, "Geri al" son hareketi atar. Silgi de bir stroke oldugu icin geri alinabilir.
 
 import { el } from './ui.js';
+import { openLayer } from './backstack.js';
 
 const CANVAS_HEIGHT = 180;
 const PEN_WIDTH = 2.5;
@@ -89,6 +90,8 @@ export function createScratchpad({ open = false } = {}) {
   let dpr = 1;
   let isOpen = false;
   let isFullscreen = false;
+  /** Tam ekran acikken geri yigindaki kaydi (js/backstack.js). */
+  let layer = null;
 
   /**
    * MAX_STROKES tasinca en eski hareketler buraya duzlestirilir: geri alinamazlar ama
@@ -381,9 +384,12 @@ export function createScratchpad({ open = false } = {}) {
       isFullscreen = true;
       node.classList.add('scratch--full');
       document.body.classList.add('scratch-fullscreen-open');
-      // Donanim geri tusu once karalamayi kapatsin. Hash degismedigi icin hashchange
-      // tetiklenmez, router'in dgsDepth muhasebesi bozulmaz: derinlik damgasi tasinir.
-      history.pushState({ ...(history.state || {}), dgsScratch: true }, '');
+      // Tam ekran bir katmandir: geri hareketi (donanim tusu dahil) once onu kapatir,
+      // ekranin korumasina (deneme cikis onayi) ulasmaz. Bkz. js/backstack.js.
+      layer = openLayer(() => {
+        layer = null;
+        closeFullscreenView();
+      });
       resize();
       syncTools();
       return;
@@ -391,17 +397,9 @@ export function createScratchpad({ open = false } = {}) {
 
     if (!isFullscreen) return;
     closeFullscreenView();
-    // Girerken eklenen kaydi tuket; popstate geldiginde kapanacak bir sey kalmaz.
-    if (history.state && history.state.dgsScratch) history.back();
+    // Girerken eklenen kaydi tuketir; varilan kayit korumayi tetiklemez.
+    if (layer) layer.close();
   }
-
-  function onPopState() {
-    if (!isFullscreen) return;
-    if (history.state && history.state.dgsScratch) return;
-    closeFullscreenView();
-  }
-
-  window.addEventListener('popstate', onPopState);
 
   // ---------- dis arayuz ----------
 
@@ -432,7 +430,6 @@ export function createScratchpad({ open = false } = {}) {
 
   function destroy() {
     window.removeEventListener('resize', onWindowResize);
-    window.removeEventListener('popstate', onPopState);
     window.removeEventListener('pointerup', endStroke);
     window.removeEventListener('pointercancel', endStroke);
     window.removeEventListener('lostpointercapture', endStroke);
@@ -440,6 +437,8 @@ export function createScratchpad({ open = false } = {}) {
     document.removeEventListener('visibilitychange', onVisibilityChange);
     abortStroke();
     // Ekrandan cikilirken gezinme surer; gecmise dokunmak riskli, sadece gorunumu kapat.
+    if (layer) layer.forget();
+    layer = null;
     closeFullscreenView();
   }
 
