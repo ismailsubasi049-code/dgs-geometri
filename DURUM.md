@@ -2551,6 +2551,40 @@ yapılmadı: normal oturumun davranışı değişirdi. İleride tam ekran bir pa
   formül kartı görünmez. Yazılırsa `subtopicId` "kati-cisimler" ile bağlanır.
 - `sw.js` VERSION **v65 → v66**.
 
+### v67: Katı Cisimler formül kartı + paket 5 alt konuya bölündü
+
+- **Formül seti:** hazır `referans/kati-cisimler-formul.json` →
+  `data/formuller/kati-cisimler.json` (içerik değişmedi). `formuller/index.json`
+  `sets[]`'e cember'den sonra, `cardCount` 5. Kartlar: `kati-prizma`, `kati-silindir`,
+  `kati-piramit-koni`, `kati-kure`, `kati-benzerlik`; 14 şekil.
+- **Paket v2:** hazır `geometri-kati-cisimler-v2.json` eski paketin üzerine taşındı.
+  Karşılaştırma (taşımadan önce ve sonra `HEAD` ile): 30/30 soruda `id, difficulty, stem,
+  asks, figure, choices, answer, solution` **0 fark**; her soruya yalnız `label`,
+  `subtopicId`, `subtopic` eklendi (`label` = `subtopic`). Başlıkta `subtopicId`/`subtopic`
+  boş, `subtopics[]` 5 öğe, `version` 2.
+- **Index:** `geometri-kati-cisimler` kaydı `geometri-ozel-dortgenler` biçiminde
+  (`subtopicId ""`, `subtopic ""`, `subtopics[]` 5 öğe, `version` 2); `count` 30.
+  v66'daki tek alt konu `kati-cisimler` artık yok.
+- **Dağılım:** Prizmalar 12 (01–11, 16) · Silindir 5 (12–15, 17) · Piramit ve koni 6
+  (18–23) · Küre 4 (24–27) · Benzer cisimler 3 (28–30).
+
+**Doğrulama (tarayıcı; SW kaydı kaldırılıp cache silinerek taze dosyalarla):**
+- Formüller → Geometri → Katı Cisimler: 5 kart açıldı, 14 `svg` çizildi; her şekilde
+  kaynak düğüm = çizilen düğüm.
+- Konular → Katı Cisimler: 5 alt konu, 12 / 5 / 6 / 4 / 3.
+- Bilerek yanlış cevap → çözüm altındaki kart: kati-05 Prizmalar, kati-15 Silindir,
+  kati-22 Piramit ve koni, kati-26 Küre, kati-29 Benzer cisimler (5/5).
+- 390 px: formül ekranı ve oturumdaki kart için `scrollWidth` 390, viewport'u aşan öğe
+  yok; formül satırları `pre-wrap` ile kırılıyor. (Mobil emülasyonda ekran görüntüsü
+  panel gizliyken takıldı; taşma DOM ölçümüyle doğrulandı.)
+- **Konsol:** hata yok.
+- **Temizlik:** `localStorage` `{}`'e döndürüldü. Uygulama sayfadan çıkarken ilerlemeyi
+  yeniden yazdığı için temizlik uygulama dışı bir adreste (`/data/index.json`) yapıldı,
+  sonra ana ekran açıldı. (v66 temizliği uygulama içinde yapıldığından boş bir ilerleme
+  kaydı geri yazılmıştı; bu turda o da silindi.)
+- `referans/` içinde JSON kalmadı (md'ler + önceden duran bir PDF).
+- `sw.js` VERSION **v66 → v67**.
+
 ## Çalışma kuralları
 
 - Plan modunda başla.

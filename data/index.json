@@ -361,12 +361,19 @@
       "id": "geometri-kati-cisimler",
       "topicId": "kati-cisimler",
       "topic": "Katı Cisimler",
-      "subtopicId": "kati-cisimler",
-      "subtopic": "Katı cisimler",
+      "subtopicId": "",
+      "subtopic": "",
+      "subtopics": [
+        { "subtopicId": "kati-prizma", "subtopic": "Prizmalar" },
+        { "subtopicId": "kati-silindir", "subtopic": "Silindir" },
+        { "subtopicId": "kati-piramit-koni", "subtopic": "Piramit ve koni" },
+        { "subtopicId": "kati-kure", "subtopic": "Küre" },
+        { "subtopicId": "kati-benzerlik", "subtopic": "Benzer cisimler" }
+      ],
       "title": "Katı cisimler",
       "file": "packs/geometri-kati-cisimler.json",
       "count": 30,
-      "version": 1
+      "version": 2
     },
     {
       "id": "deneme-sayisal-01",

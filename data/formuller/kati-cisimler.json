@@ -1,0 +1,226 @@
+{
+  "topicId": "kati-cisimler",
+  "title": "Katı Cisimler",
+  "cards": [
+    {
+      "id": "kati-prizma",
+      "subtopicId": "kati-prizma",
+      "title": "Prizmalar",
+      "aliases": [
+        "Prizmalar",
+        "Prizma",
+        "Dikdörtgenler prizması",
+        "Küp",
+        "Dik prizma",
+        "Cisim köşegeni"
+      ],
+      "items": [
+        {
+          "formula": "Dikdörtgenler prizması: V = a · b · c",
+          "figure": "<svg viewBox='0 0 320 168' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 111.8 116.5 L 75.1 142'/><path d='M 111.8 116.5 L 244.9 116.5'/><path d='M 111.8 116.5 L 111.8 26'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 75.1 142 L 208.2 142'/><path d='M 208.2 142 L 244.9 116.5'/><path d='M 208.2 142 L 208.2 51.5'/><path d='M 244.9 116.5 L 244.9 26'/><path d='M 75.1 142 L 75.1 51.5'/><path d='M 75.1 51.5 L 208.2 51.5'/><path d='M 208.2 51.5 L 244.9 26'/><path d='M 244.9 26 L 111.8 26'/><path d='M 111.8 26 L 75.1 51.5'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='141.6' y='159.5' text-anchor='middle'>a</text><text x='236.5' y='141.7'>b</text><text x='67.1' y='101.3' text-anchor='end'>c</text></g></svg>"
+        },
+        {
+          "formula": "Yüzey alanı = 2(ab + ac + bc)",
+          "note": "Karşılıklı yüzler eştir: üç çift dikdörtgen"
+        },
+        {
+          "formula": "Cisim köşegeni: d = √(a² + b² + c²)",
+          "note": "Önce tabandaki köşegen, sonra yükseklikle ikinci Pisagor",
+          "figure": "<svg viewBox='0 0 320 168' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 111.8 116.5 L 75.1 142'/><path d='M 111.8 116.5 L 244.9 116.5'/><path d='M 111.8 116.5 L 111.8 26'/><path d='M 75.1 142 L 244.9 116.5'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 75.1 142 L 208.2 142'/><path d='M 208.2 142 L 244.9 116.5'/><path d='M 208.2 142 L 208.2 51.5'/><path d='M 244.9 116.5 L 244.9 26'/><path d='M 75.1 142 L 75.1 51.5'/><path d='M 75.1 51.5 L 208.2 51.5'/><path d='M 208.2 51.5 L 244.9 26'/><path d='M 244.9 26 L 111.8 26'/><path d='M 111.8 26 L 75.1 51.5'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'></g><g stroke='#0284c7' stroke-width='2.4' fill='none'><path d='M 75.1 142 L 244.9 26'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='141.6' y='159.5' text-anchor='middle'>a</text><text x='236.5' y='141.7'>b</text><text x='67.1' y='101.3' text-anchor='end'>c</text><text x='156' y='78.5' text-anchor='end'>d</text></g></svg>"
+        },
+        {
+          "formula": "Küp: V = a³"
+        },
+        {
+          "formula": "Küpün yüzey alanı = 6a²"
+        },
+        {
+          "formula": "Küpte yüz köşegeni = a√2, cisim köşegeni = a√3",
+          "figure": "<svg viewBox='0 0 320 176' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 134.6 119.9 L 91.4 150'/><path d='M 134.6 119.9 L 228.6 119.9'/><path d='M 134.6 119.9 L 134.6 26'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 91.4 150 L 185.4 150'/><path d='M 185.4 150 L 228.6 119.9'/><path d='M 185.4 150 L 185.4 56.1'/><path d='M 228.6 119.9 L 228.6 26'/><path d='M 91.4 150 L 91.4 56.1'/><path d='M 91.4 56.1 L 185.4 56.1'/><path d='M 185.4 56.1 L 228.6 26'/><path d='M 228.6 26 L 134.6 26'/><path d='M 134.6 26 L 91.4 56.1'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><path d='M 91.4 150 L 185.4 56.1'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'><path d='M 91.4 150 L 228.6 26'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='138.4' y='167.5' text-anchor='middle'>a</text><text x='132.4' y='99.5' text-anchor='end'>a√2</text><text x='207.1' y='69.3'>a√3</text></g></svg>"
+        },
+        {
+          "formula": "Dik prizma: V = Taban alanı · h",
+          "note": "Taban üçgen, kare, altıgen… ne olursa olsun",
+          "figure": "<svg viewBox='0 0 320 176' xmlns='http://www.w3.org/2000/svg'><path d='M 93.9 64.1 L 226.1 64.1 L 194.9 26 Z' fill='#0284c7' fill-opacity='0.22' stroke='none'/><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 93.9 150 L 194.9 111.9'/><path d='M 226.1 150 L 194.9 111.9'/><path d='M 194.9 111.9 L 194.9 26'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 93.9 150 L 226.1 150'/><path d='M 93.9 150 L 93.9 64.1'/><path d='M 226.1 150 L 226.1 64.1'/><path d='M 93.9 64.1 L 226.1 64.1'/><path d='M 226.1 64.1 L 194.9 26'/><path d='M 194.9 26 L 93.9 64.1'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='85.9' y='111.5' text-anchor='end'>h</text><text x='194.9' y='18.5' text-anchor='middle'>taban</text></g></svg>"
+        },
+        {
+          "formula": "Yanal alan = Taban çevresi · h"
+        },
+        {
+          "formula": "Tüm alan = Yanal alan + 2 · Taban alanı"
+        },
+        {
+          "formula": "Su yüksekliğindeki artış = Eklenen hacim / Taban alanı",
+          "note": "1 litre = 1000 cm³ = 1 dm³"
+        }
+      ],
+      "tips": [
+        "Yanal alan ile tüm alanı karıştırma: tüm alana iki taban birden eklenir.",
+        "Litre verilirse önce cm³'e çevir: 1 litre = 1000 cm³."
+      ]
+    },
+    {
+      "id": "kati-silindir",
+      "subtopicId": "kati-silindir",
+      "title": "Silindir",
+      "aliases": [
+        "Silindir",
+        "Dik silindir",
+        "Silindirin açınımı"
+      ],
+      "items": [
+        {
+          "formula": "Silindir: V = πr²h",
+          "figure": "<svg viewBox='0 0 320 176' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 211.3 134.6 L 211.2 133.6 L 210.8 132.6 L 210.3 131.6 L 209.5 130.6 L 208.6 129.7 L 207.4 128.7 L 206 127.8 L 204.4 126.9 L 202.6 126.1 L 200.7 125.3 L 198.6 124.5 L 196.3 123.7 L 193.8 123.1 L 191.2 122.4 L 188.5 121.8 L 185.6 121.3 L 182.7 120.8 L 179.6 120.4 L 176.5 120 L 173.3 119.8 L 170 119.5 L 166.7 119.4 L 163.4 119.3 L 160 119.2 L 156.6 119.3 L 153.3 119.4 L 150 119.5 L 146.7 119.8 L 143.5 120 L 140.4 120.4 L 137.3 120.8 L 134.4 121.3 L 131.5 121.8 L 128.8 122.4 L 126.2 123.1 L 123.7 123.7 L 121.4 124.5 L 119.3 125.3 L 117.4 126.1 L 115.6 126.9 L 114 127.8 L 112.6 128.7 L 111.4 129.7 L 110.5 130.6 L 109.7 131.6 L 109.2 132.6 L 108.8 133.6 L 108.7 134.6'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 108.7 134.6 L 108.8 135.6 L 109.2 136.6 L 109.7 137.6 L 110.5 138.6 L 111.4 139.6 L 112.6 140.5 L 114 141.4 L 115.6 142.3 L 117.4 143.2 L 119.3 144 L 121.4 144.8 L 123.7 145.5 L 126.2 146.2 L 128.8 146.8 L 131.5 147.4 L 134.4 147.9 L 137.3 148.4 L 140.4 148.8 L 143.5 149.2 L 146.7 149.5 L 150 149.7 L 153.3 149.9 L 156.6 150 L 160 150 L 163.4 150 L 166.7 149.9 L 170 149.7 L 173.3 149.5 L 176.5 149.2 L 179.6 148.8 L 182.7 148.4 L 185.6 147.9 L 188.5 147.4 L 191.2 146.8 L 193.8 146.2 L 196.3 145.5 L 198.6 144.8 L 200.7 144 L 202.6 143.2 L 204.4 142.3 L 206 141.4 L 207.4 140.5 L 208.6 139.6 L 209.5 138.6 L 210.3 137.6 L 210.8 136.6 L 211.2 135.6 L 211.3 134.6'/><path d='M 211.3 41.4 L 211.2 40.4 L 210.8 39.4 L 210.3 38.4 L 209.5 37.4 L 208.6 36.4 L 207.4 35.5 L 206 34.6 L 204.4 33.7 L 202.6 32.8 L 200.7 32 L 198.6 31.2 L 196.3 30.5 L 193.8 29.8 L 191.2 29.2 L 188.5 28.6 L 185.6 28.1 L 182.7 27.6 L 179.6 27.2 L 176.5 26.8 L 173.3 26.5 L 170 26.3 L 166.7 26.1 L 163.4 26 L 160 26 L 156.6 26 L 153.3 26.1 L 150 26.3 L 146.7 26.5 L 143.5 26.8 L 140.4 27.2 L 137.3 27.6 L 134.4 28.1 L 131.5 28.6 L 128.8 29.2 L 126.2 29.8 L 123.7 30.5 L 121.4 31.2 L 119.3 32 L 117.4 32.8 L 115.6 33.7 L 114 34.6 L 112.6 35.5 L 111.4 36.4 L 110.5 37.4 L 109.7 38.4 L 109.2 39.4 L 108.8 40.4 L 108.7 41.4 L 108.8 42.4 L 109.2 43.4 L 109.7 44.4 L 110.5 45.4 L 111.4 46.3 L 112.6 47.3 L 114 48.2 L 115.6 49.1 L 117.4 49.9 L 119.3 50.7 L 121.4 51.5 L 123.7 52.3 L 126.2 52.9 L 128.8 53.6 L 131.5 54.2 L 134.4 54.7 L 137.3 55.2 L 140.4 55.6 L 143.5 56 L 146.7 56.2 L 150 56.5 L 153.3 56.6 L 156.6 56.7 L 160 56.8 L 163.4 56.7 L 166.7 56.6 L 170 56.5 L 173.3 56.2 L 176.5 56 L 179.6 55.6 L 182.7 55.2 L 185.6 54.7 L 188.5 54.2 L 191.2 53.6 L 193.8 52.9 L 196.3 52.3 L 198.6 51.5 L 200.7 50.7 L 202.6 49.9 L 204.4 49.1 L 206 48.2 L 207.4 47.3 L 208.6 46.3 L 209.5 45.4 L 210.3 44.4 L 210.8 43.4 L 211.2 42.4 L 211.3 41.4 Z'/><path d='M 108.7 134.6 L 108.7 41.4'/><path d='M 211.3 134.6 L 211.3 41.4'/><circle cx='160' cy='41.4' r='2.3' fill='currentColor' stroke='none'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><path d='M 160 41.4 L 211.3 41.4'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='185.6' y='23.5' text-anchor='middle'>r</text><text x='220.3' y='92.5'>h</text></g></svg>"
+        },
+        {
+          "formula": "Yanal alan = 2πrh"
+        },
+        {
+          "formula": "Tüm alan = 2πr² + 2πrh = 2πr(r + h)"
+        },
+        {
+          "formula": "Açınım: yanal yüz, kenarları 2πr ve h olan bir dikdörtgendir",
+          "note": "Uzun kenar taban çevresidir, yarıçap değil",
+          "figure": "<svg viewBox='0 0 320 180' xmlns='http://www.w3.org/2000/svg'><path d='M 91.5 118.4 L 228.5 118.4 L 228.5 61.6 L 91.5 61.6 Z' fill='#0284c7' fill-opacity='0.22' stroke='none'/><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 91.5 118.4 L 228.5 118.4 L 228.5 61.6 L 91.5 61.6 Z'/><circle cx='126.4' cy='39.8' r='21.8'/><circle cx='126.4' cy='140.2' r='21.8'/><circle cx='126.4' cy='39.8' r='2.3' fill='currentColor' stroke='none'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><path d='M 126.4 39.8 L 148.2 39.8'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='137.3' y='35.3' text-anchor='middle'>r</text><text x='237.5' y='94.5'>h</text><text x='190.2' y='136.9' text-anchor='middle'>2πr</text></g></svg>"
+        },
+        {
+          "formula": "Su bir kaptan diğerine boşaltılınca hacim korunur: πr₁²h₁ = πr₂²h₂",
+          "note": "Yarıçap 2 katına çıkarsa taban alanı 4 katına çıkar, su yüksekliği dörtte birine iner"
+        }
+      ],
+      "tips": [
+        "Sonucu π'li bırak: şıklar çoğunlukla 36π gibi yazılır; π'yi düşürme.",
+        "Yanal alan, açınım dikdörtgeninin alanıdır: 2πr · h."
+      ]
+    },
+    {
+      "id": "kati-piramit-koni",
+      "subtopicId": "kati-piramit-koni",
+      "title": "Piramit ve koni",
+      "aliases": [
+        "Piramit ve koni",
+        "Piramit",
+        "Kare dik piramit",
+        "Koni",
+        "Dik koni",
+        "Koninin açınımı"
+      ],
+      "items": [
+        {
+          "formula": "Piramit: V = Taban alanı · h / 3",
+          "figure": "<svg viewBox='0 0 320 180' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 118.2 104.5 L 47 154'/><path d='M 118.2 104.5 L 273 104.5'/><path d='M 118.2 104.5 L 160 26'/><path d='M 160 26 L 160 129.2'/><path d='M 160 129.2 L 237.4 129.2'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 47 154 L 201.8 154'/><path d='M 201.8 154 L 273 104.5'/><path d='M 47 154 L 160 26'/><path d='M 201.8 154 L 160 26'/><path d='M 273 104.5 L 160 26'/><circle cx='160' cy='129.2' r='2.3' fill='currentColor' stroke='none'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><polyline points='160,121.2 168,121.2 168,129.2'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'><path d='M 160 26 L 237.4 129.2'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='153' y='82.1' text-anchor='end'>h</text><text x='207.7' y='82.1'>h<tspan font-size='17'>′</tspan></text><text x='245.4' y='135.7'>a/2</text><text x='124.4' y='171.5' text-anchor='middle'>a</text></g></svg>"
+        },
+        {
+          "formula": "Kare dik piramitte: h′² = h² + (a/2)²",
+          "note": "h′: yan yüz yüksekliği (tepeden taban ayrıtının ortasına)"
+        },
+        {
+          "formula": "Kare dik piramidin tüm alanı = a² + 4 · (a · h′ / 2)",
+          "note": "Yan yüzler dört eş ikizkenar üçgendir"
+        },
+        {
+          "formula": "Koni: ℓ² = r² + h²",
+          "note": "ℓ: ana doğru (tepeden taban çemberine)",
+          "figure": "<svg viewBox='0 0 320 176' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 223.1 131.1 L 222.9 129.8 L 222.5 128.6 L 221.8 127.4 L 220.9 126.2 L 219.7 125 L 218.3 123.8 L 216.5 122.7 L 214.6 121.6 L 212.4 120.6 L 210 119.6 L 207.4 118.6 L 204.6 117.7 L 201.6 116.9 L 198.4 116.1 L 195 115.4 L 191.5 114.7 L 187.9 114.1 L 184.1 113.6 L 180.3 113.2 L 176.3 112.8 L 172.3 112.5 L 168.2 112.3 L 164.1 112.2 L 160 112.2 L 155.9 112.2 L 151.8 112.3 L 147.7 112.5 L 143.7 112.8 L 139.7 113.2 L 135.9 113.6 L 132.1 114.1 L 128.5 114.7 L 125 115.4 L 121.6 116.1 L 118.4 116.9 L 115.4 117.7 L 112.6 118.6 L 110 119.6 L 107.6 120.6 L 105.4 121.6 L 103.5 122.7 L 101.7 123.8 L 100.3 125 L 99.1 126.2 L 98.2 127.4 L 97.5 128.6 L 97.1 129.8 L 96.9 131.1'/><path d='M 160 26 L 160 131.1'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 96.9 131.1 L 97.1 132.3 L 97.5 133.6 L 98.2 134.8 L 99.1 136 L 100.3 137.2 L 101.7 138.3 L 103.5 139.5 L 105.4 140.5 L 107.6 141.6 L 110 142.6 L 112.6 143.6 L 115.4 144.5 L 118.4 145.3 L 121.6 146.1 L 125 146.8 L 128.5 147.5 L 132.1 148 L 135.9 148.6 L 139.7 149 L 143.7 149.4 L 147.7 149.6 L 151.8 149.8 L 155.9 150 L 160 150 L 164.1 150 L 168.2 149.8 L 172.3 149.6 L 176.3 149.4 L 180.3 149 L 184.1 148.6 L 187.9 148 L 191.5 147.5 L 195 146.8 L 198.4 146.1 L 201.6 145.3 L 204.6 144.5 L 207.4 143.6 L 210 142.6 L 212.4 141.6 L 214.6 140.5 L 216.5 139.5 L 218.3 138.3 L 219.7 137.2 L 220.9 136 L 221.8 134.8 L 222.5 133.6 L 222.9 132.3 L 223.1 131.1'/><path d='M 160 26 L 96.9 131.1'/><path d='M 160 26 L 223.1 131.1'/><circle cx='160' cy='131.1' r='2.3' fill='currentColor' stroke='none'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><path d='M 160 131.1 L 223.1 131.1'/><polyline points='160,123.1 168,123.1 168,131.1'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'><path d='M 160 26 L 223.1 131.1'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='191.5' y='147.6' text-anchor='middle'>r</text><text x='153' y='83' text-anchor='end'>h</text><text x='200.5' y='83'>ℓ</text></g></svg>"
+        },
+        {
+          "formula": "Koni: V = πr²h / 3"
+        },
+        {
+          "formula": "Yanal alan = πrℓ"
+        },
+        {
+          "formula": "Tüm alan = πr² + πrℓ = πr(r + ℓ)"
+        },
+        {
+          "formula": "Açınım: yanal yüz, yarıçapı ℓ olan bir daire dilimidir; merkez açısı θ = 360° · r / ℓ",
+          "note": "Dilimin yay uzunluğu taban çevresine (2πr) eşittir",
+          "figure": "<svg viewBox='0 0 320 184' xmlns='http://www.w3.org/2000/svg'><path d='M 160 14 L 78.9 60.8 L 80.6 63.6 L 82.4 66.3 L 84.3 69 L 86.2 71.6 L 88.3 74.2 L 90.4 76.6 L 92.7 79 L 95 81.3 L 97.4 83.6 L 99.8 85.7 L 102.4 87.8 L 105 89.7 L 107.7 91.6 L 110.4 93.4 L 113.2 95.1 L 116.1 96.6 L 119 98.1 L 121.9 99.5 L 124.9 100.8 L 128 102 L 131.1 103 L 134.2 104 L 137.4 104.8 L 140.5 105.6 L 143.7 106.2 L 147 106.7 L 150.2 107.1 L 153.5 107.4 L 156.7 107.5 L 160 107.6 L 163.3 107.5 L 166.5 107.4 L 169.8 107.1 L 173 106.7 L 176.3 106.2 L 179.5 105.6 L 182.6 104.8 L 185.8 104 L 188.9 103 L 192 102 L 195.1 100.8 L 198.1 99.5 L 201 98.1 L 203.9 96.6 L 206.8 95.1 L 209.6 93.4 L 212.3 91.6 L 215 89.7 L 217.6 87.8 L 220.2 85.7 L 222.6 83.6 L 225 81.3 L 227.3 79 L 229.6 76.6 L 231.7 74.2 L 233.8 71.6 L 235.7 69 L 237.6 66.3 L 239.4 63.6 L 241.1 60.8 Z' fill='#0284c7' fill-opacity='0.22' stroke='none'/><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 160 14 L 78.9 60.8 L 80.6 63.6 L 82.4 66.3 L 84.3 69 L 86.2 71.6 L 88.3 74.2 L 90.4 76.6 L 92.7 79 L 95 81.3 L 97.4 83.6 L 99.8 85.7 L 102.4 87.8 L 105 89.7 L 107.7 91.6 L 110.4 93.4 L 113.2 95.1 L 116.1 96.6 L 119 98.1 L 121.9 99.5 L 124.9 100.8 L 128 102 L 131.1 103 L 134.2 104 L 137.4 104.8 L 140.5 105.6 L 143.7 106.2 L 147 106.7 L 150.2 107.1 L 153.5 107.4 L 156.7 107.5 L 160 107.6 L 163.3 107.5 L 166.5 107.4 L 169.8 107.1 L 173 106.7 L 176.3 106.2 L 179.5 105.6 L 182.6 104.8 L 185.8 104 L 188.9 103 L 192 102 L 195.1 100.8 L 198.1 99.5 L 201 98.1 L 203.9 96.6 L 206.8 95.1 L 209.6 93.4 L 212.3 91.6 L 215 89.7 L 217.6 87.8 L 220.2 85.7 L 222.6 83.6 L 225 81.3 L 227.3 79 L 229.6 76.6 L 231.7 74.2 L 233.8 71.6 L 235.7 69 L 237.6 66.3 L 239.4 63.6 L 241.1 60.8 Z'/><circle cx='160' cy='138.8' r='31.2'/><circle cx='160' cy='138.8' r='2.3' fill='currentColor' stroke='none'/><circle cx='160' cy='14' r='2.3' fill='currentColor' stroke='none'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><path d='M 160 138.8 L 191.2 138.8'/><path d='M 145.1 22.6 L 145.8 23.6 L 146.5 24.6 L 147.2 25.5 L 148.1 26.3 L 149 27.1 L 149.9 27.9 L 150.9 28.6 L 151.9 29.2 L 153 29.7 L 154.1 30.1 L 155.3 30.5 L 156.4 30.8 L 157.6 31 L 158.8 31.1 L 160 31.2 L 161.2 31.1 L 162.4 31 L 163.6 30.8 L 164.7 30.5 L 165.9 30.1 L 167 29.7 L 168.1 29.2 L 169.1 28.6 L 170.1 27.9 L 171 27.1 L 171.9 26.3 L 172.8 25.5 L 173.5 24.6 L 174.2 23.6 L 174.9 22.6'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'><path d='M 78.9 60.8 L 80.6 63.6 L 82.4 66.3 L 84.3 69 L 86.2 71.6 L 88.3 74.2 L 90.4 76.6 L 92.7 79 L 95 81.3 L 97.4 83.6 L 99.8 85.7 L 102.4 87.8 L 105 89.7 L 107.7 91.6 L 110.4 93.4 L 113.2 95.1 L 116.1 96.6 L 119 98.1 L 121.9 99.5 L 124.9 100.8 L 128 102 L 131.1 103 L 134.2 104 L 137.4 104.8 L 140.5 105.6 L 143.7 106.2 L 147 106.7 L 150.2 107.1 L 153.5 107.4 L 156.7 107.5 L 160 107.6 L 163.3 107.5 L 166.5 107.4 L 169.8 107.1 L 173 106.7 L 176.3 106.2 L 179.5 105.6 L 182.6 104.8 L 185.8 104 L 188.9 103 L 192 102 L 195.1 100.8 L 198.1 99.5 L 201 98.1 L 203.9 96.6 L 206.8 95.1 L 209.6 93.4 L 212.3 91.6 L 215 89.7 L 217.6 87.8 L 220.2 85.7 L 222.6 83.6 L 225 81.3 L 227.3 79 L 229.6 76.6 L 231.7 74.2 L 233.8 71.6 L 235.7 69 L 237.6 66.3 L 239.4 63.6 L 241.1 60.8'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='175.6' y='134.3' text-anchor='middle'>r</text><text x='160' y='48.6' text-anchor='middle'>θ</text><text x='110.5' y='39.9' text-anchor='end'>ℓ</text><text x='209.5' y='39.9'>ℓ</text><text x='83' y='89.8' text-anchor='end'>2πr</text></g></svg>"
+        },
+        {
+          "formula": "Aynı taban ve yükseklikte: V(koni) = V(silindir) / 3",
+          "note": "Piramit ile prizma arasında da aynı ilişki vardır",
+          "figure": "<svg viewBox='0 0 320 176' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 137.2 136.3 L 137.2 135.5 L 136.9 134.6 L 136.4 133.7 L 135.7 132.8 L 134.8 132 L 133.8 131.1 L 132.6 130.3 L 131.2 129.5 L 129.6 128.8 L 127.8 128 L 126 127.3 L 123.9 126.7 L 121.7 126.1 L 119.4 125.5 L 117 125 L 114.5 124.5 L 111.9 124.1 L 109.2 123.7 L 106.4 123.4 L 103.5 123.2 L 100.6 123 L 97.7 122.8 L 94.7 122.7 L 91.7 122.7 L 88.8 122.7 L 85.8 122.8 L 82.9 123 L 80 123.2 L 77.1 123.4 L 74.3 123.7 L 71.6 124.1 L 69 124.5 L 66.5 125 L 64 125.5 L 61.7 126.1 L 59.6 126.7 L 57.5 127.3 L 55.6 128 L 53.9 128.8 L 52.3 129.5 L 50.9 130.3 L 49.7 131.1 L 48.7 132 L 47.8 132.8 L 47.1 133.7 L 46.6 134.6 L 46.3 135.5 L 46.2 136.3'/><path d='M 273.8 136.3 L 273.7 135.5 L 273.4 134.6 L 272.9 133.7 L 272.2 132.8 L 271.3 132 L 270.3 131.1 L 269.1 130.3 L 267.7 129.5 L 266.1 128.8 L 264.4 128 L 262.5 127.3 L 260.4 126.7 L 258.3 126.1 L 256 125.5 L 253.5 125 L 251 124.5 L 248.4 124.1 L 245.7 123.7 L 242.9 123.4 L 240 123.2 L 237.1 123 L 234.2 122.8 L 231.2 122.7 L 228.3 122.7 L 225.3 122.7 L 222.3 122.8 L 219.4 123 L 216.5 123.2 L 213.6 123.4 L 210.8 123.7 L 208.1 124.1 L 205.5 124.5 L 203 125 L 200.6 125.5 L 198.3 126.1 L 196.1 126.7 L 194 127.3 L 192.2 128 L 190.4 128.8 L 188.8 129.5 L 187.4 130.3 L 186.2 131.1 L 185.2 132 L 184.3 132.8 L 183.6 133.7 L 183.1 134.6 L 182.8 135.5 L 182.8 136.3'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 46.2 136.3 L 46.3 137.2 L 46.6 138.1 L 47.1 139 L 47.8 139.9 L 48.7 140.7 L 49.7 141.6 L 50.9 142.4 L 52.3 143.2 L 53.9 143.9 L 55.6 144.7 L 57.5 145.3 L 59.6 146 L 61.7 146.6 L 64 147.2 L 66.5 147.7 L 69 148.2 L 71.6 148.6 L 74.3 149 L 77.1 149.3 L 80 149.5 L 82.9 149.7 L 85.8 149.9 L 88.8 150 L 91.7 150 L 94.7 150 L 97.7 149.9 L 100.6 149.7 L 103.5 149.5 L 106.4 149.3 L 109.2 149 L 111.9 148.6 L 114.5 148.2 L 117 147.7 L 119.4 147.2 L 121.7 146.6 L 123.9 146 L 126 145.3 L 127.8 144.7 L 129.6 143.9 L 131.2 143.2 L 132.6 142.4 L 133.8 141.6 L 134.8 140.7 L 135.7 139.9 L 136.4 139 L 136.9 138.1 L 137.2 137.2 L 137.2 136.3'/><path d='M 137.2 39.7 L 137.2 38.8 L 136.9 37.9 L 136.4 37 L 135.7 36.1 L 134.8 35.3 L 133.8 34.4 L 132.6 33.6 L 131.2 32.8 L 129.6 32.1 L 127.8 31.3 L 126 30.7 L 123.9 30 L 121.7 29.4 L 119.4 28.8 L 117 28.3 L 114.5 27.8 L 111.9 27.4 L 109.2 27 L 106.4 26.7 L 103.5 26.5 L 100.6 26.3 L 97.7 26.1 L 94.7 26 L 91.7 26 L 88.8 26 L 85.8 26.1 L 82.9 26.3 L 80 26.5 L 77.1 26.7 L 74.3 27 L 71.6 27.4 L 69 27.8 L 66.5 28.3 L 64 28.8 L 61.7 29.4 L 59.6 30 L 57.5 30.7 L 55.6 31.3 L 53.9 32.1 L 52.3 32.8 L 50.9 33.6 L 49.7 34.4 L 48.7 35.3 L 47.8 36.1 L 47.1 37 L 46.6 37.9 L 46.3 38.8 L 46.2 39.7 L 46.3 40.5 L 46.6 41.4 L 47.1 42.3 L 47.8 43.2 L 48.7 44 L 49.7 44.9 L 50.9 45.7 L 52.3 46.5 L 53.9 47.2 L 55.6 48 L 57.5 48.7 L 59.6 49.3 L 61.7 49.9 L 64 50.5 L 66.5 51 L 69 51.5 L 71.6 51.9 L 74.3 52.3 L 77.1 52.6 L 80 52.8 L 82.9 53 L 85.8 53.2 L 88.8 53.3 L 91.7 53.3 L 94.7 53.3 L 97.7 53.2 L 100.6 53 L 103.5 52.8 L 106.4 52.6 L 109.2 52.3 L 111.9 51.9 L 114.5 51.5 L 117 51 L 119.4 50.5 L 121.7 49.9 L 123.9 49.3 L 126 48.7 L 127.8 48 L 129.6 47.2 L 131.2 46.5 L 132.6 45.7 L 133.8 44.9 L 134.8 44 L 135.7 43.2 L 136.4 42.3 L 136.9 41.4 L 137.2 40.5 L 137.2 39.7 Z'/><path d='M 46.2 136.3 L 46.2 39.7'/><path d='M 137.2 136.3 L 137.2 39.7'/><path d='M 182.8 136.3 L 182.8 137.2 L 183.1 138.1 L 183.6 139 L 184.3 139.9 L 185.2 140.7 L 186.2 141.6 L 187.4 142.4 L 188.8 143.2 L 190.4 143.9 L 192.2 144.7 L 194 145.3 L 196.1 146 L 198.3 146.6 L 200.6 147.2 L 203 147.7 L 205.5 148.2 L 208.1 148.6 L 210.8 149 L 213.6 149.3 L 216.5 149.5 L 219.4 149.7 L 222.3 149.9 L 225.3 150 L 228.3 150 L 231.2 150 L 234.2 149.9 L 237.1 149.7 L 240 149.5 L 242.9 149.3 L 245.7 149 L 248.4 148.6 L 251 148.2 L 253.5 147.7 L 256 147.2 L 258.3 146.6 L 260.4 146 L 262.5 145.3 L 264.4 144.7 L 266.1 143.9 L 267.7 143.2 L 269.1 142.4 L 270.3 141.6 L 271.3 140.7 L 272.2 139.9 L 272.9 139 L 273.4 138.1 L 273.7 137.2 L 273.8 136.3'/><path d='M 228.3 39.7 L 182.8 136.3'/><path d='M 228.3 39.7 L 273.8 136.3'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='146.2' y='92.5'>h</text><text x='282.8' y='92.5'>h</text><text x='91.7' y='162.8' text-anchor='middle'>silindir</text><text x='228.3' y='162.8' text-anchor='middle'>koni</text></g></svg>"
+        }
+      ],
+      "tips": [
+        "Hacimde yükseklik (h) kullanılır; yanal alanda koninin ana doğrusu (ℓ), piramidin yan yüz yüksekliği (h′).",
+        "Piramit ve koni hacminde üçe bölmeyi unutma."
+      ]
+    },
+    {
+      "id": "kati-kure",
+      "subtopicId": "kati-kure",
+      "title": "Küre",
+      "aliases": [
+        "Küre",
+        "Yarım küre",
+        "Küpe teğet küre"
+      ],
+      "items": [
+        {
+          "formula": "Küre: V = 4πr³ / 3",
+          "figure": "<svg viewBox='0 0 320 168' xmlns='http://www.w3.org/2000/svg'><circle cx='160' cy='84' r='58' fill='#0284c7' fill-opacity='0.14' stroke='none'/><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 218 84 L 217.9 82.9 L 217.5 81.7 L 216.9 80.6 L 216 79.5 L 214.9 78.4 L 213.6 77.3 L 212 76.3 L 210.2 75.3 L 208.2 74.3 L 206 73.4 L 203.6 72.5 L 201 71.7 L 198.2 70.9 L 195.3 70.2 L 192.2 69.5 L 189 68.9 L 185.7 68.4 L 182.2 67.9 L 178.6 67.5 L 175 67.2 L 171.3 66.9 L 167.6 66.7 L 163.8 66.6 L 160 66.6 L 156.2 66.6 L 152.4 66.7 L 148.7 66.9 L 145 67.2 L 141.4 67.5 L 137.8 67.9 L 134.3 68.4 L 131 68.9 L 127.8 69.5 L 124.7 70.2 L 121.8 70.9 L 119 71.7 L 116.4 72.5 L 114 73.4 L 111.8 74.3 L 109.8 75.3 L 108 76.3 L 106.4 77.3 L 105.1 78.4 L 104 79.5 L 103.1 80.6 L 102.5 81.7 L 102.1 82.9 L 102 84'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='84' r='58'/><path d='M 102 84 L 102.1 85.1 L 102.5 86.3 L 103.1 87.4 L 104 88.5 L 105.1 89.6 L 106.4 90.7 L 108 91.7 L 109.8 92.7 L 111.8 93.7 L 114 94.6 L 116.4 95.5 L 119 96.3 L 121.8 97.1 L 124.7 97.8 L 127.8 98.5 L 131 99.1 L 134.3 99.6 L 137.8 100.1 L 141.4 100.5 L 145 100.8 L 148.7 101.1 L 152.4 101.3 L 156.2 101.4 L 160 101.4 L 163.8 101.4 L 167.6 101.3 L 171.3 101.1 L 175 100.8 L 178.6 100.5 L 182.2 100.1 L 185.7 99.6 L 189 99.1 L 192.2 98.5 L 195.3 97.8 L 198.2 97.1 L 201 96.3 L 203.6 95.5 L 206 94.6 L 208.2 93.7 L 210.2 92.7 L 212 91.7 L 213.6 90.7 L 214.9 89.6 L 216 88.5 L 216.9 87.4 L 217.5 86.3 L 217.9 85.1 L 218 84'/><circle cx='160' cy='84' r='2.3' fill='currentColor' stroke='none'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><path d='M 160 84 L 193.3 36.5'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='169.6' y='62.7' text-anchor='end'>r</text><text x='152' y='86.5' text-anchor='end'>O</text></g></svg>"
+        },
+        {
+          "formula": "Yüzey alanı = 4πr²"
+        },
+        {
+          "formula": "Yarım küre: V = 2πr³ / 3"
+        },
+        {
+          "formula": "Yarım kürenin tüm alanı = 2πr² + πr² = 3πr²",
+          "note": "Eğri yüz + düz taban dairesi",
+          "figure": "<svg viewBox='0 0 320 160' xmlns='http://www.w3.org/2000/svg'><path d='M 243.1 50.9 L 242.9 49.3 L 242.4 47.7 L 241.5 46.1 L 240.2 44.5 L 238.7 42.9 L 236.8 41.4 L 234.5 39.9 L 231.9 38.5 L 229.1 37.1 L 225.9 35.8 L 222.5 34.5 L 218.7 33.3 L 214.8 32.2 L 210.6 31.2 L 206.2 30.2 L 201.5 29.3 L 196.7 28.6 L 191.8 27.9 L 186.7 27.3 L 181.5 26.8 L 176.2 26.5 L 170.8 26.2 L 165.4 26.1 L 160 26 L 154.6 26.1 L 149.2 26.2 L 143.8 26.5 L 138.5 26.8 L 133.3 27.3 L 128.2 27.9 L 123.3 28.6 L 118.5 29.3 L 113.8 30.2 L 109.4 31.2 L 105.2 32.2 L 101.3 33.3 L 97.5 34.5 L 94.1 35.8 L 90.9 37.1 L 88.1 38.5 L 85.5 39.9 L 83.2 41.4 L 81.3 42.9 L 79.8 44.5 L 78.5 46.1 L 77.6 47.7 L 77.1 49.3 L 76.9 50.9 L 77.1 52.6 L 77.6 54.2 L 78.5 55.8 L 79.8 57.4 L 81.3 58.9 L 83.2 60.5 L 85.5 61.9 L 88.1 63.4 L 90.9 64.8 L 94.1 66.1 L 97.5 67.4 L 101.3 68.5 L 105.2 69.7 L 109.4 70.7 L 113.8 71.6 L 118.5 72.5 L 123.3 73.3 L 128.2 73.9 L 133.3 74.5 L 138.5 75 L 143.8 75.4 L 149.2 75.6 L 154.6 75.8 L 160 75.8 L 165.4 75.8 L 170.8 75.6 L 176.2 75.4 L 181.5 75 L 186.7 74.5 L 191.8 73.9 L 196.7 73.3 L 201.5 72.5 L 206.2 71.6 L 210.6 70.7 L 214.8 69.7 L 218.7 68.5 L 222.5 67.4 L 225.9 66.1 L 229.1 64.8 L 231.9 63.4 L 234.5 61.9 L 236.8 60.5 L 238.7 58.9 L 240.2 57.4 L 241.5 55.8 L 242.4 54.2 L 242.9 52.6 L 243.1 50.9 Z' fill='#0284c7' fill-opacity='0.22' stroke='none'/><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 243.1 50.9 L 242.9 49.3 L 242.4 47.7 L 241.5 46.1 L 240.2 44.5 L 238.7 42.9 L 236.8 41.4 L 234.5 39.9 L 231.9 38.5 L 229.1 37.1 L 225.9 35.8 L 222.5 34.5 L 218.7 33.3 L 214.8 32.2 L 210.6 31.2 L 206.2 30.2 L 201.5 29.3 L 196.7 28.6 L 191.8 27.9 L 186.7 27.3 L 181.5 26.8 L 176.2 26.5 L 170.8 26.2 L 165.4 26.1 L 160 26 L 154.6 26.1 L 149.2 26.2 L 143.8 26.5 L 138.5 26.8 L 133.3 27.3 L 128.2 27.9 L 123.3 28.6 L 118.5 29.3 L 113.8 30.2 L 109.4 31.2 L 105.2 32.2 L 101.3 33.3 L 97.5 34.5 L 94.1 35.8 L 90.9 37.1 L 88.1 38.5 L 85.5 39.9 L 83.2 41.4 L 81.3 42.9 L 79.8 44.5 L 78.5 46.1 L 77.6 47.7 L 77.1 49.3 L 76.9 50.9 L 77.1 52.6 L 77.6 54.2 L 78.5 55.8 L 79.8 57.4 L 81.3 58.9 L 83.2 60.5 L 85.5 61.9 L 88.1 63.4 L 90.9 64.8 L 94.1 66.1 L 97.5 67.4 L 101.3 68.5 L 105.2 69.7 L 109.4 70.7 L 113.8 71.6 L 118.5 72.5 L 123.3 73.3 L 128.2 73.9 L 133.3 74.5 L 138.5 75 L 143.8 75.4 L 149.2 75.6 L 154.6 75.8 L 160 75.8 L 165.4 75.8 L 170.8 75.6 L 176.2 75.4 L 181.5 75 L 186.7 74.5 L 191.8 73.9 L 196.7 73.3 L 201.5 72.5 L 206.2 71.6 L 210.6 70.7 L 214.8 69.7 L 218.7 68.5 L 222.5 67.4 L 225.9 66.1 L 229.1 64.8 L 231.9 63.4 L 234.5 61.9 L 236.8 60.5 L 238.7 58.9 L 240.2 57.4 L 241.5 55.8 L 242.4 54.2 L 242.9 52.6 L 243.1 50.9 Z'/><path d='M 243.1 50.9 L 243 55.3 L 242.6 59.6 L 242.1 63.9 L 241.3 68.2 L 240.2 72.4 L 239 76.6 L 237.6 80.7 L 235.9 84.7 L 234 88.6 L 231.9 92.5 L 229.7 96.2 L 227.2 99.8 L 224.6 103.2 L 221.7 106.5 L 218.7 109.7 L 215.6 112.7 L 212.3 115.5 L 208.8 118.1 L 205.2 120.6 L 201.5 122.9 L 197.7 124.9 L 193.8 126.8 L 189.8 128.5 L 185.7 129.9 L 181.5 131.2 L 177.3 132.2 L 173 133 L 168.7 133.5 L 164.3 133.9 L 160 134 L 155.7 133.9 L 151.3 133.5 L 147 133 L 142.7 132.2 L 138.5 131.2 L 134.3 129.9 L 130.2 128.5 L 126.2 126.8 L 122.3 124.9 L 118.5 122.9 L 114.8 120.6 L 111.2 118.1 L 107.7 115.5 L 104.4 112.7 L 101.3 109.7 L 98.3 106.5 L 95.4 103.2 L 92.8 99.8 L 90.3 96.2 L 88.1 92.5 L 86 88.6 L 84.1 84.7 L 82.4 80.7 L 81 76.6 L 79.8 72.4 L 78.7 68.2 L 77.9 63.9 L 77.4 59.6 L 77 55.3 L 76.9 50.9'/><circle cx='160' cy='50.9' r='2.3' fill='currentColor' stroke='none'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><path d='M 160 50.9 L 243.1 50.9'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='201.5' y='46.4' text-anchor='middle'>r</text><text x='68.9' y='55.4' text-anchor='end'>düz yüz</text><text x='92.2' y='119.2' text-anchor='end'>eğri yüz</text></g></svg>"
+        },
+        {
+          "formula": "Küpün yüzlerine teğet küre: 2r = a",
+          "note": "Küre küpün köşelerinden geçiyorsa: 2r = a√3",
+          "figure": "<svg viewBox='0 0 320 176' xmlns='http://www.w3.org/2000/svg'><circle cx='160' cy='88' r='47' fill='#0284c7' fill-opacity='0.14' stroke='none'/><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 134.6 119.9 L 91.4 150'/><path d='M 134.6 119.9 L 228.6 119.9'/><path d='M 134.6 119.9 L 134.6 26'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 91.4 150 L 185.4 150'/><path d='M 185.4 150 L 228.6 119.9'/><path d='M 185.4 150 L 185.4 56.1'/><path d='M 228.6 119.9 L 228.6 26'/><path d='M 91.4 150 L 91.4 56.1'/><path d='M 91.4 56.1 L 185.4 56.1'/><path d='M 185.4 56.1 L 228.6 26'/><path d='M 228.6 26 L 134.6 26'/><path d='M 134.6 26 L 91.4 56.1'/><circle cx='160' cy='88' r='2.3' fill='currentColor' stroke='none'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><circle cx='160' cy='88' r='47'/><path d='M 160 88 L 113 88'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='138.4' y='167.5' text-anchor='middle'>a</text><text x='122.4' y='105.5' text-anchor='middle'>r</text></g></svg>"
+        }
+      ],
+      "tips": [
+        "Yarım kürede \"tüm alan\" sorulursa düz taban dairesini (πr²) eklemeyi unutma.",
+        "Yüzey alanı verilirse önce yarıçapı bul: 4πr² = 100π → r = 5; sonra hacme geç."
+      ]
+    },
+    {
+      "id": "kati-benzerlik",
+      "subtopicId": "kati-benzerlik",
+      "title": "Benzer cisimler",
+      "aliases": [
+        "Benzer cisimler",
+        "Benzerlik oranı",
+        "Benzer silindirler",
+        "Benzer koniler",
+        "Benzer küreler"
+      ],
+      "items": [
+        {
+          "formula": "Uzunluklar oranı = k",
+          "note": "Yarıçap, yükseklik, ana doğru, çevre",
+          "figure": "<svg viewBox='0 0 320 176' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 122.8 133.3 L 122.8 132.6 L 122.5 131.8 L 122.1 131.1 L 121.6 130.4 L 120.9 129.7 L 120 129 L 119 128.4 L 117.9 127.7 L 116.6 127.1 L 115.2 126.5 L 113.6 125.9 L 112 125.4 L 110.2 124.9 L 108.3 124.4 L 106.3 124 L 104.3 123.6 L 102.1 123.3 L 99.9 123 L 97.6 122.7 L 95.3 122.5 L 92.9 122.3 L 90.5 122.2 L 88.1 122.2 L 85.7 122.1 L 83.3 122.2 L 80.8 122.2 L 78.4 122.3 L 76.1 122.5 L 73.8 122.7 L 71.5 123 L 69.3 123.3 L 67.1 123.6 L 65.1 124 L 63.1 124.4 L 61.2 124.9 L 59.4 125.4 L 57.8 125.9 L 56.2 126.5 L 54.8 127.1 L 53.5 127.7 L 52.4 128.4 L 51.4 129 L 50.5 129.7 L 49.8 130.4 L 49.3 131.1 L 48.9 131.8 L 48.6 132.6 L 48.5 133.3'/><path d='M 271.5 133.3 L 271.3 132.2 L 271 131.1 L 270.4 130 L 269.6 129 L 268.5 127.9 L 267.2 126.9 L 265.7 125.9 L 264 124.9 L 262.1 124 L 259.9 123.1 L 257.6 122.3 L 255.1 121.5 L 252.5 120.7 L 249.7 120 L 246.7 119.4 L 243.6 118.8 L 240.4 118.3 L 237.1 117.8 L 233.6 117.4 L 230.2 117.1 L 226.6 116.9 L 223 116.7 L 219.4 116.6 L 215.7 116.6 L 212.1 116.6 L 208.5 116.7 L 204.9 116.9 L 201.3 117.1 L 197.8 117.4 L 194.4 117.8 L 191.1 118.3 L 187.9 118.8 L 184.8 119.4 L 181.8 120 L 179 120.7 L 176.3 121.5 L 173.8 122.3 L 171.5 123.1 L 169.4 124 L 167.5 124.9 L 165.7 125.9 L 164.2 126.9 L 163 127.9 L 161.9 129 L 161.1 130 L 160.5 131.1 L 160.1 132.2 L 160 133.3'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 48.5 133.3 L 48.6 134 L 48.9 134.7 L 49.3 135.5 L 49.8 136.2 L 50.5 136.9 L 51.4 137.5 L 52.4 138.2 L 53.5 138.9 L 54.8 139.5 L 56.2 140.1 L 57.8 140.6 L 59.4 141.2 L 61.2 141.7 L 63.1 142.1 L 65.1 142.5 L 67.1 142.9 L 69.3 143.3 L 71.5 143.6 L 73.8 143.8 L 76.1 144 L 78.4 144.2 L 80.8 144.3 L 83.3 144.4 L 85.7 144.4 L 88.1 144.4 L 90.5 144.3 L 92.9 144.2 L 95.3 144 L 97.6 143.8 L 99.9 143.6 L 102.1 143.3 L 104.3 142.9 L 106.3 142.5 L 108.3 142.1 L 110.2 141.7 L 112 141.2 L 113.6 140.6 L 115.2 140.1 L 116.6 139.5 L 117.9 138.9 L 119 138.2 L 120 137.5 L 120.9 136.9 L 121.6 136.2 L 122.1 135.5 L 122.5 134.7 L 122.8 134 L 122.8 133.3'/><path d='M 122.8 72.9 L 122.8 72.2 L 122.5 71.5 L 122.1 70.7 L 121.6 70 L 120.9 69.3 L 120 68.6 L 119 68 L 117.9 67.3 L 116.6 66.7 L 115.2 66.1 L 113.6 65.6 L 112 65 L 110.2 64.5 L 108.3 64.1 L 106.3 63.6 L 104.3 63.3 L 102.1 62.9 L 99.9 62.6 L 97.6 62.4 L 95.3 62.1 L 92.9 62 L 90.5 61.9 L 88.1 61.8 L 85.7 61.8 L 83.3 61.8 L 80.8 61.9 L 78.4 62 L 76.1 62.1 L 73.8 62.4 L 71.5 62.6 L 69.3 62.9 L 67.1 63.3 L 65.1 63.6 L 63.1 64.1 L 61.2 64.5 L 59.4 65 L 57.8 65.6 L 56.2 66.1 L 54.8 66.7 L 53.5 67.3 L 52.4 68 L 51.4 68.6 L 50.5 69.3 L 49.8 70 L 49.3 70.7 L 48.9 71.5 L 48.6 72.2 L 48.5 72.9 L 48.6 73.6 L 48.9 74.4 L 49.3 75.1 L 49.8 75.8 L 50.5 76.5 L 51.4 77.2 L 52.4 77.8 L 53.5 78.5 L 54.8 79.1 L 56.2 79.7 L 57.8 80.3 L 59.4 80.8 L 61.2 81.3 L 63.1 81.7 L 65.1 82.2 L 67.1 82.6 L 69.3 82.9 L 71.5 83.2 L 73.8 83.5 L 76.1 83.7 L 78.4 83.8 L 80.8 84 L 83.3 84 L 85.7 84.1 L 88.1 84 L 90.5 84 L 92.9 83.8 L 95.3 83.7 L 97.6 83.5 L 99.9 83.2 L 102.1 82.9 L 104.3 82.6 L 106.3 82.2 L 108.3 81.7 L 110.2 81.3 L 112 80.8 L 113.6 80.3 L 115.2 79.7 L 116.6 79.1 L 117.9 78.5 L 119 77.8 L 120 77.2 L 120.9 76.5 L 121.6 75.8 L 122.1 75.1 L 122.5 74.4 L 122.8 73.6 L 122.8 72.9 Z'/><path d='M 48.5 133.3 L 48.5 72.9'/><path d='M 122.8 133.3 L 122.8 72.9'/><circle cx='85.7' cy='72.9' r='2.3' fill='currentColor' stroke='none'/><path d='M 160 133.3 L 160.1 134.4 L 160.5 135.5 L 161.1 136.5 L 161.9 137.6 L 163 138.7 L 164.2 139.7 L 165.7 140.7 L 167.5 141.6 L 169.4 142.6 L 171.5 143.5 L 173.8 144.3 L 176.3 145.1 L 179 145.9 L 181.8 146.5 L 184.8 147.2 L 187.9 147.8 L 191.1 148.3 L 194.4 148.7 L 197.8 149.1 L 201.3 149.4 L 204.9 149.7 L 208.5 149.9 L 212.1 150 L 215.7 150 L 219.4 150 L 223 149.9 L 226.6 149.7 L 230.2 149.4 L 233.6 149.1 L 237.1 148.7 L 240.4 148.3 L 243.6 147.8 L 246.7 147.2 L 249.7 146.5 L 252.5 145.9 L 255.1 145.1 L 257.6 144.3 L 259.9 143.5 L 262.1 142.6 L 264 141.6 L 265.7 140.7 L 267.2 139.7 L 268.5 138.7 L 269.6 137.6 L 270.4 136.5 L 271 135.5 L 271.3 134.4 L 271.5 133.3'/><path d='M 271.5 42.7 L 271.3 41.6 L 271 40.5 L 270.4 39.5 L 269.6 38.4 L 268.5 37.3 L 267.2 36.3 L 265.7 35.3 L 264 34.4 L 262.1 33.4 L 259.9 32.5 L 257.6 31.7 L 255.1 30.9 L 252.5 30.1 L 249.7 29.5 L 246.7 28.8 L 243.6 28.2 L 240.4 27.7 L 237.1 27.3 L 233.6 26.9 L 230.2 26.6 L 226.6 26.3 L 223 26.1 L 219.4 26 L 215.7 26 L 212.1 26 L 208.5 26.1 L 204.9 26.3 L 201.3 26.6 L 197.8 26.9 L 194.4 27.3 L 191.1 27.7 L 187.9 28.2 L 184.8 28.8 L 181.8 29.5 L 179 30.1 L 176.3 30.9 L 173.8 31.7 L 171.5 32.5 L 169.4 33.4 L 167.5 34.4 L 165.7 35.3 L 164.2 36.3 L 163 37.3 L 161.9 38.4 L 161.1 39.5 L 160.5 40.5 L 160.1 41.6 L 160 42.7 L 160.1 43.8 L 160.5 44.9 L 161.1 46 L 161.9 47 L 163 48.1 L 164.2 49.1 L 165.7 50.1 L 167.5 51.1 L 169.4 52 L 171.5 52.9 L 173.8 53.7 L 176.3 54.5 L 179 55.3 L 181.8 56 L 184.8 56.6 L 187.9 57.2 L 191.1 57.7 L 194.4 58.2 L 197.8 58.6 L 201.3 58.9 L 204.9 59.1 L 208.5 59.3 L 212.1 59.4 L 215.7 59.4 L 219.4 59.4 L 223 59.3 L 226.6 59.1 L 230.2 58.9 L 233.6 58.6 L 237.1 58.2 L 240.4 57.7 L 243.6 57.2 L 246.7 56.6 L 249.7 56 L 252.5 55.3 L 255.1 54.5 L 257.6 53.7 L 259.9 52.9 L 262.1 52 L 264 51.1 L 265.7 50.1 L 267.2 49.1 L 268.5 48.1 L 269.6 47 L 270.4 46 L 271 44.9 L 271.3 43.8 L 271.5 42.7 Z'/><path d='M 160 133.3 L 160 42.7'/><path d='M 271.5 133.3 L 271.5 42.7'/><circle cx='215.7' cy='42.7' r='2.3' fill='currentColor' stroke='none'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><path d='M 85.7 72.9 L 122.8 72.9'/><path d='M 215.7 42.7 L 271.5 42.7'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='104.3' y='59.3' text-anchor='middle'>r</text><text x='131.8' y='107.6'>h</text><text x='243.6' y='23.5' text-anchor='middle'>k·r</text><text x='280.5' y='92.5'>k·h</text></g></svg>"
+        },
+        {
+          "formula": "Alanlar oranı = k²",
+          "note": "Yanal alan, taban alanı, yüzey alanı"
+        },
+        {
+          "formula": "Hacimler oranı = k³"
+        },
+        {
+          "formula": "Hacim oranı verilirse: k = ∛(hacim oranı)",
+          "note": "Örnek: 27/64 → k = 3/4 → alan oranı 9/16"
+        },
+        {
+          "formula": "Bütün küreler birbirine benzerdir; bütün küpler de"
+        }
+      ],
+      "tips": [
+        "k'yı bulunca yanına etiketini yaz: k = 3/4 (uzunluk). Alana geçerken kare, hacme geçerken küp al.",
+        "Oranın yönüne dikkat: küçük / büyük mü, büyük / küçük mü?"
+      ]
+    }
+  ]
+}

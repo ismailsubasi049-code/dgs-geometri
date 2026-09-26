@@ -2,13 +2,38 @@
   "id": "geometri-kati-cisimler",
   "topicId": "kati-cisimler",
   "topic": "Katı Cisimler",
-  "subtopicId": "kati-cisimler",
-  "subtopic": "Katı cisimler",
-  "version": 1,
+  "subtopicId": "",
+  "subtopic": "",
+  "subtopics": [
+    {
+      "subtopicId": "kati-prizma",
+      "subtopic": "Prizmalar"
+    },
+    {
+      "subtopicId": "kati-silindir",
+      "subtopic": "Silindir"
+    },
+    {
+      "subtopicId": "kati-piramit-koni",
+      "subtopic": "Piramit ve koni"
+    },
+    {
+      "subtopicId": "kati-kure",
+      "subtopic": "Küre"
+    },
+    {
+      "subtopicId": "kati-benzerlik",
+      "subtopic": "Benzer cisimler"
+    }
+  ],
+  "version": 2,
   "blocks": [],
   "questions": [
     {
       "id": "kati-01",
+      "label": "Prizmalar",
+      "subtopicId": "kati-prizma",
+      "subtopic": "Prizmalar",
       "difficulty": 1,
       "stem": "Şekildeki dikdörtgenler prizmasının ayrıt uzunlukları 5 cm, 3 cm ve 4 cm'dir.\nBuna göre, prizmanın hacmi kaç cm³'tür?",
       "asks": "Hacim isteniyor.",
@@ -25,6 +50,9 @@
     },
     {
       "id": "kati-02",
+      "label": "Prizmalar",
+      "subtopicId": "kati-prizma",
+      "subtopic": "Prizmalar",
       "difficulty": 1,
       "stem": "Şekildeki dikdörtgenler prizmasının ayrıt uzunlukları 4 cm, 2 cm ve 3 cm'dir.\nBuna göre, prizmanın yüzey alanı kaç cm²'dir?",
       "asks": "Yüzey alanı isteniyor.",
@@ -41,6 +69,9 @@
     },
     {
       "id": "kati-03",
+      "label": "Prizmalar",
+      "subtopicId": "kati-prizma",
+      "subtopic": "Prizmalar",
       "difficulty": 2,
       "stem": "Şekildeki dikdörtgenler prizmasının ayrıtları 6 cm, 2 cm ve 3 cm'dir.\nBuna göre, [AG] cisim köşegeninin uzunluğu kaç cm'dir?",
       "asks": "Cisim köşegeninin uzunluğu isteniyor.",
@@ -57,6 +88,9 @@
     },
     {
       "id": "kati-04",
+      "label": "Prizmalar",
+      "subtopicId": "kati-prizma",
+      "subtopic": "Prizmalar",
       "difficulty": 1,
       "stem": "Şekildeki küpün bir ayrıtının uzunluğu 5 cm'dir.\nBuna göre, küpün yüzey alanı kaç cm²'dir?",
       "asks": "Yüzey alanı isteniyor.",
@@ -73,6 +107,9 @@
     },
     {
       "id": "kati-05",
+      "label": "Prizmalar",
+      "subtopicId": "kati-prizma",
+      "subtopic": "Prizmalar",
       "difficulty": 2,
       "stem": "Şekildeki küpün hacmi 27 cm³'tür.\nBuna göre, küpün [AG] cisim köşegeni kaç cm'dir?",
       "asks": "Cisim köşegeninin uzunluğu isteniyor.",
@@ -89,6 +126,9 @@
     },
     {
       "id": "kati-06",
+      "label": "Prizmalar",
+      "subtopicId": "kati-prizma",
+      "subtopic": "Prizmalar",
       "difficulty": 2,
       "stem": "Şekildeki küpün yüzey alanı 96 cm²'dir.\nBuna göre, küpün hacmi kaç cm³'tür?",
       "asks": "Hacim isteniyor.",
@@ -105,6 +145,9 @@
     },
     {
       "id": "kati-07",
+      "label": "Prizmalar",
+      "subtopicId": "kati-prizma",
+      "subtopic": "Prizmalar",
       "difficulty": 2,
       "stem": "Şekildeki dikdörtgenler prizmasının taban ayrıtları 6 cm ve 4 cm, hacmi 120 cm³'tür.\nBuna göre, prizmanın yüzey alanı kaç cm²'dir?",
       "asks": "Yüzey alanı isteniyor.",
@@ -121,6 +164,9 @@
     },
     {
       "id": "kati-08",
+      "label": "Prizmalar",
+      "subtopicId": "kati-prizma",
+      "subtopic": "Prizmalar",
       "difficulty": 3,
       "stem": "Şekildeki dikdörtgenler prizması biçimindeki deponun taban ayrıtları 50 cm ve 40 cm'dir. Depoda bir miktar su vardır.\nDepoya 20 litre su eklenirse su seviyesi kaç cm yükselir? (1 litre = 1000 cm³)",
       "asks": "Su seviyesindeki artış isteniyor.",
@@ -137,6 +183,9 @@
     },
     {
       "id": "kati-09",
+      "label": "Prizmalar",
+      "subtopicId": "kati-prizma",
+      "subtopic": "Prizmalar",
       "difficulty": 3,
       "stem": "Şekildeki dikdörtgenler prizmasının taban ayrıtları 8 cm ve 6 cm, [AG] cisim köşegeni 26 cm'dir.\nBuna göre, prizmanın yüksekliği kaç cm'dir?",
       "asks": "Yükseklik isteniyor.",
@@ -153,6 +202,9 @@
     },
     {
       "id": "kati-10",
+      "label": "Prizmalar",
+      "subtopicId": "kati-prizma",
+      "subtopic": "Prizmalar",
       "difficulty": 1,
       "stem": "Şekildeki dik prizmanın tabanı, dik kenarları 3 cm ve 4 cm olan bir dik üçgendir. Prizmanın yüksekliği 10 cm'dir.\nBuna göre, prizmanın hacmi kaç cm³'tür?",
       "asks": "Hacim isteniyor.",
@@ -169,6 +221,9 @@
     },
     {
       "id": "kati-11",
+      "label": "Prizmalar",
+      "subtopicId": "kati-prizma",
+      "subtopic": "Prizmalar",
       "difficulty": 2,
       "stem": "Şekildeki dik prizmanın tabanı, dik kenarları 3 cm ve 4 cm olan bir dik üçgendir. Prizmanın yüksekliği 10 cm'dir.\nBuna göre, prizmanın tüm yüzey alanı kaç cm²'dir?",
       "asks": "Tüm yüzey alanı isteniyor.",
@@ -185,6 +240,9 @@
     },
     {
       "id": "kati-12",
+      "label": "Silindir",
+      "subtopicId": "kati-silindir",
+      "subtopic": "Silindir",
       "difficulty": 1,
       "stem": "Şekildeki dik silindirin taban yarıçapı 4 cm, yüksekliği 5 cm'dir.\nBuna göre, silindirin hacmi kaç cm³'tür?",
       "asks": "Hacim isteniyor.",
@@ -201,6 +259,9 @@
     },
     {
       "id": "kati-13",
+      "label": "Silindir",
+      "subtopicId": "kati-silindir",
+      "subtopic": "Silindir",
       "difficulty": 2,
       "stem": "Şekildeki dik silindirin taban yarıçapı 3 cm, yüksekliği 7 cm'dir.\nBuna göre, silindirin tüm yüzey alanı kaç cm²'dir?",
       "asks": "Tüm yüzey alanı isteniyor.",
@@ -217,6 +278,9 @@
     },
     {
       "id": "kati-14",
+      "label": "Silindir",
+      "subtopicId": "kati-silindir",
+      "subtopic": "Silindir",
       "difficulty": 2,
       "stem": "Şekildeki dik silindirin taban yarıçapı 4 cm, yanal alanı 48π cm²'dir.\nBuna göre, silindirin hacmi kaç cm³'tür?",
       "asks": "Hacim isteniyor.",
@@ -233,6 +297,9 @@
     },
     {
       "id": "kati-15",
+      "label": "Silindir",
+      "subtopicId": "kati-silindir",
+      "subtopic": "Silindir",
       "difficulty": 3,
       "stem": "Şekilde bir dik silindirin yanal yüzeyinin açınımı verilmiştir. Açınım, kenarları 10π cm ve 8 cm olan bir dikdörtgendir; 8 cm'lik kenar silindirin yüksekliğidir.\nBuna göre, silindirin hacmi kaç cm³'tür?",
       "asks": "Hacim isteniyor.",
@@ -249,6 +316,9 @@
     },
     {
       "id": "kati-16",
+      "label": "Prizmalar",
+      "subtopicId": "kati-prizma",
+      "subtopic": "Prizmalar",
       "difficulty": 3,
       "stem": "Şekildeki dik prizmanın tabanı, bir kenarı 2 cm olan düzgün altıgendir. Prizmanın yüksekliği 5 cm'dir.\nBuna göre, prizmanın hacmi kaç cm³'tür?",
       "asks": "Hacim isteniyor.",
@@ -265,6 +335,9 @@
     },
     {
       "id": "kati-17",
+      "label": "Silindir",
+      "subtopicId": "kati-silindir",
+      "subtopic": "Silindir",
       "difficulty": 3,
       "stem": "Şekildeki birinci silindir kabın taban yarıçapı 5 cm'dir ve kap 10 cm yüksekliğe kadar suyla doludur. Bu suyun tamamı, taban yarıçapı 10 cm olan ikinci silindir kaba boşaltılıyor.\nBuna göre, ikinci kaptaki suyun yüksekliği kaç cm olur?",
       "asks": "İkinci kaptaki su yüksekliği isteniyor.",
@@ -281,6 +354,9 @@
     },
     {
       "id": "kati-18",
+      "label": "Piramit ve koni",
+      "subtopicId": "kati-piramit-koni",
+      "subtopic": "Piramit ve koni",
       "difficulty": 1,
       "stem": "Şekildeki dik koninin taban yarıçapı 3 cm, yüksekliği 4 cm'dir.\nBuna göre, koninin hacmi kaç cm³'tür?",
       "asks": "Hacim isteniyor.",
@@ -297,6 +373,9 @@
     },
     {
       "id": "kati-19",
+      "label": "Piramit ve koni",
+      "subtopicId": "kati-piramit-koni",
+      "subtopic": "Piramit ve koni",
       "difficulty": 2,
       "stem": "Şekildeki dik koninin taban yarıçapı 6 cm, ana doğrusu 10 cm'dir.\nBuna göre, koninin hacmi kaç cm³'tür?",
       "asks": "Hacim isteniyor.",
@@ -313,6 +392,9 @@
     },
     {
       "id": "kati-20",
+      "label": "Piramit ve koni",
+      "subtopicId": "kati-piramit-koni",
+      "subtopic": "Piramit ve koni",
       "difficulty": 3,
       "stem": "Şekildeki dik koninin taban yarıçapı 5 cm, yüksekliği 12 cm'dir.\nBuna göre, koninin tüm yüzey alanı kaç cm²'dir?",
       "asks": "Tüm yüzey alanı isteniyor.",
@@ -329,6 +411,9 @@
     },
     {
       "id": "kati-21",
+      "label": "Piramit ve koni",
+      "subtopicId": "kati-piramit-koni",
+      "subtopic": "Piramit ve koni",
       "difficulty": 1,
       "stem": "Şekildeki kare dik piramidin taban ayrıtı 8 cm, yüksekliği 6 cm'dir.\nBuna göre, piramidin hacmi kaç cm³'tür?",
       "asks": "Hacim isteniyor.",
@@ -345,6 +430,9 @@
     },
     {
       "id": "kati-22",
+      "label": "Piramit ve koni",
+      "subtopicId": "kati-piramit-koni",
+      "subtopic": "Piramit ve koni",
       "difficulty": 3,
       "stem": "Şekildeki kare dik piramidin taban ayrıtı 6 cm'dir. Yan yüzlerin yüksekliği (tepeden taban ayrıtının ortasına inen uzunluk) 5 cm'dir.\nBuna göre, piramidin hacmi kaç cm³'tür?",
       "asks": "Hacim isteniyor.",
@@ -361,6 +449,9 @@
     },
     {
       "id": "kati-23",
+      "label": "Piramit ve koni",
+      "subtopicId": "kati-piramit-koni",
+      "subtopic": "Piramit ve koni",
       "difficulty": 2,
       "stem": "Şekildeki dik silindir ile dik koninin tabanları ve yükseklikleri eşittir. Silindirin hacmi 90π cm³'tür.\nBuna göre, koninin hacmi kaç cm³'tür?",
       "asks": "Koninin hacmi isteniyor.",
@@ -377,6 +468,9 @@
     },
     {
       "id": "kati-24",
+      "label": "Küre",
+      "subtopicId": "kati-kure",
+      "subtopic": "Küre",
       "difficulty": 1,
       "stem": "Şekildeki kürenin yarıçapı 6 cm'dir.\nBuna göre, kürenin hacmi kaç cm³'tür?",
       "asks": "Hacim isteniyor.",
@@ -393,6 +487,9 @@
     },
     {
       "id": "kati-25",
+      "label": "Küre",
+      "subtopicId": "kati-kure",
+      "subtopic": "Küre",
       "difficulty": 3,
       "stem": "Şekildeki kürenin yüzey alanı 100π cm²'dir.\nBuna göre, kürenin hacmi kaç cm³'tür?",
       "asks": "Hacim isteniyor.",
@@ -409,6 +506,9 @@
     },
     {
       "id": "kati-26",
+      "label": "Küre",
+      "subtopicId": "kati-kure",
+      "subtopic": "Küre",
       "difficulty": 3,
       "stem": "Şekildeki yarım kürenin yarıçapı 3 cm'dir.\nBuna göre, yarım kürenin tüm yüzey alanı (eğri yüzey ve düz taban birlikte) kaç cm²'dir?",
       "asks": "Tüm yüzey alanı isteniyor.",
@@ -425,6 +525,9 @@
     },
     {
       "id": "kati-27",
+      "label": "Küre",
+      "subtopicId": "kati-kure",
+      "subtopic": "Küre",
       "difficulty": 2,
       "stem": "Şekildeki küre, ayrıtı 6 cm olan küpün içine yerleştirilmiştir ve küpün altı yüzüne de teğettir.\nBuna göre, kürenin hacmi kaç cm³'tür?",
       "asks": "Kürenin hacmi isteniyor.",
@@ -441,6 +544,9 @@
     },
     {
       "id": "kati-28",
+      "label": "Benzer cisimler",
+      "subtopicId": "kati-benzerlik",
+      "subtopic": "Benzer cisimler",
       "difficulty": 3,
       "stem": "Şekildeki iki dik silindir benzerdir. Silindirlerin hacimleri oranı 27/64'tür. Küçük silindirin yanal alanı 36π cm²'dir.\nBuna göre, büyük silindirin yanal alanı kaç cm²'dir?",
       "asks": "Büyük silindirin yanal alanı isteniyor.",
@@ -457,6 +563,9 @@
     },
     {
       "id": "kati-29",
+      "label": "Benzer cisimler",
+      "subtopicId": "kati-benzerlik",
+      "subtopic": "Benzer cisimler",
       "difficulty": 2,
       "stem": "Şekildeki iki dik koni benzerdir ve yükseklikleri oranı 2/3'tür. Küçük koninin hacmi 16π cm³'tür.\nBuna göre, büyük koninin hacmi kaç cm³'tür?",
       "asks": "Büyük koninin hacmi isteniyor.",
@@ -473,6 +582,9 @@
     },
     {
       "id": "kati-30",
+      "label": "Benzer cisimler",
+      "subtopicId": "kati-benzerlik",
+      "subtopic": "Benzer cisimler",
       "difficulty": 3,
       "stem": "Şekildeki iki kürenin hacimleri oranı 1/8'dir. Büyük kürenin yüzey alanı 100π cm²'dir.\nBuna göre, küçük kürenin yüzey alanı kaç cm²'dir?",
       "asks": "Küçük kürenin yüzey alanı isteniyor.",
