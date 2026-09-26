@@ -2533,6 +2533,24 @@ yapılmadı: normal oturumun davranışı değişirdi. İleride tam ekran bir pa
   kalır ve ilk geri basışı boşa gider; onay çıkmaz. v64'te de böyleydi.
 - `sw.js` VERSION **v64 → v65**. `APP_SHELL`'e `js/backstack.js` eklendi.
 
+### v66: `geometri-kati-cisimler` (30 soru, tamamı şekilli) + Katı Cisimler konusu
+
+- Paket hazır üretildi (`referans/geometri-kati-cisimler.md`), JSON olduğu gibi
+  `data/packs/`'e taşındı. Soru, şık, çözüm ve şekillere dokunulmadı; yalnız üst düzey
+  kimlik alanları index kaydına uyduruldu (`topic` "Katı Cisimler", `subtopicId`
+  "kati-cisimler", `subtopic` "Katı cisimler"; pakette ikisi boştu).
+- **Yeni konu:** `topics[]`'e `kati-cisimler` / "Katı Cisimler" / `geo`, Çember'den sonra.
+  `packs[]` kaydı `geometri-cember`'den sonra, `count` 30, `version` 1.
+- **Id:** `kati-01` … `kati-30`; mevcut paketlerle çakışma yok.
+- **Şekil kontrolü:** 30/30 `parseFigure` ile render; kaynak düğüm = çizilen düğüm
+  (text 71/71, `fill-opacity` 12/12). Kullanılan öğeler `path` 278, `polyline` 6,
+  `circle` 22 — hepsi beyaz listede, düşen yok. kati-08, 10, 17, 22, 26, 28 gözle bakıldı.
+- **Uygulamada:** Geometri → Katı Cisimler → 1 alt konu, 30 soru; oturum açıldı, şekil
+  çizildi, konsol temiz. Test kaydı silindi + reload.
+- **Formül kartı yok:** `data/formuller/` altında katı cisimler seti yok; konu ekranında
+  formül kartı görünmez. Yazılırsa `subtopicId` "kati-cisimler" ile bağlanır.
+- `sw.js` VERSION **v65 → v66**.
+
 ## Çalışma kuralları
 
 - Plan modunda başla.

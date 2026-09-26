@@ -1,0 +1,491 @@
+{
+  "id": "geometri-kati-cisimler",
+  "topicId": "kati-cisimler",
+  "topic": "Katı Cisimler",
+  "subtopicId": "kati-cisimler",
+  "subtopic": "Katı cisimler",
+  "version": 1,
+  "blocks": [],
+  "questions": [
+    {
+      "id": "kati-01",
+      "difficulty": 1,
+      "stem": "Şekildeki dikdörtgenler prizmasının ayrıt uzunlukları 5 cm, 3 cm ve 4 cm'dir.\nBuna göre, prizmanın hacmi kaç cm³'tür?",
+      "asks": "Hacim isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 106 145.4 L 64.8 174'/><path d='M 106 145.4 L 255.2 145.4'/><path d='M 106 145.4 L 106 26'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 64.8 174 L 214 174'/><path d='M 214 174 L 255.2 145.4'/><path d='M 214 174 L 214 54.6'/><path d='M 255.2 145.4 L 255.2 26'/><path d='M 64.8 174 L 64.8 54.6'/><path d='M 64.8 54.6 L 214 54.6'/><path d='M 214 54.6 L 255.2 26'/><path d='M 255.2 26 L 106 26'/><path d='M 106 26 L 64.8 54.6'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='139.4' y='191.5' text-anchor='middle'>5</text><text x='244.6' y='172.2'>3</text><text x='56.8' y='118.8' text-anchor='end'>4</text></g></svg>",
+      "choices": [
+        "12",
+        "24",
+        "47",
+        "60",
+        "94"
+      ],
+      "answer": 3,
+      "solution": "1. Hacim = taban alanı × yükseklik = a · b · c\n\n2. 5 · 3 · 4 = **60**\n\nNot: E şıkkındaki 94 yüzey alanıdır: 2(15 + 20 + 12). C şıkkındaki 47 ise onun yarısıdır. Hacim cismin içini, yüzey alanı dışını ölçer."
+    },
+    {
+      "id": "kati-02",
+      "difficulty": 1,
+      "stem": "Şekildeki dikdörtgenler prizmasının ayrıt uzunlukları 4 cm, 2 cm ve 3 cm'dir.\nBuna göre, prizmanın yüzey alanı kaç cm²'dir?",
+      "asks": "Yüzey alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 97.4 148 L 60 174'/><path d='M 97.4 148 L 260 148'/><path d='M 97.4 148 L 97.4 26'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 60 174 L 222.6 174'/><path d='M 222.6 174 L 260 148'/><path d='M 222.6 174 L 222.6 52'/><path d='M 260 148 L 260 26'/><path d='M 60 174 L 60 52'/><path d='M 60 52 L 222.6 52'/><path d='M 222.6 52 L 260 26'/><path d='M 260 26 L 97.4 26'/><path d='M 97.4 26 L 60 52'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='141.3' y='191.5' text-anchor='middle'>4</text><text x='251.3' y='173.5'>2</text><text x='52' y='117.5' text-anchor='end'>3</text></g></svg>",
+      "choices": [
+        "24",
+        "26",
+        "48",
+        "52",
+        "56"
+      ],
+      "answer": 3,
+      "solution": "1. Altı yüz vardır ve karşılıklı yüzler eşittir: yüzey alanı = 2(ab + bc + ac)\n\n2. 2(4 · 2 + 2 · 3 + 4 · 3) = 2(8 + 6 + 12) = 2 · 26 = **52**\n\nNot: B şıkkındaki 26, ikiyle çarpmayı unutmaktır; her yüzün bir eşi vardır. A şıkkındaki 24 ise hacimdir."
+    },
+    {
+      "id": "kati-03",
+      "difficulty": 2,
+      "stem": "Şekildeki dikdörtgenler prizmasının ayrıtları 6 cm, 2 cm ve 3 cm'dir.\nBuna göre, [AG] cisim köşegeninin uzunluğu kaç cm'dir?",
+      "asks": "Cisim köşegeninin uzunluğu isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 64.6 144.3 L 30 168.4'/><path d='M 64.6 144.3 L 290 144.3'/><path d='M 64.6 144.3 L 64.6 31.6'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 30 168.4 L 255.4 168.4'/><path d='M 255.4 168.4 L 290 144.3'/><path d='M 255.4 168.4 L 255.4 55.7'/><path d='M 290 144.3 L 290 31.6'/><path d='M 30 168.4 L 30 55.7'/><path d='M 30 55.7 L 255.4 55.7'/><path d='M 255.4 55.7 L 290 31.6'/><path d='M 290 31.6 L 64.6 31.6'/><path d='M 64.6 31.6 L 30 55.7'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'></g><g stroke='#0284c7' stroke-width='2.4' fill='none'><path d='M 30 168.4 L 290 31.6'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='142.7' y='185.9' text-anchor='middle'>6</text><text x='282.7' y='168.9'>2</text><text x='22' y='116.5' text-anchor='end'>3</text><text x='23' y='176.9' text-anchor='end'>A</text><text x='297' y='32.1'>G</text><text x='154' y='95.5' text-anchor='end'>?</text></g></svg>",
+      "choices": [
+        "5",
+        "2√10",
+        "7",
+        "11",
+        "49"
+      ],
+      "answer": 2,
+      "solution": "1. Taban köşegeni: 6² + 2² = 40\n\n2. Cisim köşegeni: AG² = 40 + 3² = 49\n\n3. AG = **7**\n\nNot: B şıkkındaki 2√10 taban köşegenidir, yani ilk Pisagor'un sonucu. E şıkkındaki 49, karekök almayı unutmaktır; D şıkkındaki 11 ise ayrıtları toplamaktır."
+    },
+    {
+      "id": "kati-04",
+      "difficulty": 1,
+      "stem": "Şekildeki küpün bir ayrıtının uzunluğu 5 cm'dir.\nBuna göre, küpün yüzey alanı kaç cm²'dir?",
+      "asks": "Yüzey alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 129.7 138.1 L 78.2 174'/><path d='M 129.7 138.1 L 241.8 138.1'/><path d='M 129.7 138.1 L 129.7 26'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 78.2 174 L 190.3 174'/><path d='M 190.3 174 L 241.8 138.1'/><path d='M 190.3 174 L 190.3 61.9'/><path d='M 241.8 138.1 L 241.8 26'/><path d='M 78.2 174 L 78.2 61.9'/><path d='M 78.2 61.9 L 190.3 61.9'/><path d='M 190.3 61.9 L 241.8 26'/><path d='M 241.8 26 L 129.7 26'/><path d='M 129.7 26 L 78.2 61.9'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='134.2' y='191.5' text-anchor='middle'>5</text></g></svg>",
+      "choices": [
+        "300",
+        "150",
+        "125",
+        "100",
+        "25"
+      ],
+      "answer": 1,
+      "solution": "1. Küpün 6 eş kare yüzü vardır.\n\n2. Yüzey alanı = 6a² = 6 · 25 = **150**\n\nNot: E şıkkındaki 25 tek bir yüzün alanıdır. C şıkkındaki 125 hacimdir (a³). D şıkkındaki 100 ise yalnız dört yan yüzün alanıdır."
+    },
+    {
+      "id": "kati-05",
+      "difficulty": 2,
+      "stem": "Şekildeki küpün hacmi 27 cm³'tür.\nBuna göre, küpün [AG] cisim köşegeni kaç cm'dir?",
+      "asks": "Cisim köşegeninin uzunluğu isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 129.7 138.1 L 78.2 174'/><path d='M 129.7 138.1 L 241.8 138.1'/><path d='M 129.7 138.1 L 129.7 26'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 78.2 174 L 190.3 174'/><path d='M 190.3 174 L 241.8 138.1'/><path d='M 190.3 174 L 190.3 61.9'/><path d='M 241.8 138.1 L 241.8 26'/><path d='M 78.2 174 L 78.2 61.9'/><path d='M 78.2 61.9 L 190.3 61.9'/><path d='M 190.3 61.9 L 241.8 26'/><path d='M 241.8 26 L 129.7 26'/><path d='M 129.7 26 L 78.2 61.9'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'></g><g stroke='#0284c7' stroke-width='2.4' fill='none'><path d='M 78.2 174 L 241.8 26'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='71.2' y='182.5' text-anchor='end'>A</text><text x='248.8' y='26.5'>G</text><text x='154' y='95.5' text-anchor='end'>?</text></g></svg>",
+      "choices": [
+        "3",
+        "3√2",
+        "3√3",
+        "9",
+        "6√3"
+      ],
+      "answer": 2,
+      "solution": "1. a³ = 27 → a = 3\n\n2. Küpün cisim köşegeni a√3'tür: 3√3\n\n3. Cevap: **3√3**\n\nNot: A şıkkındaki 3 ayrıttır; B şıkkındaki 3√2 ise bir yüzün köşegenidir. √2 karenin, √3 küpün köşegeninin imzasıdır."
+    },
+    {
+      "id": "kati-06",
+      "difficulty": 2,
+      "stem": "Şekildeki küpün yüzey alanı 96 cm²'dir.\nBuna göre, küpün hacmi kaç cm³'tür?",
+      "asks": "Hacim isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 129.7 138.1 L 78.2 174'/><path d='M 129.7 138.1 L 241.8 138.1'/><path d='M 129.7 138.1 L 129.7 26'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 78.2 174 L 190.3 174'/><path d='M 190.3 174 L 241.8 138.1'/><path d='M 190.3 174 L 190.3 61.9'/><path d='M 241.8 138.1 L 241.8 26'/><path d='M 78.2 174 L 78.2 61.9'/><path d='M 78.2 61.9 L 190.3 61.9'/><path d='M 190.3 61.9 L 241.8 26'/><path d='M 241.8 26 L 129.7 26'/><path d='M 129.7 26 L 78.2 61.9'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'></g></svg>",
+      "choices": [
+        "4",
+        "16",
+        "48",
+        "64",
+        "96"
+      ],
+      "answer": 3,
+      "solution": "1. 6a² = 96 → a² = 16 → a = 4\n\n2. Hacim = a³ = 4³ = **64**\n\nNot: A şıkkındaki 4 ayrıttır, B şıkkındaki 16 ise bir yüzün alanıdır. İkisi de hesabın ortasında kalan değerlerdir."
+    },
+    {
+      "id": "kati-07",
+      "difficulty": 2,
+      "stem": "Şekildeki dikdörtgenler prizmasının taban ayrıtları 6 cm ve 4 cm, hacmi 120 cm³'tür.\nBuna göre, prizmanın yüzey alanı kaç cm²'dir?",
+      "asks": "Yüzey alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 111 143.8 L 67.6 174'/><path d='M 111 143.8 L 252.4 143.8'/><path d='M 111 143.8 L 111 26'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 67.6 174 L 209 174'/><path d='M 209 174 L 252.4 143.8'/><path d='M 209 174 L 209 56.2'/><path d='M 252.4 143.8 L 252.4 26'/><path d='M 67.6 174 L 67.6 56.2'/><path d='M 67.6 56.2 L 209 56.2'/><path d='M 209 56.2 L 252.4 26'/><path d='M 252.4 26 L 111 26'/><path d='M 111 26 L 67.6 56.2'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='138.3' y='191.5' text-anchor='middle'>6</text><text x='240.7' y='171.4'>4</text><text x='59.6' y='119.6' text-anchor='end'>h</text></g></svg>",
+      "choices": [
+        "174",
+        "148",
+        "120",
+        "74",
+        "5"
+      ],
+      "answer": 1,
+      "solution": "1. Yükseklik: 6 · 4 · h = 120 → h = 5\n\n2. Yüzey alanı = 2(6 · 4 + 4 · 5 + 6 · 5) = 2(24 + 20 + 30) = **148**\n\nNot: E şıkkındaki 5 yüksekliktir, yani ara değer. D şıkkındaki 74 ikiyle çarpmayı unutmaktır."
+    },
+    {
+      "id": "kati-08",
+      "difficulty": 3,
+      "stem": "Şekildeki dikdörtgenler prizması biçimindeki deponun taban ayrıtları 50 cm ve 40 cm'dir. Depoda bir miktar su vardır.\nDepoya 20 litre su eklenirse su seviyesi kaç cm yükselir? (1 litre = 1000 cm³)",
+      "asks": "Su seviyesindeki artış isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><path d='M 79.4 174 L 197.2 174 L 240.6 143.8 L 240.6 73.1 L 122.8 73.1 L 79.4 103.3 Z' fill='#0284c7' fill-opacity='0.22' stroke='none'/><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 122.8 143.8 L 79.4 174'/><path d='M 122.8 143.8 L 240.6 143.8'/><path d='M 122.8 143.8 L 122.8 26'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 79.4 174 L 197.2 174'/><path d='M 197.2 174 L 240.6 143.8'/><path d='M 197.2 174 L 197.2 56.2'/><path d='M 240.6 143.8 L 240.6 26'/><path d='M 79.4 174 L 79.4 56.2'/><path d='M 79.4 56.2 L 197.2 56.2'/><path d='M 197.2 56.2 L 240.6 26'/><path d='M 240.6 26 L 122.8 26'/><path d='M 122.8 26 L 79.4 56.2'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><path d='M 79.4 103.3 L 197.2 103.3 L 240.6 73.1 L 122.8 73.1 Z'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='138.3' y='191.5' text-anchor='middle'>50 cm</text><text x='228.9' y='171.4'>40 cm</text></g></svg>",
+      "choices": [
+        "2",
+        "5",
+        "10",
+        "20",
+        "40"
+      ],
+      "answer": 2,
+      "solution": "1. Eklenen su: 20 litre = 20 000 cm³\n\n2. Taban alanı: 50 · 40 = 2000 cm²\n\n3. Yükselme = hacim / taban alanı = 20 000 / 2000 = **10** cm\n\nNot: Deponun içindeki su miktarı soru için gereksizdir; yalnız eklenen hacim ve taban alanı kullanılır. D şıkkındaki 20, litreyi doğrudan cm sanmaktır."
+    },
+    {
+      "id": "kati-09",
+      "difficulty": 3,
+      "stem": "Şekildeki dikdörtgenler prizmasının taban ayrıtları 8 cm ve 6 cm, [AG] cisim köşegeni 26 cm'dir.\nBuna göre, prizmanın yüksekliği kaç cm'dir?",
+      "asks": "Yükseklik isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 145 163 L 129.3 174'/><path d='M 145 163 L 190.7 163'/><path d='M 145 163 L 145 26'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 129.3 174 L 175 174'/><path d='M 175 174 L 190.7 163'/><path d='M 175 174 L 175 37'/><path d='M 190.7 163 L 190.7 26'/><path d='M 129.3 174 L 129.3 37'/><path d='M 129.3 37 L 175 37'/><path d='M 175 37 L 190.7 26'/><path d='M 190.7 26 L 145 26'/><path d='M 145 26 L 129.3 37'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'></g><g stroke='#0284c7' stroke-width='2.4' fill='none'><path d='M 129.3 174 L 190.7 26'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='152.1' y='191.5' text-anchor='middle'>8</text><text x='192.8' y='181'>6</text><text x='121.3' y='110' text-anchor='end'>?</text><text x='122.3' y='182.5' text-anchor='end'>A</text><text x='197.7' y='26.5'>G</text><text x='168' y='110.5'>26</text></g></svg>",
+      "choices": [
+        "8",
+        "10",
+        "12",
+        "18",
+        "24"
+      ],
+      "answer": 4,
+      "solution": "1. Taban köşegeni: 8² + 6² = 100 → 10\n\n2. Köşegen, taban köşegeni ve yükseklik dik üçgen kurar:\nh² = 26² − 10² = 676 − 100 = 576\n\n3. h = **24**\n\nNot: B şıkkındaki 10 taban köşegenidir. 10-24-26, 5-12-13 üçlüsünün iki katıdır; tanırsan hesaba gerek kalmaz."
+    },
+    {
+      "id": "kati-10",
+      "difficulty": 1,
+      "stem": "Şekildeki dik prizmanın tabanı, dik kenarları 3 cm ve 4 cm olan bir dik üçgendir. Prizmanın yüksekliği 10 cm'dir.\nBuna göre, prizmanın hacmi kaç cm³'tür?",
+      "asks": "Hacim isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 57.4 174 L 167.2 97.6'/><path d='M 167.2 97.6 L 262.6 97.6'/><path d='M 167.2 97.6 L 167.2 26'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 57.4 174 L 152.8 174'/><path d='M 152.8 174 L 57.4 102.4'/><path d='M 57.4 102.4 L 57.4 174'/><path d='M 152.8 174 L 262.6 97.6'/><path d='M 57.4 102.4 L 167.2 26'/><path d='M 262.6 97.6 L 167.2 26'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><polyline points='65.4,174 65.4,166 57.4,166'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='105.1' y='191.5' text-anchor='middle'>4</text><text x='49.4' y='142.7' text-anchor='end'>3</text><text x='216.7' y='146.3'>10</text></g></svg>",
+      "choices": [
+        "30",
+        "60",
+        "120",
+        "132",
+        "144"
+      ],
+      "answer": 1,
+      "solution": "1. Taban alanı: 3 · 4 / 2 = 6\n\n2. Hacim = taban alanı × yükseklik = 6 · 10 = **60**\n\nNot: C şıkkındaki 120, taban üçgeninin alanında ikiye bölmeyi unutmaktır. Prizma formülü tek: taban alanı × h; taban üçgense üçgen alanı kullanılır."
+    },
+    {
+      "id": "kati-11",
+      "difficulty": 2,
+      "stem": "Şekildeki dik prizmanın tabanı, dik kenarları 3 cm ve 4 cm olan bir dik üçgendir. Prizmanın yüksekliği 10 cm'dir.\nBuna göre, prizmanın tüm yüzey alanı kaç cm²'dir?",
+      "asks": "Tüm yüzey alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 57.4 174 L 167.2 97.6'/><path d='M 167.2 97.6 L 262.6 97.6'/><path d='M 167.2 97.6 L 167.2 26'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 57.4 174 L 152.8 174'/><path d='M 152.8 174 L 57.4 102.4'/><path d='M 57.4 102.4 L 57.4 174'/><path d='M 152.8 174 L 262.6 97.6'/><path d='M 57.4 102.4 L 167.2 26'/><path d='M 262.6 97.6 L 167.2 26'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><polyline points='65.4,174 65.4,166 57.4,166'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='105.1' y='191.5' text-anchor='middle'>4</text><text x='49.4' y='142.7' text-anchor='end'>3</text><text x='216.7' y='146.3'>10</text></g></svg>",
+      "choices": [
+        "60",
+        "120",
+        "126",
+        "132",
+        "144"
+      ],
+      "answer": 3,
+      "solution": "1. Hipotenüs: 3-4-5 üçgeni → 5\n\n2. Yanal alan = taban çevresi × h = (3 + 4 + 5) · 10 = 120\n\n3. İki taban: 2 · 6 = 12\n\n4. Tüm yüzey alanı = 120 + 12 = **132**\n\nNot: B şıkkındaki 120 yalnız yanal alandır. C şıkkındaki 126 ise tabanlardan yalnız birini eklemektir."
+    },
+    {
+      "id": "kati-12",
+      "difficulty": 1,
+      "stem": "Şekildeki dik silindirin taban yarıçapı 4 cm, yüksekliği 5 cm'dir.\nBuna göre, silindirin hacmi kaç cm³'tür?",
+      "asks": "Hacim isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 240 150 L 239.8 148.4 L 239.3 146.9 L 238.5 145.3 L 237.3 143.8 L 235.8 142.3 L 233.9 140.8 L 231.7 139.4 L 229.3 138 L 226.5 136.7 L 223.5 135.4 L 220.1 134.2 L 216.6 133 L 212.7 132 L 208.7 131 L 204.4 130 L 200 129.2 L 195.4 128.5 L 190.6 127.8 L 185.7 127.3 L 180.7 126.8 L 175.6 126.5 L 170.4 126.2 L 165.2 126.1 L 160 126 L 154.8 126.1 L 149.6 126.2 L 144.4 126.5 L 139.3 126.8 L 134.3 127.3 L 129.4 127.8 L 124.6 128.5 L 120 129.2 L 115.6 130 L 111.3 131 L 107.3 132 L 103.4 133 L 99.9 134.2 L 96.5 135.4 L 93.5 136.7 L 90.7 138 L 88.3 139.4 L 86.1 140.8 L 84.2 142.3 L 82.7 143.8 L 81.5 145.3 L 80.7 146.9 L 80.2 148.4 L 80 150'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 80 150 L 80.2 151.6 L 80.7 153.1 L 81.5 154.7 L 82.7 156.2 L 84.2 157.7 L 86.1 159.2 L 88.3 160.6 L 90.7 162 L 93.5 163.3 L 96.5 164.6 L 99.9 165.8 L 103.4 167 L 107.3 168 L 111.3 169 L 115.6 170 L 120 170.8 L 124.6 171.5 L 129.4 172.2 L 134.3 172.7 L 139.3 173.2 L 144.4 173.5 L 149.6 173.8 L 154.8 173.9 L 160 174 L 165.2 173.9 L 170.4 173.8 L 175.6 173.5 L 180.7 173.2 L 185.7 172.7 L 190.6 172.2 L 195.4 171.5 L 200 170.8 L 204.4 170 L 208.7 169 L 212.7 168 L 216.6 167 L 220.1 165.8 L 223.5 164.6 L 226.5 163.3 L 229.3 162 L 231.7 160.6 L 233.9 159.2 L 235.8 157.7 L 237.3 156.2 L 238.5 154.7 L 239.3 153.1 L 239.8 151.6 L 240 150'/><path d='M 240 50 L 239.8 48.4 L 239.3 46.9 L 238.5 45.3 L 237.3 43.8 L 235.8 42.3 L 233.9 40.8 L 231.7 39.4 L 229.3 38 L 226.5 36.7 L 223.5 35.4 L 220.1 34.2 L 216.6 33 L 212.7 32 L 208.7 31 L 204.4 30 L 200 29.2 L 195.4 28.5 L 190.6 27.8 L 185.7 27.3 L 180.7 26.8 L 175.6 26.5 L 170.4 26.2 L 165.2 26.1 L 160 26 L 154.8 26.1 L 149.6 26.2 L 144.4 26.5 L 139.3 26.8 L 134.3 27.3 L 129.4 27.8 L 124.6 28.5 L 120 29.2 L 115.6 30 L 111.3 31 L 107.3 32 L 103.4 33 L 99.9 34.2 L 96.5 35.4 L 93.5 36.7 L 90.7 38 L 88.3 39.4 L 86.1 40.8 L 84.2 42.3 L 82.7 43.8 L 81.5 45.3 L 80.7 46.9 L 80.2 48.4 L 80 50 L 80.2 51.6 L 80.7 53.1 L 81.5 54.7 L 82.7 56.2 L 84.2 57.7 L 86.1 59.2 L 88.3 60.6 L 90.7 62 L 93.5 63.3 L 96.5 64.6 L 99.9 65.8 L 103.4 67 L 107.3 68 L 111.3 69 L 115.6 70 L 120 70.8 L 124.6 71.5 L 129.4 72.2 L 134.3 72.7 L 139.3 73.2 L 144.4 73.5 L 149.6 73.8 L 154.8 73.9 L 160 74 L 165.2 73.9 L 170.4 73.8 L 175.6 73.5 L 180.7 73.2 L 185.7 72.7 L 190.6 72.2 L 195.4 71.5 L 200 70.8 L 204.4 70 L 208.7 69 L 212.7 68 L 216.6 67 L 220.1 65.8 L 223.5 64.6 L 226.5 63.3 L 229.3 62 L 231.7 60.6 L 233.9 59.2 L 235.8 57.7 L 237.3 56.2 L 238.5 54.7 L 239.3 53.1 L 239.8 51.6 L 240 50 Z'/><path d='M 80 150 L 80 50'/><path d='M 240 150 L 240 50'/><circle cx='160' cy='50' r='2.3' fill='currentColor' stroke='none'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><path d='M 160 50 L 240 50'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='200' y='45.5' text-anchor='middle'>4</text><text x='249' y='104.5'>5</text></g></svg>",
+      "choices": [
+        "16π",
+        "20π",
+        "40π",
+        "64π",
+        "80π"
+      ],
+      "answer": 4,
+      "solution": "1. Hacim = taban alanı × h = πr² · h\n\n2. π · 16 · 5 = **80π**\n\nNot: C şıkkındaki 40π yanal alandır (2π · 4 · 5). B şıkkındaki 20π ise yarıçapın karesini almayı unutmaktır (π · 4 · 5)."
+    },
+    {
+      "id": "kati-13",
+      "difficulty": 2,
+      "stem": "Şekildeki dik silindirin taban yarıçapı 3 cm, yüksekliği 7 cm'dir.\nBuna göre, silindirin tüm yüzey alanı kaç cm²'dir?",
+      "asks": "Tüm yüzey alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 210.5 158.9 L 210.3 157.9 L 210 156.9 L 209.5 155.9 L 208.7 154.9 L 207.8 154 L 206.6 153.1 L 205.3 152.2 L 203.7 151.3 L 202 150.5 L 200 149.6 L 197.9 148.9 L 195.7 148.2 L 193.3 147.5 L 190.7 146.9 L 188 146.3 L 185.2 145.8 L 182.3 145.3 L 179.3 144.9 L 176.2 144.5 L 173.1 144.2 L 169.8 144 L 166.6 143.9 L 163.3 143.8 L 160 143.7 L 156.7 143.8 L 153.4 143.9 L 150.2 144 L 146.9 144.2 L 143.8 144.5 L 140.7 144.9 L 137.7 145.3 L 134.8 145.8 L 132 146.3 L 129.3 146.9 L 126.7 147.5 L 124.3 148.2 L 122.1 148.9 L 120 149.6 L 118 150.5 L 116.3 151.3 L 114.7 152.2 L 113.4 153.1 L 112.2 154 L 111.3 154.9 L 110.5 155.9 L 110 156.9 L 109.7 157.9 L 109.5 158.9'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 109.5 158.9 L 109.7 159.9 L 110 160.8 L 110.5 161.8 L 111.3 162.8 L 112.2 163.7 L 113.4 164.7 L 114.7 165.6 L 116.3 166.4 L 118 167.3 L 120 168.1 L 122.1 168.8 L 124.3 169.6 L 126.7 170.2 L 129.3 170.9 L 132 171.4 L 134.8 172 L 137.7 172.4 L 140.7 172.8 L 143.8 173.2 L 146.9 173.5 L 150.2 173.7 L 153.4 173.9 L 156.7 174 L 160 174 L 163.3 174 L 166.6 173.9 L 169.8 173.7 L 173.1 173.5 L 176.2 173.2 L 179.3 172.8 L 182.3 172.4 L 185.2 172 L 188 171.4 L 190.7 170.9 L 193.3 170.2 L 195.7 169.6 L 197.9 168.8 L 200 168.1 L 202 167.3 L 203.7 166.4 L 205.3 165.6 L 206.6 164.7 L 207.8 163.7 L 208.7 162.8 L 209.5 161.8 L 210 160.8 L 210.3 159.9 L 210.5 158.9'/><path d='M 210.5 41.1 L 210.3 40.1 L 210 39.2 L 209.5 38.2 L 208.7 37.2 L 207.8 36.3 L 206.6 35.3 L 205.3 34.4 L 203.7 33.6 L 202 32.7 L 200 31.9 L 197.9 31.2 L 195.7 30.4 L 193.3 29.8 L 190.7 29.1 L 188 28.6 L 185.2 28 L 182.3 27.6 L 179.3 27.2 L 176.2 26.8 L 173.1 26.5 L 169.8 26.3 L 166.6 26.1 L 163.3 26 L 160 26 L 156.7 26 L 153.4 26.1 L 150.2 26.3 L 146.9 26.5 L 143.8 26.8 L 140.7 27.2 L 137.7 27.6 L 134.8 28 L 132 28.6 L 129.3 29.1 L 126.7 29.8 L 124.3 30.4 L 122.1 31.2 L 120 31.9 L 118 32.7 L 116.3 33.6 L 114.7 34.4 L 113.4 35.3 L 112.2 36.3 L 111.3 37.2 L 110.5 38.2 L 110 39.2 L 109.7 40.1 L 109.5 41.1 L 109.7 42.1 L 110 43.1 L 110.5 44.1 L 111.3 45.1 L 112.2 46 L 113.4 46.9 L 114.7 47.8 L 116.3 48.7 L 118 49.5 L 120 50.4 L 122.1 51.1 L 124.3 51.8 L 126.7 52.5 L 129.3 53.1 L 132 53.7 L 134.8 54.2 L 137.7 54.7 L 140.7 55.1 L 143.8 55.5 L 146.9 55.8 L 150.2 56 L 153.4 56.1 L 156.7 56.2 L 160 56.3 L 163.3 56.2 L 166.6 56.1 L 169.8 56 L 173.1 55.8 L 176.2 55.5 L 179.3 55.1 L 182.3 54.7 L 185.2 54.2 L 188 53.7 L 190.7 53.1 L 193.3 52.5 L 195.7 51.8 L 197.9 51.1 L 200 50.4 L 202 49.5 L 203.7 48.7 L 205.3 47.8 L 206.6 46.9 L 207.8 46 L 208.7 45.1 L 209.5 44.1 L 210 43.1 L 210.3 42.1 L 210.5 41.1 Z'/><path d='M 109.5 158.9 L 109.5 41.1'/><path d='M 210.5 158.9 L 210.5 41.1'/><circle cx='160' cy='41.1' r='2.3' fill='currentColor' stroke='none'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><path d='M 160 41.1 L 210.5 41.1'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='185.2' y='36.6' text-anchor='middle'>3</text><text x='219.5' y='104.5'>7</text></g></svg>",
+      "choices": [
+        "42π",
+        "51π",
+        "60π",
+        "63π",
+        "84π"
+      ],
+      "answer": 2,
+      "solution": "1. Yanal alan = 2πr · h = 2π · 3 · 7 = 42π\n\n2. İki taban: 2 · π · 9 = 18π\n\n3. Tüm yüzey alanı = 42π + 18π = **60π**\n\nNot: A şıkkındaki 42π yalnız yanal alandır; B şıkkındaki 51π tabanlardan yalnız birini eklemektir. D şıkkındaki 63π ise hacimdir."
+    },
+    {
+      "id": "kati-14",
+      "difficulty": 2,
+      "stem": "Şekildeki dik silindirin taban yarıçapı 4 cm, yanal alanı 48π cm²'dir.\nBuna göre, silindirin hacmi kaç cm³'tür?",
+      "asks": "Hacim isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 230.5 152.9 L 230.3 151.5 L 229.9 150.1 L 229.1 148.7 L 228.1 147.4 L 226.7 146.1 L 225.1 144.8 L 223.2 143.5 L 221 142.3 L 218.6 141.1 L 215.9 140 L 213 138.9 L 209.8 137.9 L 206.5 137 L 202.9 136.1 L 199.2 135.3 L 195.2 134.5 L 191.2 133.9 L 187 133.3 L 182.7 132.8 L 178.2 132.4 L 173.7 132.1 L 169.2 131.9 L 164.6 131.8 L 160 131.7 L 155.4 131.8 L 150.8 131.9 L 146.3 132.1 L 141.8 132.4 L 137.3 132.8 L 133 133.3 L 128.8 133.9 L 124.8 134.5 L 120.8 135.3 L 117.1 136.1 L 113.5 137 L 110.2 137.9 L 107 138.9 L 104.1 140 L 101.4 141.1 L 99 142.3 L 96.8 143.5 L 94.9 144.8 L 93.3 146.1 L 91.9 147.4 L 90.9 148.7 L 90.1 150.1 L 89.7 151.5 L 89.5 152.9'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 89.5 152.9 L 89.7 154.2 L 90.1 155.6 L 90.9 157 L 91.9 158.3 L 93.3 159.7 L 94.9 160.9 L 96.8 162.2 L 99 163.4 L 101.4 164.6 L 104.1 165.7 L 107 166.8 L 110.2 167.8 L 113.5 168.8 L 117.1 169.6 L 120.8 170.4 L 124.8 171.2 L 128.8 171.8 L 133 172.4 L 137.3 172.9 L 141.8 173.3 L 146.3 173.6 L 150.8 173.8 L 155.4 174 L 160 174 L 164.6 174 L 169.2 173.8 L 173.7 173.6 L 178.2 173.3 L 182.7 172.9 L 187 172.4 L 191.2 171.8 L 195.2 171.2 L 199.2 170.4 L 202.9 169.6 L 206.5 168.8 L 209.8 167.8 L 213 166.8 L 215.9 165.7 L 218.6 164.6 L 221 163.4 L 223.2 162.2 L 225.1 160.9 L 226.7 159.7 L 228.1 158.3 L 229.1 157 L 229.9 155.6 L 230.3 154.2 L 230.5 152.9'/><path d='M 230.5 47.1 L 230.3 45.8 L 229.9 44.4 L 229.1 43 L 228.1 41.7 L 226.7 40.3 L 225.1 39.1 L 223.2 37.8 L 221 36.6 L 218.6 35.4 L 215.9 34.3 L 213 33.2 L 209.8 32.2 L 206.5 31.2 L 202.9 30.4 L 199.2 29.6 L 195.2 28.8 L 191.2 28.2 L 187 27.6 L 182.7 27.1 L 178.2 26.7 L 173.7 26.4 L 169.2 26.2 L 164.6 26 L 160 26 L 155.4 26 L 150.8 26.2 L 146.3 26.4 L 141.8 26.7 L 137.3 27.1 L 133 27.6 L 128.8 28.2 L 124.8 28.8 L 120.8 29.6 L 117.1 30.4 L 113.5 31.2 L 110.2 32.2 L 107 33.2 L 104.1 34.3 L 101.4 35.4 L 99 36.6 L 96.8 37.8 L 94.9 39.1 L 93.3 40.3 L 91.9 41.7 L 90.9 43 L 90.1 44.4 L 89.7 45.8 L 89.5 47.1 L 89.7 48.5 L 90.1 49.9 L 90.9 51.3 L 91.9 52.6 L 93.3 53.9 L 94.9 55.2 L 96.8 56.5 L 99 57.7 L 101.4 58.9 L 104.1 60 L 107 61.1 L 110.2 62.1 L 113.5 63 L 117.1 63.9 L 120.8 64.7 L 124.8 65.5 L 128.8 66.1 L 133 66.7 L 137.3 67.2 L 141.8 67.6 L 146.3 67.9 L 150.8 68.1 L 155.4 68.2 L 160 68.3 L 164.6 68.2 L 169.2 68.1 L 173.7 67.9 L 178.2 67.6 L 182.7 67.2 L 187 66.7 L 191.2 66.1 L 195.2 65.5 L 199.2 64.7 L 202.9 63.9 L 206.5 63 L 209.8 62.1 L 213 61.1 L 215.9 60 L 218.6 58.9 L 221 57.7 L 223.2 56.5 L 225.1 55.2 L 226.7 53.9 L 228.1 52.6 L 229.1 51.3 L 229.9 49.9 L 230.3 48.5 L 230.5 47.1 Z'/><path d='M 89.5 152.9 L 89.5 47.1'/><path d='M 230.5 152.9 L 230.5 47.1'/><circle cx='160' cy='47.1' r='2.3' fill='currentColor' stroke='none'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><path d='M 160 47.1 L 230.5 47.1'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='195.2' y='42.6' text-anchor='middle'>4</text></g></svg>",
+      "choices": [
+        "6",
+        "24π",
+        "48π",
+        "72π",
+        "96π"
+      ],
+      "answer": 4,
+      "solution": "1. Yanal alan = 2πr · h: 2π · 4 · h = 48π → h = 6\n\n2. Hacim = π · 16 · 6 = **96π**\n\nNot: A şıkkındaki 6 yüksekliktir, ara değer. C şıkkındaki 48π ise verilen yanal alanın kendisidir."
+    },
+    {
+      "id": "kati-15",
+      "difficulty": 3,
+      "stem": "Şekilde bir dik silindirin yanal yüzeyinin açınımı verilmiştir. Açınım, kenarları 10π cm ve 8 cm olan bir dikdörtgendir; 8 cm'lik kenar silindirin yüksekliğidir.\nBuna göre, silindirin hacmi kaç cm³'tür?",
+      "asks": "Hacim isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><path d='M 30 133.1 L 290 133.1 L 290 66.9 L 30 66.9 Z' fill='#0284c7' fill-opacity='0.22' stroke='none'/><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 30 133.1 L 290 133.1 L 290 66.9 L 30 66.9 Z'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='160' y='151.6' text-anchor='middle'>10π</text><text x='299' y='104.5'>8</text></g></svg>",
+      "choices": [
+        "40π",
+        "80π",
+        "200π",
+        "400π",
+        "800π"
+      ],
+      "answer": 2,
+      "solution": "1. Açınımın uzun kenarı taban çevresidir: 2πr = 10π → r = 5\n\n2. Hacim = π · 25 · 8 = **200π**\n\nNot: E şıkkındaki 800π, 10'u yarıçap sanmaktan gelir (π · 100 · 8). B şıkkındaki 80π ise açınım dikdörtgeninin alanıdır, yani yanal alan."
+    },
+    {
+      "id": "kati-16",
+      "difficulty": 3,
+      "stem": "Şekildeki dik prizmanın tabanı, bir kenarı 2 cm olan düzgün altıgendir. Prizmanın yüksekliği 5 cm'dir.\nBuna göre, prizmanın hacmi kaç cm³'tür?",
+      "asks": "Hacim isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 209 161.3 L 184.5 148.5'/><path d='M 184.5 148.5 L 135.5 148.5'/><path d='M 184.5 148.5 L 184.5 26'/><path d='M 135.5 148.5 L 111 161.3'/><path d='M 135.5 148.5 L 135.5 26'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 209 38.7 L 184.5 26'/><path d='M 209 161.3 L 209 38.7'/><path d='M 184.5 26 L 135.5 26'/><path d='M 135.5 26 L 111 38.7'/><path d='M 111 161.3 L 135.5 174'/><path d='M 111 38.7 L 135.5 51.5'/><path d='M 111 161.3 L 111 38.7'/><path d='M 135.5 174 L 184.5 174'/><path d='M 135.5 51.5 L 184.5 51.5'/><path d='M 135.5 174 L 135.5 51.5'/><path d='M 184.5 174 L 209 161.3'/><path d='M 184.5 51.5 L 209 38.7'/><path d='M 184.5 174 L 184.5 51.5'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='160' y='69' text-anchor='middle'>2</text><text x='218' y='104.5'>5</text></g></svg>",
+      "choices": [
+        "5√3",
+        "10√3",
+        "12√3",
+        "15√3",
+        "30√3"
+      ],
+      "answer": 4,
+      "solution": "1. Düzgün altıgen altı eşkenar üçgenden oluşur: taban alanı = 6 · (2²√3 / 4) = 6√3\n\n2. Hacim = 6√3 · 5 = **30√3**\n\nNot: D şıkkındaki 15√3, altıgeni üç üçgen saymaktır. C şıkkındaki 12√3 ise yükseklikle çarpmak yerine taban alanını iki katına çıkarmaktır; hacim = taban alanı × h."
+    },
+    {
+      "id": "kati-17",
+      "difficulty": 3,
+      "stem": "Şekildeki birinci silindir kabın taban yarıçapı 5 cm'dir ve kap 10 cm yüksekliğe kadar suyla doludur. Bu suyun tamamı, taban yarıçapı 10 cm olan ikinci silindir kaba boşaltılıyor.\nBuna göre, ikinci kaptaki suyun yüksekliği kaç cm olur?",
+      "asks": "İkinci kaptaki su yüksekliği isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><path d='M 30 146.4 L 30.1 147.2 L 30.3 147.9 L 30.7 148.6 L 31.3 149.3 L 32 150 L 32.8 150.7 L 33.8 151.4 L 35 152 L 36.3 152.6 L 37.7 153.2 L 39.2 153.8 L 40.9 154.3 L 42.7 154.8 L 44.5 155.3 L 46.5 155.7 L 48.6 156.1 L 50.7 156.4 L 52.9 156.7 L 55.2 157 L 57.5 157.2 L 59.9 157.4 L 62.3 157.5 L 64.7 157.5 L 67.1 157.6 L 69.6 157.5 L 72 157.5 L 74.4 157.4 L 76.8 157.2 L 79.1 157 L 81.4 156.7 L 83.6 156.4 L 85.7 156.1 L 87.8 155.7 L 89.8 155.3 L 91.6 154.8 L 93.4 154.3 L 95.1 153.8 L 96.6 153.2 L 98 152.6 L 99.3 152 L 100.5 151.4 L 101.5 150.7 L 102.3 150 L 103 149.3 L 103.6 148.6 L 104 147.9 L 104.2 147.2 L 104.3 146.4 L 104.3 72.1 L 104.2 72.9 L 104 73.6 L 103.6 74.3 L 103 75 L 102.3 75.7 L 101.5 76.4 L 100.5 77.1 L 99.3 77.7 L 98 78.3 L 96.6 78.9 L 95.1 79.5 L 93.4 80 L 91.6 80.5 L 89.8 81 L 87.8 81.4 L 85.7 81.8 L 83.6 82.1 L 81.4 82.4 L 79.1 82.7 L 76.8 82.9 L 74.4 83.1 L 72 83.2 L 69.6 83.3 L 67.1 83.3 L 64.7 83.3 L 62.3 83.2 L 59.9 83.1 L 57.5 82.9 L 55.2 82.7 L 52.9 82.4 L 50.7 82.1 L 48.6 81.8 L 46.5 81.4 L 44.5 81 L 42.7 80.5 L 40.9 80 L 39.2 79.5 L 37.7 78.9 L 36.3 78.3 L 35 77.7 L 33.8 77.1 L 32.8 76.4 L 32 75.7 L 31.3 75 L 30.7 74.3 L 30.3 73.6 L 30.1 72.9 L 30 72.1 Z' fill='#0284c7' fill-opacity='0.22' stroke='none'/><path d='M 104.3 72.1 L 104.2 71.4 L 104 70.7 L 103.6 70 L 103 69.3 L 102.3 68.6 L 101.5 67.9 L 100.5 67.2 L 99.3 66.6 L 98 66 L 96.6 65.4 L 95.1 64.8 L 93.4 64.3 L 91.6 63.8 L 89.8 63.3 L 87.8 62.9 L 85.7 62.5 L 83.6 62.1 L 81.4 61.8 L 79.1 61.6 L 76.8 61.4 L 74.4 61.2 L 72 61.1 L 69.6 61 L 67.1 61 L 64.7 61 L 62.3 61.1 L 59.9 61.2 L 57.5 61.4 L 55.2 61.6 L 52.9 61.8 L 50.7 62.1 L 48.6 62.5 L 46.5 62.9 L 44.5 63.3 L 42.7 63.8 L 40.9 64.3 L 39.2 64.8 L 37.7 65.4 L 36.3 66 L 35 66.6 L 33.8 67.2 L 32.8 67.9 L 32 68.6 L 31.3 69.3 L 30.7 70 L 30.3 70.7 L 30.1 71.4 L 30 72.1 L 30.1 72.9 L 30.3 73.6 L 30.7 74.3 L 31.3 75 L 32 75.7 L 32.8 76.4 L 33.8 77.1 L 35 77.7 L 36.3 78.3 L 37.7 78.9 L 39.2 79.5 L 40.9 80 L 42.7 80.5 L 44.5 81 L 46.5 81.4 L 48.6 81.8 L 50.7 82.1 L 52.9 82.4 L 55.2 82.7 L 57.5 82.9 L 59.9 83.1 L 62.3 83.2 L 64.7 83.3 L 67.1 83.3 L 69.6 83.3 L 72 83.2 L 74.4 83.1 L 76.8 82.9 L 79.1 82.7 L 81.4 82.4 L 83.6 82.1 L 85.7 81.8 L 87.8 81.4 L 89.8 81 L 91.6 80.5 L 93.4 80 L 95.1 79.5 L 96.6 78.9 L 98 78.3 L 99.3 77.7 L 100.5 77.1 L 101.5 76.4 L 102.3 75.7 L 103 75 L 103.6 74.3 L 104 73.6 L 104.2 72.9 L 104.3 72.1 Z' fill='#0284c7' fill-opacity='0.22' stroke='none'/><path d='M 141.4 146.4 L 141.6 147.9 L 142.1 149.3 L 142.9 150.8 L 144 152.2 L 145.4 153.6 L 147.1 155 L 149.1 156.3 L 151.4 157.6 L 153.9 158.8 L 156.8 160 L 159.9 161.1 L 163.2 162.2 L 166.7 163.2 L 170.5 164.1 L 174.4 165 L 178.6 165.7 L 182.9 166.4 L 187.3 167 L 191.8 167.5 L 196.5 168 L 201.2 168.3 L 206 168.5 L 210.9 168.7 L 215.7 168.7 L 220.6 168.7 L 225.4 168.5 L 230.2 168.3 L 234.9 168 L 239.6 167.5 L 244.1 167 L 248.6 166.4 L 252.9 165.7 L 257 165 L 260.9 164.1 L 264.7 163.2 L 268.2 162.2 L 271.6 161.1 L 274.6 160 L 277.5 158.8 L 280 157.6 L 282.3 156.3 L 284.3 155 L 286.1 153.6 L 287.5 152.2 L 288.6 150.8 L 289.4 149.3 L 289.8 147.9 L 290 146.4 L 290 127.9 L 289.8 129.3 L 289.4 130.8 L 288.6 132.2 L 287.5 133.6 L 286.1 135 L 284.3 136.4 L 282.3 137.7 L 280 139 L 277.5 140.2 L 274.6 141.4 L 271.6 142.6 L 268.2 143.6 L 264.7 144.6 L 260.9 145.5 L 257 146.4 L 252.9 147.2 L 248.6 147.8 L 244.1 148.4 L 239.6 149 L 234.9 149.4 L 230.2 149.7 L 225.4 150 L 220.6 150.1 L 215.7 150.1 L 210.9 150.1 L 206 150 L 201.2 149.7 L 196.5 149.4 L 191.8 149 L 187.3 148.4 L 182.9 147.8 L 178.6 147.2 L 174.4 146.4 L 170.5 145.5 L 166.7 144.6 L 163.2 143.6 L 159.9 142.6 L 156.8 141.4 L 153.9 140.2 L 151.4 139 L 149.1 137.7 L 147.1 136.4 L 145.4 135 L 144 133.6 L 142.9 132.2 L 142.1 130.8 L 141.6 129.3 L 141.4 127.9 Z' fill='#0284c7' fill-opacity='0.22' stroke='none'/><path d='M 290 127.9 L 289.8 126.4 L 289.4 124.9 L 288.6 123.5 L 287.5 122.1 L 286.1 120.7 L 284.3 119.3 L 282.3 118 L 280 116.7 L 277.5 115.5 L 274.6 114.3 L 271.6 113.2 L 268.2 112.1 L 264.7 111.1 L 260.9 110.2 L 257 109.3 L 252.9 108.6 L 248.6 107.9 L 244.1 107.3 L 239.6 106.8 L 234.9 106.3 L 230.2 106 L 225.4 105.8 L 220.6 105.6 L 215.7 105.6 L 210.9 105.6 L 206 105.8 L 201.2 106 L 196.5 106.3 L 191.8 106.8 L 187.3 107.3 L 182.9 107.9 L 178.6 108.6 L 174.4 109.3 L 170.5 110.2 L 166.7 111.1 L 163.2 112.1 L 159.9 113.2 L 156.8 114.3 L 153.9 115.5 L 151.4 116.7 L 149.1 118 L 147.1 119.3 L 145.4 120.7 L 144 122.1 L 142.9 123.5 L 142.1 124.9 L 141.6 126.4 L 141.4 127.9 L 141.6 129.3 L 142.1 130.8 L 142.9 132.2 L 144 133.6 L 145.4 135 L 147.1 136.4 L 149.1 137.7 L 151.4 139 L 153.9 140.2 L 156.8 141.4 L 159.9 142.6 L 163.2 143.6 L 166.7 144.6 L 170.5 145.5 L 174.4 146.4 L 178.6 147.2 L 182.9 147.8 L 187.3 148.4 L 191.8 149 L 196.5 149.4 L 201.2 149.7 L 206 150 L 210.9 150.1 L 215.7 150.1 L 220.6 150.1 L 225.4 150 L 230.2 149.7 L 234.9 149.4 L 239.6 149 L 244.1 148.4 L 248.6 147.8 L 252.9 147.2 L 257 146.4 L 260.9 145.5 L 264.7 144.6 L 268.2 143.6 L 271.6 142.6 L 274.6 141.4 L 277.5 140.2 L 280 139 L 282.3 137.7 L 284.3 136.4 L 286.1 135 L 287.5 133.6 L 288.6 132.2 L 289.4 130.8 L 289.8 129.3 L 290 127.9 Z' fill='#0284c7' fill-opacity='0.22' stroke='none'/><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 104.3 146.4 L 104.2 145.7 L 104 145 L 103.6 144.3 L 103 143.5 L 102.3 142.8 L 101.5 142.2 L 100.5 141.5 L 99.3 140.9 L 98 140.2 L 96.6 139.6 L 95.1 139.1 L 93.4 138.5 L 91.6 138.1 L 89.8 137.6 L 87.8 137.2 L 85.7 136.8 L 83.6 136.4 L 81.4 136.1 L 79.1 135.9 L 76.8 135.7 L 74.4 135.5 L 72 135.4 L 69.6 135.3 L 67.1 135.3 L 64.7 135.3 L 62.3 135.4 L 59.9 135.5 L 57.5 135.7 L 55.2 135.9 L 52.9 136.1 L 50.7 136.4 L 48.6 136.8 L 46.5 137.2 L 44.5 137.6 L 42.7 138.1 L 40.9 138.5 L 39.2 139.1 L 37.7 139.6 L 36.3 140.2 L 35 140.9 L 33.8 141.5 L 32.8 142.2 L 32 142.8 L 31.3 143.5 L 30.7 144.3 L 30.3 145 L 30.1 145.7 L 30 146.4'/><path d='M 290 146.4 L 289.8 145 L 289.4 143.5 L 288.6 142.1 L 287.5 140.7 L 286.1 139.3 L 284.3 137.9 L 282.3 136.6 L 280 135.3 L 277.5 134 L 274.6 132.9 L 271.6 131.7 L 268.2 130.7 L 264.7 129.7 L 260.9 128.7 L 257 127.9 L 252.9 127.1 L 248.6 126.4 L 244.1 125.8 L 239.6 125.3 L 234.9 124.9 L 230.2 124.6 L 225.4 124.3 L 220.6 124.2 L 215.7 124.1 L 210.9 124.2 L 206 124.3 L 201.2 124.6 L 196.5 124.9 L 191.8 125.3 L 187.3 125.8 L 182.9 126.4 L 178.6 127.1 L 174.4 127.9 L 170.5 128.7 L 166.7 129.7 L 163.2 130.7 L 159.9 131.7 L 156.8 132.9 L 153.9 134 L 151.4 135.3 L 149.1 136.6 L 147.1 137.9 L 145.4 139.3 L 144 140.7 L 142.9 142.1 L 142.1 143.5 L 141.6 145 L 141.4 146.4'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 30 146.4 L 30.1 147.2 L 30.3 147.9 L 30.7 148.6 L 31.3 149.3 L 32 150 L 32.8 150.7 L 33.8 151.4 L 35 152 L 36.3 152.6 L 37.7 153.2 L 39.2 153.8 L 40.9 154.3 L 42.7 154.8 L 44.5 155.3 L 46.5 155.7 L 48.6 156.1 L 50.7 156.4 L 52.9 156.7 L 55.2 157 L 57.5 157.2 L 59.9 157.4 L 62.3 157.5 L 64.7 157.5 L 67.1 157.6 L 69.6 157.5 L 72 157.5 L 74.4 157.4 L 76.8 157.2 L 79.1 157 L 81.4 156.7 L 83.6 156.4 L 85.7 156.1 L 87.8 155.7 L 89.8 155.3 L 91.6 154.8 L 93.4 154.3 L 95.1 153.8 L 96.6 153.2 L 98 152.6 L 99.3 152 L 100.5 151.4 L 101.5 150.7 L 102.3 150 L 103 149.3 L 103.6 148.6 L 104 147.9 L 104.2 147.2 L 104.3 146.4'/><path d='M 104.3 53.6 L 104.2 52.8 L 104 52.1 L 103.6 51.4 L 103 50.7 L 102.3 50 L 101.5 49.3 L 100.5 48.6 L 99.3 48 L 98 47.4 L 96.6 46.8 L 95.1 46.2 L 93.4 45.7 L 91.6 45.2 L 89.8 44.7 L 87.8 44.3 L 85.7 43.9 L 83.6 43.6 L 81.4 43.3 L 79.1 43 L 76.8 42.8 L 74.4 42.6 L 72 42.5 L 69.6 42.5 L 67.1 42.4 L 64.7 42.5 L 62.3 42.5 L 59.9 42.6 L 57.5 42.8 L 55.2 43 L 52.9 43.3 L 50.7 43.6 L 48.6 43.9 L 46.5 44.3 L 44.5 44.7 L 42.7 45.2 L 40.9 45.7 L 39.2 46.2 L 37.7 46.8 L 36.3 47.4 L 35 48 L 33.8 48.6 L 32.8 49.3 L 32 50 L 31.3 50.7 L 30.7 51.4 L 30.3 52.1 L 30.1 52.8 L 30 53.6 L 30.1 54.3 L 30.3 55 L 30.7 55.7 L 31.3 56.5 L 32 57.2 L 32.8 57.8 L 33.8 58.5 L 35 59.1 L 36.3 59.8 L 37.7 60.4 L 39.2 60.9 L 40.9 61.5 L 42.7 61.9 L 44.5 62.4 L 46.5 62.8 L 48.6 63.2 L 50.7 63.6 L 52.9 63.9 L 55.2 64.1 L 57.5 64.3 L 59.9 64.5 L 62.3 64.6 L 64.7 64.7 L 67.1 64.7 L 69.6 64.7 L 72 64.6 L 74.4 64.5 L 76.8 64.3 L 79.1 64.1 L 81.4 63.9 L 83.6 63.6 L 85.7 63.2 L 87.8 62.8 L 89.8 62.4 L 91.6 61.9 L 93.4 61.5 L 95.1 60.9 L 96.6 60.4 L 98 59.8 L 99.3 59.1 L 100.5 58.5 L 101.5 57.8 L 102.3 57.2 L 103 56.5 L 103.6 55.7 L 104 55 L 104.2 54.3 L 104.3 53.6 Z'/><path d='M 30 146.4 L 30 53.6'/><path d='M 104.3 146.4 L 104.3 53.6'/><path d='M 141.4 146.4 L 141.6 147.9 L 142.1 149.3 L 142.9 150.8 L 144 152.2 L 145.4 153.6 L 147.1 155 L 149.1 156.3 L 151.4 157.6 L 153.9 158.8 L 156.8 160 L 159.9 161.1 L 163.2 162.2 L 166.7 163.2 L 170.5 164.1 L 174.4 165 L 178.6 165.7 L 182.9 166.4 L 187.3 167 L 191.8 167.5 L 196.5 168 L 201.2 168.3 L 206 168.5 L 210.9 168.7 L 215.7 168.7 L 220.6 168.7 L 225.4 168.5 L 230.2 168.3 L 234.9 168 L 239.6 167.5 L 244.1 167 L 248.6 166.4 L 252.9 165.7 L 257 165 L 260.9 164.1 L 264.7 163.2 L 268.2 162.2 L 271.6 161.1 L 274.6 160 L 277.5 158.8 L 280 157.6 L 282.3 156.3 L 284.3 155 L 286.1 153.6 L 287.5 152.2 L 288.6 150.8 L 289.4 149.3 L 289.8 147.9 L 290 146.4'/><path d='M 290 53.6 L 289.8 52.1 L 289.4 50.7 L 288.6 49.2 L 287.5 47.8 L 286.1 46.4 L 284.3 45 L 282.3 43.7 L 280 42.4 L 277.5 41.2 L 274.6 40 L 271.6 38.9 L 268.2 37.8 L 264.7 36.8 L 260.9 35.9 L 257 35 L 252.9 34.3 L 248.6 33.6 L 244.1 33 L 239.6 32.5 L 234.9 32 L 230.2 31.7 L 225.4 31.5 L 220.6 31.3 L 215.7 31.3 L 210.9 31.3 L 206 31.5 L 201.2 31.7 L 196.5 32 L 191.8 32.5 L 187.3 33 L 182.9 33.6 L 178.6 34.3 L 174.4 35 L 170.5 35.9 L 166.7 36.8 L 163.2 37.8 L 159.9 38.9 L 156.8 40 L 153.9 41.2 L 151.4 42.4 L 149.1 43.7 L 147.1 45 L 145.4 46.4 L 144 47.8 L 142.9 49.2 L 142.1 50.7 L 141.6 52.1 L 141.4 53.6 L 141.6 55 L 142.1 56.5 L 142.9 57.9 L 144 59.3 L 145.4 60.7 L 147.1 62.1 L 149.1 63.4 L 151.4 64.7 L 153.9 66 L 156.8 67.1 L 159.9 68.3 L 163.2 69.3 L 166.7 70.3 L 170.5 71.3 L 174.4 72.1 L 178.6 72.9 L 182.9 73.6 L 187.3 74.2 L 191.8 74.7 L 196.5 75.1 L 201.2 75.4 L 206 75.7 L 210.9 75.8 L 215.7 75.9 L 220.6 75.8 L 225.4 75.7 L 230.2 75.4 L 234.9 75.1 L 239.6 74.7 L 244.1 74.2 L 248.6 73.6 L 252.9 72.9 L 257 72.1 L 260.9 71.3 L 264.7 70.3 L 268.2 69.3 L 271.6 68.3 L 274.6 67.1 L 277.5 66 L 280 64.7 L 282.3 63.4 L 284.3 62.1 L 286.1 60.7 L 287.5 59.3 L 288.6 57.9 L 289.4 56.5 L 289.8 55 L 290 53.6 Z'/><path d='M 141.4 146.4 L 141.4 53.6'/><path d='M 290 146.4 L 290 53.6'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><path d='M 104.3 72.1 L 104.2 71.4 L 104 70.7 L 103.6 70 L 103 69.3 L 102.3 68.6 L 101.5 67.9 L 100.5 67.2 L 99.3 66.6 L 98 66 L 96.6 65.4 L 95.1 64.8 L 93.4 64.3 L 91.6 63.8 L 89.8 63.3 L 87.8 62.9 L 85.7 62.5 L 83.6 62.1 L 81.4 61.8 L 79.1 61.6 L 76.8 61.4 L 74.4 61.2 L 72 61.1 L 69.6 61 L 67.1 61 L 64.7 61 L 62.3 61.1 L 59.9 61.2 L 57.5 61.4 L 55.2 61.6 L 52.9 61.8 L 50.7 62.1 L 48.6 62.5 L 46.5 62.9 L 44.5 63.3 L 42.7 63.8 L 40.9 64.3 L 39.2 64.8 L 37.7 65.4 L 36.3 66 L 35 66.6 L 33.8 67.2 L 32.8 67.9 L 32 68.6 L 31.3 69.3 L 30.7 70 L 30.3 70.7 L 30.1 71.4 L 30 72.1 L 30.1 72.9 L 30.3 73.6 L 30.7 74.3 L 31.3 75 L 32 75.7 L 32.8 76.4 L 33.8 77.1 L 35 77.7 L 36.3 78.3 L 37.7 78.9 L 39.2 79.5 L 40.9 80 L 42.7 80.5 L 44.5 81 L 46.5 81.4 L 48.6 81.8 L 50.7 82.1 L 52.9 82.4 L 55.2 82.7 L 57.5 82.9 L 59.9 83.1 L 62.3 83.2 L 64.7 83.3 L 67.1 83.3 L 69.6 83.3 L 72 83.2 L 74.4 83.1 L 76.8 82.9 L 79.1 82.7 L 81.4 82.4 L 83.6 82.1 L 85.7 81.8 L 87.8 81.4 L 89.8 81 L 91.6 80.5 L 93.4 80 L 95.1 79.5 L 96.6 78.9 L 98 78.3 L 99.3 77.7 L 100.5 77.1 L 101.5 76.4 L 102.3 75.7 L 103 75 L 103.6 74.3 L 104 73.6 L 104.2 72.9 L 104.3 72.1 Z'/><path d='M 290 127.9 L 289.8 126.4 L 289.4 124.9 L 288.6 123.5 L 287.5 122.1 L 286.1 120.7 L 284.3 119.3 L 282.3 118 L 280 116.7 L 277.5 115.5 L 274.6 114.3 L 271.6 113.2 L 268.2 112.1 L 264.7 111.1 L 260.9 110.2 L 257 109.3 L 252.9 108.6 L 248.6 107.9 L 244.1 107.3 L 239.6 106.8 L 234.9 106.3 L 230.2 106 L 225.4 105.8 L 220.6 105.6 L 215.7 105.6 L 210.9 105.6 L 206 105.8 L 201.2 106 L 196.5 106.3 L 191.8 106.8 L 187.3 107.3 L 182.9 107.9 L 178.6 108.6 L 174.4 109.3 L 170.5 110.2 L 166.7 111.1 L 163.2 112.1 L 159.9 113.2 L 156.8 114.3 L 153.9 115.5 L 151.4 116.7 L 149.1 118 L 147.1 119.3 L 145.4 120.7 L 144 122.1 L 142.9 123.5 L 142.1 124.9 L 141.6 126.4 L 141.4 127.9 L 141.6 129.3 L 142.1 130.8 L 142.9 132.2 L 144 133.6 L 145.4 135 L 147.1 136.4 L 149.1 137.7 L 151.4 139 L 153.9 140.2 L 156.8 141.4 L 159.9 142.6 L 163.2 143.6 L 166.7 144.6 L 170.5 145.5 L 174.4 146.4 L 178.6 147.2 L 182.9 147.8 L 187.3 148.4 L 191.8 149 L 196.5 149.4 L 201.2 149.7 L 206 150 L 210.9 150.1 L 215.7 150.1 L 220.6 150.1 L 225.4 150 L 230.2 149.7 L 234.9 149.4 L 239.6 149 L 244.1 148.4 L 248.6 147.8 L 252.9 147.2 L 257 146.4 L 260.9 145.5 L 264.7 144.6 L 268.2 143.6 L 271.6 142.6 L 274.6 141.4 L 277.5 140.2 L 280 139 L 282.3 137.7 L 284.3 136.4 L 286.1 135 L 287.5 133.6 L 288.6 132.2 L 289.4 130.8 L 289.8 129.3 L 290 127.9 Z'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='67.1' y='182.9' text-anchor='middle'>I</text><text x='215.7' y='182.9' text-anchor='middle'>II</text><text x='22' y='113.8' text-anchor='end'>10</text><text x='67.1' y='38.1' text-anchor='middle'>r = 5</text><text x='215.7' y='25.1' text-anchor='middle'>r = 10</text><text x='299' y='141.6'>?</text></g></svg>",
+      "choices": [
+        "1,25",
+        "2,5",
+        "5",
+        "10",
+        "20"
+      ],
+      "answer": 1,
+      "solution": "1. Su hacmi: π · 25 · 10 = 250π\n\n2. İkinci kapta: π · 100 · h = 250π → h = **2,5**\n\nNot: C şıkkındaki 5, yarıçap iki katına çıkınca yüksekliğin yarıya ineceğini sanmaktır. Taban alanı yarıçapın **karesiyle** büyür: yarıçap 2 katına çıkınca taban 4 katına çıkar, yükseklik dörtte birine iner."
+    },
+    {
+      "id": "kati-18",
+      "difficulty": 1,
+      "stem": "Şekildeki dik koninin taban yarıçapı 3 cm, yüksekliği 4 cm'dir.\nBuna göre, koninin hacmi kaç cm³'tür?",
+      "asks": "Hacim isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 250.6 146.8 L 250.4 145 L 249.8 143.3 L 248.9 141.5 L 247.5 139.8 L 245.8 138.1 L 243.7 136.4 L 241.3 134.8 L 238.5 133.2 L 235.3 131.7 L 231.9 130.3 L 228.1 128.9 L 224.1 127.6 L 219.7 126.4 L 215.2 125.3 L 210.3 124.2 L 205.3 123.3 L 200.1 122.4 L 194.7 121.7 L 189.1 121.1 L 183.5 120.6 L 177.7 120.2 L 171.8 119.9 L 165.9 119.7 L 160 119.6 L 154.1 119.7 L 148.2 119.9 L 142.3 120.2 L 136.5 120.6 L 130.9 121.1 L 125.3 121.7 L 119.9 122.4 L 114.7 123.3 L 109.7 124.2 L 104.8 125.3 L 100.3 126.4 L 95.9 127.6 L 91.9 128.9 L 88.1 130.3 L 84.7 131.7 L 81.5 133.2 L 78.7 134.8 L 76.3 136.4 L 74.2 138.1 L 72.5 139.8 L 71.1 141.5 L 70.2 143.3 L 69.6 145 L 69.4 146.8'/><path d='M 160 26 L 160 146.8'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 69.4 146.8 L 69.6 148.6 L 70.2 150.4 L 71.1 152.1 L 72.5 153.9 L 74.2 155.6 L 76.3 157.2 L 78.7 158.8 L 81.5 160.4 L 84.7 161.9 L 88.1 163.4 L 91.9 164.7 L 95.9 166 L 100.3 167.3 L 104.8 168.4 L 109.7 169.4 L 114.7 170.4 L 119.9 171.2 L 125.3 171.9 L 130.9 172.6 L 136.5 173.1 L 142.3 173.5 L 148.2 173.8 L 154.1 173.9 L 160 174 L 165.9 173.9 L 171.8 173.8 L 177.7 173.5 L 183.5 173.1 L 189.1 172.6 L 194.7 171.9 L 200.1 171.2 L 205.3 170.4 L 210.3 169.4 L 215.2 168.4 L 219.7 167.3 L 224.1 166 L 228.1 164.7 L 231.9 163.4 L 235.3 161.9 L 238.5 160.4 L 241.3 158.8 L 243.7 157.2 L 245.8 155.6 L 247.5 153.9 L 248.9 152.1 L 249.8 150.4 L 250.4 148.6 L 250.6 146.8'/><path d='M 160 26 L 69.4 146.8'/><path d='M 160 26 L 250.6 146.8'/><circle cx='160' cy='146.8' r='2.3' fill='currentColor' stroke='none'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><path d='M 160 146.8 L 250.6 146.8'/><polyline points='160,138.8 168,138.8 168,146.8'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='205.3' y='163.3' text-anchor='middle'>3</text><text x='153' y='90.9' text-anchor='end'>4</text></g></svg>",
+      "choices": [
+        "12π",
+        "15π",
+        "24π",
+        "36π",
+        "48π"
+      ],
+      "answer": 0,
+      "solution": "1. Koni, aynı taban ve yükseklikteki silindirin üçte biridir: V = πr²h / 3\n\n2. π · 9 · 4 / 3 = **12π**\n\nNot: D şıkkındaki 36π, üçe bölmeyi unutmaktır (silindirin hacmi). B şıkkındaki 15π yanal alandır (π · 3 · 5)."
+    },
+    {
+      "id": "kati-19",
+      "difficulty": 2,
+      "stem": "Şekildeki dik koninin taban yarıçapı 6 cm, ana doğrusu 10 cm'dir.\nBuna göre, koninin hacmi kaç cm³'tür?",
+      "asks": "Hacim isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 250.6 146.8 L 250.4 145 L 249.8 143.3 L 248.9 141.5 L 247.5 139.8 L 245.8 138.1 L 243.7 136.4 L 241.3 134.8 L 238.5 133.2 L 235.3 131.7 L 231.9 130.3 L 228.1 128.9 L 224.1 127.6 L 219.7 126.4 L 215.2 125.3 L 210.3 124.2 L 205.3 123.3 L 200.1 122.4 L 194.7 121.7 L 189.1 121.1 L 183.5 120.6 L 177.7 120.2 L 171.8 119.9 L 165.9 119.7 L 160 119.6 L 154.1 119.7 L 148.2 119.9 L 142.3 120.2 L 136.5 120.6 L 130.9 121.1 L 125.3 121.7 L 119.9 122.4 L 114.7 123.3 L 109.7 124.2 L 104.8 125.3 L 100.3 126.4 L 95.9 127.6 L 91.9 128.9 L 88.1 130.3 L 84.7 131.7 L 81.5 133.2 L 78.7 134.8 L 76.3 136.4 L 74.2 138.1 L 72.5 139.8 L 71.1 141.5 L 70.2 143.3 L 69.6 145 L 69.4 146.8'/><path d='M 160 26 L 160 146.8'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 69.4 146.8 L 69.6 148.6 L 70.2 150.4 L 71.1 152.1 L 72.5 153.9 L 74.2 155.6 L 76.3 157.2 L 78.7 158.8 L 81.5 160.4 L 84.7 161.9 L 88.1 163.4 L 91.9 164.7 L 95.9 166 L 100.3 167.3 L 104.8 168.4 L 109.7 169.4 L 114.7 170.4 L 119.9 171.2 L 125.3 171.9 L 130.9 172.6 L 136.5 173.1 L 142.3 173.5 L 148.2 173.8 L 154.1 173.9 L 160 174 L 165.9 173.9 L 171.8 173.8 L 177.7 173.5 L 183.5 173.1 L 189.1 172.6 L 194.7 171.9 L 200.1 171.2 L 205.3 170.4 L 210.3 169.4 L 215.2 168.4 L 219.7 167.3 L 224.1 166 L 228.1 164.7 L 231.9 163.4 L 235.3 161.9 L 238.5 160.4 L 241.3 158.8 L 243.7 157.2 L 245.8 155.6 L 247.5 153.9 L 248.9 152.1 L 249.8 150.4 L 250.4 148.6 L 250.6 146.8'/><path d='M 160 26 L 69.4 146.8'/><path d='M 160 26 L 250.6 146.8'/><circle cx='160' cy='146.8' r='2.3' fill='currentColor' stroke='none'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><path d='M 160 146.8 L 250.6 146.8'/><polyline points='160,138.8 168,138.8 168,146.8'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='205.3' y='163.3' text-anchor='middle'>6</text><text x='214.3' y='90.9'>10</text></g></svg>",
+      "choices": [
+        "96π",
+        "120π",
+        "192π",
+        "288π",
+        "360π"
+      ],
+      "answer": 0,
+      "solution": "1. Yükseklik, yarıçap ve ana doğru dik üçgen kurar: h² = 10² − 6² = 64 → h = 8\n\n2. V = π · 36 · 8 / 3 = **96π**\n\nNot: B şıkkındaki 120π, hacimde yükseklik yerine ana doğruyu kullanmaktır (π · 36 · 10 / 3). D şıkkındaki 288π üçe bölmeyi unutmaktır; E şıkkındaki 360π ise ikisini birden yapmaktır. Hacimde h, yanal alanda l kullanılır."
+    },
+    {
+      "id": "kati-20",
+      "difficulty": 3,
+      "stem": "Şekildeki dik koninin taban yarıçapı 5 cm, yüksekliği 12 cm'dir.\nBuna göre, koninin tüm yüzey alanı kaç cm²'dir?",
+      "asks": "Tüm yüzey alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 214.8 157.6 L 214.7 156.5 L 214.3 155.4 L 213.8 154.3 L 212.9 153.3 L 211.9 152.3 L 210.6 151.3 L 209.2 150.3 L 207.5 149.3 L 205.6 148.4 L 203.5 147.5 L 201.2 146.7 L 198.8 145.9 L 196.1 145.2 L 193.4 144.5 L 190.5 143.9 L 187.4 143.3 L 184.2 142.8 L 181 142.4 L 177.6 142 L 174.2 141.7 L 170.7 141.4 L 167.2 141.3 L 163.6 141.1 L 160 141.1 L 156.4 141.1 L 152.8 141.3 L 149.3 141.4 L 145.8 141.7 L 142.4 142 L 139 142.4 L 135.8 142.8 L 132.6 143.3 L 129.5 143.9 L 126.6 144.5 L 123.9 145.2 L 121.2 145.9 L 118.8 146.7 L 116.5 147.5 L 114.4 148.4 L 112.5 149.3 L 110.8 150.3 L 109.4 151.3 L 108.1 152.3 L 107.1 153.3 L 106.2 154.3 L 105.7 155.4 L 105.3 156.5 L 105.2 157.6'/><path d='M 160 26 L 160 157.6'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 105.2 157.6 L 105.3 158.6 L 105.7 159.7 L 106.2 160.8 L 107.1 161.8 L 108.1 162.8 L 109.4 163.8 L 110.8 164.8 L 112.5 165.8 L 114.4 166.7 L 116.5 167.6 L 118.8 168.4 L 121.2 169.2 L 123.9 169.9 L 126.6 170.6 L 129.5 171.2 L 132.6 171.8 L 135.8 172.3 L 139 172.7 L 142.4 173.1 L 145.8 173.4 L 149.3 173.7 L 152.8 173.9 L 156.4 174 L 160 174 L 163.6 174 L 167.2 173.9 L 170.7 173.7 L 174.2 173.4 L 177.6 173.1 L 181 172.7 L 184.2 172.3 L 187.4 171.8 L 190.5 171.2 L 193.4 170.6 L 196.1 169.9 L 198.8 169.2 L 201.2 168.4 L 203.5 167.6 L 205.6 166.7 L 207.5 165.8 L 209.2 164.8 L 210.6 163.8 L 211.9 162.8 L 212.9 161.8 L 213.8 160.8 L 214.3 159.7 L 214.7 158.6 L 214.8 157.6'/><path d='M 160 26 L 105.2 157.6'/><path d='M 160 26 L 214.8 157.6'/><circle cx='160' cy='157.6' r='2.3' fill='currentColor' stroke='none'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><path d='M 160 157.6 L 214.8 157.6'/><polyline points='160,149.6 168,149.6 168,157.6'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='187.4' y='174.1' text-anchor='middle'>5</text><text x='153' y='96.3' text-anchor='end'>12</text></g></svg>",
+      "choices": [
+        "25π",
+        "60π",
+        "65π",
+        "85π",
+        "90π"
+      ],
+      "answer": 4,
+      "solution": "1. Ana doğru: l² = 5² + 12² = 169 → l = 13\n\n2. Yanal alan = πrl = π · 5 · 13 = 65π\n\n3. Taban: π · 25 = 25π\n\n4. Tüm yüzey alanı = 65π + 25π = **90π**\n\nNot: C şıkkındaki 65π yalnız yanal alandır, A şıkkındaki 25π ise yalnız tabandır. D şıkkındaki 85π, yanal alanı ana doğru yerine yükseklikle hesaplamaktır (π · 5 · 12 = 60π) ve tabanı eklemektir."
+    },
+    {
+      "id": "kati-21",
+      "difficulty": 1,
+      "stem": "Şekildeki kare dik piramidin taban ayrıtı 8 cm, yüksekliği 6 cm'dir.\nBuna göre, piramidin hacmi kaç cm³'tür?",
+      "asks": "Hacim isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 116.1 122 L 41.3 174'/><path d='M 116.1 122 L 278.7 122'/><path d='M 116.1 122 L 160 26'/><path d='M 160 26 L 160 148'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 41.3 174 L 203.9 174'/><path d='M 203.9 174 L 278.7 122'/><path d='M 41.3 174 L 160 26'/><path d='M 203.9 174 L 160 26'/><path d='M 278.7 122 L 160 26'/><circle cx='160' cy='148' r='2.3' fill='currentColor' stroke='none'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='122.6' y='191.5' text-anchor='middle'>8</text><text x='153' y='91.5' text-anchor='end'>6</text></g></svg>",
+      "choices": [
+        "64",
+        "128",
+        "192",
+        "256",
+        "384"
+      ],
+      "answer": 1,
+      "solution": "1. Piramit, aynı taban ve yükseklikteki prizmanın üçte biridir: V = taban alanı · h / 3\n\n2. 64 · 6 / 3 = **128**\n\nNot: E şıkkındaki 384, üçe bölmeyi unutmaktır. A şıkkındaki 64 ise taban alanıdır."
+    },
+    {
+      "id": "kati-22",
+      "difficulty": 3,
+      "stem": "Şekildeki kare dik piramidin taban ayrıtı 6 cm'dir. Yan yüzlerin yüksekliği (tepeden taban ayrıtının ortasına inen uzunluk) 5 cm'dir.\nBuna göre, piramidin hacmi kaç cm³'tür?",
+      "asks": "Hacim isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 111.9 116.6 L 30 173.6'/><path d='M 111.9 116.6 L 290 116.6'/><path d='M 111.9 116.6 L 160 26.4'/><path d='M 160 26.4 L 160 145.1'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 30 173.6 L 208.1 173.6'/><path d='M 208.1 173.6 L 290 116.6'/><path d='M 30 173.6 L 160 26.4'/><path d='M 208.1 173.6 L 160 26.4'/><path d='M 290 116.6 L 160 26.4'/><circle cx='160' cy='145.1' r='2.3' fill='currentColor' stroke='none'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><polyline points='121.2,165.9 129.2,165.9 127,173.6'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'><path d='M 160 26.4 L 119 173.6'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='119' y='191.1' text-anchor='middle'>6</text><text x='147.5' y='108.5'>5</text></g></svg>",
+      "choices": [
+        "48",
+        "60",
+        "72",
+        "96",
+        "144"
+      ],
+      "answer": 0,
+      "solution": "1. Piramidin yüksekliği, yan yüz yüksekliği ve taban ayrıtının yarısı dik üçgen kurar:\nh² = 5² − 3² = 16 → h = 4\n\n2. V = 36 · 4 / 3 = **48**\n\nNot: E şıkkındaki 144 üçe bölmeyi unutmaktır. B şıkkındaki 60, yükseklik yerine yan yüz yüksekliğini (5) kullanmaktır: 36 · 5 / 3. Dik üçgenin yatay kenarı ayrıtın **yarısıdır** (3), tamamı değil."
+    },
+    {
+      "id": "kati-23",
+      "difficulty": 2,
+      "stem": "Şekildeki dik silindir ile dik koninin tabanları ve yükseklikleri eşittir. Silindirin hacmi 90π cm³'tür.\nBuna göre, koninin hacmi kaç cm³'tür?",
+      "asks": "Koninin hacmi isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 137.6 144.8 L 137.5 143.8 L 137.1 142.7 L 136.6 141.7 L 135.8 140.7 L 134.7 139.6 L 133.5 138.7 L 132 137.7 L 130.4 136.8 L 128.5 135.9 L 126.5 135 L 124.2 134.2 L 121.8 133.4 L 119.3 132.7 L 116.5 132 L 113.7 131.4 L 110.7 130.9 L 107.6 130.4 L 104.4 129.9 L 101.1 129.5 L 97.7 129.2 L 94.3 129 L 90.8 128.8 L 87.3 128.7 L 83.8 128.7 L 80.3 128.7 L 76.8 128.8 L 73.3 129 L 69.9 129.2 L 66.5 129.5 L 63.2 129.9 L 60 130.4 L 56.9 130.9 L 53.9 131.4 L 51 132 L 48.3 132.7 L 45.8 133.4 L 43.3 134.2 L 41.1 135 L 39.1 135.9 L 37.2 136.8 L 35.5 137.7 L 34.1 138.7 L 32.9 139.6 L 31.8 140.7 L 31 141.7 L 30.5 142.7 L 30.1 143.8 L 30 144.8'/><path d='M 290 144.8 L 289.9 143.8 L 289.5 142.7 L 289 141.7 L 288.2 140.7 L 287.1 139.6 L 285.9 138.7 L 284.5 137.7 L 282.8 136.8 L 280.9 135.9 L 278.9 135 L 276.7 134.2 L 274.2 133.4 L 271.7 132.7 L 269 132 L 266.1 131.4 L 263.1 130.9 L 260 130.4 L 256.8 129.9 L 253.5 129.5 L 250.1 129.2 L 246.7 129 L 243.2 128.8 L 239.7 128.7 L 236.2 128.7 L 232.7 128.7 L 229.2 128.8 L 225.7 129 L 222.3 129.2 L 218.9 129.5 L 215.6 129.9 L 212.4 130.4 L 209.3 130.9 L 206.3 131.4 L 203.5 132 L 200.7 132.7 L 198.2 133.4 L 195.8 134.2 L 193.5 135 L 191.5 135.9 L 189.6 136.8 L 188 137.7 L 186.5 138.7 L 185.3 139.6 L 184.2 140.7 L 183.4 141.7 L 182.9 142.7 L 182.5 143.8 L 182.4 144.8'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 30 144.8 L 30.1 145.9 L 30.5 146.9 L 31 148 L 31.8 149 L 32.9 150 L 34.1 151 L 35.5 152 L 37.2 152.9 L 39.1 153.8 L 41.1 154.7 L 43.3 155.5 L 45.8 156.2 L 48.3 157 L 51 157.6 L 53.9 158.2 L 56.9 158.8 L 60 159.3 L 63.2 159.7 L 66.5 160.1 L 69.9 160.4 L 73.3 160.7 L 76.8 160.8 L 80.3 160.9 L 83.8 161 L 87.3 160.9 L 90.8 160.8 L 94.3 160.7 L 97.7 160.4 L 101.1 160.1 L 104.4 159.7 L 107.6 159.3 L 110.7 158.8 L 113.7 158.2 L 116.5 157.6 L 119.3 157 L 121.8 156.2 L 124.2 155.5 L 126.5 154.7 L 128.5 153.8 L 130.4 152.9 L 132 152 L 133.5 151 L 134.7 150 L 135.8 149 L 136.6 148 L 137.1 146.9 L 137.5 145.9 L 137.6 144.8'/><path d='M 137.6 55.2 L 137.5 54.1 L 137.1 53.1 L 136.6 52 L 135.8 51 L 134.7 50 L 133.5 49 L 132 48 L 130.4 47.1 L 128.5 46.2 L 126.5 45.3 L 124.2 44.5 L 121.8 43.8 L 119.3 43 L 116.5 42.4 L 113.7 41.8 L 110.7 41.2 L 107.6 40.7 L 104.4 40.3 L 101.1 39.9 L 97.7 39.6 L 94.3 39.3 L 90.8 39.2 L 87.3 39.1 L 83.8 39 L 80.3 39.1 L 76.8 39.2 L 73.3 39.3 L 69.9 39.6 L 66.5 39.9 L 63.2 40.3 L 60 40.7 L 56.9 41.2 L 53.9 41.8 L 51 42.4 L 48.3 43 L 45.8 43.8 L 43.3 44.5 L 41.1 45.3 L 39.1 46.2 L 37.2 47.1 L 35.5 48 L 34.1 49 L 32.9 50 L 31.8 51 L 31 52 L 30.5 53.1 L 30.1 54.1 L 30 55.2 L 30.1 56.2 L 30.5 57.3 L 31 58.3 L 31.8 59.3 L 32.9 60.4 L 34.1 61.3 L 35.5 62.3 L 37.2 63.2 L 39.1 64.1 L 41.1 65 L 43.3 65.8 L 45.8 66.6 L 48.3 67.3 L 51 68 L 53.9 68.6 L 56.9 69.1 L 60 69.6 L 63.2 70.1 L 66.5 70.5 L 69.9 70.8 L 73.3 71 L 76.8 71.2 L 80.3 71.3 L 83.8 71.3 L 87.3 71.3 L 90.8 71.2 L 94.3 71 L 97.7 70.8 L 101.1 70.5 L 104.4 70.1 L 107.6 69.6 L 110.7 69.1 L 113.7 68.6 L 116.5 68 L 119.3 67.3 L 121.8 66.6 L 124.2 65.8 L 126.5 65 L 128.5 64.1 L 130.4 63.2 L 132 62.3 L 133.5 61.3 L 134.7 60.4 L 135.8 59.3 L 136.6 58.3 L 137.1 57.3 L 137.5 56.2 L 137.6 55.2 Z'/><path d='M 30 144.8 L 30 55.2'/><path d='M 137.6 144.8 L 137.6 55.2'/><path d='M 182.4 144.8 L 182.5 145.9 L 182.9 146.9 L 183.4 148 L 184.2 149 L 185.3 150 L 186.5 151 L 188 152 L 189.6 152.9 L 191.5 153.8 L 193.5 154.7 L 195.8 155.5 L 198.2 156.2 L 200.7 157 L 203.5 157.6 L 206.3 158.2 L 209.3 158.8 L 212.4 159.3 L 215.6 159.7 L 218.9 160.1 L 222.3 160.4 L 225.7 160.7 L 229.2 160.8 L 232.7 160.9 L 236.2 161 L 239.7 160.9 L 243.2 160.8 L 246.7 160.7 L 250.1 160.4 L 253.5 160.1 L 256.8 159.7 L 260 159.3 L 263.1 158.8 L 266.1 158.2 L 269 157.6 L 271.7 157 L 274.2 156.2 L 276.7 155.5 L 278.9 154.7 L 280.9 153.8 L 282.8 152.9 L 284.5 152 L 285.9 151 L 287.1 150 L 288.2 149 L 289 148 L 289.5 146.9 L 289.9 145.9 L 290 144.8'/><path d='M 236.2 55.2 L 182.4 144.8'/><path d='M 236.2 55.2 L 290 144.8'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='83.8' y='179.3' text-anchor='middle'>silindir</text><text x='236.2' y='179.3' text-anchor='middle'>koni</text></g></svg>",
+      "choices": [
+        "30π",
+        "45π",
+        "60π",
+        "90π",
+        "270π"
+      ],
+      "answer": 0,
+      "solution": "1. Aynı taban ve yükseklikteki koni, silindirin üçte biridir.\n\n2. 90π / 3 = **30π**\n\nNot: B şıkkındaki 45π yarısını almaktır. E şıkkındaki 270π ise ilişkiyi ters kurmaktır (silindir koninin üç katıdır, koni silindirin üç katı değil)."
+    },
+    {
+      "id": "kati-24",
+      "difficulty": 1,
+      "stem": "Şekildeki kürenin yarıçapı 6 cm'dir.\nBuna göre, kürenin hacmi kaç cm³'tür?",
+      "asks": "Hacim isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><circle cx='160' cy='100' r='74' fill='#0284c7' fill-opacity='0.14' stroke='none'/><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 234 100 L 233.8 98.5 L 233.4 97.1 L 232.6 95.7 L 231.5 94.3 L 230.1 92.9 L 228.4 91.5 L 226.4 90.2 L 224.1 88.9 L 221.5 87.7 L 218.7 86.5 L 215.6 85.4 L 212.3 84.3 L 208.8 83.3 L 205 82.4 L 201.1 81.5 L 197 80.8 L 192.7 80.1 L 188.3 79.5 L 183.8 79 L 179.2 78.6 L 174.4 78.2 L 169.7 78 L 164.8 77.8 L 160 77.8 L 155.2 77.8 L 150.3 78 L 145.6 78.2 L 140.8 78.6 L 136.2 79 L 131.7 79.5 L 127.3 80.1 L 123 80.8 L 118.9 81.5 L 115 82.4 L 111.2 83.3 L 107.7 84.3 L 104.4 85.4 L 101.3 86.5 L 98.5 87.7 L 95.9 88.9 L 93.6 90.2 L 91.6 91.5 L 89.9 92.9 L 88.5 94.3 L 87.4 95.7 L 86.6 97.1 L 86.2 98.5 L 86 100'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='74'/><path d='M 86 100 L 86.2 101.5 L 86.6 102.9 L 87.4 104.3 L 88.5 105.7 L 89.9 107.1 L 91.6 108.5 L 93.6 109.8 L 95.9 111.1 L 98.5 112.3 L 101.3 113.5 L 104.4 114.6 L 107.7 115.7 L 111.2 116.7 L 115 117.6 L 118.9 118.5 L 123 119.2 L 127.3 119.9 L 131.7 120.5 L 136.2 121 L 140.8 121.4 L 145.6 121.8 L 150.3 122 L 155.2 122.2 L 160 122.2 L 164.8 122.2 L 169.7 122 L 174.4 121.8 L 179.2 121.4 L 183.8 121 L 188.3 120.5 L 192.7 119.9 L 197 119.2 L 201.1 118.5 L 205 117.6 L 208.8 116.7 L 212.3 115.7 L 215.6 114.6 L 218.7 113.5 L 221.5 112.3 L 224.1 111.1 L 226.4 109.8 L 228.4 108.5 L 230.1 107.1 L 231.5 105.7 L 232.6 104.3 L 233.4 102.9 L 233.8 101.5 L 234 100'/><circle cx='160' cy='100' r='2.3' fill='currentColor' stroke='none'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><path d='M 160 100 L 234 100'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='197' y='95.5' text-anchor='middle'>6</text><text x='153' y='109.5' text-anchor='end'>O</text></g></svg>",
+      "choices": [
+        "864π",
+        "288π",
+        "216π",
+        "144π",
+        "48π"
+      ],
+      "answer": 1,
+      "solution": "1. V = 4πr³ / 3\n\n2. 4π · 216 / 3 = **288π**\n\nNot: D şıkkındaki 144π yüzey alanıdır (4πr²). A şıkkındaki 864π üçe bölmeyi unutmaktır; C şıkkındaki 216π ise yalnız r³'ü π ile çarpmaktır."
+    },
+    {
+      "id": "kati-25",
+      "difficulty": 3,
+      "stem": "Şekildeki kürenin yüzey alanı 100π cm²'dir.\nBuna göre, kürenin hacmi kaç cm³'tür?",
+      "asks": "Hacim isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><circle cx='160' cy='100' r='74' fill='#0284c7' fill-opacity='0.14' stroke='none'/><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 234 100 L 233.8 98.5 L 233.4 97.1 L 232.6 95.7 L 231.5 94.3 L 230.1 92.9 L 228.4 91.5 L 226.4 90.2 L 224.1 88.9 L 221.5 87.7 L 218.7 86.5 L 215.6 85.4 L 212.3 84.3 L 208.8 83.3 L 205 82.4 L 201.1 81.5 L 197 80.8 L 192.7 80.1 L 188.3 79.5 L 183.8 79 L 179.2 78.6 L 174.4 78.2 L 169.7 78 L 164.8 77.8 L 160 77.8 L 155.2 77.8 L 150.3 78 L 145.6 78.2 L 140.8 78.6 L 136.2 79 L 131.7 79.5 L 127.3 80.1 L 123 80.8 L 118.9 81.5 L 115 82.4 L 111.2 83.3 L 107.7 84.3 L 104.4 85.4 L 101.3 86.5 L 98.5 87.7 L 95.9 88.9 L 93.6 90.2 L 91.6 91.5 L 89.9 92.9 L 88.5 94.3 L 87.4 95.7 L 86.6 97.1 L 86.2 98.5 L 86 100'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='160' cy='100' r='74'/><path d='M 86 100 L 86.2 101.5 L 86.6 102.9 L 87.4 104.3 L 88.5 105.7 L 89.9 107.1 L 91.6 108.5 L 93.6 109.8 L 95.9 111.1 L 98.5 112.3 L 101.3 113.5 L 104.4 114.6 L 107.7 115.7 L 111.2 116.7 L 115 117.6 L 118.9 118.5 L 123 119.2 L 127.3 119.9 L 131.7 120.5 L 136.2 121 L 140.8 121.4 L 145.6 121.8 L 150.3 122 L 155.2 122.2 L 160 122.2 L 164.8 122.2 L 169.7 122 L 174.4 121.8 L 179.2 121.4 L 183.8 121 L 188.3 120.5 L 192.7 119.9 L 197 119.2 L 201.1 118.5 L 205 117.6 L 208.8 116.7 L 212.3 115.7 L 215.6 114.6 L 218.7 113.5 L 221.5 112.3 L 224.1 111.1 L 226.4 109.8 L 228.4 108.5 L 230.1 107.1 L 231.5 105.7 L 232.6 104.3 L 233.4 102.9 L 233.8 101.5 L 234 100'/><circle cx='160' cy='100' r='2.3' fill='currentColor' stroke='none'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><path d='M 160 100 L 234 100'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='153' y='109.5' text-anchor='end'>O</text></g></svg>",
+      "choices": [
+        "100π/3",
+        "125π/3",
+        "250π/3",
+        "500π/3",
+        "500π"
+      ],
+      "answer": 3,
+      "solution": "1. 4πr² = 100π → r² = 25 → r = 5\n\n2. V = 4π · 125 / 3 = **500π/3**\n\nNot: E şıkkındaki 500π üçe bölmeyi unutmaktır. B şıkkındaki 125π/3, formüldeki 4'ü unutmaktır."
+    },
+    {
+      "id": "kati-26",
+      "difficulty": 3,
+      "stem": "Şekildeki yarım kürenin yarıçapı 3 cm'dir.\nBuna göre, yarım kürenin tüm yüzey alanı (eğri yüzey ve düz taban birlikte) kaç cm²'dir?",
+      "asks": "Tüm yüzey alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><path d='M 273.8 139.8 L 273.7 133.9 L 273.2 127.9 L 272.4 122 L 271.4 116.2 L 270 110.4 L 268.3 104.7 L 266.3 99 L 264 93.5 L 261.4 88.2 L 258.6 82.9 L 255.5 77.8 L 252.1 72.9 L 248.5 68.2 L 244.6 63.7 L 240.5 59.3 L 236.2 55.2 L 231.6 51.4 L 226.9 47.7 L 222 44.4 L 216.9 41.3 L 211.7 38.4 L 206.3 35.8 L 200.8 33.6 L 195.2 31.6 L 189.5 29.9 L 183.7 28.5 L 177.8 27.4 L 171.9 26.6 L 166 26.2 L 160 26 L 154 26.2 L 148.1 26.6 L 142.2 27.4 L 136.3 28.5 L 130.5 29.9 L 124.8 31.6 L 119.2 33.6 L 113.7 35.8 L 108.3 38.4 L 103.1 41.3 L 98 44.4 L 93.1 47.7 L 88.4 51.4 L 83.8 55.2 L 79.5 59.3 L 75.4 63.7 L 71.5 68.2 L 67.9 72.9 L 64.5 77.8 L 61.4 82.9 L 58.6 88.2 L 56 93.5 L 53.7 99 L 51.7 104.7 L 50 110.4 L 48.6 116.2 L 47.6 122 L 46.8 127.9 L 46.3 133.9 L 46.2 139.8 L 46.2 139.8 L 46.4 142.1 L 47.1 144.3 L 48.3 146.5 L 50 148.7 L 52.2 150.8 L 54.8 152.9 L 57.9 155 L 61.4 156.9 L 65.3 158.8 L 69.7 160.6 L 74.4 162.4 L 79.5 164 L 84.9 165.5 L 90.7 166.9 L 96.8 168.2 L 103.1 169.4 L 109.6 170.5 L 116.4 171.4 L 123.4 172.2 L 130.5 172.8 L 137.8 173.3 L 145.1 173.7 L 152.6 173.9 L 160 174 L 167.4 173.9 L 174.9 173.7 L 182.2 173.3 L 189.5 172.8 L 196.6 172.2 L 203.6 171.4 L 210.4 170.5 L 216.9 169.4 L 223.2 168.2 L 229.3 166.9 L 235.1 165.5 L 240.5 164 L 245.6 162.4 L 250.3 160.6 L 254.7 158.8 L 258.6 156.9 L 262.1 155 L 265.2 152.9 L 267.8 150.8 L 270 148.7 L 271.7 146.5 L 272.9 144.3 L 273.6 142.1 L 273.8 139.8 Z' fill='#0284c7' fill-opacity='0.22' stroke='none'/><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 273.8 139.8 L 273.6 137.6 L 272.9 135.4 L 271.7 133.2 L 270 131 L 267.8 128.9 L 265.2 126.8 L 262.1 124.7 L 258.6 122.8 L 254.7 120.9 L 250.3 119.1 L 245.6 117.3 L 240.5 115.7 L 235.1 114.2 L 229.3 112.8 L 223.2 111.4 L 216.9 110.3 L 210.4 109.2 L 203.6 108.3 L 196.6 107.5 L 189.5 106.9 L 182.2 106.3 L 174.9 106 L 167.4 105.8 L 160 105.7 L 152.6 105.8 L 145.1 106 L 137.8 106.3 L 130.5 106.9 L 123.4 107.5 L 116.4 108.3 L 109.6 109.2 L 103.1 110.3 L 96.8 111.4 L 90.7 112.8 L 84.9 114.2 L 79.5 115.7 L 74.4 117.3 L 69.7 119.1 L 65.3 120.9 L 61.4 122.8 L 57.9 124.7 L 54.8 126.8 L 52.2 128.9 L 50 131 L 48.3 133.2 L 47.1 135.4 L 46.4 137.6 L 46.2 139.8'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 273.8 139.8 L 273.7 133.9 L 273.2 127.9 L 272.4 122 L 271.4 116.2 L 270 110.4 L 268.3 104.7 L 266.3 99 L 264 93.5 L 261.4 88.2 L 258.6 82.9 L 255.5 77.8 L 252.1 72.9 L 248.5 68.2 L 244.6 63.7 L 240.5 59.3 L 236.2 55.2 L 231.6 51.4 L 226.9 47.7 L 222 44.4 L 216.9 41.3 L 211.7 38.4 L 206.3 35.8 L 200.8 33.6 L 195.2 31.6 L 189.5 29.9 L 183.7 28.5 L 177.8 27.4 L 171.9 26.6 L 166 26.2 L 160 26 L 154 26.2 L 148.1 26.6 L 142.2 27.4 L 136.3 28.5 L 130.5 29.9 L 124.8 31.6 L 119.2 33.6 L 113.7 35.8 L 108.3 38.4 L 103.1 41.3 L 98 44.4 L 93.1 47.7 L 88.4 51.4 L 83.8 55.2 L 79.5 59.3 L 75.4 63.7 L 71.5 68.2 L 67.9 72.9 L 64.5 77.8 L 61.4 82.9 L 58.6 88.2 L 56 93.5 L 53.7 99 L 51.7 104.7 L 50 110.4 L 48.6 116.2 L 47.6 122 L 46.8 127.9 L 46.3 133.9 L 46.2 139.8'/><path d='M 46.2 139.8 L 46.4 142.1 L 47.1 144.3 L 48.3 146.5 L 50 148.7 L 52.2 150.8 L 54.8 152.9 L 57.9 155 L 61.4 156.9 L 65.3 158.8 L 69.7 160.6 L 74.4 162.4 L 79.5 164 L 84.9 165.5 L 90.7 166.9 L 96.8 168.2 L 103.1 169.4 L 109.6 170.5 L 116.4 171.4 L 123.4 172.2 L 130.5 172.8 L 137.8 173.3 L 145.1 173.7 L 152.6 173.9 L 160 174 L 167.4 173.9 L 174.9 173.7 L 182.2 173.3 L 189.5 172.8 L 196.6 172.2 L 203.6 171.4 L 210.4 170.5 L 216.9 169.4 L 223.2 168.2 L 229.3 166.9 L 235.1 165.5 L 240.5 164 L 245.6 162.4 L 250.3 160.6 L 254.7 158.8 L 258.6 156.9 L 262.1 155 L 265.2 152.9 L 267.8 150.8 L 270 148.7 L 271.7 146.5 L 272.9 144.3 L 273.6 142.1 L 273.8 139.8'/><circle cx='160' cy='139.8' r='2.3' fill='currentColor' stroke='none'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><path d='M 160 139.8 L 273.8 139.8'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='216.9' y='135.3' text-anchor='middle'>3</text></g></svg>",
+      "choices": [
+        "9π",
+        "12π",
+        "18π",
+        "24π",
+        "27π"
+      ],
+      "answer": 4,
+      "solution": "1. Eğri yüzey, kürenin yüzeyinin yarısıdır: 4πr² / 2 = 2π · 9 = 18π\n\n2. Düz taban bir dairedir: π · 9 = 9π\n\n3. Tüm yüzey alanı = 18π + 9π = **27π**\n\nNot: C şıkkındaki 18π yalnız eğri yüzeydir, A şıkkındaki 9π ise yalnız düz tabandır. Yarım küre kesildiğinde yeni bir düz yüz oluşur; tüm yüzey alanında ikisi birlikte sayılır."
+    },
+    {
+      "id": "kati-27",
+      "difficulty": 2,
+      "stem": "Şekildeki küre, ayrıtı 6 cm olan küpün içine yerleştirilmiştir ve küpün altı yüzüne de teğettir.\nBuna göre, kürenin hacmi kaç cm³'tür?",
+      "asks": "Kürenin hacmi isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><circle cx='160' cy='100' r='56.1' fill='#0284c7' fill-opacity='0.14' stroke='none'/><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 129.7 138.1 L 78.2 174'/><path d='M 129.7 138.1 L 241.8 138.1'/><path d='M 129.7 138.1 L 129.7 26'/><path d='M 216.1 100 L 215.9 98.9 L 215.6 97.8 L 215 96.7 L 214.2 95.6 L 213.1 94.6 L 211.8 93.6 L 210.3 92.6 L 208.5 91.6 L 206.6 90.7 L 204.5 89.8 L 202.1 88.9 L 199.6 88.1 L 197 87.4 L 194.1 86.7 L 191.1 86 L 188 85.4 L 184.8 84.9 L 181.5 84.5 L 178 84.1 L 174.5 83.8 L 170.9 83.5 L 167.3 83.3 L 163.7 83.2 L 160 83.2 L 156.3 83.2 L 152.7 83.3 L 149.1 83.5 L 145.5 83.8 L 142 84.1 L 138.5 84.5 L 135.2 84.9 L 132 85.4 L 128.9 86 L 125.9 86.7 L 123 87.4 L 120.4 88.1 L 117.9 88.9 L 115.5 89.8 L 113.4 90.7 L 111.5 91.6 L 109.7 92.6 L 108.2 93.6 L 106.9 94.6 L 105.8 95.6 L 105 96.7 L 104.4 97.8 L 104.1 98.9 L 103.9 100'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 78.2 174 L 190.3 174'/><path d='M 190.3 174 L 241.8 138.1'/><path d='M 190.3 174 L 190.3 61.9'/><path d='M 241.8 138.1 L 241.8 26'/><path d='M 78.2 174 L 78.2 61.9'/><path d='M 78.2 61.9 L 190.3 61.9'/><path d='M 190.3 61.9 L 241.8 26'/><path d='M 241.8 26 L 129.7 26'/><path d='M 129.7 26 L 78.2 61.9'/><circle cx='160' cy='100' r='2.3' fill='currentColor' stroke='none'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><circle cx='160' cy='100' r='56.1'/><path d='M 103.9 100 L 104.1 101.1 L 104.4 102.2 L 105 103.3 L 105.8 104.4 L 106.9 105.4 L 108.2 106.4 L 109.7 107.4 L 111.5 108.4 L 113.4 109.3 L 115.5 110.2 L 117.9 111.1 L 120.4 111.9 L 123 112.6 L 125.9 113.3 L 128.9 114 L 132 114.6 L 135.2 115.1 L 138.5 115.5 L 142 115.9 L 145.5 116.2 L 149.1 116.5 L 152.7 116.7 L 156.3 116.8 L 160 116.8 L 163.7 116.8 L 167.3 116.7 L 170.9 116.5 L 174.5 116.2 L 178 115.9 L 181.5 115.5 L 184.8 115.1 L 188 114.6 L 191.1 114 L 194.1 113.3 L 197 112.6 L 199.6 111.9 L 202.1 111.1 L 204.5 110.2 L 206.6 109.3 L 208.5 108.4 L 210.3 107.4 L 211.8 106.4 L 213.1 105.4 L 214.2 104.4 L 215 103.3 L 215.6 102.2 L 215.9 101.1 L 216.1 100'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='134.2' y='191.5' text-anchor='middle'>6</text></g></svg>",
+      "choices": [
+        "36π",
+        "72π",
+        "108π",
+        "144π",
+        "288π"
+      ],
+      "answer": 0,
+      "solution": "1. Küre küpün karşılıklı yüzlerine değdiğinden kürenin çapı küpün ayrıtına eşittir: 2r = 6 → r = 3\n\n2. V = 4π · 27 / 3 = **36π**\n\nNot: E şıkkındaki 288π, ayrıtı yarıçap sanmaktır (r = 6); C şıkkındaki 108π ise üçe bölmeyi unutmaktır. Küre yüzlere teğetse çap = ayrıt, köşelerden geçiyorsa çap = cisim köşegenidir."
+    },
+    {
+      "id": "kati-28",
+      "difficulty": 3,
+      "stem": "Şekildeki iki dik silindir benzerdir. Silindirlerin hacimleri oranı 27/64'tür. Küçük silindirin yanal alanı 36π cm²'dir.\nBuna göre, büyük silindirin yanal alanı kaç cm²'dir?",
+      "asks": "Büyük silindirin yanal alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 116.7 148.1 L 116.6 147.3 L 116.3 146.5 L 115.8 145.6 L 115.2 144.8 L 114.4 144 L 113.4 143.2 L 112.2 142.4 L 110.9 141.6 L 109.4 140.9 L 107.7 140.2 L 105.9 139.6 L 104 139 L 101.9 138.4 L 99.7 137.8 L 97.4 137.3 L 95 136.9 L 92.5 136.5 L 89.9 136.1 L 87.3 135.8 L 84.5 135.6 L 81.8 135.4 L 79 135.3 L 76.2 135.2 L 73.3 135.1 L 70.5 135.2 L 67.7 135.3 L 64.9 135.4 L 62.1 135.6 L 59.4 135.8 L 56.8 136.1 L 54.2 136.5 L 51.7 136.9 L 49.3 137.3 L 47 137.8 L 44.8 138.4 L 42.7 139 L 40.8 139.6 L 39 140.2 L 37.3 140.9 L 35.8 141.6 L 34.5 142.4 L 33.3 143.2 L 32.3 144 L 31.5 144.8 L 30.8 145.6 L 30.4 146.5 L 30.1 147.3 L 30 148.1'/><path d='M 290 148.1 L 289.9 147 L 289.5 145.9 L 288.9 144.8 L 288 143.7 L 286.9 142.6 L 285.6 141.5 L 284 140.5 L 282.3 139.5 L 280.3 138.5 L 278.1 137.6 L 275.7 136.7 L 273.1 135.9 L 270.3 135.1 L 267.4 134.4 L 264.3 133.7 L 261.1 133.1 L 257.8 132.6 L 254.3 132.1 L 250.8 131.7 L 247.2 131.4 L 243.5 131.1 L 239.8 131 L 236 130.9 L 232.2 130.8 L 228.4 130.9 L 224.7 131 L 221 131.1 L 217.3 131.4 L 213.7 131.7 L 210.1 132.1 L 206.7 132.6 L 203.3 133.1 L 200.1 133.7 L 197 134.4 L 194.1 135.1 L 191.4 135.9 L 188.8 136.7 L 186.4 137.6 L 184.2 138.5 L 182.2 139.5 L 180.4 140.5 L 178.8 141.5 L 177.5 142.6 L 176.4 143.7 L 175.6 144.8 L 174.9 145.9 L 174.6 147 L 174.4 148.1'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 30 148.1 L 30.1 149 L 30.4 149.8 L 30.8 150.7 L 31.5 151.5 L 32.3 152.3 L 33.3 153.1 L 34.5 153.9 L 35.8 154.6 L 37.3 155.4 L 39 156.1 L 40.8 156.7 L 42.7 157.3 L 44.8 157.9 L 47 158.5 L 49.3 159 L 51.7 159.4 L 54.2 159.8 L 56.8 160.2 L 59.4 160.5 L 62.1 160.7 L 64.9 160.9 L 67.7 161 L 70.5 161.1 L 73.3 161.1 L 76.2 161.1 L 79 161 L 81.8 160.9 L 84.5 160.7 L 87.3 160.5 L 89.9 160.2 L 92.5 159.8 L 95 159.4 L 97.4 159 L 99.7 158.5 L 101.9 157.9 L 104 157.3 L 105.9 156.7 L 107.7 156.1 L 109.4 155.4 L 110.9 154.6 L 112.2 153.9 L 113.4 153.1 L 114.4 152.3 L 115.2 151.5 L 115.8 150.7 L 116.3 149.8 L 116.6 149 L 116.7 148.1'/><path d='M 116.7 75.9 L 116.6 75.1 L 116.3 74.2 L 115.8 73.4 L 115.2 72.6 L 114.4 71.7 L 113.4 71 L 112.2 70.2 L 110.9 69.4 L 109.4 68.7 L 107.7 68 L 105.9 67.4 L 104 66.7 L 101.9 66.2 L 99.7 65.6 L 97.4 65.1 L 95 64.7 L 92.5 64.3 L 89.9 63.9 L 87.3 63.6 L 84.5 63.4 L 81.8 63.2 L 79 63 L 76.2 63 L 73.3 62.9 L 70.5 63 L 67.7 63 L 64.9 63.2 L 62.1 63.4 L 59.4 63.6 L 56.8 63.9 L 54.2 64.3 L 51.7 64.7 L 49.3 65.1 L 47 65.6 L 44.8 66.2 L 42.7 66.7 L 40.8 67.4 L 39 68 L 37.3 68.7 L 35.8 69.4 L 34.5 70.2 L 33.3 71 L 32.3 71.7 L 31.5 72.6 L 30.8 73.4 L 30.4 74.2 L 30.1 75.1 L 30 75.9 L 30.1 76.8 L 30.4 77.6 L 30.8 78.5 L 31.5 79.3 L 32.3 80.1 L 33.3 80.9 L 34.5 81.7 L 35.8 82.4 L 37.3 83.1 L 39 83.8 L 40.8 84.5 L 42.7 85.1 L 44.8 85.7 L 47 86.2 L 49.3 86.7 L 51.7 87.2 L 54.2 87.6 L 56.8 87.9 L 59.4 88.2 L 62.1 88.5 L 64.9 88.7 L 67.7 88.8 L 70.5 88.9 L 73.3 88.9 L 76.2 88.9 L 79 88.8 L 81.8 88.7 L 84.5 88.5 L 87.3 88.2 L 89.9 87.9 L 92.5 87.6 L 95 87.2 L 97.4 86.7 L 99.7 86.2 L 101.9 85.7 L 104 85.1 L 105.9 84.5 L 107.7 83.8 L 109.4 83.1 L 110.9 82.4 L 112.2 81.7 L 113.4 80.9 L 114.4 80.1 L 115.2 79.3 L 115.8 78.5 L 116.3 77.6 L 116.6 76.8 L 116.7 75.9 Z'/><path d='M 30 148.1 L 30 75.9'/><path d='M 116.7 148.1 L 116.7 75.9'/><path d='M 174.4 148.1 L 174.6 149.3 L 174.9 150.4 L 175.6 151.5 L 176.4 152.6 L 177.5 153.7 L 178.8 154.8 L 180.4 155.8 L 182.2 156.8 L 184.2 157.8 L 186.4 158.7 L 188.8 159.6 L 191.4 160.4 L 194.1 161.2 L 197 161.9 L 200.1 162.6 L 203.3 163.2 L 206.7 163.7 L 210.1 164.2 L 213.7 164.6 L 217.3 164.9 L 221 165.1 L 224.7 165.3 L 228.4 165.4 L 232.2 165.5 L 236 165.4 L 239.8 165.3 L 243.5 165.1 L 247.2 164.9 L 250.8 164.6 L 254.3 164.2 L 257.8 163.7 L 261.1 163.2 L 264.3 162.6 L 267.4 161.9 L 270.3 161.2 L 273.1 160.4 L 275.7 159.6 L 278.1 158.7 L 280.3 157.8 L 282.3 156.8 L 284 155.8 L 285.6 154.8 L 286.9 153.7 L 288 152.6 L 288.9 151.5 L 289.5 150.4 L 289.9 149.3 L 290 148.1'/><path d='M 290 51.9 L 289.9 50.7 L 289.5 49.6 L 288.9 48.5 L 288 47.4 L 286.9 46.3 L 285.6 45.2 L 284 44.2 L 282.3 43.2 L 280.3 42.2 L 278.1 41.3 L 275.7 40.4 L 273.1 39.6 L 270.3 38.8 L 267.4 38.1 L 264.3 37.4 L 261.1 36.8 L 257.8 36.3 L 254.3 35.8 L 250.8 35.4 L 247.2 35.1 L 243.5 34.9 L 239.8 34.7 L 236 34.6 L 232.2 34.5 L 228.4 34.6 L 224.7 34.7 L 221 34.9 L 217.3 35.1 L 213.7 35.4 L 210.1 35.8 L 206.7 36.3 L 203.3 36.8 L 200.1 37.4 L 197 38.1 L 194.1 38.8 L 191.4 39.6 L 188.8 40.4 L 186.4 41.3 L 184.2 42.2 L 182.2 43.2 L 180.4 44.2 L 178.8 45.2 L 177.5 46.3 L 176.4 47.4 L 175.6 48.5 L 174.9 49.6 L 174.6 50.7 L 174.4 51.9 L 174.6 53 L 174.9 54.1 L 175.6 55.2 L 176.4 56.3 L 177.5 57.4 L 178.8 58.5 L 180.4 59.5 L 182.2 60.5 L 184.2 61.5 L 186.4 62.4 L 188.8 63.3 L 191.4 64.1 L 194.1 64.9 L 197 65.6 L 200.1 66.3 L 203.3 66.9 L 206.7 67.4 L 210.1 67.9 L 213.7 68.3 L 217.3 68.6 L 221 68.9 L 224.7 69 L 228.4 69.1 L 232.2 69.2 L 236 69.1 L 239.8 69 L 243.5 68.9 L 247.2 68.6 L 250.8 68.3 L 254.3 67.9 L 257.8 67.4 L 261.1 66.9 L 264.3 66.3 L 267.4 65.6 L 270.3 64.9 L 273.1 64.1 L 275.7 63.3 L 278.1 62.4 L 280.3 61.5 L 282.3 60.5 L 284 59.5 L 285.6 58.5 L 286.9 57.4 L 288 56.3 L 288.9 55.2 L 289.5 54.1 L 289.9 53 L 290 51.9 Z'/><path d='M 174.4 148.1 L 174.4 51.9'/><path d='M 290 148.1 L 290 51.9'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='73.3' y='184.6' text-anchor='middle'>I</text><text x='232.2' y='184.6' text-anchor='middle'>II</text></g></svg>",
+      "choices": [
+        "48π",
+        "54π",
+        "64π",
+        "72π",
+        "96π"
+      ],
+      "answer": 2,
+      "solution": "1. Hacim oranı k³'tür: k³ = 27/64 → k = 3/4 (uzunluk oranı)\n\n2. Alan oranı k²'dir: (3/4)² = 9/16\n\n3. 36π / A = 9/16 → A = **64π**\n\nNot: A şıkkındaki 48π, alanı uzunluk oranıyla ölçeklemektir (36 · 4/3). k'yı bulunca yanına etiketini yaz: k = 3/4 (uzunluk). Alana geçerken kare, hacme geçerken küp alınır."
+    },
+    {
+      "id": "kati-29",
+      "difficulty": 2,
+      "stem": "Şekildeki iki dik koni benzerdir ve yükseklikleri oranı 2/3'tür. Küçük koninin hacmi 16π cm³'tür.\nBuna göre, büyük koninin hacmi kaç cm³'tür?",
+      "asks": "Büyük koninin hacmi isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 110 141 L 109.9 140.2 L 109.7 139.4 L 109.2 138.7 L 108.6 137.9 L 107.9 137.1 L 107 136.4 L 105.9 135.7 L 104.6 135 L 103.3 134.3 L 101.7 133.7 L 100.1 133.1 L 98.3 132.5 L 96.4 132 L 94.4 131.5 L 92.2 131 L 90 130.6 L 87.7 130.2 L 85.3 129.9 L 82.9 129.6 L 80.4 129.4 L 77.8 129.2 L 75.2 129.1 L 72.6 129 L 70 129 L 67.4 129 L 64.8 129.1 L 62.2 129.2 L 59.6 129.4 L 57.1 129.6 L 54.7 129.9 L 52.3 130.2 L 50 130.6 L 47.8 131 L 45.6 131.5 L 43.6 132 L 41.7 132.5 L 39.9 133.1 L 38.3 133.7 L 36.7 134.3 L 35.4 135 L 34.1 135.7 L 33 136.4 L 32.1 137.1 L 31.4 137.9 L 30.8 138.7 L 30.3 139.4 L 30.1 140.2 L 30 141'/><path d='M 290 141 L 289.9 139.8 L 289.5 138.7 L 288.8 137.5 L 288 136.3 L 286.8 135.2 L 285.4 134.1 L 283.8 133 L 282 132 L 279.9 131 L 277.6 130 L 275.1 129.1 L 272.4 128.3 L 269.6 127.5 L 266.5 126.7 L 263.3 126 L 260 125.4 L 256.5 124.9 L 253 124.4 L 249.3 124 L 245.5 123.6 L 241.7 123.3 L 237.8 123.2 L 233.9 123 L 230 123 L 226.1 123 L 222.2 123.2 L 218.3 123.3 L 214.5 123.6 L 210.7 124 L 207 124.4 L 203.5 124.9 L 200 125.4 L 196.7 126 L 193.5 126.7 L 190.4 127.5 L 187.6 128.3 L 184.9 129.1 L 182.4 130 L 180.1 131 L 178 132 L 176.2 133 L 174.6 134.1 L 173.2 135.2 L 172 136.3 L 171.2 137.5 L 170.5 138.7 L 170.1 139.8 L 170 141'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><path d='M 30 141 L 30.1 141.8 L 30.3 142.6 L 30.8 143.3 L 31.4 144.1 L 32.1 144.9 L 33 145.6 L 34.1 146.3 L 35.4 147 L 36.7 147.7 L 38.3 148.3 L 39.9 148.9 L 41.7 149.5 L 43.6 150 L 45.6 150.5 L 47.8 151 L 50 151.4 L 52.3 151.8 L 54.7 152.1 L 57.1 152.4 L 59.6 152.6 L 62.2 152.8 L 64.8 152.9 L 67.4 153 L 70 153 L 72.6 153 L 75.2 152.9 L 77.8 152.8 L 80.4 152.6 L 82.9 152.4 L 85.3 152.1 L 87.7 151.8 L 90 151.4 L 92.2 151 L 94.4 150.5 L 96.4 150 L 98.3 149.5 L 100.1 148.9 L 101.7 148.3 L 103.3 147.7 L 104.6 147 L 105.9 146.3 L 107 145.6 L 107.9 144.9 L 108.6 144.1 L 109.2 143.3 L 109.7 142.6 L 109.9 141.8 L 110 141'/><path d='M 70 74.3 L 30 141'/><path d='M 70 74.3 L 110 141'/><path d='M 170 141 L 170.1 142.2 L 170.5 143.3 L 171.2 144.5 L 172 145.7 L 173.2 146.8 L 174.6 147.9 L 176.2 149 L 178 150 L 180.1 151 L 182.4 152 L 184.9 152.9 L 187.6 153.7 L 190.4 154.5 L 193.5 155.3 L 196.7 156 L 200 156.6 L 203.5 157.1 L 207 157.6 L 210.7 158 L 214.5 158.4 L 218.3 158.7 L 222.2 158.8 L 226.1 159 L 230 159 L 233.9 159 L 237.8 158.8 L 241.7 158.7 L 245.5 158.4 L 249.3 158 L 253 157.6 L 256.5 157.1 L 260 156.6 L 263.3 156 L 266.5 155.3 L 269.6 154.5 L 272.4 153.7 L 275.1 152.9 L 277.6 152 L 279.9 151 L 282 150 L 283.8 149 L 285.4 147.9 L 286.8 146.8 L 288 145.7 L 288.8 144.5 L 289.5 143.3 L 289.9 142.2 L 290 141'/><path d='M 230 41 L 170 141'/><path d='M 230 41 L 290 141'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='70' y='177.5' text-anchor='middle'>I</text><text x='230' y='177.5' text-anchor='middle'>II</text></g></svg>",
+      "choices": [
+        "24π",
+        "36π",
+        "48π",
+        "54π",
+        "81π"
+      ],
+      "answer": 3,
+      "solution": "1. Yükseklik bir uzunluktur: k = 2/3\n\n2. Hacim oranı k³'tür: (2/3)³ = 8/27\n\n3. 16π / V = 8/27 → V = **54π**\n\nNot: A şıkkındaki 24π uzunluk oranını, B şıkkındaki 36π alan oranını (k²) uygulamaktır. Hacimde küp vardır."
+    },
+    {
+      "id": "kati-30",
+      "difficulty": 3,
+      "stem": "Şekildeki iki kürenin hacimleri oranı 1/8'dir. Büyük kürenin yüzey alanı 100π cm²'dir.\nBuna göre, küçük kürenin yüzey alanı kaç cm²'dir?",
+      "asks": "Küçük kürenin yüzey alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><circle cx='62.5' cy='132.5' r='32.5' fill='#0284c7' fill-opacity='0.14' stroke='none'/><circle cx='225' cy='100' r='65' fill='#0284c7' fill-opacity='0.14' stroke='none'/><g stroke='currentColor' stroke-width='1.3' fill='none' stroke-dasharray='5 4'><path d='M 95 132.5 L 94.9 131.9 L 94.7 131.2 L 94.4 130.6 L 93.9 130 L 93.3 129.4 L 92.5 128.8 L 91.6 128.2 L 90.6 127.6 L 89.5 127.1 L 88.3 126.6 L 86.9 126.1 L 85.5 125.6 L 83.9 125.2 L 82.3 124.8 L 80.6 124.4 L 78.8 124.1 L 76.9 123.8 L 74.9 123.5 L 72.9 123.3 L 70.9 123.1 L 68.8 122.9 L 66.7 122.8 L 64.6 122.8 L 62.5 122.8 L 60.4 122.8 L 58.3 122.8 L 56.2 122.9 L 54.1 123.1 L 52.1 123.3 L 50.1 123.5 L 48.1 123.8 L 46.3 124.1 L 44.4 124.4 L 42.7 124.8 L 41.1 125.2 L 39.5 125.6 L 38.1 126.1 L 36.7 126.6 L 35.5 127.1 L 34.4 127.6 L 33.4 128.2 L 32.5 128.8 L 31.7 129.4 L 31.1 130 L 30.6 130.6 L 30.3 131.2 L 30.1 131.9 L 30 132.5'/><path d='M 290 100 L 289.9 98.7 L 289.4 97.5 L 288.8 96.2 L 287.8 95 L 286.6 93.7 L 285.1 92.5 L 283.3 91.4 L 281.3 90.2 L 279 89.2 L 276.6 88.1 L 273.9 87.1 L 271 86.2 L 267.9 85.3 L 264.6 84.5 L 261.1 83.8 L 257.5 83.1 L 253.7 82.5 L 249.9 82 L 245.9 81.5 L 241.8 81.2 L 237.7 80.9 L 233.5 80.7 L 229.3 80.5 L 225 80.5 L 220.7 80.5 L 216.5 80.7 L 212.3 80.9 L 208.2 81.2 L 204.1 81.5 L 200.1 82 L 196.3 82.5 L 192.5 83.1 L 188.9 83.8 L 185.4 84.5 L 182.1 85.3 L 179 86.2 L 176.1 87.1 L 173.4 88.1 L 171 89.2 L 168.7 90.2 L 166.7 91.4 L 164.9 92.5 L 163.4 93.7 L 162.2 95 L 161.2 96.2 L 160.6 97.5 L 160.1 98.7 L 160 100'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linejoin='round'><circle cx='62.5' cy='132.5' r='32.5'/><path d='M 30 132.5 L 30.1 133.1 L 30.3 133.8 L 30.6 134.4 L 31.1 135 L 31.7 135.6 L 32.5 136.2 L 33.4 136.8 L 34.4 137.4 L 35.5 137.9 L 36.7 138.4 L 38.1 138.9 L 39.5 139.4 L 41.1 139.8 L 42.7 140.2 L 44.4 140.6 L 46.2 140.9 L 48.1 141.2 L 50.1 141.5 L 52.1 141.7 L 54.1 141.9 L 56.2 142.1 L 58.3 142.2 L 60.4 142.2 L 62.5 142.2 L 64.6 142.2 L 66.7 142.2 L 68.8 142.1 L 70.9 141.9 L 72.9 141.7 L 74.9 141.5 L 76.9 141.2 L 78.8 140.9 L 80.6 140.6 L 82.3 140.2 L 83.9 139.8 L 85.5 139.4 L 86.9 138.9 L 88.3 138.4 L 89.5 137.9 L 90.6 137.4 L 91.6 136.8 L 92.5 136.2 L 93.3 135.6 L 93.9 135 L 94.4 134.4 L 94.7 133.8 L 94.9 133.1 L 95 132.5'/><circle cx='225' cy='100' r='65'/><path d='M 160 100 L 160.1 101.3 L 160.6 102.5 L 161.2 103.8 L 162.2 105 L 163.4 106.3 L 164.9 107.5 L 166.7 108.6 L 168.7 109.8 L 171 110.8 L 173.4 111.9 L 176.1 112.9 L 179 113.8 L 182.1 114.7 L 185.4 115.5 L 188.9 116.2 L 192.5 116.9 L 196.3 117.5 L 200.1 118 L 204.1 118.5 L 208.2 118.8 L 212.3 119.1 L 216.5 119.3 L 220.7 119.5 L 225 119.5 L 229.3 119.5 L 233.5 119.3 L 237.7 119.1 L 241.8 118.8 L 245.9 118.5 L 249.9 118 L 253.7 117.5 L 257.5 116.9 L 261.1 116.2 L 264.6 115.5 L 267.9 114.7 L 271 113.8 L 273.9 112.9 L 276.6 111.9 L 279 110.8 L 281.3 109.8 L 283.3 108.6 L 285.1 107.5 L 286.6 106.3 L 287.8 105 L 288.8 103.8 L 289.4 102.5 L 289.9 101.3 L 290 100'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'></g><g stroke='#0284c7' stroke-width='2.4' fill='none'></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='62.5' y='185.5' text-anchor='middle'>I</text><text x='225' y='185.5' text-anchor='middle'>II</text></g></svg>",
+      "choices": [
+        "25π",
+        "50π",
+        "200π",
+        "400π",
+        "800π"
+      ],
+      "answer": 0,
+      "solution": "1. Bütün küreler benzerdir. Hacim oranı k³: k³ = 1/8 → k = 1/2 (uzunluk)\n\n2. Alan oranı k²: 1/4\n\n3. Küçük kürenin yüzey alanı = 100π · 1/4 = **25π**\n\nNot: B şıkkındaki 50π uzunluk oranını (1/2) alana uygulamaktır; D şıkkındaki 400π ise alan oranını ters yönde kullanmaktır (küçük küreyi büyük sanmak). Oran hangi büyüklükten geldiyse önce k'ya çevrilir."
+    }
+  ]
+}

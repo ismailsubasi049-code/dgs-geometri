@@ -21,6 +21,7 @@
     { "id": "cokgenler", "title": "Çokgenler", "branchId": "geo" },
     { "id": "dortgenler", "title": "Dörtgenler", "branchId": "geo" },
     { "id": "cember", "title": "Çember ve Daire", "branchId": "geo" },
+    { "id": "kati-cisimler", "title": "Katı Cisimler", "branchId": "geo" },
     { "id": "deneme", "title": "Denemeler", "branchId": "deneme" }
   ],
   "packs": [
@@ -355,6 +356,17 @@
       "file": "packs/geometri-cember.json",
       "count": 40,
       "version": 2
+    },
+    {
+      "id": "geometri-kati-cisimler",
+      "topicId": "kati-cisimler",
+      "topic": "Katı Cisimler",
+      "subtopicId": "kati-cisimler",
+      "subtopic": "Katı cisimler",
+      "title": "Katı cisimler",
+      "file": "packs/geometri-kati-cisimler.json",
+      "count": 30,
+      "version": 1
     },
     {
       "id": "deneme-sayisal-01",
