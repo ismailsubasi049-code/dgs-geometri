@@ -2585,6 +2585,38 @@ yapılmadı: normal oturumun davranışı değişirdi. İleride tam ekran bir pa
 - `referans/` içinde JSON kalmadı (md'ler + önceden duran bir PDF).
 - `sw.js` VERSION **v66 → v67**.
 
+### v68: karalama — S Pen, avuç koruması, basınç, akıcı çizgi
+
+Ayarlar `js/scratchpad.js` başında sabit: `PALM_TIMEOUT_MS = 1500`,
+`PEN_BUTTON_ERASER = true`, `PEN_MIN_WIDTH 1.2` / `PEN_MAX_WIDTH 4.0`,
+`PRESSURE_SMOOTHING 0.35`, `MAX_DPR 3` (eski sınır 2).
+
+- **Hata düzeltmesi:** `activePointerGone()` `isPrimary`'yi pointer tipine bakmadan
+  kullanıyordu. `isPrimary` her tip için ayrı hesaplandığından kalemle çizerken gelen ilk
+  avuç dokunuşu kalem darbesini kesiyordu. Artık yalnız aynı tipteki pointer tahliye eder.
+- **Avuç:** son kalem olayı (hover dahil) pencerede capture + passive dinlenir, modül
+  genelinde tek dinleyici. Bu süreden sonraki 1,5 sn'de `touch` pointerdown yok sayılır.
+  Parmak darbesi sürerken kalem inerse o darbe avuç sayılıp geçmişten silinir.
+- **Basınç:** kalem noktaları `{x, y, w}`; `w` yoksa moda göre sabit kalınlık (eski
+  `{x, y}` biçimi aynen çizilir). Parmak/fare sabit 2.5, silgi 18.
+- **Çizgi:** orta noktalardan `quadraticCurveTo`; canlı ve tam yeniden çizim aynı
+  `drawSegment` / `drawTail`'i kullanır. `getPredictedEvents` yalnız üstteki
+  `.scratch-ink` önizleme tuvaline çizilir (her harekette silinir, silgide yok).
+  Tuval artık `.scratch-surface` sarmalayıcısında; tam ekran `max-width`/yükseklik
+  kuralları sarmalayıcıya taşındı.
+- **Yan tuş:** kalemde `buttons & 2` ya da `& 32` → silgi. Darbe ortasında tuş
+  değişirse darbe bölünür, iki parça ayrı geri alınır. Tuvalde `contextmenu` kapalı,
+  fare yalnız sol tuşla çizer.
+- **Teşhis:** `?pendebug=1` → sağ üstte `.pen-debug` (type, pressure, buttons, width, karar).
+
+**Doğrulama (tarayıcı, sentetik `PointerEvent` + `getImageData` kalınlık ölçümü):**
+basınç 0.1 → 0.8 px, 0.9 → 4 px; kalemden hemen sonra parmak çizmedi, 2 sn sonra çizdi;
+kalem darbesi sırasında `isPrimary` dokunuş darbeyi kesmedi; kalem inince süren parmak
+darbesi silindi; `buttons` 2 ve 32 sildi; bölünmüş darbe iki geri alışta geri geldi;
+fare sağ tuşu çizmedi; tam ekran gir/çık çizimi korudu. Konsol temiz. Gerçek S Pen'de
+henüz sınanmadı.
+- `sw.js` VERSION **v67 → v68**.
+
 ## Çalışma kuralları
 
 - Plan modunda başla.

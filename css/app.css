@@ -464,6 +464,17 @@ button { font: inherit; color: inherit; }
 
 .scratch-panel:not([hidden]) { display: grid; gap: 8px; }
 
+/* Kalici tuval + ustunde onizleme katmani (tahmin edilen noktalar, darbenin ucu). */
+.scratch-surface { position: relative; }
+
+.scratch-ink {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
 /* Tuval, sekil kutusuyla ayni kagit gorunumunu kullanir. */
 .scratch-canvas {
   display: block; /* satir ici eleman taban cizgisi boslugunu keser */
@@ -530,13 +541,15 @@ button { font: inherit; color: inherit; }
   min-height: 0;
 }
 
-.scratch--full .scratch-canvas {
+.scratch--full .scratch-surface {
   width: 100%;
   height: 100%;
   min-height: 0;
   max-width: var(--maxw);
   margin: 0 auto;
 }
+
+.scratch--full .scratch-canvas { height: 100%; }
 
 /* Araclar altta: tam ekranda basparmakla erisilen yer burasi. */
 .scratch--full .scratch-tools {
@@ -546,6 +559,21 @@ button { font: inherit; color: inherit; }
 }
 
 body.scratch-fullscreen-open { overflow: hidden; }
+
+/* Gecici kalem teshisi (?pendebug=1): dokunuslari engellemez, her seyin ustunde. */
+.pen-debug {
+  position: fixed;
+  top: calc(var(--safe-t) + 6px);
+  right: 6px;
+  z-index: 200;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.85);
+  color: #f8fafc;
+  font: 12px/1.35 ui-monospace, monospace;
+  white-space: pre;
+  pointer-events: none;
+}
 
 /* zor bloga gecis bildirimi: akisi kesmeyen, kapatilabilir tek satir */
 
