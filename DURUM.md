@@ -2617,6 +2617,40 @@ fare sağ tuşu çizmedi; tam ekran gir/çık çizimi korudu. Konsol temiz. Ger�
 henüz sınanmadı.
 - `sw.js` VERSION **v67 → v68**.
 
+### v69: `geometri-analitik` (30 soru, tamamı şekilli) + Analitik Geometri konusu ve formül kartı
+
+- **Taşıma (içerik değişmedi):** `referans/geometri-analitik.json` →
+  `data/packs/geometri-analitik.json`, `referans/analitik-geometri-formul.json` →
+  `data/formuller/analitik-geometri.json`. Taşımadan önce ve sonra SHA256 aynı.
+  Paket başlığı zaten index kaydıyla uyumluydu (`topicId` "analitik-geometri",
+  `subtopicId`/`subtopic` boş, `subtopics[]` 4 öğe, `version` 1); dokunulmadı.
+- **Index:** `topics[]`'e `analitik-geometri` / "Analitik Geometri" / `geo`, Katı
+  Cisimler'den sonra. `packs[]` kaydı `geometri-kati-cisimler`'den sonra,
+  `geometri-ozel-dortgenler` biçiminde, `count` 30. `formuller/index.json` `sets[]`'e
+  kati-cisimler'den sonra, `cardCount` 4.
+- **Dağılım:** Nokta ve uzaklık 8 (01–08) · Eğim 7 (09–15) · Doğru denklemi 8 (16–23) ·
+  Paralel ve dik doğrular 7 (24–30). Kart `subtopicId`'leri paketinkilerle aynı.
+- **Id:** `analitik-01` … `analitik-30`; başka hiçbir pakette geçmiyor.
+- `referans/` içinde JSON kalmadı.
+
+**Doğrulama (tarayıcı; SW kaydı kaldırılıp cache silinerek taze dosyalarla):**
+- **Şekiller:** 30/30 `parseFigure` ile render; kaynak düğüm = çizilen düğüm. Öğeler
+  `path` 109, `polygon` 60, `polyline` 6, `circle` 42, `text` 168, `g` 157 — düşen yok.
+  Oturumda gözle bakıldı: analitik-06, 15, 22, 28, 30 (22'de ölçek tutarlı: kesimler −2
+  ve 7, kesişim (1, 6)).
+- Konular → Geometri → Analitik Geometri: 4 alt konu, 8 / 7 / 8 / 7.
+- Formüller → Geometri → Analitik Geometri: 4 kart açıldı, 7 `svg` (2 / 1 / 2 / 2)
+  çizildi; formül şekillerinde de kaynak düğüm = çizilen düğüm.
+- Bilerek yanlış cevap → çözüm altındaki kart: analitik-02 Nokta ve uzaklık,
+  analitik-12 Eğim, analitik-20 Doğru denklemi, analitik-27 Paralel ve dik doğrular (4/4).
+- 390 px: konu, oturum (kartlı yanlış cevap dahil) ve formül ekranında `scrollWidth`
+  390, viewport'u aşan öğe yok.
+- **Konsol:** hata yok; sunucu günlüğünde hata yok.
+- **Temizlik:** başlangıçta `localStorage` `{}` idi. Test sonunda `/data/index.json`
+  adresinde `dgs.progress.v1` silindi, ana ekran açılıp reload edildi; `{}` kaldı,
+  "İlerleme verisi bulunamadı" penceresi başlangıçtaki gibi görünüyor.
+- `sw.js` VERSION **v68 → v69**.
+
 ## Çalışma kuralları
 
 - Plan modunda başla.

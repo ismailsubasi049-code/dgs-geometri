@@ -1,0 +1,599 @@
+{
+  "id": "geometri-analitik",
+  "topicId": "analitik-geometri",
+  "topic": "Analitik Geometri",
+  "subtopicId": "",
+  "subtopic": "",
+  "subtopics": [
+    {
+      "subtopicId": "analitik-nokta",
+      "subtopic": "Nokta ve uzaklık"
+    },
+    {
+      "subtopicId": "analitik-egim",
+      "subtopic": "Eğim"
+    },
+    {
+      "subtopicId": "analitik-dogru",
+      "subtopic": "Doğru denklemi"
+    },
+    {
+      "subtopicId": "analitik-paralel-dik",
+      "subtopic": "Paralel ve dik doğrular"
+    }
+  ],
+  "version": 1,
+  "blocks": [],
+  "questions": [
+    {
+      "id": "analitik-01",
+      "label": "Nokta ve uzaklık",
+      "subtopicId": "analitik-nokta",
+      "subtopic": "Nokta ve uzaklık",
+      "difficulty": 1,
+      "stem": "Şekilde dik koordinat düzleminde A(−6, 8) noktası verilmiştir.\nBuna göre, A noktasının orijine uzaklığı kaç birimdir?",
+      "asks": "|OA| uzunluğu isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 89.1 163.8 L 236.9 163.8'/><path d='M 202.5 178 L 202.5 16'/></g><g fill='currentColor' stroke='none'><polygon points='242.9,163.8 234.9,159.8 234.9,167.8'/><polygon points='202.5,10 198.5,18 206.5,18'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none' stroke-linecap='round'><path d='M 202.5 163.8 L 117.5 50.4'/></g><g fill='currentColor' stroke='none'><circle cx='117.5' cy='50.4' r='3'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='244.9' y='179.8' text-anchor='middle'>x</text><text x='212.5' y='16'>y</text><text x='195.5' y='177.8' text-anchor='end'>O</text><text x='111.5' y='42.4' text-anchor='end'>A(−6, 8)</text><text x='170' y='109.1' fill='#0284c7'>?</text></g></svg>",
+      "choices": [
+        "100",
+        "14",
+        "10",
+        "8",
+        "6"
+      ],
+      "answer": 2,
+      "solution": "1. A'nın yatay ve dikey uzaklıkları dik kenar, |OA| hipotenüstür.\n\n2. |OA|² = 6² + 8² = 36 + 64 = 100\n\n3. |OA| = **10**\n\nNot: E şıkkındaki 6, A'nın y-eksenine uzaklığıdır; D şıkkındaki 8 ise x-eksenine uzaklığıdır. A şıkkındaki 100 karekök almayı unutmaktır, B şıkkındaki 14 ise iki uzaklığı toplamaktır."
+    },
+    {
+      "id": "analitik-02",
+      "label": "Nokta ve uzaklık",
+      "subtopicId": "analitik-nokta",
+      "subtopic": "Nokta ve uzaklık",
+      "difficulty": 1,
+      "stem": "Şekilde dik koordinat düzleminde P(7, −4) noktası ve P'den x-eksenine inen dikme verilmiştir.\nBuna göre, P noktasının x-eksenine uzaklığı kaç birimdir?",
+      "asks": "P'nin x-eksenine uzaklığı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 62.5 61 L 263.5 61'/><path d='M 82 178 L 82 16'/></g><g fill='currentColor' stroke='none'><polygon points='269.5,61 261.5,57 261.5,65'/><polygon points='82,10 78,18 86,18'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><polyline points='218.5,69 210.5,69 210.5,61'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none' stroke-linecap='round'><path d='M 218.5 139 L 218.5 61'/></g><g fill='currentColor' stroke='none'><circle cx='218.5' cy='139' r='3'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='271.5' y='77' text-anchor='middle'>x</text><text x='92' y='16'>y</text><text x='75' y='75' text-anchor='end'>O</text><text x='226.5' y='153'>P(7, −4)</text><text x='226.5' y='104' fill='#0284c7'>?</text></g></svg>",
+      "choices": [
+        "4",
+        "7",
+        "√65",
+        "11",
+        "65"
+      ],
+      "answer": 0,
+      "solution": "1. x-ekseni üzerindeki her noktada y = 0'dır. P'den x-eksenine giderken yalnız y değişir: −4'ten 0'a.\n\n2. Uzaklık = |−4| = **4**\n\nNot: B şıkkındaki 7, P'nin y-eksenine uzaklığıdır; eksenler ters eşleşir. C şıkkındaki √65 ise orijine uzaklıktır. Uzaklık negatif olmaz; işaret yalnız noktanın eksenin hangi tarafında olduğunu söyler."
+    },
+    {
+      "id": "analitik-03",
+      "label": "Nokta ve uzaklık",
+      "subtopicId": "analitik-nokta",
+      "subtopic": "Nokta ve uzaklık",
+      "difficulty": 2,
+      "stem": "Şekilde dik koordinat düzleminde A(−2, 3) ve B(4, 11) noktaları verilmiştir.\nBuna göre, |AB| kaç birimdir?",
+      "asks": "|AB| uzunluğu isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 104.3 166.9 L 221.7 166.9'/><path d='M 148.9 178 L 148.9 16'/></g><g fill='currentColor' stroke='none'><polygon points='227.7,166.9 219.7,162.9 219.7,170.9'/><polygon points='148.9,10 144.9,18 152.9,18'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none' stroke-linecap='round'><path d='M 126.6 133.4 L 193.4 44.3'/></g><g fill='currentColor' stroke='none'><circle cx='126.6' cy='133.4' r='3'/><circle cx='193.4' cy='44.3' r='3'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='229.7' y='182.9' text-anchor='middle'>x</text><text x='158.9' y='16'>y</text><text x='141.9' y='180.9' text-anchor='end'>O</text><text x='118.6' y='137.4' text-anchor='end'>A(−2, 3)</text><text x='201.4' y='48.3'>B(4, 11)</text></g></svg>",
+      "choices": [
+        "6",
+        "8",
+        "2√17",
+        "10",
+        "14"
+      ],
+      "answer": 3,
+      "solution": "1. Yatay fark: 4 − (−2) = 6; dikey fark: 11 − 3 = 8\n\n2. |AB|² = 6² + 8² = 36 + 64 = 100\n\n3. |AB| = **10**\n\nNot: C şıkkındaki 2√17, yatay farkı 4 − 2 = 2 diye almaktır; eksi sayı çıkarılırken işaret değişir. E şıkkındaki 14 ise iki farkı toplamaktır."
+    },
+    {
+      "id": "analitik-04",
+      "label": "Nokta ve uzaklık",
+      "subtopicId": "analitik-nokta",
+      "subtopic": "Nokta ve uzaklık",
+      "difficulty": 2,
+      "stem": "Şekilde A(−5, 2) ve B(9, 8) noktaları ile [AB] doğru parçasının orta noktası M(a, b) verilmiştir.\nBuna göre, a + b toplamı kaçtır?",
+      "asks": "a + b toplamı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 32.4 163.8 L 293.6 163.8'/><path d='M 131.6 178 L 131.6 16'/></g><g fill='currentColor' stroke='none'><polygon points='299.6,163.8 291.6,159.8 291.6,167.8'/><polygon points='131.6,10 127.6,18 135.6,18'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round'><path d='M 60.7 135.5 L 259.3 50.4'/></g><g fill='currentColor' stroke='none'><circle cx='60.7' cy='135.5' r='3'/><circle cx='259.3' cy='50.4' r='3'/><circle cx='160' cy='92.9' r='3.5'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='301.6' y='179.8' text-anchor='middle'>x</text><text x='141.6' y='16'>y</text><text x='124.6' y='177.8' text-anchor='end'>O</text><text x='60.7' y='153.5' text-anchor='middle'>A(−5, 2)</text><text x='259.3' y='40.4' text-anchor='middle'>B(9, 8)</text><text x='166' y='110.9' fill='#0284c7'>M(a, b)</text></g></svg>",
+      "choices": [
+        "5",
+        "7",
+        "10",
+        "14",
+        "20"
+      ],
+      "answer": 1,
+      "solution": "1. Orta nokta, koordinatların ortalamasıdır:\na = (−5 + 9) / 2 = 2, b = (2 + 8) / 2 = 5\n\n2. a + b = 2 + 5 = **7**\n\nNot: D şıkkındaki 14, toplayıp 2'ye bölmeyi unutmaktır: (−5 + 9) + (2 + 8). C şıkkındaki 10 ise farkların yarısını almaktır: 14 / 2 + 6 / 2. A şıkkındaki 5 yalnız b'dir."
+    },
+    {
+      "id": "analitik-05",
+      "label": "Nokta ve uzaklık",
+      "subtopicId": "analitik-nokta",
+      "subtopic": "Nokta ve uzaklık",
+      "difficulty": 2,
+      "stem": "Şekilde M(4, 3) noktası, [AB] doğru parçasının orta noktasıdır. A(1, −2) ve B(x, y) olarak veriliyor.\nBuna göre, x + y toplamı kaçtır?",
+      "asks": "x + y toplamı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 100 142 L 226 142'/><path d='M 112 178 L 112 16'/></g><g fill='currentColor' stroke='none'><polygon points='232,142 224,138 224,146'/><polygon points='112,10 108,18 116,18'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round'><path d='M 124 166 L 196 46'/></g><g fill='currentColor' stroke='none'><circle cx='124' cy='166' r='3'/><circle cx='160' cy='106' r='3'/><circle cx='196' cy='46' r='3.5'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='234' y='158' text-anchor='middle'>x</text><text x='122' y='16'>y</text><text x='105' y='156' text-anchor='end'>O</text><text x='132' y='172'>A(1, −2)</text><text x='168' y='114'>M(4, 3)</text><text x='188' y='46' text-anchor='end' fill='#0284c7'>B(x, y)</text></g></svg>",
+      "choices": [
+        "3",
+        "7",
+        "8",
+        "13",
+        "15"
+      ],
+      "answer": 4,
+      "solution": "1. A'dan M'ye adım: sağa 4 − 1 = 3, yukarı 3 − (−2) = 5\n\n2. M orta nokta olduğundan M'den B'ye aynı adım atılır: B = (4 + 3, 3 + 5) = (7, 8)\n\n3. x + y = 7 + 8 = **15**\n\nNot: C şıkkındaki 8, adımın kendisidir (3 + 5); adımı M'ye eklemeyi unutmak. A şıkkındaki 3, A ile M'nin ortalamasını almaktır: (1 + 4) / 2 + (−2 + 3) / 2. D şıkkındaki 13 ise B = 2M − A yerine 2M + A almaktır."
+    },
+    {
+      "id": "analitik-06",
+      "label": "Nokta ve uzaklık",
+      "subtopicId": "analitik-nokta",
+      "subtopic": "Nokta ve uzaklık",
+      "difficulty": 3,
+      "stem": "a ve b pozitif sayılar olmak üzere, şekildeki P(a, b) noktasının x-eksenine uzaklığı 5 birim, orijine uzaklığı 13 birimdir.\nBuna göre, a − b farkı kaçtır?",
+      "asks": "a − b farkı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 22 155.2 L 304 155.2'/><path d='M 40.4 173.6 L 40.4 20.4'/></g><g fill='currentColor' stroke='none'><polygon points='310,155.2 302,151.2 302,159.2'/><polygon points='40.4,14.4 36.4,22.4 44.4,22.4'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-dasharray='5 4'><path d='M 261.2 63.2 L 261.2 155.2'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><polyline points='261.2,147.2 253.2,147.2 253.2,155.2'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none' stroke-linecap='round'><path d='M 40.4 155.2 L 261.2 63.2'/></g><g fill='currentColor' stroke='none'><circle cx='261.2' cy='63.2' r='3'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='312' y='171.2' text-anchor='middle'>x</text><text x='50.4' y='20.4'>y</text><text x='33.4' y='169.2' text-anchor='end'>O</text><text x='261.2' y='54.2' text-anchor='middle'>P(a, b)</text><text x='144.8' y='101.2' text-anchor='end' fill='#0284c7'>13</text><text x='269.2' y='113.2'>5</text></g></svg>",
+      "choices": [
+        "−7",
+        "5",
+        "7",
+        "12",
+        "17"
+      ],
+      "answer": 2,
+      "solution": "1. x-ekseni üzerinde y = 0'dır; P'den x-eksenine giderken y değişir. Bu uzaklık b'dir: b = 5\n\n2. Orijine uzaklık: a² + b² = 13² → a² = 169 − 25 = 144 → a = 12\n\n3. a − b = 12 − 5 = **7**\n\nNot: A şıkkındaki −7, eksenleri ters eşleştirip a = 5, b = 12 almaktır. D şıkkındaki 12 yalnız a'dır; E şıkkındaki 17 ise farkı değil toplamı almaktır."
+    },
+    {
+      "id": "analitik-07",
+      "label": "Nokta ve uzaklık",
+      "subtopicId": "analitik-nokta",
+      "subtopic": "Nokta ve uzaklık",
+      "difficulty": 2,
+      "stem": "Şekildeki ABC üçgeninin köşeleri A(3, 1), B(9, 1) ve C(6, 5) noktalarıdır.\nBuna göre, ABC üçgeninin çevresi kaç birimdir?",
+      "asks": "ABC üçgeninin çevresi isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 26.3 155.7 L 299.7 155.7'/><path d='M 48.6 178 L 48.6 16'/></g><g fill='currentColor' stroke='none'><polygon points='305.7,155.7 297.7,151.7 297.7,159.7'/><polygon points='48.6,10 44.6,18 52.6,18'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round'><path d='M 115.4 133.4 L 249.1 133.4'/><path d='M 249.1 133.4 L 182.3 44.3'/><path d='M 182.3 44.3 L 115.4 133.4'/></g><g fill='currentColor' stroke='none'><circle cx='115.4' cy='133.4' r='3'/><circle cx='249.1' cy='133.4' r='3'/><circle cx='182.3' cy='44.3' r='3'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='307.7' y='171.7' text-anchor='middle'>x</text><text x='58.6' y='16'>y</text><text x='41.6' y='169.7' text-anchor='end'>O</text><text x='109.4' y='137.4' text-anchor='end'>A(3, 1)</text><text x='255.1' y='137.4'>B(9, 1)</text><text x='182.3' y='35.3' text-anchor='middle'>C(6, 5)</text></g></svg>",
+      "choices": [
+        "6",
+        "10",
+        "11",
+        "12",
+        "16"
+      ],
+      "answer": 4,
+      "solution": "1. A ile B aynı yükseklikte; yalnız x değişir: |AB| = 9 − 3 = 6\n\n2. |AC|² = (6 − 3)² + (5 − 1)² = 9 + 16 = 25 → |AC| = 5; aynı şekilde |BC| = 5\n\n3. Çevre = 6 + 5 + 5 = **16**\n\nNot: D şıkkındaki 12, üçgenin alanıdır (6 · 4 / 2). C şıkkındaki 11 ise eş kenarlardan yalnız birini saymaktır."
+    },
+    {
+      "id": "analitik-08",
+      "label": "Nokta ve uzaklık",
+      "subtopicId": "analitik-nokta",
+      "subtopic": "Nokta ve uzaklık",
+      "difficulty": 3,
+      "stem": "Şekilde x-ekseni üzerindeki P noktası, A(1, 4) ve B(7, 2) noktalarına eşit uzaklıktadır.\nBuna göre, P noktasının apsisi kaçtır?",
+      "asks": "P'nin apsisi isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 40 154 L 286 154'/><path d='M 64 178 L 64 16'/></g><g fill='currentColor' stroke='none'><polygon points='292,154 284,150 284,158'/><polygon points='64,10 60,18 68,18'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-dasharray='5 4'><path d='M 136 154 L 88 58'/><path d='M 136 154 L 232 106'/></g><g fill='currentColor' stroke='none'><circle cx='88' cy='58' r='3'/><circle cx='232' cy='106' r='3'/><circle cx='136' cy='154' r='3.5'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='294' y='170' text-anchor='middle'>x</text><text x='74' y='16'>y</text><text x='57' y='168' text-anchor='end'>O</text><text x='96' y='54'>A(1, 4)</text><text x='240' y='106'>B(7, 2)</text><text x='136' y='172' text-anchor='middle' fill='#0284c7'>P</text></g></svg>",
+      "choices": [
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "answer": 1,
+      "solution": "1. P x-ekseninde olduğundan P(x, 0) yazılır.\n\n2. |PA|² = |PB|²: (x − 1)² + 4² = (x − 7)² + 2²\n\n3. x² − 2x + 17 = x² − 14x + 53 → 12x = 36 → x = **3**\n\nNot: C şıkkındaki 4, [AB]'nin orta noktasının apsisidir. Orta nokta A ile B'ye eşit uzaklıktadır ama x-ekseni üzerinde değildir. Kontrol: |PA|² = 4 + 16 = 20, |PB|² = 16 + 4 = 20."
+    },
+    {
+      "id": "analitik-09",
+      "label": "Eğim",
+      "subtopicId": "analitik-egim",
+      "subtopic": "Eğim",
+      "difficulty": 1,
+      "stem": "Şekildeki d doğrusu A(1, −2) ve B(4, 7) noktalarından geçmektedir.\nBuna göre, d doğrusunun eğimi kaçtır?",
+      "asks": "d doğrusunun eğimi isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 112 130 L 214 130'/><path d='M 136 178 L 136 16'/></g><g fill='currentColor' stroke='none'><polygon points='220,130 212,126 212,134'/><polygon points='136,10 132,18 140,18'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none' stroke-linecap='round'><path d='M 140 178 L 192 22'/></g><g fill='currentColor' stroke='none'><circle cx='148' cy='154' r='3'/><circle cx='184' cy='46' r='3'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='222' y='146' text-anchor='middle'>x</text><text x='146' y='16'>y</text><text x='129' y='144' text-anchor='end'>O</text><text x='156' y='160'>A(1, −2)</text><text x='192' y='52'>B(4, 7)</text><text x='186' y='24' text-anchor='end' fill='#0284c7'>d</text></g></svg>",
+      "choices": [
+        "−3",
+        "1/3",
+        "2",
+        "3",
+        "9"
+      ],
+      "answer": 3,
+      "solution": "1. Yukarı: 7 − (−2) = 9; sağa: 4 − 1 = 3\n\n2. Eğim = 9 / 3 = **3**\n\nNot: B şıkkındaki 1/3, bölmeyi ters kurmaktır (sağa / yukarı). E şıkkındaki 9 yalnız dikey farktır. Doğru soldan sağa yükseldiği için eğim pozitif olmalı; A şıkkındaki −3 bu yüzden elenir."
+    },
+    {
+      "id": "analitik-10",
+      "label": "Eğim",
+      "subtopicId": "analitik-egim",
+      "subtopic": "Eğim",
+      "difficulty": 1,
+      "stem": "Şekildeki d doğrusu A(−2, 5) ve B(2, −3) noktalarından geçmektedir.\nBuna göre, d doğrusunun eğimi kaçtır?",
+      "asks": "d doğrusunun eğimi isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 108 113 L 218 113'/><path d='M 160 178 L 160 16'/></g><g fill='currentColor' stroke='none'><polygon points='224,113 216,109 216,117'/><polygon points='160,10 156,18 164,18'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none' stroke-linecap='round'><path d='M 121 22 L 199 178'/></g><g fill='currentColor' stroke='none'><circle cx='134' cy='48' r='3'/><circle cx='186' cy='152' r='3'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='226' y='129' text-anchor='middle'>x</text><text x='170' y='16'>y</text><text x='153' y='127' text-anchor='end'>O</text><text x='126' y='52' text-anchor='end'>A(−2, 5)</text><text x='194' y='156'>B(2, −3)</text><text x='114.3' y='32.6' text-anchor='end' fill='#0284c7'>d</text></g></svg>",
+      "choices": [
+        "−8",
+        "−4",
+        "−2",
+        "−1/2",
+        "2"
+      ],
+      "answer": 2,
+      "solution": "1. Yukarı: −3 − 5 = −8; sağa: 2 − (−2) = 4\n\n2. Eğim = −8 / 4 = **−2**\n\nNot: E şıkkındaki 2 işareti kaybetmektir; doğru soldan sağa indiği için eğim negatif olmalı. D şıkkındaki −1/2 bölmeyi ters kurmaktır. B şıkkındaki −4 ise yatay farkı 4 yerine 2 almaktır."
+    },
+    {
+      "id": "analitik-11",
+      "label": "Eğim",
+      "subtopicId": "analitik-egim",
+      "subtopic": "Eğim",
+      "difficulty": 2,
+      "stem": "Şekildeki d doğrusu, x-ekseninin pozitif yönüyle 120°'lik açı yapmaktadır.\nBuna göre, d doğrusunun eğimi kaçtır?",
+      "asks": "d doğrusunun eğimi isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 82 139 L 244 139'/><path d='M 140.5 178 L 140.5 16'/></g><g fill='currentColor' stroke='none'><polygon points='250,139 242,135 242,143'/><polygon points='140.5,10 136.5,18 144.5,18'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><path d='M 195.5 139 L 195.4 137.6 L 195.3 136.2 L 195 134.9 L 194.5 133.5 L 194 132.2 L 193.4 131 L 192.6 129.8 L 191.8 128.7 L 190.8 127.7 L 189.8 126.7 L 188.7 125.9 L 187.5 125.1 L 186.3 124.5 L 185 124 L 183.6 123.5 L 182.3 123.2 L 180.9 123.1 L 179.5 123 L 178.1 123.1 L 176.7 123.2 L 175.4 123.5 L 174 124 L 172.7 124.5 L 171.5 125.1'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none' stroke-linecap='round'><path d='M 202 178 L 112 22'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='252' y='155' text-anchor='middle'>x</text><text x='150.5' y='16'>y</text><text x='133.5' y='153' text-anchor='end'>O</text><text x='189.5' y='121'>120°</text><text x='187.1' y='170.3' text-anchor='end' fill='#0284c7'>d</text></g></svg>",
+      "choices": [
+        "√3",
+        "√3/3",
+        "−√3/3",
+        "−1",
+        "−√3"
+      ],
+      "answer": 4,
+      "solution": "1. Eğim = tan 120°\n\n2. Açı 90°'den büyük olduğundan doğru soldan sağa iner; eğim negatiftir. 180° − 120° = 60° ve tan 60° = √3\n\n3. Eğim = **−√3**\n\nNot: A şıkkındaki √3 işareti kaybetmektir. C şıkkındaki −√3/3 ise 60° yerine 30°'nin tanjantını almaktır."
+    },
+    {
+      "id": "analitik-12",
+      "label": "Eğim",
+      "subtopicId": "analitik-egim",
+      "subtopic": "Eğim",
+      "difficulty": 2,
+      "stem": "Şekilde denklemi 4x − 6y + 5 = 0 olan d doğrusu verilmiştir.\nBuna göre, d doğrusunun eğimi kaçtır?",
+      "asks": "d doğrusunun eğimi isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 37.4 133.4 L 288.6 133.4'/><path d='M 126.6 178 L 126.6 16'/></g><g fill='currentColor' stroke='none'><polygon points='294.6,133.4 286.6,129.4 286.6,137.4'/><polygon points='126.6,10 122.6,18 130.6,18'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none' stroke-linecap='round'><path d='M 37.4 174.3 L 265.9 22'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='296.6' y='149.4' text-anchor='middle'>x</text><text x='136.6' y='16'>y</text><text x='119.6' y='147.4' text-anchor='end'>O</text><text x='280.3' y='123.4' text-anchor='end' fill='#0284c7'>4x − 6y + 5 = 0</text><text x='46.3' y='158.3' text-anchor='middle' fill='#0284c7'>d</text></g></svg>",
+      "choices": [
+        "2/3",
+        "3/2",
+        "4",
+        "5",
+        "6"
+      ],
+      "answer": 0,
+      "solution": "1. y'yi yalnız bırak: 6y = 4x + 5 → y = (4/6)x + 5/6\n\n2. Eğim = 4/6 = **2/3**\n\nNot: B şıkkındaki 3/2, katsayıları ters bölmektir. C şıkkındaki 4 ise y yalnız değilken x'in katsayısını doğrudan okumaktır."
+    },
+    {
+      "id": "analitik-13",
+      "label": "Eğim",
+      "subtopicId": "analitik-egim",
+      "subtopic": "Eğim",
+      "difficulty": 2,
+      "stem": "Şekildeki doğru A(2, k) ve B(5, 11) noktalarından geçmektedir. Doğrunun eğimi 2'dir.\nBuna göre, k kaçtır?",
+      "asks": "k değeri isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 115.4 166.9 L 210.6 166.9'/><path d='M 126.6 178 L 126.6 16'/></g><g fill='currentColor' stroke='none'><polygon points='216.6,166.9 208.6,162.9 208.6,170.9'/><polygon points='126.6,10 122.6,18 130.6,18'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none' stroke-linecap='round'><path d='M 115.4 178 L 193.4 22'/></g><g fill='currentColor' stroke='none'><circle cx='148.9' cy='111.1' r='3'/><circle cx='182.3' cy='44.3' r='3'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='218.6' y='182.9' text-anchor='middle'>x</text><text x='136.6' y='16'>y</text><text x='133.6' y='181.9'>O</text><text x='156.9' y='117.1'>A(2, k)</text><text x='190.3' y='50.3'>B(5, 11)</text></g></svg>",
+      "choices": [
+        "5",
+        "7",
+        "9",
+        "11",
+        "17"
+      ],
+      "answer": 0,
+      "solution": "1. Eğim = (11 − k) / (5 − 2) = 2\n\n2. 11 − k = 6 → k = **5**\n\nNot: E şıkkındaki 17, 11 − k = 6 yerine k − 11 = 6 yazmaktır. C şıkkındaki 9 ise yatay farkı unutup 11 − k = 2 kurmaktır."
+    },
+    {
+      "id": "analitik-14",
+      "label": "Eğim",
+      "subtopicId": "analitik-egim",
+      "subtopic": "Eğim",
+      "difficulty": 3,
+      "stem": "Şekildeki A(1, 2), B(3, 6) ve C(6, k) noktaları aynı doğru üzerindedir.\nBuna göre, k kaçtır?",
+      "asks": "k değeri isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 113.2 167.6 L 212.8 167.6'/><path d='M 123.6 178 L 123.6 16'/></g><g fill='currentColor' stroke='none'><polygon points='218.8,167.6 210.8,163.6 210.8,171.6'/><polygon points='123.6,10 119.6,18 127.6,18'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round'><path d='M 118.4 178 L 196.4 22'/></g><g fill='currentColor' stroke='none'><circle cx='134' cy='146.8' r='3'/><circle cx='154.8' cy='105.2' r='3'/><circle cx='186' cy='42.8' r='3'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='220.8' y='183.6' text-anchor='middle'>x</text><text x='133.6' y='16'>y</text><text x='130.6' y='182.6'>O</text><text x='142' y='152.8'>A(1, 2)</text><text x='162.8' y='111.2'>B(3, 6)</text><text x='178' y='42.8' text-anchor='end' fill='#0284c7'>C(6, k)</text></g></svg>",
+      "choices": [
+        "8",
+        "10",
+        "11",
+        "12",
+        "14"
+      ],
+      "answer": 3,
+      "solution": "1. AB'nin eğimi: (6 − 2) / (3 − 1) = 4 / 2 = 2\n\n2. Noktalar aynı doğru üzerinde olduğundan BC'nin eğimi de 2'dir: (k − 6) / (6 − 3) = 2\n\n3. k − 6 = 6 → k = **12**\n\nNot: B şıkkındaki 10, A'dan C'ye yükselişi (2 · 5 = 10) bulup A'nın ordinatını eklemeyi unutmaktır."
+    },
+    {
+      "id": "analitik-15",
+      "label": "Eğim",
+      "subtopicId": "analitik-egim",
+      "subtopic": "Eğim",
+      "difficulty": 3,
+      "stem": "Şekildeki d doğrusu x-eksenini (−3, 0), y-eksenini (0, 3√3) noktasında kesmektedir.\nBuna göre, d doğrusunun x-ekseninin pozitif yönüyle yaptığı α açısı kaç derecedir?",
+      "asks": "α açısının ölçüsü isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 82 158.5 L 244 158.5'/><path d='M 179.5 178 L 179.5 16'/></g><g fill='currentColor' stroke='none'><polygon points='250,158.5 242,154.5 242,162.5'/><polygon points='179.5,10 175.5,18 183.5,18'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><path d='M 139 158.5 L 139 157.7 L 138.9 156.9 L 138.8 156.2 L 138.7 155.4 L 138.6 154.6 L 138.4 153.8 L 138.2 153.1 L 137.9 152.3 L 137.6 151.6 L 137.3 150.9 L 137 150.2 L 136.6 149.5 L 136.2 148.8 L 135.7 148.2 L 135.3 147.5 L 134.8 146.9 L 134.3 146.3 L 133.7 145.8 L 133.2 145.2 L 132.6 144.7 L 132 144.2 L 131.3 143.8 L 130.7 143.3 L 130 142.9'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none' stroke-linecap='round'><path d='M 109.7 178 L 199.8 22'/></g><g fill='currentColor' stroke='none'><circle cx='121' cy='158.5' r='3'/><circle cx='179.5' cy='57.2' r='3'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='252' y='174.5' text-anchor='middle'>x</text><text x='189.5' y='16'>y</text><text x='172.5' y='172.5' text-anchor='end'>O</text><text x='115' y='150.5' text-anchor='end'>(−3, 0)</text><text x='187.5' y='67.2'>(0, 3√3)</text><text x='147' y='151.5'>α</text></g></svg>",
+      "choices": [
+        "30°",
+        "60°",
+        "90°",
+        "120°",
+        "150°"
+      ],
+      "answer": 1,
+      "solution": "1. Eğim = (3√3 − 0) / (0 − (−3)) = 3√3 / 3 = √3\n\n2. Eğim = tan α olduğundan tan α = √3 → α = **60°**\n\nNot: A şıkkındaki 30°, açıyı y-ekseniyle ölçmektir. D şıkkındaki 120° ise eğimi negatif sanmaktır; doğru soldan sağa yükseliyor, açı dar olmalı."
+    },
+    {
+      "id": "analitik-16",
+      "label": "Doğru denklemi",
+      "subtopicId": "analitik-dogru",
+      "subtopic": "Doğru denklemi",
+      "difficulty": 1,
+      "stem": "Şekilde 3x − 2y = 2 doğrusu ve bu doğru üzerindeki P(k, 5) noktası verilmiştir.\nBuna göre, k kaçtır?",
+      "asks": "k değeri isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 97.6 146.8 L 228.4 146.8'/><path d='M 113.2 178 L 113.2 16'/></g><g fill='currentColor' stroke='none'><polygon points='234.4,146.8 226.4,142.8 226.4,150.8'/><polygon points='113.2,10 109.2,18 117.2,18'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none' stroke-linecap='round'><path d='M 102.8 178 L 206.8 22'/></g><g fill='currentColor' stroke='none'><circle cx='175.6' cy='68.8' r='3'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='236.4' y='162.8' text-anchor='middle'>x</text><text x='123.2' y='16'>y</text><text x='106.2' y='160.8' text-anchor='end'>O</text><text x='167.6' y='68.8' text-anchor='end'>P(k, 5)</text><text x='153.8' y='121.8' fill='#0284c7'>3x − 2y = 2</text></g></svg>",
+      "choices": [
+        "−8/3",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": 4,
+      "solution": "1. P doğru üzerinde olduğundan koordinatları denklemi sağlar: 3k − 2 · 5 = 2\n\n2. 3k = 12 → k = **4**\n\nNot: A şıkkındaki −8/3, −2 · 5'in işaretini kaybedip 3k + 10 = 2 yazmaktır."
+    },
+    {
+      "id": "analitik-17",
+      "label": "Doğru denklemi",
+      "subtopicId": "analitik-dogru",
+      "subtopic": "Doğru denklemi",
+      "difficulty": 1,
+      "stem": "Şekildeki 5x + 2y = 20 doğrusu y-eksenini A noktasında kesmektedir.\nBuna göre, A noktasının ordinatı kaçtır?",
+      "asks": "A noktasının ordinatı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 114.5 165 L 211.5 165'/><path d='M 127.5 178 L 127.5 16'/></g><g fill='currentColor' stroke='none'><polygon points='217.5,165 209.5,161 209.5,169'/><polygon points='127.5,10 123.5,18 131.5,18'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none' stroke-linecap='round'><path d='M 184.7 178 L 122.3 22'/></g><g fill='currentColor' stroke='none'><circle cx='127.5' cy='35' r='3.5'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='219.5' y='181' text-anchor='middle'>x</text><text x='137.5' y='16'>y</text><text x='120.5' y='179' text-anchor='end'>O</text><text x='119.5' y='39' text-anchor='end'>A</text><text x='169.3' y='119.5' fill='#0284c7'>5x + 2y = 20</text></g></svg>",
+      "choices": [
+        "2",
+        "4",
+        "5",
+        "8",
+        "10"
+      ],
+      "answer": 4,
+      "solution": "1. y-ekseni üzerindeki her noktada x = 0'dır.\n\n2. 5 · 0 + 2y = 20 → y = **10**\n\nNot: B şıkkındaki 4, doğrunun x-eksenini kestiği noktanın apsisidir (y = 0 koymak). Hangi eksen kesiliyorsa o eksende 0 olan koordinat yerine konur."
+    },
+    {
+      "id": "analitik-18",
+      "label": "Doğru denklemi",
+      "subtopicId": "analitik-dogru",
+      "subtopic": "Doğru denklemi",
+      "difficulty": 2,
+      "stem": "Şekilde 3x − 4y = 36 doğrusu ile koordinat eksenleri arasında kalan boyalı üçgen verilmiştir.\nBuna göre, boyalı üçgenin alanı kaç birimkaredir?",
+      "asks": "Boyalı üçgenin alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><path d='M 82 46 L 226 46 L 82 154 Z' fill='#0284c7' fill-opacity='0.18' stroke='none'/><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 58 46 L 268 46'/><path d='M 82 178 L 82 16'/></g><g fill='currentColor' stroke='none'><polygon points='274,46 266,42 266,50'/><polygon points='82,10 78,18 86,18'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none' stroke-linecap='round'><path d='M 258 22 L 58 172'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='276' y='62' text-anchor='middle'>x</text><text x='92' y='16'>y</text><text x='75' y='60' text-anchor='end'>O</text><text x='238' y='133.6' text-anchor='end' fill='#0284c7'>3x − 4y = 36</text></g></svg>",
+      "choices": [
+        "15",
+        "21",
+        "36",
+        "54",
+        "108"
+      ],
+      "answer": 3,
+      "solution": "1. x-eksenini keserken y = 0: 3x = 36 → x = 12\n\n2. y-eksenini keserken x = 0: −4y = 36 → y = −9; dik kenar uzunluğu 9'dur.\n\n3. Alan = 12 · 9 / 2 = **54**\n\nNot: E şıkkındaki 108, 2'ye bölmeyi unutmaktır. C şıkkındaki 36 üçgenin çevresidir (12 + 9 + 15); A şıkkındaki 15 ise hipotenüstür."
+    },
+    {
+      "id": "analitik-19",
+      "label": "Doğru denklemi",
+      "subtopicId": "analitik-dogru",
+      "subtopic": "Doğru denklemi",
+      "difficulty": 2,
+      "stem": "Şekildeki d doğrusunun eğimi 3/2'dir ve d doğrusu P(2, −1) noktasından geçmektedir.\nBuna göre, d doğrusunun y-eksenini kestiği noktanın ordinatı kaçtır?",
+      "asks": "y-eksenini kestiği noktanın ordinatı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 103.3 92.9 L 222.7 92.9'/><path d='M 131.6 178 L 131.6 16'/></g><g fill='currentColor' stroke='none'><polygon points='228.7,92.9 220.7,88.9 220.7,96.9'/><polygon points='131.6,10 127.6,18 135.6,18'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none' stroke-linecap='round'><path d='M 112.7 178 L 216.7 22'/></g><g fill='currentColor' stroke='none'><circle cx='160' cy='107.1' r='3'/><circle cx='131.6' cy='149.6' r='3.5'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='230.7' y='108.9' text-anchor='middle'>x</text><text x='141.6' y='16'>y</text><text x='124.6' y='106.9' text-anchor='end'>O</text><text x='168' y='117.1'>P(2, −1)</text><text x='123.6' y='153.6' text-anchor='end' fill='#0284c7'>?</text><text x='201.1' y='34.5' text-anchor='end' fill='#0284c7'>d</text></g></svg>",
+      "choices": [
+        "−7",
+        "−4",
+        "−2",
+        "−1",
+        "4"
+      ],
+      "answer": 1,
+      "solution": "1. y − y₁ = m(x − x₁): y − (−1) = (3/2)(x − 2)\n\n2. y + 1 = (3/2)x − 3 → y = (3/2)x − 4\n\n3. y-ekseninde x = 0: y = **−4**\n\nNot: C şıkkındaki −2, y − (−1) ifadesini y − 1 yazmaktır. D şıkkındaki −1 ise P'nin ordinatıdır."
+    },
+    {
+      "id": "analitik-20",
+      "label": "Doğru denklemi",
+      "subtopicId": "analitik-dogru",
+      "subtopic": "Doğru denklemi",
+      "difficulty": 2,
+      "stem": "Şekildeki doğru A(−1, 7) ve B(2, 1) noktalarından geçmekte ve x-eksenini C noktasında kesmektedir.\nBuna göre, C noktasının apsisi kaçtır?",
+      "asks": "C noktasının apsisi isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 108 160.7 L 218 160.7'/><path d='M 142.7 178 L 142.7 16'/></g><g fill='currentColor' stroke='none'><polygon points='224,160.7 216,156.7 216,164.7'/><polygon points='142.7,10 138.7,18 146.7,18'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none' stroke-linecap='round'><path d='M 116.7 22 L 194.7 178'/></g><g fill='currentColor' stroke='none'><circle cx='125.3' cy='39.3' r='3'/><circle cx='177.3' cy='143.3' r='3'/><circle cx='186' cy='160.7' r='3.5'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='226' y='176.7' text-anchor='middle'>x</text><text x='152.7' y='16'>y</text><text x='135.7' y='174.7' text-anchor='end'>O</text><text x='117.3' y='43.3' text-anchor='end'>A(−1, 7)</text><text x='185.3' y='145.3'>B(2, 1)</text><text x='178' y='176.7' text-anchor='end' fill='#0284c7'>C</text></g></svg>",
+      "choices": [
+        "5/2",
+        "3",
+        "7/2",
+        "5",
+        "7"
+      ],
+      "answer": 0,
+      "solution": "1. Eğim = (1 − 7) / (2 − (−1)) = −6 / 3 = −2\n\n2. y − 1 = −2(x − 2) → y = −2x + 5\n\n3. x-ekseninde y = 0: −2x + 5 = 0 → x = **5/2**\n\nNot: D şıkkındaki 5, doğrunun y-eksenini kestiği noktanın ordinatıdır (x = 0 koymak). x-ekseni kesilirken y = 0 konur."
+    },
+    {
+      "id": "analitik-21",
+      "label": "Doğru denklemi",
+      "subtopicId": "analitik-dogru",
+      "subtopic": "Doğru denklemi",
+      "difficulty": 2,
+      "stem": "Şekildeki y = 2x − 1 ve y = −x + 8 doğruları K noktasında kesişmektedir.\nBuna göre, K noktasının ordinatı kaçtır?",
+      "asks": "K noktasının ordinatı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 103.3 149.6 L 222.7 149.6'/><path d='M 117.5 178 L 117.5 16'/></g><g fill='currentColor' stroke='none'><polygon points='228.7,149.6 220.7,145.6 220.7,153.6'/><polygon points='117.5,10 113.5,18 121.5,18'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round'><path d='M 110.4 178 L 188.4 22'/><path d='M 103.3 22 L 216.7 135.5'/></g><g fill='currentColor' stroke='none'><circle cx='160' cy='78.7' r='3.5'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='230.7' y='165.6' text-anchor='middle'>x</text><text x='127.5' y='16'>y</text><text x='110.5' y='163.6' text-anchor='end'>O</text><text x='172' y='82.7' fill='#0284c7'>K</text><text x='196.4' y='40.2'>y = 2x − 1</text><text x='208.2' y='144.7' text-anchor='end'>y = −x + 8</text></g></svg>",
+      "choices": [
+        "1",
+        "3",
+        "5",
+        "7",
+        "9"
+      ],
+      "answer": 2,
+      "solution": "1. K iki doğrunun da üzerindedir; y'ler eşitlenir: 2x − 1 = −x + 8 → 3x = 9 → x = 3\n\n2. y = 2 · 3 − 1 = **5**\n\n3. Kontrol: −3 + 8 = 5\n\nNot: B şıkkındaki 3, K'nin apsisidir; soru ordinatı istiyor. x'i bulduktan sonra y'yi hesaplamak son adımdır."
+    },
+    {
+      "id": "analitik-22",
+      "label": "Doğru denklemi",
+      "subtopicId": "analitik-dogru",
+      "subtopic": "Doğru denklemi",
+      "difficulty": 3,
+      "stem": "Şekilde y = 2x + 4 ve y = −x + 7 doğruları ile x-ekseni arasında kalan boyalı üçgen verilmiştir.\nBuna göre, boyalı üçgenin alanı kaç birimkaredir?",
+      "asks": "Boyalı üçgenin alanı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><path d='M 86.1 153.4 L 233.9 153.4 L 135.4 54.8 Z' fill='#0284c7' fill-opacity='0.18' stroke='none'/><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 53.3 153.4 L 272.7 153.4'/><path d='M 118.9 178 L 118.9 16'/></g><g fill='currentColor' stroke='none'><polygon points='278.7,153.4 270.7,149.4 270.7,157.4'/><polygon points='118.9,10 114.9,18 122.9,18'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round'><path d='M 73.8 178 L 151.8 22'/><path d='M 258.5 178 L 102.5 22'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='280.7' y='169.4' text-anchor='middle'>x</text><text x='128.9' y='16'>y</text><text x='111.9' y='167.4' text-anchor='end'>O</text><text x='160' y='28.6'>y = 2x + 4</text><text x='227.3' y='174.7' text-anchor='end'>y = −x + 7</text></g></svg>",
+      "choices": [
+        "15",
+        "27",
+        "36",
+        "54",
+        "63"
+      ],
+      "answer": 1,
+      "solution": "1. Taban x-ekseni üzerindedir; y = 0 konur: 2x + 4 = 0 → x = −2; −x + 7 = 0 → x = 7. Taban = 7 − (−2) = 9\n\n2. Yükseklik, kesişim noktasının ordinatıdır: 2x + 4 = −x + 7 → x = 1, y = 6\n\n3. Alan = 9 · 6 / 2 = **27**\n\nNot: D şıkkındaki 54, 2'ye bölmeyi unutmaktır. A şıkkındaki 15 ise tabanı 7 − 2 = 5 almaktır; −2'den 7'ye 9 birim vardır."
+    },
+    {
+      "id": "analitik-23",
+      "label": "Doğru denklemi",
+      "subtopicId": "analitik-dogru",
+      "subtopic": "Doğru denklemi",
+      "difficulty": 3,
+      "stem": "k pozitif bir sayı olmak üzere, şekildeki 2x + ky = 12 doğrusu ile koordinat eksenleri arasında kalan boyalı üçgenin alanı 18 birimkaredir.\nBuna göre, k kaçtır?",
+      "asks": "k değeri isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><path d='M 99.3 160.7 L 203.3 160.7 L 99.3 56.7 Z' fill='#0284c7' fill-opacity='0.18' stroke='none'/><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 82 160.7 L 244 160.7'/><path d='M 99.3 178 L 99.3 16'/></g><g fill='currentColor' stroke='none'><polygon points='250,160.7 242,156.7 242,164.7'/><polygon points='99.3,10 95.3,18 103.3,18'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none' stroke-linecap='round'><path d='M 220.7 178 L 82 39.3'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='252' y='176.7' text-anchor='middle'>x</text><text x='109.3' y='16'>y</text><text x='92.3' y='174.7' text-anchor='end'>O</text><text x='130.5' y='136.9' text-anchor='middle'>18</text><text x='183.6' y='106.1' fill='#0284c7'>2x + ky = 12</text></g></svg>",
+      "choices": [
+        "1/2",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": 2,
+      "solution": "1. x-eksenini kesme: y = 0 → 2x = 12 → x = 6\n\n2. y-eksenini kesme: x = 0 → ky = 12 → y = 12/k\n\n3. Alan: 6 · (12/k) / 2 = 18 → 36/k = 18 → k = **2**\n\nNot: E şıkkındaki 4, alanda 2'ye bölmeyi unutmaktır: 6 · 12/k = 18."
+    },
+    {
+      "id": "analitik-24",
+      "label": "Paralel ve dik doğrular",
+      "subtopicId": "analitik-paralel-dik",
+      "subtopic": "Paralel ve dik doğrular",
+      "difficulty": 1,
+      "stem": "Şekildeki d doğrusu, 6x + 2y − 5 = 0 doğrusuna paraleldir.\nBuna göre, d doğrusunun eğimi kaçtır?",
+      "asks": "d doğrusunun eğimi isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 97.6 115.6 L 228.4 115.6'/><path d='M 160 178 L 160 16'/></g><g fill='currentColor' stroke='none'><polygon points='234.4,115.6 226.4,111.6 226.4,119.6'/><polygon points='160,10 156,18 164,18'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round'><path d='M 146.1 22 L 198.1 178'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none' stroke-linecap='round'><path d='M 108 22 L 160 178'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='236.4' y='131.6' text-anchor='middle'>x</text><text x='170' y='16'>y</text><text x='166' y='130.6'>O</text><text x='188.5' y='103'>6x + 2y − 5 = 0</text><text x='109.4' y='57.2' text-anchor='end' fill='#0284c7'>d</text></g></svg>",
+      "choices": [
+        "6",
+        "3",
+        "1/3",
+        "−1/3",
+        "−3"
+      ],
+      "answer": 4,
+      "solution": "1. Verilen doğruda y'yi yalnız bırak: 2y = −6x + 5 → y = −3x + 5/2\n\n2. Paralel doğruların eğimleri eşittir: **−3**\n\nNot: B şıkkındaki 3 işareti kaybetmektir. C şıkkındaki 1/3 dik doğrunun eğimidir; D şıkkındaki −1/3 ise eğimi yalnız ters çevirmektir. Ters çevirme yalnız diklikte yapılır, orada işaret de değişir."
+    },
+    {
+      "id": "analitik-25",
+      "label": "Paralel ve dik doğrular",
+      "subtopicId": "analitik-paralel-dik",
+      "subtopic": "Paralel ve dik doğrular",
+      "difficulty": 1,
+      "stem": "Şekildeki d doğrusu, y = (2/5)x + 1 doğrusuna diktir.\nBuna göre, d doğrusunun eğimi kaçtır?",
+      "asks": "d doğrusunun eğimi isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 33.2 119.5 L 292.8 119.5'/><path d='M 111.2 178 L 111.2 16'/></g><g fill='currentColor' stroke='none'><polygon points='298.8,119.5 290.8,115.5 290.8,123.5'/><polygon points='111.2,10 107.2,18 115.2,18'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><polyline points='118.7,97 121.6,104.5 114.2,107.4'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round'><path d='M 33.2 131.2 L 286.8 29.8'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none' stroke-linecap='round'><path d='M 80 22 L 142.4 178'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='300.8' y='135.5' text-anchor='middle'>x</text><text x='121.2' y='16'>y</text><text x='104.2' y='133.5' text-anchor='end'>O</text><text x='282.9' y='22' text-anchor='end'>y = (2/5)x + 1</text><text x='76' y='35.8' text-anchor='end' fill='#0284c7'>d</text></g></svg>",
+      "choices": [
+        "−5/2",
+        "−2/5",
+        "2/5",
+        "5/2",
+        "5"
+      ],
+      "answer": 0,
+      "solution": "1. Verilen doğrunun eğimi 2/5'tir.\n\n2. Dik doğrunun eğimi için kesir ters çevrilir ve işaret değişir: **−5/2**\n\n3. Kontrol: (2/5) · (−5/2) = −1\n\nNot: D şıkkındaki 5/2 yalnız ters çevirmek, B şıkkındaki −2/5 ise yalnız işaret değiştirmektir; diklikte ikisi birlikte yapılır."
+    },
+    {
+      "id": "analitik-26",
+      "label": "Paralel ve dik doğrular",
+      "subtopicId": "analitik-paralel-dik",
+      "subtopic": "Paralel ve dik doğrular",
+      "difficulty": 2,
+      "stem": "Şekildeki d doğrusu P(2, 3) noktasından geçmekte ve y = 2x + 3 doğrusuna paralel olmaktadır.\nBuna göre, d doğrusunun y-eksenini kestiği noktanın ordinatı kaçtır?",
+      "asks": "d'nin y-eksenini kestiği noktanın ordinatı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 101.5 139 L 224.5 139'/><path d='M 153.5 178 L 153.5 16'/></g><g fill='currentColor' stroke='none'><polygon points='230.5,139 222.5,135 222.5,143'/><polygon points='153.5,10 149.5,18 157.5,18'/></g><g stroke='currentColor' stroke-width='1.5' fill='none' stroke-dasharray='5 4'><path d='M 114.5 178 L 192.5 22'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none' stroke-linecap='round'><path d='M 218.5 22 L 140.5 178'/></g><g fill='currentColor' stroke='none'><circle cx='179.5' cy='100' r='3'/><circle cx='153.5' cy='152' r='3.5'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='232.5' y='155' text-anchor='middle'>x</text><text x='163.5' y='16'>y</text><text x='146.5' y='153' text-anchor='end'>O</text><text x='187.5' y='108'>P(2, 3)</text><text x='161.5' y='158' fill='#0284c7'>?</text><text x='115.6' y='157.2' text-anchor='end'>y = 2x + 3</text><text x='217.3' y='40.4' fill='#0284c7'>d</text></g></svg>",
+      "choices": [
+        "−1",
+        "1",
+        "3",
+        "5",
+        "7"
+      ],
+      "answer": 0,
+      "solution": "1. Paralel olduğundan d'nin eğimi de 2'dir.\n\n2. y − 3 = 2(x − 2) → y = 2x − 1\n\n3. y-ekseninde x = 0: y = **−1**\n\nNot: C şıkkındaki 3, verilen doğrunun y-eksenini kestiği noktadır (aynı zamanda P'nin ordinatı); paralel doğrular eğimi paylaşır, kesim noktasını değil. E şıkkındaki 7 ise 2(x − 2)'yi 2x + 4 diye açmaktır."
+    },
+    {
+      "id": "analitik-27",
+      "label": "Paralel ve dik doğrular",
+      "subtopicId": "analitik-paralel-dik",
+      "subtopic": "Paralel ve dik doğrular",
+      "difficulty": 3,
+      "stem": "Şekildeki d doğrusu P(4, 1) noktasından geçmekte ve 2x − y = 3 doğrusuna dik olmaktadır.\nBuna göre, d doğrusunun x-eksenini kestiği noktanın apsisi kaçtır?",
+      "asks": "d'nin x-eksenini kestiği noktanın apsisi isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 82 108.7 L 244 108.7'/><path d='M 99.3 178 L 99.3 16'/></g><g fill='currentColor' stroke='none'><polygon points='250,108.7 242,104.7 242,112.7'/><polygon points='99.3,10 95.3,18 103.3,18'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><polyline points='144.5,70.3 151.7,73.9 148.1,81'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round'><path d='M 90.7 178 L 168.7 22'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none' stroke-linecap='round'><path d='M 82 48 L 238 126'/></g><g fill='currentColor' stroke='none'><circle cx='168.7' cy='91.3' r='3'/><circle cx='203.3' cy='108.7' r='3.5'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='252' y='124.7' text-anchor='middle'>x</text><text x='109.3' y='16'>y</text><text x='92.3' y='122.7' text-anchor='end'>O</text><text x='174.7' y='83.3'>P(4, 1)</text><text x='207.3' y='126.7' text-anchor='middle' fill='#0284c7'>?</text><text x='169.7' y='32.9'>2x − y = 3</text><text x='231.1' y='140.5' text-anchor='middle' fill='#0284c7'>d</text></g></svg>",
+      "choices": [
+        "3",
+        "7/2",
+        "4",
+        "6",
+        "9"
+      ],
+      "answer": 3,
+      "solution": "1. 2x − y = 3 → y = 2x − 3; eğim 2\n\n2. Dik doğrunun eğimi: −1/2\n\n3. y − 1 = −(1/2)(x − 4) → y = −(1/2)x + 3\n\n4. x-ekseninde y = 0: (1/2)x = 3 → x = **6**\n\nNot: A şıkkındaki 3, d'nin y-eksenini kestiği noktadır (x = 0 koymak). B şıkkındaki 7/2 ise eğimi 2 alıp paralel doğru kurmaktır."
+    },
+    {
+      "id": "analitik-28",
+      "label": "Paralel ve dik doğrular",
+      "subtopicId": "analitik-paralel-dik",
+      "subtopic": "Paralel ve dik doğrular",
+      "difficulty": 3,
+      "stem": "a ve b gerçel sayılar olmak üzere, şekildeki ax + 2y = 8 doğrusu y = x − 1 doğrusuna paraleldir ve P(1, b) noktasından geçmektedir.\nBuna göre, a + b toplamı kaçtır?",
+      "asks": "a + b toplamı isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 38.7 143.3 L 287.3 143.3'/><path d='M 177.3 178 L 177.3 16'/></g><g fill='currentColor' stroke='none'><polygon points='293.3,143.3 285.3,139.3 285.3,147.3'/><polygon points='177.3,10 173.3,18 181.3,18'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round'><path d='M 160 178 L 281.3 56.7'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none' stroke-linecap='round'><path d='M 73.3 178 L 229.3 22'/></g><g fill='currentColor' stroke='none'><circle cx='194.7' cy='56.7' r='3'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='295.3' y='159.3' text-anchor='middle'>x</text><text x='187.3' y='16'>y</text><text x='170.3' y='157.3' text-anchor='end'>O</text><text x='202.7' y='70.7'>P(1, b)</text><text x='246.7' y='115.6'>y = x − 1</text><text x='120.1' y='117.3' text-anchor='end' fill='#0284c7'>ax + 2y = 8</text></g></svg>",
+      "choices": [
+        "1",
+        "3",
+        "4",
+        "5",
+        "7"
+      ],
+      "answer": 1,
+      "solution": "1. ax + 2y = 8 → y = −(a/2)x + 4; eğim −a/2\n\n2. Paralellik: −a/2 = 1 → a = −2\n\n3. Doğru: y = x + 4. P(1, b) üzerinde: b = 1 + 4 = 5\n\n4. a + b = −2 + 5 = **3**\n\nNot: D şıkkındaki 5, a'yı 2 almaktır: o zaman doğru y = −x + 4 olur, b = 3 ve a + b = 5 çıkar. y yalnız bırakılınca x'in katsayısı −a/2'dir, a/2 değil. Aynı 5, b'nin kendisidir; son adımı atlayan da buraya düşer."
+    },
+    {
+      "id": "analitik-29",
+      "label": "Paralel ve dik doğrular",
+      "subtopicId": "analitik-paralel-dik",
+      "subtopic": "Paralel ve dik doğrular",
+      "difficulty": 3,
+      "stem": "Şekildeki kx + 3y = 6 ve 2x − y = 4 doğruları birbirine diktir.\nBuna göre, k kaçtır?",
+      "asks": "k değeri isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 90.7 91.3 L 235.3 91.3'/><path d='M 125.3 178 L 125.3 16'/></g><g fill='currentColor' stroke='none'><polygon points='241.3,91.3 233.3,87.3 233.3,95.3'/><polygon points='125.3,10 121.3,18 129.3,18'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><polyline points='159.8,73.9 163.4,66.7 170.5,70.3'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round'><path d='M 90.7 39.3 L 229.3 108.7'/><path d='M 116.7 178 L 194.7 22'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='243.3' y='107.3' text-anchor='middle'>x</text><text x='135.3' y='16'>y</text><text x='118.3' y='105.3' text-anchor='end'>O</text><text x='229.3' y='122.5' text-anchor='end'>kx + 3y = 6</text><text x='196.4' y='35.9'>2x − y = 4</text></g></svg>",
+      "choices": [
+        "−6",
+        "−3/2",
+        "2/3",
+        "3/2",
+        "6"
+      ],
+      "answer": 3,
+      "solution": "1. Eğimler: kx + 3y = 6 → y = −(k/3)x + 2, eğim −k/3. 2x − y = 4 → y = 2x − 4, eğim 2\n\n2. Diklik: (−k/3) · 2 = −1 → 2k/3 = 1 → k = **3/2**\n\nNot: A şıkkındaki −6, diklik yerine paralellik kurmaktır (−k/3 = 2). B şıkkındaki −3/2 ise eğimi k/3 alıp işareti kaybetmektir."
+    },
+    {
+      "id": "analitik-30",
+      "label": "Paralel ve dik doğrular",
+      "subtopicId": "analitik-paralel-dik",
+      "subtopic": "Paralel ve dik doğrular",
+      "difficulty": 3,
+      "stem": "Şekilde y = x + 3 doğrusu ile bu doğruya dik olan ve x-eksenini (m, 0) noktasında kesen d doğrusu verilmiştir. Boyalı üçgenin alanı 16 birimkaredir.\nBuna göre, m kaçtır?",
+      "asks": "m değeri isteniyor.",
+      "figure": "<svg viewBox='0 0 320 200' xmlns='http://www.w3.org/2000/svg'><path d='M 82 139 L 238 139 L 160 61 Z' fill='#0284c7' fill-opacity='0.18' stroke='none'/><g stroke='currentColor' stroke-width='1.5' fill='none'><path d='M 43 139 L 283 139'/><path d='M 140.5 178 L 140.5 16'/></g><g fill='currentColor' stroke='none'><polygon points='289,139 281,135 281,143'/><polygon points='140.5,10 136.5,18 144.5,18'/></g><g stroke='currentColor' stroke-width='1.3' fill='none'><polyline points='154.3,66.7 160,72.3 165.7,66.7'/></g><g stroke='currentColor' stroke-width='2' fill='none' stroke-linecap='round'><path d='M 43 178 L 199 22'/></g><g stroke='#0284c7' stroke-width='2.4' fill='none' stroke-linecap='round'><path d='M 277 178 L 121 22'/></g><g fill='currentColor' stroke='none'><circle cx='238' cy='139' r='3'/></g><g font-family='system-ui, sans-serif' font-size='13' fill='currentColor'><text x='291' y='155' text-anchor='middle'>x</text><text x='150.5' y='16'>y</text><text x='133.5' y='153' text-anchor='end'>O</text><text x='244' y='131'>(m, 0)</text><text x='160' y='115.7' text-anchor='middle'>16</text><text x='64.5' y='170.2'>y = x + 3</text><text x='277.2' y='168.2' fill='#0284c7'>d</text></g></svg>",
+      "choices": [
+        "1",
+        "4",
+        "5",
+        "8",
+        "13"
+      ],
+      "answer": 2,
+      "solution": "1. d, eğimi 1 olan doğruya dik olduğundan eğimi −1'dir: y = −(x − m) = −x + m\n\n2. Taban: y = x + 3 doğrusu x-eksenini −3'te keser; taban = m − (−3) = m + 3\n\n3. Yükseklik, kesişim noktasının ordinatıdır: x + 3 = −x + m → x = (m − 3)/2, y = (m + 3)/2\n\n4. Alan = (m + 3) · (m + 3)/2 / 2 = (m + 3)² / 4 = 16 → m + 3 = 8 → m = **5**\n\nNot: D şıkkındaki 8, tabanın uzunluğudur (m + 3); son adımda 3 çıkarılmalı. A şıkkındaki 1 ise alanda iki bölmeyi de unutmaktır: (m + 3)² = 16."
+    }
+  ]
+}

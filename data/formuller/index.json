@@ -19,6 +19,7 @@
     { "topicId": "cokgenler", "branchId": "geo", "title": "Çokgenler", "file": "cokgenler.json", "cardCount": 1 },
     { "topicId": "dortgenler", "branchId": "geo", "title": "Dörtgenler", "file": "dortgenler.json", "cardCount": 8 },
     { "topicId": "cember", "branchId": "geo", "title": "Çember ve Daire", "file": "cember.json", "cardCount": 6 },
-    { "topicId": "kati-cisimler", "branchId": "geo", "title": "Katı Cisimler", "file": "kati-cisimler.json", "cardCount": 5 }
+    { "topicId": "kati-cisimler", "branchId": "geo", "title": "Katı Cisimler", "file": "kati-cisimler.json", "cardCount": 5 },
+    { "topicId": "analitik-geometri", "branchId": "geo", "title": "Analitik Geometri", "file": "analitik-geometri.json", "cardCount": 4 }
   ]
 }

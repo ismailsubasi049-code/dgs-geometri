@@ -22,6 +22,7 @@
     { "id": "dortgenler", "title": "Dörtgenler", "branchId": "geo" },
     { "id": "cember", "title": "Çember ve Daire", "branchId": "geo" },
     { "id": "kati-cisimler", "title": "Katı Cisimler", "branchId": "geo" },
+    { "id": "analitik-geometri", "title": "Analitik Geometri", "branchId": "geo" },
     { "id": "deneme", "title": "Denemeler", "branchId": "deneme" }
   ],
   "packs": [
@@ -374,6 +375,23 @@
       "file": "packs/geometri-kati-cisimler.json",
       "count": 30,
       "version": 2
+    },
+    {
+      "id": "geometri-analitik",
+      "topicId": "analitik-geometri",
+      "topic": "Analitik Geometri",
+      "subtopicId": "",
+      "subtopic": "",
+      "subtopics": [
+        { "subtopicId": "analitik-nokta", "subtopic": "Nokta ve uzaklık" },
+        { "subtopicId": "analitik-egim", "subtopic": "Eğim" },
+        { "subtopicId": "analitik-dogru", "subtopic": "Doğru denklemi" },
+        { "subtopicId": "analitik-paralel-dik", "subtopic": "Paralel ve dik doğrular" }
+      ],
+      "title": "Analitik geometri",
+      "file": "packs/geometri-analitik.json",
+      "count": 30,
+      "version": 1
     },
     {
       "id": "deneme-sayisal-01",
